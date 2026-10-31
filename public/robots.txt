@@ -1,0 +1,22 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+Allow: /doc
+Allow: /doc/catalogue
+Allow: /doc/tarifs
+Allow: /faq
+Allow: /contact
+Allow: /conditions
+Allow: /confidentialite
+
+# Disallow private user & admin spaces
+Disallow: /admin
+Disallow: /admin/
+Disallow: /compte
+Disallow: /dashboard
+Disallow: /abonnement
+Disallow: /notifications
+Disallow: /api/
+
+Sitemap: https://almuxtaar.sn/sitemap.xml
+

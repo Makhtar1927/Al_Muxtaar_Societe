@@ -67,11 +67,13 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
-  // 2. Protection des routes élèves (/compte, /dashboard, /abonnement)
+  // 2. Protection des routes élèves (/compte, /dashboard, /abonnement, /cours, /notifications)
   const isStudentRoute =
     pathname.startsWith("/compte") ||
     pathname.startsWith("/dashboard") ||
-    pathname.startsWith("/abonnement");
+    pathname.startsWith("/abonnement") ||
+    pathname.startsWith("/cours") ||
+    pathname.startsWith("/notifications");
 
   if (!user && isStudentRoute) {
     const url = request.nextUrl.clone();
