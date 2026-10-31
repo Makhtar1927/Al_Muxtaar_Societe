@@ -6,6 +6,7 @@ import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { parseSenegalPhone } from "./phone";
 import { SignUpSchema, SignInSchema, UpdateProfileSchema } from "./validators";
+import { translateAuthError } from "./errors";
 
 export type AuthState = {
   success?: boolean;
@@ -80,10 +81,10 @@ export async function signUpAction(
       createError.message.includes("duplicate")
     ) {
       return {
-        error: "Ce numéro de téléphone est déjà associé à un compte Al Muxtaar.",
+        error: "Ce numéro de téléphone est déjà associé à un compte Al Muxtaar. Veuillez vous connecter.",
       };
     }
-    return { error: createError.message };
+    return { error: translateAuthError(createError.message) };
   }
 
   // 3. Connecter immédiatement le nouvel élève sur sa session courante

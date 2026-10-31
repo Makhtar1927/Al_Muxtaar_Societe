@@ -6,3 +6,4 @@
 
 DELETE FROM auth.users WHERE email = '221772476926@gmail.com';
 DELETE FROM public.profiles WHERE phone = '+221772476926' OR email = 'papemakhtaraidara@gmail.com';
+
