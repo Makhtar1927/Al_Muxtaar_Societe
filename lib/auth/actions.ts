@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { parseSenegalPhone } from "./phone";
 import { SignUpSchema, SignInSchema, UpdateProfileSchema } from "./validators";
 
@@ -40,41 +41,64 @@ export async function signUpAction(
     validation.data;
   const parsedPhone = parseSenegalPhone(phone);
 
-  const supabase = createClient();
+  const admin = createAdminClient();
 
-  const { data, error } = await supabase.auth.signUp({
+  // 1. Vérifier si un compte avec ce numéro existe déjà dans profiles
+  const { data: existingProfile } = await admin
+    .from("profiles")
+    .select("id")
+    .eq("phone", parsedPhone.e164)
+    .maybeSingle();
+
+  if (existingProfile) {
+    return {
+      error: "Ce numéro de téléphone est déjà associé à un compte Al Muxtaar.",
+    };
+  }
+
+  // 2. Créer l'utilisateur via l'API Admin (bypasse les emails, auto-confirme, zéro limite horaire)
+  const { error: createError } = await admin.auth.admin.createUser({
     email: parsedPhone.technicalEmail,
     password,
-    options: {
-      data: {
-        first_name: firstName,
-        last_name: lastName,
-        phone: parsedPhone.e164,
-        real_email: email || null,
-        level,
-        track,
-        avatar,
-        role: "student",
-      },
+    email_confirm: true,
+    user_metadata: {
+      first_name: firstName,
+      last_name: lastName,
+      phone: parsedPhone.e164,
+      real_email: email || null,
+      level,
+      track,
+      avatar,
+      role: "student",
     },
   });
 
-  if (error) {
-    if (error.message.includes("User already registered")) {
+  if (createError) {
+    if (
+      createError.message.includes("already registered") ||
+      createError.message.includes("already exists") ||
+      createError.message.includes("duplicate")
+    ) {
       return {
         error: "Ce numéro de téléphone est déjà associé à un compte Al Muxtaar.",
       };
     }
-    return { error: error.message };
+    return { error: createError.message };
   }
 
-  if (data.session) {
-    revalidatePath("/", "layout");
-    redirect("/dashboard");
+  // 3. Connecter immédiatement le nouvel élève sur sa session courante
+  const supabase = createClient();
+  const { error: signInError } = await supabase.auth.signInWithPassword({
+    email: parsedPhone.technicalEmail,
+    password,
+  });
+
+  if (signInError) {
+    redirect("/connexion?registered=true");
   }
 
-  // Redirection vers confirmation ou connexion
-  redirect("/connexion?registered=true");
+  revalidatePath("/", "layout");
+  redirect("/dashboard");
 }
 
 /**
