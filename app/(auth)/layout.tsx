@@ -1,6 +1,6 @@
 import * as React from "react";
-import Image from "next/image";
 import Link from "next/link";
+import { Logo } from "@/components/ui/logo";
 
 export default function AuthLayout({
   children,
@@ -12,18 +12,7 @@ export default function AuthLayout({
       {/* Mini header */}
       <div className="border-b border-surface-muted bg-white/80 py-4 backdrop-blur-sm">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4">
-          <Link href="/" className="flex items-center gap-2.5">
-            <Image
-              src="/assets/logo/logo.png"
-              alt="Logo Al Muxtaar"
-              width={36}
-              height={36}
-              className="h-9 w-auto object-contain"
-            />
-            <span className="text-base font-black tracking-tight text-navy">
-              Al Muxtaar <span className="text-turquoise text-xs font-bold uppercase">Société</span>
-            </span>
-          </Link>
+          <Logo size="md" />
           <Link
             href="/"
             className="text-xs font-semibold text-navy-light hover:text-turquoise transition-colors"

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import { Logo } from "@/components/ui/logo";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -10,18 +10,7 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           {/* Brand Info */}
           <div className="space-y-4 md:col-span-1">
-            <Link href="/" className="flex items-center gap-2.5">
-              <Image
-                src="/assets/logo/logo.png"
-                alt="Logo Al Muxtaar"
-                width={36}
-                height={36}
-                className="h-9 w-auto object-contain"
-              />
-              <span className="text-lg font-black tracking-tight text-navy">
-                Al Muxtaar <span className="text-turquoise text-xs font-bold uppercase">Société</span>
-              </span>
-            </Link>
+            <Logo size="md" />
             <p className="text-xs text-navy-light leading-relaxed">
               La plateforme éducative et technologique de référence au Sénégal. Conforme aux programmes officiels.
             </p>

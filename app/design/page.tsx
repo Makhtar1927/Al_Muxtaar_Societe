@@ -16,6 +16,7 @@ import { EmptyState } from "@/components/ui/empty-state";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Icon, ICON_NAMES } from "@/components/ui/icon";
 import { Avatar, AVATAR_NAMES } from "@/components/ui/avatar";
+import { Logo } from "@/components/ui/logo";
 
 function DesignShowcaseContent() {
   const { showToast } = useToast();
@@ -58,6 +59,7 @@ function DesignShowcaseContent() {
           <Tabs
             tabs={[
               { id: "components", label: "Composants UI" },
+              { id: "logos", label: "3 Symboles SVG (Logo)", count: 3 },
               { id: "icons", label: "24 Icônes SVG", count: 24 },
               { id: "avatars", label: "16 Avatars Élèves", count: 16 },
               { id: "tokens", label: "Palette & Tokens" },
@@ -66,6 +68,94 @@ function DesignShowcaseContent() {
             onChange={setActiveTab}
           />
         </div>
+
+        {/* SECTION LOGOS SVG */}
+        {activeTab === "logos" && (
+          <div className="space-y-8">
+            <div className="rounded-2xl border border-surface-muted bg-white p-6 shadow-card">
+              <h2 className="text-xl font-bold text-navy mb-2">Les 3 Symboles Officiels Al Muxtaar (SVG vectoriels)</h2>
+              <p className="text-sm text-navy-light mb-6">
+                Symboles en SVG natifs créés pour une netteté parfaite sur tous les écrans (mobile, retina, desktop), légers et scalables sans pixellisation.
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {/* 1. Turquoise */}
+                <div className="rounded-2xl border border-surface-muted bg-surface p-6 text-center space-y-4">
+                  <span className="inline-block px-3 py-1 text-xs font-bold rounded-full bg-turquoise/10 text-turquoise">
+                    1. Turquoise Officiel (#02B9AE)
+                  </span>
+                  <div className="flex h-36 items-center justify-center bg-white rounded-xl border border-surface-muted p-4">
+                    <Logo variant="turquoise" size="xl" showText={false} href={false} />
+                  </div>
+                  <div className="text-left space-y-1 text-xs text-navy-light">
+                    <p className="font-semibold text-navy">Fichier : <code className="text-turquoise">al_muxtaar_symbole.svg</code></p>
+                    <p>Usage : Header, affichage par défaut sur fond clair, documentation.</p>
+                  </div>
+                  <div className="pt-2 border-t border-surface-muted flex justify-center">
+                    <Logo variant="turquoise" size="md" href={false} />
+                  </div>
+                </div>
+
+                {/* 2. Blanc */}
+                <div className="rounded-2xl border border-navy-light/20 bg-navy p-6 text-center space-y-4 text-white">
+                  <span className="inline-block px-3 py-1 text-xs font-bold rounded-full bg-white/10 text-white">
+                    2. Blanc Pur (#FFFFFF)
+                  </span>
+                  <div className="flex h-36 items-center justify-center bg-navy-dark rounded-xl border border-white/10 p-4">
+                    <Logo variant="blanc" size="xl" showText={false} href={false} />
+                  </div>
+                  <div className="text-left space-y-1 text-xs text-surface-muted">
+                    <p className="font-semibold text-white">Fichier : <code className="text-turquoise-light">al_muxtaar_symbole_blanc.svg</code></p>
+                    <p>Usage : Footer sombre, bandeaux bleu nuit, écrans de bienvenue.</p>
+                  </div>
+                  <div className="pt-2 border-t border-white/10 flex justify-center">
+                    <Logo variant="blanc" size="md" textVariant="light" href={false} />
+                  </div>
+                </div>
+
+                {/* 3. Bleu Nuit */}
+                <div className="rounded-2xl border border-surface-muted bg-surface p-6 text-center space-y-4">
+                  <span className="inline-block px-3 py-1 text-xs font-bold rounded-full bg-navy/10 text-navy">
+                    3. Bleu Nuit (#243447)
+                  </span>
+                  <div className="flex h-36 items-center justify-center bg-white rounded-xl border border-surface-muted p-4">
+                    <Logo variant="bleu_nuit" size="xl" showText={false} href={false} />
+                  </div>
+                  <div className="text-left space-y-1 text-xs text-navy-light">
+                    <p className="font-semibold text-navy">Fichier : <code className="text-navy">al_muxtaar_symbole_bleu_nuit.svg</code></p>
+                    <p>Usage : Factures, impressions papier, filigranes monochromes, documents officiels.</p>
+                  </div>
+                  <div className="pt-2 border-t border-surface-muted flex justify-center">
+                    <Logo variant="bleu_nuit" size="md" href={false} />
+                  </div>
+                </div>
+              </div>
+
+              {/* Échelle des tailles */}
+              <div className="mt-8 pt-6 border-t border-surface-muted">
+                <h3 className="text-sm font-bold text-navy uppercase tracking-wider mb-4">Échelle des tailles (sm · md · lg · xl)</h3>
+                <div className="flex flex-wrap items-end gap-6 bg-surface p-6 rounded-xl">
+                  <div className="space-y-1 text-center">
+                    <Logo size="sm" href={false} />
+                    <span className="text-[11px] text-navy-light block mt-1">sm (24px)</span>
+                  </div>
+                  <div className="space-y-1 text-center">
+                    <Logo size="md" href={false} />
+                    <span className="text-[11px] text-navy-light block mt-1">md (36px — Header)</span>
+                  </div>
+                  <div className="space-y-1 text-center">
+                    <Logo size="lg" href={false} />
+                    <span className="text-[11px] text-navy-light block mt-1">lg (48px)</span>
+                  </div>
+                  <div className="space-y-1 text-center">
+                    <Logo size="xl" href={false} />
+                    <span className="text-[11px] text-navy-light block mt-1">xl (68px)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* SECTION 1: COMPOSANTS UI */}
         {activeTab === "components" && (

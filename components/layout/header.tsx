@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import NotificationBell from "@/components/notifications/notification-bell";
+import { Logo } from "@/components/ui/logo";
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
@@ -22,24 +23,7 @@ export function Header() {
     <header className="sticky top-0 z-40 w-full border-b border-surface-muted bg-white/95 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3">
-          <Image
-            src="/assets/logo/logo.png"
-            alt="Logo Al Muxtaar Société"
-            width={40}
-            height={40}
-            className="h-10 w-auto object-contain"
-            priority
-          />
-          <div className="flex flex-col">
-            <span className="text-base sm:text-lg font-black tracking-tight text-navy leading-none">
-              Al Muxtaar
-            </span>
-            <span className="text-[10px] font-bold tracking-widest text-turquoise uppercase">
-              Société
-            </span>
-          </div>
-        </Link>
+        <Logo size="md" priority />
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-1 lg:gap-2">

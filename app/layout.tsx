@@ -11,8 +11,8 @@ export const metadata: Metadata = {
   authors: [{ name: "Al Muxtaar Société" }],
   manifest: "/manifest.json",
   icons: {
-    icon: "/assets/logo/logo.png",
-    apple: "/assets/logo/logo.png",
+    icon: "/assets/logo/al_muxtaar_symbole.svg",
+    apple: "/assets/logo/al_muxtaar_symbole.svg",
   },
   openGraph: {
     type: "website",
@@ -24,10 +24,10 @@ export const metadata: Metadata = {
       "La référence éducative pour le Baccalauréat S2 au Sénégal. Cours avec KaTeX, exercices corrigés et suivi personnalisé.",
     images: [
       {
-        url: "/assets/logo/logo.png",
-        width: 800,
-        height: 800,
-        alt: "Logo Al Muxtaar Société",
+        url: "/assets/logo/al_muxtaar_symbole.svg",
+        width: 715,
+        height: 605,
+        alt: "Logo Symbole Al Muxtaar Société",
       },
     ],
   },
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "Al Muxtaar Société — Réussir le Bac S2 au Sénégal",
     description:
       "Cours de mathématiques conformes au programme sénégalais avec exercices corrigés et quiz interactifs.",
-    images: ["/assets/logo/logo.png"],
+    images: ["/assets/logo/al_muxtaar_symbole.svg"],
   },
 };
 
