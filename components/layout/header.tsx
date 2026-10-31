@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import NotificationBell from "@/components/notifications/notification-bell";
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
@@ -73,8 +74,9 @@ export function Header() {
           })}
         </nav>
 
-        {/* Actions (Connexion / Mon compte) */}
-        <div className="hidden md:flex items-center gap-3">
+        {/* Actions (Connexion / Mon compte / Notifications) */}
+        <div className="hidden md:flex items-center gap-2">
+          <NotificationBell />
           <Link href="/compte">
             <Button variant="ghost" size="md">
               Mon compte
@@ -87,36 +89,39 @@ export function Header() {
           </Link>
         </div>
 
-        {/* Hamburger Mobile Toggle */}
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden flex h-11 w-11 items-center justify-center rounded-2xl text-navy hover:bg-surface transition-colors"
-          aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
-          aria-expanded={isMobileMenuOpen}
-        >
-          <svg
-            className="h-6 w-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+        {/* Mobile Actions & Toggle */}
+        <div className="md:hidden flex items-center gap-2">
+          <NotificationBell />
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="flex h-11 w-11 items-center justify-center rounded-2xl text-navy hover:bg-surface transition-colors"
+            aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-expanded={isMobileMenuOpen}
           >
-            {isMobileMenuOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            )}
-          </svg>
-        </button>
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              {isMobileMenuOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
 
       {/* Mobile Drawer Menu */}
