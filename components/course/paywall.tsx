@@ -4,15 +4,15 @@ import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Lock } from 'lucide-react';
+import { Icon } from '@/components/ui/icon';
 
 export default function Paywall() {
   return (
     <div className="py-12 px-4 max-w-xl mx-auto">
       <Card className="border-2 border-turquoise/30 shadow-lg text-center">
         <CardHeader className="space-y-3">
-          <div className="mx-auto w-16 h-16 rounded-full bg-gold/15 flex items-center justify-center">
-            <Lock className="w-8 h-8 text-gold" strokeWidth={2} />
+          <div className="mx-auto w-16 h-16 rounded-full bg-surface-muted/30 flex items-center justify-center">
+            <Icon name="cadenas" size={44} />
           </div>
           <CardTitle className="text-2xl text-navy">Contenu réservé aux abonnés</CardTitle>
           <CardDescription className="text-base text-text/75">

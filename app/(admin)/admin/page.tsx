@@ -6,7 +6,7 @@ import { createAdminClient } from '@/lib/supabase/admin';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { CreditCard, BookOpen, GraduationCap, Tag } from 'lucide-react';
+import { Icon } from '@/components/ui/icon';
 
 export const metadata: Metadata = {
   title: 'Administration | Al Muxtaar Société',
@@ -140,7 +140,7 @@ export default async function AdminPage() {
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         <Link href="/admin/abonnements" className="block">
           <Card className="hover:border-turquoise transition-all cursor-pointer h-full p-4 flex flex-col justify-between">
-            <CreditCard className="w-6 h-6 text-turquoise" strokeWidth={2} />
+            <Icon name="abonnement" size={36} />
             <div>
               <p className="font-bold text-navy text-sm mt-2">Abonnements</p>
               <p className="text-xs text-text/50">Valider les paiements Wave</p>
@@ -150,7 +150,7 @@ export default async function AdminPage() {
 
         <Link href="/admin/contenu" className="block">
           <Card className="hover:border-turquoise transition-all cursor-pointer h-full p-4 flex flex-col justify-between">
-            <BookOpen className="w-6 h-6 text-turquoise" strokeWidth={2} />
+            <Icon name="cours" size={36} />
             <div>
               <p className="font-bold text-navy text-sm mt-2">Contenu & Cours</p>
               <p className="text-xs text-text/50">Chapitres, leçons, exercices</p>
@@ -160,7 +160,7 @@ export default async function AdminPage() {
 
         <Link href="/admin/eleves" className="block">
           <Card className="hover:border-turquoise transition-all cursor-pointer h-full p-4 flex flex-col justify-between">
-            <GraduationCap className="w-6 h-6 text-turquoise" strokeWidth={2} />
+            <Icon name="profil" size={36} />
             <div>
               <p className="font-bold text-navy text-sm mt-2">Élèves</p>
               <p className="text-xs text-text/50">Gestion des profils et rôles</p>
@@ -170,7 +170,7 @@ export default async function AdminPage() {
 
         <Link href="/admin/tarifs" className="block">
           <Card className="hover:border-turquoise transition-all cursor-pointer h-full p-4 flex flex-col justify-between">
-            <Tag className="w-6 h-6 text-turquoise" strokeWidth={2} />
+            <Icon name="paiement" size={36} />
             <div>
               <p className="font-bold text-navy text-sm mt-2">Tarifs des Plans</p>
               <p className="text-xs text-text/50">Modifier les prix sans coder</p>

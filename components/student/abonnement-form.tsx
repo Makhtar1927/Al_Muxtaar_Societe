@@ -6,7 +6,8 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/components/ui/toast';
 import { requestSubscriptionAction } from '@/lib/subscription/actions';
-import { CheckCircle2, Clock, AlertCircle, Wallet, ArrowRight, Smartphone } from 'lucide-react';
+import { Icon } from '@/components/ui/icon';
+import { CheckCircle2, Clock, AlertCircle, ArrowRight, Smartphone } from 'lucide-react';
 
 interface Plan {
   id: string;
@@ -204,9 +205,12 @@ export default function AbonnementForm({
               }`}
             >
               <div className="flex items-center justify-between">
-                <div>
-                  <p className="font-bold text-navy">{plan.name}</p>
-                  <p className="text-sm text-text/60 mt-0.5">{formatDuration(plan.duration_days)} d&apos;accès complet</p>
+                <div className="flex items-center gap-3">
+                  <Icon name="abonnement" size={32} />
+                  <div>
+                    <p className="font-bold text-navy">{plan.name}</p>
+                    <p className="text-sm text-text/60 mt-0.5">{formatDuration(plan.duration_days)} d&apos;accès complet</p>
+                  </div>
                 </div>
                 <div className="text-right">
                   <p className="text-xl font-extrabold text-turquoise">{formatFCFA(plan.price_fcfa)}</p>
@@ -225,9 +229,7 @@ export default function AbonnementForm({
         <CardHeader>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#1BAAF7] text-white shadow-soft">
-                <Wallet className="w-5 h-5" strokeWidth={2} />
-              </div>
+              <Icon name="paiement" size={36} />
               <div>
                 <CardTitle className="text-base text-navy font-bold">2. Paiement via Wave</CardTitle>
                 <CardDescription>Paiement 100 % sécurisé, sans frais supplémentaires</CardDescription>
@@ -246,7 +248,7 @@ export default function AbonnementForm({
             rel="noopener noreferrer"
             className="group flex w-full items-center justify-center gap-3 rounded-2xl bg-[#1BAAF7] hover:bg-[#0e96e0] active:scale-[0.99] text-white font-extrabold py-4 px-6 text-base shadow-md transition-all text-center"
           >
-            <Wallet className="w-5 h-5 shrink-0" strokeWidth={2} />
+            <Icon name="paiement" size={24} className="brightness-0 invert" />
             <span>Payer {formatFCFA(waveAmount)} sur Wave</span>
             <ArrowRight className="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform" strokeWidth={2} />
           </a>

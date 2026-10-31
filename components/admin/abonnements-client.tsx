@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Modal } from '@/components/ui/modal';
 import { useToast } from '@/components/ui/toast';
+import { Icon } from '@/components/ui/icon';
 import {
   activateSubscriptionAction,
   extendSubscriptionAction,
@@ -192,9 +193,7 @@ export default function AdminAbonnementsClient({ subscriptions }: Props) {
             >
               <CardContent className="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-navy/10 flex items-center justify-center shrink-0">
-                    <User className="w-4 h-4 text-navy" strokeWidth={2} />
-                  </div>
+                  <Icon name="profil" size={36} />
                   <div>
                     <p className="font-semibold text-navy text-sm">{fullName(sub.profiles)}</p>
                     <p className="text-xs text-text/50 flex items-center gap-1 mt-0.5">
@@ -232,9 +231,9 @@ export default function AdminAbonnementsClient({ subscriptions }: Props) {
           <div className="space-y-4 text-sm">
             {/* Student info */}
             <div className="rounded-xl bg-surface p-4 space-y-2">
-              <p className="font-semibold text-navy mb-1 flex items-center gap-1.5">
-                <User className="w-4 h-4" strokeWidth={2} />
-                Élève
+              <p className="font-semibold text-navy mb-1 flex items-center gap-2">
+                <Icon name="profil" size={20} />
+                <span>Élève</span>
               </p>
               <p>
                 <span className="text-text/50">Nom :</span>{' '}
@@ -249,9 +248,9 @@ export default function AdminAbonnementsClient({ subscriptions }: Props) {
 
             {/* Subscription info */}
             <div className="rounded-xl bg-surface p-4 space-y-2">
-              <p className="font-semibold text-navy mb-1 flex items-center gap-1.5">
-                <FileText className="w-4 h-4" strokeWidth={2} />
-                Abonnement
+              <p className="font-semibold text-navy mb-1 flex items-center gap-2">
+                <Icon name="abonnement" size={20} />
+                <span>Abonnement</span>
               </p>
               <p>
                 <span className="text-text/50">Plan :</span>{' '}
@@ -283,9 +282,9 @@ export default function AdminAbonnementsClient({ subscriptions }: Props) {
             {/* Payment info */}
             {selected.payments?.length > 0 && (
               <div className="rounded-xl bg-surface p-4 space-y-1.5">
-                <p className="font-semibold text-navy mb-1 flex items-center gap-1.5">
-                  <CreditCard className="w-4 h-4" strokeWidth={2} />
-                  Paiement
+                <p className="font-semibold text-navy mb-1 flex items-center gap-2">
+                  <Icon name="paiement" size={20} />
+                  <span>Paiement</span>
                 </p>
                 <p>
                   <span className="text-text/50">Opérateur :</span>{' '}

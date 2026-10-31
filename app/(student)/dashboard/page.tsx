@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { ProgressBar } from '@/components/ui/progress-bar';
 import { Avatar } from '@/components/ui/avatar';
+import { Icon } from '@/components/ui/icon';
 import {
   CheckCircle2,
   AlertCircle,
@@ -15,8 +16,6 @@ import {
   BookOpen,
   Play,
   ArrowRight,
-  Megaphone,
-  MessageCircle,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -177,11 +176,7 @@ export default async function DashboardPage() {
           }`}
         >
           <div className="flex items-center gap-3 text-center sm:text-left">
-            {remainingDays <= 7 ? (
-              <AlertCircle className="w-6 h-6 text-coral shrink-0" strokeWidth={2} />
-            ) : (
-              <CheckCircle2 className="w-6 h-6 text-turquoise shrink-0" strokeWidth={2} />
-            )}
+            <Icon name="abonnement" size={36} />
             <div>
               <p className="font-bold text-sm sm:text-base">
                 {remainingDays <= 7
@@ -207,7 +202,7 @@ export default async function DashboardPage() {
       ) : isPendingSub ? (
         <div className="rounded-2xl p-5 border border-gold/40 bg-gold/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3 text-center sm:text-left">
-            <Clock className="w-6 h-6 text-gold shrink-0" strokeWidth={2} />
+            <Icon name="paiement" size={36} />
             <div>
               <p className="font-bold text-sm text-navy">
                 Demande d&apos;abonnement en cours de validation
@@ -226,7 +221,7 @@ export default async function DashboardPage() {
       ) : (
         <div className="rounded-2xl p-5 border border-turquoise/30 bg-turquoise/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3 text-center sm:text-left">
-            <Sparkles className="w-6 h-6 text-turquoise shrink-0" strokeWidth={2} />
+            <Icon name="abonnement" size={36} />
             <div>
               <p className="font-bold text-sm text-navy">
                 Débloque tous les cours, corrigés détaillés et quiz
@@ -337,8 +332,8 @@ export default async function DashboardPage() {
         {/* Pedagogical announcements */}
         <Card>
           <CardHeader>
-            <CardTitle className="text-base flex items-center gap-2">
-              <Megaphone className="w-5 h-5 text-turquoise" strokeWidth={2} />
+            <CardTitle className="text-base flex items-center gap-2.5">
+              <Icon name="notification" size={24} />
               <span>Annonces pédagogiques</span>
             </CardTitle>
             <CardDescription>Nouvelles de l&apos;équipe Al Muxtaar</CardDescription>
@@ -362,8 +357,8 @@ export default async function DashboardPage() {
         {/* Quick Help & Support */}
         <Card>
           <CardHeader>
-            <CardTitle className="text-base flex items-center gap-2">
-              <MessageCircle className="w-5 h-5 text-turquoise" strokeWidth={2} />
+            <CardTitle className="text-base flex items-center gap-2.5">
+              <Icon name="service" size={24} />
               <span>Support &amp; Assistance</span>
             </CardTitle>
             <CardDescription>Une question sur la plateforme ?</CardDescription>
