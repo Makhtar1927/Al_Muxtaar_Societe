@@ -6,7 +6,7 @@ import { Icon } from "@/components/ui/icon";
 export const metadata: Metadata = {
   title: "Foire Aux Questions (FAQ) | Al Muxtaar Société",
   description:
-    "Toutes les réponses à vos questions sur les cours en ligne, les abonnements, Wave / Orange Money et la plateforme Al Muxtaar.",
+    "Toutes les réponses à vos questions sur les cours en ligne, les abonnements, Wave et la plateforme Al Muxtaar.",
 };
 
 const FAQ_SECTIONS = [
@@ -36,7 +36,7 @@ const FAQ_SECTIONS = [
       },
       {
         q: "Quels sont les moyens de paiement acceptés ?",
-        a: "Nous acceptons les paiements mobiles par Wave, Orange Money et Free Money sur nos numéros marchands officiels.",
+        a: "Le paiement s'effectue directement via Wave avec un lien prérempli avec le montant de votre formule (700 ou 2 000 FCFA), compatible avec tous les smartphones (iOS / Android) et ordinateurs.",
       },
       {
         q: "En combien de temps mon compte est-il activé ?",

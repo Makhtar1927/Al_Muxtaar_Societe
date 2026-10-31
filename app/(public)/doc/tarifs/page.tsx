@@ -46,8 +46,8 @@ const PLANS = [
 ];
 
 export default function TarifsPage() {
-  const waveNumber = process.env.NEXT_PUBLIC_WAVE_MERCHANT_NUMBER || "+221 77 000 00 00";
-  const omNumber = process.env.NEXT_PUBLIC_ORANGE_MONEY_MERCHANT_NUMBER || "+221 78 000 00 00";
+  const waveNumber = process.env.NEXT_PUBLIC_WAVE_MERCHANT_NUMBER || "+221 77 247 69 26";
+  const waveBaseLink = process.env.NEXT_PUBLIC_WAVE_LINK || "https://pay.wave.com/m/M_sn_2MOwdjUaQWQJ/c/sn/";
 
   return (
     <div className="space-y-16 py-8 sm:space-y-20 sm:py-12">
@@ -61,7 +61,7 @@ export default function TarifsPage() {
           Un investissement minime pour votre réussite au Bac.
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-base text-navy-light sm:text-lg">
-          Payez uniquement ce dont vous avez besoin, directement via votre compte Wave ou Orange Money, sans prélèvement automatique bancaire.
+          Payez en 1 clic directement via votre compte Wave avec le montant préinscrit, sans frais additionnels et sans engagement bancaire.
         </p>
       </section>
 
@@ -140,32 +140,46 @@ export default function TarifsPage() {
             </div>
             <div className="rounded-2xl bg-surface p-5 border border-surface-muted">
               <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-turquoise text-white font-bold mb-3">2</span>
-              <h3 className="font-bold text-navy text-sm">Faites le transfert</h3>
-              <p className="mt-1 text-xs text-navy-light">Envoyez 700 ou 2 000 FCFA par Wave ou OM.</p>
+              <h3 className="font-bold text-navy text-sm">Paiement 1 clic Wave</h3>
+              <p className="mt-1 text-xs text-navy-light">Cliquez sur le lien Wave officiel avec le montant préinscrit.</p>
             </div>
             <div className="rounded-2xl bg-surface p-5 border border-surface-muted">
               <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-turquoise text-white font-bold mb-3">3</span>
               <h3 className="font-bold text-navy text-sm">Envoyez la preuve</h3>
-              <p className="mt-1 text-xs text-navy-light">Collez votre numéro de transaction reçu par SMS.</p>
+              <p className="mt-1 text-xs text-navy-light">Collez votre code de transaction Wave reçu par SMS.</p>
             </div>
             <div className="rounded-2xl bg-surface p-5 border border-surface-muted">
               <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-turquoise text-white font-bold mb-3">4</span>
               <h3 className="font-bold text-navy text-sm">Accès ouvert</h3>
-              <p className="mt-1 text-xs text-navy-light">Validation manuelle de l&apos;admin en quelques minutes.</p>
+              <p className="mt-1 text-xs text-navy-light">Validation de l&apos;admin et déblocage de vos cours.</p>
             </div>
           </div>
 
-          {/* Numéros Marchands Officiels */}
-          <div className="mt-8 rounded-2xl border border-turquoise/30 bg-turquoise-light/30 p-6 text-center max-w-2xl mx-auto">
-            <h4 className="text-sm font-bold text-navy uppercase tracking-wider mb-2">
-              Numéros de Dépôt Officiels Al Muxtaar
+          {/* Numéro Marchand Officiel Wave */}
+          <div className="mt-8 rounded-2xl border border-[#1BAAF7]/30 bg-[#1BAAF7]/5 p-6 text-center max-w-2xl mx-auto">
+            <h4 className="text-sm font-bold text-navy uppercase tracking-wider mb-2 flex items-center justify-center gap-2">
+              <span>🌊</span>
+              <span>Lien & Numéro Officiels Wave — Al Muxtaar</span>
             </h4>
-            <div className="flex flex-wrap justify-center gap-4 text-xs sm:text-sm font-mono font-bold text-navy">
-              <span className="rounded-xl bg-white px-3.5 py-2 border border-surface-muted shadow-card">
-                Wave : {waveNumber}
-              </span>
-              <span className="rounded-xl bg-white px-3.5 py-2 border border-surface-muted shadow-card">
-                Orange Money : {omNumber}
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-3 text-xs sm:text-sm font-mono font-bold text-navy">
+              <a
+                href={`${waveBaseLink}?amount=700`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-xl bg-[#1BAAF7] text-white px-4 py-2 shadow-soft hover:bg-[#0c85d0] transition-colors font-sans text-xs"
+              >
+                Lien direct Wave (700 F) ↗
+              </a>
+              <a
+                href={`${waveBaseLink}?amount=2000`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-xl bg-[#1BAAF7] text-white px-4 py-2 shadow-soft hover:bg-[#0c85d0] transition-colors font-sans text-xs"
+              >
+                Lien direct Wave (2 000 F) ↗
+              </a>
+              <span className="rounded-xl bg-white px-3.5 py-2 border border-surface-muted shadow-card font-mono">
+                Numéro : {waveNumber}
               </span>
             </div>
             <p className="mt-3 text-[11px] text-navy-light">

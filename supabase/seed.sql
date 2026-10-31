@@ -26,11 +26,11 @@ BEGIN
       v_admin_id,
       'authenticated',
       'authenticated',
-      '221770000000@gmail.com',
+      '221772476926@gmail.com',
       v_encrypted_pw,
       NOW(),
       '{"provider":"email","providers":["email"]}',
-      '{"first_name":"Makhtar","last_name":"Administrateur","phone":"+221770000000","role":"admin","avatar":"avatar_09_admin_homme.svg"}',
+      '{"first_name":"Pape Makhtar","last_name":"Aidara","phone":"+221772476926","role":"admin","avatar":"avatar_09_admin_homme.svg"}',
       NOW(),
       NOW()
     );
@@ -49,10 +49,10 @@ BEGIN
     is_banned
   ) VALUES (
     v_admin_id,
-    'Makhtar',
-    'Administrateur',
-    '+221770000000',
-    'admin@almuxtaar.sn',
+    'Pape Makhtar',
+    'Aidara',
+    '+221772476926',
+    'papemakhtaraidara@gmail.com',
     'Terminale',
     'S2',
     'avatar_09_admin_homme.svg',

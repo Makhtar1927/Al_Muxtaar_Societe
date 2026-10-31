@@ -285,3 +285,4 @@ supabase/
 ---
 
 *Généré automatiquement — Al Muxtaar Société Platform v1.0 (P15)*
+

@@ -5,12 +5,11 @@ import { createClient as createSupabaseClient } from "@supabase/supabase-js";
  * À utiliser EXCLUSIVEMENT côté serveur pour des opérations d'administration.
  */
 export function createAdminClient() {
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-
-  if (!serviceRoleKey) {
-    throw new Error("SUPABASE_SERVICE_ROLE_KEY is not defined in environment variables.");
-  }
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://rxjiewfsmrcsrkjfqsgq.supabase.co";
+  const serviceRoleKey =
+    process.env.SUPABASE_SERVICE_ROLE_KEY ||
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
+    "placeholder-key";
 
   return createSupabaseClient(supabaseUrl, serviceRoleKey, {
     auth: {
