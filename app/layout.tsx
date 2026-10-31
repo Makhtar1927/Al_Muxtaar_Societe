@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import ServiceWorkerRegister from "@/components/pwa/service-worker-register";
+import { ToastProvider } from "@/components/ui/toast";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://almuxtaar.sn"),
@@ -56,7 +57,7 @@ export default function RootLayout({
     <html lang="fr" className="h-full">
       <body className="flex min-h-screen flex-col bg-surface text-navy-dark">
         <ServiceWorkerRegister />
-        {children}
+        <ToastProvider>{children}</ToastProvider>
       </body>
     </html>
   );
