@@ -148,17 +148,17 @@ export function Icon({
 }: IconProps) {
   const pixelSize = typeof size === "number" ? size : SIZE_MAP[size] || 32;
 
-  // 1. Vérifier si c'est un SVG officiel Al Muxtaar (direct ou via alias)
-  const resolvedSvgName = (ICON_ALIASES[name] ||
-    (ICON_NAMES as readonly string[]).includes(name)
-      ? name
-      : null) as IconName | null;
+  // 1. Résolution stricte et infaillible du nom de fichier SVG
+  let fileName: string | null = null;
+  if (ICON_ALIASES[name]) {
+    fileName = `${ICON_ALIASES[name]}.svg`;
+  } else if ((ICON_NAMES as readonly string[]).includes(name)) {
+    fileName = `${name}.svg`;
+  } else if (typeof name === "string" && name.endsWith(".svg")) {
+    fileName = name;
+  }
 
-  if (resolvedSvgName) {
-    const fileName = resolvedSvgName.endsWith(".svg")
-      ? resolvedSvgName
-      : `${resolvedSvgName}.svg`;
-
+  if (fileName) {
     return (
       <div
         className={cn(
@@ -170,11 +170,12 @@ export function Icon({
       >
         <Image
           src={`/assets/icons/${fileName}`}
-          alt={alt || `Icône ${resolvedSvgName}`}
+          alt={alt || `Icône ${name}`}
           width={pixelSize}
           height={pixelSize}
           className="h-full w-full object-contain"
           unoptimized
+          priority
         />
       </div>
     );
