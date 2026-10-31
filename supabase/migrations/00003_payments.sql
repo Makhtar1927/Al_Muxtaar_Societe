@@ -70,14 +70,14 @@ CREATE POLICY "student insert own payment"
 
 CREATE POLICY "admin all payments"
   ON payments FOR ALL
-  USING (is_admin())
-  WITH CHECK (is_admin());
+  USING (public.is_admin())
+  WITH CHECK (public.is_admin());
 
 -- audit_logs: admin only
 CREATE POLICY "admin all audit_logs"
   ON audit_logs FOR ALL
-  USING (is_admin())
-  WITH CHECK (is_admin());
+  USING (public.is_admin())
+  WITH CHECK (public.is_admin());
 
 -- notifications: user sees own
 CREATE POLICY "user own notifications select"

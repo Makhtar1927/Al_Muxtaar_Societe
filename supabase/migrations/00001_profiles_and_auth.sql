@@ -46,6 +46,14 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 
+-- Surcharge sans argument qui vérifie automatiquement l'utilisateur connecté (auth.uid())
+CREATE OR REPLACE FUNCTION public.is_admin()
+RETURNS BOOLEAN AS $$
+BEGIN
+  RETURN public.is_admin(auth.uid());
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
 -- 4. Trigger automatique à la création d'un utilisateur dans auth.users
 CREATE OR REPLACE FUNCTION public.handle_new_user()
 RETURNS TRIGGER AS $$
