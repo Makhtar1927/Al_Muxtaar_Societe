@@ -143,6 +143,7 @@ CREATE TRIGGER on_auth_user_created
 ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
 
 -- Les utilisateurs peuvent lire leur propre profil ; les administrateurs peuvent lire tous les profils
+DROP POLICY IF EXISTS "profiles_select_policy" ON public.profiles;
 CREATE POLICY "profiles_select_policy"
   ON public.profiles
   FOR SELECT
@@ -152,6 +153,7 @@ CREATE POLICY "profiles_select_policy"
   );
 
 -- Un utilisateur peut modifier ses données personnelles mais ne peut PAS changer son rôle ni se débannir
+DROP POLICY IF EXISTS "profiles_update_own_policy" ON public.profiles;
 CREATE POLICY "profiles_update_own_policy"
   ON public.profiles
   FOR UPDATE
@@ -163,12 +165,14 @@ CREATE POLICY "profiles_update_own_policy"
   );
 
 -- Les administrateurs ont les pleins pouvoirs de mise à jour sur tous les profils
+DROP POLICY IF EXISTS "profiles_admin_update_policy" ON public.profiles;
 CREATE POLICY "profiles_admin_update_policy"
   ON public.profiles
   FOR UPDATE
   USING (public.is_admin(auth.uid()));
 
 -- Les administrateurs peuvent supprimer des profils
+DROP POLICY IF EXISTS "profiles_admin_delete_policy" ON public.profiles;
 CREATE POLICY "profiles_admin_delete_policy"
   ON public.profiles
   FOR DELETE
@@ -356,27 +360,40 @@ ALTER TABLE public.quiz_answers ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.progress ENABLE ROW LEVEL SECURITY;
 
 -- Plans : lecture pour tous, écriture pour admin
+DROP POLICY IF EXISTS "plans_select_all" ON public.plans;
 CREATE POLICY "plans_select_all" ON public.plans FOR SELECT USING (true);
+DROP POLICY IF EXISTS "plans_admin_all" ON public.plans;
 CREATE POLICY "plans_admin_all" ON public.plans FOR ALL USING (public.is_admin(auth.uid()));
 
 -- Subscriptions : un élève voit ses propres abonnements, admin voit tout
+DROP POLICY IF EXISTS "subs_select_own" ON public.subscriptions;
 CREATE POLICY "subs_select_own" ON public.subscriptions FOR SELECT USING (auth.uid() = user_id OR public.is_admin(auth.uid()));
+DROP POLICY IF EXISTS "subs_insert_own" ON public.subscriptions;
 CREATE POLICY "subs_insert_own" ON public.subscriptions FOR INSERT WITH CHECK (auth.uid() = user_id);
+DROP POLICY IF EXISTS "subs_admin_all" ON public.subscriptions;
 CREATE POLICY "subs_admin_all" ON public.subscriptions FOR ALL USING (public.is_admin(auth.uid()));
 
 -- Catalogue (levels, tracks, subjects) : lecture publique, écriture admin
+DROP POLICY IF EXISTS "levels_read" ON public.levels;
 CREATE POLICY "levels_read" ON public.levels FOR SELECT USING (true);
+DROP POLICY IF EXISTS "levels_admin" ON public.levels;
 CREATE POLICY "levels_admin" ON public.levels FOR ALL USING (public.is_admin(auth.uid()));
 
+DROP POLICY IF EXISTS "tracks_read" ON public.tracks;
 CREATE POLICY "tracks_read" ON public.tracks FOR SELECT USING (true);
+DROP POLICY IF EXISTS "tracks_admin" ON public.tracks;
 CREATE POLICY "tracks_admin" ON public.tracks FOR ALL USING (public.is_admin(auth.uid()));
 
+DROP POLICY IF EXISTS "subjects_read" ON public.subjects;
 CREATE POLICY "subjects_read" ON public.subjects FOR SELECT USING (true);
+DROP POLICY IF EXISTS "subjects_admin" ON public.subjects;
 CREATE POLICY "subjects_admin" ON public.subjects FOR ALL USING (public.is_admin(auth.uid()));
 
 -- Chapitres : publiés lisibles par tous ; brouillons lisibles uniquement par admin
+DROP POLICY IF EXISTS "chapters_read" ON public.chapters;
 CREATE POLICY "chapters_read" ON public.chapters FOR SELECT
   USING (status = 'published' OR public.is_admin(auth.uid()));
+DROP POLICY IF EXISTS "chapters_admin" ON public.chapters;
 CREATE POLICY "chapters_admin" ON public.chapters FOR ALL
   USING (public.is_admin(auth.uid()));
 
@@ -384,6 +401,7 @@ CREATE POLICY "chapters_admin" ON public.chapters FOR ALL
 -- 1. Les leçons gratuites publiées sont accessibles à tous (visiteurs + élèves)
 -- 2. Les leçons payantes publiées exigent un abonnement actif OU le rôle admin
 -- 3. Les leçons brouillon ne sont visibles que par l'admin
+DROP POLICY IF EXISTS "lessons_read_policy" ON public.lessons;
 CREATE POLICY "lessons_read_policy" ON public.lessons FOR SELECT
   USING (
     (status = 'published' AND is_free = TRUE)
@@ -391,10 +409,12 @@ CREATE POLICY "lessons_read_policy" ON public.lessons FOR SELECT
     OR (status = 'draft' AND public.is_admin(auth.uid()))
   );
 
+DROP POLICY IF EXISTS "lessons_admin_all" ON public.lessons;
 CREATE POLICY "lessons_admin_all" ON public.lessons FOR ALL
   USING (public.is_admin(auth.uid()));
 
 -- Exercices : lisibles si la leçon associée est accessible
+DROP POLICY IF EXISTS "exercises_read_policy" ON public.exercises;
 CREATE POLICY "exercises_read_policy" ON public.exercises FOR SELECT
   USING (
     EXISTS (
@@ -408,26 +428,36 @@ CREATE POLICY "exercises_read_policy" ON public.exercises FOR SELECT
     )
   );
 
+DROP POLICY IF EXISTS "exercises_admin_all" ON public.exercises;
 CREATE POLICY "exercises_admin_all" ON public.exercises FOR ALL
   USING (public.is_admin(auth.uid()));
 
 -- Quizzes, Questions et Réponses
+DROP POLICY IF EXISTS "quizzes_read" ON public.quizzes;
 CREATE POLICY "quizzes_read" ON public.quizzes FOR SELECT USING (true);
+DROP POLICY IF EXISTS "quizzes_admin" ON public.quizzes;
 CREATE POLICY "quizzes_admin" ON public.quizzes FOR ALL USING (public.is_admin(auth.uid()));
 
+DROP POLICY IF EXISTS "questions_read" ON public.quiz_questions;
 CREATE POLICY "questions_read" ON public.quiz_questions FOR SELECT USING (true);
+DROP POLICY IF EXISTS "questions_admin" ON public.quiz_questions;
 CREATE POLICY "questions_admin" ON public.quiz_questions FOR ALL USING (public.is_admin(auth.uid()));
 
+DROP POLICY IF EXISTS "answers_read" ON public.quiz_answers;
 CREATE POLICY "answers_read" ON public.quiz_answers FOR SELECT USING (true);
+DROP POLICY IF EXISTS "answers_admin" ON public.quiz_answers;
 CREATE POLICY "answers_admin" ON public.quiz_answers FOR ALL USING (public.is_admin(auth.uid()));
 
 -- Progression : un élève ne lit et n'écrit que sa propre progression ; l'admin lit tout
+DROP POLICY IF EXISTS "progress_select_own" ON public.progress;
 CREATE POLICY "progress_select_own" ON public.progress FOR SELECT
   USING (auth.uid() = user_id OR public.is_admin(auth.uid()));
 
+DROP POLICY IF EXISTS "progress_upsert_own" ON public.progress;
 CREATE POLICY "progress_upsert_own" ON public.progress FOR INSERT
   WITH CHECK (auth.uid() = user_id);
 
+DROP POLICY IF EXISTS "progress_update_own" ON public.progress;
 CREATE POLICY "progress_update_own" ON public.progress FOR UPDATE
   USING (auth.uid() = user_id)
   WITH CHECK (auth.uid() = user_id);
@@ -500,35 +530,42 @@ ALTER TABLE audit_logs     ENABLE ROW LEVEL SECURITY;
 ALTER TABLE notifications  ENABLE ROW LEVEL SECURITY;
 
 -- payments: student sees own, admin sees all
+DROP POLICY IF EXISTS "student own payments" ON payments;
 CREATE POLICY "student own payments"
   ON payments FOR SELECT
   USING (student_id = auth.uid());
 
+DROP POLICY IF EXISTS "student insert own payment" ON payments;
 CREATE POLICY "student insert own payment"
   ON payments FOR INSERT
   WITH CHECK (student_id = auth.uid());
 
+DROP POLICY IF EXISTS "admin all payments" ON payments;
 CREATE POLICY "admin all payments"
   ON payments FOR ALL
   USING (public.is_admin())
   WITH CHECK (public.is_admin());
 
 -- audit_logs: admin only
+DROP POLICY IF EXISTS "admin all audit_logs" ON audit_logs;
 CREATE POLICY "admin all audit_logs"
   ON audit_logs FOR ALL
   USING (public.is_admin())
   WITH CHECK (public.is_admin());
 
 -- notifications: user sees own
+DROP POLICY IF EXISTS "user own notifications select" ON notifications;
 CREATE POLICY "user own notifications select"
   ON notifications FOR SELECT
   USING (user_id = auth.uid());
 
+DROP POLICY IF EXISTS "user own notifications update" ON notifications;
 CREATE POLICY "user own notifications update"
   ON notifications FOR UPDATE
   USING (user_id = auth.uid())
   WITH CHECK (user_id = auth.uid());
 
+DROP POLICY IF EXISTS "service insert notifications" ON notifications;
 CREATE POLICY "service insert notifications"
   ON notifications FOR INSERT
   WITH CHECK (true);  -- service_role bypasses RLS; this allows admin actions via service_role
@@ -581,6 +618,7 @@ CREATE INDEX IF NOT EXISTS idx_media_uploader ON media_files(uploader_id);
 ALTER TABLE media_files ENABLE ROW LEVEL SECURITY;
 
 -- editors and admins can manage media
+DROP POLICY IF EXISTS "editor manage media" ON media_files;
 CREATE POLICY "editor manage media"
   ON media_files FOR ALL
   USING (
@@ -883,18 +921,18 @@ VALUES
   )
 ON CONFLICT (id) DO NOTHING;
 
-INSERT INTO public.quiz_answers (quiz_id, question_id, answer_text, is_correct, order_index)
+INSERT INTO public.quiz_answers (id, question_id, answer_text, is_correct, order_index)
 VALUES
-  ('80000000-0000-0000-0000-000000000001', '90000000-0000-0000-0000-000000000001', '0 / 0', false, 1),
-  ('80000000-0000-0000-0000-000000000001', '90000000-0000-0000-0000-000000000001', '+∞ - ∞', false, 2),
-  ('80000000-0000-0000-0000-000000000001', '90000000-0000-0000-0000-000000000001', '1 / 0', true, 3),
-  ('80000000-0000-0000-0000-000000000001', '90000000-0000-0000-0000-000000000001', '∞ / ∞', false, 4),
+  ('a0000000-0000-0000-0000-000000000001', '90000000-0000-0000-0000-000000000001', '0 / 0', false, 1),
+  ('a0000000-0000-0000-0000-000000000002', '90000000-0000-0000-0000-000000000001', '+∞ - ∞', false, 2),
+  ('a0000000-0000-0000-0000-000000000003', '90000000-0000-0000-0000-000000000001', '1 / 0', true, 3),
+  ('a0000000-0000-0000-0000-000000000004', '90000000-0000-0000-0000-000000000001', '∞ / ∞', false, 4),
 
-  ('80000000-0000-0000-0000-000000000001', '90000000-0000-0000-0000-000000000002', '3', true, 1),
-  ('80000000-0000-0000-0000-000000000001', '90000000-0000-0000-0000-000000000002', '+∞', false, 2),
-  ('80000000-0000-0000-0000-000000000001', '90000000-0000-0000-0000-000000000002', '0', false, 3),
-  ('80000000-0000-0000-0000-000000000001', '90000000-0000-0000-0000-000000000002', '-5', false, 4)
-ON CONFLICT DO NOTHING;
+  ('a0000000-0000-0000-0000-000000000005', '90000000-0000-0000-0000-000000000002', '3', true, 1),
+  ('a0000000-0000-0000-0000-000000000006', '90000000-0000-0000-0000-000000000002', '+∞', false, 2),
+  ('a0000000-0000-0000-0000-000000000007', '90000000-0000-0000-0000-000000000002', '0', false, 3),
+  ('a0000000-0000-0000-0000-000000000008', '90000000-0000-0000-0000-000000000002', '-5', false, 4)
+ON CONFLICT (id) DO NOTHING;
 
 -- Leçon 2 (BROUILLON et PAYANTE : is_free = false, status = 'draft')
 INSERT INTO public.lessons (

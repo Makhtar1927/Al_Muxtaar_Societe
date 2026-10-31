@@ -174,27 +174,40 @@ ALTER TABLE public.quiz_answers ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.progress ENABLE ROW LEVEL SECURITY;
 
 -- Plans : lecture pour tous, écriture pour admin
+DROP POLICY IF EXISTS "plans_select_all" ON public.plans;
 CREATE POLICY "plans_select_all" ON public.plans FOR SELECT USING (true);
+DROP POLICY IF EXISTS "plans_admin_all" ON public.plans;
 CREATE POLICY "plans_admin_all" ON public.plans FOR ALL USING (public.is_admin(auth.uid()));
 
 -- Subscriptions : un élève voit ses propres abonnements, admin voit tout
+DROP POLICY IF EXISTS "subs_select_own" ON public.subscriptions;
 CREATE POLICY "subs_select_own" ON public.subscriptions FOR SELECT USING (auth.uid() = user_id OR public.is_admin(auth.uid()));
+DROP POLICY IF EXISTS "subs_insert_own" ON public.subscriptions;
 CREATE POLICY "subs_insert_own" ON public.subscriptions FOR INSERT WITH CHECK (auth.uid() = user_id);
+DROP POLICY IF EXISTS "subs_admin_all" ON public.subscriptions;
 CREATE POLICY "subs_admin_all" ON public.subscriptions FOR ALL USING (public.is_admin(auth.uid()));
 
 -- Catalogue (levels, tracks, subjects) : lecture publique, écriture admin
+DROP POLICY IF EXISTS "levels_read" ON public.levels;
 CREATE POLICY "levels_read" ON public.levels FOR SELECT USING (true);
+DROP POLICY IF EXISTS "levels_admin" ON public.levels;
 CREATE POLICY "levels_admin" ON public.levels FOR ALL USING (public.is_admin(auth.uid()));
 
+DROP POLICY IF EXISTS "tracks_read" ON public.tracks;
 CREATE POLICY "tracks_read" ON public.tracks FOR SELECT USING (true);
+DROP POLICY IF EXISTS "tracks_admin" ON public.tracks;
 CREATE POLICY "tracks_admin" ON public.tracks FOR ALL USING (public.is_admin(auth.uid()));
 
+DROP POLICY IF EXISTS "subjects_read" ON public.subjects;
 CREATE POLICY "subjects_read" ON public.subjects FOR SELECT USING (true);
+DROP POLICY IF EXISTS "subjects_admin" ON public.subjects;
 CREATE POLICY "subjects_admin" ON public.subjects FOR ALL USING (public.is_admin(auth.uid()));
 
 -- Chapitres : publiés lisibles par tous ; brouillons lisibles uniquement par admin
+DROP POLICY IF EXISTS "chapters_read" ON public.chapters;
 CREATE POLICY "chapters_read" ON public.chapters FOR SELECT
   USING (status = 'published' OR public.is_admin(auth.uid()));
+DROP POLICY IF EXISTS "chapters_admin" ON public.chapters;
 CREATE POLICY "chapters_admin" ON public.chapters FOR ALL
   USING (public.is_admin(auth.uid()));
 
@@ -202,6 +215,7 @@ CREATE POLICY "chapters_admin" ON public.chapters FOR ALL
 -- 1. Les leçons gratuites publiées sont accessibles à tous (visiteurs + élèves)
 -- 2. Les leçons payantes publiées exigent un abonnement actif OU le rôle admin
 -- 3. Les leçons brouillon ne sont visibles que par l'admin
+DROP POLICY IF EXISTS "lessons_read_policy" ON public.lessons;
 CREATE POLICY "lessons_read_policy" ON public.lessons FOR SELECT
   USING (
     (status = 'published' AND is_free = TRUE)
@@ -209,10 +223,12 @@ CREATE POLICY "lessons_read_policy" ON public.lessons FOR SELECT
     OR (status = 'draft' AND public.is_admin(auth.uid()))
   );
 
+DROP POLICY IF EXISTS "lessons_admin_all" ON public.lessons;
 CREATE POLICY "lessons_admin_all" ON public.lessons FOR ALL
   USING (public.is_admin(auth.uid()));
 
 -- Exercices : lisibles si la leçon associée est accessible
+DROP POLICY IF EXISTS "exercises_read_policy" ON public.exercises;
 CREATE POLICY "exercises_read_policy" ON public.exercises FOR SELECT
   USING (
     EXISTS (
@@ -226,26 +242,36 @@ CREATE POLICY "exercises_read_policy" ON public.exercises FOR SELECT
     )
   );
 
+DROP POLICY IF EXISTS "exercises_admin_all" ON public.exercises;
 CREATE POLICY "exercises_admin_all" ON public.exercises FOR ALL
   USING (public.is_admin(auth.uid()));
 
 -- Quizzes, Questions et Réponses
+DROP POLICY IF EXISTS "quizzes_read" ON public.quizzes;
 CREATE POLICY "quizzes_read" ON public.quizzes FOR SELECT USING (true);
+DROP POLICY IF EXISTS "quizzes_admin" ON public.quizzes;
 CREATE POLICY "quizzes_admin" ON public.quizzes FOR ALL USING (public.is_admin(auth.uid()));
 
+DROP POLICY IF EXISTS "questions_read" ON public.quiz_questions;
 CREATE POLICY "questions_read" ON public.quiz_questions FOR SELECT USING (true);
+DROP POLICY IF EXISTS "questions_admin" ON public.quiz_questions;
 CREATE POLICY "questions_admin" ON public.quiz_questions FOR ALL USING (public.is_admin(auth.uid()));
 
+DROP POLICY IF EXISTS "answers_read" ON public.quiz_answers;
 CREATE POLICY "answers_read" ON public.quiz_answers FOR SELECT USING (true);
+DROP POLICY IF EXISTS "answers_admin" ON public.quiz_answers;
 CREATE POLICY "answers_admin" ON public.quiz_answers FOR ALL USING (public.is_admin(auth.uid()));
 
 -- Progression : un élève ne lit et n'écrit que sa propre progression ; l'admin lit tout
+DROP POLICY IF EXISTS "progress_select_own" ON public.progress;
 CREATE POLICY "progress_select_own" ON public.progress FOR SELECT
   USING (auth.uid() = user_id OR public.is_admin(auth.uid()));
 
+DROP POLICY IF EXISTS "progress_upsert_own" ON public.progress;
 CREATE POLICY "progress_upsert_own" ON public.progress FOR INSERT
   WITH CHECK (auth.uid() = user_id);
 
+DROP POLICY IF EXISTS "progress_update_own" ON public.progress;
 CREATE POLICY "progress_update_own" ON public.progress FOR UPDATE
   USING (auth.uid() = user_id)
   WITH CHECK (auth.uid() = user_id);

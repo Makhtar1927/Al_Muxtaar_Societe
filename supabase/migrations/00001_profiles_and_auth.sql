@@ -120,6 +120,7 @@ CREATE TRIGGER on_auth_user_created
 ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
 
 -- Les utilisateurs peuvent lire leur propre profil ; les administrateurs peuvent lire tous les profils
+DROP POLICY IF EXISTS "profiles_select_policy" ON public.profiles;
 CREATE POLICY "profiles_select_policy"
   ON public.profiles
   FOR SELECT
@@ -129,6 +130,7 @@ CREATE POLICY "profiles_select_policy"
   );
 
 -- Un utilisateur peut modifier ses données personnelles mais ne peut PAS changer son rôle ni se débannir
+DROP POLICY IF EXISTS "profiles_update_own_policy" ON public.profiles;
 CREATE POLICY "profiles_update_own_policy"
   ON public.profiles
   FOR UPDATE
@@ -140,12 +142,14 @@ CREATE POLICY "profiles_update_own_policy"
   );
 
 -- Les administrateurs ont les pleins pouvoirs de mise à jour sur tous les profils
+DROP POLICY IF EXISTS "profiles_admin_update_policy" ON public.profiles;
 CREATE POLICY "profiles_admin_update_policy"
   ON public.profiles
   FOR UPDATE
   USING (public.is_admin(auth.uid()));
 
 -- Les administrateurs peuvent supprimer des profils
+DROP POLICY IF EXISTS "profiles_admin_delete_policy" ON public.profiles;
 CREATE POLICY "profiles_admin_delete_policy"
   ON public.profiles
   FOR DELETE

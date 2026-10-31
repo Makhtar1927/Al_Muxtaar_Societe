@@ -22,6 +22,7 @@ CREATE INDEX IF NOT EXISTS idx_media_uploader ON media_files(uploader_id);
 ALTER TABLE media_files ENABLE ROW LEVEL SECURITY;
 
 -- editors and admins can manage media
+DROP POLICY IF EXISTS "editor manage media" ON media_files;
 CREATE POLICY "editor manage media"
   ON media_files FOR ALL
   USING (

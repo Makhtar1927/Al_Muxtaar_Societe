@@ -60,35 +60,42 @@ ALTER TABLE audit_logs     ENABLE ROW LEVEL SECURITY;
 ALTER TABLE notifications  ENABLE ROW LEVEL SECURITY;
 
 -- payments: student sees own, admin sees all
+DROP POLICY IF EXISTS "student own payments" ON payments;
 CREATE POLICY "student own payments"
   ON payments FOR SELECT
   USING (student_id = auth.uid());
 
+DROP POLICY IF EXISTS "student insert own payment" ON payments;
 CREATE POLICY "student insert own payment"
   ON payments FOR INSERT
   WITH CHECK (student_id = auth.uid());
 
+DROP POLICY IF EXISTS "admin all payments" ON payments;
 CREATE POLICY "admin all payments"
   ON payments FOR ALL
   USING (public.is_admin())
   WITH CHECK (public.is_admin());
 
 -- audit_logs: admin only
+DROP POLICY IF EXISTS "admin all audit_logs" ON audit_logs;
 CREATE POLICY "admin all audit_logs"
   ON audit_logs FOR ALL
   USING (public.is_admin())
   WITH CHECK (public.is_admin());
 
 -- notifications: user sees own
+DROP POLICY IF EXISTS "user own notifications select" ON notifications;
 CREATE POLICY "user own notifications select"
   ON notifications FOR SELECT
   USING (user_id = auth.uid());
 
+DROP POLICY IF EXISTS "user own notifications update" ON notifications;
 CREATE POLICY "user own notifications update"
   ON notifications FOR UPDATE
   USING (user_id = auth.uid())
   WITH CHECK (user_id = auth.uid());
 
+DROP POLICY IF EXISTS "service insert notifications" ON notifications;
 CREATE POLICY "service insert notifications"
   ON notifications FOR INSERT
   WITH CHECK (true);  -- service_role bypasses RLS; this allows admin actions via service_role
