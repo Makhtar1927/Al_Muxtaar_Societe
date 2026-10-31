@@ -7,6 +7,17 @@ import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { ProgressBar } from '@/components/ui/progress-bar';
 import { Avatar } from '@/components/ui/avatar';
+import {
+  CheckCircle2,
+  AlertCircle,
+  Clock,
+  Sparkles,
+  BookOpen,
+  Play,
+  ArrowRight,
+  Megaphone,
+  MessageCircle,
+} from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Tableau de bord — Al Muxtaar',
@@ -15,8 +26,8 @@ export const metadata: Metadata = {
 
 export const dynamic = 'force-dynamic';
 
-function daysLeft(endsAt: string) {
-  const diff = new Date(endsAt).getTime() - Date.now();
+function daysLeft(endDate: string) {
+  const diff = new Date(endDate).getTime() - Date.now();
   return Math.max(0, Math.ceil(diff / 86_400_000));
 }
 
@@ -47,14 +58,17 @@ export default async function DashboardPage() {
     .eq('id', user.id)
     .single();
 
-  const fullName = profile?.full_name || profile?.first_name || 'Élève';
+  const fullName =
+    profile?.first_name && profile?.last_name
+      ? `${profile.first_name} ${profile.last_name}`
+      : profile?.first_name || 'Élève';
   const avatarName = profile?.avatar || 'avatar_01_eleve_garcon.svg';
 
   // 2. Fetch active/pending subscription
   const { data: currentSub } = await supabase
     .from('subscriptions')
-    .select('id, status, starts_at, ends_at, plans(name, price)')
-    .eq('student_id', user.id)
+    .select('id, status, start_date, end_date, plans(name, price_fcfa, duration_days)')
+    .eq('user_id', user.id)
     .in('status', ['active', 'pending', 'expired'])
     .order('created_at', { ascending: false })
     .limit(1)
@@ -62,7 +76,7 @@ export default async function DashboardPage() {
 
   const isActiveSub = currentSub?.status === 'active';
   const isPendingSub = currentSub?.status === 'pending';
-  const remainingDays = currentSub && isActiveSub ? daysLeft(currentSub.ends_at) : 0;
+  const remainingDays = currentSub && isActiveSub && currentSub.end_date ? daysLeft(currentSub.end_date) : 0;
 
   // 3. Fetch chapters and lessons for Terminale S2 Maths
   const { data: chapters } = await admin
@@ -137,14 +151,16 @@ export default async function DashboardPage() {
             <Link
               href={`/cours/terminale/s2/mathematiques/${resumeLesson.chapterId}/${resumeLesson.lessonId}`}
             >
-              <Button variant="primary" size="md">
-                ▶ Reprendre : {resumeLesson.title.slice(0, 20)}…
+              <Button variant="primary" size="md" className="flex items-center gap-2">
+                <Play className="w-4 h-4 fill-current" />
+                Reprendre : {resumeLesson.title.slice(0, 20)}…
               </Button>
             </Link>
           ) : (
             <Link href="/cours/terminale/s2/mathematiques">
-              <Button variant="primary" size="md">
-                📚 Accéder aux cours
+              <Button variant="primary" size="md" className="flex items-center gap-2">
+                <BookOpen className="w-4 h-4" />
+                Accéder aux cours
               </Button>
             </Link>
           )}
@@ -161,16 +177,22 @@ export default async function DashboardPage() {
           }`}
         >
           <div className="flex items-center gap-3 text-center sm:text-left">
-            <span className="text-2xl">{remainingDays <= 7 ? '⚠️' : '✅'}</span>
+            {remainingDays <= 7 ? (
+              <AlertCircle className="w-6 h-6 text-coral shrink-0" strokeWidth={2} />
+            ) : (
+              <CheckCircle2 className="w-6 h-6 text-turquoise shrink-0" strokeWidth={2} />
+            )}
             <div>
               <p className="font-bold text-sm sm:text-base">
                 {remainingDays <= 7
                   ? `Attention : il te reste seulement ${remainingDays} jour${remainingDays > 1 ? 's' : ''} d'abonnement !`
                   : 'Abonnement actif — Accès complet à tous les cours'}
               </p>
-              <p className="text-xs text-text/70 mt-0.5">
-                Valide jusqu&apos;au {formatDate(currentSub.ends_at)}
-              </p>
+              {currentSub.end_date && (
+                <p className="text-xs text-text/70 mt-0.5">
+                  Valide jusqu&apos;au {formatDate(currentSub.end_date)}
+                </p>
+              )}
             </div>
           </div>
           <Link href="/abonnement">
@@ -185,13 +207,13 @@ export default async function DashboardPage() {
       ) : isPendingSub ? (
         <div className="rounded-2xl p-5 border border-gold/40 bg-gold/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3 text-center sm:text-left">
-            <span className="text-2xl">⏳</span>
+            <Clock className="w-6 h-6 text-gold shrink-0" strokeWidth={2} />
             <div>
               <p className="font-bold text-sm text-navy">
                 Demande d&apos;abonnement en cours de validation
               </p>
               <p className="text-xs text-text/70 mt-0.5">
-                L&apos;administrateur vérifie ton paiement Wave / Orange Money sous 24h.
+                L&apos;administrateur vérifie votre paiement Wave sous peu.
               </p>
             </div>
           </div>
@@ -204,19 +226,19 @@ export default async function DashboardPage() {
       ) : (
         <div className="rounded-2xl p-5 border border-turquoise/30 bg-turquoise/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3 text-center sm:text-left">
-            <span className="text-2xl">⭐</span>
+            <Sparkles className="w-6 h-6 text-turquoise shrink-0" strokeWidth={2} />
             <div>
               <p className="font-bold text-sm text-navy">
                 Débloque tous les cours, corrigés détaillés et quiz
               </p>
               <p className="text-xs text-text/70 mt-0.5">
-                Formule solidaire à 700 FCFA/mois via Wave ou Orange Money.
+                Formule solidaire dès 700 FCFA via Wave officiel.
               </p>
             </div>
           </div>
           <Link href="/abonnement">
             <Button variant="primary" size="sm">
-              S&apos;abonner (700 FCFA)
+              S&apos;abonner (Dès 700 FCFA)
             </Button>
           </Link>
         </div>
@@ -238,7 +260,7 @@ export default async function DashboardPage() {
         </Card>
         <Card className="text-center py-4">
           <p className="text-3xl font-extrabold text-navy">Tle S2</p>
-          <p className="text-xs text-text/60 mt-1 font-medium">Série & Niveau</p>
+          <p className="text-xs text-text/60 mt-1 font-medium">Série &amp; Niveau</p>
         </Card>
       </div>
 
@@ -250,9 +272,10 @@ export default async function DashboardPage() {
           </h2>
           <Link
             href="/cours/terminale/s2/mathematiques"
-            className="text-xs font-semibold text-turquoise hover:underline"
+            className="text-xs font-semibold text-turquoise hover:underline flex items-center gap-1"
           >
-            Voir tout le programme →
+            <span>Voir tout le programme</span>
+            <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
 
@@ -293,9 +316,10 @@ export default async function DashboardPage() {
                     {firstLesson && (
                       <Link
                         href={`/cours/terminale/s2/mathematiques/${ch.id}/${firstLesson.id}`}
-                        className="text-xs text-turquoise font-semibold hover:underline"
+                        className="text-xs text-turquoise font-semibold hover:underline flex items-center gap-0.5"
                       >
-                        {chPercent === 100 ? 'Revoir' : 'Continuer'} →
+                        <span>{chPercent === 100 ? 'Revoir' : 'Continuer'}</span>
+                        <ArrowRight className="w-3 h-3" />
                       </Link>
                     )}
                   </div>
@@ -314,7 +338,8 @@ export default async function DashboardPage() {
         <Card>
           <CardHeader>
             <CardTitle className="text-base flex items-center gap-2">
-              <span>📢</span> Annonces pédagogiques
+              <Megaphone className="w-5 h-5 text-turquoise" strokeWidth={2} />
+              <span>Annonces pédagogiques</span>
             </CardTitle>
             <CardDescription>Nouvelles de l&apos;équipe Al Muxtaar</CardDescription>
           </CardHeader>
@@ -338,13 +363,14 @@ export default async function DashboardPage() {
         <Card>
           <CardHeader>
             <CardTitle className="text-base flex items-center gap-2">
-              <span>💬</span> Support & Assistance
+              <MessageCircle className="w-5 h-5 text-turquoise" strokeWidth={2} />
+              <span>Support &amp; Assistance</span>
             </CardTitle>
             <CardDescription>Une question sur la plateforme ?</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <p className="text-xs text-text/70 leading-relaxed">
-              Notre équipe d&apos;assistance est à votre écoute pour toute question concernant les cours, les abonnements Wave/Orange Money ou les identifiants de connexion.
+              Notre équipe d&apos;assistance est à votre écoute pour toute question concernant les cours, les abonnements Wave ou les identifiants de connexion.
             </p>
             <div className="flex flex-col sm:flex-row gap-2">
               <a

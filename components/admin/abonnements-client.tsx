@@ -10,6 +10,17 @@ import {
   activateSubscriptionAction,
   extendSubscriptionAction,
 } from '@/lib/subscription/actions';
+import {
+  CheckCircle2,
+  XCircle,
+  PauseCircle,
+  Clock,
+  User,
+  Phone,
+  CalendarDays,
+  CreditCard,
+  FileText,
+} from 'lucide-react';
 
 interface Payment {
   id: string;
@@ -24,12 +35,12 @@ interface Payment {
 interface Subscription {
   id: string;
   status: string;
-  starts_at: string;
-  ends_at: string;
+  start_date: string | null;
+  end_date: string | null;
   created_at: string;
-  student_id: string;
-  profiles: { full_name: string | null; phone: string; avatar_url: string | null } | null;
-  plans: { name: string; price: number; duration_months: number } | null;
+  user_id: string;
+  profiles: { first_name: string | null; last_name: string | null; phone: string; avatar: string | null } | null;
+  plans: { name: string; price_fcfa: number; duration_days: number } | null;
   payments: Payment[];
 }
 
@@ -43,12 +54,24 @@ function formatFCFA(n: number) {
   return n.toLocaleString('fr-FR') + ' FCFA';
 }
 
-function formatDate(iso: string) {
+function formatDate(iso: string | null) {
+  if (!iso) return '—';
   return new Date(iso).toLocaleDateString('fr-FR', {
     day: 'numeric',
     month: 'short',
     year: 'numeric',
   });
+}
+
+function formatDuration(days: number) {
+  if (days >= 365) return `${Math.round(days / 365)} an${days >= 730 ? 's' : ''}`;
+  if (days >= 30) return `${Math.round(days / 30)} mois`;
+  return `${days} jours`;
+}
+
+function fullName(profiles: Subscription['profiles']) {
+  if (!profiles) return 'Inconnu';
+  return `${profiles.first_name ?? ''} ${profiles.last_name ?? ''}`.trim() || 'Inconnu';
 }
 
 const PROVIDER_LABELS: Record<string, string> = {
@@ -64,7 +87,7 @@ export default function AdminAbonnementsClient({ subscriptions }: Props) {
   const [filter, setFilter] = useState('pending');
   const [selected, setSelected] = useState<Subscription | null>(null);
   const [notes, setNotes] = useState('');
-  const [extendMonths, setExtendMonths] = useState(1);
+  const [extendDays, setExtendDays] = useState(30);
 
   const filtered =
     filter === 'tous'
@@ -74,7 +97,7 @@ export default function AdminAbonnementsClient({ subscriptions }: Props) {
   function openDetail(sub: Subscription) {
     setSelected(sub);
     setNotes('');
-    setExtendMonths(1);
+    setExtendDays(30);
   }
 
   function handleReview(action: 'activate' | 'reject' | 'suspend') {
@@ -99,7 +122,7 @@ export default function AdminAbonnementsClient({ subscriptions }: Props) {
     if (!selected) return;
     const fd = new FormData();
     fd.append('subscription_id', selected.id);
-    fd.append('months', String(extendMonths));
+    fd.append('days', String(extendDays));
 
     startTransition(async () => {
       const res = await extendSubscriptionAction(fd);
@@ -156,81 +179,85 @@ export default function AdminAbonnementsClient({ subscriptions }: Props) {
 
       {/* List */}
       {filtered.length === 0 ? (
-        <p className="text-center text-text/50 py-12">Aucun abonnement dans cette catégorie</p>
+        <Card className="py-12 text-center">
+          <p className="text-text/40 text-sm">Aucun abonnement dans cette catégorie.</p>
+        </Card>
       ) : (
-        <div className="space-y-2">
-          {filtered.map((sub) => {
-            const payment = sub.payments?.[0];
-            return (
-              <button
-                key={sub.id}
-                onClick={() => openDetail(sub)}
-                className="w-full text-left rounded-2xl border border-navy/10 bg-white p-4 hover:border-turquoise/40 hover:shadow-sm transition-all"
-              >
-                <div className="flex items-center justify-between gap-3 flex-wrap">
-                  <div>
-                    <p className="font-semibold text-navy">
-                      {sub.profiles?.full_name ?? 'Élève'}
-                    </p>
-                    <p className="text-sm text-text/60">{sub.profiles?.phone}</p>
+        <div className="space-y-3">
+          {filtered.map((sub) => (
+            <Card
+              key={sub.id}
+              className="cursor-pointer hover:border-turquoise/40 transition-colors"
+              onClick={() => openDetail(sub)}
+            >
+              <CardContent className="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full bg-navy/10 flex items-center justify-center shrink-0">
+                    <User className="w-4 h-4 text-navy" strokeWidth={2} />
                   </div>
-                  <div className="flex items-center gap-3">
-                    <div className="text-right hidden sm:block">
-                      <p className="text-sm font-medium text-navy">
-                        {sub.plans?.name ?? '—'}
-                      </p>
-                      <p className="text-xs text-text/50">
-                        {sub.plans ? formatFCFA(sub.plans.price) : '—'}
-                      </p>
-                    </div>
-                    {payment && (
-                      <span className="text-xs bg-surface border border-navy/10 rounded-lg px-2 py-1 text-text/60">
-                        {PROVIDER_LABELS[payment.provider] ?? payment.provider}
-                      </span>
-                    )}
-                    <Badge
-                      status={
-                        sub.status === 'active'
-                          ? 'active'
-                          : sub.status === 'pending'
-                          ? 'pending'
-                          : sub.status === 'expired'
-                          ? 'expired'
-                          : 'rejected'
-                      }
-                    />
+                  <div>
+                    <p className="font-semibold text-navy text-sm">{fullName(sub.profiles)}</p>
+                    <p className="text-xs text-text/50 flex items-center gap-1 mt-0.5">
+                      <Phone className="w-3 h-3" strokeWidth={2} />
+                      {sub.profiles?.phone ?? '—'}
+                    </p>
                   </div>
                 </div>
-                <p className="text-xs text-text/40 mt-2">
-                  Demandé le {formatDate(sub.created_at)} · Expire le {formatDate(sub.ends_at)}
-                </p>
-              </button>
-            );
-          })}
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="text-xs text-text/50">
+                    {sub.plans?.name ?? '—'} — {sub.plans ? formatFCFA(sub.plans.price_fcfa) : '—'}
+                  </span>
+                  <Badge
+                    status={
+                      sub.status === 'active'
+                        ? 'active'
+                        : sub.status === 'pending'
+                        ? 'pending'
+                        : sub.status === 'expired'
+                        ? 'expired'
+                        : 'rejected'
+                    }
+                  />
+                  <span className="text-xs text-text/40">{formatDate(sub.created_at)}</span>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       )}
 
       {/* Detail Modal */}
       {selected && (
-        <Modal
-          isOpen
-          onClose={() => setSelected(null)}
-          title={`Abonnement — ${selected.profiles?.full_name ?? 'Élève'}`}
-        >
-          <div className="space-y-4">
+        <Modal isOpen={true} onClose={() => setSelected(null)} title="Détail de l'abonnement">
+          <div className="space-y-4 text-sm">
             {/* Student info */}
-            <div className="rounded-xl bg-surface p-4 space-y-1.5 text-sm">
-              <p>
-                <span className="text-text/50">Élève :</span>{' '}
-                <strong>{selected.profiles?.full_name ?? '—'}</strong>
+            <div className="rounded-xl bg-surface p-4 space-y-2">
+              <p className="font-semibold text-navy mb-1 flex items-center gap-1.5">
+                <User className="w-4 h-4" strokeWidth={2} />
+                Élève
               </p>
               <p>
+                <span className="text-text/50">Nom :</span>{' '}
+                <strong>{fullName(selected.profiles)}</strong>
+              </p>
+              <p className="flex items-center gap-1">
+                <Phone className="w-3 h-3 text-text/40" strokeWidth={2} />
                 <span className="text-text/50">Téléphone :</span>{' '}
-                {selected.profiles?.phone}
+                {selected.profiles?.phone ?? '—'}
+              </p>
+            </div>
+
+            {/* Subscription info */}
+            <div className="rounded-xl bg-surface p-4 space-y-2">
+              <p className="font-semibold text-navy mb-1 flex items-center gap-1.5">
+                <FileText className="w-4 h-4" strokeWidth={2} />
+                Abonnement
               </p>
               <p>
                 <span className="text-text/50">Plan :</span>{' '}
-                {selected.plans?.name} — {selected.plans ? formatFCFA(selected.plans.price) : '—'}
+                {selected.plans?.name ?? '—'} —{' '}
+                {selected.plans ? formatFCFA(selected.plans.price_fcfa) : '—'}
+                {selected.plans ? ` / ${formatDuration(selected.plans.duration_days)}` : ''}
               </p>
               <p>
                 <span className="text-text/50">Statut :</span>{' '}
@@ -246,31 +273,32 @@ export default function AdminAbonnementsClient({ subscriptions }: Props) {
                   }
                 />
               </p>
-              <p>
+              <p className="flex items-center gap-1">
+                <CalendarDays className="w-3 h-3 text-text/40" strokeWidth={2} />
                 <span className="text-text/50">Période :</span>{' '}
-                {formatDate(selected.starts_at)} → {formatDate(selected.ends_at)}
+                {formatDate(selected.start_date)} → {formatDate(selected.end_date)}
               </p>
             </div>
 
             {/* Payment info */}
             {selected.payments?.length > 0 && (
-              <div className="rounded-xl bg-surface p-4 space-y-1.5 text-sm">
-                <p className="font-semibold text-navy mb-2">Paiement</p>
+              <div className="rounded-xl bg-surface p-4 space-y-1.5">
+                <p className="font-semibold text-navy mb-1 flex items-center gap-1.5">
+                  <CreditCard className="w-4 h-4" strokeWidth={2} />
+                  Paiement
+                </p>
                 <p>
                   <span className="text-text/50">Opérateur :</span>{' '}
                   {PROVIDER_LABELS[selected.payments[0].provider] ?? selected.payments[0].provider}
                 </p>
                 <p>
-                  <span className="text-text/50">Code TX :</span>{' '}
-                  <code className="bg-white border border-navy/10 rounded px-1.5 py-0.5 text-navy">
+                  <span className="text-text/50">Référence :</span>{' '}
+                  <code className="bg-white border border-navy/10 rounded px-1.5 py-0.5 text-navy text-xs">
                     {selected.payments[0].transaction_code}
                   </code>
                 </p>
-                {selected.payments[0].proof_image_url && (
-                  <p>
-                    <span className="text-text/50">Capture :</span>{' '}
-                    <span className="text-turquoise text-xs">Image fournie ✓</span>
-                  </p>
+                {selected.payments[0].notes && (
+                  <p className="text-xs text-text/60 italic">{selected.payments[0].notes}</p>
                 )}
               </div>
             )}
@@ -296,17 +324,19 @@ export default function AdminAbonnementsClient({ subscriptions }: Props) {
                   variant="primary"
                   onClick={() => handleReview('activate')}
                   disabled={isPending}
-                  className="flex-1"
+                  className="flex-1 flex items-center justify-center gap-2"
                 >
-                  ✅ Activer
+                  <CheckCircle2 className="w-4 h-4" strokeWidth={2} />
+                  Activer
                 </Button>
                 <Button
                   variant="coral"
                   onClick={() => handleReview('reject')}
                   disabled={isPending}
-                  className="flex-1"
+                  className="flex-1 flex items-center justify-center gap-2"
                 >
-                  ❌ Rejeter
+                  <XCircle className="w-4 h-4" strokeWidth={2} />
+                  Rejeter
                 </Button>
               </div>
             )}
@@ -315,24 +345,34 @@ export default function AdminAbonnementsClient({ subscriptions }: Props) {
                 variant="outline"
                 onClick={() => handleReview('suspend')}
                 disabled={isPending}
-                className="w-full"
+                className="w-full flex items-center justify-center gap-2"
               >
-                ⏸ Suspendre
+                <PauseCircle className="w-4 h-4" strokeWidth={2} />
+                Suspendre
               </Button>
             )}
 
             {/* Extend */}
             <div className="border-t border-navy/10 pt-4">
-              <p className="text-sm font-medium text-text mb-2">Prolonger l&apos;abonnement</p>
+              <p className="text-sm font-medium text-text mb-2 flex items-center gap-1.5">
+                <Clock className="w-4 h-4 text-text/50" strokeWidth={2} />
+                Prolonger l&apos;abonnement
+              </p>
               <div className="flex gap-2">
                 <select
-                  value={extendMonths}
-                  onChange={(e) => setExtendMonths(Number(e.target.value))}
+                  value={extendDays}
+                  onChange={(e) => setExtendDays(Number(e.target.value))}
                   className="flex-1 rounded-xl border border-navy/20 bg-white px-3 py-2 text-sm text-text focus:outline-none focus:ring-2 focus:ring-turquoise/40"
                 >
-                  {[1, 2, 3, 6, 12].map((m) => (
-                    <option key={m} value={m}>
-                      {m} mois
+                  {[
+                    { label: '30 jours (1 mois)', value: 30 },
+                    { label: '60 jours (2 mois)', value: 60 },
+                    { label: '90 jours (3 mois)', value: 90 },
+                    { label: '180 jours (6 mois)', value: 180 },
+                    { label: '365 jours (1 an)', value: 365 },
+                  ].map((opt) => (
+                    <option key={opt.value} value={opt.value}>
+                      {opt.label}
                     </option>
                   ))}
                 </select>
@@ -351,4 +391,3 @@ export default function AdminAbonnementsClient({ subscriptions }: Props) {
     </div>
   );
 }
-

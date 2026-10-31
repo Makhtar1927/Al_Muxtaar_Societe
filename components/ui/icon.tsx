@@ -1,105 +1,144 @@
+"use client";
+
 import * as React from "react";
-import Image from "next/image";
+import {
+  BookOpen,
+  Briefcase,
+  ShoppingBag,
+  GraduationCap,
+  Calculator,
+  Dna,
+  Atom,
+  LayoutDashboard,
+  CreditCard,
+  Sparkles,
+  HelpCircle,
+  Smartphone,
+  Box,
+  TrendingUp,
+  Award,
+  Wallet,
+  ShieldCheck,
+  Bell,
+  Compass,
+  Code2,
+  Wrench,
+  Lock,
+  User,
+  Calendar,
+  CheckCircle2,
+  AlertCircle,
+  Clock,
+  ArrowRight,
+  ExternalLink,
+  ChevronDown,
+  Search,
+  Menu,
+  X,
+  FileText,
+  LucideIcon,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export const ICON_NAMES = [
-  "01_module_doc",
-  "02_module_service",
-  "03_module_boutique",
-  "04_cours",
-  "05_maths",
-  "06_svt",
-  "07_physique_chimie",
-  "08_dashboard",
-  "09_abonnement",
-  "10_genie_en_herbe",
-  "11_quiz",
-  "12_hors_ligne",
-  "13_illustration_3d",
-  "14_progression",
-  "15_certificat",
-  "16_paiement_mobile",
-  "17_securite_admin",
-  "18_notification",
-  "19_orientation",
-  "20_developpement",
-  "21_maintenance",
-  "22_cadenas_acces",
-  "23_eleve_profil",
-  "24_calendrier_abonnement",
-] as const;
+// Map des icônes unicolores professionnelles Al Muxtaar
+const ICON_MAP: Record<string, LucideIcon> = {
+  // Modules principaux
+  "01_module_doc": BookOpen,
+  doc: BookOpen,
+  "02_module_service": Briefcase,
+  service: Briefcase,
+  "03_module_boutique": ShoppingBag,
+  boutique: ShoppingBag,
 
-export type IconName = (typeof ICON_NAMES)[number];
+  // Matières & Pédagogie
+  "04_cours": GraduationCap,
+  cours: GraduationCap,
+  "05_maths": Calculator,
+  maths: Calculator,
+  "06_svt": Dna,
+  svt: Dna,
+  "07_physique_chimie": Atom,
+  physique: Atom,
 
-// Alias courts et pratiques pour le code
-export const ICON_ALIASES: Record<string, IconName> = {
-  doc: "01_module_doc",
-  service: "02_module_service",
-  boutique: "03_module_boutique",
-  cours: "04_cours",
-  maths: "05_maths",
-  svt: "06_svt",
-  physique: "07_physique_chimie",
-  dashboard: "08_dashboard",
-  abonnement: "09_abonnement",
-  genie: "10_genie_en_herbe",
-  quiz: "11_quiz",
-  hors_ligne: "12_hors_ligne",
-  illustration_3d: "13_illustration_3d",
-  progression: "14_progression",
-  certificat: "15_certificat",
-  paiement: "16_paiement_mobile",
-  securite: "17_securite_admin",
-  notification: "18_notification",
-  orientation: "19_orientation",
-  developpement: "20_developpement",
-  maintenance: "21_maintenance",
-  cadenas: "22_cadenas_acces",
-  profil: "23_eleve_profil",
-  calendrier: "24_calendrier_abonnement",
+  // Tableau de bord & Profil
+  "08_dashboard": LayoutDashboard,
+  dashboard: LayoutDashboard,
+  "09_abonnement": CreditCard,
+  abonnement: CreditCard,
+  "10_genie_en_herbe": Sparkles,
+  genie: Sparkles,
+  "11_quiz": HelpCircle,
+  quiz: HelpCircle,
+  "12_hors_ligne": Smartphone,
+  hors_ligne: Smartphone,
+  "13_illustration_3d": Box,
+  illustration_3d: Box,
+  "14_progression": TrendingUp,
+  progression: TrendingUp,
+  "15_certificat": Award,
+  certificat: Award,
+
+  // Paiement & Sécurité
+  "16_paiement_mobile": Wallet,
+  paiement: Wallet,
+  wave: Wallet,
+  "17_securite_admin": ShieldCheck,
+  securite: ShieldCheck,
+  "18_notification": Bell,
+  notification: Bell,
+  "19_orientation": Compass,
+  orientation: Compass,
+  "20_developpement": Code2,
+  developpement: Code2,
+  "21_maintenance": Wrench,
+  maintenance: Wrench,
+  "22_cadenas_acces": Lock,
+  cadenas: Lock,
+  "23_eleve_profil": User,
+  profil: User,
+  "24_calendrier_abonnement": Calendar,
+  calendrier: Calendar,
+
+  // Utilitaires UI
+  check: CheckCircle2,
+  alert: AlertCircle,
+  clock: Clock,
+  arrow_right: ArrowRight,
+  external: ExternalLink,
+  chevron_down: ChevronDown,
+  search: Search,
+  menu: Menu,
+  close: X,
+  file: FileText,
 };
 
-export interface IconProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
-  name: IconName | keyof typeof ICON_ALIASES;
+export type IconName = keyof typeof ICON_MAP;
+export const ICON_NAMES = Object.keys(ICON_MAP) as IconName[];
+
+export interface IconProps extends React.SVGProps<SVGSVGElement> {
+  name: IconName;
   size?: "xs" | "sm" | "md" | "lg" | "xl" | number;
-  alt?: string;
+  className?: string;
 }
 
-export function Icon({
-  name,
-  size = "md",
-  alt,
-  className,
-  ...props
-}: IconProps) {
-  const resolvedName = (ICON_ALIASES[name] || name) as IconName;
-  const fileName = resolvedName.endsWith(".svg") ? resolvedName : `${resolvedName}.svg`;
+const SIZE_MAP: Record<string, number> = {
+  xs: 16,
+  sm: 20,
+  md: 24,
+  lg: 32,
+  xl: 48,
+};
 
-  const sizeMap: Record<string, number> = {
-    xs: 18,
-    sm: 24,
-    md: 32,
-    lg: 48,
-    xl: 64,
-  };
-
-  const pixelSize = typeof size === "number" ? size : sizeMap[size] || 32;
+export function Icon({ name, size = "md", className, ...props }: IconProps) {
+  const IconComponent = ICON_MAP[name] || BookOpen;
+  const pixelSize = typeof size === "number" ? size : SIZE_MAP[size] || 24;
 
   return (
-    <div
-      className={cn("inline-flex shrink-0 items-center justify-center select-none", className)}
-      style={{ width: pixelSize, height: pixelSize }}
+    <IconComponent
+      size={pixelSize}
+      strokeWidth={2}
+      className={cn("shrink-0 transition-colors", className)}
       {...props}
-    >
-      <Image
-        src={`/assets/icons/${fileName}`}
-        alt={alt || `Icône ${resolvedName}`}
-        width={pixelSize}
-        height={pixelSize}
-        className="h-full w-full object-contain"
-        unoptimized
-      />
-    </div>
+    />
   );
 }
-

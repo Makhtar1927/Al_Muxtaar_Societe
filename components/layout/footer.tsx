@@ -14,7 +14,7 @@ export function Footer() {
             <p className="text-xs text-navy-light leading-relaxed">
               La plateforme éducative et technologique de référence au Sénégal. Conforme aux programmes officiels.
             </p>
-            <p className="text-xs font-medium text-navy">Dakar, Sénégal 🇸🇳</p>
+            <p className="text-xs font-medium text-navy">Dakar, Sénégal</p>
           </div>
 
           {/* Module Al_Muxtaar_Doc */}
@@ -35,12 +35,12 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/doc/tarifs" className="hover:text-turquoise transition-colors">
-                  Formules & Tarifs
+                  Formules &amp; Tarifs
                 </Link>
               </li>
               <li>
                 <Link href="/abonnement" className="hover:text-turquoise transition-colors">
-                  S&apos;abonner (Wave / Orange Money)
+                  S&apos;abonner (Wave)
                 </Link>
               </li>
             </ul>

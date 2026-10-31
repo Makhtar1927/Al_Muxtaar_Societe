@@ -4,14 +4,15 @@ import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Lock } from 'lucide-react';
 
 export default function Paywall() {
   return (
     <div className="py-12 px-4 max-w-xl mx-auto">
       <Card className="border-2 border-turquoise/30 shadow-lg text-center">
         <CardHeader className="space-y-3">
-          <div className="mx-auto w-16 h-16 rounded-full bg-gold/15 flex items-center justify-center text-3xl">
-            🔒
+          <div className="mx-auto w-16 h-16 rounded-full bg-gold/15 flex items-center justify-center">
+            <Lock className="w-8 h-8 text-gold" strokeWidth={2} />
           </div>
           <CardTitle className="text-2xl text-navy">Contenu réservé aux abonnés</CardTitle>
           <CardDescription className="text-base text-text/75">
@@ -33,7 +34,7 @@ export default function Paywall() {
           <div className="p-3 rounded-xl bg-turquoise/10 border border-turquoise/20">
             <p className="text-xs text-turquoise font-bold uppercase tracking-wide">Tarif solidaire</p>
             <p className="text-2xl font-bold text-navy mt-1">700 FCFA <span className="text-sm font-normal text-text/60">/ mois</span></p>
-            <p className="text-xs text-text/60 mt-0.5">ou 2 000 FCFA pour 3 mois (Wave & Orange Money)</p>
+            <p className="text-xs text-text/60 mt-0.5">ou 2 000 FCFA pour 3 mois (Paiement Wave direct)</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -53,4 +54,3 @@ export default function Paywall() {
     </div>
   );
 }
-

@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/components/ui/toast';
 import { uploadContentImageAction } from '@/lib/content/actions';
+import { Image as ImageIcon, Eye, Edit3, Save, Trash2 } from 'lucide-react';
 
 interface Lesson {
   id: string;
@@ -198,10 +199,11 @@ export default function LessonEditor({ lesson, onSave, onDelete, onCancel }: Pro
             type="button"
             onClick={() => fileRef.current?.click()}
             disabled={uploading}
-            className="px-2 py-1 text-xs rounded bg-turquoise/10 text-turquoise hover:bg-turquoise/20"
+            className="px-2 py-1 text-xs rounded bg-turquoise/10 text-turquoise hover:bg-turquoise/20 flex items-center gap-1"
             title="Insérer une image"
           >
-            {uploading ? '⏳' : '🖼 Image'}
+            <ImageIcon className="w-3.5 h-3.5" strokeWidth={2} />
+            <span>{uploading ? 'Upload…' : 'Image'}</span>
           </button>
           <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={handleImageUpload} />
 
@@ -209,9 +211,19 @@ export default function LessonEditor({ lesson, onSave, onDelete, onCancel }: Pro
           <button
             type="button"
             onClick={() => setPreview((v) => !v)}
-            className="ml-auto px-2 py-1 text-xs rounded bg-navy/5 hover:bg-navy/10"
+            className="ml-auto px-2 py-1 text-xs rounded bg-navy/5 hover:bg-navy/10 flex items-center gap-1"
           >
-            {preview ? '✏️ Éditer' : '👁 Aperçu'}
+            {preview ? (
+              <>
+                <Edit3 className="w-3.5 h-3.5" strokeWidth={2} />
+                <span>Éditer</span>
+              </>
+            ) : (
+              <>
+                <Eye className="w-3.5 h-3.5" strokeWidth={2} />
+                <span>Aperçu</span>
+              </>
+            )}
           </button>
         </div>
 
@@ -231,15 +243,17 @@ export default function LessonEditor({ lesson, onSave, onDelete, onCancel }: Pro
 
       {/* Actions */}
       <div className="flex gap-3 flex-wrap">
-        <Button variant="primary" onClick={handleSave} disabled={saving} className="flex-1 sm:flex-none sm:min-w-[160px]">
-          {saving ? 'Enregistrement…' : '💾 Enregistrer'}
+        <Button variant="primary" onClick={handleSave} disabled={saving} className="flex-1 sm:flex-none sm:min-w-[160px] flex items-center justify-center gap-2">
+          <Save className="w-4 h-4" strokeWidth={2} />
+          <span>{saving ? 'Enregistrement…' : 'Enregistrer'}</span>
         </Button>
         <Button variant="outline" onClick={onCancel}>
           Annuler
         </Button>
         {onDelete && (
-          <Button variant="coral" onClick={onDelete} className="ml-auto">
-            🗑 Supprimer
+          <Button variant="coral" onClick={onDelete} className="ml-auto flex items-center gap-1.5">
+            <Trash2 className="w-4 h-4" strokeWidth={2} />
+            <span>Supprimer</span>
           </Button>
         )}
       </div>

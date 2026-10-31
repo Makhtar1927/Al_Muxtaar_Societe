@@ -10,14 +10,8 @@ import { createAdminClient } from '@/lib/supabase/admin';
 
 const RequestSubscriptionSchema = z.object({
   plan_id: z.string().uuid('Plan invalide'),
-  provider: z.enum(['wave', 'orange_money', 'free_money', 'other'], {
-    errorMap: () => ({ message: 'Opérateur invalide' }),
-  }),
-  transaction_code: z
-    .string()
-    .min(4, 'Code de transaction trop court')
-    .max(100, 'Code de transaction trop long')
-    .trim(),
+  phone_sender: z.string().optional(),
+  notes: z.string().max(255).optional(),
 });
 
 const ReviewSubscriptionSchema = z.object({
@@ -43,13 +37,13 @@ export async function requestSubscriptionAction(
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user) return { success: false, error: 'Non authentifié' };
+  if (!user) return { success: false, error: 'Vous devez être connecté pour souscrire.' };
 
   // Parse + validate
   const raw = {
     plan_id: formData.get('plan_id'),
-    provider: formData.get('provider'),
-    transaction_code: formData.get('transaction_code'),
+    phone_sender: formData.get('phone_sender') || undefined,
+    notes: formData.get('notes') || undefined,
   };
 
   const parsed = RequestSubscriptionSchema.safeParse(raw);
@@ -57,99 +51,84 @@ export async function requestSubscriptionAction(
     const first = parsed.error.errors[0];
     return { success: false, error: first.message };
   }
-  const { plan_id, provider, transaction_code } = parsed.data;
+  const { plan_id, phone_sender, notes } = parsed.data;
+
+  // Récupérer le profil de l'élève
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('first_name, last_name, phone')
+    .eq('id', user.id)
+    .single();
 
   // Fetch plan
   const { data: plan, error: planErr } = await supabase
     .from('plans')
-    .select('id, duration_months, price')
+    .select('id, name, duration_days, price_fcfa')
     .eq('id', plan_id)
     .single();
-  if (planErr || !plan) return { success: false, error: 'Plan introuvable' };
+  if (planErr || !plan) return { success: false, error: 'Formule introuvable' };
 
-  // Check for existing active/pending subscription
+  // Vérifier si une souscription active ou en attente existe déjà
   const { data: existing } = await supabase
     .from('subscriptions')
     .select('id, status')
-    .eq('student_id', user.id)
+    .eq('user_id', user.id)
     .in('status', ['active', 'pending'])
     .maybeSingle();
 
   if (existing?.status === 'active') {
     return {
       success: false,
-      error: 'Tu as déjà un abonnement actif.',
+      error: 'Vous avez déjà un abonnement actif en cours.',
     };
   }
   if (existing?.status === 'pending') {
     return {
       success: false,
-      error: 'Une demande est déjà en cours de traitement.',
+      error: 'Une demande de paiement est déjà en attente de validation.',
     };
   }
 
-  // Handle proof image upload if provided (optional)
-  let proof_image_url: string | null = null;
-  const proofFile = formData.get('proof_image') as File | null;
-  if (proofFile && proofFile.size > 0) {
-    if (proofFile.size > 5 * 1024 * 1024) {
-      return { success: false, error: 'Image trop lourde (max 5 Mo)' };
-    }
-    const ext = proofFile.name.split('.').pop() ?? 'jpg';
-    const path = `proofs/${user.id}/${Date.now()}.${ext}`;
-    const { error: uploadErr } = await supabase.storage
-      .from('payments')
-      .upload(path, proofFile, { upsert: false });
-    if (uploadErr) {
-      return { success: false, error: "Erreur lors de l'envoi de l'image" };
-    }
-    proof_image_url = path;
-  }
-
-  // Create subscription (pending)
-  const starts_at = new Date().toISOString();
-  const ends_at = new Date();
-  ends_at.setMonth(ends_at.getMonth() + plan.duration_months);
-
+  // Créer l'abonnement au statut pending
   const { data: sub, error: subErr } = await supabase
     .from('subscriptions')
     .insert({
-      student_id: user.id,
+      user_id: user.id,
       plan_id,
       status: 'pending',
-      starts_at,
-      ends_at: ends_at.toISOString(),
     })
     .select('id')
     .single();
 
   if (subErr || !sub) {
-    return { success: false, error: "Erreur lors de la création de l'abonnement" };
+    return { success: false, error: "Erreur lors de l'enregistrement de la demande" };
   }
 
-  // Create payment record
+  // Enregistrer le paiement Wave (sans exigence de capture d'écran)
+  const studentPhone = profile?.phone ?? user.email ?? 'Non renseigné';
+  const senderNumber = phone_sender?.trim() || studentPhone;
+  const studentFullName = profile ? `${profile.first_name} ${profile.last_name}` : 'Élève';
+
   const { error: payErr } = await supabase.from('payments').insert({
     subscription_id: sub.id,
     student_id: user.id,
     plan_id,
-    amount: plan.price,
-    provider,
-    transaction_code,
-    proof_image_url,
+    amount: plan.price_fcfa,
+    provider: 'wave',
+    transaction_code: `WAVE-${senderNumber}`,
+    notes: notes?.trim() || `Paiement Wave de ${studentFullName} (${senderNumber})`,
     status: 'pending',
   });
 
   if (payErr) {
-    return { success: false, error: 'Erreur lors de la soumission du paiement' };
+    return { success: false, error: 'Erreur lors de la confirmation du paiement' };
   }
 
-  // Notify admin (via notification for admin users — simplified)
-  // In production, trigger webhook or edge function
   revalidatePath('/abonnement');
   return {
     success: true,
     data: null,
-    message: 'Demande envoyée ! L\'admin va vérifier ton paiement sous 24h.',
+    message: 'Demande transmise avec succès ! Votre accès sera activé dès constatation du transfert Wave.',
   };
 }
 
@@ -183,10 +162,10 @@ export async function activateSubscriptionAction(
 
   const { subscription_id, action, notes } = parsed.data;
 
-  // Fetch subscription
+  // Récupérer l'abonnement et la durée du plan
   const { data: sub } = await admin
     .from('subscriptions')
-    .select('id, student_id, plan_id, ends_at')
+    .select('id, user_id, plan_id, plans(duration_days)')
     .eq('id', subscription_id)
     .single();
   if (!sub) return { success: false, error: 'Abonnement introuvable' };
@@ -211,14 +190,30 @@ export async function activateSubscriptionAction(
       return { success: false, error: 'Action invalide' };
   }
 
-  // Update subscription
+  // Calcul des dates si activation
+  const updateData: Record<string, unknown> = {
+    status: newStatus,
+    updated_at: new Date().toISOString(),
+  };
+
+  if (action === 'activate') {
+    const startDate = new Date();
+    const durationDays = (sub.plans as { duration_days?: number })?.duration_days || 30;
+    const endDate = new Date(startDate.getTime() + durationDays * 24 * 60 * 60 * 1000);
+
+    updateData.start_date = startDate.toISOString();
+    updateData.end_date = endDate.toISOString();
+    updateData.activated_by = user.id;
+  }
+
+  // Mettre à jour l'abonnement
   const { error: updateErr } = await admin
     .from('subscriptions')
-    .update({ status: newStatus })
+    .update(updateData)
     .eq('id', subscription_id);
-  if (updateErr) return { success: false, error: 'Erreur mise à jour abonnement' };
+  if (updateErr) return { success: false, error: 'Erreur lors de la mise à jour' };
 
-  // Update payment status
+  // Mettre à jour le paiement
   await admin
     .from('payments')
     .update({
@@ -230,25 +225,25 @@ export async function activateSubscriptionAction(
     .eq('subscription_id', subscription_id)
     .eq('status', 'pending');
 
-  // Audit log
+  // Journal d'audit
   await admin.from('audit_logs').insert({
     actor_id: user.id,
     action: auditAction,
     target_type: 'subscription',
     target_id: subscription_id,
-    meta: { notes, student_id: sub.student_id },
+    meta: { notes, user_id: sub.user_id },
   });
 
-  // Notification to student
+  // Notification à l'élève
   const notifBody =
     action === 'activate'
-      ? 'Ton abonnement a été activé. Bonne étude !'
+      ? 'Votre abonnement Al Muxtaar Doc a été activé avec succès ! Bonne révision.'
       : action === 'reject'
-      ? 'Ta demande a été rejetée. Contacte le support si besoin.'
-      : 'Ton abonnement a été suspendu. Contacte le support.';
+      ? 'Votre demande a été refusée. Veuillez contacter le support WhatsApp pour plus de détails.'
+      : 'Votre abonnement a été suspendu par l’administration.';
 
   await admin.from('notifications').insert({
-    user_id: sub.student_id,
+    user_id: sub.user_id,
     type:
       action === 'activate'
         ? 'subscription_activated'
@@ -257,15 +252,16 @@ export async function activateSubscriptionAction(
         : 'subscription_suspended',
     title:
       action === 'activate'
-        ? 'Abonnement activé ✅'
+        ? 'Abonnement activé'
         : action === 'reject'
-        ? 'Demande rejetée ❌'
-        : 'Abonnement suspendu ⚠️',
+        ? 'Demande refusée'
+        : 'Abonnement suspendu',
     body: notifBody,
     meta: { subscription_id, plan_id: sub.plan_id },
   });
 
   revalidatePath('/admin/abonnements');
+  revalidatePath('/abonnement');
   return { success: true, data: null, message: 'Action effectuée avec succès.' };
 }
 
@@ -290,25 +286,21 @@ export async function extendSubscriptionAction(
   if (profile?.role !== 'admin') return { success: false, error: 'Accès refusé' };
 
   const subscription_id = formData.get('subscription_id') as string;
-  const months = parseInt(formData.get('months') as string, 10);
-
-  if (!subscription_id || isNaN(months) || months < 1 || months > 12) {
-    return { success: false, error: 'Données invalides' };
-  }
+  const days = parseInt(formData.get('days') as string, 10) || 30;
 
   const { data: sub } = await admin
     .from('subscriptions')
-    .select('id, ends_at, student_id')
+    .select('id, end_date, user_id')
     .eq('id', subscription_id)
     .single();
   if (!sub) return { success: false, error: 'Abonnement introuvable' };
 
-  const newEndsAt = new Date(sub.ends_at);
-  newEndsAt.setMonth(newEndsAt.getMonth() + months);
+  const currentEnd = sub.end_date ? new Date(sub.end_date) : new Date();
+  const newEndDate = new Date(currentEnd.getTime() + days * 24 * 60 * 60 * 1000);
 
   const { error } = await admin
     .from('subscriptions')
-    .update({ ends_at: newEndsAt.toISOString(), status: 'active' })
+    .update({ end_date: newEndDate.toISOString(), status: 'active' })
     .eq('id', subscription_id);
   if (error) return { success: false, error: 'Erreur prolongation' };
 
@@ -317,19 +309,19 @@ export async function extendSubscriptionAction(
     action: 'subscription.extended',
     target_type: 'subscription',
     target_id: subscription_id,
-    meta: { months, new_ends_at: newEndsAt.toISOString(), student_id: sub.student_id },
+    meta: { days, new_end_date: newEndDate.toISOString(), user_id: sub.user_id },
   });
 
   await admin.from('notifications').insert({
-    user_id: sub.student_id,
+    user_id: sub.user_id,
     type: 'subscription_activated',
-    title: 'Abonnement prolongé 🎉',
-    body: `Ton abonnement a été prolongé de ${months} mois.`,
+    title: 'Abonnement prolongé',
+    body: `Votre abonnement a été prolongé de ${days} jours.`,
     meta: { subscription_id },
   });
 
   revalidatePath('/admin/abonnements');
-  return { success: true, data: null, message: `Abonnement prolongé de ${months} mois.` };
+  return { success: true, data: null, message: `Abonnement prolongé de ${days} jours.` };
 }
 
 // ─── expireOverdueSubscriptions (cron / admin) ────────────────────────────────
@@ -343,11 +335,10 @@ export async function expireOverdueSubscriptions(): Promise<ActionResult<number>
   return { success: true, data: data as number };
 }
 
-// ─── getMySubscription ────────────────────────────────────────────────────────
+// ─── signOutRedirect ─────────────────────────────────────────────────────────
 
 export async function signOutRedirect() {
   const supabase = createServerClient();
   await supabase.auth.signOut();
   redirect('/connexion');
 }
-

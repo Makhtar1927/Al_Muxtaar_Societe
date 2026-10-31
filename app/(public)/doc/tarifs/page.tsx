@@ -3,12 +3,12 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Icon } from "@/components/ui/icon";
+import { Check, Wallet, ArrowUpRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Tarifs & Formules d'abonnement | Al_Muxtaar_Doc",
   description:
-    "Des formules simples et accessibles dès 700 FCFA par mois. Paiement direct par Wave et Orange Money au Sénégal.",
+    "Des formules simples et accessibles dès 700 FCFA par mois. Paiement direct par Wave au Sénégal.",
 };
 
 const PLANS = [
@@ -50,12 +50,11 @@ export default function TarifsPage() {
   const waveBaseLink = process.env.NEXT_PUBLIC_WAVE_LINK || "https://pay.wave.com/m/M_sn_2MOwdjUaQWQJ/c/sn/";
 
   return (
-    <div className="space-y-16 py-8 sm:space-y-20 sm:py-12">
-      {/* Hero */}
-      <section className="mx-auto max-w-5xl px-4 text-center sm:px-6">
-        <div className="mx-auto mb-4 inline-flex items-center gap-2 rounded-full bg-gold-light px-3.5 py-1 text-xs font-bold text-[#A86E00]">
-          <Icon name="abonnement" size={16} />
-          Tarifs Transparents & Sans Engagement
+    <div className="space-y-12 pb-16">
+      {/* En-tête */}
+      <section className="text-center pt-8 px-4 sm:px-6">
+        <div className="mx-auto mb-3 inline-flex items-center gap-2 rounded-full bg-turquoise-light px-3.5 py-1 text-xs font-bold text-turquoise">
+          Tarification Solidaire &amp; Transparente
         </div>
         <h1 className="text-3xl font-black tracking-tight text-navy sm:text-5xl">
           Un investissement minime pour votre réussite au Bac.
@@ -65,53 +64,54 @@ export default function TarifsPage() {
         </p>
       </section>
 
-      {/* Grille des 2 Formules */}
+      {/* Grille des Formules */}
       <section className="mx-auto max-w-5xl px-4 sm:px-6">
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2">
           {PLANS.map((plan) => (
             <Card
               key={plan.id}
               variant={plan.popular ? "elevated" : "default"}
-              className={plan.popular ? "relative border-2 border-turquoise shadow-hover" : ""}
+              className={`flex flex-col justify-between relative ${
+                plan.popular ? "border-2 border-turquoise shadow-card-hover" : ""
+              }`}
             >
               {plan.popular && (
                 <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                  <span className="rounded-full bg-turquoise px-4 py-1 text-xs font-black text-white shadow-soft">
-                    FORMULE LA PLUS POPULAIRE
-                  </span>
+                  <Badge status="active" className="shadow-soft px-3 py-0.5 text-xs">
+                    Recommandé pour le Bac
+                  </Badge>
                 </div>
               )}
-              <CardHeader className={plan.popular ? "pt-8" : ""}>
-                <div className="flex items-center justify-between">
-                  <CardTitle className="text-xl sm:text-2xl">{plan.name}</CardTitle>
-                  <Badge status="active">{plan.duration}</Badge>
-                </div>
+
+              <CardHeader className={plan.popular ? "pt-7" : ""}>
+                <CardTitle className="text-xl text-navy">{plan.name}</CardTitle>
+                <CardDescription>{plan.duration}</CardDescription>
                 <div className="mt-4">
-                  <span className="text-3xl font-black text-navy sm:text-4xl">
-                    {plan.price}
-                  </span>
-                  <p className="mt-1 text-xs font-semibold text-turquoise">
-                    {plan.priceDaily}
-                  </p>
+                  <span className="text-3xl font-black text-navy">{plan.price}</span>
+                  <p className="text-xs text-turquoise font-medium mt-1">{plan.priceDaily}</p>
                 </div>
               </CardHeader>
-              <CardContent className="space-y-3">
-                <p className="text-xs font-bold text-navy uppercase tracking-wider">
-                  Ce qui est inclus :
-                </p>
-                <ul className="space-y-2 text-xs sm:text-sm text-navy-light">
-                  {plan.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center gap-2">
-                      <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-turquoise-light text-turquoise text-[10px] font-bold">
-                        ✓
-                      </span>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+
+              <CardContent>
+                <div className="border-t border-surface-muted pt-4">
+                  <p className="text-xs font-bold uppercase tracking-wider text-navy-light mb-3">
+                    Ce qui est inclus :
+                  </p>
+                  <ul className="space-y-2.5">
+                    {plan.features.map((feat, i) => (
+                      <li key={i} className="flex items-start gap-2.5 text-xs text-navy">
+                        <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-turquoise-light text-turquoise text-[10px] font-bold mt-0.5">
+                          <Check className="w-3 h-3" strokeWidth={3} />
+                        </span>
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </CardContent>
-              <CardFooter className="pt-4">
-                <Link href="/abonnement" className="w-full">
+
+              <CardFooter>
+                <Link href="/inscription" className="w-full">
                   <Button
                     variant={plan.popular ? "primary" : "outline"}
                     size="lg"
@@ -141,42 +141,44 @@ export default function TarifsPage() {
             <div className="rounded-2xl bg-surface p-5 border border-surface-muted">
               <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-turquoise text-white font-bold mb-3">2</span>
               <h3 className="font-bold text-navy text-sm">Paiement 1 clic Wave</h3>
-              <p className="mt-1 text-xs text-navy-light">Cliquez sur le lien Wave officiel avec le montant préinscrit.</p>
+              <p className="mt-1 text-xs text-navy-light">Cliquez sur le lien Wave avec le montant préinscrit.</p>
             </div>
             <div className="rounded-2xl bg-surface p-5 border border-surface-muted">
               <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-turquoise text-white font-bold mb-3">3</span>
-              <h3 className="font-bold text-navy text-sm">Envoyez la preuve</h3>
-              <p className="mt-1 text-xs text-navy-light">Collez votre code de transaction Wave reçu par SMS.</p>
+              <h3 className="font-bold text-navy text-sm">Confirmez en un clic</h3>
+              <p className="mt-1 text-xs text-navy-light">Cliquez sur &quot;J&apos;ai effectué mon paiement Wave&quot;.</p>
             </div>
             <div className="rounded-2xl bg-surface p-5 border border-surface-muted">
               <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-turquoise text-white font-bold mb-3">4</span>
               <h3 className="font-bold text-navy text-sm">Accès ouvert</h3>
-              <p className="mt-1 text-xs text-navy-light">Validation de l&apos;admin et déblocage de vos cours.</p>
+              <p className="mt-1 text-xs text-navy-light">L&apos;admin vérifie votre nom et active vos cours.</p>
             </div>
           </div>
 
           {/* Numéro Marchand Officiel Wave */}
           <div className="mt-8 rounded-2xl border border-[#1BAAF7]/30 bg-[#1BAAF7]/5 p-6 text-center max-w-2xl mx-auto">
             <h4 className="text-sm font-bold text-navy uppercase tracking-wider mb-2 flex items-center justify-center gap-2">
-              <span>🌊</span>
-              <span>Lien & Numéro Officiels Wave — Al Muxtaar</span>
+              <Wallet className="w-4 h-4 text-[#1BAAF7]" strokeWidth={2} />
+              <span>Lien &amp; Numéro Officiels Wave — Al Muxtaar</span>
             </h4>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-3 text-xs sm:text-sm font-mono font-bold text-navy">
               <a
                 href={`${waveBaseLink}?amount=700`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl bg-[#1BAAF7] text-white px-4 py-2 shadow-soft hover:bg-[#0c85d0] transition-colors font-sans text-xs"
+                className="rounded-xl bg-[#1BAAF7] text-white px-4 py-2 shadow-soft hover:bg-[#0c85d0] transition-colors font-sans text-xs inline-flex items-center gap-1"
               >
-                Lien direct Wave (700 F) ↗
+                <span>Lien direct Wave (700 F)</span>
+                <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2} />
               </a>
               <a
                 href={`${waveBaseLink}?amount=2000`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl bg-[#1BAAF7] text-white px-4 py-2 shadow-soft hover:bg-[#0c85d0] transition-colors font-sans text-xs"
+                className="rounded-xl bg-[#1BAAF7] text-white px-4 py-2 shadow-soft hover:bg-[#0c85d0] transition-colors font-sans text-xs inline-flex items-center gap-1"
               >
-                Lien direct Wave (2 000 F) ↗
+                <span>Lien direct Wave (2 000 F)</span>
+                <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2} />
               </a>
               <span className="rounded-xl bg-white px-3.5 py-2 border border-surface-muted shadow-card font-mono">
                 Numéro : {waveNumber}
@@ -198,13 +200,13 @@ export default function TarifsPage() {
           <div className="rounded-2xl bg-white p-5 border border-surface-muted shadow-card">
             <h4 className="text-sm font-bold text-navy">Quel est le délai d&apos;activation de mon compte ?</h4>
             <p className="mt-1 text-xs text-navy-light leading-relaxed">
-              L&apos;activation est effectuée manuellement par notre équipe dès réception de votre transaction. Elle intervient généralement entre 5 et 30 minutes pendant les heures ouvrées (8h - 22h).
+              L&apos;activation est effectuée manuellement par notre équipe dès réception de votre transaction Wave. Elle intervient généralement entre 5 et 30 minutes pendant les heures ouvrées (8h - 22h).
             </p>
           </div>
           <div className="rounded-2xl bg-white p-5 border border-surface-muted shadow-card">
             <h4 className="text-sm font-bold text-navy">Y a-t-il un renouvellement automatique avec prélèvement ?</h4>
             <p className="mt-1 text-xs text-navy-light leading-relaxed">
-              Non. Aucun prélèvement automatique n&apos;est effectué sur votre compte Wave ou Orange Money. À l&apos;expiration de votre période, vous êtes libre de renouveler ou non.
+              Non. Aucun prélèvement automatique n&apos;est effectué sur votre compte Wave. À l&apos;expiration de votre période, vous êtes libre de renouveler ou non.
             </p>
           </div>
           <div className="rounded-2xl bg-white p-5 border border-surface-muted shadow-card">
@@ -218,4 +220,3 @@ export default function TarifsPage() {
     </div>
   );
 }
-

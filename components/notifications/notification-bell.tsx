@@ -8,6 +8,7 @@ import {
   markAllNotificationsAsReadAction,
   NotificationItem,
 } from '@/lib/notifications/actions';
+import { Bell, Sparkles } from 'lucide-react';
 
 function timeAgo(dateString: string) {
   const diff = Date.now() - new Date(dateString).getTime();
@@ -79,7 +80,7 @@ export default function NotificationBell() {
         className="relative p-2 rounded-xl text-navy/70 hover:text-navy hover:bg-navy/5 transition-colors focus:outline-none"
         aria-label="Notifications"
       >
-        <span className="text-xl">🔔</span>
+        <Bell className="w-5 h-5 text-navy/75" strokeWidth={2} />
         {unreadCount > 0 && (
           <span className="absolute top-1 right-1 w-4 h-4 bg-coral text-white text-[10px] font-bold rounded-full flex items-center justify-center animate-pulse">
             {unreadCount > 9 ? '9+' : unreadCount}
@@ -115,8 +116,8 @@ export default function NotificationBell() {
             {loading && notifications.length === 0 ? (
               <p className="text-center text-xs text-text/50 py-8">Chargement…</p>
             ) : notifications.length === 0 ? (
-              <div className="p-8 text-center text-xs text-text/50 space-y-1">
-                <span className="text-2xl block">✨</span>
+              <div className="p-8 text-center text-xs text-text/50 space-y-2">
+                <Sparkles className="w-6 h-6 text-turquoise/50 mx-auto" strokeWidth={1.5} />
                 <p>Aucune notification pour le moment.</p>
               </div>
             ) : (

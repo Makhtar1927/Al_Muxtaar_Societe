@@ -60,7 +60,7 @@ export default function HomePage() {
               <Icon name="paiement" size={24} />
             </div>
             <div>
-              <h4 className="text-sm font-bold text-navy">Wave & Orange Money</h4>
+              <h4 className="text-sm font-bold text-navy">Paiement Wave</h4>
               <p className="text-xs text-navy-light">Dès 700 FCFA / mois</p>
             </div>
           </div>
@@ -215,9 +215,9 @@ export default function HomePage() {
               <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-turquoise text-white font-black text-lg">
                 3
               </div>
-              <h3 className="text-base font-bold text-navy">Réglez par Wave ou OM</h3>
+              <h3 className="text-base font-bold text-navy">Réglez via Wave</h3>
               <p className="mt-2 text-xs text-navy-light">
-                Envoyez le montant sur nos numéros marchands officiels et collez votre code de transaction.
+                Payez directement en un clic avec l&apos;application Wave officielle, sans frais supplémentaires.
               </p>
             </div>
 

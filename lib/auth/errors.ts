@@ -54,3 +54,4 @@ export function translateAuthError(errorMessage?: string | null): string {
   // Si le message est déjà en français ou inconnu
   return errorMessage;
 }
+

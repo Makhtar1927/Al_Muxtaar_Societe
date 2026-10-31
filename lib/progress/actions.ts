@@ -54,7 +54,7 @@ export async function toggleLessonCompleteAction(
   return {
     success: true,
     data: { completed: nextCompleted },
-    message: nextCompleted ? 'Leçon marquée comme terminée ! 🎉' : 'Marquage retiré.',
+    message: nextCompleted ? 'Leçon marquée comme terminée !' : 'Marquage retiré.',
   };
 }
 

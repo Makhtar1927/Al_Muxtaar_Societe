@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Modal } from '@/components/ui/modal';
 import { useToast } from '@/components/ui/toast';
 import { toggleBanStudentAction, updateUserRoleAction } from '@/lib/admin/actions';
+import { Download, CheckCircle2, AlertTriangle } from 'lucide-react';
 
 interface ProfileItem {
   id: string;
@@ -134,8 +135,9 @@ export default function ElevesManagerClient({ initialProfiles }: Props) {
             <option value="admin">Administrateurs</option>
           </select>
 
-          <Button variant="outline" size="sm" onClick={exportCSV}>
-            📥 Exporter CSV
+          <Button variant="outline" size="sm" onClick={exportCSV} className="flex items-center gap-1.5">
+            <Download className="w-3.5 h-3.5" strokeWidth={2} />
+            <span>Exporter CSV</span>
           </Button>
         </div>
       </div>
@@ -290,9 +292,19 @@ export default function ElevesManagerClient({ initialProfiles }: Props) {
                 size="sm"
                 onClick={() => handleToggleBan(selectedUser)}
                 disabled={isPending}
-                className="w-full"
+                className="w-full flex items-center justify-center gap-2"
               >
-                {selectedUser.is_banned ? '✅ Réactiver le compte' : '⚠️ Suspendre le compte'}
+                {selectedUser.is_banned ? (
+                  <>
+                    <CheckCircle2 className="w-4 h-4" strokeWidth={2} />
+                    <span>Réactiver le compte</span>
+                  </>
+                ) : (
+                  <>
+                    <AlertTriangle className="w-4 h-4" strokeWidth={2} />
+                    <span>Suspendre le compte</span>
+                  </>
+                )}
               </Button>
             </div>
           </div>

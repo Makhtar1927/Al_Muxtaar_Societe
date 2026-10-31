@@ -29,10 +29,10 @@ export default async function AdminAbonnementsPage() {
   const { data: subscriptions } = await admin
     .from('subscriptions')
     .select(
-      `id, status, starts_at, ends_at, created_at,
-       student_id,
-       profiles!subscriptions_student_id_fkey(full_name, phone, avatar_url),
-       plans(name, price, duration_months),
+      `id, status, start_date, end_date, created_at,
+       user_id,
+       profiles!user_id(first_name, last_name, phone, avatar),
+       plans(name, price_fcfa, duration_days),
        payments(id, provider, transaction_code, proof_image_url, status, notes, reviewed_at)`
     )
     .order('created_at', { ascending: false })
@@ -50,4 +50,3 @@ export default async function AdminAbonnementsPage() {
     </main>
   );
 }
-
