@@ -1,108 +1,371 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { redirect } from "next/navigation";
-import { createClient } from "@/lib/supabase/server";
-import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Icon } from "@/components/ui/icon";
-import { Avatar } from "@/components/ui/avatar";
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { redirect } from 'next/navigation';
+import { createClient } from '@/lib/supabase/server';
+import { createAdminClient } from '@/lib/supabase/admin';
+import { Button } from '@/components/ui/button';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
+import { ProgressBar } from '@/components/ui/progress-bar';
+import { Avatar } from '@/components/ui/avatar';
 
 export const metadata: Metadata = {
-  title: "Tableau de Bord Élève | Al Muxtaar Société",
-  description: "Espace personnel de révision et suivi de progression en Terminale S2.",
+  title: 'Tableau de bord — Al Muxtaar',
+  description: 'Suivi de révision et progression du programme Terminale S2.',
 };
+
+export const dynamic = 'force-dynamic';
+
+function daysLeft(endsAt: string) {
+  const diff = new Date(endsAt).getTime() - Date.now();
+  return Math.max(0, Math.ceil(diff / 86_400_000));
+}
+
+function formatDate(iso: string) {
+  return new Date(iso).toLocaleDateString('fr-FR', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+}
 
 export default async function DashboardPage() {
   const supabase = createClient();
+  const admin = createAdminClient();
+
   const {
     data: { user },
   } = await supabase.auth.getUser();
 
   if (!user) {
-    redirect("/connexion?next=/dashboard");
+    redirect('/connexion?redirect=/dashboard');
   }
 
+  // 1. Fetch student profile
   const { data: profile } = await supabase
-    .from("profiles")
-    .select("*")
-    .eq("id", user.id)
+    .from('profiles')
+    .select('*')
+    .eq('id', user.id)
     .single();
 
-  const firstName = profile?.first_name || user.user_metadata?.first_name || "Élève";
-  const avatarName = profile?.avatar || "avatar_01_eleve_garcon.svg";
+  const fullName = profile?.full_name || profile?.first_name || 'Élève';
+  const avatarName = profile?.avatar || 'avatar_01_eleve_garcon.svg';
+
+  // 2. Fetch active/pending subscription
+  const { data: currentSub } = await supabase
+    .from('subscriptions')
+    .select('id, status, starts_at, ends_at, plans(name, price)')
+    .eq('student_id', user.id)
+    .in('status', ['active', 'pending', 'expired'])
+    .order('created_at', { ascending: false })
+    .limit(1)
+    .maybeSingle();
+
+  const isActiveSub = currentSub?.status === 'active';
+  const isPendingSub = currentSub?.status === 'pending';
+  const remainingDays = currentSub && isActiveSub ? daysLeft(currentSub.ends_at) : 0;
+
+  // 3. Fetch chapters and lessons for Terminale S2 Maths
+  const { data: chapters } = await admin
+    .from('chapters')
+    .select(`
+      id, title, sort_order, status,
+      lessons(id, title, sort_order, is_free_preview, status)
+    `)
+    .eq('status', 'published')
+    .order('sort_order');
+
+  // 4. Fetch user progress
+  const { data: progressRows } = await supabase
+    .from('progress')
+    .select('lesson_id, chapter_id, is_completed, updated_at')
+    .eq('student_id', user.id);
+
+  const completedLessonIds = new Set(
+    (progressRows ?? []).filter((p) => p.is_completed).map((p) => p.lesson_id)
+  );
+
+  // Compute overall statistics
+  let totalLessons = 0;
+  let completedCount = 0;
+  let resumeLesson: { chapterId: string; lessonId: string; title: string } | null = null;
+
+  for (const ch of chapters ?? []) {
+    const pubLessons = (ch.lessons ?? [])
+      .filter((l) => l.status === 'published')
+      .sort((a, b) => a.sort_order - b.sort_order);
+
+    for (const l of pubLessons) {
+      totalLessons += 1;
+      if (completedLessonIds.has(l.id)) {
+        completedCount += 1;
+      } else if (!resumeLesson) {
+        resumeLesson = {
+          chapterId: ch.id,
+          lessonId: l.id,
+          title: l.title,
+        };
+      }
+    }
+  }
+
+  const overallPercent = totalLessons > 0 ? Math.round((completedCount / totalLessons) * 100) : 0;
+
+  // WhatsApp support link
+  const waSupport = process.env.NEXT_PUBLIC_WHATSAPP_SUPPORT ?? '221770000000';
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-12 space-y-8">
-      {/* Bienvenue card */}
-      <div className="rounded-2xl bg-navy p-6 text-white shadow-soft sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+    <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-10 space-y-8">
+      {/* ── 1. Welcome Card ── */}
+      <div className="rounded-3xl bg-navy p-6 sm:p-8 text-white shadow-md flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-4 text-center sm:text-left">
           <Avatar name={avatarName} size="xl" isBordered />
           <div>
-            <div className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-0.5 text-xs font-semibold text-turquoise">
-              Espace Élève · Terminale S2
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-turquoise">
+              Terminale S2 · Mathématiques
             </div>
-            <h1 className="text-2xl sm:text-3xl font-black mt-1">
-              Bienvenue, {firstName} !
+            <h1 className="text-2xl sm:text-3xl font-bold mt-1.5">
+              Bonjour, {fullName} !
             </h1>
             <p className="text-xs sm:text-sm text-surface-muted mt-0.5">
-              Préparez sereinement votre Baccalauréat avec Al_Muxtaar_Doc.
+              Suis ta progression et prépare le Baccalauréat avec succès.
             </p>
           </div>
         </div>
-        <div>
-          <Link href="/abonnement">
-            <Button variant="primary" size="md">
-              <Icon name="abonnement" size={18} className="mr-2" />
-              Gérer mon abonnement
-            </Button>
-          </Link>
+
+        <div className="flex flex-wrap items-center gap-3">
+          {resumeLesson ? (
+            <Link
+              href={`/cours/terminale/s2/mathematiques/${resumeLesson.chapterId}/${resumeLesson.lessonId}`}
+            >
+              <Button variant="primary" size="md">
+                ▶ Reprendre : {resumeLesson.title.slice(0, 20)}…
+              </Button>
+            </Link>
+          ) : (
+            <Link href="/cours/terminale/s2/mathematiques">
+              <Button variant="primary" size="md">
+                📚 Accéder aux cours
+              </Button>
+            </Link>
+          )}
         </div>
       </div>
 
-      {/* Raccourcis & Progression */}
-      <div className="grid gap-6 sm:grid-cols-2">
+      {/* ── 2. Subscription Status Banner ── */}
+      {isActiveSub ? (
+        <div
+          className={`rounded-2xl p-5 border flex flex-col sm:flex-row items-center justify-between gap-4 ${
+            remainingDays <= 7
+              ? 'bg-coral/10 border-coral/30 text-coral'
+              : 'bg-white border-navy/10 text-navy'
+          }`}
+        >
+          <div className="flex items-center gap-3 text-center sm:text-left">
+            <span className="text-2xl">{remainingDays <= 7 ? '⚠️' : '✅'}</span>
+            <div>
+              <p className="font-bold text-sm sm:text-base">
+                {remainingDays <= 7
+                  ? `Attention : il te reste seulement ${remainingDays} jour${remainingDays > 1 ? 's' : ''} d'abonnement !`
+                  : 'Abonnement actif — Accès complet à tous les cours'}
+              </p>
+              <p className="text-xs text-text/70 mt-0.5">
+                Valide jusqu&apos;au {formatDate(currentSub.ends_at)}
+              </p>
+            </div>
+          </div>
+          <Link href="/abonnement">
+            <Button
+              variant={remainingDays <= 7 ? 'coral' : 'outline'}
+              size="sm"
+            >
+              Renouveler mon abonnement
+            </Button>
+          </Link>
+        </div>
+      ) : isPendingSub ? (
+        <div className="rounded-2xl p-5 border border-gold/40 bg-gold/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3 text-center sm:text-left">
+            <span className="text-2xl">⏳</span>
+            <div>
+              <p className="font-bold text-sm text-navy">
+                Demande d&apos;abonnement en cours de validation
+              </p>
+              <p className="text-xs text-text/70 mt-0.5">
+                L&apos;administrateur vérifie ton paiement Wave / Orange Money sous 24h.
+              </p>
+            </div>
+          </div>
+          <Link href="/abonnement">
+            <Button variant="outline" size="sm">
+              Voir ma demande
+            </Button>
+          </Link>
+        </div>
+      ) : (
+        <div className="rounded-2xl p-5 border border-turquoise/30 bg-turquoise/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3 text-center sm:text-left">
+            <span className="text-2xl">⭐</span>
+            <div>
+              <p className="font-bold text-sm text-navy">
+                Débloque tous les cours, corrigés détaillés et quiz
+              </p>
+              <p className="text-xs text-text/70 mt-0.5">
+                Formule solidaire à 700 FCFA/mois via Wave ou Orange Money.
+              </p>
+            </div>
+          </div>
+          <Link href="/abonnement">
+            <Button variant="primary" size="sm">
+              S&apos;abonner (700 FCFA)
+            </Button>
+          </Link>
+        </div>
+      )}
+
+      {/* ── 3. Overview Metrics ── */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <Card className="text-center py-4">
+          <p className="text-3xl font-extrabold text-navy">{completedCount}</p>
+          <p className="text-xs text-text/60 mt-1 font-medium">Leçons terminées</p>
+        </Card>
+        <Card className="text-center py-4">
+          <p className="text-3xl font-extrabold text-turquoise">{overallPercent}%</p>
+          <p className="text-xs text-text/60 mt-1 font-medium">Progression globale</p>
+        </Card>
+        <Card className="text-center py-4">
+          <p className="text-3xl font-extrabold text-gold">{chapters?.length ?? 0}</p>
+          <p className="text-xs text-text/60 mt-1 font-medium">Chapitres disponibles</p>
+        </Card>
+        <Card className="text-center py-4">
+          <p className="text-3xl font-extrabold text-navy">Tle S2</p>
+          <p className="text-xs text-text/60 mt-1 font-medium">Série & Niveau</p>
+        </Card>
+      </div>
+
+      {/* ── 4. Main Chapters Progression Section ── */}
+      <div className="space-y-4">
+        <div className="flex items-center justify-between">
+          <h2 className="text-xl font-bold text-navy">
+            Progression par chapitre — Mathématiques
+          </h2>
+          <Link
+            href="/cours/terminale/s2/mathematiques"
+            className="text-xs font-semibold text-turquoise hover:underline"
+          >
+            Voir tout le programme →
+          </Link>
+        </div>
+
+        <div className="space-y-3">
+          {(chapters ?? []).map((ch, idx) => {
+            const pubLessons = (ch.lessons ?? [])
+              .filter((l) => l.status === 'published')
+              .sort((a, b) => a.sort_order - b.sort_order);
+
+            const chDone = pubLessons.filter((l) => completedLessonIds.has(l.id)).length;
+            const chPercent = pubLessons.length > 0 ? Math.round((chDone / pubLessons.length) * 100) : 0;
+            const firstLesson = pubLessons[0];
+
+            return (
+              <div
+                key={ch.id}
+                className="bg-white rounded-2xl border border-navy/10 p-5 shadow-sm hover:border-turquoise/40 transition-colors"
+              >
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+                  <div className="flex items-center gap-3">
+                    <span className="w-7 h-7 rounded-full bg-navy/10 text-navy text-xs font-bold flex items-center justify-center shrink-0">
+                      {idx + 1}
+                    </span>
+                    <div>
+                      <h3 className="font-semibold text-navy text-sm sm:text-base">
+                        {ch.title}
+                      </h3>
+                      <p className="text-xs text-text/50">
+                        {chDone} sur {pubLessons.length} leçons terminées
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs font-bold text-navy shrink-0">
+                      {chPercent}%
+                    </span>
+                    {firstLesson && (
+                      <Link
+                        href={`/cours/terminale/s2/mathematiques/${ch.id}/${firstLesson.id}`}
+                        className="text-xs text-turquoise font-semibold hover:underline"
+                      >
+                        {chPercent === 100 ? 'Revoir' : 'Continuer'} →
+                      </Link>
+                    )}
+                  </div>
+                </div>
+
+                <ProgressBar value={chPercent} />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* ── 5. Announcements & Quick Links ── */}
+      <div className="grid gap-6 md:grid-cols-2">
+        {/* Pedagogical announcements */}
         <Card>
           <CardHeader>
-            <div className="flex items-center justify-between">
-              <CardTitle>Terminale S2 · Mathématiques</CardTitle>
-              <Badge status="active">Actif</Badge>
-            </div>
-            <CardDescription>Programme officiel sénégalais</CardDescription>
+            <CardTitle className="text-base flex items-center gap-2">
+              <span>📢</span> Annonces pédagogiques
+            </CardTitle>
+            <CardDescription>Nouvelles de l&apos;équipe Al Muxtaar</CardDescription>
           </CardHeader>
-          <CardContent>
-            <p className="text-xs text-navy-light leading-relaxed mb-4">
-              9 chapitres complets incluant limites, dérivation, fonctions logarithmes et exponentielles, nombres complexes et calcul intégral.
-            </p>
-            <Link href="/doc/catalogue">
-              <Button variant="primary" size="sm" className="w-full">
-                Ouvrir les chapitres
-              </Button>
-            </Link>
+          <CardContent className="space-y-3 text-sm text-text/80">
+            <div className="border-l-2 border-turquoise pl-3 py-1">
+              <p className="font-semibold text-navy text-xs">Préparation Bac Sénégal 2026</p>
+              <p className="text-xs text-text/70 mt-0.5">
+                Tous les chapitres d&apos;analyse (limites, dérivées, intégrales) sont optimisés avec les corrections pas à pas conformes au barème officiel de l&apos;Office du Bac.
+              </p>
+            </div>
+            <div className="border-l-2 border-gold pl-3 py-1">
+              <p className="font-semibold text-navy text-xs">Séances de questions-réponses</p>
+              <p className="text-xs text-text/70 mt-0.5">
+                Des difficultés sur un exercice ? Contacte directement notre équipe d&apos;enseignants via WhatsApp.
+              </p>
+            </div>
           </CardContent>
         </Card>
 
+        {/* Quick Help & Support */}
         <Card>
           <CardHeader>
-            <div className="flex items-center justify-between">
-              <CardTitle>Statut de l&apos;Abonnement</CardTitle>
-              <Badge status="pending">En attente ou Inactif</Badge>
-            </div>
-            <CardDescription>Formule mensuelle (700 FCFA)</CardDescription>
+            <CardTitle className="text-base flex items-center gap-2">
+              <span>💬</span> Support & Assistance
+            </CardTitle>
+            <CardDescription>Une question sur la plateforme ?</CardDescription>
           </CardHeader>
-          <CardContent>
-            <p className="text-xs text-navy-light leading-relaxed mb-4">
-              Pour débloquer l&apos;intégralité des corrigés détaillés et des quiz, souscrivez par Wave ou Orange Money.
+          <CardContent className="space-y-4">
+            <p className="text-xs text-text/70 leading-relaxed">
+              Notre équipe d&apos;assistance est à votre écoute pour toute question concernant les cours, les abonnements Wave/Orange Money ou les identifiants de connexion.
             </p>
-            <Link href="/abonnement">
-              <Button variant="outline" size="sm" className="w-full">
-                Souscrire maintenant
-              </Button>
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-2">
+              <a
+                href={`https://wa.me/${waSupport.replace(/[^0-9]/g, '')}`}
+                target="_blank"
+                rel="noreferrer"
+                className="flex-1"
+              >
+                <Button variant="secondary" size="sm" className="w-full">
+                  WhatsApp Support
+                </Button>
+              </a>
+              <Link href="/compte" className="flex-1">
+                <Button variant="outline" size="sm" className="w-full">
+                  Mon Compte
+                </Button>
+              </Link>
+            </div>
           </CardContent>
         </Card>
       </div>
     </div>
   );
 }
-
