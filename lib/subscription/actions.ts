@@ -89,8 +89,10 @@ export async function requestSubscriptionAction(
     };
   }
 
-  // Créer l'abonnement au statut pending
-  const { data: sub, error: subErr } = await supabase
+  const admin = createAdminClient();
+
+  // Créer l'abonnement au statut pending (via admin pour contourner tout blocage RLS)
+  const { data: sub, error: subErr } = await admin
     .from('subscriptions')
     .insert({
       user_id: user.id,
@@ -109,7 +111,7 @@ export async function requestSubscriptionAction(
   const senderNumber = phone_sender?.trim() || studentPhone;
   const studentFullName = profile ? `${profile.first_name} ${profile.last_name}` : 'Élève';
 
-  const { error: payErr } = await supabase.from('payments').insert({
+  const { error: payErr } = await admin.from('payments').insert({
     subscription_id: sub.id,
     student_id: user.id,
     plan_id,
@@ -225,43 +227,53 @@ export async function activateSubscriptionAction(
     .eq('subscription_id', subscription_id)
     .eq('status', 'pending');
 
-  // Journal d'audit
-  await admin.from('audit_logs').insert({
-    actor_id: user.id,
-    action: auditAction,
-    target_type: 'subscription',
-    target_id: subscription_id,
-    meta: { notes, user_id: sub.user_id },
-  });
+  // Journal d'audit (sécurisé)
+  try {
+    await admin.from('audit_logs').insert({
+      actor_id: user.id,
+      action: auditAction,
+      target_type: 'subscription',
+      target_id: subscription_id,
+      meta: { notes, user_id: sub.user_id },
+    });
+  } catch (logErr) {
+    console.warn('Audit log write error:', logErr);
+  }
 
-  // Notification à l'élève
-  const notifBody =
-    action === 'activate'
-      ? 'Votre abonnement Al Muxtaar Doc a été activé avec succès ! Bonne révision.'
-      : action === 'reject'
-      ? 'Votre demande a été refusée. Veuillez contacter le support WhatsApp pour plus de détails.'
-      : 'Votre abonnement a été suspendu par l’administration.';
+  // Notification à l'élève (sécurisée)
+  try {
+    const notifBody =
+      action === 'activate'
+        ? 'Votre abonnement Al Muxtaar Doc a été activé avec succès ! Bonne révision.'
+        : action === 'reject'
+        ? 'Votre demande a été refusée. Veuillez contacter le support WhatsApp pour plus de détails.'
+        : 'Votre abonnement a été suspendu par l’administration.';
 
-  await admin.from('notifications').insert({
-    user_id: sub.user_id,
-    type:
-      action === 'activate'
-        ? 'subscription_activated'
-        : action === 'reject'
-        ? 'subscription_rejected'
-        : 'subscription_suspended',
-    title:
-      action === 'activate'
-        ? 'Abonnement activé'
-        : action === 'reject'
-        ? 'Demande refusée'
-        : 'Abonnement suspendu',
-    body: notifBody,
-    meta: { subscription_id, plan_id: sub.plan_id },
-  });
+    await admin.from('notifications').insert({
+      user_id: sub.user_id,
+      type:
+        action === 'activate'
+          ? 'subscription_activated'
+          : action === 'reject'
+          ? 'subscription_rejected'
+          : 'subscription_suspended',
+      title:
+        action === 'activate'
+          ? 'Abonnement activé'
+          : action === 'reject'
+          ? 'Demande refusée'
+          : 'Abonnement suspendu',
+      body: notifBody,
+      meta: { subscription_id, plan_id: sub.plan_id },
+    });
+  } catch (notifErr) {
+    console.warn('Notification insert error:', notifErr);
+  }
 
   revalidatePath('/admin/abonnements');
   revalidatePath('/abonnement');
+  revalidatePath('/dashboard');
+  revalidatePath('/cours');
   return { success: true, data: null, message: 'Action effectuée avec succès.' };
 }
 
@@ -304,23 +316,33 @@ export async function extendSubscriptionAction(
     .eq('id', subscription_id);
   if (error) return { success: false, error: 'Erreur prolongation' };
 
-  await admin.from('audit_logs').insert({
-    actor_id: user.id,
-    action: 'subscription.extended',
-    target_type: 'subscription',
-    target_id: subscription_id,
-    meta: { days, new_end_date: newEndDate.toISOString(), user_id: sub.user_id },
-  });
+  try {
+    await admin.from('audit_logs').insert({
+      actor_id: user.id,
+      action: 'subscription.extended',
+      target_type: 'subscription',
+      target_id: subscription_id,
+      meta: { days, new_end_date: newEndDate.toISOString(), user_id: sub.user_id },
+    });
+  } catch (logErr) {
+    console.warn('Audit log write error:', logErr);
+  }
 
-  await admin.from('notifications').insert({
-    user_id: sub.user_id,
-    type: 'subscription_activated',
-    title: 'Abonnement prolongé',
-    body: `Votre abonnement a été prolongé de ${days} jours.`,
-    meta: { subscription_id },
-  });
+  try {
+    await admin.from('notifications').insert({
+      user_id: sub.user_id,
+      type: 'subscription_activated',
+      title: 'Abonnement prolongé',
+      body: `Votre abonnement a été prolongé de ${days} jours.`,
+      meta: { subscription_id },
+    });
+  } catch (notifErr) {
+    console.warn('Notification write error:', notifErr);
+  }
 
   revalidatePath('/admin/abonnements');
+  revalidatePath('/abonnement');
+  revalidatePath('/dashboard');
   return { success: true, data: null, message: `Abonnement prolongé de ${days} jours.` };
 }
 

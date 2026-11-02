@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="probBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080E1E"/>
+      <stop offset="50%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#060A14"/>
+    </linearGradient>
+    <linearGradient id="probPanelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.85"/>
+    </linearGradient>
+    <filter id="probGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="540" fill="url(#probBgGrad)" rx="16"/>
+
+  <!-- Top Banner -->
+  <rect x="40" y="16" width="720" height="38" rx="8" fill="#1E293B" stroke="#00F5D4" stroke-width="1.5" stroke-opacity="0.4"/>
+  <text x="400" y="41" fill="#00F5D4" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" letter-spacing="0.5">
+    MÉTAPHORE CONCRÈTE AU SÉNÉGAL : LES MODÈLES DE TIRAGES &amp; PROBABILITÉS
+  </text>
+
+  <!-- LEFT PANEL: Les 3 Tirages dans la vie courante -->
+  <rect x="40" y="66" width="345" height="240" rx="12" fill="url(#probPanelGrad)" stroke="#334155" stroke-width="1.2"/>
+  <text x="212" y="90" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">
+    1. Les 3 Types de Tirages au Sénégal
+  </text>
+
+  <!-- Card 1: Simultané C_n^p -->
+  <rect x="55" y="105" width="315" height="48" rx="8" fill="#0B132B" stroke="#00F5D4" stroke-width="1"/>
+  <circle cx="80" cy="129" r="14" fill="#00F5D4" fill-opacity="0.15"/>
+  <text x="80" y="133" fill="#00F5D4" font-size="11" font-weight="bold" text-anchor="middle">C_n^p</text>
+  <text x="105" y="122" fill="#E2E8F0" font-size="10.5" font-weight="bold">Simultané (« en même temps »)</text>
+  <text x="105" y="138" fill="#94A3B8" font-size="9">Ex: Choisir 3 délégués de classe en bloc (pas d'ordre)</text>
+
+  <!-- Card 2: Successif sans remise A_n^p -->
+  <rect x="55" y="162" width="315" height="48" rx="8" fill="#0B132B" stroke="#38BDF8" stroke-width="1"/>
+  <circle cx="80" cy="186" r="14" fill="#38BDF8" fill-opacity="0.15"/>
+  <text x="80" y="190" fill="#38BDF8" font-size="11" font-weight="bold" text-anchor="middle">A_n^p</text>
+  <text x="105" y="179" fill="#E2E8F0" font-size="10.5" font-weight="bold">Successif SANS remise</text>
+  <text x="105" y="195" fill="#94A3B8" font-size="9">Ex: Concours : 1er prix, 2e prix, 3e prix (l'ordre compte)</text>
+
+  <!-- Card 3: Successif avec remise n^p -->
+  <rect x="55" y="219" width="315" height="48" rx="8" fill="#0B132B" stroke="#FBBF24" stroke-width="1"/>
+  <circle cx="80" cy="243" r="14" fill="#FBBF24" fill-opacity="0.15"/>
+  <text x="80" y="247" fill="#FBBF24" font-size="11" font-weight="bold" text-anchor="middle">n^p</text>
+  <text x="105" y="236" fill="#E2E8F0" font-size="10.5" font-weight="bold">Successif AVEC remise</text>
+  <text x="105" y="252" fill="#94A3B8" font-size="9">Ex: Code secret Wave / Orange Money à 4 chiffres (répétition)</text>
+
+  <text x="212" y="293" fill="#CBD5E1" font-size="9.5" text-anchor="middle">
+    L'ordre et la remise déterminent la formule mathématique à appliquer
+  </text>
+
+  <!-- RIGHT PANEL: Arbre pondéré & Loi Binomiale -->
+  <rect x="415" y="66" width="345" height="240" rx="12" fill="url(#probPanelGrad)" stroke="#334155" stroke-width="1.2"/>
+  <text x="587" y="90" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">
+    2. Arbre Pondéré &amp; Loi Binomiale B(n, p)
+  </text>
+
+  <!-- Mini Tree Diagram -->
+  <!-- Root -->
+  <circle cx="450" cy="180" r="5" fill="#38BDF8"/>
+  <text x="440" y="184" fill="#94A3B8" font-size="10" text-anchor="end">Départ</text>
+
+  <!-- Branches to B and B_bar -->
+  <line x1="455" y1="180" x2="520" y2="135" stroke="#00F5D4" stroke-width="2"/>
+  <line x1="455" y1="180" x2="520" y2="225" stroke="#F43F5E" stroke-width="2"/>
+  <text x="480" y="148" fill="#00F5D4" font-size="10" font-weight="bold">p (0.6)</text>
+  <text x="480" y="215" fill="#F43F5E" font-size="10" font-weight="bold">1-p (0.4)</text>
+
+  <circle cx="520" cy="135" r="5" fill="#00F5D4"/>
+  <circle cx="520" cy="225" r="5" fill="#F43F5E"/>
+  <text x="528" y="139" fill="#00F5D4" font-size="10" font-weight="bold">Succès</text>
+  <text x="528" y="229" fill="#F43F5E" font-size="10" font-weight="bold">Échec</text>
+
+  <!-- Branches to level 2 -->
+  <line x1="535" y1="130" x2="600" y2="115" stroke="#00F5D4" stroke-width="1.5"/>
+  <line x1="535" y1="140" x2="600" y2="155" stroke="#94A3B8" stroke-width="1.5"/>
+  <line x1="535" y1="220" x2="600" y2="205" stroke="#94A3B8" stroke-width="1.5"/>
+  <line x1="535" y1="230" x2="600" y2="245" stroke="#F43F5E" stroke-width="1.5"/>
+
+  <text x="610" y="118" fill="#E2E8F0" font-size="9">P(S ∩ S) = p²</text>
+  <text x="610" y="158" fill="#94A3B8" font-size="9">P(S ∩ E) = p·q</text>
+  <text x="610" y="208" fill="#94A3B8" font-size="9">P(E ∩ S) = q·p</text>
+  <text x="610" y="248" fill="#E2E8F0" font-size="9">P(E ∩ E) = q²</text>
+
+  <!-- Encadré Formule Binomiale -->
+  <rect x="430" y="265" width="315" height="32" rx="6" fill="#0B132B" stroke="#00F5D4" stroke-width="1"/>
+  <text x="587" y="285" fill="#00F5D4" font-size="10" font-weight="bold" text-anchor="middle">
+    P(X = k) = C_n^k · p^k · (1 - p)^(n-k)
+  </text>
+
+  <!-- BOTTOM PANEL: Explication complète Français + Wolof (lignes courtes < 85 car.) -->
+  <rect x="40" y="320" width="720" height="205" rx="12" fill="#0B132B" stroke="#38BDF8" stroke-width="1.2"/>
+
+  <!-- En-tête du bas -->
+  <rect x="55" y="330" width="690" height="24" rx="5" fill="#1E293B"/>
+  <text x="70" y="346" fill="#38BDF8" font-size="11" font-weight="bold">
+    🇸🇳 DÉCRYPTAGE BAC S2 &amp; VIE COURANTE : LES SECRETS DU DÉNOMBREMENT
+  </text>
+
+  <!-- Texte Français (Lignes scindées) -->
+  <text x="60" y="372" fill="#E2E8F0" font-size="10" font-weight="bold">
+    En Français :
+  </text>
+  <text x="135" y="372" fill="#E2E8F0" font-size="10">
+    Avant tout calcul de probabilité, posez-vous les 2 questions capitales :
+  </text>
+  <text x="60" y="388" fill="#E2E8F0" font-size="10">
+    1. Est-ce que l'ordre des éléments tirés compte ? (Oui pour un code ou podium, Non pour une poignée).
+  </text>
+  <text x="60" y="404" fill="#E2E8F0" font-size="10">
+    2. Y a-t-il remise ? (Oui pour un mot de passe, Non pour des cartes distribuées).
+  </text>
+  <text x="60" y="420" fill="#E2E8F0" font-size="10">
+    • Réflexe « Au moins un » : P(Au moins un) = 1 - P(Aucun). C'est 10 fois plus rapide et sûr !
+  </text>
+
+  <!-- Séparateur -->
+  <line x1="60" y1="432" x2="740" y2="432" stroke="#334155" stroke-width="1"/>
+
+  <!-- Texte Wolof (Lignes scindées) -->
+  <text x="60" y="450" fill="#FBBF24" font-size="10" font-weight="bold">
+    Ci Wolof (Xam-xam) :
+  </text>
+  <text x="180" y="450" fill="#FDE047" font-size="9.5" font-style="italic">
+    « Dénombrement dafa laaj nga teggi sa kumpa bala nga di bind :
+  </text>
+  <text x="60" y="468" fill="#FDE047" font-size="9.5" font-style="italic">
+    - Simultané (C_n^p) : boolee jël benn yoon (melni loxo bu xëp ci mbuus), téere ordre amul solo.
+  </text>
+  <text x="60" y="484" fill="#FDE047" font-size="9.5" font-style="italic">
+    - Successif sans remise (A_n^p) : ku jëkk, ñaareel, ñetteel (ordre am na solo, ken du dellu).
+  </text>
+  <text x="60" y="500" fill="#FDE047" font-size="9.5" font-style="italic">
+    - Réflexe « Au moins un » : 1 - P(benna amul) mooy yoon wu gën a gaaw ngir am 100% ci point yi ! »
+  </text>
+</svg>

@@ -27,27 +27,45 @@ export default async function AdminJournalPage() {
 
   if (profile?.role !== 'admin') redirect('/dashboard');
 
-  const { data: logs } = await admin
+  const { data: rawLogs } = await admin
     .from('audit_logs')
     .select(`
       id, action, target_type, target_id, meta, created_at,
-      profiles!audit_logs_actor_id_fkey(full_name, phone)
+      profiles!audit_logs_actor_id_fkey(first_name, last_name, phone)
     `)
     .order('created_at', { ascending: false })
-    .limit(300);
+    .limit(1000);
+
+  const logs = (rawLogs ?? []).map((l: any) => {
+    const p = Array.isArray(l.profiles) ? l.profiles[0] : l.profiles;
+    return {
+      ...l,
+      profiles: p
+        ? {
+            full_name: p.first_name && p.last_name
+              ? `${p.first_name} ${p.last_name}`
+              : p.first_name || p.last_name || 'Admin',
+            phone: p.phone ?? '',
+          }
+        : null,
+    };
+  });
 
   return (
     <main className="min-h-screen bg-surface py-8 px-4">
       <div className="max-w-6xl mx-auto space-y-6">
         <div>
-          <h1 className="text-2xl font-bold text-navy">Journal d&apos;Audit & Sécurité</h1>
+          <span className="text-xs font-bold text-turquoise uppercase tracking-wider">
+            Traçabilité, Sécurité &amp; Diagnostic
+          </span>
+          <h1 className="text-2xl font-bold text-navy mt-0.5">Journal d&apos;Audit &amp; Exceptions Système</h1>
           <p className="text-text/70 text-sm mt-0.5">
-            Historique complet des actions administratives (activations d&apos;abonnements, suspensions, changements de rôles et modifications tarifaires).
+            Historique complet des actions administratives et surveillance en direct des erreurs techniques pour diagnostic et correction immédiats.
           </p>
         </div>
 
         <JournalViewerClient
-          initialLogs={(logs ?? []) as unknown as Parameters<typeof JournalViewerClient>[0]['initialLogs']}
+          initialLogs={logs as unknown as Parameters<typeof JournalViewerClient>[0]['initialLogs']}
         />
       </div>
     </main>

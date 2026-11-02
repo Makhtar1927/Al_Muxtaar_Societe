@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyExp" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B132B"/>
+      <stop offset="100%" stop-color="#1C2541"/>
+    </linearGradient>
+    <filter id="glowExp" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Fond sombre Navy Al Muxtaar -->
+  <rect width="800" height="540" rx="16" fill="url(#skyExp)"/>
+
+  <!-- Titre & Bandeau Pédagogique -->
+  <rect x="40" y="18" width="720" height="38" rx="8" fill="#14213D" stroke="#00F5D4" stroke-width="1"/>
+  <text x="400" y="42" fill="#FFFFFF" font-size="13" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+    🚀 Métaphore Concrète au Sénégal : L&apos;Exponentielle = La Fusée Fulgurante &amp; Le Positif Absolu
+  </text>
+
+  <!-- Panneau Gauche : Stricte Positivité e^x > 0 -->
+  <g transform="translate(40, 70)">
+    <rect width="345" height="235" rx="12" fill="#0A0F1D" stroke="#334155" stroke-width="1.5"/>
+    <text x="172" y="24" fill="#10B981" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+      1. Règle d&apos;Or : eˣ &gt; 0 Toujours Strictement Positif
+    </text>
+
+    <!-- Axe Oy et Axe Ox -->
+    <line x1="120" y1="40" x2="120" y2="180" stroke="#64748B" stroke-width="1.5"/>
+    <line x1="30" y1="150" x2="320" y2="150" stroke="#10B981" stroke-width="2.5" stroke-dasharray="6 3"/>
+    <text x="300" y="142" fill="#10B981" font-size="9" font-family="sans-serif" font-weight="bold">y = 0</text>
+    <text x="50" y="140" fill="#6EE7B7" font-size="8" font-family="sans-serif">Asymptote en -∞</text>
+
+    <!-- Courbe e^x qui frôle 0 et s'envole -->
+    <path d="M 30 148 Q 100 148 120 120 Q 150 70 200 40" fill="none" stroke="#F43F5E" stroke-width="3.5"/>
+
+    <!-- Point pivot (0, 1) -->
+    <circle cx="120" cy="120" r="5" fill="#FBBF24" filter="url(#glowExp)"/>
+    <circle cx="120" cy="120" r="2.5" fill="#0F172A"/>
+    <text x="145" y="123" fill="#FDE047" font-size="9" font-family="sans-serif" font-weight="bold">
+      e⁰ = 1
+    </text>
+
+    <!-- Zone au-dessus de 0 -->
+    <rect x="25" y="190" width="295" height="32" rx="6" fill="#14213D" stroke="#10B981" stroke-width="0.8"/>
+    <text x="172" y="210" fill="#6EE7B7" font-size="9" font-family="sans-serif" text-anchor="middle">
+      eᵘ(ˣ) &gt; 0 partout : n&apos;influence JAMAIS le signe de la dérivée !
+    </text>
+  </g>
+
+  <!-- Panneau Droit : Croissances Comparées (La Fusée e^x vs Train x^n) -->
+  <g transform="translate(415, 70)">
+    <rect width="345" height="235" rx="12" fill="#0A0F1D" stroke="#334155" stroke-width="1.5"/>
+    <text x="172" y="24" fill="#F43F5E" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+      2. Croissances Comparées en +∞ : eˣ écrase xⁿ
+    </text>
+
+    <!-- Repère -->
+    <line x1="40" y1="180" x2="310" y2="180" stroke="#64748B" stroke-width="1.5"/>
+    <line x1="40" y1="40" x2="40" y2="180" stroke="#64748B" stroke-width="1.5"/>
+
+    <!-- Courbe y = x² ou x (Le train au sol) -->
+    <path d="M 40 180 Q 140 170 220 110 T 300 70" fill="none" stroke="#38BDF8" stroke-width="2.5"/>
+    <text x="235" y="125" fill="#38BDF8" font-size="9" font-family="sans-serif" font-weight="bold">y = xⁿ (Train 🚆)</text>
+
+    <!-- Courbe e^x (La fusée supersonique) -->
+    <path d="M 40 160 Q 90 150 130 90 T 170 42" fill="none" stroke="#F43F5E" stroke-width="3"/>
+    <polygon points="170,38 165,48 175,48" fill="#F43F5E"/>
+    <text x="175" y="48" fill="#FDA4AF" font-size="9" font-family="sans-serif" font-weight="bold">y = eˣ (Fusée 🚀)</text>
+
+    <!-- Formule clé Bac -->
+    <rect x="25" y="190" width="295" height="32" rx="6" fill="#14213D" stroke="#F43F5E" stroke-width="0.8"/>
+    <text x="172" y="210" fill="#FDA4AF" font-size="10" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+      lim (eˣ / xⁿ) = +∞   et   lim (xⁿ · eˣ) = 0 en -∞
+    </text>
+  </g>
+
+  <!-- =========================================================== -->
+  <!-- Explication Pédagogique & Décodage Wolof                    -->
+  <!-- =========================================================== -->
+  <rect x="40" y="320" width="720" height="205" rx="12" fill="#0E1A38" stroke="#38BDF8" stroke-width="1.2"/>
+
+  <!-- Titre -->
+  <text x="60" y="344" fill="#00F5D4" font-size="12" font-family="sans-serif" font-weight="bold">
+    🎯 CE QU&apos;IL FAUT RETENIR (EN FRANÇAIS &amp; EN WOLOF) :
+  </text>
+
+  <!-- Français : label + lignes courtes -->
+  <text x="60" y="367" font-family="sans-serif" font-size="11">
+    <tspan fill="#E2E8F0">• </tspan><tspan font-weight="bold" fill="#FBBF24">Français :</tspan>
+  </text>
+  <text x="72" y="383" fill="#E2E8F0" font-size="11" font-family="sans-serif">
+    Pour tout réel x, eˣ &gt; 0 : l&apos;exponentielle ne s&apos;annule JAMAIS et ne change jamais de signe.
+  </text>
+  <text x="72" y="398" fill="#E2E8F0" font-size="11" font-family="sans-serif">
+    À l&apos;infini, eˣ est d&apos;une puissance absolue : elle bat n&apos;importe quel polynôme xⁿ (lim eˣ/xⁿ = +∞).
+  </text>
+  <text x="72" y="413" fill="#94A3B8" font-size="10" font-family="sans-serif">
+    Dérivée d&apos;une composée : (eᵘ)&apos; = u&apos; · eᵘ. Ne jamais oublier le facteur u&apos; en préfixe !
+  </text>
+
+  <!-- Wolof : label + lignes courtes -->
+  <text x="60" y="438" font-family="sans-serif" font-size="11">
+    <tspan fill="#E2E8F0">• </tspan><tspan font-weight="bold" fill="#38BDF8">Wolof :</tspan>
+  </text>
+  <text x="72" y="454" fill="#E2E8F0" font-size="11" font-family="sans-serif" font-style="italic">
+    « Exponentielle eˣ dafa positif saa su nekk (&gt; 0) : mënul doon zéro te mënul négatif muk !
+  </text>
+  <text x="72" y="469" fill="#E2E8F0" font-size="11" font-family="sans-serif" font-style="italic">
+    Moo tax ci dérivée f&apos;(x) = (ax + b)eˣ, li ci biir parenthèse bi rekk mooy joxe signe bi.
+  </text>
+  <text x="72" y="484" fill="#E2E8F0" font-size="11" font-family="sans-serif" font-style="italic">
+    Ci +∞, eˣ day gaaw ni fusée : dafay faf bépp polynôme xⁿ (lim eˣ/xⁿ = +∞) ! »
+  </text>
+
+  <!-- Réflexe Bac S2 -->
+  <text x="60" y="511" fill="#38BDF8" font-size="10" font-family="sans-serif" font-weight="bold">
+    ⚡ Réflexe Bac S2 : eᵘ(ˣ) &gt; 0 ⟹ Signe de f&apos; = signe du facteur restant • Dérivée = u&apos; · eᵘ.
+  </text>
+</svg>
+

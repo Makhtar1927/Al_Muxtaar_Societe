@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="geomBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080E1E"/>
+      <stop offset="50%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#060A14"/>
+    </linearGradient>
+    <linearGradient id="geomPanelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.85"/>
+    </linearGradient>
+    <filter id="geomGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="540" fill="url(#geomBgGrad)" rx="16"/>
+
+  <!-- Top Banner -->
+  <rect x="40" y="16" width="720" height="38" rx="8" fill="#1E293B" stroke="#00F5D4" stroke-width="1.5" stroke-opacity="0.4"/>
+  <text x="400" y="41" fill="#00F5D4" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" letter-spacing="0.5">
+    MÉTAPHORE CONCRÈTE AU SÉNÉGAL : GÉOMÉTRIE DE L'ESPACE &amp; ARCHITECTURE
+  </text>
+
+  <!-- LEFT PANEL: Plan (P) et Vecteur Normal Minaret -->
+  <rect x="40" y="66" width="345" height="240" rx="12" fill="url(#geomPanelGrad)" stroke="#334155" stroke-width="1.2"/>
+  <text x="212" y="90" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">
+    1. Plan (P) = Esplanade &amp; Vecteur Normal = Minaret
+  </text>
+
+  <!-- Isometric Plane (P) -->
+  <polygon points="100,235 280,250 330,195 150,180" fill="#00F5D4" fill-opacity="0.12" stroke="#00F5D4" stroke-width="1.5"/>
+  <text x="140" y="225" fill="#00F5D4" font-size="11" font-weight="bold">(P) : ax + by + cz + d = 0</text>
+
+  <!-- Normal Vector n (Minaret / Perpendiculaire) -->
+  <line x1="210" y1="210" x2="210" y2="115" stroke="#FBBF24" stroke-width="3" filter="url(#geomGlow)"/>
+  <polygon points="210,108 205,118 215,118" fill="#FBBF24"/>
+  <text x="220" y="125" fill="#FBBF24" font-size="11" font-weight="bold">n(a, b, c) ⟂ (P)</text>
+
+  <!-- Right angle marker on the plane -->
+  <polyline points="210,195 220,197 220,212" fill="none" stroke="#FBBF24" stroke-width="1.2"/>
+
+  <!-- Point M suspendu dans l'espace -->
+  <circle cx="280" cy="130" r="5" fill="#38BDF8" stroke="#FFFFFF" stroke-width="1.5"/>
+  <text x="290" y="132" fill="#38BDF8" font-size="10.5" font-weight="bold">M(x_M, y_M, z_M)</text>
+
+  <!-- Projeté orthogonal H sur (P) -->
+  <line x1="280" y1="130" x2="280" y2="218" stroke="#F43F5E" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <circle cx="280" cy="218" r="4" fill="#F43F5E"/>
+  <text x="290" y="222" fill="#F43F5E" font-size="10" font-weight="bold">H (Projeté)</text>
+  <text x="260" y="175" fill="#F43F5E" font-size="9.5" font-weight="bold">d(M, P)</text>
+
+  <text x="212" y="295" fill="#CBD5E1" font-size="9.5" text-anchor="middle">
+    Le vecteur normal n donne l'inclinaison unique du plan dans l'espace 3D
+  </text>
+
+  <!-- RIGHT PANEL: Dômes Sphériques & Sections Planes -->
+  <rect x="415" y="66" width="345" height="240" rx="12" fill="url(#geomPanelGrad)" stroke="#334155" stroke-width="1.2"/>
+  <text x="587" y="90" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">
+    2. Dôme Sphérique &amp; Section Plane (Cercle r)
+  </text>
+
+  <!-- Sphere Outline -->
+  <circle cx="587" cy="175" r="70" fill="none" stroke="#64748B" stroke-width="1.2" stroke-dasharray="4,4"/>
+  <ellipse cx="587" cy="175" rx="70" ry="22" fill="none" stroke="#475569" stroke-width="1"/>
+
+  <!-- Center Omega -->
+  <circle cx="587" cy="175" r="4.5" fill="#38BDF8"/>
+  <text x="575" y="170" fill="#38BDF8" font-size="10" font-weight="bold">Ω</text>
+
+  <!-- Section Plane cutting through sphere -->
+  <polygon points="460,150 670,135 710,165 500,180" fill="#00F5D4" fill-opacity="0.1" stroke="#00F5D4" stroke-width="1"/>
+  <!-- Cut Circle in the plane -->
+  <ellipse cx="587" cy="150" rx="52" ry="12" fill="#00F5D4" fill-opacity="0.2" stroke="#00F5D4" stroke-width="2"/>
+
+  <!-- Right triangle: Omega, H, Point on circle -->
+  <line x1="587" y1="175" x2="587" y2="150" stroke="#F43F5E" stroke-width="2"/>
+  <circle cx="587" cy="150" r="3.5" fill="#F43F5E"/>
+  <text x="575" y="160" fill="#F43F5E" font-size="9" font-weight="bold">d</text>
+
+  <line x1="587" y1="150" x2="639" y2="150" stroke="#00F5D4" stroke-width="2"/>
+  <text x="610" y="144" fill="#00F5D4" font-size="9" font-weight="bold">r</text>
+
+  <line x1="587" y1="175" x2="639" y2="150" stroke="#FBBF24" stroke-width="2"/>
+  <text x="618" y="170" fill="#FBBF24" font-size="9.5" font-weight="bold">R</text>
+
+  <!-- Formule Pythagore -->
+  <rect x="430" y="255" width="315" height="38" rx="6" fill="#0B132B" stroke="#00F5D4" stroke-width="1"/>
+  <text x="587" y="272" fill="#00F5D4" font-size="10" font-weight="bold" text-anchor="middle">
+    Section circulaire : r = √(R² - d²)  si  d &lt; R
+  </text>
+  <text x="587" y="286" fill="#E2E8F0" font-size="8.5" text-anchor="middle">
+    Le triplet (d, r, R) forme un triangle rectangle parfait !
+  </text>
+
+  <!-- BOTTOM PANEL: Explication complète Français + Wolof (lignes courtes < 85 car.) -->
+  <rect x="40" y="320" width="720" height="205" rx="12" fill="#0B132B" stroke="#38BDF8" stroke-width="1.2"/>
+
+  <!-- En-tête du bas -->
+  <rect x="55" y="330" width="690" height="24" rx="5" fill="#1E293B"/>
+  <text x="70" y="346" fill="#38BDF8" font-size="11" font-weight="bold">
+    🇸🇳 DÉCRYPTAGE BAC S2 &amp; VIE COURANTE : L'ESPACE 3D EN TOUTE CLARTÉ
+  </text>
+
+  <!-- Texte Français (Lignes scindées) -->
+  <text x="60" y="372" fill="#E2E8F0" font-size="10" font-weight="bold">
+    En Français :
+  </text>
+  <text x="135" y="372" fill="#E2E8F0" font-size="10">
+    La géométrie de l'espace modélise les chefs-d'œuvre architecturaux du Sénégal :
+  </text>
+  <text x="60" y="388" fill="#E2E8F0" font-size="10">
+    • Le sol de la place est le plan (P), le minaret dressé à la verticale est le vecteur normal n(a, b, c).
+  </text>
+  <text x="60" y="404" fill="#E2E8F0" font-size="10">
+    • La distance d'un drone (M) au sol est la longueur MH du fil à plomb (projeté orthogonal).
+  </text>
+  <text x="60" y="420" fill="#E2E8F0" font-size="10">
+    • Couper un dôme sphérique par un plafond plat donne un cercle parfait de rayon r = √(R² - d²).
+  </text>
+
+  <!-- Séparateur -->
+  <line x1="60" y1="432" x2="740" y2="432" stroke="#334155" stroke-width="1"/>
+
+  <!-- Texte Wolof (Lignes scindées) -->
+  <text x="60" y="450" fill="#FBBF24" font-size="10" font-weight="bold">
+    Ci Wolof (Xam-xam) :
+  </text>
+  <text x="180" y="450" fill="#FDE047" font-size="9.5" font-style="italic">
+    « Géométrie dans l'espace dafa melni tabaxu kër walla jumaa :
+  </text>
+  <text x="60" y="468" fill="#FDE047" font-size="9.5" font-style="italic">
+    - Suuf si mooy plan (P), te minaret bi taxaw ci kaw mooy vecteur normal n(a, b, c) bu dëpp 90°.
+  </text>
+  <text x="60" y="484" fill="#FDE047" font-size="9.5" font-style="italic">
+    - Distance bi d(M, P) mooy fil à plomb bi ngay wàcce ci suuf ba mu jot ci point H.
+  </text>
+  <text x="60" y="500" fill="#FDE047" font-size="9.5" font-style="italic">
+    - Bu plan bi dogee dôme bi (sphère S), dafay am cercle bu am rayon r = √(R² - d²) ci Pythagore ! »
+  </text>
+</svg>

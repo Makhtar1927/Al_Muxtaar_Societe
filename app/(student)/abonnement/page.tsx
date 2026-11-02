@@ -15,28 +15,30 @@ export default async function AbonnementPage() {
   } = await supabase.auth.getUser();
   if (!user) redirect('/connexion');
 
-  // Profil de l'élève
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('first_name, last_name, phone')
-    .eq('id', user.id)
-    .single();
+  // Chargement en parallèle des 3 requêtes (profil, plans, abonnement)
+  const [profileResult, plansResult, currentSubResult] = await Promise.all([
+    supabase
+      .from('profiles')
+      .select('first_name, last_name, phone')
+      .eq('id', user.id)
+      .single(),
+    supabase
+      .from('plans')
+      .select('id, name, price_fcfa, duration_days')
+      .eq('is_active', true)
+      .order('price_fcfa'),
+    supabase
+      .from('subscriptions')
+      .select('id, status, start_date, end_date, plans(name, price_fcfa, duration_days)')
+      .eq('user_id', user.id)
+      .order('created_at', { ascending: false })
+      .limit(1)
+      .maybeSingle(),
+  ]);
 
-  // Formules disponibles
-  const { data: plans } = await supabase
-    .from('plans')
-    .select('id, name, price_fcfa, duration_days')
-    .eq('is_active', true)
-    .order('price_fcfa');
-
-  // Abonnement courant
-  const { data: currentSub } = await supabase
-    .from('subscriptions')
-    .select('id, status, start_date, end_date, plans(name, price_fcfa, duration_days)')
-    .eq('user_id', user.id)
-    .order('created_at', { ascending: false })
-    .limit(1)
-    .maybeSingle();
+  const profile = profileResult.data;
+  const plans = plansResult.data;
+  const currentSub = currentSubResult.data;
 
   return (
     <main className="min-h-screen bg-surface py-8 px-4">

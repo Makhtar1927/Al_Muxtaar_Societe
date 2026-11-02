@@ -4,11 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Check, Wallet, ArrowUpRight } from "lucide-react";
+import { WaveLogo } from "@/components/ui/icons/wave-logo";
+import { WhatsAppLogo } from "@/components/ui/icons/whatsapp-logo";
 
 export const metadata: Metadata = {
   title: "Tarifs & Formules d'abonnement | Al_Muxtaar_Doc",
   description:
-    "Des formules simples et accessibles dès 700 FCFA par mois. Paiement direct par Wave au Sénégal.",
+    "Accès à toute la plateforme nationale sénégalaise (Lycée & Collège) dès 700 FCFA par mois. Paiement direct par Wave ou Orange Money.",
 };
 
 const PLANS = [
@@ -20,11 +22,12 @@ const PLANS = [
     priceDaily: "Soit environ 23 FCFA / jour",
     popular: false,
     features: [
-      "Accès complet à tous les chapitres de Terminale S2 Maths",
+      "Accès complet aux cours actifs : Terminale S2 Mathématiques (13 chapitres)",
+      "Accès immédiat aux nouveaux cours publiés (S1, L2, PC, SVT…)",
       "Exercices d'application corrigés pas à pas",
-      "Quiz interactifs avec correction détaillée",
+      "Quiz interactifs avec score et correction détaillée",
       "Suivi de votre progression personnelle",
-      "Consultation mobile fluide et légère",
+      "Consultation mobile fluide et légère (3G compatible)",
     ],
   },
   {
@@ -32,15 +35,17 @@ const PLANS = [
     name: "Formule Trimestrielle (3 Mois)",
     duration: "90 jours d'accès illimité",
     price: "2 000 FCFA",
-    priceDaily: "Soit 666 FCFA / mois (Économie immédiate)",
+    priceDaily: "Soit 666 FCFA / mois — Économie immédiate",
     popular: true,
     features: [
-      "Accès complet à tous les chapitres de Terminale S2 Maths",
+      "Accès complet aux cours actifs : Terminale S2 Mathématiques (13 chapitres)",
+      "Accès immédiat aux nouveaux cours publiés (S1, L2, PC, SVT…)",
       "Exercices d'application corrigés pas à pas",
-      "Quiz interactifs avec correction détaillée",
+      "Quiz interactifs avec score et correction détaillée",
       "Suivi de votre progression personnelle",
-      "Consultation mobile fluide et légère",
-      "Idéal pour préparer les compositions et le Bac",
+      "Consultation mobile fluide et légère (3G compatible)",
+      "Fiches réflexes Bac & simulateurs interactifs inclus",
+      "Idéal pour couvrir toutes les compositions trimestrielles + Bac",
     ],
   },
 ];
@@ -57,10 +62,12 @@ export default function TarifsPage() {
           Tarification Solidaire &amp; Transparente
         </div>
         <h1 className="text-3xl font-black tracking-tight text-navy sm:text-5xl">
-          Un investissement minime pour votre réussite au Bac.
+          Un accès à toute la plateforme nationale sénégalaise.
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-base text-navy-light sm:text-lg">
-          Payez en 1 clic directement via votre compte Wave avec le montant préinscrit, sans frais additionnels et sans engagement bancaire.
+          Un seul abonnement couvre l&apos;ensemble du référentiel : Terminale (S1, S2, L, G), 
+          Première, Seconde et Collège (BFEM). Payez en 1 clic par Wave ou Orange Money, 
+          sans engagement bancaire ni frais additionnels.
         </p>
       </section>
 
@@ -156,36 +163,38 @@ export default function TarifsPage() {
           </div>
 
           {/* Numéro Marchand Officiel Wave */}
-          <div className="mt-8 rounded-2xl border border-[#1BAAF7]/30 bg-[#1BAAF7]/5 p-6 text-center max-w-2xl mx-auto">
-            <h4 className="text-sm font-bold text-navy uppercase tracking-wider mb-2 flex items-center justify-center gap-2">
-              <Wallet className="w-4 h-4 text-[#1BAAF7]" strokeWidth={2} />
-              <span>Lien &amp; Numéro Officiels Wave — Al Muxtaar</span>
+          <div className="mt-8 rounded-3xl border border-[#1DC3EC]/30 bg-gradient-to-b from-white to-[#1DC3EC]/5 p-6 sm:p-8 text-center max-w-2xl mx-auto shadow-sm">
+            <h4 className="text-sm font-extrabold text-navy uppercase tracking-wider mb-3 flex items-center justify-center gap-2">
+              <WaveLogo size={22} />
+              <span>Canal Officiel Wave Money — Al Muxtaar</span>
             </h4>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-3 text-xs sm:text-sm font-mono font-bold text-navy">
               <a
                 href={`${waveBaseLink}?amount=700`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl bg-[#1BAAF7] text-white px-4 py-2 shadow-soft hover:bg-[#0c85d0] transition-colors font-sans text-xs inline-flex items-center gap-1"
+                className="rounded-xl bg-[#1DC3EC] text-navy px-4 py-2.5 shadow-sm hover:bg-[#00B5E2] transition-colors font-sans text-xs font-black inline-flex items-center gap-2"
               >
-                <span>Lien direct Wave (700 F)</span>
-                <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2} />
+                <WaveLogo size={16} />
+                <span>Payer Formule 1 Mois (700 F)</span>
+                <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2.5} />
               </a>
               <a
                 href={`${waveBaseLink}?amount=2000`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl bg-[#1BAAF7] text-white px-4 py-2 shadow-soft hover:bg-[#0c85d0] transition-colors font-sans text-xs inline-flex items-center gap-1"
+                className="rounded-xl bg-[#1DC3EC] text-navy px-4 py-2.5 shadow-sm hover:bg-[#00B5E2] transition-colors font-sans text-xs font-black inline-flex items-center gap-2"
               >
-                <span>Lien direct Wave (2 000 F)</span>
-                <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2} />
+                <WaveLogo size={16} />
+                <span>Payer Formule 3 Mois (2 000 F)</span>
+                <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2.5} />
               </a>
-              <span className="rounded-xl bg-white px-3.5 py-2 border border-surface-muted shadow-card font-mono">
-                Numéro : {waveNumber}
-              </span>
+            </div>
+            <div className="mt-3 inline-flex items-center gap-2 rounded-xl bg-white px-3.5 py-1.5 border border-navy/10 text-xs font-mono text-navy font-bold">
+              <span>Numéro Marchand : {waveNumber}</span>
             </div>
             <p className="mt-3 text-[11px] text-navy-light">
-              Bénéficiaire : <strong>Al Muxtaar Société</strong> · Ne transférez jamais vers un autre numéro non répertorié.
+              Bénéficiaire certifié : <strong className="text-navy">Al Muxtaar Société</strong> · Transfert 100% sécurisé sans frais cachés.
             </p>
           </div>
         </div>
@@ -213,6 +222,12 @@ export default function TarifsPage() {
             <h4 className="text-sm font-bold text-navy">Que se passe-t-il si je renouvelle avant la fin de mon mois ?</h4>
             <p className="mt-1 text-xs text-navy-light leading-relaxed">
               Vous ne perdez aucun jour ! La nouvelle période de 30 ou 90 jours s&apos;ajoute automatiquement à la suite de votre date d&apos;expiration actuelle.
+            </p>
+          </div>
+          <div className="rounded-2xl bg-white p-5 border border-surface-muted shadow-card">
+            <h4 className="text-sm font-bold text-navy">Mon abonnement couvre-t-il toutes les séries (S1, L2, PC…) ?</h4>
+            <p className="mt-1 text-xs text-navy-light leading-relaxed">
+              Oui. Un seul abonnement donne accès à l&apos;intégralité de la plateforme : tous les cours publiés et toutes les nouvelles matières publiées au fil de la numérisation (S1, L2, Physique-Chimie, SVT, Philosophie, 3e BFEM…). Dès qu&apos;un cours est validé et mis en ligne par l&apos;équipe, il est immédiatement disponible pour tous les abonnés actifs.
             </p>
           </div>
         </div>

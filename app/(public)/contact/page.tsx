@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Icon } from "@/components/ui/icon";
+import { WhatsAppLogo } from "@/components/ui/icons/whatsapp-logo";
 
 export const metadata: Metadata = {
   title: "Contact & Assistance WhatsApp | Al Muxtaar Société",
@@ -33,9 +34,9 @@ export default function ContactPage() {
       <div className="grid gap-8 md:grid-cols-2">
         {/* Contact direct WhatsApp */}
         <div className="space-y-6">
-          <div className="rounded-2xl border-2 border-turquoise/40 bg-white p-6 sm:p-8 shadow-card">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-turquoise text-white mb-4">
-              <Icon name="notification" size={28} />
+          <div className="rounded-2xl border-2 border-[#25D366]/30 bg-white p-6 sm:p-8 shadow-card">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#25D366]/10 mb-4">
+              <WhatsAppLogo size={36} />
             </div>
             <h3 className="text-lg font-bold text-navy">Assistance directe sur WhatsApp</h3>
             <p className="mt-2 text-xs text-navy-light leading-relaxed">
@@ -46,9 +47,10 @@ export default function ContactPage() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-11 w-full items-center justify-center rounded-2xl bg-[#25D366] px-4 text-sm font-bold text-white shadow-soft transition-colors hover:bg-[#1EBE5D] min-h-[44px]"
+                className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-2xl bg-[#25D366] px-4 text-sm font-bold text-white shadow-soft transition-colors hover:bg-[#1EBE5D] min-h-[44px]"
               >
-                Discuter sur WhatsApp (+221)
+                <WhatsAppLogo size={18} />
+                <span>Discuter sur WhatsApp (+221)</span>
               </a>
             </div>
           </div>

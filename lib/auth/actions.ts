@@ -58,7 +58,7 @@ export async function signUpAction(
   }
 
   // 2. Créer l'utilisateur via l'API Admin (bypasse les emails, auto-confirme, zéro limite horaire)
-  const { error: createError } = await admin.auth.admin.createUser({
+  const { data: newUser, error: createError } = await admin.auth.admin.createUser({
     email: parsedPhone.technicalEmail,
     password,
     email_confirm: true,
@@ -85,6 +85,26 @@ export async function signUpAction(
       };
     }
     return { error: translateAuthError(createError.message) };
+  }
+
+  // Synchronisation directe et garantie dans la table profiles
+  if (newUser?.user) {
+    await admin.from("profiles").upsert(
+      {
+        id: newUser.user.id,
+        first_name: firstName,
+        last_name: lastName,
+        phone: parsedPhone.e164,
+        email: email || parsedPhone.technicalEmail,
+        level,
+        track,
+        avatar,
+        role: "student",
+        is_banned: false,
+        updated_at: new Date().toISOString(),
+      },
+      { onConflict: "id" }
+    );
   }
 
   // 3. Connecter immédiatement le nouvel élève sur sa session courante

@@ -92,7 +92,13 @@ export async function upsertChapterAction(formData: FormData): Promise<ActionRes
   const parsed = ChapterSchema.safeParse(raw);
   if (!parsed.success) return { success: false, error: parsed.error.errors[0].message };
 
-  const payload = { ...parsed.data, updated_at: new Date().toISOString() };
+  const payload = {
+    title: parsed.data.title,
+    subject_id: parsed.data.subject_id,
+    order_index: parsed.data.sort_order,
+    status: parsed.data.status,
+    updated_at: new Date().toISOString(),
+  };
 
   const { error } = id
     ? await admin.from('chapters').update(payload).eq('id', id)
@@ -140,7 +146,15 @@ export async function upsertLessonAction(formData: FormData): Promise<ActionResu
   const parsed = LessonSchema.safeParse(raw);
   if (!parsed.success) return { success: false, error: parsed.error.errors[0].message };
 
-  const payload = { ...parsed.data, updated_at: new Date().toISOString() };
+  const payload = {
+    chapter_id: parsed.data.chapter_id,
+    title: parsed.data.title,
+    content_markdown: parsed.data.content_md,
+    order_index: parsed.data.sort_order,
+    is_free: parsed.data.is_free_preview,
+    status: parsed.data.status,
+    updated_at: new Date().toISOString(),
+  };
 
   const { error } = id
     ? await admin.from('lessons').update(payload).eq('id', id)

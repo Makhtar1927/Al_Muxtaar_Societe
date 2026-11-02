@@ -151,7 +151,7 @@ export async function updatePlanAction(formData: FormData): Promise<ActionResult
   const { error } = await admin
     .from('plans')
     .update({
-      price,
+      price_fcfa: price,
       name,
       description: description || null,
       is_active,
@@ -173,4 +173,47 @@ export async function updatePlanAction(formData: FormData): Promise<ActionResult
   revalidatePath('/doc/tarifs');
   return { success: true, data: null, message: 'Tarif mis à jour avec succès.' };
 }
+
+// ─── Test Error Logger Action ────────────────────────────────────────────────
+
+export async function createTestErrorAction(
+  message?: string,
+  severity: 'critical' | 'error' | 'warning' = 'error'
+): Promise<ActionResult> {
+  let adminUser: { id: string };
+  try {
+    const auth = await requireAdmin();
+    adminUser = auth.user;
+  } catch (e) {
+    return { success: false, error: (e as Error).message };
+  }
+
+  const admin = createAdminClient();
+  const testMsg =
+    message?.trim() ||
+    "Test d'exception simulée : Erreur de communication passerelle Wave (Code 502)";
+
+  await admin.from('audit_logs').insert({
+    actor_id: adminUser.id,
+    action: `error.${severity}`,
+    target_type: 'exception',
+    meta: {
+      message: testMsg,
+      context: 'system_exception',
+      severity,
+      stack:
+        'Error: Connection timeout at WaveAPI.verifyPayment (actions.ts:118)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)',
+      path: '/abonnement/wave-callback',
+      timestamp: new Date().toISOString(),
+    },
+  });
+
+  revalidatePath('/admin/journal');
+  return {
+    success: true,
+    data: null,
+    message: "Événement d'erreur de test enregistré avec succès !",
+  };
+}
+
 

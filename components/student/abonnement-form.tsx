@@ -7,6 +7,8 @@ import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/components/ui/toast';
 import { requestSubscriptionAction } from '@/lib/subscription/actions';
 import { Icon } from '@/components/ui/icon';
+import { WaveLogo } from '@/components/ui/icons/wave-logo';
+import { WhatsAppLogo } from '@/components/ui/icons/whatsapp-logo';
 import { CheckCircle2, Clock, AlertCircle, ArrowRight, Smartphone } from 'lucide-react';
 
 interface Plan {
@@ -164,20 +166,33 @@ export default function AbonnementForm({
 
   if (submitted) {
     return (
-      <Card className="border-turquoise/30 bg-turquoise/5 text-center py-8">
-        <CardContent className="space-y-4">
-          <CheckCircle2 className="w-14 h-14 text-turquoise mx-auto" strokeWidth={1.5} />
-          <h2 className="text-lg font-bold text-navy">Demande envoyée !</h2>
-          <p className="text-sm text-text/70 max-w-sm mx-auto">
-            Votre demande d&apos;abonnement est en cours de validation. L&apos;admin activera votre compte dans les plus brefs délais.
+      <div className="max-w-md mx-auto text-center py-8 px-6 bg-white rounded-3xl border border-navy/10 shadow-sm space-y-5">
+        <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
+          <CheckCircle2 className="w-8 h-8" strokeWidth={2} />
+        </div>
+        <div>
+          <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+            Demande en attente
+          </span>
+          <h2 className="text-xl font-black text-navy mt-3">Demande bien reçue !</h2>
+          <p className="text-sm text-text/70 mt-2">
+            L&apos;administrateur a été notifié de votre paiement Wave et activera votre accès sous peu.
           </p>
-        </CardContent>
-      </Card>
+        </div>
+        <div className="pt-2">
+          <a
+            href="/dashboard"
+            className="inline-flex w-full items-center justify-center rounded-2xl bg-navy text-white text-sm font-bold py-3.5 hover:bg-navy/90 transition-colors shadow-sm"
+          >
+            Aller sur mon tableau de bord
+          </a>
+        </div>
+      </div>
     );
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-6 max-w-xl mx-auto">
       {/* Statut expiré si applicable */}
       {currentSub && currentSub.status === 'expired' && (
         <div className="rounded-2xl bg-coral/10 border border-coral/30 p-4 flex items-start gap-2 text-coral text-sm">
@@ -186,127 +201,101 @@ export default function AbonnementForm({
         </div>
       )}
 
-      {/* 1. Choix de la formule */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-base text-navy font-bold">1. Choisissez votre formule</CardTitle>
-          <CardDescription>Accès illimité à tous les cours, exercices et quiz du Bac.</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-3">
-          {plans.map((plan) => (
-            <button
-              key={plan.id}
-              type="button"
-              onClick={() => setSelectedPlan(plan.id)}
-              className={`w-full rounded-2xl border-2 p-4 text-left transition-all ${
-                selectedPlan === plan.id
-                  ? 'border-turquoise bg-turquoise/5'
-                  : 'border-navy/10 bg-white hover:border-navy/30'
-              }`}
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <Icon name="abonnement" size={32} />
+      {/* Choix des formules (700 FCFA et 2000 FCFA) */}
+      <div className="space-y-3">
+        <label className="text-xs font-bold uppercase tracking-wider text-navy/60 block">
+          Sélectionnez votre formule d&apos;abonnement
+        </label>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {plans.map((plan) => {
+            const isSelected = selectedPlan === plan.id;
+            return (
+              <button
+                key={plan.id}
+                type="button"
+                onClick={() => setSelectedPlan(plan.id)}
+                className={`relative rounded-2xl border-2 p-5 text-left transition-all flex flex-col justify-between gap-4 ${
+                  isSelected
+                    ? 'border-turquoise bg-turquoise/5 shadow-sm ring-1 ring-turquoise'
+                    : 'border-navy/10 bg-white hover:border-navy/20'
+                }`}
+              >
+                <div className="flex items-start justify-between gap-2">
                   <div>
-                    <p className="font-bold text-navy">{plan.name}</p>
-                    <p className="text-sm text-text/60 mt-0.5">{formatDuration(plan.duration_days)} d&apos;accès complet</p>
+                    <h3 className="font-bold text-navy text-base">{plan.name}</h3>
+                    <p className="text-xs text-text/60 mt-0.5">{formatDuration(plan.duration_days)} d&apos;accès illimité</p>
                   </div>
-                </div>
-                <div className="text-right">
-                  <p className="text-xl font-extrabold text-turquoise">{formatFCFA(plan.price_fcfa)}</p>
-                  {selectedPlan === plan.id && (
-                    <CheckCircle2 className="w-4 h-4 text-turquoise ml-auto mt-1" strokeWidth={2} />
+                  {isSelected && (
+                    <CheckCircle2 className="w-5 h-5 text-turquoise shrink-0" strokeWidth={2} />
                   )}
                 </div>
-              </div>
-            </button>
-          ))}
-        </CardContent>
-      </Card>
+                <div className="pt-2 border-t border-navy/5 flex items-baseline justify-between">
+                  <span className="text-xs text-navy/50 font-medium">Tarif officiel</span>
+                  <span className="text-xl font-black text-navy">{formatFCFA(plan.price_fcfa)}</span>
+                </div>
+              </button>
+            );
+          })}
+        </div>
+      </div>
 
-      {/* 2. Paiement Wave */}
-      <Card className="border-[#1BAAF7]/20 bg-gradient-to-br from-[#1BAAF7]/5 to-[#1BAAF7]/5">
-        <CardHeader>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2.5">
-              <Icon name="paiement" size={36} />
-              <div>
-                <CardTitle className="text-base text-navy font-bold">2. Paiement via Wave</CardTitle>
-                <CardDescription>Paiement 100 % sécurisé, sans frais supplémentaires</CardDescription>
-              </div>
+      {/* Bloc d'action Wave officiel */}
+      <div className="rounded-3xl border border-[#1DC3EC]/30 bg-gradient-to-b from-white to-[#1DC3EC]/5 p-6 shadow-sm space-y-5">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <WaveLogo size={38} />
+            <div>
+              <p className="font-extrabold text-navy text-sm sm:text-base">Paiement Mobile Wave</p>
+              <p className="text-xs text-navy/60">Transfert direct et sécurisé au Sénégal</p>
             </div>
-            <span className="rounded-full bg-[#1BAAF7]/10 px-3 py-1 text-xs font-bold text-[#0084cc]">
-              Officiel
-            </span>
           </div>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          {/* Bouton Wave */}
-          <a
-            href={wavePaymentUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex w-full items-center justify-center gap-3 rounded-2xl bg-[#1BAAF7] hover:bg-[#0e96e0] active:scale-[0.99] text-white font-extrabold py-4 px-6 text-base shadow-md transition-all text-center"
-          >
-            <Icon name="paiement" size={24} className="brightness-0 invert" />
-            <span>Payer {formatFCFA(waveAmount)} sur Wave</span>
-            <ArrowRight className="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform" strokeWidth={2} />
-          </a>
+          <span className="text-[11px] font-black text-[#0284C7] bg-[#1DC3EC]/20 border border-[#1DC3EC]/30 px-3 py-1 rounded-full uppercase tracking-wider">
+            Partenaire Officiel
+          </span>
+        </div>
 
-          {/* Infos compatibilité */}
-          <div className="rounded-2xl bg-white border border-surface-muted p-4 space-y-2 text-xs text-navy-light shadow-sm">
-            <p className="font-bold text-navy flex items-center gap-1.5">
-              <Smartphone className="w-3.5 h-3.5 text-navy/60" strokeWidth={2} />
-              <span>Compatible avec tous les navigateurs (Safari iOS, Chrome, Firefox)</span>
-            </p>
-            <ul className="space-y-1.5 pl-5 list-disc text-navy-light/90">
-              <li>
-                <strong>Sur votre téléphone (iPhone &amp; Android)</strong> : Ouvre directement l&apos;application Wave avec le montant exact de <strong>{formatFCFA(waveAmount)}</strong> déjà inscrit.
-              </li>
-              <li>
-                <strong>Sur ordinateur</strong> : Affiche le QR code et l&apos;écran sécurisé Wave officiel.
-              </li>
-              <li>
-                <strong>Paiement manuel</strong> : Si vous préférez envoyer directement depuis l&apos;app Wave, le numéro officiel est le <strong className="text-navy">{WAVE_NUMBER}</strong>.
-              </li>
-            </ul>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* 3. Confirmation */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-base text-navy font-bold">3. Confirmer votre paiement</CardTitle>
-          <CardDescription>
-            Après avoir effectué le paiement Wave, cliquez sur le bouton ci-dessous. L&apos;admin activera votre compte.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
+        {/* Bouton de paiement et confirmation automatique */}
+        <div className="space-y-3 pt-2">
           <Button
             type="button"
-            variant="primary"
-            className="w-full text-base py-3"
-            onClick={handleConfirmPayment}
+            className="w-full h-14 rounded-2xl bg-[#1DC3EC] hover:bg-[#00B5E2] active:scale-[0.99] text-navy font-black text-base shadow-md flex items-center justify-center gap-3 transition-all"
+            onClick={async () => {
+              // Ouvrir Wave dans un nouvel onglet
+              window.open(wavePaymentUrl, '_blank');
+              // Déclencher automatiquement la confirmation
+              await handleConfirmPayment();
+            }}
             disabled={loading}
           >
             {loading ? (
-              'Envoi en cours…'
+              'Enregistrement de votre demande…'
             ) : (
-              <span className="flex items-center justify-center gap-2">
-                <CheckCircle2 className="w-5 h-5" strokeWidth={2} />
-                J&apos;ai effectué mon paiement Wave
-              </span>
+              <>
+                <WaveLogo size={28} />
+                <span className="text-white drop-shadow-xs">Payer {formatFCFA(waveAmount)} avec Wave</span>
+                <ArrowRight className="w-5 h-5 text-white shrink-0" strokeWidth={2.5} />
+              </>
             )}
           </Button>
-          {userName && (
-            <p className="text-xs text-text/50 text-center mt-3">
-              Demande au nom de : <strong className="text-navy">{userName}</strong>
-              {userPhone ? ` — ${userPhone}` : ''}
+
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-navy/60">
+            <p>
+              Traitement officiel par <strong className="text-navy">Al Muxtaar Société</strong>
             </p>
-          )}
-        </CardContent>
-      </Card>
+            <a
+              href={`https://wa.me/221772476926?text=${encodeURIComponent(
+                `Bonjour Al Muxtaar, je souhaite activer ma formule ${currentPlan?.name ?? ''} via Wave.`
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 font-bold text-emerald-700 hover:text-emerald-800 hover:underline"
+            >
+              <WhatsAppLogo size={16} />
+              <span>Assistance Wave WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

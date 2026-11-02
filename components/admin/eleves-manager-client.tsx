@@ -14,6 +14,8 @@ interface ProfileItem {
   full_name: string | null;
   phone: string;
   role: 'student' | 'editor' | 'admin';
+  level?: string;
+  track?: string;
   avatar_url: string | null;
   is_banned: boolean;
   created_at: string;
@@ -35,6 +37,11 @@ function formatDate(iso: string) {
 export default function ElevesManagerClient({ initialProfiles }: Props) {
   const { showToast } = useToast();
   const [profiles, setProfiles] = useState(initialProfiles);
+
+  React.useEffect(() => {
+    setProfiles(initialProfiles);
+  }, [initialProfiles]);
+
   const [search, setSearch] = useState('');
   const [roleFilter, setRoleFilter] = useState<'all' | 'student' | 'editor' | 'admin'>('all');
   const [selectedUser, setSelectedUser] = useState<ProfileItem | null>(null);
@@ -43,9 +50,13 @@ export default function ElevesManagerClient({ initialProfiles }: Props) {
 
   // Filter profiles
   const filtered = profiles.filter((p) => {
+    const fullName = p.full_name?.toLowerCase() ?? '';
+    const phone = p.phone ?? '';
+    const query = search.trim().toLowerCase();
     const matchesSearch =
-      (p.full_name?.toLowerCase().includes(search.toLowerCase()) ?? false) ||
-      p.phone.includes(search);
+      query === '' ||
+      fullName.includes(query) ||
+      phone.includes(query);
     const matchesRole = roleFilter === 'all' || p.role === roleFilter;
     return matchesSearch && matchesRole;
   });
@@ -149,6 +160,7 @@ export default function ElevesManagerClient({ initialProfiles }: Props) {
             <thead className="bg-surface border-b border-navy/10 text-xs text-text/60 uppercase">
               <tr>
                 <th className="px-5 py-3.5">Utilisateur</th>
+                <th className="px-5 py-3.5">Classe / Filière</th>
                 <th className="px-5 py-3.5">Téléphone</th>
                 <th className="px-5 py-3.5">Rôle</th>
                 <th className="px-5 py-3.5">Abonnement</th>
@@ -159,13 +171,14 @@ export default function ElevesManagerClient({ initialProfiles }: Props) {
             <tbody className="divide-y divide-navy/5">
               {filtered.length === 0 ? (
                 <tr>
-                  <td colSpan={6} className="text-center py-10 text-text/50">
+                  <td colSpan={7} className="text-center py-10 text-text/50">
                     Aucun élève trouvé.
                   </td>
                 </tr>
               ) : (
                 filtered.map((u) => {
                   const activeSub = u.subscriptions?.find((s) => s.status === 'active');
+                  const pendingSub = u.subscriptions?.find((s) => s.status === 'pending');
 
                   return (
                     <tr key={u.id} className="hover:bg-surface/30 transition-colors">
@@ -181,6 +194,11 @@ export default function ElevesManagerClient({ initialProfiles }: Props) {
                           )}
                         </div>
                       </td>
+                      <td className="px-5 py-3.5">
+                        <span className="text-xs font-semibold text-navy/80 bg-surface px-2.5 py-1 rounded-lg border border-navy/10">
+                          {u.level ?? 'Terminale'} {u.track ? `(${u.track})` : ''}
+                        </span>
+                      </td>
                       <td className="px-5 py-3.5 text-text/80 font-mono text-xs">{u.phone}</td>
                       <td className="px-5 py-3.5">
                         <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
@@ -194,7 +212,21 @@ export default function ElevesManagerClient({ initialProfiles }: Props) {
                         </span>
                       </td>
                       <td className="px-5 py-3.5">
-                        <Badge status={activeSub ? 'active' : 'expired'} />
+                        {activeSub ? (
+                          <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                            Abonné
+                          </span>
+                        ) : pendingSub ? (
+                          <span className="inline-flex items-center gap-1 text-[11px] font-bold text-amber-900 bg-amber-100 px-2 py-0.5 rounded-full border border-amber-300 animate-pulse">
+                            <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                            En attente Wave
+                          </span>
+                        ) : (
+                          <span className="inline-flex items-center gap-1 text-[11px] font-medium text-navy/60 bg-surface px-2 py-0.5 rounded-full border border-navy/10">
+                            Découverte (1ère leçon)
+                          </span>
+                        )}
                       </td>
                       <td className="px-5 py-3.5 text-text/50 text-xs">
                         {formatDate(u.created_at)}
@@ -238,8 +270,22 @@ export default function ElevesManagerClient({ initialProfiles }: Props) {
                 </code>
               </p>
               <p>
+                <span className="text-text/50">Classe &amp; Filière :</span>{' '}
+                <strong>{selectedUser.level ?? 'Terminale'} {selectedUser.track ? `(${selectedUser.track})` : ''}</strong>
+              </p>
+              <p>
                 <span className="text-text/50">Inscrit le :</span>{' '}
                 {formatDate(selectedUser.created_at)}
+              </p>
+              <p>
+                <span className="text-text/50">Abonnement :</span>{' '}
+                <strong>
+                  {selectedUser.subscriptions?.some((s) => s.status === 'active')
+                    ? 'Abonné (Accès complet actif)'
+                    : selectedUser.subscriptions?.some((s) => s.status === 'pending')
+                    ? 'Paiement Wave en attente de validation'
+                    : 'Compte Découverte (1ère leçon gratuite)'}
+                </strong>
               </p>
               <p>
                 <span className="text-text/50">Statut du compte :</span>{' '}

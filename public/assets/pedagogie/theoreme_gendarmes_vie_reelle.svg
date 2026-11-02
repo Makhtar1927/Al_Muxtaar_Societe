@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="100%" height="100%">
+  <defs>
+    <linearGradient id="gendarmeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B132B"/>
+      <stop offset="100%" stop-color="#1C2541"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="420" rx="16" fill="url(#gendarmeBg)"/>
+
+  <!-- Titre Principal -->
+  <rect x="40" y="18" width="560" height="36" rx="8" fill="#14213D" stroke="#00F5D4" stroke-width="1"/>
+  <text x="55" y="41" fill="#FFFFFF" font-size="13" font-family="sans-serif" font-weight="bold">
+    🚔 Théorème des Gendarmes (Sandarmi) : L&apos;Escorte Obligatoire vers L
+  </text>
+
+  <!-- Route convergente en entonnoir -->
+  <path d="M 60 80 L 700 170 L 700 230 L 60 320 Z" fill="#1E293B" stroke="#334155" stroke-width="2"/>
+  
+  <!-- Ligne médiane pointillée -->
+  <line x1="60" y1="200" x2="700" y2="200" stroke="#FFFFFF" stroke-dasharray="16 12" stroke-width="2" opacity="0.3"/>
+
+  <!-- Point de convergence L -->
+  <circle cx="700" cy="200" r="14" fill="#00F5D4" stroke="#FFFFFF" stroke-width="3"/>
+  <text x="730" y="205" fill="#00F5D4" font-size="16" font-family="monospace" font-weight="bold">L</text>
+  <text x="730" y="222" fill="#94A3B8" font-size="10" font-family="sans-serif">Destination Unique</text>
+
+  <!-- Gendarme du Haut h(x) -->
+  <path d="M 60 80 Q 400 140 700 170" fill="none" stroke="#38BDF8" stroke-width="3.5"/>
+  <rect x="320" y="105" width="120" height="26" rx="6" fill="#0284C7"/>
+  <text x="380" y="122" fill="#FFFFFF" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+    👮 Sandarm 1 : h(x) &#8594; L
+  </text>
+
+  <!-- Gendarme du Bas g(x) -->
+  <path d="M 60 320 Q 400 260 700 230" fill="none" stroke="#38BDF8" stroke-width="3.5"/>
+  <rect x="320" y="268" width="120" height="26" rx="6" fill="#0284C7"/>
+  <text x="380" y="285" fill="#FFFFFF" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+    👮 Sandarm 2 : g(x) &#8594; L
+  </text>
+
+  <!-- Fonction encadrée f(x) oscillante au milieu -->
+  <path d="M 60 200 Q 150 140 240 200 T 420 200 T 600 200 L 700 200" fill="none" stroke="#FBBF24" stroke-width="3" stroke-dasharray="none"/>
+  <rect x="180" y="185" width="160" height="28" rx="6" fill="#B45309" stroke="#FBBF24" stroke-width="1"/>
+  <text x="260" y="203" fill="#FFFFFF" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+    🚗 Fonction coincée f(x)
+  </text>
+
+  <!-- Encadré Décodage Wolof -->
+  <rect x="40" y="325" width="720" height="82" rx="10" fill="#0E1A38" stroke="#FBBF24" stroke-width="1.2"/>
+  <text x="55" y="348" fill="#FBBF24" font-size="12" font-family="sans-serif" font-weight="bold">
+    🇸🇳 XAM-XAM CI WOLOF :
+  </text>
+  <text x="55" y="370" fill="#E2E8F0" font-size="11" font-family="sans-serif">
+    « Booy xool f(x) bu jaxasoo ci diggante ñaari fonction yu melni g(x) ak h(x) : ndax <tspan font-weight="bold" fill="#00F5D4">g(x) &#8804; f(x) &#8804; h(x)</tspan>.
+  </text>
+  <text x="55" y="390" fill="#FEF08A" font-size="11" font-family="sans-serif" font-style="italic">
+    Te ñaari fonction yooyu yépp ñoo ngi jëm ci benn bérab L, f(x) du mën a def lu dul jëm foofu ! Fu sandarm yi yóbbu oto bi mu dem. »
+  </text>
+</svg>

@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="statBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B132B"/>
+      <stop offset="100%" stop-color="#1C2541"/>
+    </linearGradient>
+    <filter id="statGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Fond sombre Navy Al Muxtaar -->
+  <rect width="800" height="480" rx="16" fill="url(#statBgGrad)"/>
+
+  <!-- Titre Principal -->
+  <rect x="50" y="20" width="480" height="38" rx="8" fill="#14213d" stroke="#00F5D4" stroke-width="1"/>
+  <text x="65" y="44" fill="#FFFFFF" font-size="13" font-family="sans-serif" font-weight="bold">
+    📊 Séries Statistiques à 2 Variables (X, Y) au Bac S2
+  </text>
+
+  <!-- Colonne 1 : Paramètres Centraux & Dispersions -->
+  <rect x="50" y="75" width="220" height="235" rx="12" fill="#0E1A38" stroke="#00F5D4" stroke-width="1.5"/>
+  <rect x="50" y="75" width="220" height="36" rx="12" fill="#00F5D4" fill-opacity="0.15"/>
+  <text x="65" y="99" fill="#00F5D4" font-size="13" font-family="sans-serif" font-weight="bold">1. Point Moyen &amp; Variances</text>
+  
+  <text x="65" y="132" fill="#FBBF24" font-size="11" font-family="sans-serif" font-weight="bold">POINT MOYEN G :</text>
+  <text x="65" y="150" fill="#E2E8F0" font-size="11" font-family="sans-serif">G(x&#772;, y&#772;) avec x&#772; = &#931;x_i / N</text>
+  <text x="65" y="168" fill="#94A3B8" font-size="10" font-family="sans-serif">La droite de régression passe par G !</text>
+
+  <rect x="65" y="185" width="190" height="52" rx="8" fill="#1C2541"/>
+  <text x="75" y="205" fill="#00F5D4" font-size="12" font-family="monospace" font-weight="bold">V(X) = (&#931;x_i&#178;/N) - x&#772;&#178;</text>
+  <text x="75" y="225" fill="#38BDF8" font-size="11" font-family="monospace">&#963;_X = &#8730;V(X)</text>
+
+  <text x="65" y="258" fill="#FBBF24" font-size="11" font-family="sans-serif" font-weight="bold">COVARIANCE Cov(X, Y) :</text>
+  <text x="65" y="278" fill="#E2E8F0" font-size="11" font-family="sans-serif">Cov(X,Y) = (&#931;x_i y_i / N) - x&#772;y&#772;</text>
+  <text x="65" y="296" fill="#94A3B8" font-size="10" font-family="sans-serif">Mesure la liaison entre X et Y</text>
+
+  <!-- Colonne 2 : Droites d'Ajustement Linéaire -->
+  <rect x="290" y="75" width="220" height="235" rx="12" fill="#0E1A38" stroke="#38BDF8" stroke-width="1.5"/>
+  <rect x="290" y="75" width="220" height="36" rx="12" fill="#38BDF8" fill-opacity="0.15"/>
+  <text x="305" y="99" fill="#38BDF8" font-size="13" font-family="sans-serif" font-weight="bold">2. Moindres Carrés (D)</text>
+  
+  <text x="305" y="132" fill="#FBBF24" font-size="11" font-family="sans-serif" font-weight="bold">DROITE DE Y EN X :</text>
+  <text x="305" y="152" fill="#E2E8F0" font-size="12" font-family="sans-serif" font-weight="bold">(D) : y = ax + b</text>
+
+  <rect x="305" y="165" width="190" height="65" rx="8" fill="#1C2541"/>
+  <text x="315" y="188" fill="#38BDF8" font-size="13" font-family="monospace" font-weight="bold">a = Cov(X, Y) / V(X)</text>
+  <text x="315" y="212" fill="#FBBF24" font-size="13" font-family="monospace" font-weight="bold">b = y&#772; - a&#183;x&#772;</text>
+
+  <text x="305" y="252" fill="#FBBF24" font-size="11" font-family="sans-serif" font-weight="bold">DROITE DE X EN Y :</text>
+  <text x="305" y="272" fill="#E2E8F0" font-size="11" font-family="sans-serif">(D&apos;) : x = a&apos;y + b&apos;</text>
+  <text x="305" y="292" fill="#94A3B8" font-size="10" font-family="sans-serif">a&apos; = Cov(X, Y) / V(Y) ; b&apos; = x&#772; - a&apos;y&#772;</text>
+
+  <!-- Colonne 3 : Corrélation Linéaire & Prédictions -->
+  <rect x="530" y="75" width="220" height="235" rx="12" fill="#0E1A38" stroke="#FBBF24" stroke-width="1.5"/>
+  <rect x="530" y="75" width="220" height="36" rx="12" fill="#FBBF24" fill-opacity="0.15"/>
+  <text x="545" y="99" fill="#FBBF24" font-size="13" font-family="sans-serif" font-weight="bold">3. Corrélation &amp; Validité</text>
+  
+  <text x="545" y="132" fill="#00F5D4" font-size="11" font-family="sans-serif" font-weight="bold">COEFFICIENT r :</text>
+  <rect x="545" y="145" width="190" height="52" rx="8" fill="#1C2541"/>
+  <text x="555" y="168" fill="#FBBF24" font-size="12" font-family="monospace" font-weight="bold">r = Cov(X,Y) / (&#963;_X&#183;&#963;_Y)</text>
+  <text x="555" y="186" fill="#94A3B8" font-size="10" font-family="sans-serif">-1 &#8804; r &#8804; 1  (r&#178; = a&#183;a&apos;)</text>
+
+  <text x="545" y="218" fill="#FBBF24" font-size="11" font-family="sans-serif" font-weight="bold">TEST DE VALIDITÉ :</text>
+  <text x="545" y="238" fill="#E2E8F0" font-size="11" font-family="sans-serif">Si |r| &#8805; 0,87 ou |r| &#8805; 0,95 :</text>
+  <text x="545" y="256" fill="#00F5D4" font-size="11" font-family="sans-serif">&#10140; Ajustement linéaire justifié !</text>
+  <text x="545" y="278" fill="#E2E8F0" font-size="11" font-family="sans-serif">Prédiction : estimer y pour un x donné</text>
+  <text x="545" y="296" fill="#94A3B8" font-size="10" font-family="sans-serif">(ou x pour un y donné avec D&apos;)</text>
+
+  <!-- Bannière Inférieure : Méthode de Mayer & Pièges Bac -->
+  <rect x="50" y="325" width="700" height="135" rx="12" fill="#14213D" stroke="#00F5D4" stroke-opacity="0.3" stroke-width="1"/>
+  
+  <text x="70" y="352" fill="#00F5D4" font-size="13" font-family="sans-serif" font-weight="bold">
+    🎯 PROTOCOLE BAC S2 : Calculatrice &amp; Rédaction Sans Faute
+  </text>
+  
+  <text x="70" y="377" fill="#E2E8F0" font-size="11" font-family="sans-serif">
+    1. <tspan fill="#FBBF24" font-weight="bold">Tableau récapitulatif :</tspan> Toujours inscrire les colonnes x_i, y_i, x_i&#178;, y_i&#178;, et x_i&#183;y_i avec les sommes en bas.
+  </text>
+  <text x="70" y="399" fill="#E2E8F0" font-size="11" font-family="sans-serif">
+    2. <tspan fill="#38BDF8" font-weight="bold">Méthode de Mayer :</tspan> Partager le nuage en 2 sous-groupes de même taille, calculer G_1 et G_2, la droite est (G_1 G_2).
+  </text>
+  <text x="70" y="421" fill="#E2E8F0" font-size="11" font-family="sans-serif">
+    3. <tspan fill="#00F5D4" font-weight="bold">Vérification calculatrice :</tspan> En mode STAT (LinReg ax+b), vérifiez immédiatement a, b et r avant de rédiger !
+  </text>
+  <text x="70" y="443" fill="#F87171" font-size="11" font-family="sans-serif">
+    &#9888; <tspan font-weight="bold">Piège classique :</tspan> Pour estimer X sachant Y, utilisez la droite de X en Y (D&apos; : x = a&apos;y + b&apos;) et NON l&apos;inverse de D !
+  </text>
+</svg>

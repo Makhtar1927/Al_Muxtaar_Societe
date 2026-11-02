@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B132B"/>
+      <stop offset="100%" stop-color="#1C2541"/>
+    </linearGradient>
+    <linearGradient id="curveGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F43F5E"/>
+      <stop offset="50%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Fond sombre Navy Al Muxtaar -->
+  <rect width="800" height="540" rx="16" fill="url(#bgGrad)"/>
+
+  <!-- Titre & Bandeau Pédagogique -->
+  <rect x="40" y="18" width="720" height="38" rx="8" fill="#14213D" stroke="#00F5D4" stroke-width="1"/>
+  <text x="400" y="42" fill="#FFFFFF" font-size="13" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+    🚌 Métaphore Concrète au Sénégal : Le Bus Dakar Dem Dikk &amp; le TVI
+  </text>
+
+  <!-- Zone Graphique -->
+  <rect x="40" y="70" width="720" height="240" rx="14" fill="#0A0F1D" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- Grille discrète -->
+  <line x1="40" y1="130" x2="760" y2="130" stroke="#1E293B" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="40" y1="250" x2="760" y2="250" stroke="#1E293B" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="200" y1="70" x2="200" y2="310" stroke="#1E293B" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="420" y1="70" x2="420" y2="310" stroke="#1E293B" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="640" y1="70" x2="640" y2="310" stroke="#1E293B" stroke-width="1" stroke-dasharray="4 4"/>
+
+  <!-- Ligne Horizontale Y = 0 (L'Axe des abscisses / La ligne de démarcation) -->
+  <line x1="60" y1="190" x2="740" y2="190" stroke="#38BDF8" stroke-width="2.5"/>
+  <polygon points="745,190 735,185 735,195" fill="#38BDF8"/>
+  <text x="730" y="180" fill="#38BDF8" font-size="11" font-family="sans-serif" font-weight="bold">y = 0</text>
+  <rect x="62" y="196" width="130" height="18" rx="4" fill="#0369A1" opacity="0.3"/>
+  <text x="68" y="209" fill="#7DD3FC" font-size="9" font-family="sans-serif">Niveau Zéro (La Frontière)</text>
+
+  <!-- Points a et b sur l'axe X -->
+  <!-- a (Thiaroye / Départ sous zéro) -->
+  <line x1="180" y1="185" x2="180" y2="265" stroke="#F43F5E" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <circle cx="180" cy="265" r="5" fill="#F43F5E"/>
+  <text x="180" y="180" fill="#F43F5E" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">a</text>
+  <text x="180" y="285" fill="#F43F5E" font-size="10" font-family="sans-serif" font-weight="bold" text-anchor="middle">f(a) &lt; 0 (Négatif)</text>
+
+  <!-- b (Almadies / Arrivée au-dessus de zéro) -->
+  <line x1="640" y1="115" x2="640" y2="195" stroke="#10B981" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <circle cx="640" cy="115" r="5" fill="#10B981"/>
+  <text x="640" y="208" fill="#10B981" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">b</text>
+  <text x="640" y="103" fill="#10B981" font-size="10" font-family="sans-serif" font-weight="bold" text-anchor="middle">f(b) &gt; 0 (Positif)</text>
+
+  <!-- Courbe Continue et Strictement Croissante y = f(x) -->
+  <path d="M 180 265 C 280 260, 340 220, 420 190 C 500 160, 560 120, 640 115" 
+        fill="none" stroke="url(#curveGrad)" stroke-width="4.5" stroke-linecap="round"/>
+
+  <!-- Racine Alpha : Intersection avec y = 0 -->
+  <line x1="420" y1="75" x2="420" y2="305" stroke="#FBBF24" stroke-width="2" stroke-dasharray="5 3"/>
+  <circle cx="420" cy="190" r="9" fill="#FBBF24" filter="url(#glow)"/>
+  <circle cx="420" cy="190" r="4" fill="#0F172A"/>
+  
+  <!-- Badge Alpha -->
+  <rect x="375" y="150" width="90" height="26" rx="6" fill="#FBBF24"/>
+  <text x="420" y="167" fill="#0F172A" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+    f(α) = 0
+  </text>
+  <text x="420" y="215" fill="#FDE047" font-size="12" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+    x = α (Racine Unique)
+  </text>
+
+  <!-- Bus Dakar Dem Dikk roulant sur la courbe vers Alpha -->
+  <g transform="translate(300, 202) rotate(-22)">
+    <!-- Carrosserie Bus DDD (Blanc / Marron officiel) -->
+    <rect x="0" y="0" width="70" height="24" rx="4" fill="#F8FAFC" stroke="#92400E" stroke-width="1.5"/>
+    <rect x="0" y="14" width="70" height="8" rx="2" fill="#B45309"/>
+    <!-- Vitres -->
+    <rect x="6" y="3" width="12" height="8" rx="1" fill="#0284C7"/>
+    <rect x="22" y="3" width="12" height="8" rx="1" fill="#0284C7"/>
+    <rect x="38" y="3" width="12" height="8" rx="1" fill="#0284C7"/>
+    <rect x="54" y="3" width="10" height="8" rx="1" fill="#0284C7"/>
+    <!-- Roues -->
+    <circle cx="16" cy="24" r="5" fill="#1E293B" stroke="#CBD5E1" stroke-width="1"/>
+    <circle cx="54" cy="24" r="5" fill="#1E293B" stroke="#CBD5E1" stroke-width="1"/>
+    <!-- Texte Bus -->
+    <text x="35" y="20" fill="#FFFFFF" font-size="5" font-family="sans-serif" font-weight="bold" text-anchor="middle">DEM DIKK</text>
+  </g>
+
+  <!-- Flèche montante : Stricte Croissance -->
+  <path d="M 500 155 Q 530 135 555 125" fill="none" stroke="#10B981" stroke-width="2"/>
+  <polygon points="560,123 550,125 553,131" fill="#10B981"/>
+  <text x="545" y="145" fill="#10B981" font-size="9" font-family="sans-serif" font-weight="bold">Strictement croissante</text>
+
+  <!-- =========================================================== -->
+  <!-- Explication Pédagogique & Décodage Wolof                    -->
+  <!-- =========================================================== -->
+  <rect x="40" y="320" width="720" height="205" rx="12" fill="#0E1A38" stroke="#38BDF8" stroke-width="1.2"/>
+
+  <!-- Titre -->
+  <text x="60" y="344" fill="#00F5D4" font-size="12" font-family="sans-serif" font-weight="bold">
+    🎯 CE QU&apos;IL FAUT RETENIR (EN FRANÇAIS &amp; EN WOLOF) :
+  </text>
+
+  <!-- Français : label + lignes courtes -->
+  <text x="60" y="367" font-family="sans-serif" font-size="11">
+    <tspan fill="#E2E8F0">• </tspan><tspan font-weight="bold" fill="#FBBF24">Français :</tspan>
+  </text>
+  <text x="72" y="383" fill="#E2E8F0" font-size="11" font-family="sans-serif">
+    Si la route est continue (sans saut ni coupure) de f(a) &lt; 0 à f(b) &gt; 0, le bus traverse
+  </text>
+  <text x="72" y="398" fill="#E2E8F0" font-size="11" font-family="sans-serif">
+    OBLIGATOIREMENT la frontière zéro en au moins un endroit α (Théorème des Valeurs Intermédiaires).
+  </text>
+  <text x="72" y="413" fill="#94A3B8" font-size="10" font-family="sans-serif">
+    Et s&apos;il ne fait que monter sans jamais faire demi-tour (stricte monotonie), la solution α est UNIQUE (Bijection).
+  </text>
+
+  <!-- Wolof : label + lignes courtes -->
+  <text x="60" y="438" font-family="sans-serif" font-size="11">
+    <tspan fill="#E2E8F0">• </tspan><tspan font-weight="bold" fill="#38BDF8">Wolof :</tspan>
+  </text>
+  <text x="72" y="454" fill="#E2E8F0" font-size="11" font-family="sans-serif" font-style="italic">
+    « TVI mooy : boo jogee ci suuf (f(a) &lt; 0) ngir yéeg ci kaw (f(b) &gt; 0) te yoon bi dogul (continuité),
+  </text>
+  <text x="72" y="469" fill="#E2E8F0" font-size="11" font-family="sans-serif" font-style="italic">
+    faw nga romb digg bi (f(α) = 0). Bu yoon bi dëgër te dafay yéeg rekk (stricte monotonie),
+  </text>
+  <text x="72" y="484" fill="#E2E8F0" font-size="11" font-family="sans-serif" font-style="italic">
+    benn yoon rekk ngay romb digg bi : loolu mooy Théorème de la Bijection ! »
+  </text>
+
+  <!-- Réflexe Bac S2 -->
+  <text x="60" y="511" fill="#38BDF8" font-size="10" font-family="sans-serif" font-weight="bold">
+    ⚡ Réflexe Bac S2 : 1. Continuité + 2. Stricte monotonie + 3. f(a) × f(b) &lt; 0 ⟹ Unique solution α.
+  </text>
+</svg>
+

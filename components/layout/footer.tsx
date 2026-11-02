@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Logo } from "@/components/ui/logo";
+import { WaveLogo } from "@/components/ui/icons/wave-logo";
+import { WhatsAppLogo } from "@/components/ui/icons/whatsapp-logo";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -25,12 +27,17 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-navy-light">
               <li>
                 <Link href="/doc" className="hover:text-turquoise transition-colors">
-                  Présentation des cours
+                  Présentation de la plateforme
                 </Link>
               </li>
               <li>
                 <Link href="/doc/catalogue" className="hover:text-turquoise transition-colors">
-                  Catalogue Terminale S2
+                  Catalogue national (4 Niveaux)
+                </Link>
+              </li>
+              <li>
+                <Link href="/cours/terminale/s2/mathematiques" className="hover:text-turquoise transition-colors">
+                  Tle S2 Maths — Module Actif (13 Chapitres)
                 </Link>
               </li>
               <li>
@@ -39,8 +46,9 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/abonnement" className="hover:text-turquoise transition-colors">
-                  S&apos;abonner (Wave)
+                <Link href="/abonnement" className="inline-flex items-center gap-1.5 hover:text-turquoise transition-colors font-medium">
+                  <WaveLogo size={14} />
+                  <span>S&apos;abonner (Wave Money)</span>
                 </Link>
               </li>
             </ul>
@@ -53,14 +61,14 @@ export function Footer() {
             </h4>
             <ul className="space-y-2 text-sm text-navy-light">
               <li>
-                <span className="text-navy-light/60 cursor-not-allowed">
-                  Al_Muxtaar_Service (Phase 2)
-                </span>
+                <Link href="/service" className="hover:text-turquoise transition-colors">
+                  Al_Muxtaar_Service (Ingénierie)
+                </Link>
               </li>
               <li>
-                <span className="text-navy-light/60 cursor-not-allowed">
-                  Al_Muxtaar_Boutique (Phase 3)
-                </span>
+                <Link href="/boutique" className="hover:text-turquoise transition-colors">
+                  Al_Muxtaar_Boutique (Matériels)
+                </Link>
               </li>
               <li>
                 <span className="text-navy-light/60 cursor-not-allowed">
@@ -82,9 +90,15 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-turquoise transition-colors">
-                  Assistance WhatsApp
-                </Link>
+                <a
+                  href="https://wa.me/221772476926?text=Bonjour%20Al%20Muxtaar,%20j'ai%20une%20question%20concernant%20la%20plateforme."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 hover:text-turquoise transition-colors font-medium text-emerald-700"
+                >
+                  <WhatsAppLogo size={14} />
+                  <span>Assistance WhatsApp (+221 77 247 69 26)</span>
+                </a>
               </li>
               <li>
                 <Link href="/conditions" className="hover:text-turquoise transition-colors">

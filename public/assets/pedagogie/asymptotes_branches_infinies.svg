@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 460" width="100%" height="100%" style="background:#081521; font-family:system-ui, -apple-system, sans-serif; border-radius:16px;">
+  <defs>
+    <linearGradient id="curve1" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00B8A9"/>
+      <stop offset="100%" stop-color="#38EF7D"/>
+    </linearGradient>
+    <linearGradient id="obliqueGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F7B731"/>
+      <stop offset="100%" stop-color="#FF5E3A"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="glow"/>
+      <feComposite in="SourceGraphic" in2="glow" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Titre Principal -->
+  <text x="420" y="32" fill="#FFFFFF" font-size="16" font-weight="900" text-anchor="middle" letter-spacing="1">
+    LES 3 ASYMPTOTES CLÉS AU BACCALAURÉAT S2
+  </text>
+
+  <!-- Grille d'arrière plan -->
+  <g stroke="#143048" stroke-width="1" opacity="0.5">
+    <line x1="80" y1="50" x2="80" y2="400"/>
+    <line x1="200" y1="50" x2="200" y2="400"/>
+    <line x1="320" y1="50" x2="320" y2="400"/>
+    <line x1="440" y1="50" x2="440" y2="400"/>
+    <line x1="560" y1="50" x2="560" y2="400"/>
+    <line x1="680" y1="50" x2="680" y2="400"/>
+    <line x1="800" y1="50" x2="800" y2="400"/>
+
+    <line x1="40" y1="100" x2="800" y2="100"/>
+    <line x1="40" y1="180" x2="800" y2="180"/>
+    <line x1="40" y1="260" x2="800" y2="260"/>
+    <line x1="40" y1="340" x2="800" y2="340"/>
+  </g>
+
+  <!-- Axes cartésiens -->
+  <!-- Axe Ox -->
+  <line x1="40" y1="360" x2="800" y2="360" stroke="#718BA5" stroke-width="2.5"/>
+  <polygon points="800,360 790,355 790,365" fill="#718BA5"/>
+  <text x="795" y="385" fill="#A0B9D1" font-size="14" font-weight="bold">x</text>
+
+  <!-- Axe Oy -->
+  <line x1="120" y1="410" x2="120" y2="50" stroke="#718BA5" stroke-width="2.5"/>
+  <polygon points="120,50 115,60 125,60" fill="#718BA5"/>
+  <text x="95" y="60" fill="#A0B9D1" font-size="14" font-weight="bold">y</text>
+
+  <!-- 1. ASYMPTOTE VERTICALE : x = x0 (ici x = 240) -->
+  <line x1="240" y1="60" x2="240" y2="400" stroke="#FF5E3A" stroke-width="2.5" stroke-dasharray="6,4"/>
+  <!-- Courbe longeant x = 240 -->
+  <path d="M 225,60 Q 228,260 140,320" fill="none" stroke="url(#curve1)" stroke-width="3.5" filter="url(#glow)"/>
+  <path d="M 255,400 Q 252,200 340,160" fill="none" stroke="url(#curve1)" stroke-width="3.5" filter="url(#glow)"/>
+  
+  <rect x="170" y="70" width="140" height="42" rx="8" fill="#143048" stroke="#FF5E3A" stroke-width="1.5"/>
+  <text x="240" y="88" fill="#FF5E3A" font-size="11" font-weight="900" text-anchor="middle">Asymptote Verticale</text>
+  <text x="240" y="103" fill="#FFFFFF" font-size="10" font-weight="bold" text-anchor="middle">x = x₀ si lim f = ±∞</text>
+
+  <!-- 2. ASYMPTOTE HORIZONTALE : y = L (ici y = 260) -->
+  <line x1="360" y1="260" x2="800" y2="260" stroke="#00B8A9" stroke-width="2.5" stroke-dasharray="6,4"/>
+  <!-- Courbe longeant y = L vers la gauche -->
+  <path d="M 400,285 Q 520,265 620,262" fill="none" stroke="url(#curve1)" stroke-width="3.5" filter="url(#glow)"/>
+
+  <rect x="440" y="275" width="150" height="42" rx="8" fill="#143048" stroke="#00B8A9" stroke-width="1.5"/>
+  <text x="515" y="293" fill="#00B8A9" font-size="11" font-weight="900" text-anchor="middle">Asymptote Horizontale</text>
+  <text x="515" y="308" fill="#FFFFFF" font-size="10" font-weight="bold" text-anchor="middle">y = L si lim(±∞) f = L</text>
+
+  <!-- 3. ASYMPTOTE OBLIQUE : (D) y = ax + b -->
+  <!-- Ligne oblique passant de (340, 240) vers (760, 80) -->
+  <line x1="340" y1="240" x2="760" y2="80" stroke="url(#obliqueGrad)" stroke-width="3"/>
+  <!-- Courbe longeant l'oblique (au-dessus puis s'approchant infiniment) -->
+  <path d="M 370,180 Q 520,135 740,82" fill="none" stroke="#38EF7D" stroke-width="3.5" filter="url(#glow)"/>
+
+  <rect x="580" y="110" width="190" height="54" rx="8" fill="#143048" stroke="#F7B731" stroke-width="1.5"/>
+  <text x="675" y="128" fill="#F7B731" font-size="11" font-weight="900" text-anchor="middle">Asymptote Oblique (D)</text>
+  <text x="675" y="143" fill="#FFFFFF" font-size="10" font-weight="bold" text-anchor="middle">y = ax + b</text>
+  <text x="675" y="157" fill="#38EF7D" font-size="9" font-weight="bold" text-anchor="middle">lim [f(x) - (ax+b)] = 0</text>
+
+  <!-- BANDEAU RÉFLEXE INFÉRIEUR -->
+  <rect x="40" y="415" width="760" height="36" rx="10" fill="#0E2438" stroke="#1A3A54"/>
+  <text x="420" y="438" fill="#F7B731" font-size="12" font-weight="bold" text-anchor="middle">
+    Position relative : Si f(x) - (ax+b) &gt; 0 ⟹ (Cf) est AU-DESSUS de (D) | Si &lt; 0 ⟹ AU-DESSOUS
+  </text>
+</svg>
+

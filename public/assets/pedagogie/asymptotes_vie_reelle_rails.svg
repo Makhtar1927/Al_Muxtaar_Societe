@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyAsymp" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B132B"/>
+      <stop offset="100%" stop-color="#1C2541"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#14213D"/>
+      <stop offset="100%" stop-color="#0B132B"/>
+    </linearGradient>
+    <filter id="glowCyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Fond sombre Navy Al Muxtaar -->
+  <rect width="800" height="540" rx="16" fill="url(#skyAsymp)"/>
+
+  <!-- Titre & Bandeau Pédagogique -->
+  <rect x="40" y="18" width="720" height="38" rx="8" fill="#14213D" stroke="#00F5D4" stroke-width="1"/>
+  <text x="400" y="42" fill="#FFFFFF" font-size="13" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+    🚆 Métaphore Concrète au Sénégal : Les Asymptotes = Les Rails du TER &amp; Le Mur Infranchissable
+  </text>
+
+  <!-- 3 Panneaux Graphiques : Verticale | Horizontale | Oblique -->
+  <!-- 1. Verticale (Le Mur Infranchissable) -->
+  <g transform="translate(40, 70)">
+    <rect width="230" height="235" rx="12" fill="#0A0F1D" stroke="#334155" stroke-width="1.5"/>
+    <text x="115" y="25" fill="#F43F5E" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+      1. Asymptote Verticale
+    </text>
+    <text x="115" y="42" fill="#94A3B8" font-size="9" font-family="sans-serif" text-anchor="middle">
+      x = x₀ (Valeur interdite / Falaise)
+    </text>
+    <!-- Ligne verticale rouge x = x0 -->
+    <line x1="115" y1="55" x2="115" y2="200" stroke="#F43F5E" stroke-width="3" stroke-dasharray="5 3"/>
+    <rect x="100" y="205" width="30" height="18" rx="4" fill="#F43F5E"/>
+    <text x="115" y="218" fill="#FFFFFF" font-size="9" font-family="sans-serif" font-weight="bold" text-anchor="middle">x = x₀</text>
+    <!-- Courbe qui plonge et monte sans toucher -->
+    <path d="M 50 140 Q 95 140 105 55" fill="none" stroke="#38BDF8" stroke-width="2.5"/>
+    <path d="M 180 140 Q 135 140 125 200" fill="none" stroke="#38BDF8" stroke-width="2.5"/>
+    <text x="60" y="85" fill="#38BDF8" font-size="9" font-family="sans-serif">lim = +∞</text>
+    <text x="145" y="180" fill="#38BDF8" font-size="9" font-family="sans-serif">lim = -∞</text>
+  </g>
+
+  <!-- 2. Horizontale (Le Vol d'Atterrissage AIBD) -->
+  <g transform="translate(285, 70)">
+    <rect width="230" height="235" rx="12" fill="#0A0F1D" stroke="#334155" stroke-width="1.5"/>
+    <text x="115" y="25" fill="#10B981" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+      2. Asymptote Horizontale
+    </text>
+    <text x="115" y="42" fill="#94A3B8" font-size="9" font-family="sans-serif" text-anchor="middle">
+      y = L (Piste d&apos;atterrissage à l&apos;infini)
+    </text>
+    <!-- Ligne horizontale verte y = L -->
+    <line x1="20" y1="125" x2="210" y2="125" stroke="#10B981" stroke-width="3" stroke-dasharray="6 4"/>
+    <rect x="180" y="105" width="40" height="16" rx="4" fill="#10B981"/>
+    <text x="200" y="117" fill="#FFFFFF" font-size="8" font-family="sans-serif" font-weight="bold" text-anchor="middle">y = L</text>
+    <!-- Avion descendant vers L -->
+    <path d="M 30 65 Q 90 120 210 123" fill="none" stroke="#38BDF8" stroke-width="2.5"/>
+    <polygon points="170,121 162,118 162,124" fill="#FBBF24"/>
+    <text x="115" y="95" fill="#FDE047" font-size="9" font-family="sans-serif" text-anchor="middle">✈️ Stabilisation vers L</text>
+    <text x="115" y="218" fill="#94A3B8" font-size="9" font-family="sans-serif" text-anchor="middle">lim f(x) = L en +∞</text>
+  </g>
+
+  <!-- 3. Oblique (Les Rails du TER vers l'horizon) -->
+  <g transform="translate(530, 70)">
+    <rect width="230" height="235" rx="12" fill="#0A0F1D" stroke="#334155" stroke-width="1.5"/>
+    <text x="115" y="25" fill="#FBBF24" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+      3. Asymptote Oblique
+    </text>
+    <text x="115" y="42" fill="#94A3B8" font-size="9" font-family="sans-serif" text-anchor="middle">
+      y = ax + b (Rails parallèles à l&apos;infini)
+    </text>
+    <!-- Droite oblique jaune y = ax + b -->
+    <line x1="30" y1="190" x2="200" y2="65" stroke="#FBBF24" stroke-width="2.5" stroke-dasharray="6 4"/>
+    <text x="180" y="60" fill="#FDE047" font-size="9" font-family="sans-serif" font-weight="bold">y = ax+b</text>
+    <!-- Courbe épousant la droite -->
+    <path d="M 30 160 Q 80 145 120 115 T 200 68" fill="none" stroke="#38BDF8" stroke-width="2.5"/>
+    <!-- Écart qui tend vers 0 -->
+    <line x1="145" y1="102" x2="152" y2="108" stroke="#F43F5E" stroke-width="1.5"/>
+    <text x="115" y="145" fill="#38BDF8" font-size="8" font-family="sans-serif" text-anchor="middle">Écart vertical → 0</text>
+    <text x="115" y="218" fill="#94A3B8" font-size="9" font-family="sans-serif" text-anchor="middle">lim [f(x) - (ax+b)] = 0</text>
+  </g>
+
+  <!-- =========================================================== -->
+  <!-- Explication Pédagogique & Décodage Wolof                    -->
+  <!-- =========================================================== -->
+  <rect x="40" y="320" width="720" height="205" rx="12" fill="#0E1A38" stroke="#38BDF8" stroke-width="1.2"/>
+
+  <!-- Titre -->
+  <text x="60" y="344" fill="#00F5D4" font-size="12" font-family="sans-serif" font-weight="bold">
+    🎯 CE QU&apos;IL FAUT RETENIR (EN FRANÇAIS &amp; EN WOLOF) :
+  </text>
+
+  <!-- Français : label + lignes courtes -->
+  <text x="60" y="367" font-family="sans-serif" font-size="11">
+    <tspan fill="#E2E8F0">• </tspan><tspan font-weight="bold" fill="#FBBF24">Français :</tspan>
+  </text>
+  <text x="72" y="383" fill="#E2E8F0" font-size="11" font-family="sans-serif">
+    Une asymptote est une droite guide : en x₀ (verticale) la courbe fuit vers ±∞ comme devant un mur ;
+  </text>
+  <text x="72" y="398" fill="#E2E8F0" font-size="11" font-family="sans-serif">
+    en ±∞ (horizontale ou oblique), la courbe colle à la droite comme un train sur ses rails.
+  </text>
+  <text x="72" y="413" fill="#94A3B8" font-size="10" font-family="sans-serif">
+    Pour la position relative : signe de d(x) = f(x) - y(D) ⟹ au-dessus si &gt; 0, au-dessous si &lt; 0.
+  </text>
+
+  <!-- Wolof : label + lignes courtes -->
+  <text x="60" y="438" font-family="sans-serif" font-size="11">
+    <tspan fill="#E2E8F0">• </tspan><tspan font-weight="bold" fill="#38BDF8">Wolof :</tspan>
+  </text>
+  <text x="72" y="454" fill="#E2E8F0" font-size="11" font-family="sans-serif" font-style="italic">
+    « Asymptote dafa melni yoon wu tegu wet :
+  </text>
+  <text x="72" y="469" fill="#E2E8F0" font-size="11" font-family="sans-serif" font-style="italic">
+    - Verticale (x = x₀) : miir bu kenn mënul daal la, boo ko jegeñsee yangi naan ci kaw (+∞) walla ci suuf (-∞).
+  </text>
+  <text x="72" y="484" fill="#E2E8F0" font-size="11" font-family="sans-serif" font-style="italic">
+    - Horizontale (y = L) ak Oblique (y = ax + b) : courbe bi day topp yoonu droite bi ba melni rail TER ! »
+  </text>
+
+  <!-- Réflexe Bac S2 -->
+  <text x="60" y="511" fill="#38BDF8" font-size="10" font-family="sans-serif" font-weight="bold">
+    ⚡ Réflexe Bac S2 : lim [f(x) - (ax + b)] = 0 en ±∞ ⟺ (D) : y = ax + b est asymptote oblique à C_f.
+  </text>
+</svg>
+

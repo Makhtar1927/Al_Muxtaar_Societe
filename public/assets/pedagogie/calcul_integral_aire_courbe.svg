@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B132B"/>
+      <stop offset="100%" stop-color="#1C2541"/>
+    </linearGradient>
+    <linearGradient id="areaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00F5D4" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#00BBF9" stop-opacity="0.1"/>
+    </linearGradient>
+    <linearGradient id="curveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F5D4"/>
+      <stop offset="60%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#FBBF24"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Fond Navy Al Muxtaar -->
+  <rect width="800" height="480" rx="16" fill="url(#bgGrad)"/>
+
+  <!-- Grille discrète -->
+  <g stroke="#ffffff" stroke-opacity="0.06" stroke-width="1">
+    <line x1="60" y1="80" x2="740" y2="80"/>
+    <line x1="60" y1="140" x2="740" y2="140"/>
+    <line x1="60" y1="200" x2="740" y2="200"/>
+    <line x1="60" y1="260" x2="740" y2="260"/>
+    <line x1="60" y1="320" x2="740" y2="320"/>
+    <line x1="60" y1="380" x2="740" y2="380"/>
+
+    <line x1="100" y1="40" x2="100" y2="440"/>
+    <line x1="180" y1="40" x2="180" y2="440"/>
+    <line x1="260" y1="40" x2="260" y2="440"/>
+    <line x1="340" y1="40" x2="340" y2="440"/>
+    <line x1="420" y1="40" x2="420" y2="440"/>
+    <line x1="500" y1="40" x2="500" y2="440"/>
+    <line x1="580" y1="40" x2="580" y2="440"/>
+    <line x1="660" y1="40" x2="660" y2="440"/>
+  </g>
+
+  <!-- Axes du repère (Origine O à 100, 380) -->
+  <line x1="70" y1="380" x2="750" y2="380" stroke="#94A3B8" stroke-width="2"/>
+  <polygon points="750,380 740,375 740,385" fill="#94A3B8"/>
+  <text x="755" y="385" fill="#94A3B8" font-size="14" font-family="sans-serif" font-weight="bold">x</text>
+
+  <line x1="100" y1="440" x2="100" y2="50" stroke="#94A3B8" stroke-width="2"/>
+  <polygon points="100,50 95,60 105,60" fill="#94A3B8"/>
+  <text x="105" y="55" fill="#94A3B8" font-size="14" font-family="sans-serif" font-weight="bold">y</text>
+  <text x="82" y="398" fill="#94A3B8" font-size="13" font-family="sans-serif">O</text>
+
+  <!-- Zone hachurée / colorée de l'intégrale : de a = 220 (x=1.5) à b = 480 (x=4.75) -->
+  <!-- Courbe f(x) : passe par (100, 320), (220, 240), (350, 150), (480, 190), (640, 290) -->
+  <path d="M 220 380 L 220 240 C 260 200, 310 150, 350 150 C 400 150, 440 170, 480 190 L 480 380 Z"
+        fill="url(#areaGrad)"/>
+
+  <!-- Lignes verticales de délimitation x = a et x = b -->
+  <line x1="220" y1="380" x2="220" y2="240" stroke="#00F5D4" stroke-width="2" stroke-dasharray="5,4"/>
+  <line x1="480" y1="380" x2="480" y2="190" stroke="#FBBF24" stroke-width="2" stroke-dasharray="5,4"/>
+
+  <!-- Points bornes sur l'axe Ox -->
+  <circle cx="220" cy="380" r="5" fill="#00F5D4" filter="url(#glow)"/>
+  <text x="214" y="405" fill="#00F5D4" font-size="16" font-family="sans-serif" font-weight="bold">a</text>
+
+  <circle cx="480" cy="380" r="5" fill="#FBBF24" filter="url(#glow)"/>
+  <text x="475" y="405" fill="#FBBF24" font-size="16" font-family="sans-serif" font-weight="bold">b</text>
+
+  <!-- Tracé de la courbe Cf -->
+  <path d="M 120 330 C 170 290, 200 260, 220 240 C 260 200, 310 150, 350 150 C 400 150, 440 170, 480 190 C 530 220, 590 270, 680 300"
+        fill="none" stroke="url(#curveGrad)" stroke-width="4" stroke-linecap="round" filter="url(#glow)"/>
+  <text x="690" y="305" fill="#38BDF8" font-size="14" font-family="sans-serif" font-weight="bold">C_f</text>
+
+  <!-- Texte d'aire au centre du domaine -->
+  <rect x="290" y="240" width="130" height="42" rx="8" fill="#0F172A" stroke="#00F5D4" stroke-width="1.5" opacity="0.95"/>
+  <text x="302" y="267" fill="#00F5D4" font-size="15" font-family="sans-serif" font-weight="bold">A = ∫ₐᵇ f(x) dx</text>
+
+  <!-- Badge Formules Essentielles Bac S2 -->
+  <g transform="translate(520, 70)">
+    <rect width="255" height="190" rx="12" fill="#0F172A" stroke="#38BDF8" stroke-width="1.5" opacity="0.95"/>
+    <text x="16" y="28" fill="#00F5D4" font-size="14" font-family="sans-serif" font-weight="bold">Formules Clés Bac S2</text>
+    <text x="16" y="55" fill="#E2E8F0" font-size="12" font-family="sans-serif">• Intégrale : ∫ₐᵇ f(x)dx = [F(x)]ₐᵇ</text>
+    <text x="16" y="78" fill="#E2E8F0" font-size="12" font-family="sans-serif">• IPP : ∫ uv' = [uv] - ∫ u'v</text>
+    <text x="16" y="101" fill="#FBBF24" font-size="12" font-family="sans-serif">• Choix ALPES : Arc, Ln, Poly, Exp, Sin</text>
+    <text x="16" y="124" fill="#E2E8F0" font-size="12" font-family="sans-serif">• Chasles : ∫ₐᶜ f = ∫ₐᵇ f + ∫₆ᶜ f</text>
+    <text x="16" y="147" fill="#38BDF8" font-size="12" font-family="sans-serif">• Unité d'aire : 1 u.a. = ‖i‖ × ‖j‖ cm²</text>
+    <text x="16" y="170" fill="#00F5D4" font-size="12" font-family="sans-serif">• Aire = (∫ₐᵇ f) × ‖i‖ × ‖j‖ cm²</text>
+  </g>
+
+  <!-- Titre Principal -->
+  <text x="30" y="36" fill="#FFFFFF" font-size="18" font-family="sans-serif" font-weight="bold">Calcul Intégral : Interprétation Géométrique de l'Aire &amp; IPP</text>
+</svg>
+

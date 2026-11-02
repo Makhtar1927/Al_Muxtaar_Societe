@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="512" height="512" role="img" aria-label="reflexes simulateur interactif">
+<defs>
+  <linearGradient id="i27_t" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6CEEDF"/><stop offset=".5" stop-color="#00B8A9"/><stop offset="1" stop-color="#00857B"/></linearGradient>
+  <linearGradient id="i27_tl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B5F8F0"/><stop offset=".5" stop-color="#7BEFE2"/><stop offset="1" stop-color="#3CD3C4"/></linearGradient>
+  <linearGradient id="i27_td" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00A598"/><stop offset=".5" stop-color="#007A70"/><stop offset="1" stop-color="#00574F"/></linearGradient>
+  <linearGradient id="i27_n" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#55708F"/><stop offset=".5" stop-color="#2C4259"/><stop offset="1" stop-color="#17222F"/></linearGradient>
+  <linearGradient id="i27_nd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#35506A"/><stop offset=".5" stop-color="#1E3043"/><stop offset="1" stop-color="#0E1822"/></linearGradient>
+  <linearGradient id="i27_g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE69A"/><stop offset=".5" stop-color="#F7B731"/><stop offset="1" stop-color="#D18305"/></linearGradient>
+  <linearGradient id="i27_c" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFAE9E"/><stop offset=".5" stop-color="#F0654C"/><stop offset="1" stop-color="#C93E2A"/></linearGradient>
+  <linearGradient id="i27_w" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".5" stop-color="#EAF1F6"/><stop offset="1" stop-color="#C9D8E3"/></linearGradient>
+  <filter id="i27_b" x="-30%" y="-300%" width="160%" height="700%"><feGaussianBlur stdDeviation="5"/></filter>
+</defs>
+<!-- Ombre au sol -->
+<ellipse cx="128" cy="232" rx="74" ry="9" fill="#243447" opacity=".18" filter="url(#i27_b)"/>
+<!-- Fond écran simulateur (tablette stylisée) -->
+<rect x="52" y="52" width="152" height="132" rx="16" fill="url(#i27_n)"/>
+<rect x="58" y="58" width="140" height="120" rx="12" fill="url(#i27_nd)"/>
+<!-- Écran lumineux -->
+<rect x="64" y="64" width="128" height="108" rx="8" fill="url(#i27_t)" opacity=".15"/>
+<!-- Bouton Home en bas de tablette -->
+<rect x="112" y="190" width="32" height="8" rx="4" fill="url(#i27_nd)"/>
+<!-- Éclair / réflexe (forme centrale principale) -->
+<path d="M138 70 L110 118 L126 118 L118 154 L148 100 L132 100Z" fill="url(#i27_g)"/>
+<path d="M138 70 L148 100 L132 100 L148 104 L138 70Z" fill="#D18305" opacity=".25"/>
+<!-- Petits cercles interactifs / boutons simulateur -->
+<circle cx="82" cy="88" r="10" fill="url(#i27_c)" opacity=".85"/>
+<circle cx="82" cy="88" r="5" fill="#fff" opacity=".4"/>
+<circle cx="174" cy="88" r="10" fill="url(#i27_t)"/>
+<circle cx="174" cy="88" r="5" fill="#fff" opacity=".4"/>
+<!-- Courbe graphique simulée -->
+<path d="M68 148 Q88 120 108 136 Q128 152 148 120 Q168 88 188 128" stroke="url(#i27_c)" stroke-width="4" stroke-linecap="round" fill="none" opacity=".8"/>
+<!-- Axe X et Y du simulateur -->
+<line x1="68" y1="148" x2="192" y2="148" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".2"/>
+<line x1="68" y1="72" x2="68" y2="148" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".2"/>
+</svg>
+

@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skySuites" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B132B"/>
+      <stop offset="100%" stop-color="#1C2541"/>
+    </linearGradient>
+    <linearGradient id="tankGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#0284C7" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.4"/>
+    </linearGradient>
+    <filter id="glowGold" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Fond sombre Navy Al Muxtaar -->
+  <rect width="800" height="540" rx="16" fill="url(#skySuites)"/>
+
+  <!-- Titre & Bandeau Pédagogique -->
+  <rect x="40" y="18" width="720" height="38" rx="8" fill="#14213D" stroke="#00F5D4" stroke-width="1"/>
+  <text x="400" y="42" fill="#FFFFFF" font-size="13" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+    🧱 Métaphore Concrète au Sénégal : Les Dominos de la Récurrence &amp; Le Plafond du Majorant
+  </text>
+
+  <!-- Panneau Gauche : Les Dominos de la Récurrence -->
+  <g transform="translate(40, 70)">
+    <rect width="345" height="235" rx="12" fill="#0A0F1D" stroke="#334155" stroke-width="1.5"/>
+    <text x="172" y="25" fill="#00F5D4" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+      1. Principe de Récurrence = Effet Dominos
+    </text>
+    
+    <!-- Domino 0 (Initialisation n=0) -->
+    <g transform="translate(50, 70) rotate(25)">
+      <rect x="0" y="0" width="16" height="75" rx="3" fill="#FBBF24" stroke="#D97706" stroke-width="1.5"/>
+      <circle cx="8" cy="20" r="2.5" fill="#0F172A"/>
+      <circle cx="8" cy="55" r="2.5" fill="#0F172A"/>
+    </g>
+    <text x="60" y="170" fill="#FDE047" font-size="9" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+      1. n₀ Vrai
+    </text>
+
+    <!-- Flèche poussée -->
+    <path d="M 90 95 Q 110 85 125 95" fill="none" stroke="#00F5D4" stroke-width="2"/>
+    <polygon points="128,97 122,90 120,96" fill="#00F5D4"/>
+
+    <!-- Domino k (Hérédité) -->
+    <g transform="translate(135, 75) rotate(20)">
+      <rect x="0" y="0" width="16" height="75" rx="3" fill="#38BDF8" stroke="#0284C7" stroke-width="1.5"/>
+      <circle cx="8" cy="25" r="2.5" fill="#0F172A"/>
+      <circle cx="8" cy="50" r="2.5" fill="#0F172A"/>
+    </g>
+    <text x="145" y="170" fill="#38BDF8" font-size="9" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+      2. P(k) Vrai
+    </text>
+
+    <!-- Domino k+1 -->
+    <g transform="translate(210, 80) rotate(15)">
+      <rect x="0" y="0" width="16" height="75" rx="3" fill="#10B981" stroke="#059669" stroke-width="1.5"/>
+      <circle cx="8" cy="30" r="2.5" fill="#0F172A"/>
+      <circle cx="8" cy="45" r="2.5" fill="#0F172A"/>
+    </g>
+    <text x="220" y="170" fill="#10B981" font-size="9" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+      3. P(k+1) Vrai
+    </text>
+
+    <!-- Dominos infinis qui tombent -->
+    <text x="275" y="125" fill="#E2E8F0" font-size="14" font-family="sans-serif" font-weight="bold">...</text>
+    <text x="275" y="145" fill="#94A3B8" font-size="8" font-family="sans-serif">Pour tout n</text>
+
+    <!-- Résumé Récurrence -->
+    <rect x="20" y="190" width="305" height="32" rx="6" fill="#14213D" stroke="#00F5D4" stroke-width="0.8"/>
+    <text x="172" y="210" fill="#E2E8F0" font-size="9" font-family="sans-serif" text-anchor="middle">
+      Si le 1er tombe et que chacun fait tomber le suivant ⟹ Tout tombe !
+    </text>
+  </g>
+
+  <!-- Panneau Droit : Théorème de Convergence Monotone -->
+  <g transform="translate(415, 70)">
+    <rect width="345" height="235" rx="12" fill="#0A0F1D" stroke="#334155" stroke-width="1.5"/>
+    <text x="172" y="25" fill="#F43F5E" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+      2. Suite Croissante &amp; Majorée = Convergence
+    </text>
+
+    <!-- Plafond Majorant M -->
+    <line x1="30" y1="70" x2="315" y2="70" stroke="#F43F5E" stroke-width="3" stroke-dasharray="6 3"/>
+    <rect x="235" y="55" width="80" height="18" rx="4" fill="#F43F5E"/>
+    <text x="275" y="68" fill="#FFFFFF" font-size="9" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+      Plafond M (Majorant)
+    </text>
+
+    <!-- Marches de la suite croissante u_n -->
+    <!-- u0 -->
+    <circle cx="50" cy="165" r="4" fill="#38BDF8"/>
+    <text x="50" y="180" fill="#94A3B8" font-size="8" font-family="sans-serif" text-anchor="middle">u₀</text>
+    <!-- u1 -->
+    <circle cx="95" cy="135" r="4" fill="#38BDF8"/>
+    <text x="95" y="150" fill="#94A3B8" font-size="8" font-family="sans-serif" text-anchor="middle">u₁</text>
+    <!-- u2 -->
+    <circle cx="140" cy="110" r="4" fill="#38BDF8"/>
+    <text x="140" y="125" fill="#94A3B8" font-size="8" font-family="sans-serif" text-anchor="middle">u₂</text>
+    <!-- u3 -->
+    <circle cx="185" cy="92" r="4" fill="#38BDF8"/>
+    <text x="185" y="107" fill="#94A3B8" font-size="8" font-family="sans-serif" text-anchor="middle">u₃</text>
+    <!-- un -->
+    <circle cx="230" cy="80" r="4" fill="#10B981"/>
+    <!-- Limite L -->
+    <line x1="30" y1="74" x2="315" y2="74" stroke="#10B981" stroke-width="1.5" stroke-dasharray="4 2"/>
+    <text x="275" y="90" fill="#10B981" font-size="8" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+      Limite L ≤ M
+    </text>
+
+    <!-- Flèche croissante -->
+    <path d="M 50 165 Q 120 120 230 80" fill="none" stroke="#38BDF8" stroke-width="2"/>
+    <polygon points="233,78 225,82 227,87" fill="#38BDF8"/>
+
+    <!-- Résumé Monotone -->
+    <rect x="20" y="190" width="305" height="32" rx="6" fill="#14213D" stroke="#F43F5E" stroke-width="0.8"/>
+    <text x="172" y="210" fill="#E2E8F0" font-size="9" font-family="sans-serif" text-anchor="middle">
+      La suite monte sans cesse mais est bloquée par le plafond M ⟹ Elle converge vers L !
+    </text>
+  </g>
+
+  <!-- =========================================================== -->
+  <!-- Explication Pédagogique & Décodage Wolof                    -->
+  <!-- =========================================================== -->
+  <rect x="40" y="320" width="720" height="205" rx="12" fill="#0E1A38" stroke="#38BDF8" stroke-width="1.2"/>
+
+  <!-- Titre -->
+  <text x="60" y="344" fill="#00F5D4" font-size="12" font-family="sans-serif" font-weight="bold">
+    🎯 CE QU&apos;IL FAUT RETENIR (EN FRANÇAIS &amp; EN WOLOF) :
+  </text>
+
+  <!-- Français : label + lignes courtes -->
+  <text x="60" y="367" font-family="sans-serif" font-size="11">
+    <tspan fill="#E2E8F0">• </tspan><tspan font-weight="bold" fill="#FBBF24">Français :</tspan>
+  </text>
+  <text x="72" y="383" fill="#E2E8F0" font-size="11" font-family="sans-serif">
+    La récurrence est une chaîne de dominos : vérifier n₀, puis supposer P(k) vrai pour démontrer P(k+1).
+  </text>
+  <text x="72" y="398" fill="#E2E8F0" font-size="11" font-family="sans-serif">
+    Convergence monotone : toute suite qui grimpe (croissante) mais bute contre un plafond (majorée par M)
+  </text>
+  <text x="72" y="413" fill="#94A3B8" font-size="10" font-family="sans-serif">
+    est forcée d&apos;atterrir sur une valeur limite finie L ≤ M sans pouvoir s&apos;échapper vers +∞.
+  </text>
+
+  <!-- Wolof : label + lignes courtes -->
+  <text x="60" y="438" font-family="sans-serif" font-size="11">
+    <tspan fill="#E2E8F0">• </tspan><tspan font-weight="bold" fill="#38BDF8">Wolof :</tspan>
+  </text>
+  <text x="72" y="454" fill="#E2E8F0" font-size="11" font-family="sans-serif" font-style="italic">
+    « Récurrence dafa melni teggoo tabala : bu bu jëkk bi daanoo te ku daanu daanal ki ci kanam, ñépp dañuy daanu.
+  </text>
+  <text x="72" y="469" fill="#E2E8F0" font-size="11" font-family="sans-serif" font-style="italic">
+    Convergence monotone mooy ndox buy yéeg ci téere (croissante) te am dalle bu ko tëj ci kaw (majorée) :
+  </text>
+  <text x="72" y="484" fill="#E2E8F0" font-size="11" font-family="sans-serif" font-style="italic">
+    faw ndox mi taxaw ci benn bérab L te mënul romb dalle bi muk ! »
+  </text>
+
+  <!-- Réflexe Bac S2 -->
+  <text x="60" y="511" fill="#38BDF8" font-size="10" font-family="sans-serif" font-weight="bold">
+    ⚡ Réflexe Bac S2 : Suite croissante + majorée ⟹ Converge. Suite géométrique |q| &lt; 1 ⟹ lim qⁿ = 0.
+  </text>
+</svg>
+

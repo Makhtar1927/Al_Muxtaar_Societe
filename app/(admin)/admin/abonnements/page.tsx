@@ -40,11 +40,16 @@ export default async function AdminAbonnementsPage() {
 
   return (
     <main className="min-h-screen bg-surface py-8 px-4">
-      <div className="max-w-5xl mx-auto">
-        <h1 className="text-2xl font-bold text-navy mb-2">Gestion des abonnements</h1>
-        <p className="text-text/70 mb-8">
-          Activez, rejetez ou prolongez les abonnements des élèves.
-        </p>
+      <div className="max-w-5xl mx-auto space-y-6">
+        <div>
+          <span className="text-xs font-bold text-turquoise uppercase tracking-wider">
+            Paiements &amp; Validations Wave
+          </span>
+          <h1 className="text-2xl font-bold text-navy mt-0.5">Gestion des abonnements</h1>
+          <p className="text-text/70 text-sm mt-0.5">
+            Activez, rejetez ou prolongez les abonnements des élèves en temps réel.
+          </p>
+        </div>
         <AdminAbonnementsClient subscriptions={(subscriptions ?? []) as unknown as Parameters<typeof AdminAbonnementsClient>[0]['subscriptions']} />
       </div>
     </main>

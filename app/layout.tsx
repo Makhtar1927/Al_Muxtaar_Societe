@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import ServiceWorkerRegister from "@/components/pwa/service-worker-register";
 import { ToastProvider } from "@/components/ui/toast";
+import PageTransitionLoader from "@/components/layout/page-transition-loader";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://almuxtaar.sn"),
@@ -56,6 +58,9 @@ export default function RootLayout({
   return (
     <html lang="fr" className="h-full">
       <body className="flex min-h-screen flex-col bg-surface text-navy-dark">
+        <Suspense fallback={null}>
+          <PageTransitionLoader />
+        </Suspense>
         <ServiceWorkerRegister />
         <ToastProvider>{children}</ToastProvider>
       </body>

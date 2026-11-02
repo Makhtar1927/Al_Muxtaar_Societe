@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="geomBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B132B"/>
+      <stop offset="100%" stop-color="#1C2541"/>
+    </linearGradient>
+    <filter id="geomGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Fond sombre Navy Al Muxtaar -->
+  <rect width="800" height="480" rx="16" fill="url(#geomBgGrad)"/>
+
+  <!-- Titre Principal -->
+  <rect x="50" y="20" width="510" height="38" rx="8" fill="#14213d" stroke="#00F5D4" stroke-width="1"/>
+  <text x="65" y="44" fill="#FFFFFF" font-size="13" font-family="sans-serif" font-weight="bold">
+    📐 Géométrie dans l&apos;Espace au Bac S2 : Plans, Droites &amp; Sphères
+  </text>
+
+  <!-- Colonne 1 : Plans dans l'espace -->
+  <rect x="50" y="75" width="220" height="235" rx="12" fill="#0E1A38" stroke="#00F5D4" stroke-width="1.5"/>
+  <rect x="50" y="75" width="220" height="36" rx="12" fill="#00F5D4" fill-opacity="0.15"/>
+  <text x="65" y="99" fill="#00F5D4" font-size="13" font-family="sans-serif" font-weight="bold">1. Plans &amp; Vecteur Normal</text>
+  
+  <text x="65" y="132" fill="#FBBF24" font-size="11" font-family="sans-serif" font-weight="bold">VECTEUR NORMAL n&#8407;(a, b, c) :</text>
+  <text x="65" y="150" fill="#E2E8F0" font-size="11" font-family="sans-serif">Orthogonal à 2 vecteurs non-colinéaires</text>
+
+  <rect x="65" y="165" width="190" height="48" rx="8" fill="#1C2541"/>
+  <text x="75" y="186" fill="#00F5D4" font-size="12" font-family="monospace" font-weight="bold">(P) : ax + by + cz + d = 0</text>
+  <text x="75" y="204" fill="#94A3B8" font-size="10" font-family="sans-serif">d trouvé en injectant un point A &#8712; (P)</text>
+
+  <text x="65" y="235" fill="#FBBF24" font-size="11" font-family="sans-serif" font-weight="bold">DISTANCE D&apos;UN POINT A &#192; (P) :</text>
+  <rect x="65" y="248" width="190" height="50" rx="8" fill="#1C2541"/>
+  <text x="75" y="270" fill="#38BDF8" font-size="11" font-family="monospace" font-weight="bold">d(A, P) = |ax_A + by_A + cz_A + d|</text>
+  <text x="125" y="288" fill="#38BDF8" font-size="11" font-family="monospace" font-weight="bold">/ &#8730;(a&#178; + b&#178; + c&#178;)</text>
+
+  <!-- Colonne 2 : Droites & Représentation Paramétrique -->
+  <rect x="290" y="75" width="220" height="235" rx="12" fill="#0E1A38" stroke="#38BDF8" stroke-width="1.5"/>
+  <rect x="290" y="75" width="220" height="36" rx="12" fill="#38BDF8" fill-opacity="0.15"/>
+  <text x="305" y="99" fill="#38BDF8" font-size="13" font-family="sans-serif" font-weight="bold">2. Droites &amp; Paramètres</text>
+  
+  <text x="305" y="132" fill="#FBBF24" font-size="11" font-family="sans-serif" font-weight="bold">SYST&#200;ME PARAM&#201;TRIQUE :</text>
+  <text x="305" y="150" fill="#E2E8F0" font-size="11" font-family="sans-serif">Droite passant par A(x_0, y_0, z_0)</text>
+  <text x="305" y="166" fill="#94A3B8" font-size="10" font-family="sans-serif">de vecteur directeur u&#8407;(&#945;, &#946;, &#947;) :</text>
+
+  <rect x="305" y="178" width="190" height="68" rx="8" fill="#1C2541"/>
+  <text x="315" y="198" fill="#38BDF8" font-size="11" font-family="monospace" font-weight="bold">&#x23A7; x = x_0 + &#945;&#183;t</text>
+  <text x="315" y="218" fill="#38BDF8" font-size="11" font-family="monospace" font-weight="bold">&#x23AA; y = y_0 + &#946;&#183;t  (t &#8712; &#8477;)</text>
+  <text x="315" y="238" fill="#38BDF8" font-size="11" font-family="monospace" font-weight="bold">&#x23A9; z = z_0 + &#947;&#183;t</text>
+
+  <text x="305" y="266" fill="#FBBF24" font-size="11" font-family="sans-serif" font-weight="bold">INTERSECTION DROITE-PLAN :</text>
+  <text x="305" y="286" fill="#E2E8F0" font-size="11" font-family="sans-serif">Injecter x(t), y(t), z(t) dans (P)</text>
+  <text x="305" y="302" fill="#94A3B8" font-size="10" font-family="sans-serif">&#10140; Équation du 1er degré en t !</text>
+
+  <!-- Colonne 3 : Sphères & Produit Vectoriel -->
+  <rect x="530" y="75" width="220" height="235" rx="12" fill="#0E1A38" stroke="#FBBF24" stroke-width="1.5"/>
+  <rect x="530" y="75" width="220" height="36" rx="12" fill="#FBBF24" fill-opacity="0.15"/>
+  <text x="545" y="99" fill="#FBBF24" font-size="13" font-family="sans-serif" font-weight="bold">3. Sphères &amp; Produit Vectoriel</text>
+  
+  <text x="545" y="132" fill="#00F5D4" font-size="11" font-family="sans-serif" font-weight="bold">&#201;QUATION DE SPH&#200;RE S(&#937;, R) :</text>
+  <rect x="545" y="145" width="190" height="42" rx="8" fill="#1C2541"/>
+  <text x="555" y="170" fill="#FBBF24" font-size="10" font-family="monospace" font-weight="bold">(x-a)&#178; + (y-b)&#178; + (z-c)&#178; = R&#178;</text>
+
+  <text x="545" y="206" fill="#FBBF24" font-size="11" font-family="sans-serif" font-weight="bold">INTERSECTION SPH&#200;RE &amp; PLAN :</text>
+  <text x="545" y="224" fill="#E2E8F0" font-size="11" font-family="sans-serif">&#8226; Si d &lt; R : Cercle de rayon r = &#8730;(R&#178; - d&#178;)</text>
+  <text x="545" y="242" fill="#E2E8F0" font-size="11" font-family="sans-serif">&#8226; Si d = R : Plan tangent en H</text>
+  <text x="545" y="260" fill="#94A3B8" font-size="11" font-family="sans-serif">&#8226; Si d &gt; R : Intersection vide &#8709;</text>
+
+  <text x="545" y="282" fill="#00F5D4" font-size="11" font-family="sans-serif" font-weight="bold">PRODUIT VECTORIEL u&#8407; &#8743; v&#8407; :</text>
+  <text x="545" y="300" fill="#E2E8F0" font-size="10" font-family="sans-serif">Aire(ABC) = &#189; ||AB&#8407; &#8743; AC&#8407;||</text>
+
+  <!-- Bannière Inférieure : Réflexes & Rigueur Bac -->
+  <rect x="50" y="325" width="700" height="135" rx="12" fill="#14213D" stroke="#00F5D4" stroke-opacity="0.3" stroke-width="1"/>
+  
+  <text x="70" y="352" fill="#00F5D4" font-size="13" font-family="sans-serif" font-weight="bold">
+    🎯 PROTOCOLE BAC S2 : Les 4 Démonstrations Clés
+  </text>
+  
+  <text x="70" y="377" fill="#E2E8F0" font-size="11" font-family="sans-serif">
+    1. <tspan fill="#FBBF24" font-weight="bold">Alignement / Coplanarité :</tspan> A, B, C non alignés ssi AB&#8407; et AC&#8407; non colinéaires (produit vectoriel non nul).
+  </text>
+  <text x="70" y="399" fill="#E2E8F0" font-size="11" font-family="sans-serif">
+    2. <tspan fill="#38BDF8" font-weight="bold">Perpendicularité :</tspan> Deux droites sont orthogonales ssi u&#8407; &#183; v&#8407; = 0. Une droite est orthogonale à un plan ssi u&#8407; est colinéaire à n&#8407;.
+  </text>
+  <text x="70" y="421" fill="#E2E8F0" font-size="11" font-family="sans-serif">
+    3. <tspan fill="#00F5D4" font-weight="bold">Projeté orthogonal H :</tspan> H est l&apos;intersection du plan (P) et de la droite passant par A dirigée par n&#8407;.
+  </text>
+  <text x="70" y="443" fill="#F87171" font-size="11" font-family="sans-serif">
+    &#9888; <tspan font-weight="bold">Piège classique :</tspan> Deux droites orthogonales dans l&apos;espace ne sont PAS nécessairement sécantes (elles peuvent être non coplanaires) !
+  </text>
+</svg>

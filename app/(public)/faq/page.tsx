@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/ui/icon";
+import { WhatsAppLogo } from "@/components/ui/icons/whatsapp-logo";
 
 export const metadata: Metadata = {
   title: "Foire Aux Questions (FAQ) | Al Muxtaar Société",
@@ -104,10 +105,19 @@ export default function FAQPage() {
         <p className="mt-1 text-xs text-navy-light">
           Notre équipe d&apos;assistance est disponible 7j/7 sur WhatsApp pour vous aider.
         </p>
-        <div className="mt-4">
+        <div className="mt-4 flex flex-col sm:flex-row gap-3 justify-center">
+          <a
+            href="https://wa.me/221772476926?text=Bonjour%20Al%20Muxtaar,%20j'ai%20une%20question%20:"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 h-11 rounded-2xl bg-[#25D366] px-6 text-sm font-bold text-white shadow-soft transition-colors hover:bg-[#1EBE5D] min-h-[44px]"
+          >
+            <WhatsAppLogo size={18} />
+            <span>Discuter sur WhatsApp</span>
+          </a>
           <Link href="/contact">
-            <Button variant="primary" size="md">
-              Contacter le support
+            <Button variant="outline" size="md">
+              Voir toutes les options de contact
             </Button>
           </Link>
         </div>

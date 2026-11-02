@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="512" height="512" role="img" aria-label="wolof insight xam-xam">
+<defs>
+  <linearGradient id="i26_t" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6CEEDF"/><stop offset=".5" stop-color="#00B8A9"/><stop offset="1" stop-color="#00857B"/></linearGradient>
+  <linearGradient id="i26_tl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B5F8F0"/><stop offset=".5" stop-color="#7BEFE2"/><stop offset="1" stop-color="#3CD3C4"/></linearGradient>
+  <linearGradient id="i26_n" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#55708F"/><stop offset=".5" stop-color="#2C4259"/><stop offset="1" stop-color="#17222F"/></linearGradient>
+  <linearGradient id="i26_nd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#35506A"/><stop offset=".5" stop-color="#1E3043"/><stop offset="1" stop-color="#0E1822"/></linearGradient>
+  <linearGradient id="i26_g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE69A"/><stop offset=".5" stop-color="#F7B731"/><stop offset="1" stop-color="#D18305"/></linearGradient>
+  <linearGradient id="i26_gd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E9A21B"/><stop offset=".5" stop-color="#C27704"/><stop offset="1" stop-color="#8F5200"/></linearGradient>
+  <linearGradient id="i26_w" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".5" stop-color="#EAF1F6"/><stop offset="1" stop-color="#C9D8E3"/></linearGradient>
+  <filter id="i26_b" x="-30%" y="-300%" width="160%" height="700%"><feGaussianBlur stdDeviation="5"/></filter>
+</defs>
+<!-- Ombre au sol -->
+<ellipse cx="128" cy="232" rx="74" ry="9" fill="#243447" opacity=".18" filter="url(#i26_b)"/>
+<!-- Ampoule / idée lumineuse (corps) -->
+<path d="M128 36 C96 36 76 60 76 88 C76 108 88 122 96 134 L96 158 Q96 166 104 166 L152 166 Q160 166 160 158 L160 134 C168 122 180 108 180 88 C180 60 160 36 128 36Z" fill="url(#i26_g)"/>
+<path d="M128 36 C160 36 180 60 180 88 C180 108 168 122 160 134 L160 158 Q160 166 152 166 L128 166Z" fill="#D18305" opacity=".18"/>
+<!-- Filament intérieur -->
+<path d="M110 96 Q118 108 128 100 Q138 92 146 104" stroke="url(#i26_gd)" stroke-width="5" stroke-linecap="round" fill="none"/>
+<!-- Rayons lumineux -->
+<line x1="128" y1="24" x2="128" y2="14" stroke="#FFE69A" stroke-width="5" stroke-linecap="round"/>
+<line x1="92" y1="40" x2="85" y2="33" stroke="#FFE69A" stroke-width="4" stroke-linecap="round"/>
+<line x1="164" y1="40" x2="171" y2="33" stroke="#FFE69A" stroke-width="4" stroke-linecap="round"/>
+<line x1="70" y1="72" x2="60" y2="68" stroke="#FFE69A" stroke-width="4" stroke-linecap="round"/>
+<line x1="186" y1="72" x2="196" y2="68" stroke="#FFE69A" stroke-width="4" stroke-linecap="round"/>
+<!-- Socle de l'ampoule (représente le Wolof / langue) -->
+<rect x="104" y="168" width="48" height="10" rx="4" fill="url(#i26_gd)"/>
+<rect x="108" y="180" width="40" height="10" rx="4" fill="url(#i26_gd)"/>
+<!-- Petits traits symbolisant "Xam-xam" (connaissance en Wolof) -->
+<rect x="112" y="192" width="32" height="5" rx="2.5" fill="url(#i26_n)" opacity=".5"/>
+<rect x="116" y="200" width="24" height="5" rx="2.5" fill="url(#i26_n)" opacity=".35"/>
+<!-- Lettre "W" stylisée discrète (Wolof) sur le corps de l'ampoule -->
+<path d="M108 80 L112 100 L120 86 L128 100 L136 86 L144 100 L148 80" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity=".55"/>
+</svg>
+

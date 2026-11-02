@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyEqua" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B132B"/>
+      <stop offset="100%" stop-color="#1C2541"/>
+    </linearGradient>
+    <filter id="glowEqua" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Fond sombre Navy Al Muxtaar -->
+  <rect width="800" height="540" rx="16" fill="url(#skyEqua)"/>
+
+  <!-- Titre & Bandeau Pédagogique -->
+  <rect x="40" y="18" width="720" height="38" rx="8" fill="#14213D" stroke="#00F5D4" stroke-width="1"/>
+  <text x="400" y="42" fill="#FFFFFF" font-size="13" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+    🛶 Métaphore Concrète au Sénégal : Le Refroidissement de l&apos;Attaya &amp; Le Balancement de la Pirogue
+  </text>
+
+  <!-- Panneau Gauche : 1er Ordre y' + ay = b (Attaya / Décroissance exponentielle) -->
+  <g transform="translate(40, 70)">
+    <rect width="345" height="235" rx="12" fill="#0A0F1D" stroke="#334155" stroke-width="1.5"/>
+    <text x="172" y="24" fill="#00F5D4" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+      1. Premier Ordre : y&apos; + ay = b (Modèle Attaya ☕)
+    </text>
+
+    <!-- Axes -->
+    <line x1="30" y1="180" x2="320" y2="180" stroke="#64748B" stroke-width="1.5"/>
+    <line x1="45" y1="40" x2="45" y2="180" stroke="#64748B" stroke-width="1.5"/>
+
+    <!-- Ligne de stabilisation thermique b/a (asymptote horizontale) -->
+    <line x1="45" y1="130" x2="315" y2="130" stroke="#FBBF24" stroke-width="2" stroke-dasharray="5 3"/>
+    <text x="300" y="122" fill="#FDE047" font-size="8.5" font-family="sans-serif" font-weight="bold">y = b/a</text>
+    <text x="60" y="122" fill="#FBBF24" font-size="8" font-family="sans-serif">Température ambiante</text>
+
+    <!-- Courbe de refroidissement de l'Attaya (y(0) chaud vers b/a) -->
+    <path d="M 45 60 Q 85 105 130 120 T 310 129" fill="none" stroke="#F43F5E" stroke-width="3"/>
+    
+    <!-- Point initial y(0) -->
+    <circle cx="45" cy="60" r="4.5" fill="#F43F5E" filter="url(#glowEqua)"/>
+    <text x="80" y="60" fill="#FDA4AF" font-size="8.5" font-family="sans-serif" font-weight="bold">y(0) = Temp. initiale</text>
+
+    <!-- Formule de solution 1er ordre -->
+    <rect x="20" y="190" width="305" height="32" rx="6" fill="#14213D" stroke="#00F5D4" stroke-width="0.8"/>
+    <text x="172" y="210" fill="#00F5D4" font-size="9.5" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+      y(x) = C · e⁻ᵃˣ + b/a   (1 condition initiale fixe C)
+    </text>
+  </g>
+
+  <!-- Panneau Droit : 2nd Ordre Harmonique y'' + ω²y = 0 (La Pirogue sur l'Océan 🛶) -->
+  <g transform="translate(415, 70)">
+    <rect width="345" height="235" rx="12" fill="#0A0F1D" stroke="#334155" stroke-width="1.5"/>
+    <text x="172" y="24" fill="#38BDF8" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+      2. Second Ordre : y&apos;&apos; + ω²y = 0 (La Pirogue 🛶)
+    </text>
+
+    <!-- Axe du niveau de la mer (y=0) -->
+    <line x1="25" y1="115" x2="325" y2="115" stroke="#64748B" stroke-width="1.5"/>
+    <text x="315" y="108" fill="#94A3B8" font-size="8.5" font-family="sans-serif">y = 0</text>
+
+    <!-- Onde sinusoïdale pure (houle atlantique) -->
+    <path d="M 35 115 Q 70 55 105 115 T 175 115 T 245 115 T 315 115" 
+          fill="none" stroke="#38BDF8" stroke-width="3"/>
+
+    <!-- Pirogue miniature oscillante sur la crête -->
+    <g transform="translate(90, 75)">
+      <path d="M 0 10 Q 15 20 30 10 L 25 10 Q 15 15 5 10 Z" fill="#FBBF24" stroke="#D97706" stroke-width="1"/>
+      <line x1="15" y1="10" x2="15" y2="0" stroke="#FFFFFF" stroke-width="1"/>
+      <polygon points="15,0 23,4 15,7" fill="#10B981"/>
+    </g>
+    <text x="105" y="55" fill="#38BDF8" font-size="8" font-family="sans-serif" text-anchor="middle">Amplitude A</text>
+
+    <!-- Période T = 2pi/omega -->
+    <line x1="105" y1="165" x2="245" y2="165" stroke="#10B981" stroke-width="1.5"/>
+    <polygon points="105,165 111,162 111,168" fill="#10B981"/>
+    <polygon points="245,165 239,162 239,168" fill="#10B981"/>
+    <text x="175" y="160" fill="#6EE7B7" font-size="8.5" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+      Période T = 2π/ω
+    </text>
+
+    <!-- Formule de solution 2nd ordre -->
+    <rect x="20" y="190" width="305" height="32" rx="6" fill="#14213D" stroke="#38BDF8" stroke-width="0.8"/>
+    <text x="172" y="210" fill="#38BDF8" font-size="9.5" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+      y(x) = A cos(ωx) + B sin(ωx)   (2 conditions pour A et B)
+    </text>
+  </g>
+
+  <!-- =========================================================== -->
+  <!-- Explication Pédagogique & Décodage Wolof                    -->
+  <!-- =========================================================== -->
+  <rect x="40" y="320" width="720" height="205" rx="12" fill="#0E1A38" stroke="#38BDF8" stroke-width="1.2"/>
+
+  <!-- Titre -->
+  <text x="60" y="344" fill="#00F5D4" font-size="12" font-family="sans-serif" font-weight="bold">
+    🎯 CE QU&apos;IL FAUT RETENIR (EN FRANÇAIS &amp; EN WOLOF) :
+  </text>
+
+  <!-- Français : label + lignes courtes -->
+  <text x="60" y="367" font-family="sans-serif" font-size="11">
+    <tspan fill="#E2E8F0">• </tspan><tspan font-weight="bold" fill="#FBBF24">Français :</tspan>
+  </text>
+  <text x="72" y="383" fill="#E2E8F0" font-size="11" font-family="sans-serif">
+    1er ordre y&apos; + ay = b : la solution est y(x) = C·e⁻ᵃˣ + b/a. Une seule condition initiale f(x₀) = y₀ suffit pour C.
+  </text>
+  <text x="72" y="398" fill="#E2E8F0" font-size="11" font-family="sans-serif">
+    2nd ordre oscillant y&apos;&apos; + ω²y = 0 : mouvement périodique pur y(x) = A·cos(ωx) + B·sin(ωx).
+  </text>
+  <text x="72" y="413" fill="#94A3B8" font-size="10" font-family="sans-serif">
+    Pour l&apos;équation complète ay&apos;&apos; + by&apos; + cy = 0 : poser ar² + br + c = 0 et calculer Δ.
+  </text>
+
+  <!-- Wolof : label + lignes courtes -->
+  <text x="60" y="438" font-family="sans-serif" font-size="11">
+    <tspan fill="#E2E8F0">• </tspan><tspan font-weight="bold" fill="#38BDF8">Wolof :</tspan>
+  </text>
+  <text x="72" y="454" fill="#E2E8F0" font-size="11" font-family="sans-serif" font-style="italic">
+    « 1er ordre y&apos; + ay = b dafa melni ataya buy sedd ndànk-ndànk : solution bi C·e⁻ᵃˣ + b/a la.
+  </text>
+  <text x="72" y="469" fill="#E2E8F0" font-size="11" font-family="sans-serif" font-style="italic">
+    2nd ordre y&apos;&apos; + ω²y = 0 dafa melni pirogue buy yéngu ci géej : A cos(ωx) + B sin(ωx).
+  </text>
+  <text x="72" y="484" fill="#E2E8F0" font-size="11" font-family="sans-serif" font-style="italic">
+    Faw nga am ñaari conditions (y(x₀) ak y&apos;(x₀)) ngir wër A ak B ! »
+  </text>
+
+  <!-- Réflexe Bac S2 -->
+  <text x="60" y="511" fill="#38BDF8" font-size="10" font-family="sans-serif" font-weight="bold">
+    ⚡ Réflexe Bac S2 : 1er ordre ⟹ C·e⁻ᵃˣ + b/a • 2nd ordre harmonique ⟹ A·cos(ωx) + B·sin(ωx).
+  </text>
+</svg>
+

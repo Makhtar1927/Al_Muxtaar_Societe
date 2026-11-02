@@ -11,6 +11,8 @@ import {
   activateSubscriptionAction,
   extendSubscriptionAction,
 } from '@/lib/subscription/actions';
+import { WaveLogo } from '@/components/ui/icons/wave-logo';
+import { WhatsAppLogo } from '@/components/ui/icons/whatsapp-logo';
 import {
   CheckCircle2,
   XCircle,
@@ -203,8 +205,9 @@ export default function AdminAbonnementsClient({ subscriptions }: Props) {
                   </div>
                 </div>
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className="text-xs text-text/50">
-                    {sub.plans?.name ?? '—'} — {sub.plans ? formatFCFA(sub.plans.price_fcfa) : '—'}
+                  <span className="inline-flex items-center gap-1.5 text-xs text-text/60 bg-surface px-2.5 py-1 rounded-xl border border-navy/5">
+                    <WaveLogo size={14} />
+                    <span>{sub.plans?.name ?? '—'} — {sub.plans ? formatFCFA(sub.plans.price_fcfa) : '—'}</span>
                   </span>
                   <Badge
                     status={
@@ -239,11 +242,24 @@ export default function AdminAbonnementsClient({ subscriptions }: Props) {
                 <span className="text-text/50">Nom :</span>{' '}
                 <strong>{fullName(selected.profiles)}</strong>
               </p>
-              <p className="flex items-center gap-1">
-                <Phone className="w-3 h-3 text-text/40" strokeWidth={2} />
-                <span className="text-text/50">Téléphone :</span>{' '}
-                {selected.profiles?.phone ?? '—'}
-              </p>
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <p className="flex items-center gap-1">
+                  <Phone className="w-3 h-3 text-text/40" strokeWidth={2} />
+                  <span className="text-text/50">Téléphone :</span>{' '}
+                  <strong className="text-navy">{selected.profiles?.phone ?? '—'}</strong>
+                </p>
+                {selected.profiles?.phone && (
+                  <a
+                    href={`https://wa.me/${selected.profiles.phone.replace(/[^0-9]/g, '')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/30 text-emerald-900 text-xs font-bold transition-colors"
+                  >
+                    <WhatsAppLogo size={14} />
+                    <span>WhatsApp</span>
+                  </a>
+                )}
+              </div>
             </div>
 
             {/* Subscription info */}
@@ -286,10 +302,17 @@ export default function AdminAbonnementsClient({ subscriptions }: Props) {
                   <Icon name="paiement" size={20} />
                   <span>Paiement</span>
                 </p>
-                <p>
-                  <span className="text-text/50">Opérateur :</span>{' '}
-                  {PROVIDER_LABELS[selected.payments[0].provider] ?? selected.payments[0].provider}
-                </p>
+                <div className="flex items-center gap-2">
+                  <span className="text-text/50">Opérateur :</span>
+                  {selected.payments[0].provider === 'wave' ? (
+                    <span className="inline-flex items-center gap-1.5 font-bold text-navy bg-white px-2 py-0.5 rounded-lg border border-navy/10 text-xs">
+                      <WaveLogo size={16} />
+                      <span>Wave Mobile Money</span>
+                    </span>
+                  ) : (
+                    <span>{PROVIDER_LABELS[selected.payments[0].provider] ?? selected.payments[0].provider}</span>
+                  )}
+                </div>
                 <p>
                   <span className="text-text/50">Référence :</span>{' '}
                   <code className="bg-white border border-navy/10 rounded px-1.5 py-0.5 text-navy text-xs">

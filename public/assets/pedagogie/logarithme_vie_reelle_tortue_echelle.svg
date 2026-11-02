@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyLn" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B132B"/>
+      <stop offset="100%" stop-color="#1C2541"/>
+    </linearGradient>
+    <filter id="glowLn" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Fond sombre Navy Al Muxtaar -->
+  <rect width="800" height="540" rx="16" fill="url(#skyLn)"/>
+
+  <!-- Titre & Bandeau Pédagogique -->
+  <rect x="40" y="18" width="720" height="38" rx="8" fill="#14213D" stroke="#00F5D4" stroke-width="1"/>
+  <text x="400" y="42" fill="#FFFFFF" font-size="13" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+    🐢 Métaphore Concrète au Sénégal : Le Logarithme = La Croissance Lente &amp; La Barrière d&apos;Existence
+  </text>
+
+  <!-- Panneau Gauche : Domaine x > 0 & Point Pivot x=1 -->
+  <g transform="translate(40, 70)">
+    <rect width="345" height="235" rx="12" fill="#0A0F1D" stroke="#334155" stroke-width="1.5"/>
+    <text x="172" y="24" fill="#00F5D4" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+      1. Condition Fondamentale : x &gt; 0 Strictement
+    </text>
+
+    <!-- Zone interdite rouge x <= 0 -->
+    <rect x="25" y="45" width="80" height="135" fill="#F43F5E" fill-opacity="0.15" stroke="#F43F5E" stroke-dasharray="4 2"/>
+    <text x="65" y="115" fill="#FDA4AF" font-size="9" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+      🚫 INTERDIT
+    </text>
+    <text x="65" y="130" fill="#FDA4AF" font-size="8" font-family="sans-serif" text-anchor="middle">
+      x ≤ 0 (Inexistant)
+    </text>
+
+    <!-- Axe vertical Oy (x=0, asymptote) -->
+    <line x1="105" y1="45" x2="105" y2="180" stroke="#F43F5E" stroke-width="2.5" stroke-dasharray="4 3"/>
+    <text x="105" y="195" fill="#F43F5E" font-size="8" font-family="sans-serif" font-weight="bold" text-anchor="middle">x = 0</text>
+
+    <!-- Axe horizontal y=0 -->
+    <line x1="105" y1="120" x2="320" y2="120" stroke="#64748B" stroke-width="1.5"/>
+
+    <!-- Courbe ln(x) en cyan -->
+    <path d="M 112 180 Q 120 150 155 120 Q 210 90 320 75" fill="none" stroke="#38BDF8" stroke-width="3"/>
+
+    <!-- Point pivot x=1, ln(1)=0 -->
+    <circle cx="155" cy="120" r="5" fill="#FBBF24" filter="url(#glowLn)"/>
+    <circle cx="155" cy="120" r="2.5" fill="#0F172A"/>
+    <text x="155" y="138" fill="#FDE047" font-size="9" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+      ln(1) = 0
+    </text>
+
+    <!-- Point e, ln(e)=1 -->
+    <circle cx="240" cy="88" r="4" fill="#10B981"/>
+    <text x="240" y="78" fill="#10B981" font-size="8" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+      ln(e) = 1 (e ≈ 2,718)
+    </text>
+
+    <!-- Mini-résumé domaine -->
+    <rect x="25" y="190" width="295" height="32" rx="6" fill="#14213D" stroke="#00F5D4" stroke-width="0.8"/>
+    <text x="172" y="210" fill="#E2E8F0" font-size="9" font-family="sans-serif" text-anchor="middle">
+      Pour ln(u(x)) : résoudre immédiatement u(x) &gt; 0 au Bac !
+    </text>
+  </g>
+
+  <!-- Panneau Droit : Croissances Comparées (Cheval x vs Tortue ln(x)) -->
+  <g transform="translate(415, 70)">
+    <rect width="345" height="235" rx="12" fill="#0A0F1D" stroke="#334155" stroke-width="1.5"/>
+    <text x="172" y="24" fill="#FBBF24" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+      2. Croissances Comparées en +∞ : x bat ln(x)
+    </text>
+
+    <!-- Graphe comparatif -->
+    <line x1="40" y1="180" x2="310" y2="180" stroke="#64748B" stroke-width="1.5"/>
+    <line x1="40" y1="45" x2="40" y2="180" stroke="#64748B" stroke-width="1.5"/>
+
+    <!-- Courbe y = x (Le cheval rapide) -->
+    <line x1="40" y1="180" x2="260" y2="55" stroke="#10B981" stroke-width="2.5"/>
+    <text x="270" y="60" fill="#10B981" font-size="9" font-family="sans-serif" font-weight="bold">y = x (Cheval 🐎)</text>
+
+    <!-- Courbe y = ln(x) (La tortue essoufflée) -->
+    <path d="M 45 180 Q 70 140 120 130 Q 200 120 300 115" fill="none" stroke="#FBBF24" stroke-width="2.5"/>
+    <text x="270" y="130" fill="#FBBF24" font-size="9" font-family="sans-serif" font-weight="bold">y = ln(x) (Tortue 🐢)</text>
+
+    <!-- Flèche ratio qui tend vers 0 -->
+    <line x1="220" y1="85" x2="220" y2="115" stroke="#F43F5E" stroke-width="1.5"/>
+    <text x="220" y="145" fill="#FDA4AF" font-size="8" font-family="sans-serif" text-anchor="middle">
+      x écrase ln(x)
+    </text>
+
+    <!-- Formule clé Bac -->
+    <rect x="25" y="190" width="295" height="32" rx="6" fill="#14213D" stroke="#FBBF24" stroke-width="0.8"/>
+    <text x="172" y="210" fill="#FDE047" font-size="10" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+      lim (ln x / xⁿ) = 0   et   lim (xⁿ · ln x) = 0
+    </text>
+  </g>
+
+  <!-- =========================================================== -->
+  <!-- Explication Pédagogique & Décodage Wolof                    -->
+  <!-- =========================================================== -->
+  <rect x="40" y="320" width="720" height="205" rx="12" fill="#0E1A38" stroke="#38BDF8" stroke-width="1.2"/>
+
+  <!-- Titre -->
+  <text x="60" y="344" fill="#00F5D4" font-size="12" font-family="sans-serif" font-weight="bold">
+    🎯 CE QU&apos;IL FAUT RETENIR (EN FRANÇAIS &amp; EN WOLOF) :
+  </text>
+
+  <!-- Français : label + lignes courtes -->
+  <text x="60" y="367" font-family="sans-serif" font-size="11">
+    <tspan fill="#E2E8F0">• </tspan><tspan font-weight="bold" fill="#FBBF24">Français :</tspan>
+  </text>
+  <text x="72" y="383" fill="#E2E8F0" font-size="11" font-family="sans-serif">
+    Le logarithme n&apos;existe QUE pour des nombres strictement positifs : condition u(x) &gt; 0 impérative.
+  </text>
+  <text x="72" y="398" fill="#E2E8F0" font-size="11" font-family="sans-serif">
+    Face aux puissances de x à l&apos;infini, ln(x) est d&apos;une lenteur absolue : x l&apos;emporte toujours (croissances comparées).
+  </text>
+  <text x="72" y="413" fill="#94A3B8" font-size="10" font-family="sans-serif">
+    Dérivée essentielle : (ln u)&apos; = u&apos; / u. Propriété reine : ln(a × b) = ln a + ln b.
+  </text>
+
+  <!-- Wolof : label + lignes courtes -->
+  <text x="60" y="438" font-family="sans-serif" font-size="11">
+    <tspan fill="#E2E8F0">• </tspan><tspan font-weight="bold" fill="#38BDF8">Wolof :</tspan>
+  </text>
+  <text x="72" y="454" fill="#E2E8F0" font-size="11" font-family="sans-serif" font-style="italic">
+    « Logarithme ln(x) dafa bëgg lu positif : mënul nangu zéro walla négatif muk (faw u(x) &gt; 0).
+  </text>
+  <text x="72" y="469" fill="#E2E8F0" font-size="11" font-family="sans-serif" font-style="italic">
+    ln(x) dafay yéeg ndànk ba melni mbonat (tortue) ; boo ko méngalee ak x (fas bu gaaw),
+  </text>
+  <text x="72" y="484" fill="#E2E8F0" font-size="11" font-family="sans-serif" font-style="italic">
+    x moo koy dóor ci +∞ : lim (ln x / x) = 0 ! Ba noppi ln(a · b) = ln(a) + ln(b) dafay yombal calcul yi ! »
+  </text>
+
+  <!-- Réflexe Bac S2 -->
+  <text x="60" y="511" fill="#38BDF8" font-size="10" font-family="sans-serif" font-weight="bold">
+    ⚡ Réflexe Bac S2 : Domaine = u(x) &gt; 0 • Dérivée = u&apos;/u • Croissances comparées : xⁿ l&apos;emporte sur ln x.
+  </text>
+</svg>
+

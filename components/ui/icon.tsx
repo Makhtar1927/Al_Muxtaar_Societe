@@ -26,6 +26,8 @@ import {
   Phone,
   LucideIcon,
 } from "lucide-react";
+import { WaveLogo } from "@/components/ui/icons/wave-logo";
+import { WhatsAppLogo } from "@/components/ui/icons/whatsapp-logo";
 
 // ─── 1. Catalogue officiel des 24 icônes SVG Al Muxtaar ────────────────────────
 export const ICON_NAMES = [
@@ -53,6 +55,9 @@ export const ICON_NAMES = [
   "22_cadenas_acces",
   "23_eleve_profil",
   "24_calendrier_abonnement",
+  "25_metaphores_senegal",
+  "26_wolof_insight",
+  "27_reflexes_simulateur",
 ] as const;
 
 export type IconName = (typeof ICON_NAMES)[number];
@@ -82,7 +87,6 @@ export const ICON_ALIASES: Record<string, IconName> = {
   certificat: "15_certificat",
   paiement: "16_paiement_mobile",
   paiement_mobile: "16_paiement_mobile",
-  wave: "16_paiement_mobile",
   securite: "17_securite_admin",
   securite_admin: "17_securite_admin",
   admin: "17_securite_admin",
@@ -98,6 +102,16 @@ export const ICON_ALIASES: Record<string, IconName> = {
   eleve: "23_eleve_profil",
   calendrier: "24_calendrier_abonnement",
   calendrier_abonnement: "24_calendrier_abonnement",
+  // ── Nouveaux SVG Al Muxtaar (session 2) ──
+  metaphores: "25_metaphores_senegal",
+  metaphores_senegal: "25_metaphores_senegal",
+  senegal: "25_metaphores_senegal",
+  wolof: "26_wolof_insight",
+  wolof_insight: "26_wolof_insight",
+  xam_xam: "26_wolof_insight",
+  reflexes: "27_reflexes_simulateur",
+  reflexes_simulateur: "27_reflexes_simulateur",
+  simulateur: "27_reflexes_simulateur",
 };
 
 // ─── 3. Icônes utilitaires de repli (unicolores) pour celles qui n'ont pas de SVG dédié ─
@@ -147,6 +161,15 @@ export function Icon({
   ...props
 }: IconProps) {
   const pixelSize = typeof size === "number" ? size : SIZE_MAP[size] || 32;
+
+  // 0. Logos officiels partenaires (Wave & WhatsApp)
+  if (name === "wave" || name === "wave_money" || name === "wave_officiel") {
+    return <WaveLogo size={pixelSize} className={className} />;
+  }
+
+  if (name === "whatsapp" || name === "wa" || name === "whatsapp_support") {
+    return <WhatsAppLogo size={pixelSize} className={className} />;
+  }
 
   // 1. Résolution stricte et infaillible du nom de fichier SVG
   let fileName: string | null = null;

@@ -27,22 +27,34 @@ export default async function AdminTarifsPage() {
 
   if (profile?.role !== 'admin') redirect('/dashboard');
 
-  const { data: plans } = await admin
+  const { data: rawPlans } = await admin
     .from('plans')
     .select('*')
-    .order('price');
+    .order('price_fcfa');
+
+  const plans = (rawPlans ?? []).map((p: any) => ({
+    id: p.id,
+    name: p.name,
+    price: p.price_fcfa ?? p.price ?? 0,
+    duration_months: p.duration_days ? Math.round(p.duration_days / 30) : 1,
+    description: p.description ?? '',
+    is_active: p.is_active ?? true,
+  }));
 
   return (
     <main className="min-h-screen bg-surface py-8 px-4">
       <div className="max-w-4xl mx-auto space-y-6">
         <div>
-          <h1 className="text-2xl font-bold text-navy">Gestion des Tarifs & Formules</h1>
+          <span className="text-xs font-bold text-turquoise uppercase tracking-wider">
+            Politique Tarifaire Solidaire
+          </span>
+          <h1 className="text-2xl font-bold text-navy mt-0.5">Gestion des Tarifs &amp; Formules</h1>
           <p className="text-text/70 text-sm mt-0.5">
             Modifiez les prix en FCFA et les descriptions des formules d&apos;abonnement Al Muxtaar Doc en temps réel.
           </p>
         </div>
 
-        <TarifsManagerClient initialPlans={plans ?? []} />
+        <TarifsManagerClient initialPlans={plans} />
       </div>
     </main>
   );

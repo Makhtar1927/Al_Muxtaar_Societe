@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="512" height="512" role="img" aria-label="metaphores senegal">
+<defs>
+  <linearGradient id="i25_t" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6CEEDF"/><stop offset=".5" stop-color="#00B8A9"/><stop offset="1" stop-color="#00857B"/></linearGradient>
+  <linearGradient id="i25_tl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B5F8F0"/><stop offset=".5" stop-color="#7BEFE2"/><stop offset="1" stop-color="#3CD3C4"/></linearGradient>
+  <linearGradient id="i25_td" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00A598"/><stop offset=".5" stop-color="#007A70"/><stop offset="1" stop-color="#00574F"/></linearGradient>
+  <linearGradient id="i25_n" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#55708F"/><stop offset=".5" stop-color="#2C4259"/><stop offset="1" stop-color="#17222F"/></linearGradient>
+  <linearGradient id="i25_nd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#35506A"/><stop offset=".5" stop-color="#1E3043"/><stop offset="1" stop-color="#0E1822"/></linearGradient>
+  <linearGradient id="i25_g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE69A"/><stop offset=".5" stop-color="#F7B731"/><stop offset="1" stop-color="#D18305"/></linearGradient>
+  <linearGradient id="i25_gd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E9A21B"/><stop offset=".5" stop-color="#C27704"/><stop offset="1" stop-color="#8F5200"/></linearGradient>
+  <linearGradient id="i25_gr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A5F3B8"/><stop offset=".5" stop-color="#2DBA62"/><stop offset="1" stop-color="#0E7C3C"/></linearGradient>
+  <linearGradient id="i25_w" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".5" stop-color="#EAF1F6"/><stop offset="1" stop-color="#C9D8E3"/></linearGradient>
+  <filter id="i25_b" x="-30%" y="-300%" width="160%" height="700%"><feGaussianBlur stdDeviation="5"/></filter>
+</defs>
+<!-- Ombre au sol -->
+<ellipse cx="128" cy="232" rx="74" ry="9" fill="#243447" opacity=".18" filter="url(#i25_b)"/>
+<!-- Soleil du Sénégal (cercle rayonnant - étoile verte) -->
+<circle cx="128" cy="80" r="36" fill="url(#i25_g)"/>
+<circle cx="128" cy="80" r="26" fill="url(#i25_gd)"/>
+<!-- Étoile à 5 branches (symbole drapeau sénégalais) -->
+<polygon points="128,58 134,74 152,74 138,84 143,100 128,90 113,100 118,84 104,74 122,74" fill="url(#i25_gr)"/>
+<!-- Rayons du soleil -->
+<line x1="128" y1="36" x2="128" y2="26" stroke="#F7B731" stroke-width="5" stroke-linecap="round"/>
+<line x1="128" y1="124" x2="128" y2="134" stroke="#F7B731" stroke-width="5" stroke-linecap="round"/>
+<line x1="84" y1="80" x2="74" y2="80" stroke="#F7B731" stroke-width="5" stroke-linecap="round"/>
+<line x1="172" y1="80" x2="182" y2="80" stroke="#F7B731" stroke-width="5" stroke-linecap="round"/>
+<line x1="97" y1="49" x2="90" y2="42" stroke="#F7B731" stroke-width="4" stroke-linecap="round"/>
+<line x1="159" y1="111" x2="166" y2="118" stroke="#F7B731" stroke-width="4" stroke-linecap="round"/>
+<line x1="159" y1="49" x2="166" y2="42" stroke="#F7B731" stroke-width="4" stroke-linecap="round"/>
+<line x1="97" y1="111" x2="90" y2="118" stroke="#F7B731" stroke-width="4" stroke-linecap="round"/>
+<!-- Collines / paysage sénégalais au bas -->
+<path d="M26 196 Q70 148 128 160 Q186 148 230 196 L230 224 L26 224Z" fill="url(#i25_t)"/>
+<path d="M80 196 Q104 168 128 172 Q152 168 176 196 L176 224 L80 224Z" fill="url(#i25_td)"/>
+<!-- Baobab stylisé -->
+<rect x="120" y="170" width="16" height="30" rx="5" fill="url(#i25_n)"/>
+<path d="M112 170 Q104 148 110 138 Q118 148 128 148 Q138 148 146 138 Q152 148 144 170Z" fill="url(#i25_gr)"/>
+</svg>
+

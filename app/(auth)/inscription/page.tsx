@@ -98,15 +98,27 @@ export default function InscriptionPage() {
             <Select
               name="level"
               label="Classe"
-              options={[{ value: "Terminale", label: "Terminale" }]}
+              options={[
+                { value: "Terminale", label: "Terminale (Bac)" },
+                { value: "Première", label: "Première" },
+                { value: "Seconde", label: "Seconde" },
+                { value: "Troisième", label: "3e Collège (BFEM)" },
+              ]}
             />
             <Select
               name="track"
-              label="Série"
+              label="Série / Filière"
               options={[
-                { value: "S2", label: "S2 — Sciences Exp." },
-                { value: "S1", label: "S1 — Sciences Exactes" },
-                { value: "L2", label: "L2 — Littéraire" },
+                { value: "S2", label: "Terminale S2 (Sciences Exp.)" },
+                { value: "S1", label: "Terminale S1 (Sciences Exactes)" },
+                { value: "L2", label: "Terminale L2 (Littéraire)" },
+                { value: "L'", label: "Terminale L' (Langues)" },
+                { value: "G", label: "Terminale G (Gestion)" },
+                { value: "1S", label: "Première S (Scientifique)" },
+                { value: "1L", label: "Première L (Littéraire)" },
+                { value: "2S", label: "Seconde S (Scientifique)" },
+                { value: "2L", label: "Seconde L (Littéraire)" },
+                { value: "BFEM", label: "3e Collège (BFEM)" },
               ]}
             />
           </div>

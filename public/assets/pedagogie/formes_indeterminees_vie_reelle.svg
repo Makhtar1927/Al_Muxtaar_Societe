@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" width="100%" height="100%">
+  <defs>
+    <linearGradient id="fiBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B132B"/>
+      <stop offset="100%" stop-color="#1C2541"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="440" rx="16" fill="url(#fiBg)"/>
+
+  <!-- Titre -->
+  <rect x="40" y="20" width="560" height="36" rx="8" fill="#14213D" stroke="#00F5D4" stroke-width="1"/>
+  <text x="55" y="43" fill="#FFFFFF" font-size="13" font-family="sans-serif" font-weight="bold">
+    ⚖️ Les 4 Formes Indéterminées : Pourquoi le calcul bloque-t-il ?
+  </text>
+
+  <!-- Grille 2x2 des 4 formes -->
+  
+  <!-- Cadre 1 : 0 / 0 -->
+  <g transform="translate(40, 75)">
+    <rect width="345" height="150" rx="12" fill="#0E1A38" stroke="#00F5D4" stroke-width="1.5"/>
+    <rect width="345" height="32" rx="12" fill="#00F5D4" fill-opacity="0.15"/>
+    <text x="15" y="21" fill="#00F5D4" font-size="13" font-family="monospace" font-weight="bold">1. Forme 0 / 0  (Le Partage Invisible)</text>
+    
+    <text x="15" y="52" fill="#FBBF24" font-size="11" font-family="sans-serif" font-weight="bold">MÉTAPHORE CONCRÈTE :</text>
+    <text x="15" y="70" fill="#E2E8F0" font-size="10.5" font-family="sans-serif">Deux grains de poussière microscopiques qui se divisent.</text>
+    <text x="15" y="86" fill="#94A3B8" font-size="10" font-family="sans-serif">Lequel s&apos;éteint le plus vite vers zéro ? Mystère !</text>
+
+    <text x="15" y="110" fill="#38BDF8" font-size="11" font-family="sans-serif" font-weight="bold">XAM-XAM CI WOLOF :</text>
+    <text x="15" y="126" fill="#FEF08A" font-size="10" font-family="sans-serif" font-style="italic">« 0/0 dafa jaxasoo. Dangay yaatal (factoriser) ngir dindi »</text>
+    <text x="15" y="140" fill="#FEF08A" font-size="10" font-family="sans-serif" font-style="italic">« lu leen di tëj (x - a) ba kumpa gi génn ! »</text>
+  </g>
+
+  <!-- Cadre 2 : infty / infty -->
+  <g transform="translate(415, 75)">
+    <rect width="345" height="150" rx="12" fill="#0E1A38" stroke="#38BDF8" stroke-width="1.5"/>
+    <rect width="345" height="32" rx="12" fill="#38BDF8" fill-opacity="0.15"/>
+    <text x="15" y="21" fill="#38BDF8" font-size="13" font-family="monospace" font-weight="bold">2. Forme &#8734; / &#8734;  (Le Choc des Géants)</text>
+    
+    <text x="15" y="52" fill="#FBBF24" font-size="11" font-family="sans-serif" font-weight="bold">MÉTAPHORE DU LAMB (Lutte Sénégalaise) :</text>
+    <text x="15" y="70" fill="#E2E8F0" font-size="10.5" font-family="sans-serif">Deux forces colossales qui s&apos;affrontent dans l&apos;arène.</text>
+    <text x="15" y="86" fill="#94A3B8" font-size="10" font-family="sans-serif">Les petits termes ne comptent pas devant le plus lourd !</text>
+
+    <text x="15" y="110" fill="#38BDF8" font-size="11" font-family="sans-serif" font-weight="bold">XAM-XAM CI WOLOF :</text>
+    <text x="15" y="126" fill="#FEF08A" font-size="10" font-family="sans-serif" font-style="italic">« Ñaari mbeur yu doole di xëccoo. Terme bi gën a rëy ci kaw »</text>
+    <text x="15" y="140" fill="#FEF08A" font-size="10" font-family="sans-serif" font-style="italic">« ak bi ci suuf (plus haut degré) ñoo ciy joxe ndam li ! »</text>
+  </g>
+
+  <!-- Cadre 3 : +infty - infty -->
+  <g transform="translate(40, 240)">
+    <rect width="345" height="150" rx="12" fill="#0E1A38" stroke="#FBBF24" stroke-width="1.5"/>
+    <rect width="345" height="32" rx="12" fill="#FBBF24" fill-opacity="0.15"/>
+    <text x="15" y="21" fill="#FBBF24" font-size="13" font-family="monospace" font-weight="bold">3. Forme +&#8734; - &#8734;  (Le Tir à la Corde)</text>
+    
+    <text x="15" y="52" fill="#00F5D4" font-size="11" font-family="sans-serif" font-weight="bold">MÉTAPHORE CONCRÈTE :</text>
+    <text x="15" y="70" fill="#E2E8F0" font-size="10.5" font-family="sans-serif">Deux camions qui tirent une corde en sens opposé.</text>
+    <text x="15" y="86" fill="#94A3B8" font-size="10" font-family="sans-serif">On ne peut pas simplement dire que ça s&apos;annule à 0 !</text>
+
+    <text x="15" y="110" fill="#38BDF8" font-size="11" font-family="sans-serif" font-weight="bold">XAM-XAM CI WOLOF :</text>
+    <text x="15" y="126" fill="#FEF08A" font-size="10" font-family="sans-serif" font-style="italic">« Boo amee racine &#8730;, faw nga jëfandikoo quantité conjuguée »</text>
+    <text x="15" y="140" fill="#FEF08A" font-size="10" font-family="sans-serif" font-style="italic">« ngir dindi soustraction bi jaxase doole yi. »</text>
+  </g>
+
+  <!-- Cadre 4 : 0 * infty -->
+  <g transform="translate(415, 240)">
+    <rect width="345" height="150" rx="12" fill="#0E1A38" stroke="#F43F5E" stroke-width="1.5"/>
+    <rect width="345" height="32" rx="12" fill="#F43F5E" fill-opacity="0.15"/>
+    <text x="15" y="21" fill="#F43F5E" font-size="13" font-family="monospace" font-weight="bold">4. Forme 0 &#215; &#8734;  (L&apos;Immobilité vs L&apos;Infini)</text>
+    
+    <text x="15" y="52" fill="#00F5D4" font-size="11" font-family="sans-serif" font-weight="bold">MÉTAPHORE CONCRÈTE :</text>
+    <text x="15" y="70" fill="#E2E8F0" font-size="10.5" font-family="sans-serif">Une vitesse nulle multipliée par une distance immense.</text>
+    <text x="15" y="86" fill="#94A3B8" font-size="10" font-family="sans-serif">Est-on resté sur place ou est-on arrivé à destination ?</text>
+
+    <text x="15" y="110" fill="#38BDF8" font-size="11" font-family="sans-serif" font-weight="bold">XAM-XAM CI WOLOF :</text>
+    <text x="15" y="126" fill="#FEF08A" font-size="10" font-family="sans-serif" font-style="italic">« Soppil multiplication bi mu doon quotient (f(x)/(1/g(x))) »</text>
+    <text x="15" y="140" fill="#FEF08A" font-size="10" font-family="sans-serif" font-style="italic">« ba delsiwaat ci forme 0/0 walla &#8734;/&#8734; bu yomb a saafara ! »</text>
+  </g>
+
+  <!-- Pied de page -->
+  <rect x="40" y="402" width="720" height="26" rx="6" fill="#14213D"/>
+  <text x="400" y="419" fill="#00F5D4" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">
+    &#9888; SEULES CES 4 FORMES SONT INDÉTERMINÉES : 0/&#8734; = 0 et k/0 = &#8734; NE SONT PAS DES FORMES INDÉTERMINÉES !
+  </text>
+</svg>

@@ -50,27 +50,35 @@ export default async function AdminPage() {
     redirect('/dashboard');
   }
 
-  // 1. Fetch metrics from DB
-  const { count: pendingPaymentsCount } = await admin
-    .from('payments')
-    .select('*', { count: 'exact', head: true })
-    .eq('status', 'pending');
+  const inSevenDays = new Date();
+  inSevenDays.setDate(inSevenDays.getDate() + 7);
 
-  const { count: activeSubsCount } = await admin
-    .from('subscriptions')
-    .select('*', { count: 'exact', head: true })
-    .eq('status', 'active');
+  // ── Fetch toutes les métriques admin EN PARALLÈLE ──
+  const [
+    pendingPaymentsResult,
+    activeSubsResult,
+    totalProfilesResult,
+    confirmedPaymentsResult,
+    expiringSoonResult,
+    recentPaymentsResult,
+    recentLogsResult,
+  ] = await Promise.all([
+    admin.from('payments').select('*', { count: 'exact', head: true }).eq('status', 'pending'),
+    admin.from('subscriptions').select('*', { count: 'exact', head: true }).eq('status', 'active'),
+    admin.from('profiles').select('*', { count: 'exact', head: true }),
+    admin.from('payments').select('amount, created_at').eq('status', 'confirmed'),
+    admin.from('subscriptions').select('*', { count: 'exact', head: true }).eq('status', 'active').lte('end_date', inSevenDays.toISOString()),
+    admin.from('subscriptions').select(`id, status, created_at, plans(name, price_fcfa), profiles!user_id(first_name, last_name, phone)`).order('created_at', { ascending: false }).limit(8),
+    admin.from('audit_logs').select('id, action, target_type, created_at, meta').order('created_at', { ascending: false }).limit(5),
+  ]);
 
-  const { count: totalStudentsCount } = await admin
-    .from('profiles')
-    .select('*', { count: 'exact', head: true })
-    .eq('role', 'student');
-
-  // Revenue calculation
-  const { data: confirmedPayments } = await admin
-    .from('payments')
-    .select('amount, created_at')
-    .eq('status', 'confirmed');
+  const pendingPaymentsCount = pendingPaymentsResult.count;
+  const activeSubsCount = activeSubsResult.count;
+  const totalStudentsCount = totalProfilesResult.count ?? 0;
+  const confirmedPayments = confirmedPaymentsResult.data;
+  const expiringSoonCount = expiringSoonResult.count;
+  const recentPayments = recentPaymentsResult.data;
+  const recentLogs = recentLogsResult.data;
 
   const now = new Date();
   const currentMonth = now.getMonth();
@@ -86,33 +94,6 @@ export default async function AdminPage() {
       revenueThisMonth += p.amount;
     }
   });
-
-  // Expiring soon (< 7 days)
-  const inSevenDays = new Date();
-  inSevenDays.setDate(inSevenDays.getDate() + 7);
-
-  const { count: expiringSoonCount } = await admin
-    .from('subscriptions')
-    .select('*', { count: 'exact', head: true })
-    .eq('status', 'active')
-    .lte('ends_at', inSevenDays.toISOString());
-
-  // 2. Fetch recent 5 payments for quick preview
-  const { data: recentPayments } = await admin
-    .from('payments')
-    .select(`
-      id, amount, provider, transaction_code, status, created_at,
-      profiles!payments_student_id_fkey(full_name, phone)
-    `)
-    .order('created_at', { ascending: false })
-    .limit(5);
-
-  // 3. Fetch recent 5 audit logs
-  const { data: recentLogs } = await admin
-    .from('audit_logs')
-    .select('id, action, target_type, created_at, meta')
-    .order('created_at', { ascending: false })
-    .limit(5);
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10 space-y-8">
@@ -137,43 +118,67 @@ export default async function AdminPage() {
       </div>
 
       {/* Quick Navigation Cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        <Link href="/admin/abonnements" className="block">
-          <Card className="hover:border-turquoise transition-all cursor-pointer h-full p-4 flex flex-col justify-between">
-            <Icon name="abonnement" size={36} />
-            <div>
-              <p className="font-bold text-navy text-sm mt-2">Abonnements</p>
-              <p className="text-xs text-text/50">Valider les paiements Wave</p>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+        <Link href="/admin/abonnements" className="block group">
+          <Card className="hover:border-turquoise transition-all cursor-pointer h-full p-4 sm:p-5 flex flex-col justify-between bg-white shadow-sm hover:shadow-md">
+            <div className="flex items-center justify-between">
+              <div className="w-11 h-11 rounded-2xl bg-amber-500/10 flex items-center justify-center text-amber-600">
+                <Icon name="abonnement" size={24} />
+              </div>
+              {pendingPaymentsCount && pendingPaymentsCount > 0 ? (
+                <span className="text-[10px] font-black uppercase tracking-wider bg-amber-100 text-amber-900 border border-amber-300 px-2 py-0.5 rounded-full animate-pulse">
+                  {pendingPaymentsCount} à valider
+                </span>
+              ) : null}
+            </div>
+            <div className="mt-4">
+              <p className="font-extrabold text-navy text-sm group-hover:text-turquoise transition-colors">Abonnements</p>
+              <p className="text-xs text-text/60 mt-0.5">Validation Wave &amp; prolongations</p>
             </div>
           </Card>
         </Link>
 
-        <Link href="/admin/contenu" className="block">
-          <Card className="hover:border-turquoise transition-all cursor-pointer h-full p-4 flex flex-col justify-between">
-            <Icon name="cours" size={36} />
-            <div>
-              <p className="font-bold text-navy text-sm mt-2">Contenu & Cours</p>
-              <p className="text-xs text-text/50">Chapitres, leçons, exercices</p>
+        <Link href="/admin/eleves" className="block group">
+          <Card className="hover:border-turquoise transition-all cursor-pointer h-full p-4 sm:p-5 flex flex-col justify-between bg-white shadow-sm hover:shadow-md">
+            <div className="flex items-center justify-between">
+              <div className="w-11 h-11 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-600">
+                <Icon name="profil" size={24} />
+              </div>
+              <span className="text-[10px] font-black uppercase tracking-wider bg-surface text-navy/70 border border-navy/10 px-2 py-0.5 rounded-full">
+                {totalStudentsCount} inscrits
+              </span>
+            </div>
+            <div className="mt-4">
+              <p className="font-extrabold text-navy text-sm group-hover:text-turquoise transition-colors">Annuaire Élèves</p>
+              <p className="text-xs text-text/60 mt-0.5">Gestion des profils et filières</p>
             </div>
           </Card>
         </Link>
 
-        <Link href="/admin/eleves" className="block">
-          <Card className="hover:border-turquoise transition-all cursor-pointer h-full p-4 flex flex-col justify-between">
-            <Icon name="profil" size={36} />
-            <div>
-              <p className="font-bold text-navy text-sm mt-2">Élèves</p>
-              <p className="text-xs text-text/50">Gestion des profils et rôles</p>
+        <Link href="/admin/contenu" className="block group">
+          <Card className="hover:border-turquoise transition-all cursor-pointer h-full p-4 sm:p-5 flex flex-col justify-between bg-white shadow-sm hover:shadow-md">
+            <div className="flex items-center justify-between">
+              <div className="w-11 h-11 rounded-2xl bg-turquoise/10 flex items-center justify-center text-turquoise">
+                <Icon name="cours" size={24} />
+              </div>
+            </div>
+            <div className="mt-4">
+              <p className="font-extrabold text-navy text-sm group-hover:text-turquoise transition-colors">Contenu &amp; Cours</p>
+              <p className="text-xs text-text/60 mt-0.5">Chapitres, leçons, exercices</p>
             </div>
           </Card>
         </Link>
 
-        <Link href="/admin/tarifs" className="block">
-          <Card className="hover:border-turquoise transition-all cursor-pointer h-full p-4 flex flex-col justify-between">
-            <Icon name="paiement" size={36} />
-            <div>
-              <p className="font-bold text-navy text-sm mt-2">Tarifs des Plans</p>
-              <p className="text-xs text-text/50">Modifier les prix sans coder</p>
+        <Link href="/admin/tarifs" className="block group">
+          <Card className="hover:border-turquoise transition-all cursor-pointer h-full p-4 sm:p-5 flex flex-col justify-between bg-white shadow-sm hover:shadow-md">
+            <div className="flex items-center justify-between">
+              <div className="w-11 h-11 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-600">
+                <Icon name="paiement" size={24} />
+              </div>
+            </div>
+            <div className="mt-4">
+              <p className="font-extrabold text-navy text-sm group-hover:text-turquoise transition-colors">Tarifs des Plans</p>
+              <p className="text-xs text-text/60 mt-0.5">Modifier les prix sans coder</p>
             </div>
           </Card>
         </Link>
@@ -226,12 +231,12 @@ export default async function AdminPage() {
 
       {/* Recent Activity Sections */}
       <div className="grid gap-6 lg:grid-cols-2">
-        {/* Recent payments */}
+        {/* Recent subscriptions / payments */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-3">
             <div>
-              <CardTitle className="text-base font-bold text-navy">Derniers paiements</CardTitle>
-              <CardDescription>Transactions récentes des élèves</CardDescription>
+              <CardTitle className="text-base font-bold text-navy">Dernières demandes d&apos;abonnement</CardTitle>
+              <CardDescription>Paiements Wave à valider en priorité</CardDescription>
             </div>
             <Link href="/admin/abonnements">
               <span className="text-xs text-turquoise font-semibold hover:underline">
@@ -241,22 +246,25 @@ export default async function AdminPage() {
           </CardHeader>
           <CardContent className="space-y-3">
             {(!recentPayments || recentPayments.length === 0) ? (
-              <p className="text-sm text-text/50 italic py-4">Aucune transaction enregistrée.</p>
+              <p className="text-sm text-text/50 italic py-4">Aucune demande enregistrée.</p>
             ) : (
-              recentPayments.map((p) => {
-                const student = (p.profiles as unknown as { full_name: string | null; phone: string }) ?? { full_name: 'Élève', phone: '' };
+              (recentPayments as any[]).map((sub: any) => {
+                const studentProfile = Array.isArray(sub.profiles) ? sub.profiles[0] : sub.profiles;
+                const fullName = studentProfile?.first_name && studentProfile?.last_name
+                  ? `${studentProfile.first_name} ${studentProfile.last_name}`
+                  : studentProfile?.full_name || 'Élève';
                 return (
                   <div
-                    key={p.id}
+                    key={sub.id}
                     className="p-3 rounded-xl bg-surface border border-navy/10 flex items-center justify-between gap-3 text-xs"
                   >
                     <div>
-                      <p className="font-semibold text-navy">{student.full_name ?? 'Élève'}</p>
-                      <p className="text-text/50">{student.phone} • {p.provider.toUpperCase()} ({p.transaction_code})</p>
+                      <p className="font-semibold text-navy">{fullName}</p>
+                      <p className="text-text/50">{studentProfile?.phone ?? '—'} • {sub.plans?.name ?? sub.provider ?? 'Wave'}</p>
                     </div>
                     <div className="text-right">
-                      <p className="font-bold text-navy">{formatFCFA(p.amount)}</p>
-                      <Badge status={p.status === 'confirmed' ? 'active' : p.status === 'pending' ? 'pending' : 'rejected'} />
+                      <p className="font-bold text-navy">{sub.plans?.price_fcfa ? sub.plans.price_fcfa.toLocaleString('fr-FR') + ' FCFA' : sub.amount ? sub.amount.toLocaleString('fr-FR') + ' FCFA' : '—'}</p>
+                      <Badge status={sub.status === 'active' ? 'active' : sub.status === 'pending' ? 'pending' : 'rejected'} />
                     </div>
                   </div>
                 );
