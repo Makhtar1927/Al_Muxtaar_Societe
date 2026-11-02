@@ -5,6 +5,7 @@ export type BadgeStatus = "pending" | "active" | "expired" | "rejected" | "defau
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   status?: BadgeStatus;
+  variant?: string;
   children?: React.ReactNode;
 }
 

@@ -54,23 +54,23 @@ export default function FormesIndetermineesCard() {
       {/* Les 4 FI bien visibles en cartes mobiles */}
       <div className="mt-4">
         <p className="text-xs font-bold text-rose-800 uppercase tracking-wider mb-2">
-          ⚠️ Les 4 seules formes indéterminées :
+          Les 4 seules formes indéterminées :
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
           <div className="rounded-xl border border-rose-200 bg-rose-50/70 p-2.5 text-center">
-            <span className="block text-base sm:text-lg font-black text-rose-700">" 0 / 0 "</span>
+            <span className="block text-base sm:text-lg font-black text-rose-700 font-mono">0 / 0</span>
             <span className="text-[10px] text-rose-600 font-semibold">Taux / Factorisation</span>
           </div>
           <div className="rounded-xl border border-rose-200 bg-rose-50/70 p-2.5 text-center">
-            <span className="block text-base sm:text-lg font-black text-rose-700">" ∞ / ∞ "</span>
+            <span className="block text-base sm:text-lg font-black text-rose-700 font-mono">∞ / ∞</span>
             <span className="text-[10px] text-rose-600 font-semibold">Plus haut degré</span>
           </div>
           <div className="rounded-xl border border-rose-200 bg-rose-50/70 p-2.5 text-center">
-            <span className="block text-base sm:text-lg font-black text-rose-700">" 0 × ∞ "</span>
+            <span className="block text-base sm:text-lg font-black text-rose-700 font-mono">0 × ∞</span>
             <span className="text-[10px] text-rose-600 font-semibold">Inverser en quotient</span>
           </div>
           <div className="rounded-xl border border-rose-200 bg-rose-50/70 p-2.5 text-center">
-            <span className="block text-base sm:text-lg font-black text-rose-700">" +∞ - ∞ "</span>
+            <span className="block text-base sm:text-lg font-black text-rose-700 font-mono">+∞ - ∞</span>
             <span className="text-[10px] text-rose-600 font-semibold">Conjuguée / Factoriser</span>
           </div>
         </div>
@@ -79,7 +79,7 @@ export default function FormesIndetermineesCard() {
       {/* Les 3 Réflexes Officiels - Onglets tactiles adaptés pour smartphone */}
       <div className="mt-6 pt-4 border-t border-navy/10">
         <p className="text-xs font-bold text-navy uppercase tracking-wider mb-3">
-          ✨ Les 3 Réflexes pour lever l&apos;indétermination :
+          Les 3 Réflexes pour lever l&apos;indétermination :
         </p>
         <div className="flex gap-1.5 overflow-x-auto pb-2 scrollbar-none">
           {METHODES.map((m, idx) => (

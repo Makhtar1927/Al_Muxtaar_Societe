@@ -630,9 +630,9 @@ export default function BacSenegalAnnales({ chapter = 'limites' }: BacSenegalAnn
                     </div>
                   </div>
                   <div className="flex items-center gap-2 self-start sm:self-center">
-                    <Badge variant="outline" className="text-xs border-turquoise text-turquoise font-semibold">
+                    <span className="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold border border-turquoise text-turquoise">
                       {item.points}
-                    </Badge>
+                    </span>
                     <span className="text-navy/40 font-bold text-xs ml-1">
                       {isOpen ? '▲ Masquer' : '▼ Voir le Corrigé'}
                     </span>

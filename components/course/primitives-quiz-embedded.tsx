@@ -304,7 +304,7 @@ export default function PrimitivesQuizEmbedded() {
               </span>
             ) : score >= 4 ? (
               <span className="text-navy font-semibold">
-                Bon niveau ! Révisez la règle ALPES pour l&apos;IPP et la conversion en $\text{cm}^2$ avec les unités graphiques.
+                Bon niveau ! Révisez la règle ALPES pour l&apos;IPP et la conversion en cm² avec les unités graphiques.
               </span>
             ) : (
               <span className="text-rose-700 font-medium">
