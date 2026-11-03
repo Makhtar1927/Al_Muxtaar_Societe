@@ -419,9 +419,9 @@ export default async function DashboardPage() {
 
       {/* ── 4. Suivi par Matière — Vue d'ensemble équilibrée (Non monopolisée) ── */}
       <div className="space-y-6">
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-navy/10 pb-3">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-navy/10 pb-3">
           <div>
-            <h2 className="text-xl font-bold text-navy">
+            <h2 className="text-lg sm:text-xl font-bold text-navy">
               Progression par Matière — {studentTrack.name} ({studentLevel.name})
             </h2>
             <p className="text-xs text-navy/60 mt-0.5">
@@ -430,7 +430,7 @@ export default async function DashboardPage() {
           </div>
           <Link
             href="/cours"
-            className="text-xs font-bold text-navy hover:text-turquoise transition-colors flex items-center gap-1 bg-surface px-3 py-1.5 rounded-xl border border-navy/10"
+            className="text-xs font-bold text-navy hover:text-turquoise transition-colors flex items-center gap-1 bg-surface px-3 py-1.5 rounded-xl border border-navy/10 shrink-0 self-start sm:self-auto"
           >
             <Icon name="cours" size={14} />
             <span>Toutes les matières ({studentTrack.subjects.length})</span>
@@ -440,97 +440,109 @@ export default async function DashboardPage() {
         {/* Cartes Matières Principales */}
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {/* Sciences Physiques (PC) */}
-          <div className="bg-white rounded-2xl border border-navy/10 p-5 shadow-sm space-y-3 hover:border-turquoise/40 transition-all">
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-turquoise-light/40 text-turquoise">
-                Coeff. 6 • Actif
-              </span>
-              <span className="font-mono text-xs font-bold text-turquoise">{pcPercent}%</span>
+          <div className="bg-white rounded-2xl border border-navy/10 p-4 sm:p-5 shadow-sm space-y-3 hover:border-turquoise/40 transition-all flex flex-col justify-between">
+            <div className="space-y-2">
+              <div className="flex flex-wrap items-center justify-between gap-1.5">
+                <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-turquoise-light/40 text-turquoise">
+                  Coeff. 6 • Actif
+                </span>
+                <span className="font-mono text-xs font-bold text-turquoise">{pcPercent}%</span>
+              </div>
+              <div>
+                <h3 className="font-extrabold text-navy text-base leading-snug">Sciences Physiques (PC)</h3>
+                <p className="text-xs text-text/60 mt-0.5">
+                  {completedPCCount} sur {totalPCLessons} cours terminés (C1-C9 & P1-P10)
+                </p>
+              </div>
             </div>
-            <div>
-              <h3 className="font-extrabold text-navy text-base">Sciences Physiques (PC)</h3>
-              <p className="text-xs text-text/60 mt-0.5">
-                {completedPCCount} sur {totalPCLessons} cours terminés (C1-C9 & P1-P10)
-              </p>
-            </div>
-            <ProgressBar value={pcPercent} />
-            <div className="pt-1 flex justify-between items-center text-xs">
-              <span className="text-[11px] text-navy/50">19 leçons complètes</span>
-              <Link
-                href={`/cours/${studentLevel.code}/${studentTrack.code}/physique-chimie`}
-                className="font-bold text-turquoise hover:underline flex items-center gap-1"
-              >
-                <span>Accéder</span>
-                <ArrowRight className="w-3 h-3" />
-              </Link>
+            <div className="space-y-2 pt-1">
+              <ProgressBar value={pcPercent} />
+              <div className="flex justify-between items-center text-xs">
+                <span className="text-[11px] text-navy/50">19 leçons complètes</span>
+                <Link
+                  href={`/cours/${studentLevel.code}/${studentTrack.code}/physique-chimie`}
+                  className="font-bold text-turquoise hover:underline flex items-center gap-1 shrink-0"
+                >
+                  <span>Accéder</span>
+                  <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
             </div>
           </div>
 
           {/* Mathématiques */}
-          <div className="bg-white rounded-2xl border border-navy/10 p-5 shadow-sm space-y-3 hover:border-turquoise/40 transition-all">
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-navy/10 text-navy">
-                Coeff. 5 • Actif
-              </span>
-              <span className="font-mono text-xs font-bold text-navy">{mathPercent}%</span>
+          <div className="bg-white rounded-2xl border border-navy/10 p-4 sm:p-5 shadow-sm space-y-3 hover:border-turquoise/40 transition-all flex flex-col justify-between">
+            <div className="space-y-2">
+              <div className="flex flex-wrap items-center justify-between gap-1.5">
+                <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-navy/10 text-navy">
+                  Coeff. 5 • Actif
+                </span>
+                <span className="font-mono text-xs font-bold text-navy">{mathPercent}%</span>
+              </div>
+              <div>
+                <h3 className="font-extrabold text-navy text-base leading-snug">Mathématiques</h3>
+                <p className="text-xs text-text/60 mt-0.5">
+                  {completedMathCount} sur {totalMathLessons} fiches terminées
+                </p>
+              </div>
             </div>
-            <div>
-              <h3 className="font-extrabold text-navy text-base">Mathématiques</h3>
-              <p className="text-xs text-text/60 mt-0.5">
-                {completedMathCount} sur {totalMathLessons} fiches terminées
-              </p>
-            </div>
-            <ProgressBar value={mathPercent} />
-            <div className="pt-1 flex justify-between items-center text-xs">
-              <span className="text-[11px] text-navy/50">{mathChapters.length} chapitres</span>
-              <Link
-                href={`/cours/${studentLevel.code}/${studentTrack.code}/mathematiques`}
-                className="font-bold text-navy hover:text-turquoise hover:underline flex items-center gap-1"
-              >
-                <span>Accéder</span>
-                <ArrowRight className="w-3 h-3" />
-              </Link>
+            <div className="space-y-2 pt-1">
+              <ProgressBar value={mathPercent} />
+              <div className="flex justify-between items-center text-xs">
+                <span className="text-[11px] text-navy/50">{mathChapters.length} chapitres</span>
+                <Link
+                  href={`/cours/${studentLevel.code}/${studentTrack.code}/mathematiques`}
+                  className="font-bold text-navy hover:text-turquoise hover:underline flex items-center gap-1 shrink-0"
+                >
+                  <span>Accéder</span>
+                  <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
             </div>
           </div>
 
           {/* SVT */}
-          <div className="bg-white rounded-2xl border border-navy/10 p-5 shadow-sm space-y-3">
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-amber-100 text-amber-800">
-                Coeff. 6 • En Rédaction
-              </span>
-              <span className="font-mono text-xs font-bold text-amber-700">80%</span>
+          <div className="bg-white rounded-2xl border border-navy/10 p-4 sm:p-5 shadow-sm space-y-3 flex flex-col justify-between">
+            <div className="space-y-2">
+              <div className="flex flex-wrap items-center justify-between gap-1.5">
+                <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-amber-100 text-amber-800">
+                  Coeff. 6 • En Rédaction
+                </span>
+                <span className="font-mono text-xs font-bold text-amber-700">80%</span>
+              </div>
+              <div>
+                <h3 className="font-extrabold text-navy text-base leading-snug">Sciences de la Vie & Terre</h3>
+                <p className="text-xs text-text/60 mt-0.5">
+                  Génétique, Immunologie, Glycémie, Système Nerveux
+                </p>
+              </div>
             </div>
-            <div>
-              <h3 className="font-extrabold text-navy text-base">Sciences de la Vie & Terre</h3>
-              <p className="text-xs text-text/60 mt-0.5">
-                Génétique, Immunologie, Glycémie, Système Nerveux
-              </p>
-            </div>
-            <ProgressBar value={80} />
-            <div className="pt-1 flex justify-between items-center text-xs">
-              <span className="text-[11px] text-navy/50">Validation IGEF</span>
-              <Link
-                href={`/cours/${studentLevel.code}/${studentTrack.code}/svt`}
-                className="font-bold text-navy/60 hover:text-navy hover:underline flex items-center gap-1"
-              >
-                <span>Programme</span>
-                <ArrowRight className="w-3 h-3" />
-              </Link>
+            <div className="space-y-2 pt-1">
+              <ProgressBar value={80} />
+              <div className="flex justify-between items-center text-xs">
+                <span className="text-[11px] text-navy/50">Validation IGEF</span>
+                <Link
+                  href={`/cours/${studentLevel.code}/${studentTrack.code}/svt`}
+                  className="font-bold text-navy/60 hover:text-navy hover:underline flex items-center gap-1 shrink-0"
+                >
+                  <span>Programme</span>
+                  <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Détail des chapitres de Sciences Physiques (PC) */}
         <div className="space-y-3 pt-2">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <h3 className="font-extrabold text-navy text-base flex items-center gap-2">
-              <span className="w-3 h-3 rounded-full bg-turquoise" />
-              Sciences Physiques (PC) — Cours & Simulateurs
+              <span className="w-3 h-3 rounded-full bg-turquoise shrink-0" />
+              <span>Sciences Physiques (PC) — Cours & Simulateurs</span>
             </h3>
             <Link
               href={`/cours/${studentLevel.code}/${studentTrack.code}/physique-chimie`}
-              className="text-xs font-bold text-turquoise hover:underline flex items-center gap-1"
+              className="text-xs font-bold text-turquoise hover:underline flex items-center gap-1 shrink-0 self-start sm:self-auto whitespace-nowrap"
             >
               <span>Voir les 19 chapitres</span>
               <ArrowRight className="w-3 h-3" />
@@ -548,9 +560,9 @@ export default async function DashboardPage() {
               return (
                 <div
                   key={ch.id}
-                  className="bg-white rounded-xl border border-navy/10 p-3.5 flex items-center justify-between gap-3 shadow-sm hover:border-turquoise/30 transition-all"
+                  className="bg-white rounded-xl border border-navy/10 p-3 sm:p-3.5 flex items-center justify-between gap-2.5 shadow-sm hover:border-turquoise/30 transition-all min-w-0"
                 >
-                  <div className="flex items-center gap-2.5 min-w-0">
+                  <div className="flex items-center gap-2.5 min-w-0 flex-1">
                     <span
                       className={`w-9 h-9 rounded-xl flex items-center justify-center text-xs font-black shrink-0 ${
                         isCompleted
@@ -562,9 +574,9 @@ export default async function DashboardPage() {
                     >
                       {ch.code}
                     </span>
-                    <div className="truncate">
+                    <div className="min-w-0 flex-1">
                       <p className="font-bold text-navy text-xs truncate">{ch.title}</p>
-                      <span className="text-[10px] text-navy/40 uppercase tracking-wider block">
+                      <span className="text-[10px] text-navy/40 uppercase tracking-wider block truncate">
                         {ch.subDomain || (isChimie ? 'Chimie' : 'Physique')}
                       </span>
                     </div>
@@ -574,12 +586,12 @@ export default async function DashboardPage() {
                     {canAccess ? (
                       <Link
                         href={`/cours/${studentLevel.code}/${studentTrack.code}/physique-chimie/${ch.id}/${firstLesson.id}`}
-                        className="text-xs font-bold text-turquoise hover:underline"
+                        className="text-xs font-bold text-turquoise hover:underline whitespace-nowrap"
                       >
                         {isCompleted ? 'Revoir' : 'Ouvrir'} →
                       </Link>
                     ) : (
-                      <Link href="/abonnement" className="text-xs text-navy/40 hover:text-navy">
+                      <Link href="/abonnement" className="text-xs text-navy/40 hover:text-navy px-1">
                         🔒
                       </Link>
                     )}
@@ -592,14 +604,14 @@ export default async function DashboardPage() {
 
         {/* Détail des chapitres de Mathématiques */}
         <div className="space-y-3 pt-4">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <h3 className="font-extrabold text-navy text-base flex items-center gap-2">
-              <span className="w-3 h-3 rounded-full bg-navy" />
-              Mathématiques — Chapitres d&apos;Analyse & Géométrie
+              <span className="w-3 h-3 rounded-full bg-navy shrink-0" />
+              <span>Mathématiques — Chapitres d&apos;Analyse & Géométrie</span>
             </h3>
             <Link
               href={`/cours/${studentLevel.code}/${studentTrack.code}/mathematiques`}
-              className="text-xs font-bold text-navy hover:text-turquoise hover:underline flex items-center gap-1"
+              className="text-xs font-bold text-navy hover:text-turquoise hover:underline flex items-center gap-1 shrink-0 self-start sm:self-auto whitespace-nowrap"
             >
               <span>Voir tout le programme</span>
               <ArrowRight className="w-3 h-3" />
@@ -619,26 +631,26 @@ export default async function DashboardPage() {
               return (
                 <div
                   key={ch.id}
-                  className="bg-white rounded-xl border border-navy/10 p-4 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+                  className="bg-white rounded-xl border border-navy/10 p-3.5 sm:p-4 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3 min-w-0"
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 min-w-0 flex-1">
                     <span className="w-7 h-7 rounded-lg bg-navy/10 text-navy text-xs font-bold flex items-center justify-center shrink-0">
                       {idx + 1}
                     </span>
-                    <div>
-                      <h4 className="font-bold text-navy text-sm">{ch.title}</h4>
+                    <div className="min-w-0 flex-1">
+                      <h4 className="font-bold text-navy text-sm truncate">{ch.title}</h4>
                       <p className="text-xs text-text/50">
                         {chDone} sur {pubLessons.length} leçons terminées ({chPercent}%)
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-3 sm:self-center self-end">
+                  <div className="flex items-center gap-3 sm:self-center self-start shrink-0">
                     {firstLesson && (
                       isFirstLessonAccessible ? (
                         <Link
                           href={`/cours/${studentLevel.code}/${studentTrack.code}/mathematiques/${ch.id}/${firstLesson.id}`}
-                          className="text-xs text-navy font-bold hover:text-turquoise hover:underline flex items-center gap-0.5"
+                          className="text-xs text-navy font-bold hover:text-turquoise hover:underline flex items-center gap-0.5 whitespace-nowrap"
                         >
                           <span>{idx === 0 && !isActiveSub ? '1ère Leçon Gratuite' : chPercent === 100 ? 'Revoir' : 'Continuer'}</span>
                           <ArrowRight className="w-3 h-3" />
@@ -646,7 +658,7 @@ export default async function DashboardPage() {
                       ) : (
                         <Link
                           href="/abonnement"
-                          className="text-xs text-amber-700 font-semibold hover:underline flex items-center gap-1 bg-amber-50 px-2 py-0.5 rounded-lg border border-amber-200"
+                          className="text-xs text-amber-700 font-semibold hover:underline flex items-center gap-1 bg-amber-50 px-2 py-0.5 rounded-lg border border-amber-200 whitespace-nowrap"
                         >
                           <Icon name="cadenas" size={12} />
                           <span>Débloquer</span>
