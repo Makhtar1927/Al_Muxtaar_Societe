@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Icon } from "@/components/ui/icon";
 import { SENEGAL_CURRICULUM, getCurriculumStats } from "@/lib/curriculum/senegal-curriculum";
+import { Smartphone, Sparkles, BookOpen, ShieldCheck, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Al_Muxtaar_Doc | Plateforme Nationale de Cours du Sénégal (Lycée & Collège)",
@@ -17,55 +19,114 @@ export default function DocLandingPage() {
 
   return (
     <div className="space-y-16 py-8 sm:space-y-20 sm:py-12">
-      {/* Hero Section Généralisée */}
-      <section className="mx-auto max-w-5xl px-4 text-center sm:px-6">
-        <div className="mx-auto mb-4 inline-flex items-center gap-2 rounded-full bg-turquoise-light px-4 py-1.5 text-xs font-black text-turquoise border border-turquoise/20">
-          <Icon name="doc" size={16} />
-          RÉFÉRENTIEL PÉDAGOGIQUE NATIONAL DU SÉNÉGAL
-        </div>
-        <h1 className="text-3xl font-black tracking-tight text-navy sm:text-5xl lg:text-6xl">
-          Toutes les séries du Lycée et du Collège, <br className="hidden sm:inline" />
-          <span className="text-turquoise">structurées, vivantes et interactives</span>.
-        </h1>
-        <p className="mx-auto mt-5 max-w-3xl text-base text-navy-light sm:text-lg leading-relaxed">
-          Conforme aux programmes officiels du <strong>Ministère de l&apos;Éducation Nationale (MEN / IGEF)</strong>. 
-          De la 3e BFEM à la Terminale (S1, S2, L, G) : fiches de cours rigoureuses, méthodes types du Bac, 
-          analogies de la vie sénégalaise et synthèses bilingues Wolof / Français.
-        </p>
+      {/* ── Hero Section Al_Muxtaar_Doc avec Illustration Officielle Réactive ── */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8">
+          {/* Colonne Gauche : Texte de Présentation, Programmes & Call-To-Action */}
+          <div className="text-center lg:col-span-7 lg:text-left space-y-6">
+            <div className="inline-flex items-center gap-2 rounded-full bg-turquoise-light px-3.5 py-1.5 text-xs font-black text-turquoise border border-turquoise/30 shadow-xs">
+              <Icon name="doc" size={16} />
+              <span>RÉFÉRENTIEL PÉDAGOGIQUE NATIONAL DU SÉNÉGAL</span>
+            </div>
 
-        {/* Chiffres clés du référentiel */}
-        <div className="mx-auto mt-8 grid max-w-3xl grid-cols-2 gap-3 sm:grid-cols-4">
-          <div className="rounded-2xl border border-navy/10 bg-white p-3.5 shadow-sm">
-            <span className="block text-2xl font-black text-navy">{stats.totalLevels} Niveaux</span>
-            <span className="text-[11px] font-medium text-navy-light">3e BFEM, 2nde, 1ère, Tle</span>
-          </div>
-          <div className="rounded-2xl border border-navy/10 bg-white p-3.5 shadow-sm">
-            <span className="block text-2xl font-black text-turquoise">{stats.totalTracks} Séries</span>
-            <span className="text-[11px] font-medium text-navy-light">S1, S2, L2, L&apos;, G, Collège</span>
-          </div>
-          <div className="rounded-2xl border border-navy/10 bg-white p-3.5 shadow-sm">
-            <span className="block text-2xl font-black text-gold">{stats.totalSubjects}+ Matières</span>
-            <span className="text-[11px] font-medium text-navy-light">Maths, PC, SVT, Philo, etc.</span>
-          </div>
-          <div className="rounded-2xl border border-navy/10 bg-white p-3.5 shadow-sm">
-            <span className="block text-2xl font-black text-coral">100% Officiel</span>
-            <span className="text-[11px] font-medium text-navy-light">MEN & Office du Bac</span>
-          </div>
-        </div>
+            <h1 className="text-3xl font-black tracking-tight text-navy sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[52px] leading-[1.12]">
+              Toutes les séries du Lycée et du Collège,{" "}
+              <span className="text-turquoise block sm:inline">
+                structurées, vivantes &amp; sur mobile.
+              </span>
+            </h1>
 
-        {/* Boutons d'action */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <Link href="/doc/catalogue">
-            <Button variant="primary" size="lg" className="w-full sm:w-auto font-black shadow-md">
-              <Icon name="cours" size={20} className="mr-2" />
-              Explorer tout le catalogue des cours
-            </Button>
-          </Link>
-          <Link href="/doc/tarifs">
-            <Button variant="outline" size="lg" className="w-full sm:w-auto font-bold">
-              Formules & Tarifs (Dès 700 FCFA/mois)
-            </Button>
-          </Link>
+            <p className="mx-auto lg:mx-0 max-w-2xl text-sm sm:text-base text-navy-light leading-relaxed">
+              Conforme aux programmes officiels du <strong>Ministère de l&apos;Éducation Nationale (MEN / IGEF)</strong>. 
+              De la 3e BFEM à la Terminale (S1, S2, L, G) : cours complets, automatismes du Baccalauréat, 
+              analogies de la vie sénégalaise et fiches d&apos;exercices interactifs conçues pour smartphone.
+            </p>
+
+            {/* Chiffres clés du référentiel */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 max-w-xl mx-auto lg:mx-0 pt-1">
+              <div className="rounded-2xl border border-navy/10 bg-white p-3 text-center shadow-xs">
+                <span className="block text-xl sm:text-2xl font-black text-navy">{stats.totalLevels} Niveaux</span>
+                <span className="text-[10px] sm:text-[11px] font-semibold text-navy-light">3e, 2nde, 1ère, Tle</span>
+              </div>
+              <div className="rounded-2xl border border-navy/10 bg-white p-3 text-center shadow-xs">
+                <span className="block text-xl sm:text-2xl font-black text-turquoise">{stats.totalTracks} Séries</span>
+                <span className="text-[10px] sm:text-[11px] font-semibold text-navy-light">S1, S2, L2, L&apos;, G</span>
+              </div>
+              <div className="rounded-2xl border border-navy/10 bg-white p-3 text-center shadow-xs">
+                <span className="block text-xl sm:text-2xl font-black text-gold">{stats.totalSubjects}+ Matières</span>
+                <span className="text-[10px] sm:text-[11px] font-semibold text-navy-light">Maths, PC, SVT, Philo</span>
+              </div>
+              <div className="rounded-2xl border border-navy/10 bg-white p-3 text-center shadow-xs">
+                <span className="block text-xl sm:text-2xl font-black text-coral">100% Officiel</span>
+                <span className="text-[10px] sm:text-[11px] font-semibold text-navy-light">Office du Bac / MEN</span>
+              </div>
+            </div>
+
+            {/* Boutons d'action */}
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-2">
+              <Link href="/doc/catalogue" className="w-full sm:w-auto">
+                <Button variant="primary" size="lg" className="w-full sm:w-auto font-black shadow-md min-h-[46px]">
+                  <Icon name="cours" size={18} className="mr-2" />
+                  <span>Explorer tout le catalogue</span>
+                </Button>
+              </Link>
+              <Link href="/doc/tarifs" className="w-full sm:w-auto">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto font-bold min-h-[46px] border-navy/20 hover:border-turquoise hover:text-turquoise">
+                  <span>Formules dès 700 FCFA/mois</span>
+                </Button>
+              </Link>
+            </div>
+          </div>
+
+          {/* Colonne Droite : Vitrine Graphique Responsive Élève & Téléphone */}
+          <div className="lg:col-span-5 flex justify-center">
+            <div className="relative w-full max-w-[340px] sm:max-w-[380px] lg:max-w-[420px]">
+              {/* Aura lumineuse d'ambiance */}
+              <div className="absolute -inset-4 bg-gradient-to-tr from-turquoise/20 via-gold/15 to-transparent rounded-3xl blur-2xl opacity-75 -z-10" />
+
+              {/* Carte conteneur vitrine */}
+              <div className="relative rounded-3xl border border-turquoise/25 bg-gradient-to-b from-white via-surface/30 to-white/90 p-4 sm:p-6 shadow-xl backdrop-blur-xs overflow-hidden">
+                {/* Badge supérieur flottant */}
+                <div className="flex items-center justify-between mb-3 px-1">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-navy px-3 py-1 text-[11px] font-black text-white shadow-xs">
+                    <Smartphone className="w-3.5 h-3.5 text-turquoise" />
+                    <span>Optimisé Mobile 3G / 4G</span>
+                  </span>
+                  <span className="text-[11px] font-bold text-turquoise bg-turquoise-light px-2.5 py-0.5 rounded-full">
+                    Sénégal
+                  </span>
+                </div>
+
+                {/* Illustration SVG Animée */}
+                <div className="relative flex items-center justify-center py-1 sm:py-2">
+                  <Image
+                    src="/eleve_lecture_telephone.svg"
+                    alt="Élève sénégalais lisant un cours sur son smartphone"
+                    width={440}
+                    height={420}
+                    priority
+                    className="w-full h-auto max-h-[360px] object-contain drop-shadow-sm select-none transition-transform duration-300 hover:scale-[1.02]"
+                  />
+                </div>
+
+                {/* Cartouche informatif inférieur */}
+                <div className="mt-3 rounded-2xl bg-white border border-navy/10 p-3 shadow-xs flex items-center justify-between gap-3 text-left">
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <div className="w-8 h-8 rounded-xl bg-turquoise-light text-turquoise flex items-center justify-center shrink-0">
+                      <BookOpen className="w-4 h-4" />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-xs font-black text-navy truncate">Révisions interactives 24h/24</p>
+                      <p className="text-[10px] text-navy-light truncate">Fiches de cours légères &amp; quiz instantanés</p>
+                    </div>
+                  </div>
+                  <span className="text-[10px] font-black text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full shrink-0">
+                    Zéro Bug
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
