@@ -51,9 +51,55 @@ import StatistiquesQuizEmbedded from '@/components/course/statistiques-quiz-embe
 import GeometrieReflexesCard from '@/components/course/geometrie-reflexes-card';
 import GeometrieInteractiveSimulator from '@/components/course/geometrie-interactive-simulator';
 import GeometrieQuizEmbedded from '@/components/course/geometrie-quiz-embedded';
+import CinetiqueReflexesCard from '@/components/course/cinetique-reflexes-card';
+import CinetiqueInteractiveSimulator from '@/components/course/cinetique-interactive-simulator';
+import CinetiqueQuizEmbedded from '@/components/course/cinetique-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
+
+const CINETIQUE_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Enjeux de la Cinétique Chimique au Bac S2",
+    badge: "Introduction",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass de Chimie Terminale S2. La cinétique chimique ouvre traditionnellement les épreuves du Baccalauréat au Sénégal. Maîtriser le calcul de la vitesse volumique et la lecture de tangente vous assure un maximum de points dès le premier exercice.",
+  },
+  {
+    timeSeconds: 50,
+    title: "2. Les 3 Facteurs Cinétiques Majeurs",
+    badge: "Facteurs",
+    icon: "eclair_reflexe",
+    textScript:
+      "Retenez les 3 facteurs cinétiques essentiels : la température, la concentration des réactifs, et la présence d'un catalyseur. Une hausse de température augmente la fréquence des chocs efficaces. Plus le milieu est concentré, plus les réactions se bousculent.",
+  },
+  {
+    timeSeconds: 110,
+    title: "3. Le Piège d'or du Catalyseur",
+    badge: "Piège Bac",
+    icon: "piege_bac",
+    textScript:
+      "Voici le piège classique des examinateurs du Bac sénégalais : un catalyseur accélère la vitesse de réaction, mais il ne change STRICTEMENT JAMAIS l'avancement maximal final x_max ! Il permet juste d'atteindre l'état final plus rapidement.",
+  },
+  {
+    timeSeconds: 170,
+    title: "4. La Trempe Chimique et le Dosage",
+    badge: "Méthode",
+    icon: "technique_outils",
+    textScript:
+      "Quand on dose le diiode à différentes dates t, pourquoi trempe-t-on dans l'eau glacée ? Parce que le dosage à la burette prend du temps ! Le froid et la dilution figent instantanément la réaction à vitesse nulle pour mesurer la composition exacte à l'instant t.",
+  },
+  {
+    timeSeconds: 230,
+    title: "5. Tangente et Temps de Demi-Réaction",
+    badge: "Calcul",
+    icon: "formule_cle",
+    textScript:
+      "Pour calculer la vitesse volumique v, tracez la tangente, calculez sa pente dx/dt et divisez obligatoirement par le volume total V de la solution. Et pour le temps de demi-réaction t1/2, projetez x_max divisé par 2 sur l'axe des temps.",
+  },
+];
 
 const TVI_AUDIO_CHAPTERS: AudioChapter[] = [
   {
@@ -854,6 +900,65 @@ export default async function LessonReaderPage({ params }: PageProps) {
     lessonMeta = createdLesson;
   }
 
+  // Provisioning pour Physique-Chimie (Chapitre 1 : Cinétique Chimique)
+  if (!lessonMeta && params.lesson === '60000000-0000-0000-0001-000000000001') {
+    await admin.from('chapters').upsert({
+      id: '50000000-0000-0000-0001-000000000001',
+      title: 'Cinétique Chimique & Vitesse de Réaction',
+      order_index: 1,
+      status: 'published',
+    }, { onConflict: 'id' });
+
+    const { data: createdLesson } = await admin
+      .from('lessons')
+      .upsert({
+        id: '60000000-0000-0000-0001-000000000001',
+        chapter_id: '50000000-0000-0000-0001-000000000001',
+        title: 'Facteurs cinétiques, vitesse volumique et suivi temporel',
+        order_index: 1,
+        content_markdown: '# Chapitre 1 : Cinétique Chimique & Vitesse de Réaction',
+        is_free: true,
+        status: 'published',
+      }, { onConflict: 'id' })
+      .select()
+      .single();
+    lessonMeta = createdLesson;
+  }
+
+  if (!lessonMeta && params.lesson === '60000000-0000-0000-0001-000000000002') {
+    const { data: createdLesson } = await admin
+      .from('lessons')
+      .upsert({
+        id: '60000000-0000-0000-0001-000000000002',
+        chapter_id: '50000000-0000-0000-0001-000000000001',
+        title: 'Méthodes graphiques, tangentes et temps de demi-réaction',
+        order_index: 2,
+        content_markdown: '# Chapitre 1 : Cinétique Chimique — Méthodes Graphiques',
+        is_free: false,
+        status: 'published',
+      }, { onConflict: 'id' })
+      .select()
+      .single();
+    lessonMeta = createdLesson;
+  }
+
+  if (!lessonMeta && params.lesson === '60000000-0000-0000-0001-000000000003') {
+    const { data: createdLesson } = await admin
+      .from('lessons')
+      .upsert({
+        id: '60000000-0000-0000-0001-000000000003',
+        chapter_id: '50000000-0000-0000-0001-000000000001',
+        title: 'Trempe chimique, catalyse et mécanismes réactionnels',
+        order_index: 3,
+        content_markdown: '# Chapitre 1 : Cinétique Chimique — Trempe et Catalyse',
+        is_free: false,
+        status: 'published',
+      }, { onConflict: 'id' })
+      .select()
+      .single();
+    lessonMeta = createdLesson;
+  }
+
   if (lessonMeta && lessonMeta.status !== 'published') {
     await admin.from('lessons').update({ status: 'published' }).eq('id', lessonMeta.id);
     lessonMeta.status = 'published';
@@ -866,6 +971,7 @@ export default async function LessonReaderPage({ params }: PageProps) {
   // RÈGLE FREEMIUM : Seule la toute première leçon de la matière (Chapitre 1, Leçon 1) est gratuite en aperçu
   const isFirstLessonOfSubject =
     params.lesson === '60000000-0000-0000-0000-000000000001' ||
+    params.lesson === '60000000-0000-0000-0001-000000000001' ||
     ((chapter?.order_index ?? 0) <= 1 && (lessonMeta.order_index ?? 0) <= 1);
 
   const isFree = isFirstLessonOfSubject;
@@ -998,7 +1104,16 @@ export default async function LessonReaderPage({ params }: PageProps) {
     lessonMeta.title.toLowerCase().includes('bijection') ||
     lessonMeta.title.toLowerCase().includes('tvi');
 
+  const isCinetique =
+    lessonMeta.title.toLowerCase().includes('cinetique') ||
+    lessonMeta.title.toLowerCase().includes('cinétique') ||
+    lessonMeta.title.toLowerCase().includes('vitesse de réaction') ||
+    lessonMeta.title.toLowerCase().includes('facteur cinétique') ||
+    (chapter?.title?.toLowerCase() || '').includes('cinetique') ||
+    (chapter?.title?.toLowerCase() || '').includes('cinétique');
+
   const isDerivation =
+    !isCinetique &&
     !isAsymptotes &&
     !isSuites &&
     !isLogarithme &&
@@ -1108,7 +1223,9 @@ export default async function LessonReaderPage({ params }: PageProps) {
               {/* Capsule Vocale & Masterclass Audio du Professeur (Al Muxtaar S2) */}
               <AudioCoachPlayer
                 title={
-                  isTvi
+                  isCinetique
+                    ? 'Masterclass Audio : Cinétique Chimique & Vitesse de Réaction'
+                    : isTvi
                     ? 'Masterclass Audio : TVI & Théorème de la Bijection'
                     : isAsymptotes
                     ? 'Masterclass Audio : Asymptotes & Branches Infinies'
@@ -1135,7 +1252,9 @@ export default async function LessonReaderPage({ params }: PageProps) {
                     : 'Masterclass Audio : Limites & Continuité'
                 }
                 subtitle={
-                  isTvi
+                  isCinetique
+                    ? 'Terminale S2 • Chimie : Les 5 réflexes pour l\'exercice cinétique au Bac'
+                    : isTvi
                     ? 'Terminale S2 • Les 5 réflexes pour la Partie A & B'
                     : isAsymptotes
                     ? 'Terminale S2 • Les 5 réflexes pour le tracé de la courbe'
@@ -1162,7 +1281,9 @@ export default async function LessonReaderPage({ params }: PageProps) {
                     : 'Terminale S2 • 5 réflexes essentiels pour l\'épreuve'
                 }
                 chapters={
-                  isTvi
+                  isCinetique
+                    ? CINETIQUE_AUDIO_CHAPTERS
+                    : isTvi
                     ? TVI_AUDIO_CHAPTERS
                     : isAsymptotes
                     ? ASYMPTOTES_AUDIO_CHAPTERS
@@ -1207,7 +1328,12 @@ export default async function LessonReaderPage({ params }: PageProps) {
               </article>
 
               {/* Fiches Réflexes Mobiles & Simulateur Tactile Interactif */}
-              {isTvi ? (
+              {isCinetique ? (
+                <>
+                  <CinetiqueReflexesCard />
+                  <CinetiqueInteractiveSimulator />
+                </>
+              ) : isTvi ? (
                 <>
                   <TviReflexesCard />
                   <TviInteractiveSimulator />
@@ -1300,7 +1426,9 @@ export default async function LessonReaderPage({ params }: PageProps) {
               {/* Section Annales Officielles du Baccalauréat Sénégalais (Après les exercices d'application) */}
               <BacSenegalAnnales
                 chapter={
-                  isTvi
+                  isCinetique
+                    ? 'cinetique'
+                    : isTvi
                     ? 'tvi'
                     : isAsymptotes
                     ? 'asymptotes'
@@ -1336,6 +1464,8 @@ export default async function LessonReaderPage({ params }: PageProps) {
                     questions={quizData.questions}
                   />
                 </section>
+              ) : isCinetique ? (
+                <CinetiqueQuizEmbedded />
               ) : isTvi ? (
                 <TviQuizEmbedded />
               ) : isAsymptotes ? (

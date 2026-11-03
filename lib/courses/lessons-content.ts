@@ -4,6 +4,180 @@
  */
 
 export const RICH_LESSONS_MAP: Record<string, string> = {
+  cinetique: `# Chapitre 1 : Cinétique Chimique & Vitesse de Réaction (Terminale S2)
+
+Bienvenue dans le premier chapitre de **Sciences Physiques (Chimie)** pour la classe de **Terminale S2**, rigoureusement aligné sur le programme officiel sénégalais (MEN / IGEF / Office du Bac).
+
+La cinétique chimique est la branche de la chimie qui étudie la **vitesse des transformations chimiques** et les facteurs expérimentaux qui permettent de les accélérer, de les ralentir ou de les figer.
+
+---
+
+## 1. Classification Temporelle des Réactions Chimiques
+
+Toutes les réactions chimiques ne se déroulent pas au même rythme. On distingue trois grandes catégories :
+
+1. **Les réactions très rapides ou instantanées :**
+   Leur durée est inférieure à la seconde (inaccessible à l'œil nu ou aux instruments de mesure classiques de laboratoire).
+   - *Exemples* : Réactions acido-basiques (neutralisation $H_3O^+ + OH^- \\to 2 H_2O$), formation de précipités instantanés (chlorure d'argent : $Ag^+ + Cl^- \\to AgCl_{(s)}$ blanc noircissant à la lumière), explosions ou feux d'artifice.
+
+2. **Les réactions lentes :**
+   Elles durent de quelques secondes à plusieurs heures. Leur évolution est mesurable au laboratoire par suivi de la coloration, de la pression, du pH ou par des dosages successifs.
+   - *Exemples classiques du Bac S2* :
+     - Oxydation des ions iodure par les ions peroxodisulfate :
+       $$S_2O_8^{2-} + 2 I^- \\longrightarrow 2 SO_4^{2-} + I_2$$
+       (Apparition progressive de la coloration jaune puis brune caractéristique du diiode $I_2$).
+     - Réaction d'estérification entre un acide carboxylique et un alcool (très lente, nécessite plusieurs heures de chauffage à reflux).
+     - Décomposition de l'eau oxygénée $2 H_2O_2 \\to 2 H_2O + O_2$.
+
+3. **Les réactions infiniment lentes (stables cinétiquement) :**
+   Leur durée se compte en mois, en années ou en siècles. À notre échelle humaine, le système paraît totalement immobile.
+   - *Exemples* : Formation de la rouille sur le fer sans humidité saline, mélange gazeux $(H_2 + O_2)$ à température ordinaire sans étincelle, transformation du diamant en graphite.
+
+> [!VIE_REELLE] Pensez à l'allumage d'une allumette : dès que le phosphore frotte le grattoir, la flamme jaillit instantanément (réaction rapide). En revanche, la fermentation du mil pour fabriquer le *laax* ou le mûrissement de la mangue prend plusieurs jours (réaction lente). Quant à une bouteille de plastique jetée dans la nature, elle met plus de 400 ans à se dégrader (réaction infiniment lente) !
+
+> [!WOLOF] **Xam-xam ci Wolof :** Réaction chimique dafay teggi ci ñetti anam :
+> 1. **Yu gaaw tey-tey (instantanée) :** Naka takkug allumette walla sotti vinaigre ci bicarbonate, day tàccu faf !
+> 2. **Yu yeex (lente) :** Naka toggu ceebu jën walla fermenter mburu ak laax : dafay laaj waxtu ngir nga gis soppite gi. Foofu lañuy natt vitesse bi ci laboratoire lycée.
+> 3. **Yu dul jeex mukk (infiniment lente) :** Naka weñ guy ruus ci bérab bu xat te amul xorom, day def ay at yu bare.
+
+---
+
+## 2. Les Facteurs Cinétiques Majeurs
+
+Un **facteur cinétique** est un paramètre physique ou chimique susceptible de modifier la vitesse d'une réaction sans changer la nature des produits formés.
+
+### A. La Température ($T$)
+D'une manière générale, **la vitesse d'une transformation chimique augmente lorsque la température s'élève**.
+- **Interprétation microscopique (Théorie des chocs)** : L'élévation de température augmente l'énergie cinétique moyenne des molécules réactives (agitation thermique). Les entités chimiques se déplacent plus rapidement, ce qui multiplie la **fréquence des chocs** et la proportion de **chocs efficaces** (chocs possédant une énergie supérieure à l'énergie d'activation nécessaire pour briser les liaisons).
+- **Conséquence expérimentale** :
+  - Pour accélérer une réaction lente : on utilise un **bain-marie** ou un système de **chauffage à reflux**.
+  - Pour ralentir ou stopper net une réaction : on utilise la **trempe** (bain d'eau glacée).
+
+### B. La Concentration Initiale des Réactifs
+D'une manière générale, **la vitesse d'une transformation chimique est d'autant plus grande que les concentrations des réactifs sont élevées**.
+- **Interprétation microscopique** : Plus les réactifs sont concentrés, plus le nombre de molécules par unité de volume est important. Les molécules sont plus proches les unes des autres, augmentant directement la probabilité qu'elles se heurtent efficacement.
+
+### C. Le Catalyseur
+Un **catalyseur** est une espèce chimique qui accélère une réaction thermodynamiquement possible sans être consommée par celle-ci (il est régénéré intact à la fin).
+- Il n'apparaît **jamais** dans l'équation-bilan globale de la réaction.
+- Il modifie le mécanisme réactionnel en abaissant l'énergie d'activation.
+- **Règle d'or du Bac S2** : Un catalyseur ne modifie **JAMAIS** l'avancement maximal final $x_\\text{max}$ ni la constante d'équilibre ! Il permet simplement d'atteindre l'état d'équilibre beaucoup plus rapidement.
+
+On distingue trois types de catalyses :
+1. **Catalyse homogène** : Le catalyseur et les réactifs sont dans la même phase (ex: ions $Fe^{3+}$ liquides catalysant la dismutation de $H_2O_2$ liquide).
+2. **Catalyse hétérogène** : Le catalyseur et les réactifs sont dans des phases différentes (ex: fil de platine solide $Pt$ dans un mélange gazeux).
+3. **Catalyse enzymatique** : La réaction est accélérée par une protéine biologique spécifique (ex: l'amylase salivaire ou les enzymes digestives).
+
+> [!VIE_REELLE] Visualisez deux métaphores sénégalaises très parlantes :
+> 1. **La concentration** : C'est comme le marché Sandaga ou le rond-point Petersen aux heures de pointe. Quand la foule est très dense, tout le monde se bouscule continuellement (chocs efficaces très fréquents) ! Dans une rue déserte la nuit (faible concentration), vous pouvez marcher des kilomètres sans bousculer personne.
+> 2. **Le catalyseur** : C'est le « Koorite » ou le sage conciliateur du quartier qui intervient pour dénouer un conflit ou accélérer un mariage entre deux familles. Il organise la rencontre, facilite l'accord en un temps record, mais ne prend pas lui-même femme : à la fin de la cérémonie, il rentre chez lui intact et disponible pour un autre mariage !
+
+> [!WOLOF] **Xam-xam ci Wolof :**
+> - **Température :** Bu safara gi tàngée lool, molécule yi dañuy gaaw a daccante.
+> - **Concentration :** Bu ndox mi féssee del ak réactifs naka marché Sandaga, chocs yi dañuy yokk ba réaction bi gën a gaaw !
+> - **Catalyseur :** Dafa melni wassila buy gaawal wax ji te du ca bokk : day yokk vitesse bi waaye du soppi li ngay mujje am ci x_max !
+
+---
+
+## 3. Définition et Calcul de la Vitesse Volumique de Réaction
+
+Considérons une réaction chimique totale en milieu homogène de volume total constant $V$ :
+
+$$a A + b B \\longrightarrow c C + d D$$
+
+L'avancement de la réaction à l'instant $t$ est noté $x(t)$ (exprimé en $\\text{mol}$ ou $\\text{mmol}$).
+
+### A. Vitesse Volumique de Réaction
+La vitesse volumique de réaction $v(t)$ à l'instant $t$ est la dérivée de l'avancement $x(t)$ par rapport au temps, rapportée au volume total $V$ du milieu réactionnel :
+
+$$v(t) = \\frac{1}{V} \\frac{dx}{dt}$$
+
+- $v(t)$ s'exprime en $\\text{mol} \\cdot \\text{L}^{-1} \\cdot \\text{s}^{-1}$ ou $\\text{mol} \\cdot \\text{L}^{-1} \\cdot \\text{min}^{-1}$ (ou $\\text{mmol} \\cdot \\text{L}^{-1} \\cdot \\text{min}^{-1}$).
+- $V$ est le volume de la solution en litres ($\\text{L}$).
+- $\\frac{dx}{dt}$ est la dérivée de l'avancement par rapport au temps.
+
+### B. Vitesse de Disparition d'un Réactif & Vitesse d'Apparition d'un Produit
+- **Vitesse volumique d'apparition d'un produit $C$** :
+  $$v_\\text{app}(C) = \\frac{1}{V} \\frac{dn_C}{dt} = \\frac{d[C]}{dt}$$
+- **Vitesse volumique de disparition d'un réactif $A$** :
+  Comme la quantité de réactif diminue, $\\frac{dn_A}{dt} < 0$. Pour obtenir une vitesse positive, on ajoute obligatoirement un signe moins :
+  $$v_\\text{disp}(A) = -\\frac{1}{V} \\frac{dn_A}{dt} = -\\frac{d[A]}{dt}$$
+
+**Lien avec la vitesse globale de réaction $v(t)$ :**
+$$v(t) = -\\frac{1}{a} \\frac{d[A]}{dt} = -\\frac{1}{b} \\frac{d[B]}{dt} = \\frac{1}{c} \\frac{d[C]}{dt} = \\frac{1}{d} \\frac{d[D]}{dt}$$
+
+> [!METHODE] **Règle stœchiométrique au Bac S2 :**
+> Si l'équation est $S_2O_8^{2-} + 2 I^- \\to 2 SO_4^{2-} + I_2$ :
+> - La vitesse d'apparition du diiode est : $v_\\text{app}(I_2) = \\frac{d[I_2]}{dt} = v(t)$.
+> - La vitesse de disparition de l'ion iodure est : $v_\\text{disp}(I^-) = -\\frac{d[I^-]}{dt} = 2 v(t)$.
+> L'ion iodure $I^-$ disparaît deux fois plus vite que le diiode n'apparaît !
+
+---
+
+## 4. Détermination Graphique de la Vitesse au Baccalauréat
+
+Au Baccalauréat sénégalais, on vous fournit presque systématiquement une courbe expérimentale : soit $x = f(t)$, soit $[\\text{Produit}] = f(t)$.
+
+### Méthode pas à pas pour déterminer $v(t_0)$ :
+1. **Tracer la tangente** à la courbe au point d'abscisse $t_0$ à l'aide d'une règle transparente.
+2. **Choisir deux points distincts** $M_1(t_1, x_1)$ et $M_2(t_2, x_2)$ situés sur cette droite tangente (choisissez-les le plus éloignés possible pour limiter les incertitudes de lecture).
+3. **Calculer le coefficient directeur (la pente) $a$ de la tangente** :
+   $$a = \\left( \\frac{dx}{dt} \\right)_{t_0} = \\frac{x_2 - x_1}{t_2 - t_1}$$
+4. **Calculer la vitesse volumique** en divisant par le volume total $V$ :
+   $$v(t_0) = \\frac{a}{V} = \\frac{1}{V} \\frac{x_2 - x_1}{t_2 - t_1}$$
+
+### Évolution de la vitesse au cours du temps :
+À mesure que le temps s'écoule, **la vitesse de la réaction diminue constamment jusqu'à s'annuler** :
+- À $t = 0$ : les réactifs sont à leur concentration maximale, les chocs efficaces sont les plus fréquents, **la vitesse est maximale** (la tangente est la plus redressée).
+- Au cours du temps : les réactifs sont consommés, leur concentration diminue, la fréquence des chocs diminue, **la vitesse décroît** (la tangente s'aplatit).
+- Lorsque l'état final est atteint : le réactif limitant est totalement épuisé, $x(t) = x_\\text{max}$ (palier horizontal), **la vitesse s'annule** : $v = 0$ (la tangente est horizontale).
+
+> [!PIEGE] Ne confondez pas l'avancement $x(t)$ et la vitesse $v(t)$ :
+> - L'avancement $x(t)$ est une fonction **croissante** (les produits s'accumulent).
+> - La vitesse $v(t)$ est une fonction **décroissante** (la réaction ralentit inexorablement).
+
+---
+
+## 5. Le Temps de Demi-Réaction ($t_{1/2}$)
+
+### Définition officielle :
+Le **temps de demi-réaction**, noté $t_{1/2}$, est la durée au bout de laquelle l'avancement de la réaction atteint la moitié de sa valeur maximale finale :
+
+$$x(t_{1/2}) = \\frac{x_\\text{max}}{2}$$
+
+Si la réaction est totale et que l'on suit la concentration d'un produit $P$ dont la concentration initiale est nulle :
+$$[P](t_{1/2}) = \\frac{[P]_\\text{max}}{2}$$
+
+### Détermination graphique de $t_{1/2}$ :
+1. Repérer sur la courbe l'ordonnée maximale finale $x_\\text{max}$ (valeur du palier horizontal à la fin de la réaction).
+2. Calculer la valeur $\\frac{x_\\text{max}}{2}$.
+3. Placer cette valeur sur l'axe des ordonnées, tracer une droite horizontale jusqu'à couper la courbe cinétique.
+4. Projeter verticalement ce point d'intersection sur l'axe des abscisses pour lire la valeur de $t_{1/2}$.
+
+### Intérêt pratique de $t_{1/2}$ :
+- Il permet d'estimer la durée totale d'une réaction : on considère couramment qu'une réaction chimique est pratiquement achevée au bout de $4$ à $7 \\times t_{1/2}$.
+- Il permet de comparer l'efficacité de deux catalyseurs ou de deux conditions de température : **plus $t_{1/2}$ est petit, plus la réaction est rapide**.
+
+---
+
+## 6. La Technique Clé du Laboratoire : La Trempe Chimique
+
+Dans de nombreux sujets du Bac S2, la cinétique d'une réaction lente est suivie par **dosage volumétrique** d'échantillons prélevés à intervalles réguliers.
+
+### Le problème :
+Le titrage à la burette prend entre 2 et 5 minutes. Si l'on dose directement le prélèvement, la réaction continue de se dérouler pendant qu'on verse la solution titrante ! La quantité mesurée ne correspondrait plus à la date $t$ du prélèvement.
+
+### La solution : La Trempe Chimique
+Dès qu'un prélèvement est effectué à l'instant $t$, on le verse instantanément dans un erlenmeyer contenant **de l'eau glacée** (eau distillée + glaçons pilés) :
+1. **L'abaissement brutal de la température ($T \\to 0^\\circ\\text{C}$)** gèle l'agitation thermique.
+2. **La forte dilution par l'eau** divise instantanément les concentrations des réactifs.
+
+Ces deux effets conjugués réduisent la vitesse de réaction à une valeur quasi-nulle ($v \\approx 0$). L'avancement est figé exactement à la date $t$, ce qui permet d'effectuer le dosage à tête reposée sans erreur de chronométrage !
+
+> [!ASTUCE] Dans votre copie de Bac S2, si l'on vous demande : *« Quel est le rôle de l'eau glacée lors du prélèvement ? »*, écrivez impérativement la phrase magique :
+> **« L'eau glacée réalise une trempe chimique (chute brutale de température et dilution) qui a pour but de bloquer quasi-instantanément la réaction afin de doser l'espèce présente exactement à la date $t$ du prélèvement. »**
+`,
+
   limites: `# Chapitre 1 : Limites et Continuité (Terminale S2)
 
 Bienvenue dans ce cours interactif conçu pour vous faire maîtriser l'ensemble des notions de limites et de continuité exigées au **Baccalauréat Scientifique (Série S2)** au Sénégal.
@@ -1289,6 +1463,16 @@ $$\\vec{u} \\wedge \\vec{v} = \\begin{pmatrix} yz' - zy' \\\\ zx' - xz' \\\\ xy'
 
 export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: string, rawContent: string | null): string {
   const titleLower = `${lessonTitle} ${chapterTitle}`.toLowerCase();
+
+  if (
+    titleLower.includes('cinetique') ||
+    titleLower.includes('cinétique') ||
+    titleLower.includes('vitesse de réaction') ||
+    titleLower.includes('facteur cinétique') ||
+    titleLower.includes('chimie')
+  ) {
+    return RICH_LESSONS_MAP.cinetique;
+  }
 
   if (
     titleLower.includes('espace') ||

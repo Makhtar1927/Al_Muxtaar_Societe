@@ -8,6 +8,10 @@ import { ProgressBar } from '@/components/ui/progress-bar';
 import { Icon } from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
 import { getSubjectByCode, getTrackByCode } from '@/lib/curriculum/senegal-curriculum';
+import {
+  PHYSIQUE_CHIMIE_CHAPTERS,
+  ensurePhysiqueChimieInDatabase,
+} from '@/lib/curriculum/physique-chimie-data';
 
 interface PageProps {
   params: {
@@ -251,34 +255,47 @@ export default async function SubjectChaptersPage({ params }: PageProps) {
     );
   }
 
-  // 3. Sujet Actif (ex: Terminale S2 Mathématiques) : Résolution et chargement BDD
-  const { data: subjectRow } = await admin
-    .from('subjects')
-    .select(`
-      id, name, code,
-      tracks!inner(
-        code, name,
-        levels!inner(code, name)
-      )
-    `)
-    .eq('code', params.subject)
-    .maybeSingle();
+  const isPhysiqueChimie = params.subject === 'physique-chimie';
 
-  let subjectId = subjectRow?.id;
-  let subjectName = subjectRow?.name ?? curriculumData?.subject.name ?? 'Mathématiques';
+  // 3. Sujet Actif (ex: Terminale S2 Mathématiques ou Sciences Physiques)
+  let subjectId: string | undefined;
+  let subjectName = curriculumData?.subject.name ?? 'Mathématiques';
 
-  if (!subjectId) {
-    const { data: anySub } = await admin
+  if (isPhysiqueChimie) {
+    subjectName = 'Sciences Physiques (PC)';
+    // Déclencher la persistance Supabase en arrière-plan sans bloquer
+    ensurePhysiqueChimieInDatabase(admin).catch((e) =>
+      console.error('Erreur sync PC:', e)
+    );
+  } else {
+    const { data: subjectRow } = await admin
       .from('subjects')
-      .select('id, name')
-      .ilike('code', `%${params.subject}%`)
-      .limit(1)
+      .select(`
+        id, name, code,
+        tracks!inner(
+          code, name,
+          levels!inner(code, name)
+        )
+      `)
+      .eq('code', params.subject)
       .maybeSingle();
-    subjectId = anySub?.id;
-    if (anySub?.name) subjectName = anySub.name;
+
+    subjectId = subjectRow?.id;
+    if (subjectRow?.name) subjectName = subjectRow.name;
+
+    if (!subjectId) {
+      const { data: anySub } = await admin
+        .from('subjects')
+        .select('id, name')
+        .ilike('code', `%${params.subject}%`)
+        .limit(1)
+        .maybeSingle();
+      subjectId = anySub?.id;
+      if (anySub?.name) subjectName = anySub.name;
+    }
   }
 
-  // ── Fetch chapters + progression EN PARALLÈLE (auto-sync supprimé) ──
+  // ── Fetch chapters + progression EN PARALLÈLE ──
   const chaptersBaseQuery = admin
     .from('chapters')
     .select(`id, title, order_index, status, lessons(id, title, order_index, is_free, status)`)
@@ -286,7 +303,9 @@ export default async function SubjectChaptersPage({ params }: PageProps) {
     .order('order_index');
 
   const [chaptersResult, progressResult] = await Promise.all([
-    subjectId
+    isPhysiqueChimie
+      ? Promise.resolve({ data: PHYSIQUE_CHIMIE_CHAPTERS as any[] })
+      : subjectId
       ? chaptersBaseQuery.eq('subject_id', subjectId)
       : chaptersBaseQuery,
     supabase
@@ -296,10 +315,12 @@ export default async function SubjectChaptersPage({ params }: PageProps) {
       .eq('is_completed', true),
   ]);
 
-  let chapters = chaptersResult.data;
+  let chapters = isPhysiqueChimie
+    ? (PHYSIQUE_CHIMIE_CHAPTERS as any[])
+    : chaptersResult.data;
 
-  // Fallback : si aucun chapitre trouvé avec subject_id, charger tous les publiés
-  if ((!chapters || chapters.length === 0) && subjectId) {
+  // Fallback sécurisé : UNIQUEMENT pour les mathématiques si la BDD est vierge
+  if (!isPhysiqueChimie && (!chapters || chapters.length === 0) && params.subject.includes('math')) {
     const { data: allPub } = await admin
       .from('chapters')
       .select(`id, title, order_index, status, lessons(id, title, order_index, is_free, status)`)
