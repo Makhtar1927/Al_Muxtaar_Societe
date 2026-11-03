@@ -14,6 +14,7 @@ import {
   getTrackByCode,
   normalizeStudentCurriculum,
 } from '@/lib/curriculum/senegal-curriculum';
+import { PHYSIQUE_CHIMIE_CHAPTERS } from '@/lib/curriculum/physique-chimie-data';
 import {
   BookOpen,
   Play,
@@ -119,38 +120,117 @@ export default async function DashboardPage() {
       .eq('user_id', user.id),
   ]);
 
-  const chapters = chaptersResult.data;
+  const rawChapters = chaptersResult.data ?? [];
   const progressRows = progressResult.data;
 
   const completedLessonIds = new Set(
     (progressRows ?? []).filter((p) => p.is_completed).map((p) => p.lesson_id)
   );
 
-  // Compute overall statistics
-  let totalLessons = 0;
-  let completedCount = 0;
-  let resumeLesson: { chapterId: string; lessonId: string; title: string } | null = null;
+  // ── SÉPARATION STRICTE : MATHÉMATIQUES vs PHYSIQUE-CHIMIE ──
+  const mathChapters = rawChapters.filter((ch: any) => {
+    const t = (ch.title || '').toLowerCase().trim();
+    const isPC =
+      t.startsWith('c1') ||
+      t.startsWith('c2') ||
+      t.startsWith('c3') ||
+      t.startsWith('c4') ||
+      t.startsWith('c5') ||
+      t.startsWith('c6') ||
+      t.startsWith('c7') ||
+      t.startsWith('c8') ||
+      t.startsWith('c9') ||
+      t.startsWith('p1') ||
+      t.startsWith('p2') ||
+      t.startsWith('p3') ||
+      t.startsWith('p4') ||
+      t.startsWith('p5') ||
+      t.startsWith('p6') ||
+      t.startsWith('p7') ||
+      t.startsWith('p8') ||
+      t.startsWith('p9') ||
+      t.startsWith('p10') ||
+      t.includes('alcool') ||
+      t.includes('amine') ||
+      t.includes('acide') ||
+      t.includes('cinétique') ||
+      t.includes('cinetique') ||
+      t.includes('chimie') ||
+      t.includes('newton') ||
+      t.includes('mouvement') ||
+      t.includes('projectile') ||
+      t.includes('oscillation') ||
+      t.includes('induction') ||
+      t.includes('nucléaire') ||
+      t.includes('nucleaire');
+    return !isPC;
+  });
 
-  for (const ch of (chapters as any[]) ?? []) {
-    const pubLessons = (ch.lessons ?? [])
-      .filter((l: any) => l.status === 'published')
-      .sort((a: any, b: any) => (a.order_index ?? 0) - (b.order_index ?? 0));
+  const pcChapters = PHYSIQUE_CHIMIE_CHAPTERS;
 
-    for (const l of pubLessons) {
-      totalLessons += 1;
-      if (completedLessonIds.has(l.id)) {
-        completedCount += 1;
-      } else if (!resumeLesson) {
+  // Statistiques Maths
+  let totalMathLessons = 0;
+  let completedMathCount = 0;
+  for (const ch of mathChapters) {
+    for (const l of ch.lessons ?? []) {
+      if (l.status === 'published') {
+        totalMathLessons += 1;
+        if (completedLessonIds.has(l.id)) completedMathCount += 1;
+      }
+    }
+  }
+  const mathPercent = totalMathLessons > 0 ? Math.round((completedMathCount / totalMathLessons) * 100) : 0;
+
+  // Statistiques PC (les 19 chapitres C1-C9 & P1-P10)
+  let totalPCLessons = pcChapters.length;
+  let completedPCCount = 0;
+  for (const ch of pcChapters) {
+    const firstL = ch.lessons?.[0];
+    if (firstL && completedLessonIds.has(firstL.id)) {
+      completedPCCount += 1;
+    }
+  }
+  const pcPercent = totalPCLessons > 0 ? Math.round((completedPCCount / totalPCLessons) * 100) : 0;
+
+  // Statistiques Globales (tous les cours réunis)
+  const totalLessons = totalMathLessons + totalPCLessons;
+  const completedCount = completedMathCount + completedPCCount;
+  const overallPercent = totalLessons > 0 ? Math.round((completedCount / totalLessons) * 100) : 0;
+
+  let resumeLesson: {
+    subjectCode: string;
+    chapterId: string;
+    lessonId: string;
+    title: string;
+  } | null = null;
+
+  // Déterminer la prochaine leçon à reprendre
+  for (const ch of mathChapters) {
+    for (const l of ch.lessons ?? []) {
+      if (!completedLessonIds.has(l.id)) {
         resumeLesson = {
+          subjectCode: 'mathematiques',
           chapterId: ch.id,
           lessonId: l.id,
           title: l.title,
         };
+        break;
       }
     }
+    if (resumeLesson) break;
   }
 
-  const overallPercent = totalLessons > 0 ? Math.round((completedCount / totalLessons) * 100) : 0;
+  if (!resumeLesson) {
+    const firstPC = pcChapters[0];
+    if (firstPC && firstPC.lessons[0]) {
+      resumeLesson = {
+        subjectCode: 'physique-chimie',
+        chapterId: firstPC.id,
+        lessonId: firstPC.lessons[0].id,
+        title: firstPC.title,
+      };
+    }
+  }
 
   // WhatsApp support link
   const waSupport = process.env.NEXT_PUBLIC_WHATSAPP_SUPPORT ?? '221770000000';
@@ -179,8 +259,10 @@ export default async function DashboardPage() {
           {resumeLesson ? (
             <Link
               href={
-                isActiveSub || resumeLesson.lessonId === '60000000-0000-0000-0000-000000000001'
-                  ? `/cours/${studentLevel.code}/${studentTrack.code}/mathematiques/${resumeLesson.chapterId}/${resumeLesson.lessonId}`
+                isActiveSub ||
+                resumeLesson.lessonId === '60000000-0000-0000-0000-000000000001' ||
+                resumeLesson.lessonId === '60000000-0000-0001-0001-000000000001'
+                  ? `/cours/${studentLevel.code}/${studentTrack.code}/${resumeLesson.subjectCode}/${resumeLesson.chapterId}/${resumeLesson.lessonId}`
                   : '/abonnement'
               }
             >
@@ -190,7 +272,7 @@ export default async function DashboardPage() {
               </Button>
             </Link>
           ) : (
-            <Link href={`/cours/${studentLevel.code}/${studentTrack.code}/mathematiques`}>
+            <Link href={`/cours/${studentLevel.code}/${studentTrack.code}/physique-chimie`}>
               <Button variant="primary" size="md" className="flex items-center gap-2">
                 <BookOpen className="w-4 h-4" />
                 Accéder aux cours
@@ -326,7 +408,7 @@ export default async function DashboardPage() {
           <p className="text-xs text-text/60 mt-1 font-medium">Progression globale</p>
         </Card>
         <Card className="text-center py-4">
-          <p className="text-3xl font-extrabold text-gold">{chapters?.length ?? 0}</p>
+          <p className="text-3xl font-extrabold text-gold">{mathChapters.length + pcChapters.length}</p>
           <p className="text-xs text-text/60 mt-1 font-medium">Chapitres disponibles</p>
         </Card>
         <Card className="text-center py-4">
@@ -335,71 +417,228 @@ export default async function DashboardPage() {
         </Card>
       </div>
 
-      {/* ── 4. Main Chapters Progression Section ── */}
-      <div className="space-y-4">
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <h2 className="text-xl font-bold text-navy">
-            Progression — Mathématiques ({studentTrack.shortName})
-          </h2>
-          <div className="flex items-center gap-3">
-            <Link
-              href="/cours"
-              className="text-xs font-bold text-navy hover:text-turquoise transition-colors flex items-center gap-1"
-            >
-              <Icon name="cours" size={14} />
-              <span>Mes matières ({studentTrack.subjects.length})</span>
-            </Link>
-            <span className="text-navy/20">|</span>
-            <Link
-              href={`/cours/${studentLevel.code}/${studentTrack.code}/mathematiques`}
-              className="text-xs font-semibold text-turquoise hover:underline flex items-center gap-1"
-            >
-              <span>Voir tout le programme</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
+      {/* ── 4. Suivi par Matière — Vue d'ensemble équilibrée (Non monopolisée) ── */}
+      <div className="space-y-6">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-navy/10 pb-3">
+          <div>
+            <h2 className="text-xl font-bold text-navy">
+              Progression par Matière — {studentTrack.name} ({studentLevel.name})
+            </h2>
+            <p className="text-xs text-navy/60 mt-0.5">
+              Suivi officiel de toutes les matières du Baccalauréat sénégalais.
+            </p>
+          </div>
+          <Link
+            href="/cours"
+            className="text-xs font-bold text-navy hover:text-turquoise transition-colors flex items-center gap-1 bg-surface px-3 py-1.5 rounded-xl border border-navy/10"
+          >
+            <Icon name="cours" size={14} />
+            <span>Toutes les matières ({studentTrack.subjects.length})</span>
+          </Link>
+        </div>
+
+        {/* Cartes Matières Principales */}
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Sciences Physiques (PC) */}
+          <div className="bg-white rounded-2xl border border-navy/10 p-5 shadow-sm space-y-3 hover:border-turquoise/40 transition-all">
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-turquoise-light/40 text-turquoise">
+                Coeff. 6 • Actif
+              </span>
+              <span className="font-mono text-xs font-bold text-turquoise">{pcPercent}%</span>
+            </div>
+            <div>
+              <h3 className="font-extrabold text-navy text-base">Sciences Physiques (PC)</h3>
+              <p className="text-xs text-text/60 mt-0.5">
+                {completedPCCount} sur {totalPCLessons} cours terminés (C1-C9 & P1-P10)
+              </p>
+            </div>
+            <ProgressBar value={pcPercent} />
+            <div className="pt-1 flex justify-between items-center text-xs">
+              <span className="text-[11px] text-navy/50">19 leçons complètes</span>
+              <Link
+                href={`/cours/${studentLevel.code}/${studentTrack.code}/physique-chimie`}
+                className="font-bold text-turquoise hover:underline flex items-center gap-1"
+              >
+                <span>Accéder</span>
+                <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Mathématiques */}
+          <div className="bg-white rounded-2xl border border-navy/10 p-5 shadow-sm space-y-3 hover:border-turquoise/40 transition-all">
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-navy/10 text-navy">
+                Coeff. 5 • Actif
+              </span>
+              <span className="font-mono text-xs font-bold text-navy">{mathPercent}%</span>
+            </div>
+            <div>
+              <h3 className="font-extrabold text-navy text-base">Mathématiques</h3>
+              <p className="text-xs text-text/60 mt-0.5">
+                {completedMathCount} sur {totalMathLessons} fiches terminées
+              </p>
+            </div>
+            <ProgressBar value={mathPercent} />
+            <div className="pt-1 flex justify-between items-center text-xs">
+              <span className="text-[11px] text-navy/50">{mathChapters.length} chapitres</span>
+              <Link
+                href={`/cours/${studentLevel.code}/${studentTrack.code}/mathematiques`}
+                className="font-bold text-navy hover:text-turquoise hover:underline flex items-center gap-1"
+              >
+                <span>Accéder</span>
+                <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
+          </div>
+
+          {/* SVT */}
+          <div className="bg-white rounded-2xl border border-navy/10 p-5 shadow-sm space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-amber-100 text-amber-800">
+                Coeff. 6 • En Rédaction
+              </span>
+              <span className="font-mono text-xs font-bold text-amber-700">80%</span>
+            </div>
+            <div>
+              <h3 className="font-extrabold text-navy text-base">Sciences de la Vie & Terre</h3>
+              <p className="text-xs text-text/60 mt-0.5">
+                Génétique, Immunologie, Glycémie, Système Nerveux
+              </p>
+            </div>
+            <ProgressBar value={80} />
+            <div className="pt-1 flex justify-between items-center text-xs">
+              <span className="text-[11px] text-navy/50">Validation IGEF</span>
+              <Link
+                href={`/cours/${studentLevel.code}/${studentTrack.code}/svt`}
+                className="font-bold text-navy/60 hover:text-navy hover:underline flex items-center gap-1"
+              >
+                <span>Programme</span>
+                <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
           </div>
         </div>
 
-        <div className="space-y-3">
-          {(chapters as any[] ?? []).map((ch, idx) => {
-            const pubLessons = (ch.lessons ?? [])
-              .filter((l: any) => l.status === 'published')
-              .sort((a: any, b: any) => (a.order_index ?? 0) - (b.order_index ?? 0));
+        {/* Détail des chapitres de Sciences Physiques (PC) */}
+        <div className="space-y-3 pt-2">
+          <div className="flex items-center justify-between">
+            <h3 className="font-extrabold text-navy text-base flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-turquoise" />
+              Sciences Physiques (PC) — Cours & Simulateurs
+            </h3>
+            <Link
+              href={`/cours/${studentLevel.code}/${studentTrack.code}/physique-chimie`}
+              className="text-xs font-bold text-turquoise hover:underline flex items-center gap-1"
+            >
+              <span>Voir les 19 chapitres</span>
+              <ArrowRight className="w-3 h-3" />
+            </Link>
+          </div>
 
-            const chDone = pubLessons.filter((l: any) => completedLessonIds.has(l.id)).length;
-            const chPercent = pubLessons.length > 0 ? Math.round((chDone / pubLessons.length) * 100) : 0;
-            const firstLesson = pubLessons[0];
-            const isFirstLessonAccessible = isActiveSub || idx === 0;
+          <div className="grid gap-2.5 sm:grid-cols-2">
+            {pcChapters.slice(0, 6).map((ch, idx) => {
+              const firstLesson = ch.lessons[0];
+              const isCompleted = firstLesson ? completedLessonIds.has(firstLesson.id) : false;
+              const isFree = idx === 0;
+              const canAccess = isActiveSub || isFree;
+              const isChimie = ch.part === 'Chimie' || (ch.code && ch.code.startsWith('C'));
 
-            return (
-              <div
-                key={ch.id}
-                className="bg-white rounded-2xl border border-navy/10 p-5 shadow-sm hover:border-turquoise/40 transition-colors"
-              >
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+              return (
+                <div
+                  key={ch.id}
+                  className="bg-white rounded-xl border border-navy/10 p-3.5 flex items-center justify-between gap-3 shadow-sm hover:border-turquoise/30 transition-all"
+                >
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <span
+                      className={`w-9 h-9 rounded-xl flex items-center justify-center text-xs font-black shrink-0 ${
+                        isCompleted
+                          ? 'bg-emerald-500 text-white'
+                          : isChimie
+                          ? 'bg-turquoise-light/40 text-turquoise'
+                          : 'bg-navy text-white'
+                      }`}
+                    >
+                      {ch.code}
+                    </span>
+                    <div className="truncate">
+                      <p className="font-bold text-navy text-xs truncate">{ch.title}</p>
+                      <span className="text-[10px] text-navy/40 uppercase tracking-wider block">
+                        {ch.subDomain || (isChimie ? 'Chimie' : 'Physique')}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="shrink-0">
+                    {canAccess ? (
+                      <Link
+                        href={`/cours/${studentLevel.code}/${studentTrack.code}/physique-chimie/${ch.id}/${firstLesson.id}`}
+                        className="text-xs font-bold text-turquoise hover:underline"
+                      >
+                        {isCompleted ? 'Revoir' : 'Ouvrir'} →
+                      </Link>
+                    ) : (
+                      <Link href="/abonnement" className="text-xs text-navy/40 hover:text-navy">
+                        🔒
+                      </Link>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Détail des chapitres de Mathématiques */}
+        <div className="space-y-3 pt-4">
+          <div className="flex items-center justify-between">
+            <h3 className="font-extrabold text-navy text-base flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-navy" />
+              Mathématiques — Chapitres d&apos;Analyse & Géométrie
+            </h3>
+            <Link
+              href={`/cours/${studentLevel.code}/${studentTrack.code}/mathematiques`}
+              className="text-xs font-bold text-navy hover:text-turquoise hover:underline flex items-center gap-1"
+            >
+              <span>Voir tout le programme</span>
+              <ArrowRight className="w-3 h-3" />
+            </Link>
+          </div>
+
+          <div className="space-y-2.5">
+            {mathChapters.slice(0, 5).map((ch: any, idx) => {
+              const pubLessons = (ch.lessons ?? [])
+                .filter((l: any) => l.status === 'published')
+                .sort((a: any, b: any) => (a.order_index ?? 0) - (b.order_index ?? 0));
+              const chDone = pubLessons.filter((l: any) => completedLessonIds.has(l.id)).length;
+              const chPercent = pubLessons.length > 0 ? Math.round((chDone / pubLessons.length) * 100) : 0;
+              const firstLesson = pubLessons[0];
+              const isFirstLessonAccessible = isActiveSub || idx === 0;
+
+              return (
+                <div
+                  key={ch.id}
+                  className="bg-white rounded-xl border border-navy/10 p-4 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+                >
                   <div className="flex items-center gap-3">
-                    <span className="w-7 h-7 rounded-full bg-navy/10 text-navy text-xs font-bold flex items-center justify-center shrink-0">
+                    <span className="w-7 h-7 rounded-lg bg-navy/10 text-navy text-xs font-bold flex items-center justify-center shrink-0">
                       {idx + 1}
                     </span>
                     <div>
-                      <h3 className="font-semibold text-navy text-sm sm:text-base">
-                        {ch.title}
-                      </h3>
+                      <h4 className="font-bold text-navy text-sm">{ch.title}</h4>
                       <p className="text-xs text-text/50">
-                        {chDone} sur {pubLessons.length} leçons terminées
+                        {chDone} sur {pubLessons.length} leçons terminées ({chPercent}%)
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-3">
-                    <span className="text-xs font-bold text-navy shrink-0">
-                      {chPercent}%
-                    </span>
+                  <div className="flex items-center gap-3 sm:self-center self-end">
                     {firstLesson && (
                       isFirstLessonAccessible ? (
                         <Link
                           href={`/cours/${studentLevel.code}/${studentTrack.code}/mathematiques/${ch.id}/${firstLesson.id}`}
-                          className="text-xs text-turquoise font-semibold hover:underline flex items-center gap-0.5"
+                          className="text-xs text-navy font-bold hover:text-turquoise hover:underline flex items-center gap-0.5"
                         >
                           <span>{idx === 0 && !isActiveSub ? '1ère Leçon Gratuite' : chPercent === 100 ? 'Revoir' : 'Continuer'}</span>
                           <ArrowRight className="w-3 h-3" />
@@ -407,7 +646,7 @@ export default async function DashboardPage() {
                       ) : (
                         <Link
                           href="/abonnement"
-                          className="text-xs text-amber-700 font-semibold hover:underline flex items-center gap-1 bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-200"
+                          className="text-xs text-amber-700 font-semibold hover:underline flex items-center gap-1 bg-amber-50 px-2 py-0.5 rounded-lg border border-amber-200"
                         >
                           <Icon name="cadenas" size={12} />
                           <span>Débloquer</span>
@@ -416,11 +655,9 @@ export default async function DashboardPage() {
                     )}
                   </div>
                 </div>
-
-                <ProgressBar value={chPercent} />
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
 

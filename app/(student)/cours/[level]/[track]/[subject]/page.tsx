@@ -329,6 +329,47 @@ export default async function SubjectChaptersPage({ params }: PageProps) {
     chapters = allPub;
   }
 
+  // Filtrage strict : Les Mathématiques ne doivent JAMAIS contenir de chapitres de Physique-Chimie
+  if (!isPhysiqueChimie) {
+    chapters = (chapters ?? []).filter((ch: any) => {
+      const t = (ch.title || '').toLowerCase().trim();
+      const isPC =
+        t.startsWith('c1') ||
+        t.startsWith('c2') ||
+        t.startsWith('c3') ||
+        t.startsWith('c4') ||
+        t.startsWith('c5') ||
+        t.startsWith('c6') ||
+        t.startsWith('c7') ||
+        t.startsWith('c8') ||
+        t.startsWith('c9') ||
+        t.startsWith('p1') ||
+        t.startsWith('p2') ||
+        t.startsWith('p3') ||
+        t.startsWith('p4') ||
+        t.startsWith('p5') ||
+        t.startsWith('p6') ||
+        t.startsWith('p7') ||
+        t.startsWith('p8') ||
+        t.startsWith('p9') ||
+        t.startsWith('p10') ||
+        t.includes('alcool') ||
+        t.includes('amine') ||
+        t.includes('acide') ||
+        t.includes('cinétique') ||
+        t.includes('cinetique') ||
+        t.includes('chimie') ||
+        t.includes('newton') ||
+        t.includes('mouvement') ||
+        t.includes('projectile') ||
+        t.includes('oscillation') ||
+        t.includes('induction') ||
+        t.includes('nucléaire') ||
+        t.includes('nucleaire');
+      return !isPC;
+    });
+  }
+
   const completedProgress = progressResult.data;
   const completedLessonIds = new Set((completedProgress ?? []).map((p) => p.lesson_id));
 
@@ -428,117 +469,205 @@ export default async function SubjectChaptersPage({ params }: PageProps) {
           </div>
         </div>
 
-        {/* Chapters list */}
-        <div className="space-y-4">
-          {(chapters ?? []).map((ch: any, chIdx) => {
-            const publishedLessons = (ch.lessons ?? [])
-              .filter((l: any) => l.status === 'published')
-              .sort((a: any, b: any) => (a.order_index ?? 0) - (b.order_index ?? 0));
+        {/* Chapters / Lessons list */}
+        {isPhysiqueChimie ? (
+          /* En Physique-Chimie : Chaque C1-C9 et P1-P10 est directement une leçon sans sous-leçons */
+          <div className="space-y-3">
+            {(chapters ?? []).map((ch: any, chIdx) => {
+              const firstLesson = ch.lessons?.[0];
+              const isFirstLessonOfSubject = chIdx === 0;
+              const isFree = isFirstLessonOfSubject;
+              const canAccess = isSubscribed || isFree;
+              const isCompleted = firstLesson ? completedLessonIds.has(firstLesson.id) : false;
+              const isChimie = ch.part === 'Chimie' || (ch.code && ch.code.startsWith('C'));
 
-            const chCompleted = publishedLessons.filter((l: any) => completedLessonIds.has(l.id)).length;
-            const chProgress = publishedLessons.length > 0 ? Math.round((chCompleted / publishedLessons.length) * 100) : 0;
+              return (
+                <div
+                  key={ch.id}
+                  className="bg-white rounded-2xl border border-navy/10 p-4 sm:p-5 shadow-sm hover:border-turquoise/40 transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+                >
+                  <div className="flex items-start sm:items-center gap-3.5">
+                    {/* Badge C1, C2, P1... */}
+                    <div
+                      className={`w-12 h-12 rounded-2xl flex flex-col items-center justify-center font-black shrink-0 ${
+                        isCompleted
+                          ? 'bg-emerald-500 text-white shadow-sm'
+                          : isChimie
+                          ? 'bg-turquoise-light/40 text-turquoise border border-turquoise/20'
+                          : 'bg-navy text-white shadow-sm'
+                      }`}
+                    >
+                      <span className="text-sm leading-none font-mono font-black">{ch.code || `L${chIdx + 1}`}</span>
+                      <span className="text-[9px] uppercase opacity-75 font-sans mt-0.5 font-bold">
+                        {isChimie ? 'Chimie' : 'Physique'}
+                      </span>
+                    </div>
 
-            return (
-              <div
-                key={ch.id}
-                className="bg-white rounded-2xl border border-navy/10 overflow-hidden shadow-sm"
-              >
-                {/* Chapter header */}
-                <div className="bg-surface/60 px-5 py-4 border-b border-navy/10 flex flex-wrap items-center justify-between gap-3">
-                  <div className="flex items-center gap-3">
-                    <span className="w-8 h-8 rounded-full bg-navy text-white text-xs font-bold flex items-center justify-center shrink-0">
-                      {chIdx + 1}
-                    </span>
                     <div>
-                      <h2 className="font-bold text-navy text-base">{ch.title}</h2>
-                      <p className="text-xs text-text/50">
-                        {publishedLessons.length} leçon{publishedLessons.length > 1 ? 's' : ''} • {chCompleted} terminée{chCompleted > 1 ? 's' : ''}
-                      </p>
+                      <div className="flex flex-wrap items-center gap-2">
+                        {ch.subDomain && (
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-navy/40">
+                            {ch.subDomain}
+                          </span>
+                        )}
+                        {isFree && (
+                          <span className="text-[10px] bg-turquoise-light text-turquoise font-bold rounded-full px-2 py-0.5">
+                            Aperçu gratuit
+                          </span>
+                        )}
+                        {(ch.code === 'C1' || ch.code === 'C4') && (
+                          <span className="text-[10px] bg-amber-100 text-amber-800 font-bold rounded-full px-2 py-0.5 border border-amber-200">
+                            Labo Virtuel Actif
+                          </span>
+                        )}
+                      </div>
+                      <h2 className="font-bold text-navy text-base sm:text-lg mt-0.5">
+                        {ch.title}
+                      </h2>
                     </div>
                   </div>
-                  <div className="w-24 hidden sm:block">
-                    <ProgressBar value={chProgress} />
+
+                  <div className="flex items-center gap-3 sm:self-center self-end shrink-0">
+                    {!canAccess ? (
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs text-text/50 flex items-center gap-1 font-medium bg-surface px-3 py-1.5 rounded-xl border border-navy/10">
+                          <Icon name="cadenas" size={13} className="text-navy/40" />
+                          <span>Réservé Abonnés</span>
+                        </span>
+                        <Link
+                          href="/abonnement"
+                          className="text-xs font-bold text-turquoise hover:underline"
+                        >
+                          Débloquer →
+                        </Link>
+                      </div>
+                    ) : firstLesson ? (
+                      <Link
+                        href={`/cours/${params.level}/${params.track}/${params.subject}/${ch.id}/${firstLesson.id}`}
+                        className="inline-flex items-center gap-2 bg-navy text-white hover:bg-turquoise font-semibold text-xs px-4 py-2.5 rounded-xl transition-all shadow-sm"
+                      >
+                        <span>{isCompleted ? 'Revoir la leçon' : 'Accéder au cours & Labo'}</span>
+                        <span>→</span>
+                      </Link>
+                    ) : null}
                   </div>
                 </div>
+              );
+            })}
+          </div>
+        ) : (
+          /* Affichage standard pour les Mathématiques (avec sous-leçons) */
+          <div className="space-y-4">
+            {(chapters ?? []).map((ch: any, chIdx) => {
+              const publishedLessons = (ch.lessons ?? [])
+                .filter((l: any) => l.status === 'published')
+                .sort((a: any, b: any) => (a.order_index ?? 0) - (b.order_index ?? 0));
 
-                {/* Lesson rows */}
-                <div className="divide-y divide-navy/5">
-                  {publishedLessons.length === 0 ? (
-                    <div className="px-5 py-4 text-xs text-text/50 text-center">
-                      Leçons en cours de rédaction par l&apos;équipe pédagogique.
+              const chCompleted = publishedLessons.filter((l: any) => completedLessonIds.has(l.id)).length;
+              const chProgress = publishedLessons.length > 0 ? Math.round((chCompleted / publishedLessons.length) * 100) : 0;
+
+              return (
+                <div
+                  key={ch.id}
+                  className="bg-white rounded-2xl border border-navy/10 overflow-hidden shadow-sm"
+                >
+                  {/* Chapter header */}
+                  <div className="bg-surface/60 px-5 py-4 border-b border-navy/10 flex flex-wrap items-center justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <span className="w-8 h-8 rounded-full bg-navy text-white text-xs font-bold flex items-center justify-center shrink-0">
+                        {chIdx + 1}
+                      </span>
+                      <div>
+                        <h2 className="font-bold text-navy text-base">{ch.title}</h2>
+                        <p className="text-xs text-text/50">
+                          {publishedLessons.length} leçon{publishedLessons.length > 1 ? 's' : ''} • {chCompleted} terminée{chCompleted > 1 ? 's' : ''}
+                        </p>
+                      </div>
                     </div>
-                  ) : (
-                    publishedLessons.map((lesson: any, lIdx: number) => {
-                      const isCompleted = completedLessonIds.has(lesson.id);
-                      // Seule la toute première leçon de la matière est gratuite
-                      const isFirstLessonOfSubject = chIdx === 0 && lIdx === 0;
-                      const isFree = isFirstLessonOfSubject;
-                      const canAccess = isSubscribed || isFree;
+                    <div className="w-24 hidden sm:block">
+                      <ProgressBar value={chProgress} />
+                    </div>
+                  </div>
 
-                      return (
-                        <div
-                          key={lesson.id}
-                          className="px-5 py-3.5 flex items-center justify-between gap-4 hover:bg-surface/40 transition-colors"
-                        >
-                          <div className="flex items-center gap-3 min-w-0">
-                            <span className={`w-5 h-5 rounded-full flex items-center justify-center text-xs shrink-0 ${isCompleted ? 'bg-emerald-500 text-white font-bold' : !canAccess ? 'bg-surface text-navy/40' : 'border border-navy/20 text-text/40'}`}>
-                              {isCompleted ? (
-                                <Icon name="check" size={12} className="text-white" />
-                              ) : !canAccess ? (
-                                <Icon name="cadenas" size={12} />
-                              ) : (
-                                lIdx + 1
-                              )}
-                            </span>
-                            <Link
-                              href={`/cours/${params.level}/${params.track}/${params.subject}/${ch.id}/${lesson.id}`}
-                              className={`font-medium text-sm transition-colors truncate ${
-                                canAccess
-                                  ? 'text-navy hover:text-turquoise'
-                                  : 'text-navy/60 hover:text-navy'
-                              }`}
-                            >
-                              {lesson.title}
-                            </Link>
-                            {isFree && (
-                              <span className="text-[10px] bg-turquoise-light text-turquoise font-bold rounded-full px-2 py-0.5 whitespace-nowrap">
-                                Aperçu gratuit
+                  {/* Lesson rows */}
+                  <div className="divide-y divide-navy/5">
+                    {publishedLessons.length === 0 ? (
+                      <div className="px-5 py-4 text-xs text-text/50 text-center">
+                        Leçons en cours de rédaction par l&apos;équipe pédagogique.
+                      </div>
+                    ) : (
+                      publishedLessons.map((lesson: any, lIdx: number) => {
+                        const isCompleted = completedLessonIds.has(lesson.id);
+                        // Seule la toute première leçon de la matière est gratuite
+                        const isFirstLessonOfSubject = chIdx === 0 && lIdx === 0;
+                        const isFree = isFirstLessonOfSubject;
+                        const canAccess = isSubscribed || isFree;
+
+                        return (
+                          <div
+                            key={lesson.id}
+                            className="px-5 py-3.5 flex items-center justify-between gap-4 hover:bg-surface/40 transition-colors"
+                          >
+                            <div className="flex items-center gap-3 min-w-0">
+                              <span className={`w-5 h-5 rounded-full flex items-center justify-center text-xs shrink-0 ${isCompleted ? 'bg-emerald-500 text-white font-bold' : !canAccess ? 'bg-surface text-navy/40' : 'border border-navy/20 text-text/40'}`}>
+                                {isCompleted ? (
+                                  <Icon name="check" size={12} className="text-white" />
+                                ) : !canAccess ? (
+                                  <Icon name="cadenas" size={12} />
+                                ) : (
+                                  lIdx + 1
+                                )}
                               </span>
-                            )}
-                          </div>
-
-                          <div className="flex items-center gap-2 shrink-0">
-                            {!canAccess ? (
-                              <div className="flex items-center gap-2">
-                                <span className="text-xs text-text/50 flex items-center gap-1 font-medium bg-surface px-2.5 py-1 rounded-full border border-navy/10">
-                                  <Icon name="cadenas" size={13} className="text-navy/40" />
-                                  <span>Réservé Abonnés</span>
-                                </span>
-                                <Link
-                                  href="/abonnement"
-                                  className="text-xs font-bold text-turquoise hover:underline hidden sm:inline"
-                                >
-                                  Débloquer →
-                                </Link>
-                              </div>
-                            ) : (
                               <Link
                                 href={`/cours/${params.level}/${params.track}/${params.subject}/${ch.id}/${lesson.id}`}
-                                className="text-xs font-semibold text-turquoise hover:underline"
+                                className={`font-medium text-sm transition-colors truncate ${
+                                  canAccess
+                                    ? 'text-navy hover:text-turquoise'
+                                    : 'text-navy/60 hover:text-navy'
+                                }`}
                               >
-                                {isCompleted ? 'Revoir' : 'Commencer'} →
+                                {lesson.title}
                               </Link>
-                            )}
+                              {isFree && (
+                                <span className="text-[10px] bg-turquoise-light text-turquoise font-bold rounded-full px-2 py-0.5 whitespace-nowrap">
+                                  Aperçu gratuit
+                                </span>
+                              )}
+                            </div>
+
+                            <div className="flex items-center gap-2 shrink-0">
+                              {!canAccess ? (
+                                <div className="flex items-center gap-2">
+                                  <span className="text-xs text-text/50 flex items-center gap-1 font-medium bg-surface px-2.5 py-1 rounded-full border border-navy/10">
+                                    <Icon name="cadenas" size={13} className="text-navy/40" />
+                                    <span>Réservé Abonnés</span>
+                                  </span>
+                                  <Link
+                                    href="/abonnement"
+                                    className="text-xs font-bold text-turquoise hover:underline hidden sm:inline"
+                                  >
+                                    Débloquer →
+                                  </Link>
+                                </div>
+                              ) : (
+                                <Link
+                                  href={`/cours/${params.level}/${params.track}/${params.subject}/${ch.id}/${lesson.id}`}
+                                  className="text-xs font-semibold text-turquoise hover:underline"
+                                >
+                                  {isCompleted ? 'Revoir' : 'Commencer'} →
+                                </Link>
+                              )}
+                            </div>
                           </div>
-                        </div>
-                      );
-                    })
-                  )}
+                        );
+                      })
+                    )}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     </main>
   );
