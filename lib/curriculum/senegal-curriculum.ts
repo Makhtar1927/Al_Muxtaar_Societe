@@ -102,7 +102,7 @@ export const SENEGAL_CURRICULUM: CurriculumLevel[] = [
             iconName: 'maths',
             coeffBac: 6,
             status: 'active',
-            statusLabel: '100% Débloqué & Interactif',
+            statusLabel: 'Programme disponible',
             progressPercent: 100,
             teacherLead: 'M. Makhtar Ndiaye & Équipe IGEF',
             description: '12 chapitres complets avec infographies SVG pédagogiques, simulateurs dynamiques et décryptage bilingue Français-Wolof.',

@@ -310,17 +310,17 @@ export default function CataloguePage() {
 
             {/* Statut d'accès ou abonnement */}
             <div className="shrink-0 flex flex-col items-start md:items-end gap-2">
-              <span
-                className={`px-3 py-1 rounded-full text-xs font-bold ${
-                  currentSubject.status === "active"
-                    ? "bg-emerald-100 text-emerald-800 border border-emerald-300"
-                    : currentSubject.status === "in_production"
-                    ? "bg-amber-100 text-amber-900 border border-amber-300"
-                    : "bg-surface-muted text-navy-light border border-navy/10"
-                }`}
-              >
-                {currentSubject.statusLabel}
-              </span>
+              {currentSubject.status !== "active" && (
+                <span
+                  className={`px-3 py-1 rounded-full text-xs font-bold ${
+                    currentSubject.status === "in_production"
+                      ? "bg-amber-100 text-amber-900 border border-amber-300"
+                      : "bg-surface-muted text-navy-light border border-navy/10"
+                  }`}
+                >
+                  {currentSubject.statusLabel}
+                </span>
+              )}
 
               {currentSubject.status === "active" ? (
                 isSubscribed ? (
