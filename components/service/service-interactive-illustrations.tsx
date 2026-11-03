@@ -174,80 +174,168 @@ export function SchoolManagementIllustration({ className }: { className?: string
   );
 }
 
-// ── 3. Illustration : Réseaux, Salles Informatiques & Maintenance ────────────
+// ── 3. Illustration : Réparation, Installation & Maintenance Informatique ───
 export function NetworkMaintenanceIllustration({ className }: { className?: string }) {
   return (
     <div className={cn("relative w-full aspect-[16/10] max-h-72 select-none overflow-hidden rounded-2xl bg-gradient-to-br from-[#0B1522] via-[#17222F] to-[#1E293B] p-4 text-white shadow-xl border border-white/10", className)}>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-44 w-44 rounded-full bg-turquoise/15 blur-3xl animate-pulse" />
 
       <div className="relative z-10 flex h-full flex-col justify-between">
-        {/* Titre infrastructure */}
+        {/* Titre infrastructure & Réparation PC */}
         <div className="flex items-center justify-between border-b border-white/10 pb-2">
           <div className="flex items-center gap-2">
             <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 animate-pulse" />
             <span className="text-xs font-black tracking-tight text-white uppercase">
-              Réseau Local d&apos;Établissement &amp; Salle Informatique
+              Atelier Réparation PC, Installation &amp; Réseau
             </span>
           </div>
-          <span className="font-mono text-[10px] text-turquoise font-bold">Ping : 4 ms</span>
+          <span className="font-mono text-[10px] text-emerald-400 font-bold bg-emerald-500/20 px-2 py-0.5 rounded">
+            Diagnostic en cours : OK
+          </span>
         </div>
 
-        {/* Schéma Architecture Réseau & Baie de Serveur */}
+        {/* Schéma Double Volet : Dépannage Matériel PC & Réseau Local */}
         <div className="grid grid-cols-12 gap-3 py-2 flex-1 items-center">
-          {/* Baie de brassage / Serveur */}
-          <div className="col-span-5 rounded-xl bg-black/60 p-2 border border-white/15 space-y-1.5">
+          {/* Bloc Réparation Ordinateur & Système */}
+          <div className="col-span-6 rounded-xl bg-black/60 p-2.5 border border-white/15 space-y-1.5">
             <div className="flex items-center justify-between border-b border-white/10 pb-1">
-              <span className="text-[9px] font-bold text-white/70">SWITCH GIGABIT</span>
-              <div className="flex gap-1">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                <span className="h-1.5 w-1.5 rounded-full bg-turquoise" />
+              <span className="text-[10px] font-black text-gold">DÉPANNAGE PC &amp; LAPTOP</span>
+              <span className="text-[8px] font-mono text-emerald-400">100% Récupéré</span>
+            </div>
+            
+            <div className="space-y-1 text-[9px]">
+              <div className="flex items-center justify-between bg-white/5 rounded px-2 py-1">
+                <span className="text-white/80">Diagnostic matériel &amp; RAM/SSD</span>
+                <span className="text-turquoise font-bold">Remplacement express</span>
+              </div>
+              <div className="flex items-center justify-between bg-white/5 rounded px-2 py-1">
+                <span className="text-white/80">Formatage &amp; Windows / Linux</span>
+                <span className="text-emerald-400 font-bold">Système neuf</span>
+              </div>
+              <div className="flex items-center justify-between bg-white/5 rounded px-2 py-1">
+                <span className="text-white/80">Nettoyage virus &amp; Récup. données</span>
+                <span className="text-gold font-bold">Sécurisé</span>
               </div>
             </div>
+          </div>
+
+          {/* Bloc Baie & Réseaux Wi-Fi */}
+          <div className="col-span-6 rounded-xl bg-white/5 p-2.5 border border-white/10 space-y-1.5">
+            <div className="flex items-center justify-between border-b border-white/10 pb-1">
+              <span className="text-[10px] font-black text-turquoise">CÂBLAGE &amp; RÉSEAU WI-FI</span>
+              <span className="text-[8px] font-mono text-gold">Switch 16P Gigabit</span>
+            </div>
+
             {/* Ports RJ45 avec voyants d'activité */}
-            <div className="grid grid-cols-8 gap-1 py-1">
+            <div className="grid grid-cols-8 gap-1 py-0.5">
               {Array.from({ length: 16 }).map((_, i) => (
                 <div key={i} className="h-2 rounded-[2px] bg-white/20 flex items-center justify-center">
                   <div className={`h-1 w-1 rounded-full ${i % 3 === 0 ? "bg-emerald-400 animate-pulse" : i % 2 === 0 ? "bg-turquoise" : "bg-gold"}`} />
                 </div>
               ))}
             </div>
-            <div className="h-4 rounded bg-white/5 flex items-center justify-between px-2 text-[8px] text-white/60">
-              <span>UPS Onduleur : 100%</span>
-              <span className="text-emerald-400 font-bold">Stabilisé 230V</span>
-            </div>
-          </div>
 
-          {/* Lignes de transmission Wi-Fi & Fibre */}
-          <div className="col-span-2 flex flex-col items-center justify-center gap-1">
-            <div className="h-0.5 w-full bg-gradient-to-r from-turquoise to-gold" />
-            <span className="rounded-full bg-turquoise/20 px-1 text-[8px] font-mono text-turquoise font-bold">
-              Wi-Fi 6
-            </span>
-            <div className="h-0.5 w-full bg-gradient-to-r from-gold to-emerald-400" />
-          </div>
-
-          {/* Parc Postes Clients / Salle Informatique */}
-          <div className="col-span-5 rounded-xl bg-white/5 p-2 border border-white/10 space-y-1">
-            <span className="text-[10px] font-bold text-white block">Parc 35 Postes En Ligne</span>
-            <div className="grid grid-cols-4 gap-1 py-1">
-              {Array.from({ length: 8 }).map((_, idx) => (
-                <div key={idx} className="h-4 rounded bg-black/40 border border-white/10 flex items-center justify-center">
-                  <div className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                </div>
-              ))}
-            </div>
-            <div className="flex items-center justify-between text-[9px] text-white/60 pt-0.5">
-              <span>Contrôle parental actif</span>
-              <span className="text-turquoise font-bold">Zéro Panne</span>
+            <div className="space-y-1 text-[9px] pt-0.5">
+              <div className="flex items-center justify-between text-white/70">
+                <span>Parc 35 Postes installés</span>
+                <span className="text-emerald-400 font-bold">Zéro Panne</span>
+              </div>
+              <div className="flex items-center justify-between text-white/70">
+                <span>Onduleur &amp; Protection surtension</span>
+                <span className="text-turquoise font-bold">230V Protégé</span>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Bas de page maintenance */}
         <div className="flex items-center justify-between rounded-xl bg-white/5 px-3 py-1.5 text-[10px] text-white/70">
-          <span className="text-gold font-bold">Contrat de maintenance préventive &amp; dépannage d&apos;urgence</span>
-          <span className="font-mono text-emerald-400">Intervention Dakar &amp; Régions</span>
+          <span className="text-gold font-bold">Intervention à domicile, bureau ou atelier</span>
+          <span className="font-mono text-emerald-400">Dakar &amp; Toutes Régions · Réponse &lt; 24h</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── 3 bis. Illustration : Système d'Information Dahiras & Associations ──────
+export function DahiraManagementIllustration({ className }: { className?: string }) {
+  return (
+    <div className={cn("relative w-full aspect-[16/10] max-h-72 select-none overflow-hidden rounded-2xl bg-gradient-to-br from-[#064E3B] via-[#062D24] to-[#0B1522] p-4 text-white shadow-xl border border-emerald-500/30", className)}>
+      <div className="absolute -top-12 -right-12 h-44 w-44 rounded-full bg-emerald-500/20 blur-3xl animate-pulse" />
+      <div className="absolute -bottom-10 -left-10 h-36 w-36 rounded-full bg-gold/20 blur-2xl" />
+
+      <div className="relative z-10 flex h-full flex-col justify-between">
+        {/* En-tête Dahira */}
+        <div className="flex items-center justify-between border-b border-emerald-400/20 pb-2">
+          <div className="flex items-center gap-2">
+            <div className="h-6 w-6 rounded-lg bg-emerald-500/30 border border-emerald-400/40 flex items-center justify-center text-emerald-300 font-black text-xs">
+              D
+            </div>
+            <div>
+              <span className="block text-xs font-black tracking-tight text-white">
+                Système d&apos;Information Dahira &amp; Communauté
+              </span>
+              <span className="block text-[9px] text-emerald-200/70">
+                Fédération · Sections Dakar, Touba, Tivaouane &amp; Diaspora
+              </span>
+            </div>
+          </div>
+          <span className="rounded-full bg-emerald-500/30 px-2.5 py-0.5 text-[10px] font-bold text-emerald-200 border border-emerald-400/40">
+            Plateforme Active
+          </span>
+        </div>
+
+        {/* Tableau de bord Dahira */}
+        <div className="grid grid-cols-3 gap-2.5 py-2 flex-1 items-center">
+          {/* Carte 1 : Membres & Cotisations (Sass) */}
+          <div className="rounded-xl bg-black/40 p-2.5 border border-emerald-500/20 space-y-1">
+            <span className="text-[10px] text-emerald-200/70 block">Membres &amp; Adhésions</span>
+            <span className="text-lg font-black text-white block">850 inscrits</span>
+            <div className="h-1.5 w-full bg-emerald-950 rounded-full overflow-hidden">
+              <div className="h-full bg-emerald-400 rounded-full w-[88%]" />
+            </div>
+            <span className="text-[9px] text-emerald-300 font-semibold block">88% cotisations à jour</span>
+          </div>
+
+          {/* Carte 2 : Collecte Digitale Wave & OM */}
+          <div className="rounded-xl bg-black/40 p-2.5 border border-gold/30 space-y-1 shadow-lg shadow-gold/5">
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] text-gold/80 block">Caisse &amp; Dons</span>
+              <span className="text-[8px] rounded bg-gold/20 px-1 font-bold text-gold">Wave · OM</span>
+            </div>
+            <span className="text-base sm:text-lg font-black text-gold block">3 450 000 F</span>
+            <div className="h-1.5 w-full bg-black/50 rounded-full overflow-hidden">
+              <div className="h-full bg-gold rounded-full w-[95%]" />
+            </div>
+            <span className="text-[9px] text-gold font-semibold block">Zakat, Sadaqa &amp; Sass</span>
+          </div>
+
+          {/* Carte 3 : Événements & Diffusion SMS/WhatsApp */}
+          <div className="rounded-xl bg-black/40 p-2.5 border border-white/10 space-y-1">
+            <span className="text-[10px] text-white/70 block">Magal / Gamou / Thiante</span>
+            <span className="text-xs font-black text-white block">Agenda &amp; Réunions</span>
+            <div className="rounded bg-white/5 p-1 text-[8px] text-white/80 space-y-0.5">
+              <div className="flex items-center justify-between">
+                <span>SMS envoyé</span>
+                <span className="text-emerald-400 font-bold">850 reçus</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span>Groupe WhatsApp</span>
+                <span className="text-turquoise font-bold">Synchronisé</span>
+              </div>
+            </div>
+            <span className="text-[9px] text-turquoise font-semibold block">Rappels automatiques</span>
+          </div>
+        </div>
+
+        {/* Pied de carte */}
+        <div className="flex items-center justify-between rounded-xl bg-black/30 px-3 py-1.5 text-[10px] text-white/80 border border-emerald-500/20">
+          <span className="flex items-center gap-1.5">
+            <span className="h-2 w-2 rounded-full bg-gold" />
+            Transparence financière &amp; reçus électroniques automatiques
+          </span>
+          <span className="font-mono text-gold font-bold">App Mobile &amp; Web</span>
         </div>
       </div>
     </div>

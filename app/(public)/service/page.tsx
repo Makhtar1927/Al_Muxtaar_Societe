@@ -6,6 +6,7 @@ import { WhatsAppLogo } from "@/components/ui/icons/whatsapp-logo";
 import {
   DevSolutionsIllustration,
   SchoolManagementIllustration,
+  DahiraManagementIllustration,
   NetworkMaintenanceIllustration,
   CloudSecurityIllustration,
   AuditConsultingIllustration,
@@ -32,6 +33,7 @@ const SERVICES = [
       "Plateformes SaaS multi-utilisateurs avec rôles",
       "Intégration paiement Wave & Orange Money",
       "Logiciels de gestion (école, stock, caisse, clinique)",
+      "Systèmes d'information pour Dahiras, mosquées & associations",
       "API REST & microservices scalables",
     ],
     illustration: DevSolutionsIllustration,
@@ -57,23 +59,42 @@ const SERVICES = [
     illustrationLeft: true,
   },
   {
+    id: "dahira",
+    accent: "emerald",
+    icon: "metaphores",
+    label: "Systèmes d'Information pour Dahiras & Associations",
+    tagline: "Dahiras · Mosquées · ONG · Associations religieuses & culturelles",
+    description:
+      "Les Dahiras, mosquées, associations mourides, tidianes et laïcs gèrent des communautés importantes : cotisations, événements, membres, finances, communication. Nous développons des plateformes numériques sur-mesure pour vous aider à organiser, mobiliser et servir votre communauté plus efficacement — avec respect de vos valeurs et des réalités locales sénégalaises.",
+    points: [
+      "Gestion des membres & cotisations avec suivi en temps réel",
+      "Agenda communautaire & gestion des événements (Gamou, réunions, sorties)",
+      "Collecte de fonds en ligne via Wave, Orange Money & virement",
+      "Communication automatique : SMS & WhatsApp aux membres",
+      "Gestion des dons, Zakat & sadaqas avec reçus numériques",
+      "Portail web ou application mobile pour votre Dahira",
+    ],
+    illustration: DahiraManagementIllustration,
+    illustrationLeft: false,
+  },
+  {
     id: "network",
     accent: "navy",
     icon: "maintenance",
-    label: "Réseaux, Parcs & Maintenance Informatique",
-    tagline: "Installation · Assistance · Contrats de maintenance",
+    label: "Réparation, Installation & Maintenance Informatique",
+    tagline: "Réparation PC · Installation · Réseaux · Contrats de maintenance",
     description:
-      "Nous déployons et maintenons votre infrastructure informatique de A à Z : câblage réseau, switch, Wi-Fi sécurisé, onduleurs, et maintenance préventive et curative de vos postes et serveurs. Nos techniciens interviennent à Dakar et dans les régions.",
+      "Panne d'ordinateur, écran cassé, virus, formatage, ralentissement ? Nos techniciens interviennent rapidement à domicile ou en atelier à Dakar et dans les régions. Nous installons et configurons vos équipements neufs, déployons vos réseaux Wi-Fi et assurons la maintenance préventive et curative de votre parc informatique.",
     points: [
-      "Câblage structuré LAN/WAN pour salles informatiques",
-      "Installation & configuration routeurs, Wi-Fi 6 & bornes AP",
-      "Contrats de maintenance préventive mensuels ou annuels",
-      "Dépannage & remplacement de composants urgents",
-      "Installation systèmes (Windows, Ubuntu, logiciels)",
-      "Récupération de données après panne ou effacement",
+      "Réparation & diagnostic matériel : PC portable, desktop, écran, batterie, disque",
+      "Formatage, nettoyage virus & réinstallation Windows / Ubuntu avec pilotes",
+      "Installation & configuration d'ordinateurs neufs clé en main",
+      "Récupération de données après panne, suppression ou disque endommagé",
+      "Câblage réseau LAN/WAN & installation Wi-Fi sécurisé pour bureaux & écoles",
+      "Contrats de maintenance préventive mensuelle ou annuelle pour parcs informatiques",
     ],
     illustration: NetworkMaintenanceIllustration,
-    illustrationLeft: false,
+    illustrationLeft: true,
   },
   {
     id: "cloud",
@@ -92,7 +113,7 @@ const SERVICES = [
       "Protection pare-feu anti-DDoS & monitoring 24/7",
     ],
     illustration: CloudSecurityIllustration,
-    illustrationLeft: true,
+    illustrationLeft: false,
   },
   {
     id: "audit",
@@ -111,7 +132,7 @@ const SERVICES = [
       "Orientation des bacheliers vers les filières tech (IA, Dév, Réseau)",
     ],
     illustration: AuditConsultingIllustration,
-    illustrationLeft: false,
+    illustrationLeft: true,
   },
 ] as const;
 
@@ -121,6 +142,12 @@ const ACCENT_COLORS: Record<string, { badge: string; border: string; dot: string
     border: "border-gold",
     dot: "bg-gold",
     text: "text-gold",
+  },
+  emerald: {
+    badge: "bg-emerald-50 text-emerald-900 border-emerald-300",
+    border: "border-emerald-500",
+    dot: "bg-emerald-500",
+    text: "text-emerald-700",
   },
   turquoise: {
     badge: "bg-turquoise-light text-[#005F58] border-turquoise/30",
@@ -143,10 +170,10 @@ const ACCENT_COLORS: Record<string, { badge: string; border: string; dot: string
 };
 
 const QUICK_STATS = [
-  { value: "5+", label: "Projets livrés" },
-  { value: "Dakar +", label: "Régions du Sénégal" },
-  { value: "24h", label: "Délai de réponse devis" },
-  { value: "100%", label: "Satisfaction client" },
+  { value: "50+", label: "PC & Parcs dépannés" },
+  { value: "Dakar +", label: "Toutes les Régions" },
+  { value: "24h", label: "Délai moyen d'intervention" },
+  { value: "100%", label: "Satisfaction garantie" },
 ];
 
 export default function ServicePage() {
@@ -175,9 +202,9 @@ export default function ServicePage() {
           </h1>
 
           <p className="mx-auto max-w-3xl text-base text-navy-light sm:text-lg leading-relaxed">
-            Al_Muxtaar_Service accompagne les établissements scolaires, entreprises, PME et institutions
-            dans la conception, le déploiement et la maintenance de leurs outils numériques —
-            du site web à la gestion scolaire complète, en passant par la maintenance de réseaux et le conseil stratégique.
+            Al_Muxtaar_Service accompagne les particuliers, établissements scolaires, Dahiras &amp; associations,
+            PME et entreprises dans le dépannage et la maintenance de leur matériel informatique, la conception de plateformes
+            web &amp; mobiles sur-mesure et le déploiement d&apos;infrastructures fiables au Sénégal.
           </p>
 
           {/* Statistiques rapides */}
@@ -215,15 +242,15 @@ export default function ServicePage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════
-          LES 5 SERVICES DÉTAILLÉS (alternance gauche/droite)
+          LES 6 SERVICES DÉTAILLÉS (alternance gauche/droite)
       ══════════════════════════════════════════════════════════ */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 space-y-20">
         <div className="text-center space-y-2">
           <span className="text-xs font-bold uppercase tracking-widest text-gold">
-            Nos 5 domaines de compétences
+            Nos 6 domaines d&apos;expertise &amp; solutions IT
           </span>
           <h2 className="text-2xl font-black text-navy sm:text-3xl">
-            Des services complets, de la stratégie à la mise en production
+            Des services complets, de la réparation matérielle au déploiement logiciel
           </h2>
         </div>
 
@@ -383,6 +410,14 @@ export default function ServicePage() {
 
         <div className="space-y-4">
           {[
+            {
+              q: "Réparez-vous les ordinateurs portables et de bureau en urgence ?",
+              a: "Oui. Nos techniciens diagnostiquent et réparent les pannes matérielles (écrans cassés, claviers, disques durs/SSD, connecteurs d'alimentation, surchauffe) et logicielles (nettoyage de virus, formatage propre, réinstallation Windows/Ubuntu avec pilotes, récupération de données perdues). Nous intervenons à domicile, au bureau ou en atelier à Dakar et dans les régions.",
+            },
+            {
+              q: "Développez-vous des plateformes pour les Dahiras, mosquées & associations ?",
+              a: "Absolument. Nous concevons des systèmes d'information complets : gestion du registre des membres (locaux et diaspora), suivi des cotisations (Sass) avec collecte directe Wave et Orange Money, agenda des rassemblements (Gamou, Magal, Thiante) et alertes automatiques groupées par SMS et WhatsApp.",
+            },
             {
               q: "Intervenez-vous en dehors de Dakar ?",
               a: "Oui. Nous intervenons dans toutes les régions du Sénégal. Pour les projets de maintenance ou d'installation réseau, nous nous déplaçons sur place. Les projets de développement sont majoritairement pilotés à distance.",
