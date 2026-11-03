@@ -696,33 +696,33 @@ export async function ensurePhysiqueChimieInDatabase(admin: any) {
       }
     }
 
-    // 2. Insérer/vérifier le Chapitre C4 (Cinétique Chimique)
-    const chapC4 = PHYSIQUE_CHIMIE_CHAPTERS.find((c) => c.code === 'C4')!;
-    await admin.from('chapters').upsert(
-      {
-        id: chapC4.id,
-        subject_id: targetSubjectId,
-        title: chapC4.title,
-        order_index: chapC4.order_index,
-        status: 'published',
-      },
-      { onConflict: 'id' }
-    );
-
-    // 3. Insérer les leçons du Chapitre C4
-    for (const l of chapC4.lessons) {
-      await admin.from('lessons').upsert(
+    // 2. Insérer/vérifier tous les Chapitres et leçons du programme PC
+    for (const chap of PHYSIQUE_CHIMIE_CHAPTERS) {
+      await admin.from('chapters').upsert(
         {
-          id: l.id,
-          chapter_id: chapC4.id,
-          title: l.title,
-          order_index: l.order_index,
-          is_free: l.is_free,
+          id: chap.id,
+          subject_id: targetSubjectId,
+          title: chap.title,
+          order_index: chap.order_index,
           status: 'published',
-          content_markdown: `# ${chapC4.title}\n\n## ${l.title}`,
         },
         { onConflict: 'id' }
       );
+
+      for (const l of chap.lessons) {
+        await admin.from('lessons').upsert(
+          {
+            id: l.id,
+            chapter_id: chap.id,
+            title: l.title,
+            order_index: l.order_index,
+            is_free: l.is_free,
+            status: 'published',
+            content_markdown: `# ${chap.title}\n\n## ${l.title}`,
+          },
+          { onConflict: 'id' }
+        );
+      }
     }
 
     return targetSubjectId;

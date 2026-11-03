@@ -11,6 +11,11 @@ import Paywall from '@/components/course/paywall';
 import LessonCompleteButton from '@/components/course/lesson-complete-button';
 import { Button } from '@/components/ui/button';
 import { getEnhancedLessonContent } from '@/lib/courses/lessons-content';
+import {
+  PHYSIQUE_CHIMIE_CHAPTERS,
+  PHYSIQUE_CHIMIE_SUBJECT_ID,
+  ensurePhysiqueChimieInDatabase,
+} from '@/lib/curriculum/physique-chimie-data';
 import InteractiveLimitSimulator from '@/components/course/interactive-limit-simulator';
 import FormesIndetermineesCard from '@/components/course/formes-indeterminees-card';
 import BacSenegalAnnales from '@/components/course/bac-senegal-annales';
@@ -755,9 +760,54 @@ export default async function LessonReaderPage({ params }: PageProps) {
   const profile = profileResult.data;
   const isSubscribed = profile?.role === 'admin' || (subResult.data?.length ?? 0) > 0;
   let lessonMeta = lessonResult.data;
-  const chapter = chapterResult.data;
-  const siblings = siblingResult.data ?? [];
+  let chapter = chapterResult.data;
+  let siblings = siblingResult.data ?? [];
   const progressRow = progressResult.data;
+
+  // ── Résolution immédiate & infaillible pour la Physique-Chimie (Alcools C1, Cinétique C4, etc.) ──
+  const pcChapter = PHYSIQUE_CHIMIE_CHAPTERS.find((c) => c.id === params.chapter);
+  const pcLesson = pcChapter?.lessons.find((l) => l.id === params.lesson);
+
+  if (pcChapter) {
+    if (!chapter) {
+      chapter = {
+        id: pcChapter.id,
+        title: pcChapter.title,
+        order_index: pcChapter.order_index,
+        subjects: {
+          id: PHYSIQUE_CHIMIE_SUBJECT_ID,
+          name: 'Sciences Physiques (PC)',
+          code: 'physique-chimie',
+        },
+      } as any;
+    }
+
+    if (!siblings || siblings.length === 0) {
+      siblings = pcChapter.lessons.map((l) => ({
+        id: l.id,
+        title: l.title,
+        order_index: l.order_index,
+        is_free: l.is_free,
+      }));
+    }
+
+    if (pcLesson && !lessonMeta) {
+      lessonMeta = {
+        id: pcLesson.id,
+        title: pcLesson.title,
+        chapter_id: pcChapter.id,
+        is_free: pcLesson.is_free,
+        status: 'published',
+        content_markdown: `# ${pcChapter.title}\n\n## ${pcLesson.title}`,
+        order_index: pcLesson.order_index,
+      } as any;
+    }
+
+    // Synchronisation Supabase en arrière-plan non bloquante
+    ensurePhysiqueChimieInDatabase(admin).catch((e) =>
+      console.error('Sync PC DB background:', e)
+    );
+  }
 
   if (!lessonMeta && params.lesson === '60000000-0000-0000-0000-000000000003') {
     const { data: createdLesson } = await admin
