@@ -54,9 +54,55 @@ import GeometrieQuizEmbedded from '@/components/course/geometrie-quiz-embedded';
 import CinetiqueReflexesCard from '@/components/course/cinetique-reflexes-card';
 import CinetiqueInteractiveSimulator from '@/components/course/cinetique-interactive-simulator';
 import CinetiqueQuizEmbedded from '@/components/course/cinetique-quiz-embedded';
+import AlcoolsReflexesCard from '@/components/course/alcools-reflexes-card';
+import AlcoolsInteractiveSimulator from '@/components/course/alcools-interactive-simulator';
+import AlcoolsQuizEmbedded from '@/components/course/alcools-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
+
+const ALCOOLS_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Enjeux des Alcools au Bac S2 Sénégal",
+    badge: "Introduction",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass de Chimie Organique de Terminale S2. Les alcools sont incontournables au Baccalauréat sénégalais. Ils ouvrent la voie aux oxydations ménagées, aux déshydratations et aux réactions d'estérification.",
+  },
+  {
+    timeSeconds: 45,
+    title: "2. Les 3 Classes d'Alcools en 5 secondes",
+    badge: "Méthode",
+    icon: "theoreme_equerre",
+    textScript:
+      "Pour trouver la classe sans hésiter, fixez uniquement le carbone fonctionnel, celui qui porte le groupement O H. S'il est lié à un seul carbone ou aucun comme le méthanol, c'est la classe 1 primaire. S'il est lié à deux carbones, c'est la classe 2 secondaire. S'il est entouré de trois carbones, c'est la classe 3 tertiaire.",
+  },
+  {
+    timeSeconds: 110,
+    title: "3. Nomenclature UICPA sans aucune hésitation",
+    badge: "Règle d'or",
+    icon: "rigueur_compas",
+    textScript:
+      "Repérez la chaîne carbonée la plus longue qui contient obligatoirement le carbone fonctionnel. Numérotez pour donner à ce carbone le plus petit indice possible, même si les ramifications sont à l'autre bout. Le nom se termine toujours par le suffixe ol précédé de son numéro.",
+  },
+  {
+    timeSeconds: 175,
+    title: "4. Le secret des Liaisons Hydrogène",
+    badge: "Physique",
+    icon: "formule_cle",
+    textScript:
+      "Pourquoi l'éthanol bout-il à 78 degrés alors que le propane bout à moins 42 degrés ? C'est la question favorite du Bac ! Répondez toujours que la forte polarisation de la liaison O H crée des liaisons hydrogène intermoléculaires solides qui demandent un apport thermique important pour être dissociées.",
+  },
+  {
+    timeSeconds: 235,
+    title: "5. Le Test de Lucas au Laboratoire",
+    badge: "Piège Bac",
+    icon: "piege_bac",
+    textScript:
+      "Retenez les temps d'apparition du trouble laiteux avec le réactif de Lucas : immédiat en moins de 30 secondes pour un alcool tertiaire, environ 5 minutes pour un alcool secondaire, et aucun trouble à température ambiante pour un alcool primaire.",
+  },
+];
 
 const CINETIQUE_AUDIO_CHAPTERS: AudioChapter[] = [
   {
@@ -959,6 +1005,65 @@ export default async function LessonReaderPage({ params }: PageProps) {
     lessonMeta = createdLesson;
   }
 
+  // Provisioning pour C1 : Alcools (Physique-Chimie S2)
+  if (!lessonMeta && params.lesson === '60000000-0000-0001-0001-000000000001') {
+    await admin.from('chapters').upsert({
+      id: '50000000-0000-0001-0001-000000000001',
+      title: 'C1 : Alcools',
+      order_index: 1,
+      status: 'published',
+    }, { onConflict: 'id' });
+
+    const { data: createdLesson } = await admin
+      .from('lessons')
+      .upsert({
+        id: '60000000-0000-0001-0001-000000000001',
+        chapter_id: '50000000-0000-0001-0001-000000000001',
+        title: "Classes d'alcools, nomenclature et propriétés physiques",
+        order_index: 1,
+        content_markdown: "# C1 : Alcools — Classes d'alcools, nomenclature et propriétés physiques",
+        is_free: true,
+        status: 'published',
+      }, { onConflict: 'id' })
+      .select()
+      .single();
+    lessonMeta = createdLesson;
+  }
+
+  if (!lessonMeta && params.lesson === '60000000-0000-0001-0001-000000000002') {
+    const { data: createdLesson } = await admin
+      .from('lessons')
+      .upsert({
+        id: '60000000-0000-0001-0001-000000000002',
+        chapter_id: '50000000-0000-0001-0001-000000000001',
+        title: 'Oxydation ménagée des alcools et identification des produits',
+        order_index: 2,
+        content_markdown: '# C1 : Alcools — Oxydation ménagée et identification des produits',
+        is_free: false,
+        status: 'published',
+      }, { onConflict: 'id' })
+      .select()
+      .single();
+    lessonMeta = createdLesson;
+  }
+
+  if (!lessonMeta && params.lesson === '60000000-0000-0001-0001-000000000003') {
+    const { data: createdLesson } = await admin
+      .from('lessons')
+      .upsert({
+        id: '60000000-0000-0001-0001-000000000003',
+        chapter_id: '50000000-0000-0001-0001-000000000001',
+        title: 'Déshydratation intra et intermoléculaire des alcools',
+        order_index: 3,
+        content_markdown: '# C1 : Alcools — Déshydratation intra et intermoléculaire',
+        is_free: false,
+        status: 'published',
+      }, { onConflict: 'id' })
+      .select()
+      .single();
+    lessonMeta = createdLesson;
+  }
+
   if (lessonMeta && lessonMeta.status !== 'published') {
     await admin.from('lessons').update({ status: 'published' }).eq('id', lessonMeta.id);
     lessonMeta.status = 'published';
@@ -972,6 +1077,7 @@ export default async function LessonReaderPage({ params }: PageProps) {
   const isFirstLessonOfSubject =
     params.lesson === '60000000-0000-0000-0000-000000000001' ||
     params.lesson === '60000000-0000-0000-0001-000000000001' ||
+    params.lesson === '60000000-0000-0001-0001-000000000001' ||
     ((chapter?.order_index ?? 0) <= 1 && (lessonMeta.order_index ?? 0) <= 1);
 
   const isFree = isFirstLessonOfSubject;
@@ -1104,15 +1210,23 @@ export default async function LessonReaderPage({ params }: PageProps) {
     lessonMeta.title.toLowerCase().includes('bijection') ||
     lessonMeta.title.toLowerCase().includes('tvi');
 
+  const isAlcools =
+    lessonMeta.title.toLowerCase().includes('alcool') ||
+    (chapter?.title?.toLowerCase() || '').includes('alcool') ||
+    params.lesson === '60000000-0000-0001-0001-000000000001' ||
+    params.chapter === '50000000-0000-0001-0001-000000000001';
+
   const isCinetique =
-    lessonMeta.title.toLowerCase().includes('cinetique') ||
-    lessonMeta.title.toLowerCase().includes('cinétique') ||
-    lessonMeta.title.toLowerCase().includes('vitesse de réaction') ||
-    lessonMeta.title.toLowerCase().includes('facteur cinétique') ||
-    (chapter?.title?.toLowerCase() || '').includes('cinetique') ||
-    (chapter?.title?.toLowerCase() || '').includes('cinétique');
+    !isAlcools &&
+    (lessonMeta.title.toLowerCase().includes('cinetique') ||
+      lessonMeta.title.toLowerCase().includes('cinétique') ||
+      lessonMeta.title.toLowerCase().includes('vitesse de réaction') ||
+      lessonMeta.title.toLowerCase().includes('facteur cinétique') ||
+      (chapter?.title?.toLowerCase() || '').includes('cinetique') ||
+      (chapter?.title?.toLowerCase() || '').includes('cinétique'));
 
   const isDerivation =
+    !isAlcools &&
     !isCinetique &&
     !isAsymptotes &&
     !isSuites &&
@@ -1223,7 +1337,9 @@ export default async function LessonReaderPage({ params }: PageProps) {
               {/* Capsule Vocale & Masterclass Audio du Professeur (Al Muxtaar S2) */}
               <AudioCoachPlayer
                 title={
-                  isCinetique
+                  isAlcools
+                    ? 'Masterclass Audio : Classes d\'Alcools & Nomenclature'
+                    : isCinetique
                     ? 'Masterclass Audio : Cinétique Chimique & Vitesse de Réaction'
                     : isTvi
                     ? 'Masterclass Audio : TVI & Théorème de la Bijection'
@@ -1252,7 +1368,9 @@ export default async function LessonReaderPage({ params }: PageProps) {
                     : 'Masterclass Audio : Limites & Continuité'
                 }
                 subtitle={
-                  isCinetique
+                  isAlcools
+                    ? 'Terminale S2 • Chimie : Les 5 réflexes pour reconnaître la classe et nommer'
+                    : isCinetique
                     ? 'Terminale S2 • Chimie : Les 5 réflexes pour l\'exercice cinétique au Bac'
                     : isTvi
                     ? 'Terminale S2 • Les 5 réflexes pour la Partie A & B'
@@ -1281,7 +1399,9 @@ export default async function LessonReaderPage({ params }: PageProps) {
                     : 'Terminale S2 • 5 réflexes essentiels pour l\'épreuve'
                 }
                 chapters={
-                  isCinetique
+                  isAlcools
+                    ? ALCOOLS_AUDIO_CHAPTERS
+                    : isCinetique
                     ? CINETIQUE_AUDIO_CHAPTERS
                     : isTvi
                     ? TVI_AUDIO_CHAPTERS
@@ -1328,7 +1448,12 @@ export default async function LessonReaderPage({ params }: PageProps) {
               </article>
 
               {/* Fiches Réflexes Mobiles & Simulateur Tactile Interactif */}
-              {isCinetique ? (
+              {isAlcools ? (
+                <>
+                  <AlcoolsReflexesCard />
+                  <AlcoolsInteractiveSimulator />
+                </>
+              ) : isCinetique ? (
                 <>
                   <CinetiqueReflexesCard />
                   <CinetiqueInteractiveSimulator />
@@ -1426,7 +1551,9 @@ export default async function LessonReaderPage({ params }: PageProps) {
               {/* Section Annales Officielles du Baccalauréat Sénégalais (Après les exercices d'application) */}
               <BacSenegalAnnales
                 chapter={
-                  isCinetique
+                  isAlcools
+                    ? 'alcools'
+                    : isCinetique
                     ? 'cinetique'
                     : isTvi
                     ? 'tvi'
@@ -1464,6 +1591,8 @@ export default async function LessonReaderPage({ params }: PageProps) {
                     questions={quizData.questions}
                   />
                 </section>
+              ) : isAlcools ? (
+                <AlcoolsQuizEmbedded />
               ) : isCinetique ? (
                 <CinetiqueQuizEmbedded />
               ) : isTvi ? (

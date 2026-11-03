@@ -4,6 +4,129 @@
  */
 
 export const RICH_LESSONS_MAP: Record<string, string> = {
+  alcools: `# C1 : Alcools — Classes d'alcools, nomenclature et propriétés physiques (Terminale S2)
+
+Bienvenue dans le premier chapitre de **Chimie Organique** pour la classe de **Terminale S2**, rigoureusement conforme au programme officiel sénégalais (MEN / IGEF / Office du Baccalauréat).
+
+Les alcools constituent la famille fondamentale de la chimie organique au Baccalauréat sénégalais. Ils sont le point de départ de réactions essentielles : oxydations ménagées (aldéhydes, cétones, acides carboxyliques), déshydratations et synthèses d'esters.
+
+---
+
+## 1. Définition et Formule Générale des Alcools
+
+Un **alcool** est un composé organique dont la molécule possède un groupement hydroxyle **$-\\text{OH}$** lié à un atome de carbone tétragonal (saturé, lié à 4 atomes par des liaisons simples).
+
+- L'atome de carbone qui porte le groupement $-\\text{OH}$ est appelé le **carbone fonctionnel**.
+- **Formule générale d'un monoalcool saturé non cyclique** :
+  $$\\text{C}_n\\text{H}_{2n+1}\\text{OH} \\quad \\text{ou} \\quad \\text{C}_n\\text{H}_{2n+2}\\text{O} \\quad \\text{ou} \\quad R-\\text{OH} \\quad (n \\ge 1)$$
+- **Masse molaire d'un monoalcool saturé** :
+  $$M = 12n + (2n + 2) \\times 1 + 16 = 14n + 18 \\quad (\\text{g/mol})$$
+
+> [!CONSEIL_BAC] **Réflexe Bac S2 :** Lorsqu'un sujet de Bac vous donne la masse molaire d'un monoalcool saturé (ou son pourcentage massique en oxygène $\%\\text{O} = \\frac{16}{M} \\times 100$), posez immédiatement l'équation $14n + 18 = M$ pour trouver l'entier $n$ et en déduire la formule brute !
+
+---
+
+## 2. Les Trois Classes d'Alcools
+
+La **classe** d'un alcool dépend EXCLUSIVEMENT du nombre d'atomes de carbone directement liés au carbone fonctionnel :
+
+### A. Alcool Primaire ($1^\\circ$)
+Le carbone fonctionnel est lié à **au plus un seul** atome de carbone (ou à aucun pour le méthanol).
+- **Formule type** :
+  $$R-\\mathbf{C}\\text{H}_2-\\text{OH} \\quad \\text{ou} \\quad \\text{CH}_3-\\text{OH}$$
+- *Exemples classiques du Bac S2* :
+  - Éthanol : $\\text{CH}_3-\\text{CH}_2-\\text{OH}$
+  - Butan-1-ol : $\\text{CH}_3-\\text{CH}_2-\\text{CH}_2-\\text{CH}_2-\\text{OH}$
+  - 2-méthylpropan-1-ol : $\\text{CH}_3-\\text{CH}(\\text{CH}_3)-\\text{CH}_2-\\text{OH}$
+
+### B. Alcool Secondaire ($2^\\circ$)
+Le carbone fonctionnel est lié à **deux** atomes de carbone.
+- **Formule type** :
+  $$R-\\mathbf{C}\\text{H}(\\text{OH})-R'$$
+- *Exemples classiques du Bac S2* :
+  - Propan-2-ol : $\\text{CH}_3-\\text{CH}(\\text{OH})-\\text{CH}_3$
+  - Butan-2-ol : $\\text{CH}_3-\\text{CH}_2-\\text{CH}(\\text{OH})-\\text{CH}_3$
+
+### C. Alcool Tertiaire ($3^\\circ$)
+Le carbone fonctionnel est lié à **trois** atomes de carbone (il ne porte aucun atome d'hydrogène).
+- **Formule type** :
+  $$R-\\mathbf{C}(\\text{OH})(R')-R''$$
+- *Exemple roi du Bac S2* :
+  - 2-méthylpropan-2-ol : $\\text{CH}_3-\\text{C}(\\text{CH}_3)(\\text{OH})-\\text{CH}_3$
+
+> [!WOLOF] **Xam-xam ci Wolof :**
+> - **Classe 1 ($1^\\circ$)** : Carbone bi yor $-\\text{OH}$ bi dafa am 1 seul carbone voisin (naka nit ku yor benn loxo u moroomam).
+> - **Classe 2 ($2^\\circ$)** : Carbone bi dafa am 2 carbones voisins ci wet yi (naka nit ku yor ñaari loxo moroom yi).
+> - **Classe 3 ($3^\\circ$)** : Carbone bi dafa am 3 carbones voisins yu ko wër ci wet yépp (amul benn hydrogène bu ko dessee).
+
+---
+
+## 3. Nomenclature Officielle UICPA
+
+Pour nommer un alcool selon les règles internationales de l'UICPA :
+
+1. **Repérer la chaîne carbonée la plus longue contenant obligatoirement le carbone fonctionnel.**
+2. **Numéroter la chaîne principale** de façon à attribuer au carbone fonctionnel le plus petit numéro possible (la fonction alcool prime sur les ramifications alkyles).
+3. **Identifier et numéroter les ramifications alkyles** (méthyle, éthyle...), placées en préfixe par ordre alphabétique.
+4. **Prendre le nom de l'alcane correspondant**, remplacer le "e" final par le suffixe **"-ol"**, précédé de l'indice de position du carbone fonctionnel placé entre tirets.
+
+### Les 4 isomères d'alcools de formule $\\text{C}_4\\text{H}_{10}\\text{O}$ (Sujet récurrent du Bac) :
+| Formule Semi-Développée | Nom Officiel UICPA | Classe |
+| :--- | :--- | :---: |
+| $\\text{CH}_3-\\text{CH}_2-\\text{CH}_2-\\text{CH}_2-\\text{OH}$ | **Butan-1-ol** | Primaire ($1^\\circ$) |
+| $\\text{CH}_3-\\text{CH}_2-\\text{CH}(\\text{OH})-\\text{CH}_3$ | **Butan-2-ol** | Secondaire ($2^\\circ$) |
+| $\\text{CH}_3-\\text{CH}(\\text{CH}_3)-\\text{CH}_2-\\text{OH}$ | **2-méthylpropan-1-ol** | Primaire ($1^\\circ$) |
+| $\\text{CH}_3-\\text{C}(\\text{CH}_3)(\\text{OH})-\\text{CH}_3$ | **2-méthylpropan-2-ol** | Tertiaire ($3^\\circ$) |
+
+---
+
+## 4. Propriétés Physiques & Liaisons Hydrogène
+
+### A. Température d'Ébullition Élevée
+Les alcools sont liquides ou solides à température ordinaire, avec des températures d'ébullition **considérablement plus élevées** que les alcanes de masse molaire voisine :
+- **Éthanol** ($M = 46\\text{ g/mol}$) : liquide, $T_\\text{éb} = +78^\\circ\\text{C}$.
+- **Propane** ($M = 44\\text{ g/mol}$) : gaz, $T_\\text{éb} = -42^\\circ\\text{C}$.
+
+**Explication physique :**
+La liaison $\\text{O}-\\text{H}$ est fortement polarisée (l'oxygène est très électronégatif : $\\delta^- \\text{O} - \\text{H} \\delta^+$). Il s'établit entre molécules d'alcool des **liaisons hydrogène intermoléculaires** :
+$$\\delta^- \\mathbf{O} - \\text{H}^{\\delta^+} \\;\\cdots\\; \\delta^- \\mathbf{O} - \\text{H}^{\\delta^+}$$
+La rupture de ces liaisons lors du passage à l'état gazeux nécessite un apport thermique considérable.
+
+### B. Solubilité dans l'Eau
+La molécule d'alcool présente un comportement amphiphile :
+- Le groupement $-\\text{OH}$ est **hydrophile** (forme des liaisons hydrogène avec les molécules d'eau).
+- La chaîne hydrocarbonée $R-$ est **hydrophobe** (lipophile).
+
+**Conséquences expérimentales :**
+1. **$n = 1, 2, 3$ (Méthanol, Éthanol, Propan-1-ol)** : le groupe hydrophile domine $\\implies$ **miscibilité totale** avec l'eau.
+2. **$n = 4$ (Butan-1-ol)** : solubilité modérée (environ $9\\text{ g/100 mL}$).
+3. **$n \\ge 5$ (Pentanol, Hexanol, Octanol...)** : la longue chaîne hydrophobe l'emporte $\\implies$ l'alcool est **quasiment insoluble** dans l'eau et forme deux phases distinctes (l'alcool surnage car sa densité $d \\approx 0{,}8$ est inférieure à celle de l'eau).
+
+---
+
+## 5. Identification Expérimentale : Le Test de Lucas
+
+Le **test de Lucas** permet de distinguer rapidement la classe d'un alcool au laboratoire :
+- **Réactif de Lucas** : Chlorure de zinc anhydre ($\\text{ZnCl}_2$) dans l'acide chlorhydrique concentré ($\\text{HCl}$).
+- **Principe chimique** : substitution nucléophile transformant l'alcool soluble en dérivé halogéné $R-\\text{Cl}$ insoluble :
+  $$R-\\text{OH} + \\text{HCl} \\xrightarrow{\\text{ZnCl}_2} R-\\text{Cl}_{(s/liq\\text{ trouble})} + \\text{H}_2\\text{O}$$
+
+| Classe d'alcool | Observation expérimentale à froid ($20^\\circ\\text{C}$) | Vitesse de réaction |
+| :--- | :--- | :--- |
+| **Tertiaire ($3^\\circ$)** | **Trouble laiteux immédiat** (< 30 secondes) | Quasi-instantanée |
+| **Secondaire ($2^\\circ$)** | **Trouble laiteux après 5 minutes** | Lente |
+| **Primaire ($1^\\circ$)** | **Aucun trouble à froid** (solution limpide) | Nulle à température ambiante |
+
+---
+
+## 6. Synthèse des Compétences Exigibles au Baccalauréat
+
+1. Reconnaître le carbone fonctionnel et déterminer sans hésiter la classe ($1^\\circ, 2^\\circ, 3^\\circ$) d'un alcool.
+2. Donner le nom systématique UICPA complet en respectant l'indice minimal pour $-\\text{OH}$.
+3. Écrire et dénombrer tous les isomères pour une formule brute donnée ($C_4H_{10}O$, $C_5H_{12}O$).
+4. Justifier les anomalies de température d'ébullition et la variation de solubilité par les liaisons hydrogène.
+5. Exploiter les résultats du test de Lucas pour identifier un isomère inconnu.
+`,
   cinetique: `# Chapitre 1 : Cinétique Chimique & Vitesse de Réaction (Terminale S2)
 
 Bienvenue dans le premier chapitre de **Sciences Physiques (Chimie)** pour la classe de **Terminale S2**, rigoureusement aligné sur le programme officiel sénégalais (MEN / IGEF / Office du Bac).
@@ -1465,11 +1588,17 @@ export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: stri
   const titleLower = `${lessonTitle} ${chapterTitle}`.toLowerCase();
 
   if (
+    titleLower.includes('alcool') ||
+    titleLower.includes('alcol')
+  ) {
+    return RICH_LESSONS_MAP.alcools;
+  }
+
+  if (
     titleLower.includes('cinetique') ||
     titleLower.includes('cinétique') ||
     titleLower.includes('vitesse de réaction') ||
-    titleLower.includes('facteur cinétique') ||
-    titleLower.includes('chimie')
+    titleLower.includes('facteur cinétique')
   ) {
     return RICH_LESSONS_MAP.cinetique;
   }

@@ -17,6 +17,105 @@ export interface BacItem {
 }
 
 export const BAC_ANNALES_BY_CHAPTER: Record<string, BacItem[]> = {
+  // 0. ALCOOLS (CHIMIE S2 - C1)
+  alcools: [
+    {
+      year: 2022,
+      session: 'Session Normale (S2)',
+      points: 'Exercice 1 — Chimie Organique (4 Points)',
+      topic: 'Formule brute, Isomères de position et de chaîne, Classes d\'alcools et Test de Lucas',
+      enonce: `Un monoalcool saturé non cyclique $A$ a une masse molaire $M = 74\\text{ g/mol}$.
+
+1. Déterminer la formule brute de cet alcool.
+2. Écrire les formules semi-développées de tous les isomères de constitution correspondant à cette formule brute.
+3. Donner le nom officiel UICPA et la classe ($1^\\circ, 2^\\circ, 3^\\circ$) de chacun de ces isomères.
+4. On réalise le test de Lucas ($ZnCl_2 + HCl$) sur un échantillon de chacun des isomères à température ambiante :
+   - L'isomère $A_1$ donne un trouble laiteux immédiat (en moins de 30 secondes).
+   - L'isomère $A_2$ donne un trouble après 5 minutes.
+   - Les isomères $A_3$ et $A_4$ ne donnent aucun trouble à froid.
+   Identifier formellement $A_1$ et $A_2$.
+5. Expliquer pourquoi le butan-1-ol bout à $+118^\\circ\\text{C}$ alors que le pentane ($M = 72\\text{ g/mol}$) bout à $+36^\\circ\\text{C}$.`,
+      solution: `### 1. Formule brute de l'alcool
+La formule générale d'un monoalcool saturé est $C_n H_{2n+2}O$.
+Sa masse molaire s'écrit :
+$$M = 12n + (2n + 2) \\times 1 + 16 = 14n + 18$$
+On a donc :
+$$14n + 18 = 74 \\implies 14n = 56 \\implies n = 4$$
+La formule brute de l'alcool est **$C_4H_{10}O$**.
+
+---
+
+### 2 & 3. Formules semi-développées, Noms UICPA et Classes
+Il existe 4 isomères alcools pour la formule $C_4H_{10}O$ :
+
+1. **$CH_3-CH_2-CH_2-CH_2-OH$** : **Butan-1-ol**
+   - Carbone fonctionnel lié à 1 seul carbone $\\implies$ **Alcool Primaire ($1^\\circ$)**.
+2. **$CH_3-CH_2-CH(OH)-CH_3$** : **Butan-2-ol**
+   - Carbone fonctionnel lié à 2 carbones $\\implies$ **Alcool Secondaire ($2^\\circ$)**.
+3. **$CH_3-CH(CH_3)-CH_2-OH$** : **2-méthylpropan-1-ol**
+   - Carbone fonctionnel lié à 1 seul carbone $\\implies$ **Alcool Primaire ($1^\\circ$)**.
+4. **$CH_3-C(CH_3)(OH)-CH_3$** : **2-méthylpropan-2-ol**
+   - Carbone fonctionnel lié à 3 carbones $\\implies$ **Alcool Tertiaire ($3^\\circ$)**.
+
+---
+
+### 4. Identification par le test de Lucas
+- **$A_1$ donne un trouble immédiat** : c'est la caractéristique exclusive des alcools tertiaires. Donc **$A_1$ est le 2-méthylpropan-2-ol**.
+- **$A_2$ donne un trouble après 5 minutes** : c'est la signature des alcools secondaires. Donc **$A_2$ est le butan-2-ol**.
+- Les alcools primaires ($A_3$ et $A_4$) ne réagissent pas à température ambiante, ce qui correspond bien au butan-1-ol et au 2-méthylpropan-1-ol.
+
+---
+
+### 5. Comparaison des températures d'ébullition
+Bien que le butan-1-ol ($M = 74\\text{ g/mol}$) et le pentane ($M = 72\\text{ g/mol}$) aient des masses molaires très voisines :
+- La liaison $O-H$ du butan-1-ol est fortement polarisée (différence d'électronégativité $\\Delta\\chi = 3{,}44 - 2{,}20 = 1{,}24$). Il s'établit des **liaisons hydrogène intermoléculaires** fortes ($\\delta^- O - H \\cdots O \\delta^-$) formant un réseau difficile à dissocier.
+- Le pentane est une molécule apolaire dépourvue de liaisons hydrogène (seules existent de faibles interactions de Van der Waals).
+- Il faut donc apporter beaucoup plus d'énergie thermique pour vaporiser le butan-1-ol, d'où sa température d'ébullition nettement supérieure ($+118^\\circ\\text{C} \\gg +36^\\circ\\text{C}$).`,
+      baremeAstuce: `Barème type Bac :
+- Calcul de n et formule brute : 0,75 pt
+- Les 4 isomères et leurs classes : 1,5 pt (0,375 pt par molécule)
+- Identification A1 et A2 avec justification Lucas : 1 pt
+- Justification par les liaisons hydrogène (polarisation O-H) : 0,75 pt.
+Astuce correcteur : Mentionnez toujours explicitement le terme « liaison hydrogène intermoléculaire » pour obtenir la totalité des points.`,
+    },
+    {
+      year: 2019,
+      session: 'Remplacement (S2)',
+      points: 'Exercice 1 — Chimie (3,5 Points)',
+      topic: 'Solubilité dans l\'eau, Pôle hydrophile vs Chaîne hydrophobe',
+      enonce: `On s'intéresse à la solubilité dans l'eau de deux alcools : l'éthanol ($C_2H_5OH$) et l'octan-1-ol ($C_8H_{17}OH$).
+
+1. Rappeler la structure électronique de l'atome d'oxygène ($Z = 8$) et de l'hydrogène ($Z = 1$). Justifier la géométrie coudée et la polarité de la liaison $O-H$.
+2. L'éthanol est miscible à l'eau en toutes proportions, alors que la solubilité de l'octan-1-ol dans l'eau n'est que de $0{,}05\\text{ g/100 mL}$ à $20^\\circ\\text{C}$.
+   Expliquer cette différence en analysant la structure amphiphile de la molécule d'alcool.
+3. Lors d'un mélange dans une ampoule à décanter d'eau et d'octan-1-ol, observera-t-on une ou deux phases ? Quelle phase surnage ? (Donnée : densité de l'octan-1-ol $d = 0{,}83$).`,
+      solution: `### 1. Structure électronique et polarité
+- Oxygène ($Z = 8$) : structure $1s^2 2s^2 2p^4$ (6 électrons de valence : 2 doublets non liants et 2 électrons célibataires).
+- Hydrogène ($Z = 1$) : structure $1s^1$ (1 électron célibataire).
+- Autour de l'oxygène, la géométrie est coudée (type $AX_2E_2$ selon VSEPR, angle $\\approx 104{,}5^\\circ$).
+- L'oxygène étant plus électronégatif que l'hydrogène ($\\chi_O = 3{,}44 > \\chi_H = 2{,}20$), la liaison $O-H$ est fortement polarisée : $\\delta^- O - H^{\\delta^+}$.
+
+---
+
+### 2. Analyse du caractère amphiphile et solubilité
+Une molécule d'alcool présente deux parties antagonistes :
+- Le groupe hydroxyle $-OH$ : polaire et **hydrophile**, capable de former des liaisons hydrogène avec les molécules d'eau.
+- La chaîne carbonée $R-$ : apolaire et **hydrophobe** (lipophile).
+
+- **Pour l'éthanol ($C_2H_5OH$)** : La chaîne carbonée est très courte (2 carbones). Le caractère hydrophile du groupe $-OH$ l'emporte largement. Les molécules d'éthanol s'insèrent parfaitement dans le réseau de liaisons hydrogène de l'eau $\\implies$ **miscibilité totale**.
+- **Pour l'octan-1-ol ($C_8H_{17}OH$)** : La chaîne carbonée hydrophobe compte 8 carbones. Son encombrement et sa nature apolaire empêchent la pénétration de l'eau et perturbent le réseau de liaisons hydrogène $\\implies$ **insolubilité quasi-totale ($0{,}05\\text{ g/100 mL}$)**.
+
+---
+
+### 3. Observation dans l'ampoule à décanter
+On observe **deux phases liquides non miscibles** séparées par un ménisque net.
+La phase organique supérieure est constituée d'**octan-1-ol** car sa densité ($d = 0{,}83$) est inférieure à celle de l'eau ($d = 1{,}00$). L'octan-1-ol surnage donc au-dessus de la phase aqueuse.`,
+      baremeAstuce: `Points clés au Bac :
+- Définir clairement les notions de « pôle hydrophile (-OH) » et « chaîne carbonée hydrophobe (R-) ».
+- Justifier la flottaison par la comparaison explicite des densités ($d_\\text{alcool} < d_\\text{eau}$).`,
+    },
+  ],
+
   // 0. CINÉTIQUE CHIMIQUE (CHIMIE S2)
   cinetique: [
     {
