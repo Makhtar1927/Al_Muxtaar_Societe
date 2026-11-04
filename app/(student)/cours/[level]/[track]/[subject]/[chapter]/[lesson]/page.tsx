@@ -16,6 +16,11 @@ import {
   PHYSIQUE_CHIMIE_SUBJECT_ID,
   ensurePhysiqueChimieInDatabase,
 } from '@/lib/curriculum/physique-chimie-data';
+import {
+  MATHEMATIQUES_CHAPTERS,
+  MATHEMATIQUES_SUBJECT_ID,
+  ensureMathematiquesInDatabase,
+} from '@/lib/curriculum/mathematiques-data';
 import InteractiveLimitSimulator from '@/components/course/interactive-limit-simulator';
 import FormesIndetermineesCard from '@/components/course/formes-indeterminees-card';
 import BacSenegalAnnales from '@/components/course/bac-senegal-annales';
@@ -806,6 +811,51 @@ export default async function LessonReaderPage({ params }: PageProps) {
     // Synchronisation Supabase en arrière-plan non bloquante
     ensurePhysiqueChimieInDatabase(admin).catch((e) =>
       console.error('Sync PC DB background:', e)
+    );
+  }
+
+  // ── Résolution immédiate & infaillible pour les Mathématiques (Programme Officiel S2) ──
+  const mathChapter = MATHEMATIQUES_CHAPTERS.find((c) => c.id === params.chapter);
+  const mathLesson = mathChapter?.lessons.find((l) => l.id === params.lesson);
+
+  if (mathChapter) {
+    if (!chapter) {
+      chapter = {
+        id: mathChapter.id,
+        title: mathChapter.title,
+        order_index: mathChapter.order_index,
+        subjects: {
+          id: MATHEMATIQUES_SUBJECT_ID,
+          name: 'Mathématiques',
+          code: 'mathematiques',
+        },
+      } as any;
+    }
+
+    if (!siblings || siblings.length === 0) {
+      siblings = mathChapter.lessons.map((l) => ({
+        id: l.id,
+        title: l.title,
+        order_index: l.order_index,
+        is_free: l.is_free,
+      }));
+    }
+
+    if (mathLesson && !lessonMeta) {
+      lessonMeta = {
+        id: mathLesson.id,
+        title: mathLesson.title,
+        chapter_id: mathChapter.id,
+        is_free: mathLesson.is_free,
+        status: 'published',
+        content_markdown: `# ${mathChapter.title}\n\n## ${mathLesson.title}`,
+        order_index: mathLesson.order_index,
+      } as any;
+    }
+
+    // Synchronisation Supabase en arrière-plan non bloquante
+    ensureMathematiquesInDatabase(admin).catch((e) =>
+      console.error('Sync Maths DB background:', e)
     );
   }
 

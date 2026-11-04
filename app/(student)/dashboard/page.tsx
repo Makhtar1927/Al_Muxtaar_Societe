@@ -16,6 +16,10 @@ import {
 } from '@/lib/curriculum/senegal-curriculum';
 import { PHYSIQUE_CHIMIE_CHAPTERS } from '@/lib/curriculum/physique-chimie-data';
 import {
+  MATHEMATIQUES_CHAPTERS,
+  ensureMathematiquesInDatabase,
+} from '@/lib/curriculum/mathematiques-data';
+import {
   BookOpen,
   Play,
   ArrowRight,
@@ -128,45 +132,14 @@ export default async function DashboardPage() {
   );
 
   // ── SÉPARATION STRICTE : MATHÉMATIQUES vs PHYSIQUE-CHIMIE ──
-  const mathChapters = rawChapters.filter((ch: any) => {
-    const t = (ch.title || '').toLowerCase().trim();
-    const isPC =
-      t.startsWith('c1') ||
-      t.startsWith('c2') ||
-      t.startsWith('c3') ||
-      t.startsWith('c4') ||
-      t.startsWith('c5') ||
-      t.startsWith('c6') ||
-      t.startsWith('c7') ||
-      t.startsWith('c8') ||
-      t.startsWith('c9') ||
-      t.startsWith('p1') ||
-      t.startsWith('p2') ||
-      t.startsWith('p3') ||
-      t.startsWith('p4') ||
-      t.startsWith('p5') ||
-      t.startsWith('p6') ||
-      t.startsWith('p7') ||
-      t.startsWith('p8') ||
-      t.startsWith('p9') ||
-      t.startsWith('p10') ||
-      t.includes('alcool') ||
-      t.includes('amine') ||
-      t.includes('acide') ||
-      t.includes('cinétique') ||
-      t.includes('cinetique') ||
-      t.includes('chimie') ||
-      t.includes('newton') ||
-      t.includes('mouvement') ||
-      t.includes('projectile') ||
-      t.includes('oscillation') ||
-      t.includes('induction') ||
-      t.includes('nucléaire') ||
-      t.includes('nucleaire');
-    return !isPC;
-  });
-
+  // Utilisation directe du référentiel officiel complet des 12 chapitres de Mathématiques
+  const mathChapters = MATHEMATIQUES_CHAPTERS as any[];
   const pcChapters = PHYSIQUE_CHIMIE_CHAPTERS;
+
+  // Déclencher la persistance Supabase en arrière-plan sans bloquer
+  ensureMathematiquesInDatabase(admin).catch((e) =>
+    console.error('Sync Maths DB background:', e)
+  );
 
   // Statistiques Maths
   let totalMathLessons = 0;
@@ -607,19 +580,19 @@ export default async function DashboardPage() {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <h3 className="font-extrabold text-navy text-base flex items-center gap-2">
               <span className="w-3 h-3 rounded-full bg-navy shrink-0" />
-              <span>Mathématiques — Chapitres d&apos;Analyse & Géométrie</span>
+              <span>Mathématiques — 3 Domaines (Analyse, Algèbre &amp; Probabilités)</span>
             </h3>
             <Link
               href={`/cours/${studentLevel.code}/${studentTrack.code}/mathematiques`}
               className="text-xs font-bold text-navy hover:text-turquoise hover:underline flex items-center gap-1 shrink-0 self-start sm:self-auto whitespace-nowrap"
             >
-              <span>Voir tout le programme</span>
+              <span>Voir les 12 chapitres</span>
               <ArrowRight className="w-3 h-3" />
             </Link>
           </div>
 
           <div className="space-y-2.5">
-            {mathChapters.slice(0, 5).map((ch: any, idx) => {
+            {mathChapters.slice(0, 6).map((ch: any, idx) => {
               const pubLessons = (ch.lessons ?? [])
                 .filter((l: any) => l.status === 'published')
                 .sort((a: any, b: any) => (a.order_index ?? 0) - (b.order_index ?? 0));
@@ -634,12 +607,19 @@ export default async function DashboardPage() {
                   className="bg-white rounded-xl border border-navy/10 p-3.5 sm:p-4 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3 min-w-0"
                 >
                   <div className="flex items-center gap-3 min-w-0 flex-1">
-                    <span className="w-7 h-7 rounded-lg bg-navy/10 text-navy text-xs font-bold flex items-center justify-center shrink-0">
-                      {idx + 1}
+                    <span className="w-8 h-8 rounded-lg bg-navy/10 text-navy text-xs font-black flex items-center justify-center shrink-0">
+                      {ch.code || idx + 1}
                     </span>
                     <div className="min-w-0 flex-1">
-                      <h4 className="font-bold text-navy text-sm truncate">{ch.title}</h4>
-                      <p className="text-xs text-text/50">
+                      <div className="flex items-center gap-2">
+                        <h4 className="font-bold text-navy text-sm truncate">{ch.title}</h4>
+                        {ch.domain && (
+                          <span className="text-[9px] font-bold uppercase tracking-wider text-navy/40 bg-surface px-1.5 py-0.2 rounded border border-navy/5 shrink-0 hidden sm:inline">
+                            {ch.domain}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-xs text-text/50 truncate">
                         {chDone} sur {pubLessons.length} leçons terminées ({chPercent}%)
                       </p>
                     </div>
