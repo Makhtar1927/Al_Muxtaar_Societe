@@ -116,6 +116,145 @@ La phase organique supérieure est constituée d'**octan-1-ol** car sa densité 
     },
   ],
 
+  // 0. AMINES (CHIMIE S2 - C2)
+  amines: [
+    {
+      year: 2023,
+      session: 'Session Normale (S2)',
+      points: 'Exercice 1 — Chimie Organique (4 Points)',
+      topic: 'Formule brute d\'une amine, Isomères de constitution, Réaction avec un chlorure d\'acyle et Alkylation d\'Hofmann',
+      enonce: `Une monoamine aliphatique saturée non cyclique $A$ contient en masse $23{,}73\\%$ d\'azote.
+(Données : $M(C) = 12\\text{ g/mol}$, $M(H) = 1\\text{ g/mol}$, $M(N) = 14\\text{ g/mol}$, $M(Cl) = 35{,}5\\text{ g/mol}$, $M(O) = 16\\text{ g/mol}$).
+
+1. Déterminer la formule brute de l\'amine $A$.
+2. Écrire les formules semi-développées de tous les isomères amines correspondant à cette formule brute. Préciser leur nom en nomenclature UICPA et leur classe ($1^\\circ$, $2^\\circ$, $3^\\circ$).
+3. On fait réagir l\'isomère $A_1$, qui est une amine secondaire, avec le chlorure d\'éthanoyle $CH_3-CO-Cl$.
+   a) Écrire l\'équation-bilan de la réaction en précisant le nom du composé organique obtenu.
+   b) Justifier la nécessité d\'utiliser au moins 2 moles d\'amine pour une mole de chlorure d\'éthanoyle.
+4. L\'amine primaire $A_2$ est soumise à une réaction avec un excès d\'iodométhane $CH_3-I$ (réaction de polyalkylation d\'Hofmann).
+   a) Écrire les équations des réactions successives conduisant au produit terminal.
+   b) Nommer le produit final obtenu.`,
+      solution: `### 1. Formule brute de l\'amine $A$
+La formule générale d\'une monoamine aliphatique saturée s\'écrit $C_n H_{2n+3} N$.
+Sa masse molaire moléculaire est :
+$$M = 12n + (2n + 3) \\times 1 + 14 = 14n + 17\\text{ g/mol}$$
+Le pourcentage massique d\'azote est :
+$$\\%N = \\frac{M(N)}{M} \\times 100 = \\frac{14}{14n + 17} \\times 100 = 23{,}73$$
+On résout l\'équation :
+$$\\frac{1400}{23{,}73} = 14n + 17 \\implies 59{,}00 = 14n + 17 \\implies 14n = 42 \\implies n = 3$$
+La masse molaire est donc $M = 59\\text{ g/mol}$ et la formule brute est **$C_3H_9N$**.
+
+---
+
+### 2. Isomères de constitution, Noms UICPA et Classes
+Pour la formule $C_3H_9N$, il existe 4 isomères :
+
+1. **$CH_3-CH_2-CH_2-NH_2$** :
+   - Nom : **Propan-1-amine**
+   - Classe : **Primaire ($1^\\circ$)** (l\'azote porte 2 H et 1 radical alkyle).
+2. **$CH_3-CH(NH_2)-CH_3$** :
+   - Nom : **Propan-2-amine**
+   - Classe : **Primaire ($1^\\circ$)** (l\'azote porte 2 H et 1 radical isopropyle ; attention : le carbone est secondaire mais l\'amine est primaire !).
+3. **$CH_3-CH_2-NH-CH_3$** :
+   - Nom : **$N$-méthyléthanamine**
+   - Classe : **Secondaire ($2^\\circ$)** (l\'azote porte 1 H et 2 radicaux alkyles).
+4. **$CH_3-N(CH_3)-CH_3$** ou **$(CH_3)_3N$** :
+   - Nom : **$N,N$-diméthylméthanamine** (ou triméthylamine)
+   - Classe : **Tertiaire ($3^\\circ$)** (l\'azote porte 0 H et 3 radicaux méthyles).
+
+---
+
+### 3. Réaction avec le chlorure d\'éthanoyle
+L\'isomère secondaire est $A_1 : CH_3-CH_2-NH-CH_3$.
+
+a) **Équation-bilan** :
+$$CH_3-CO-Cl + 2\\,CH_3-CH_2-NH-CH_3 \\longrightarrow CH_3-CO-N(CH_3)-CH_2-CH_3 + [CH_3-CH_2-NH_2-CH_3]^+ Cl^-$$
+- Le composé organique obtenu est un **amide $N,N$-disubstitué** : le **$N$-éthyl-$N$-méthyléthanamide**.
+- Le produit secondaire est le chlorure d\'éthylméthylammonium.
+
+b) **Justification du facteur stœchiométrique 2** :
+La réaction entre le chlorure d\'acyle et l\'amine libère du chlorure d\'hydrogène $HCl$. Comme l\'amine est une base de Brönsted, elle réagit immédiatement avec $HCl$ selon une réaction acido-basique totale pour former un sel d\'alkylammonium.
+Il faut donc une 1ère mole d\'amine pour attaquer le chlorure d\'acyle et former l\'amide, et une 2nde mole d\'amine pour neutraliser le $HCl$ formé.
+
+---
+
+### 4. Alkylation d\'Hofmann de l\'amine primaire $A_2$
+Soit $A_2 : CH_3-CH_2-CH_2-NH_2$ (Propan-1-amine).
+
+a) **Étapes successives en présence d\'un excès d\'iodométhane $CH_3I$** :
+- **Étape 1 (Amine $1^\\circ \\to$ Amine $2^\\circ$)** :
+  $$C_3H_7-NH_2 + CH_3-I \\longrightarrow [C_3H_7-NH_2-CH_3]^+ I^- \\xrightarrow{C_3H_7NH_2} C_3H_7-NH-CH_3 + C_3H_7NH_3^+ I^-$$
+- **Étape 2 (Amine $2^\\circ \\to$ Amine $3^\\circ$)** :
+  $$C_3H_7-NH-CH_3 + CH_3-I \\longrightarrow [C_3H_7-NH(CH_3)_2]^+ I^- \\xrightarrow{\\text{base}} C_3H_7-N(CH_3)_2 + \\text{sel}$$
+- **Étape 3 (Amine $3^\\circ \\to$ Sel quaternaire)** :
+  $$C_3H_7-N(CH_3)_2 + CH_3-I \\longrightarrow [C_3H_7-N(CH_3)_3]^+ I^-$$
+
+b) **Nom du produit final** :
+**Iodure de triméthylpropylammonium** (sel d\'ammonium quaternaire). La chaîne de substitutions s\'arrête car l\'azote n\'a plus d\'hydrogène remplaçable.`,
+      baremeAstuce: 'Au Bac S2, ne confondez jamais la classe de l\'alcool (carbone porteur) et celle de l\'amine (azote porteur). Pour la réaction d\'acylation, écrivez toujours le coefficient 2 devant l\'amine et précisez le sel formé.',
+    },
+    {
+      year: 2019,
+      session: 'Session Normale (S2)',
+      points: 'Exercice 1 — Chimie Organique (4 Points)',
+      topic: 'Propriétés acido-basiques des amines, Effets électroniques et Dosage pH-métrique',
+      enonce: `On dispose de trois solutions aqueuses de même concentration molaire $C = 10^{-2}\\text{ mol/L}$ :
+- Solution $S_1$ : ammoniac $NH_3$ ($pK_{a1} = 9{,}2$)
+- Solution $S_2$ : éthanamine $CH_3-CH_2-NH_2$ ($pK_{a2} = 10{,}7$)
+- Solution $S_3$ : aniline (phénylamine) $C_6H_5-NH_2$ ($pK_{a3} = 4{,}6$)
+
+1. Définir une base selon Brönsted et montrer que l\'éthanamine est une base dans l\'eau en écrivant l\'équation de sa réaction avec l\'eau.
+2. Comparer les forces relatives des bases présentes dans $S_1$, $S_2$ et $S_3$.
+3. Justifier cette différence de basicité à l\'aide des effets électroniques (inducteur et mésomère).
+4. On dose un volume $V_b = 20\\text{ mL}$ de la solution d\'éthanamine $S_2$ par une solution d\'acide chlorhydrique de concentration $C_a = 10^{-2}\\text{ mol/L}$.
+   a) Écrire l\'équation de la réaction support du titrage.
+   b) Déterminer le volume $V_{aE}$ à l\'équivalence.
+   c) Préciser la nature du mélange à l\'équivalence et justifier si le $pH_E$ est inférieur, égal ou supérieur à 7.`,
+      solution: `### 1. Définition et équation acido-basique
+- Une **base de Brönsted** est toute espèce chimique capable de capter au moins un proton $H^+$.
+- L\'atome d\'azote de l\'éthanamine possède un doublet non liant libre disponible pour fixer un proton $H^+$.
+- En solution aqueuse, l\'équilibre s\'écrit :
+$$CH_3-CH_2-NH_2 + H_2O \\rightleftharpoons CH_3-CH_2-NH_3^+ + OH^-$$
+Le couple associé est $CH_3-CH_2-NH_3^+ / CH_3-CH_2-NH_2$.
+
+---
+
+### 2. Comparaison des forces basiques
+À concentration égale, plus le $pK_a$ du couple acide/base conjugué est grand, plus la base est forte.
+On a :
+$$pK_{a3} (\\text{aniline, } 4{,}6) < pK_{a1} (\\text{ammoniac, } 9{,}2) < pK_{a2} (\\text{éthanamine, } 10{,}7)$$
+Par conséquent, l\'ordre croissant de force basique est :
+$$\\text{Aniline} < \\text{Ammoniac} < \\text{Éthanamine}$$
+L\'éthanamine est la base la plus forte, l\'aniline est la plus faible.
+
+---
+
+### 3. Justification par les effets électroniques
+- **Cas de l\'éthanamine ($CH_3-CH_2-NH_2$) par rapport à l\'ammoniac ($NH_3$)** :
+  Le groupe éthyle ($C_2H_5-$) exerce un **effet inducteur donneur d\'électrons ($+I$)**. Il repousse les électrons vers l\'atome d\'azote, augmentant ainsi sa densité électronique. Le doublet non liant de l\'azote devient plus disponible pour capter un proton $H^+$, ce qui renforce le caractère basique de l\'éthanamine par rapport à $NH_3$.
+- **Cas de l\'aniline ($C_6H_5-NH_2$)** :
+  Le groupe phényle ($C_6H_5-$) est conjugué avec le doublet non liant de l\'azote. Ce doublet participe à la **délocalisation par résonance (mésomérie $+M$)** sur le cycle benzénique. Moins localisé sur l\'atome d\'azote, il est beaucoup moins disponible pour fixer un proton $H^+$. L\'aniline est donc une base beaucoup plus faible que l\'ammoniac.
+
+---
+
+### 4. Titrage de l\'éthanamine par l\'acide chlorhydrique
+a) **Équation du titrage** :
+$$CH_3-CH_2-NH_2 + H_3O^+ \\longrightarrow CH_3-CH_2-NH_3^+ + H_2O$$
+(Réaction quasi-totale, exothermique et rapide).
+
+b) **Volume à l\'équivalence** :
+À l\'équivalence :
+$$C_a V_{aE} = C_b V_b \\implies V_{aE} = \\frac{C_b V_b}{C_a} = \\frac{10^{-2} \\times 20}{10^{-2}} = 20\\text{ mL}$$
+
+c) **Nature du mélange à l\'équivalence et $pH_E$** :
+À l\'équivalence, tous les réactifs ont été consommés dans les proportions stœchiométriques. La solution contient uniquement les ions chlorure spectateurs $Cl^-$ et les ions éthylammonium $CH_3-CH_2-NH_3^+$.
+L\'ion $CH_3-CH_2-NH_3^+$ est un acide faible (acide conjugué de l\'éthanamine). Il réagit partiellement avec l\'eau :
+$$CH_3-CH_2-NH_3^+ + H_2O \\rightleftharpoons CH_3-CH_2-NH_2 + H_3O^+$$
+Le milieu est donc **acide à l\'équivalence : $pH_E < 7$** (typiquement autour de $5{,}8$).`,
+      baremeAstuce: 'Retenez bien pour le Bac S2 : le titrage d\'une base faible par un acide fort conduit TOUJOURS à un pH à l\'équivalence acide (pHE < 7). L\'indicateur coloré approprié est donc le rouge de méthyle (zone de virage 4,2 - 6,2) et non la phénolphtaléine.',
+    },
+  ],
+
   // 0. CINÉTIQUE CHIMIQUE (CHIMIE S2)
   cinetique: [
     {

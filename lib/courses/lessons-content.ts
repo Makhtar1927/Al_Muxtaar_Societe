@@ -1582,6 +1582,113 @@ $$\\vec{u} \\wedge \\vec{v} = \\begin{pmatrix} yz' - zy' \\\\ zx' - xz' \\\\ xy'
 - **Volume d'un tétraèdre $ABCD$ :**
   $$\\mathcal{V}(ABCD) = \\frac{1}{6} |(\\vec{AB} \\wedge \\vec{AC}) \\cdot \\vec{AD}|$$
 `,
+
+
+
+  // ===================================================================
+  // C2 : AMINES (Chimie Organique — Terminale S2 Sénégal)
+  // ===================================================================
+  amines: `# C2 : Amines — Structure, propriétés et réactivité (Terminale S2)
+
+Bienvenue dans le deuxième chapitre de **Chimie Organique** pour la classe de **Terminale S2**, rigoureusement conforme au programme officiel sénégalais (MEN / IGEF / Office du Baccalauréat).
+
+Les amines sont des dérivés de l'ammoniac $\\text{NH}_3$ dans lesquels un, deux ou trois atomes d'hydrogène sont remplacés par des groupes organiques (alkyles ou aryles).
+
+---
+
+## 1. Définition et Formule Générale
+
+Une **amine** est un dérivé de l'ammoniac $\\text{NH}_3$ par substitution d'un, deux ou trois H par des groupes hydrocarbonés.
+
+**Formule générale des monoamines aliphatiques saturées** :
+$$\\text{C}_n\\text{H}_{2n+3}\\text{N} \\implies M = 14n + 17 \\;\\text{g/mol}$$
+
+> [!CONSEIL_BAC] Si la masse molaire $M$ est donnée, posez $14n + 17 = M$ pour trouver $n$ !
+
+---
+
+## 2. Les Trois Classes d'Amines
+
+> [!WARNING] **PIÈGE BAC S2 :** La classe d'une amine = nombre de groupes carbonés sur **l'azote N** (et NON sur le carbone comme pour les alcools !).
+
+| Classe | Groupes sur N | H sur N | Formule type |
+|--------|--------------|---------|--------------|
+| Primaire ($1^\\circ$) | 1 | 2 | $R-\\text{NH}_2$ |
+| Secondaire ($2^\\circ$) | 2 | 1 | $R-\\text{NH}-R'$ |
+| Tertiaire ($3^\\circ$) | 3 | 0 | $R-\\text{N}(R')(R'')$ |
+
+**Méthode infaillible :** Comptez H sur N : 2H → 1°, 1H → 2°, 0H → 3°.
+
+---
+
+## 3. Nomenclature UICPA
+
+### Amines primaires
+- Chaîne la plus longue portant $-\\text{NH}_2$ + suffixe **"-amine"** précédé de l'indice.
+- $\\text{CH}_3\\text{CH}_2\\text{CH}_2\\text{NH}_2$ → **propan-1-amine**
+
+### Amines secondaires et tertiaires
+- Préfixe **N-alkyle** pour les groupes supplémentaires sur N.
+- $\\text{CH}_3-\\text{NH}-\\text{CH}_2\\text{CH}_3$ → **N-méthyléthanamine**
+- $(\\text{CH}_3)_2\\text{N}-\\text{CH}_2\\text{CH}_3$ → **N,N-diméthyléthanamine**
+
+---
+
+## 4. Propriétés Acido-Basiques
+
+Les amines sont des **bases faibles** (doublet non liant sur N capte $\\text{H}^+$) :
+
+$$R-\\text{NH}_2 + \\text{H}_2\\text{O} \\rightleftharpoons R-\\text{NH}_3^+ + \\text{OH}^-$$
+
+**Ordre de force basique croissant (pKa) :**
+$$\\text{Aniline }(4{,}6) < \\text{NH}_3 \\;(9{,}2) < \\text{Alkylamines}_{1^\\circ}\\;(10{,}6) < \\text{Dialkylamines}_{2^\\circ}\\;(10{,}9)$$
+
+- **Alkyles** → effet $+I$ → enrichissent N → base plus forte.
+- **Cycle aromatique** → mésomérie capte le doublet → aniline base très faible.
+
+Action des acides forts (totale) :
+$$R-\\text{NH}_2 + \\text{HCl} \\longrightarrow R-\\text{NH}_3^+\\text{Cl}^- \\quad (\\text{sel d'alkylammonium})$$
+
+> [!TIP] Sel d'alkylammonium = acide conjugué d'une base faible → solution aqueuse **acide** (pH < 7).
+
+---
+
+## 5. Alkylation d'Hofmann (Polyalkylation)
+
+Le doublet de N fait des amines d'excellents **nucléophiles** :
+
+$$1^\\circ \\xrightarrow{R'X} 2^\\circ \\xrightarrow{R'X} 3^\\circ \\xrightarrow{R'X} [\\text{sel quaternaire}]^+X^-$$
+
+- Excès d'amine → amine secondaire majoritaire.
+- Excès d'halogénoalcane → sel d'ammonium quaternaire.
+
+---
+
+## 6. Synthèse d'Amides par Acylation (Réaction Totale)
+
+$$R-\\text{COCl} + 2\\,R'-\\text{NH}_2 \\longrightarrow R-\\text{CO}-\\text{NH}-R' + (R'-\\text{NH}_3^+\\text{Cl}^-)$$
+
+> [!IMPORTANT] Coefficient **2** obligatoire : 1ère mole forme l'amide, 2ème mole capte HCl.
+
+> [!WARNING] Amine **tertiaire** (0H sur N) → NE PEUT PAS former d'amide !
+
+---
+
+## 7. Tableau de Réactivité
+
+| Réactif | Produit | Amine concernée |
+|---------|---------|-----------------|
+| Acide fort HX | Sel d'alkylammonium | Toutes |
+| $R'X$ (excès amine) | Amine de classe supérieure | 1°, 2° |
+| $R'X$ (excès) | Sel quaternaire | Toutes |
+| Chlorure d'acyle $R\\text{COCl}$ | Amide + sel | **1° et 2° uniquement** |
+
+> [!WOLOF] **Réflexes d'Or en Wolof :**
+> 1. « Ci amine, **azote N** la ngay xool, bu du carbone ! »
+> 2. « Alkyles → effet $+I$ → gën a forcé ; cycle aromatique → mésomérie → gën a niopk ! »
+> 3. « Amine tertiaire du def amide ndax amul benn H ci azote bi ! »
+`,
+
 };
 
 export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: string, rawContent: string | null): string {
@@ -1592,6 +1699,16 @@ export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: stri
     titleLower.includes('alcol')
   ) {
     return RICH_LESSONS_MAP.alcools;
+  }
+
+  if (
+    titleLower.includes('amine') ||
+    titleLower.includes('hofmann') ||
+    titleLower.includes('alkylammonium') ||
+    titleLower.includes('amide') ||
+    titleLower.includes('nukleophile')
+  ) {
+    return RICH_LESSONS_MAP.amines;
   }
 
   if (

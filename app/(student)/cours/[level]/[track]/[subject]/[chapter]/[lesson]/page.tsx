@@ -67,6 +67,9 @@ import CinetiqueQuizEmbedded from '@/components/course/cinetique-quiz-embedded';
 import AlcoolsReflexesCard from '@/components/course/alcools-reflexes-card';
 import AlcoolsInteractiveSimulator from '@/components/course/alcools-interactive-simulator';
 import AlcoolsQuizEmbedded from '@/components/course/alcools-quiz-embedded';
+import AminesReflexesCard from '@/components/course/amines-reflexes-card';
+import AminesInteractiveSimulator from '@/components/course/amines-interactive-simulator';
+import AminesQuizEmbedded from '@/components/course/amines-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
@@ -111,6 +114,49 @@ const ALCOOLS_AUDIO_CHAPTERS: AudioChapter[] = [
     icon: "piege_bac",
     textScript:
       "Retenez les temps d'apparition du trouble laiteux avec le réactif de Lucas : immédiat en moins de 30 secondes pour un alcool tertiaire, environ 5 minutes pour un alcool secondaire, et aucun trouble à température ambiante pour un alcool primaire.",
+  },
+];
+
+const AMINES_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Enjeux des Amines au Bac S2 Sénégal",
+    badge: "Introduction",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass de Chimie Organique de Terminale S2 consacrée aux Amines. Chapitre incontournable des épreuves du Baccalauréat sénégalais, il combine la détermination de formule brute, les 3 classes d'amines, la basicité comparée et la substitution nucléophile d'Hofmann.",
+  },
+  {
+    timeSeconds: 45,
+    title: "2. Le Piège d'or des Classes d'Amines",
+    badge: "Piège Bac",
+    icon: "piege_bac",
+    textScript:
+      "Ne confondez jamais alcools et amines ! Pour un alcool, on regarde le carbone fonctionnel. Pour une amine, on regarde EXCLUSIVEMENT l'atome d'azote N. Comptez simplement les hydrogènes liés à N : deux H pour la classe 1 primaire, un H pour la classe 2 secondaire, et aucun H pour la classe 3 tertiaire.",
+  },
+  {
+    timeSeconds: 110,
+    title: "3. Basicité et Effets Électroniques (+I et Mésomérie)",
+    badge: "Règle d'or",
+    icon: "theoreme_equerre",
+    textScript:
+      "Pourquoi les alkylamines sont-elles plus basiques que l'ammoniac ? Grâce à l'effet inducteur donneur +I des groupes alkyles qui enrichit le doublet de l'azote. Et pourquoi l'aniline est-elle très peu basique ? Parce que son doublet non liant est délocalisé dans le cycle benzénique par résonance mésomère.",
+  },
+  {
+    timeSeconds: 175,
+    title: "4. L'Alkylation d'Hofmann et le Sel Quaternaire",
+    badge: "Mécanisme",
+    icon: "technique_outils",
+    textScript:
+      "Grâce au doublet libre de l'azote, l'amine attaque l'halogénoalcane. En excès d'amine, on isole l'amine secondaire. En excès d'halogénoalcane, la réaction se poursuit jusqu'à l'ion ammonium quaternaire qui ne possède plus aucun hydrogène remplaçable.",
+  },
+  {
+    timeSeconds: 235,
+    title: "5. Synthèse d'Amides : Le Facteur 2 Obligatoire",
+    badge: "Formule clé",
+    icon: "formule_cle",
+    textScript:
+      "Retenez la règle d'or pour le Bac : lors de l'action d'un chlorure d'acyle sur une amine primaire ou secondaire, mettez TOUJOURS un coefficient 2 devant l'amine ! La première mole forme l'amide, la deuxième mole neutralise immédiatement l'acide chlorhydrique produit.",
   },
 ];
 
@@ -1164,6 +1210,65 @@ export default async function LessonReaderPage({ params }: PageProps) {
     lessonMeta = createdLesson;
   }
 
+  // Provisioning pour C2 : Amines (Physique-Chimie S2)
+  if (!lessonMeta && params.lesson === '60000000-0000-0001-0001-000000000004') {
+    await admin.from('chapters').upsert({
+      id: '50000000-0000-0001-0001-000000000002',
+      title: 'C2 : Amines',
+      order_index: 2,
+      status: 'published',
+    }, { onConflict: 'id' });
+
+    const { data: createdLesson } = await admin
+      .from('lessons')
+      .upsert({
+        id: '60000000-0000-0001-0001-000000000004',
+        chapter_id: '50000000-0000-0001-0001-000000000002',
+        title: "Structure, classes d'amines et nomenclature officielle",
+        order_index: 1,
+        content_markdown: "# C2 : Amines — Structure, classes d'amines et nomenclature officielle",
+        is_free: false,
+        status: 'published',
+      }, { onConflict: 'id' })
+      .select()
+      .single();
+    lessonMeta = createdLesson;
+  }
+
+  if (!lessonMeta && params.lesson === '60000000-0000-0001-0001-000000000005') {
+    const { data: createdLesson } = await admin
+      .from('lessons')
+      .upsert({
+        id: '60000000-0000-0001-0001-000000000005',
+        chapter_id: '50000000-0000-0001-0001-000000000002',
+        title: 'Propriétés acido-basiques et caractère nucléophile des amines',
+        order_index: 2,
+        content_markdown: '# C2 : Amines — Propriétés acido-basiques et caractère nucléophile',
+        is_free: false,
+        status: 'published',
+      }, { onConflict: 'id' })
+      .select()
+      .single();
+    lessonMeta = createdLesson;
+  }
+
+  if (!lessonMeta && params.lesson === '60000000-0000-0001-0001-000000000006') {
+    const { data: createdLesson } = await admin
+      .from('lessons')
+      .upsert({
+        id: '60000000-0000-0001-0001-000000000006',
+        chapter_id: '50000000-0000-0001-0001-000000000002',
+        title: "Réaction d'alkylation d'Hofmann et passage aux sels d'ammonium",
+        order_index: 3,
+        content_markdown: "# C2 : Amines — Réaction d'alkylation d'Hofmann et sels d'ammonium",
+        is_free: false,
+        status: 'published',
+      }, { onConflict: 'id' })
+      .select()
+      .single();
+    lessonMeta = createdLesson;
+  }
+
   if (lessonMeta && lessonMeta.status !== 'published') {
     await admin.from('lessons').update({ status: 'published' }).eq('id', lessonMeta.id);
     lessonMeta.status = 'published';
@@ -1316,8 +1421,18 @@ export default async function LessonReaderPage({ params }: PageProps) {
     params.lesson === '60000000-0000-0001-0001-000000000001' ||
     params.chapter === '50000000-0000-0001-0001-000000000001';
 
+  const isAmines =
+    !isAlcools &&
+    (lessonMeta.title.toLowerCase().includes('amine') ||
+      (chapter?.title?.toLowerCase() || '').includes('amine') ||
+      params.lesson === '60000000-0000-0001-0001-000000000004' ||
+      params.lesson === '60000000-0000-0001-0001-000000000005' ||
+      params.lesson === '60000000-0000-0001-0001-000000000006' ||
+      params.chapter === '50000000-0000-0001-0001-000000000002');
+
   const isCinetique =
     !isAlcools &&
+    !isAmines &&
     (lessonMeta.title.toLowerCase().includes('cinetique') ||
       lessonMeta.title.toLowerCase().includes('cinétique') ||
       lessonMeta.title.toLowerCase().includes('vitesse de réaction') ||
@@ -1439,6 +1554,8 @@ export default async function LessonReaderPage({ params }: PageProps) {
                 title={
                   isAlcools
                     ? 'Masterclass Audio : Classes d\'Alcools & Nomenclature'
+                    : isAmines
+                    ? 'Masterclass Audio : Amines, Classes & Réaction d\'Hofmann'
                     : isCinetique
                     ? 'Masterclass Audio : Cinétique Chimique & Vitesse de Réaction'
                     : isTvi
@@ -1470,6 +1587,8 @@ export default async function LessonReaderPage({ params }: PageProps) {
                 subtitle={
                   isAlcools
                     ? 'Terminale S2 • Chimie : Les 5 réflexes pour reconnaître la classe et nommer'
+                    : isAmines
+                    ? 'Terminale S2 • Chimie : Les 5 réflexes pour maîtriser la basicité et Hofmann au Bac'
                     : isCinetique
                     ? 'Terminale S2 • Chimie : Les 5 réflexes pour l\'exercice cinétique au Bac'
                     : isTvi
@@ -1501,6 +1620,8 @@ export default async function LessonReaderPage({ params }: PageProps) {
                 chapters={
                   isAlcools
                     ? ALCOOLS_AUDIO_CHAPTERS
+                    : isAmines
+                    ? AMINES_AUDIO_CHAPTERS
                     : isCinetique
                     ? CINETIQUE_AUDIO_CHAPTERS
                     : isTvi
@@ -1552,6 +1673,11 @@ export default async function LessonReaderPage({ params }: PageProps) {
                 <>
                   <AlcoolsReflexesCard />
                   <AlcoolsInteractiveSimulator />
+                </>
+              ) : isAmines ? (
+                <>
+                  <AminesReflexesCard />
+                  <AminesInteractiveSimulator />
                 </>
               ) : isCinetique ? (
                 <>
@@ -1653,6 +1779,8 @@ export default async function LessonReaderPage({ params }: PageProps) {
                 chapter={
                   isAlcools
                     ? 'alcools'
+                    : isAmines
+                    ? 'amines'
                     : isCinetique
                     ? 'cinetique'
                     : isTvi
@@ -1693,6 +1821,8 @@ export default async function LessonReaderPage({ params }: PageProps) {
                 </section>
               ) : isAlcools ? (
                 <AlcoolsQuizEmbedded />
+              ) : isAmines ? (
+                <AminesQuizEmbedded />
               ) : isCinetique ? (
                 <CinetiqueQuizEmbedded />
               ) : isTvi ? (
