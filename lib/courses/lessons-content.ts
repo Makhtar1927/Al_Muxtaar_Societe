@@ -1926,143 +1926,134 @@ $$\\text{pH} = pK_i + \\log\\left(\\frac{[\\text{In}^-]}{[\\text{HIn}]}\\right)$
 ## Objectifs Pédagogiques Officiels (Baccalauréat S2)
 
 > [!IMPORTANT]
-> 1. Définir un **acide fort** et une **base forte** par leur dissociation totale dans l'eau.
-> 2. Calculer le pH d'un **monoacide fort**, d'un **diacide fort** ($\text{H}_2\text{SO}_4$) et d'une **base forte** ($\text{NaOH}$).
-> 3. Écrire et caractériser l'équation de neutralisation fort-fort : $\text{H}_3\text{O}^+ + \text{OH}^- \longrightarrow 2\,\text{H}_2\text{O}$ (totale, exothermique).
-> 4. Maîtriser le **point d'équivalence stœchiométrique** $E(V_{bE}\,;\, \text{pH}_E = 7{,}00)$ à $25^\circ\text{C}$ et la formule $C_a V_a = C_b V_{bE}$.
-> 5. Exploiter la courbe de titrage $\text{pH} = f(V_b)$ par la **méthode des tangentes parallèles** et justifier le choix du **Bleu de Bromothymol (BBT)**.
+> 1. Définir un **acide fort** et une **base forte** par leur dissociation totale et quantitative dans l'eau.
+> 2. Calculer rigoureusement le pH d'un **monoacide fort** ($\\text{pH} = -\\log C_a$), d'un **diacide fort** ($\\text{H}_2\\text{SO}_4$, $[\\text{H}_3\\text{O}^+] = 2\\,C_a \\implies \\text{pH} = -\\log(2\\,C_a)$) et d'une **base forte** ($\\text{pH} = 14 + \\log C_b$).
+> 3. Écrire et caractériser l'équation de neutralisation fort-fort : $\\text{H}_3\\text{O}^+ + \\text{OH}^- \\longrightarrow 2\\,\\text{H}_2\\text{O}$ (totale, exothermique).
+> 4. Maîtriser le **point d'équivalence stœchiométrique** $E(V_{bE}\\,;\\, \\text{pH}_E = 7{,}00)$ à $25^\\circ\\text{C}$ et la relation fondamentale $C_a V_a = C_b V_{bE}$.
+> 5. Exploiter la courbe de titrage $\\text{pH} = f(V_b)$ par la **méthode des tangentes parallèles** et justifier le choix du **Bleu de Bromothymol (BBT)**.
 
 ---
 
-## 1. Solutions d'Acides Forts et de Bases Fortes
+## 1. Solutions Aqueuses d'Acides Forts et de Bases Fortes
 
 ### A. L'Acide Fort
-Un **acide fort** réagit de manière **totale et quantitative** avec l'eau (coefficient de dissociation $\alpha = 1$). Aucune molécule d'acide non dissociée ne subsiste à l'état final.
+Un **acide fort** réagit de manière **totale et quantitative** avec l'eau (coefficient de dissociation $\\alpha = 1$). Aucune molécule d'acide non dissociée ne subsiste à l'état final.
 
 - **Équation de dissolution générale :**
-  $$\text{HA} + \text{H}_2\text{O} \longrightarrow \text{A}^- + \text{H}_3\text{O}^+$$
+  $$\\text{HA} + \\text{H}_2\\text{O} \\longrightarrow \\text{A}^- + \\text{H}_3\\text{O}^+$$
 - **Monoacides forts classiques du Bac S2 :**
-  - Acide chlorhydrique : $\text{HCl} + \text{H}_2\text{O} \longrightarrow \text{Cl}^- + \text{H}_3\text{O}^+$
-  - Acide nitrique : $\text{HNO}_3 + \text{H}_2\text{O} \longrightarrow \text{NO}_3^- + \text{H}_3\text{O}^+$
+  - Acide chlorhydrique : $\\text{HCl} + \\text{H}_2\\text{O} \\longrightarrow \\text{Cl}^- + \\text{H}_3\\text{O}^+$
+  - Acide nitrique : $\\text{HNO}_3 + \\text{H}_2\\text{O} \\longrightarrow \\text{NO}_3^- + \\text{H}_3\\text{O}^+$
 - **Calcul du pH d'un monoacide fort de concentration $C_a$ :**
-  $$[\text{H}_3\text{O}^+] = C_a \implies \mathbf{\text{pH} = -\log C_a}$$
-  *(Valable pour $10^{-6}\text{ mol/L} \le C_a \le 10^{-1}\text{ mol/L}$)*
+  $$[\\text{H}_3\\text{O}^+] = C_a \\implies \\mathbf{\\text{pH} = -\\log C_a}$$
+  *(Domaine de validité officiel : $10^{-6}\\text{ mol/L} \\le C_a \\le 10^{-1}\\text{ mol/L}$ à $25^\\circ\\text{C}$)*
 
 > [!CAUTION]
-> **Le Piège N°1 du Bac S2 — Le Diacide fort $\text{H}_2\text{SO}_4$ :**
+> **Le Piège N°1 du Baccalauréat S2 — Le Diacide Fort $\\text{H}_2\\text{SO}_4$ :**
 > L'acide sulfurique libère **2 protons** par molécule dissoute :
-> $$\text{H}_2\text{SO}_4 + 2\,\text{H}_2\text{O} \longrightarrow \text{SO}_4^{2-} + 2\,\text{H}_3\text{O}^+$$
-> $$[\text{H}_3\text{O}^+] = 2\,C_a \implies \mathbf{\text{pH} = -\log(2\,C_a)}$$
-> *Exemple :* Si $C_a = 5{,}0 \times 10^{-3}\text{ mol/L}$, alors $[\text{H}_3\text{O}^+] = 10^{-2}\text{ mol/L} \implies \text{pH} = 2{,}00$ !
+> $$\\text{H}_2\\text{SO}_4 + 2\\,\\text{H}_2\\text{O} \\longrightarrow \\text{SO}_4^{2-} + 2\\,\\text{H}_3\\text{O}^+$$
+> $$[\\text{H}_3\\text{O}^+] = 2\\,C_a \\implies \\mathbf{\\text{pH} = -\\log(2\\,C_a)}$$
+> *Exemple d'or :* Si $C_a = 5{,}0 \\times 10^{-3}\\text{ mol/L}$, alors $[\\text{H}_3\\text{O}^+] = 2 \\times 5{,}0 \\times 10^{-3} = 1{,}0 \\times 10^{-2}\\text{ mol/L} \\implies \\mathbf{\\text{pH} = 2{,}00}$ !
 
 ---
 
 ### B. La Base Forte
-Une **base forte** est un composé qui s'ionise totalement en solution aqueuse pour libérer des ions hydroxyde $\text{OH}^-$.
+Une **base forte** est une espèce qui s'ionise totalement en solution aqueuse pour libérer quantitativement des ions hydroxyde $\\text{OH}^-$.
 
 - **Bases fortes classiques du Bac S2 :**
-  - Hydroxyde de sodium (soude) : $\text{NaOH} \\xrightarrow{\text{eau}} \text{Na}^+ + \text{OH}^-$
-  - Hydroxyde de potassium (potasse) : $\text{KOH} \\xrightarrow{\text{eau}} \text{K}^+ + \text{OH}^-$
-- **Calcul du pH d'une monobase forte de concentration $C_b$ à $25^\circ\text{C}$ :**
-  $$[\text{OH}^-] = C_b \implies \text{pOH} = -\log C_b$$
-  Comme $\text{pH} + \text{pOH} = 14{,}00$ :
-  $$\mathbf{\text{pH} = 14 + \log C_b}$$
+  - Hydroxyde de sodium (soude) : $\\text{NaOH} \\xrightarrow{\\text{eau}} \\text{Na}^+ + \\text{OH}^-$
+  - Hydroxyde de potassium (potasse) : $\\text{KOH} \\xrightarrow{\\text{eau}} \\text{K}^+ + \\text{OH}^-$
+- **Calcul du pH d'une monobase forte de concentration $C_b$ à $25^\\circ\\text{C}$ :**
+  $$[\\text{OH}^-] = C_b \\implies \\text{pOH} = -\\log C_b$$
+  Comme $\\text{pH} + \\text{pOH} = 14{,}00$ :
+  $$\\mathbf{\\text{pH} = 14{,}00 + \\log C_b}$$
 
 ---
 
 ## 2. La Réaction de Neutralisation Fort-Fort
 
-Lorsqu'on mélange une solution d'acide fort et une solution de base forte, les ions spectateurs ($\text{Na}^+$, $\text{Cl}^-$) ne participent pas à la réaction.
+Lorsqu'on mélange une solution aqueuse d'acide fort et une solution de base forte, les ions spectateurs ($\\text{Na}^+$, $\\text{Cl}^-$) ne participent pas à la transformation.
 
-### Équation-bilan unique
-$$\text{H}_3\text{O}^+ + \text{OH}^- \longrightarrow 2\,\text{H}_2\text{O}$$
+### Équation-bilan fondamentale
+$$\\text{H}_3\\text{O}^+ + \\text{OH}^- \\longrightarrow 2\\,\\text{H}_2\\text{O}$$
 
 ### Caractéristiques thermodynamiques
 1. **Quasi-totale :** La constante d'équilibre est l'inverse du produit ionique de l'eau :
-   $$K = \frac{1}{K_e} = 10^{14} \quad (\text{à } 25^\circ\text{C})$$
-   La réaction est donc quantitative et irréversible (flèche unique $\longrightarrow$).
-2. **Très rapide :** La neutralisation protonique est quasi-instantanée.
-3. **Nettement exothermique :** La réaction dégage de la chaleur ($\Delta H < 0$).
+   $$K = \\frac{1}{K_e} = 1{,}0 \\times 10^{14} \\quad (\\text{à } 25^\\circ\\text{C})$$
+   La réaction est quantitative et irréversible (flèche unique $\\longrightarrow$).
+2. **Très rapide :** Le transfert de proton entre $\\text{H}_3\\text{O}^+$ et $\\text{OH}^-$ est quasi-instantané.
+3. **Nettement exothermique :** La réaction s'accompagne d'un dégagement notable de chaleur ($\\Delta H < 0$).
 
 ---
 
 ## 3. Titrage pH-métrique d'un Acide Fort par une Base Forte
 
-On introduit un volume $V_a$ d'acide fort de concentration $C_a$ dans un bécher, et on verse progressivement à la burette une solution de base forte de concentration $C_b$ connue (volume versé $V_b$).
+Dans un bécher, on introduit un volume $V_a$ de monoacide fort de concentration $C_a$ inconnue. On verse progressivement à la burette graduée une solution de base forte de concentration $C_b$ connue (volume versé $V_b$).
 
 ### A. Définition et Condition de l'Équivalence
-L'**équivalence acido-basique** est atteinte lorsque les quantités de matière d'acide et de base ont été mélangées dans les proportions stœchiométriques de la réaction :
-$$n_a(\text{initial}) = n_b(\text{versé à } E) \iff \mathbf{C_a V_a = C_b V_{bE}}$$
+L'**équivalence acido-basique** est atteinte lorsque les quantités de matière d'acide titré et de base titrante ont été mélangées dans les proportions stœchiométriques :
+$$n_a(\\text{initial}) = n_b(\\text{versé à } E) \\iff \\mathbf{C_a \\times V_a = C_b \\times V_{bE}}$$
 
-On en déduit la concentration inconnue :
-$$C_a = \frac{C_b \times V_{bE}}{V_a}$$
+On en déduit immédiatement la concentration inconnue :
+$$\\mathbf{C_a = \\frac{C_b \\times V_{bE}}{V_a}}$$
 
 ### B. Nature et pH de la solution à l'équivalence
-À l'équivalence, tous les ions $\text{H}_3\text{O}^+$ et $\text{OH}^-$ ont réagi pour donner de l'eau. Le milieu ne contient plus que les ions spectateurs $\text{Na}^+$ et $\text{Cl}^-$, formant une solution aqueuse de **chlorure de sodium $\text{NaCl}$** (sel neutre).
-Par conséquent, à $25^\circ\text{C}$ :
-$$\mathbf{\text{pH}_E = 7{,}00}$$
+À l'équivalence, tous les ions $\\text{H}_3\\text{O}^+$ et $\\text{OH}^-$ introduits ont réagi. La solution ne contient plus que les ions spectateurs $\\text{Na}^+$ et $\\text{Cl}^-$, formant une solution aqueuse de **chlorure de sodium $\\text{NaCl}$** (sel d'acide fort et de base forte).
+Les ions $\\text{Na}^+$ et $\\text{Cl}^-$ étant dépourvus de toute propriété acido-basique dans l'eau :
+$$\\mathbf{\\text{pH}_E = 7{,}00 \\quad (\\text{à } 25^\\circ\\text{C})}$$
+Le point d'équivalence d'un titrage fort-fort est **strictement neutre**.
 
 ---
 
-## 4. Analyse de la Courbe de Titrage $\text{pH} = f(V_b)$
+## 4. Analyse Détaillée de la Courbe de Titrage $\\text{pH} = f(V_b)$
 
-La courbe présente trois régions distinctes :
+La courbe présente trois zones géométriques remarquables :
 
-\`\`\`
- pH ^
-14  |                                             --- Asymptote pH = 14 + log(Cb)
-    |                                           /
-    |                                          |
- 7  | - - - - - - - - - - - - - - - - - - - - -E - - - Point d'équivalence (pHE = 7.00)
-    |                                          |
-    |                                          /
-    |                             /------------ Saut de pH brutal (de ~3 à ~11)
- 1  | ---------------------------/
- 0  +---------------------------------------------> Vb (mL)
-    0                                        VbE
-\`\`\`
+| Région de la Courbe | Volume versé $V_b$ | Espèce en excès | Expression du pH |
+| :--- | :---: | :---: | :--- |
+| **Zone 1 : Avant équivalence** | $V_b < V_{bE}$ | $\\text{H}_3\\text{O}^+$ en excès | $[\\text{H}_3\\text{O}^+] = \\frac{C_a V_a - C_b V_b}{V_a + V_b} \\implies \\text{pH} = -\\log\\left(\\frac{C_a V_a - C_b V_b}{V_a + V_b}\\right)$ |
+| **Zone 2 : Saut de pH abrupt** | $V_b \\approx V_{bE}$ | Proportions stœchiométriques | Variation brutale de $\\text{pH} \\approx 3$ à $\\text{pH} \\approx 11$ ; **$\\text{pH}_E = 7{,}00$** |
+| **Zone 3 : Après équivalence** | $V_b > V_{bE}$ | $\\text{OH}^-$ en excès | $[\\text{OH}^-] = \\frac{C_b V_b - C_a V_a}{V_a + V_b} \\implies \\text{pH} = 14 + \\log\\left(\\frac{C_b V_b - C_a V_a}{V_a + V_b}\\right)$ |
 
-1. **Avant l'équivalence ($V_b < V_{bE}$) :**
-   L'acide est en excès. Le pH varie très lentement (effet tampon de dilution).
-   $$[\text{H}_3\text{O}^+] = \frac{C_a V_a - C_b V_b}{V_a + V_b} \implies \text{pH} = -\log\left(\frac{C_a V_a - C_b V_b}{V_a + V_b}\right)$$
-2. **Au voisinage de l'équivalence ($V_b \approx V_{bE}$) :**
-   Un **saut de pH spectaculaire** se produit (brusque variation de $\text{pH} \approx 3$ à $\text{pH} \approx 11$ pour une seule goutte de soude !). Le point d'inflexion est le point d'équivalence $E$.
-3. **Après l'équivalence ($V_b > V_{bE}$) :**
-   La base forte est en excès. Le pH tend vers l'asymptote horizontale $\text{pH} = 14 + \log C_b$.
-   $$[\text{OH}^-] = \frac{C_b V_b - C_a V_a}{V_a + V_b} \implies \text{pH} = 14 + \log\left(\frac{C_b V_b - C_a V_a}{V_a + V_b}\right)$$
+### Caractéristiques physiques du tracé
+- **Point d'inflexion unique :** Le centre de symétrie du saut de pH coïncide exactement avec le point d'équivalence $E(V_{bE}\\,;\\, \\text{pH}_E = 7{,}00)$.
+- **Pic de la dérivée :** La courbe de la dérivée première $\\frac{d\\text{pH}}{dV_b}$ présente un pic aigu maximal à l'abscisse $V_b = V_{bE}$.
+- **Asymptote finale :** Lorsque $V_b \\to +\\infty$, le pH tend vers l'asymptote horizontale d'équation $\\text{pH} = 14 + \\log C_b$.
 
 ---
 
 ## 5. Méthode des Tangentes Parallèles
 
-Pour déterminer graphiquement les coordonnées $(V_{bE}\,;\, \text{pH}_E)$ :
-1. Tracer deux tangentes $(\mathcal{T}_1)$ et $(\mathcal{T}_2)$ à la courbe, situées de part et d'autre du saut de pH et **parfaitement parallèles entre elles**.
-2. Tracer un segment perpendiculaire commun aux deux tangentes et repérer son milieu.
-3. Tracer la droite médiane parallèle $(\mathcal{D})$ équidistante des deux tangentes.
-4. L'intersection de $(\mathcal{D})$ avec la courbe donne exactement le **point d'équivalence $E(V_{bE}\,;\, 7{,}00)$**.
+La méthode officielle prescrite par l'Office du Baccalauréat sénégalais pour déterminer expérimentalement $E(V_{bE}\\,;\\, \\text{pH}_E)$ :
+
+1. **Tracer deux tangentes $(\\mathcal{T}_1)$ et $(\\mathcal{T}_2)$** à la courbe de part et d'autre du saut de pH, **parfaitement parallèles entre elles**.
+2. **Tracer un segment perpendiculaire commun** à ces deux tangentes et déterminer son milieu exact.
+3. **Tracer la droite médiane $(\\mathcal{D})$** parallèle et équidistante aux deux tangentes.
+4. **Localiser l'intersection** de $(\\mathcal{D})$ avec la courbe de dosage : elle donne avec précision les coordonnées du **point d'équivalence $E(V_{bE}\\,;\\, \\text{pH}_E = 7{,}00)$**.
 
 ---
 
 ## 6. Choix de l'Indicateur Coloré
 
 > [!TIP]
-> **Critère officiel d'adéquation :**
-> Un indicateur coloré convient pour repérer l'équivalence d'un titrage si et seulement si **le pH à l'équivalence $\text{pH}_E$ est situé dans sa zone de virage**.
+> **Règle d'or de l'Office du Baccalauréat :**
+> Un indicateur coloré convient pour repérer l'équivalence d'un titrage si et seulement si **le pH à l'équivalence $\\text{pH}_E$ appartient à sa zone de virage**.
 >
-> Pour un titrage acide fort / base forte à $25^\circ\text{C}$ ($\text{pH}_E = 7{,}00$) :
-> - **Bleu de bromothymol (BBT)** : Zone $[6{,}0 \,;\, 7{,}6]$. Comme $7{,}00 \in [6{,}0 \,;\, 7{,}6]$, le **BBT est l'indicateur parfait par excellence**. Il vire du jaune au bleu en passant par sa **teinte sensible verte** exactement à l'équivalence stœchiométrique.
-> - La *phénolphtaléine* ($8{,}2 - 10{,}0$) et l'*hélianthine* ($3{,}1 - 4{,}4$) virent également lors du saut brutal mais légèrement après ou avant la neutralité stœchiométrique.
+> Pour un titrage acide fort / base forte à $25^\\circ\\text{C}$ ($\\text{pH}_E = 7{,}00$) :
+> - **Bleu de bromothymol (BBT)** : Zone de virage $[6{,}0 \\,;\\, 7{,}6]$. Comme $7{,}00 \\in [6{,}0 \\,;\\, 7{,}6]$, le **BBT est l'indicateur idéal par excellence**. Sa teinte sensible verte s'observe exactement à la goutte équivalente.
+> - La *phénolphtaléine* ($[8{,}2 \\,;\\, 10{,}0]$) et l'*hélianthine* ($[3{,}1 \\,;\\, 4{,}4]$) virent également dans le saut de pH car le saut est très étendu (de 3 à 11), mais le BBT demeure le plus précis car sa zone encadre symétriquement $\\text{pH}_E = 7{,}00$.
 
 ---
 
 ## 7. Réflexes d'Or du Baccalauréat Sénégalais
 
 > [!IMPORTANT]
-> 1. Monoacide fort : $\text{pH} = -\log C_a$ ; Base forte : $\text{pH} = 14 + \log C_b$.
-> 2. Diacide $\text{H}_2\text{SO}_4$ : $[\text{H}_3\text{O}^+] = 2\,C_a \implies \text{pH} = -\log(2\,C_a)$ et $V_{bE} = \frac{2\,C_a V_a}{C_b}$ !
-> 3. Équation de neutralisation : $\text{H}_3\text{O}^+ + \text{OH}^- \longrightarrow 2\,\text{H}_2\text{O}$ (totale, $K = 10^{14}$).
-> 4. À l'équivalence : $n_a = n_b \implies C_a V_a = C_b V_{bE}$ et $\mathbf{\text{pH}_E = 7{,}00}$ à $25^\circ\text{C}$.
-> 5. Indicateur : le **BBT** est l'indicateur optimal (virage au vert à $\text{pH} = 7{,}0$).
+> 1. Monoacide fort : $\\text{pH} = -\\log C_a$ ; Base forte : $\\text{pH} = 14 + \\log C_b$.
+> 2. Diacide $\\text{H}_2\\text{SO}_4$ : $[\\text{H}_3\\text{O}^+] = 2\\,C_a \\implies \\text{pH} = -\\log(2\\,C_a)$ et $V_{bE} = \\frac{2\\,C_a V_a}{C_b}$ (volume équivalent doublé !).
+> 3. Équation de neutralisation : $\\text{H}_3\\text{O}^+ + \\text{OH}^- \\longrightarrow 2\\,\\text{H}_2\\text{O}$ (totale, $K = 10^{14}$).
+> 4. À l'équivalence : $n_a = n_b \\implies C_a V_a = C_b V_{bE}$ et $\\mathbf{\\text{pH}_E = 7{,}00}$ à $25^\\circ\\text{C}$.
+> 5. Indicateur coloré optimal : le **BBT** (virage net au vert franc à $\\text{pH} = 7{,}00$).
+> 6. Dilution par 10 : $\\Delta\\text{pH} = +1{,}00$ pour un acide fort, avec asymptote inviolable à $\\text{pH} = 7{,}00$.
 
 > [!WOLOF]
 > - « Acide fort bi (naka HCl) bu duggee ci ndox dafay def H₃O⁺ ak Cl⁻ bépp, amul benn molécule bu des ! »
@@ -2070,7 +2061,6 @@ Pour déterminer graphiquement les coordonnées $(V_{bE}\,;\, \text{pH}_E)$ :
 > - « Équivalence bi pH bi 7 la koy doon faww ci 25°C ndax ndoxum xorom neutre lay jur ! »
 > - « BBT mooy champion dosage fort-fort bi ndax teinte sensible verte bi dafa tàbbi ci 7,00 exact ! »
 `
-
 };
 
 export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: string, rawContent: string | null): string {
