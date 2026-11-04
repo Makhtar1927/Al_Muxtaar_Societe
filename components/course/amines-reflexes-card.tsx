@@ -9,27 +9,29 @@ export default function AminesReflexesCard() {
   const REFLEXES = [
     {
       num: 1,
+      shortLabel: 'Classes',
       title: "Les 3 Classes d'Amines (Le Piège d'or du Bac)",
-      badge: "Notion Fondamentale",
+      badge: 'Notion Fondamentale',
       formule: "1^\\circ : R-\\mathbf{N}H_2 \\qquad 2^\\circ : R-\\mathbf{N}H-R' \\qquad 3^\\circ : R-\\mathbf{N}(R')(R'')",
       regleBac:
-        "La classe d'une amine dépend EXCLUSIVEMENT du nombre d'atomes de carbone (groupes alkyles ou aryles) directement liés à l'atome d'AZOTE N (et NON PAS du carbone comme pour les alcools !).",
+        "La classe d'une amine dépend EXCLUSIVEMENT du nombre de radicaux carbonés directement liés à l'atome d'AZOTE N (et NON PAS du carbone fonctionnel comme pour les alcools !).",
       explication:
         "Pour identifier la classe en un clin d'œil au Bac S2, comptez simplement les atomes d'hydrogène fixés sur l'azote :\n\n1. **Amine Primaire ($1^\\circ$)** : L'azote est lié à **1 seul groupe carboné** et porte **2 atomes d'hydrogène** ($-\\text{NH}_2$).\n   - Formule générale : $R-\\text{NH}_2$.\n   - *Exemples* : Éthanamine ($\\text{CH}_3-\\text{CH}_2-\\text{NH}_2$), 2-méthylpropan-2-amine ($(\\text{CH}_3)_3\\text{C}-\\text{NH}_2$).\n2. **Amine Secondaire ($2^\\circ$)** : L'azote est lié à **2 groupes carbonés** et porte **1 seul atome d'hydrogène** ($-\\text{NH}-$).\n   - Formule générale : $R-\\text{NH}-R'$.\n   - *Exemple* : $N$-méthyléthanamine ($\\text{CH}_3-\\text{CH}_2-\\text{NH}-\\text{CH}_3$).\n3. **Amine Tertiaire ($3^\\circ$)** : L'azote est lié à **3 groupes carbonés** et ne porte **aucun atome d'hydrogène**.\n   - Formule générale : $R-\\text{N}(R')(R'')$.\n   - *Exemple* : Triméthylamine ($(\\text{CH}_3)_3\\text{N}$).\n\n- **Formule brute générale des monoamines aliphatiques saturées** :\n  $$\\text{C}_n\\text{H}_{2n+3}\\text{N} \\quad \\implies \\quad M = 14n + 17 \\quad (\\text{g/mol})$$",
       wolof:
         "« Bul jaxase alcools ak amines mukk ! Ci alcool, carbone bi yor -OH bi ngay xool. Waaye ci amine, AZOTE N bi ngay xool : ñaata hydrogène ñoo takku ci moom ?\n- Su dee 2 H rek : mooy classe 1 (1°).\n- Su dee 1 H rek : mooy classe 2 (2°).\n- Su amul benn H : mooy classe 3 (3°) ! »",
       piege:
-        "PIÈGE CLASSIQUE BAC S2 : La molécule (CH₃)₃C—NH₂ possède un carbone lié à 3 autres carbones (carbone tertiaire). Beaucoup d'élèves écrivent par erreur qu'il s'agit d'une amine tertiaire. C'EST FAUX ! L'azote ne porte qu'un seul radical et possède 2 H : c'est une amine PRIMAIRE (1°) !",
+        "La molécule (CH₃)₃C—NH₂ possède un carbone lié à 3 autres carbones (carbone tertiaire). Beaucoup d'élèves écrivent par erreur qu'il s'agit d'une amine tertiaire. C'EST FAUX ! L'azote ne porte qu'un seul radical et possède 2 H : c'est une amine PRIMAIRE (1°) !",
     },
     {
       num: 2,
-      title: "Nomenclature UICPA & Notation N-alkyle",
+      shortLabel: 'Nomenclature',
+      title: 'Nomenclature UICPA & Notation N-alkyle',
       badge: "Règle d'or",
       formule: "\\text{Préfixe } N\\text{-alkyle} + \\text{Nom alcane principal} + \\text{Indice} + \\text{\"-amine\"}",
       regleBac:
-        "Pour nommer une amine sans hésitation au Baccalauréat, déterminez la chaîne principale la plus longue liée à l'azote, et préfixez les autres ramifications par la lettre \"N-\".",
+        "Pour nommer une amine sans hésitation au Baccalauréat, déterminez la chaîne principale la plus longue liée à l'azote, et préfixez les autres ramifications par la lettre majuscule en italique \"N-\".",
       explication:
-        "1. **Amine primaire ($1^\\circ$)** :\n   - On cherche la chaîne carbonée la plus longue contenant le carbone lié au groupe $-\\text{NH}_2$.\n   - On numérote pour donner à ce carbone le plus petit indice possible.\n   - *Exemple* : $\\text{CH}_3-\\text{CH}(\\text{NH}_2)-\\text{CH}_2-\\text{CH}_3$ se nomme **butan-2-amine**.\n\n2. **Amines secondaires ($2^\\circ$) et tertiaires ($3^\\circ$)** :\n   - La chaîne la plus longue forme le squelette de l'amine principale.\n   - Les autres groupes alkyles portés par l'azote sont désignés comme des substituants précédés de la lettre majuscule en italique $N-$ (ex : $N$-méthyl, $N$-éthyl).\n   - *Exemple 1* : $\\text{CH}_3-\\text{CH}_2-\\text{NH}-\\text{CH}_3 \\implies$ **$N$-méthyléthanamine**.\n   - *Exemple 2* : $\\text{CH}_3-\\text{N}(\\text{CH}_3)-\\text{CH}_2-\\text{CH}_2-\\text{CH}_3 \\implies$ **$N,N$-diméthylpropan-1-amine**.\n\n3. **Amine aromatique de référence** :\n   - $\\text{C}_6\\text{H}_5-\\text{NH}_2$ : **phénylamine** ou **aniline** (nom accepté par l'UICPA).",
+        "1. **Amine primaire ($1^\\circ$)** :\n   - On cherche la chaîne carbonée la plus longue contenant le carbone lié au groupe $-\\text{NH}_2$.\n   - On numérote pour donner à ce carbone le plus petit indice possible.\n   - *Exemple* : $\\text{CH}_3-\\text{CH}(\\text{NH}_2)-\\text{CH}_2-\\text{CH}_3$ se nomme **butan-2-amine**.\n\n2. **Amines secondaires ($2^\\circ$) et tertiaires ($3^\\circ$)** :\n   - La chaîne la plus longue forme le squelette de l'amine principale.\n   - Les autres groupes alkyles portés par l'azote sont désignés comme des substituants précédés de la lettre majuscule $N-$ (ex : $N$-méthyl, $N$-éthyl).\n   - *Exemple 1* : $\\text{CH}_3-\\text{CH}_2-\\text{NH}-\\text{CH}_3 \\implies$ **$N$-méthyléthanamine**.\n   - *Exemple 2* : $\\text{CH}_3-\\text{N}(\\text{CH}_3)-\\text{CH}_2-\\text{CH}_2-\\text{CH}_3 \\implies$ **$N,N$-diméthylpropan-1-amine**.\n\n3. **Amine aromatique de référence** :\n   - $\\text{C}_6\\text{H}_5-\\text{NH}_2$ : **phénylamine** ou **aniline** (nom accepté par l'UICPA).",
       wolof:
         "« Bu fekkee amine secondaire walla tertiaire la : jëllal chaîne bi gën a gudd def ko principal. Yeneen chaîne yu ndaw yi takku ci azote bi, jox leen préfixe \"N-\" ci kanam (naka N-méthyléthanamine) ! »",
       piege:
@@ -37,8 +39,9 @@ export default function AminesReflexesCard() {
     },
     {
       num: 3,
-      title: "Propriétés Acido-Basiques & Effet Inducteur +I",
-      badge: "Chimie des Solutions",
+      shortLabel: 'Basicité & +I',
+      title: 'Propriétés Acido-Basiques & Effet Inducteur +I',
+      badge: 'Chimie des Solutions',
       formule: "R-\\text{NH}_2 + \\text{H}_2\\text{O} \\rightleftharpoons R-\\text{NH}_3^+ + \\text{OH}^- \\qquad (pK_a \\approx 10{,}6 - 11)",
       regleBac:
         "Les amines sont des bases faibles de Brönsted grâce au doublet non-liant porté par l'atome d'azote N, capable de capter un proton H⁺.",
@@ -51,8 +54,9 @@ export default function AminesReflexesCard() {
     },
     {
       num: 4,
+      shortLabel: 'Hofmann',
       title: "Caractère Nucléophile & Polyalkylation d'Hofmann",
-      badge: "Mécanisme Réactionnel",
+      badge: 'Mécanisme Réactionnel',
       formule: "R-\\text{NH}_2 + 3 R'-\\text{X} \\xrightarrow{\\text{excès de } R'-\\text{X}} [R-\\text{N}(R')_3]^+ \\text{X}^- + 2 \\text{HX}",
       regleBac:
         "Grâce au doublet non liant de l'azote, les amines sont des nucléophiles remarquables qui attaquent les atomes de carbone électrophiles des halogénoalcanes (R'—X).",
@@ -65,8 +69,9 @@ export default function AminesReflexesCard() {
     },
     {
       num: 5,
+      shortLabel: 'Amides & Coef 2',
       title: "Action sur les Dérivés d'Acides (Synthèse d'Amides)",
-      badge: "Réaction Totale",
+      badge: 'Réaction Totale',
       formule: "R-\\text{CO}-\\text{Cl} + 2 R'-\\text{NH}_2 \\longrightarrow R-\\text{CO}-\\text{NH}-R' + (R'-\\text{NH}_3^+ + \\text{Cl}^-)",
       regleBac:
         "La réaction d'une amine primaire ou secondaire avec un chlorure d'acyle (ou un anhydride d'acide) est TOTALE, RAPIDE et EXOTHERMIQUE. Elle conduit à la synthèse d'un amide N-substitué.",
@@ -82,141 +87,125 @@ export default function AminesReflexesCard() {
   const current = REFLEXES[activeTab];
 
   return (
-    <div className="my-10 rounded-3xl border border-blue-200/80 bg-gradient-to-br from-blue-50/50 via-white to-indigo-50/40 p-6 md:p-8 shadow-xl shadow-blue-500/5 backdrop-blur-sm">
+    <section className="bg-white rounded-3xl border border-navy/10 p-5 sm:p-7 shadow-sm space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-blue-100 pb-5">
-        <div className="flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-500/30">
-            <span className="text-xl font-black">C2</span>
-          </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
-                Fiches Réflexes Bac S2 Sénégal
-              </span>
-              <span className="rounded-full bg-blue-100 px-2 py-0.5 text-[10px] font-semibold text-blue-700">
-                Chimie Organique
-              </span>
-            </div>
-            <h3 className="text-lg md:text-xl font-black text-slate-900">
-              Amines : Les 5 Réflexes d&apos;Excellence
-            </h3>
-          </div>
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-navy/10 pb-4">
+        <div>
+          <span className="text-[11px] font-bold text-turquoise uppercase tracking-widest block">
+            Fiche Réflexe Baccalauréat Sénégal • Terminale S2
+          </span>
+          <h2 className="text-xl sm:text-2xl font-black text-navy mt-1">
+            Les 5 Réflexes Infaillibles sur les Amines
+          </h2>
         </div>
-        <div className="text-xs font-semibold text-slate-500 bg-white/80 border border-slate-200/80 px-3 py-1.5 rounded-full shadow-sm">
-          Réflexe {activeTab + 1} sur {REFLEXES.length}
-        </div>
+        <span className="rounded-full bg-turquoise-light/30 text-turquoise border border-turquoise/30 px-3 py-1 text-xs font-black">
+          C2 : Amines
+        </span>
       </div>
 
-      {/* Navigation Tabs */}
-      <div className="mt-6 flex flex-wrap gap-2">
-        {REFLEXES.map((item, idx) => (
-          <button
-            key={item.num}
-            onClick={() => setActiveTab(idx)}
-            className={`flex items-center gap-2 rounded-xl px-3.5 py-2 text-xs md:text-sm font-bold transition-all ${
-              activeTab === idx
-                ? 'bg-blue-600 text-white shadow-md shadow-blue-500/25 scale-[1.02]'
-                : 'bg-white/80 text-slate-600 hover:bg-blue-50 hover:text-blue-700 border border-slate-200/60'
-            }`}
-          >
-            <span
-              className={`flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-black ${
-                activeTab === idx
-                  ? 'bg-white text-blue-600'
-                  : 'bg-slate-100 text-slate-600'
+      {/* Tabs */}
+      <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
+        {REFLEXES.map((r, idx) => {
+          const isActive = activeTab === idx;
+          return (
+            <button
+              key={r.num}
+              onClick={() => setActiveTab(idx)}
+              className={`p-3 rounded-2xl text-left border transition-all flex flex-col justify-between ${
+                isActive
+                  ? 'bg-navy text-white border-navy shadow-md'
+                  : 'bg-surface hover:bg-surface-muted text-navy border-navy/5'
               }`}
             >
-              {item.num}
-            </span>
-            <span className="truncate max-w-[120px] sm:max-w-none">
-              {item.badge}
-            </span>
-          </button>
-        ))}
+              <div className="flex items-center justify-between w-full mb-1">
+                <span
+                  className={`text-[10px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded-md ${
+                    isActive ? 'bg-white/20 text-white' : 'bg-navy/10 text-navy'
+                  }`}
+                >
+                  R{r.num}
+                </span>
+                <span className="text-[10px] opacity-70">
+                  {r.shortLabel}
+                </span>
+              </div>
+              <span className="text-xs font-bold line-clamp-2">
+                {r.title.split('(')[0]}
+              </span>
+            </button>
+          );
+        })}
       </div>
 
-      {/* Active Reflex Card Content */}
-      <div className="mt-6 rounded-2xl border border-blue-100 bg-white p-5 md:p-7 shadow-sm space-y-5">
-        {/* Title and Badge */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-          <h4 className="text-base md:text-lg font-black text-slate-900 flex items-center gap-2">
-            <span className="text-blue-600">#{current.num}</span>
-            {current.title}
-          </h4>
-          <span className="inline-flex self-start sm:self-auto items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-blue-700 border border-blue-200/60">
+      {/* Active Tab Card */}
+      <div className="rounded-2xl border border-navy/10 bg-surface/50 p-5 sm:p-6 space-y-5">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div className="flex items-center gap-2">
+            <span className="h-7 w-7 rounded-full bg-navy text-white text-xs font-black flex items-center justify-center">
+              {current.num}
+            </span>
+            <h3 className="text-base sm:text-lg font-black text-navy">
+              {current.title}
+            </h3>
+          </div>
+          <span className="rounded-full bg-turquoise-light text-turquoise font-bold text-xs px-2.5 py-0.5">
             {current.badge}
           </span>
         </div>
 
-        {/* Formula Banner */}
-        <div className="rounded-xl border border-blue-200 bg-gradient-to-r from-blue-50 via-indigo-50/50 to-blue-50/30 p-4 text-center overflow-x-auto shadow-inner">
-          <div className="text-sm md:text-base font-bold text-slate-800">
+        {/* Formule clé */}
+        <div className="bg-white rounded-xl border border-navy/10 p-4 text-center overflow-x-auto shadow-sm">
+          <span className="text-[10px] font-bold uppercase tracking-wider text-navy/40 block mb-1">
+            Formule & Modèle de Référence Bac
+          </span>
+          <div className="text-navy font-semibold text-sm sm:text-base">
             <MathRenderer content={`$$${current.formule}$$`} />
           </div>
         </div>
 
-        {/* Official Bac Rule */}
-        <div className="rounded-xl border-l-4 border-blue-600 bg-blue-50/60 p-4">
-          <p className="text-xs font-bold uppercase tracking-wider text-blue-700 mb-1">
-            Règle Officielle Bac S2
-          </p>
-          <p className="text-sm font-semibold text-slate-800 leading-relaxed">
+        {/* Règle d'or Bac */}
+        <div className="bg-emerald-50/80 rounded-xl border border-emerald-200 p-4 space-y-1">
+          <span className="text-[11px] font-black uppercase tracking-wider text-emerald-800 flex items-center gap-1.5">
+            <span>✓</span> Règle d&apos;or du Bac Sénégal :
+          </span>
+          <p className="text-xs sm:text-sm text-emerald-950 font-medium leading-relaxed">
             {current.regleBac}
           </p>
         </div>
 
-        {/* Detailed Explanation */}
-        <div className="space-y-3 text-sm text-slate-700 leading-relaxed border-t border-slate-100 pt-4">
-          <MathRenderer content={current.explication} />
+        {/* Explication détaillée */}
+        <div className="bg-white rounded-xl border border-navy/10 p-4 space-y-2">
+          <span className="text-[11px] font-bold uppercase tracking-wider text-navy/50 block">
+            Détails & Démonstration :
+          </span>
+          <div className="text-xs sm:text-sm text-navy-light leading-relaxed whitespace-pre-line">
+            <MathRenderer content={current.explication} />
+          </div>
         </div>
 
-        {/* Wolof Insight */}
-        <div className="rounded-xl border border-amber-200 bg-gradient-to-r from-amber-50/80 to-yellow-50/40 p-4">
-          <div className="flex items-center gap-2 mb-1.5">
-            <span className="text-base">💡</span>
-            <span className="text-xs font-bold uppercase tracking-wider text-amber-900">
-              Xam-xam ci Wolof (Comprendre d&apos;un coup d&apos;œil)
+        {/* Grille Wolof & Piège Bac */}
+        <div className="grid gap-3 sm:grid-cols-2">
+          {/* Wolof */}
+          <div className="rounded-xl border border-amber-200 bg-amber-50/60 p-3.5 space-y-1 text-xs text-amber-950">
+            <span className="font-bold text-amber-900 flex items-center gap-1.5 text-[11px] uppercase tracking-wider">
+              <span>💡</span> Xam-xam ci Wolof (Repère Intuitif) :
             </span>
+            <p className="italic leading-relaxed">
+              {current.wolof}
+            </p>
           </div>
-          <p className="text-xs md:text-sm font-medium text-amber-950/90 italic leading-relaxed whitespace-pre-line">
-            {current.wolof}
-          </p>
-        </div>
 
-        {/* Piège Exam Alert */}
-        <div className="rounded-xl border border-rose-200 bg-rose-50/50 p-4">
-          <div className="flex items-center gap-2 mb-1">
-            <span className="text-base">⚠️</span>
-            <span className="text-xs font-bold uppercase tracking-wider text-rose-800">
-              Piège Classique du Baccalauréat
+          {/* Piège classique */}
+          <div className="rounded-xl border border-rose-200 bg-rose-50/60 p-3.5 space-y-1 text-xs text-rose-950">
+            <span className="font-bold text-rose-900 flex items-center gap-1.5 text-[11px] uppercase tracking-wider">
+              <span>⚠️</span> Le Piège Fréquent des Correcteurs :
             </span>
+            <p className="leading-relaxed">
+              {current.piege}
+            </p>
           </div>
-          <p className="text-xs md:text-sm font-semibold text-rose-950/90 leading-relaxed">
-            {current.piege}
-          </p>
         </div>
       </div>
-
-      {/* Footer Navigation Buttons */}
-      <div className="mt-5 flex items-center justify-between">
-        <button
-          onClick={() => setActiveTab((prev) => Math.max(0, prev - 1))}
-          disabled={activeTab === 0}
-          className="flex items-center gap-1.5 text-xs md:text-sm font-bold text-blue-600 hover:text-blue-800 disabled:opacity-30 disabled:hover:text-blue-600 transition"
-        >
-          ← Réflexe précédent
-        </button>
-        <button
-          onClick={() =>
-            setActiveTab((prev) => Math.min(REFLEXES.length - 1, prev + 1))
-          }
-          disabled={activeTab === REFLEXES.length - 1}
-          className="flex items-center gap-1.5 text-xs md:text-sm font-bold text-blue-600 hover:text-blue-800 disabled:opacity-30 disabled:hover:text-blue-600 transition"
-        >
-          Réflexe suivant →
-        </button>
-      </div>
-    </div>
+    </section>
   );
 }
