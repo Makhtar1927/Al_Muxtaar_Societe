@@ -76,6 +76,9 @@ import { AcidesDerivesQuizEmbedded } from '@/components/course/acides-derives-qu
 import AutoprotolysePhReflexesCard from '@/components/course/autoprotolyse-ph-reflexes-card';
 import AutoprotolysePhInteractiveSimulator from '@/components/course/autoprotolyse-ph-interactive-simulator';
 import AutoprotolysePhQuizEmbedded from '@/components/course/autoprotolyse-ph-quiz-embedded';
+import AcideFortBaseForteReflexesCard from '@/components/course/acide-fort-base-forte-reflexes-card';
+import AcideFortBaseForteInteractiveSimulator from '@/components/course/acide-fort-base-forte-interactive-simulator';
+import AcideFortBaseForteQuizEmbedded from '@/components/course/acide-fort-base-forte-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
@@ -292,6 +295,49 @@ const AUTOPROTOLYSE_PH_AUDIO_CHAPTERS: AudioChapter[] = [
     icon: "rigueur_compas",
     textScript:
       "Diluer un acide fort par 10 augmente le pH de 1 unite exactement. Diluer une base forte par 10 diminue le pH de 1 unite. Par dilution infinie, le pH tend vers 7 sans jamais le depasser pour un acide, ni le descendre pour une base. C est l asymptote de neutralite imposee par l autoprotolyse de l eau.",
+  },
+];
+
+const ACIDE_FORT_BASE_FORTE_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Enjeux du Titrage Fort-Fort au Bac S2",
+    badge: "Introduction",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass de Chimie Terminale S2 sur les acides forts, les bases fortes et leur réaction de dosage. Ce chapitre est un pilier absolu du Baccalauréat sénégalais. Maîtriser la dissociation totale, le calcul de pH et la méthode des tangentes parallèles vous garantit l'intégralité des points de l'exercice acido-basique.",
+  },
+  {
+    timeSeconds: 50,
+    title: "2. Dissociation Totale & Piège du Diacide H₂SO₄",
+    badge: "Formule clé",
+    icon: "formule_cle",
+    textScript:
+      "Pour un monoacide fort comme HCl, la dissociation est totale : pH égal moins log de Ca. Pour une base forte comme NaOH, pH égal 14 plus log de Cb. Mais retenez le piège capital du Bac : l'acide sulfurique H2SO4 est un diacide fort ! Chaque mole libère deux protons, donc la concentration en H3O+ vaut deux fois Ca et le pH vaut moins log de 2 Ca !",
+  },
+  {
+    timeSeconds: 115,
+    title: "3. Réaction de Neutralisation & pH = 7,00 à l'Équivalence",
+    badge: "Règle d'or",
+    icon: "theoreme_equerre",
+    textScript:
+      "L'équation-bilan fondamentale est H3O+ plus OH- donne deux H2O. Cette réaction est totale, instantanée et exothermique. À l'équivalence stœchiométrique Ca Va égal Cb VbE, tous les protons et hydroxydes ont réagi : la solution est une solution de sel neutre de chlorure de sodium, son pH vaut donc rigoureusement 7,00 à 25 degrés !",
+  },
+  {
+    timeSeconds: 180,
+    title: "4. La Méthode des Tangentes Parallèles",
+    badge: "Méthode",
+    icon: "technique_outils",
+    textScript:
+      "Pour trouver les coordonnées de l'équivalence sur la courbe expérimentale : tracez deux tangentes à la courbe de part et d'autre du saut de pH, strictement parallèles entre elles. Tracez ensuite la droite médiane équidistante. Son intersection avec la courbe donne exactement le point E de coordonnées VbE et pHE égal 7,00.",
+  },
+  {
+    timeSeconds: 245,
+    title: "5. Le Bleu de Bromothymol (BBT), Champion du Dosage",
+    badge: "Indicateur",
+    icon: "rigueur_compas",
+    textScript:
+      "Pour justifier le choix de l'indicateur au Bac, énoncez toujours le critère officiel : la zone de virage de l'indicateur doit englober le pH à l'équivalence. Le BBT avec sa zone de 6,0 à 7,6 contient idéalement 7,00. Sa teinte sensible verte apparaît pile à l'équivalence stœchiométrique !",
   },
 ];
 
@@ -1277,6 +1323,40 @@ export default async function LessonReaderPage({ params }: PageProps) {
     lessonMeta = createdLesson;
   }
 
+  // Provisioning pour C6 : Acide fort - Base forte (Physique-Chimie S2)
+  if (!lessonMeta && (
+    params.lesson === '60000000-0000-0001-0001-000000000014' ||
+    params.lesson === '60000000-0000-0001-0001-000000000015' ||
+    params.lesson === '60000000-0000-0001-0001-000000000016'
+  )) {
+    await admin.from('chapters').upsert({
+      id: '50000000-0000-0001-0001-000000000006',
+      title: "C6 : Acide fort – Base forte – Réaction entre acide fort et base forte – Dosage",
+      order_index: 6,
+      status: 'published',
+    }, { onConflict: 'id' });
+    const c6Map: Record<string, [string, number]> = {
+      '60000000-0000-0001-0001-000000000014': ['Définition, dissociation totale et calcul du pH des solutions fortes', 1],
+      '60000000-0000-0001-0001-000000000015': ['Réaction de neutralisation fort-fort et calcul du point d’équivalence', 2],
+      '60000000-0000-0001-0001-000000000016': ['Courbe de dosage pH-métrique fort-fort et choix de l’indicateur', 3],
+    };
+    const [c6Title, c6Order] = c6Map[params.lesson] || ['C6 Dosage fort-fort', 1];
+    const { data: createdLesson } = await admin
+      .from('lessons')
+      .upsert({
+        id: params.lesson,
+        chapter_id: '50000000-0000-0001-0001-000000000006',
+        title: c6Title,
+        order_index: c6Order,
+        content_markdown: `# C6 : Acides et Bases Fortes — ${c6Title}`,
+        is_free: false,
+        status: 'published',
+      }, { onConflict: 'id' })
+      .select()
+      .single();
+    lessonMeta = createdLesson;
+  }
+
   // Provisioning pour C1 : Alcools (Physique-Chimie S2)
   if (!lessonMeta && params.lesson === '60000000-0000-0001-0001-000000000001') {
     await admin.from('chapters').upsert({
@@ -1679,6 +1759,24 @@ if (lessonMeta && lessonMeta.status !== 'published') {
       params.lesson === '60000000-0000-0001-0001-000000000013' ||
       params.chapter === '50000000-0000-0001-0001-000000000005');
 
+  const isAcideFortBaseForte =
+    !isAlcools &&
+    !isAmines &&
+    !isAcidesDerives &&
+    !isCinetique &&
+    !isAutoprotolysePh &&
+    (lessonMeta.title.toLowerCase().includes('acide fort') ||
+      lessonMeta.title.toLowerCase().includes('base forte') ||
+      lessonMeta.title.toLowerCase().includes('fort-fort') ||
+      lessonMeta.title.toLowerCase().includes('fort fort') ||
+      lessonMeta.title.toLowerCase().includes('neutralisation') ||
+      (chapter?.title?.toLowerCase() || '').includes('acide fort') ||
+      (chapter?.title?.toLowerCase() || '').includes('base forte') ||
+      params.lesson === '60000000-0000-0001-0001-000000000014' ||
+      params.lesson === '60000000-0000-0001-0001-000000000015' ||
+      params.lesson === '60000000-0000-0001-0001-000000000016' ||
+      params.chapter === '50000000-0000-0001-0001-000000000006');
+
   const isDerivation =
     !isAlcools &&
     !isCinetique &&
@@ -1801,6 +1899,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'Masterclass Audio : Cinétique Chimique & Vitesse de Réaction'
                     : isAutoprotolysePh
                     ? 'Masterclass Audio : Autoprotolyse, pH & Indicateurs Colorés'
+                    : isAcideFortBaseForte
+                    ? 'Masterclass Audio : Acide Fort, Base Forte & Titrage Fort-Fort'
                     : isTvi
                     ? 'Masterclass Audio : TVI & Théorème de la Bijection'
                     : isAsymptotes
@@ -1838,6 +1938,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'Terminale S2 • Chimie : Les 5 réflexes pour l\'exercice cinétique au Bac'
                     : isAutoprotolysePh
                     ? 'Terminale S2 • Chimie : Les 5 réflexes pour le Ke, le pH et les indicateurs au Bac'
+                    : isAcideFortBaseForte
+                    ? 'Terminale S2 • Chimie : Les 5 réflexes pour le dosage fort-fort, les tangentes et le BBT'
                     : isTvi
                     ? 'Terminale S2 • Les 5 réflexes pour la Partie A & B'
                     : isAsymptotes
@@ -1875,6 +1977,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? CINETIQUE_AUDIO_CHAPTERS
                     : isAutoprotolysePh
                     ? AUTOPROTOLYSE_PH_AUDIO_CHAPTERS
+                    : isAcideFortBaseForte
+                    ? ACIDE_FORT_BASE_FORTE_AUDIO_CHAPTERS
                     : isTvi
                     ? TVI_AUDIO_CHAPTERS
                     : isAsymptotes
@@ -1944,6 +2048,11 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <>
                   <AutoprotolysePhReflexesCard />
                   <AutoprotolysePhInteractiveSimulator />
+                </>
+              ) : isAcideFortBaseForte ? (
+                <>
+                  <AcideFortBaseForteReflexesCard />
+                  <AcideFortBaseForteInteractiveSimulator />
                 </>
               ) : isTvi ? (
                 <>
@@ -2048,6 +2157,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'cinetique'
                     : isAutoprotolysePh
                     ? 'autoprotolyse_ph'
+                    : isAcideFortBaseForte
+                    ? 'acide_fort_base_forte'
                     : isTvi
                     ? 'tvi'
                     : isAsymptotes
@@ -2094,6 +2205,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <CinetiqueQuizEmbedded />
               ) : isAutoprotolysePh ? (
                 <AutoprotolysePhQuizEmbedded />
+              ) : isAcideFortBaseForte ? (
+                <AcideFortBaseForteQuizEmbedded />
               ) : isTvi ? (
                 <TviQuizEmbedded />
               ) : isAsymptotes ? (

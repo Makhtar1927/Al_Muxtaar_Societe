@@ -109,7 +109,7 @@ La molécule d'alcool présente un comportement amphiphile :
 Le **test de Lucas** permet de distinguer rapidement la classe d'un alcool au laboratoire :
 - **Réactif de Lucas** : Chlorure de zinc anhydre ($\\text{ZnCl}_2$) dans l'acide chlorhydrique concentré ($\\text{HCl}$).
 - **Principe chimique** : substitution nucléophile transformant l'alcool soluble en dérivé halogéné $R-\\text{Cl}$ insoluble :
-  $$R-\\text{OH} + \\text{HCl} \\xrightarrow{\\text{ZnCl}_2} R-\\text{Cl}_{(s/liq\\text{ trouble})} + \\text{H}_2\\text{O}$$
+  $$R-\\text{OH} + \\text{HCl} \\\\xrightarrow{\\text{ZnCl}_2} R-\\text{Cl}_{(s/liq\\text{ trouble})} + \\text{H}_2\\text{O}$$
 
 | Classe d'alcool | Observation expérimentale à froid ($20^\\circ\\text{C}$) | Vitesse de réaction |
 | :--- | :--- | :--- |
@@ -1657,7 +1657,7 @@ $$R-\\text{NH}_2 + \\text{HCl} \\longrightarrow R-\\text{NH}_3^+\\text{Cl}^- \\q
 
 Le doublet de N fait des amines d'excellents **nucléophiles** :
 
-$$1^\\circ \\xrightarrow{R'X} 2^\\circ \\xrightarrow{R'X} 3^\\circ \\xrightarrow{R'X} [\\text{sel quaternaire}]^+X^-$$
+$$1^\\circ \\\\xrightarrow{R'X} 2^\\circ \\\\xrightarrow{R'X} 3^\\circ \\\\xrightarrow{R'X} [\\text{sel quaternaire}]^+X^-$$
 
 - Excès d'amine → amine secondaire majoritaire.
 - Excès d'halogénoalcane → sel d'ammonium quaternaire.
@@ -1918,6 +1918,158 @@ $$\\text{pH} = pK_i + \\log\\left(\\frac{[\\text{In}^-]}{[\\text{HIn}]}\\right)$
 > - « Tàngaay bi bu yéegee ci 60 °C, pH bi day wàcc ci 6,5 waaye ndox mi neutre la ba tey ndax [H₃O⁺] = [OH⁻] ! »
 > - « Zone de virage bi mooy diggante bi melo yi di jaxasoo def teinte sensible ! »
 `
+,
+
+  // C6 : ACIDE FORT – BASE FORTE – RÉACTION FORT-FORT & DOSAGE (Terminale S2 Sénégal)
+  acide_fort_base_forte: `# C6 : Acide Fort – Base Forte – Réaction Acide Fort / Base Forte – Dosage (Terminale S2)
+
+## Objectifs Pédagogiques Officiels (Baccalauréat S2)
+
+> [!IMPORTANT]
+> 1. Définir un **acide fort** et une **base forte** par leur dissociation totale dans l'eau.
+> 2. Calculer le pH d'un **monoacide fort**, d'un **diacide fort** ($\text{H}_2\text{SO}_4$) et d'une **base forte** ($\text{NaOH}$).
+> 3. Écrire et caractériser l'équation de neutralisation fort-fort : $\text{H}_3\text{O}^+ + \text{OH}^- \longrightarrow 2\,\text{H}_2\text{O}$ (totale, exothermique).
+> 4. Maîtriser le **point d'équivalence stœchiométrique** $E(V_{bE}\,;\, \text{pH}_E = 7{,}00)$ à $25^\circ\text{C}$ et la formule $C_a V_a = C_b V_{bE}$.
+> 5. Exploiter la courbe de titrage $\text{pH} = f(V_b)$ par la **méthode des tangentes parallèles** et justifier le choix du **Bleu de Bromothymol (BBT)**.
+
+---
+
+## 1. Solutions d'Acides Forts et de Bases Fortes
+
+### A. L'Acide Fort
+Un **acide fort** réagit de manière **totale et quantitative** avec l'eau (coefficient de dissociation $\alpha = 1$). Aucune molécule d'acide non dissociée ne subsiste à l'état final.
+
+- **Équation de dissolution générale :**
+  $$\text{HA} + \text{H}_2\text{O} \longrightarrow \text{A}^- + \text{H}_3\text{O}^+$$
+- **Monoacides forts classiques du Bac S2 :**
+  - Acide chlorhydrique : $\text{HCl} + \text{H}_2\text{O} \longrightarrow \text{Cl}^- + \text{H}_3\text{O}^+$
+  - Acide nitrique : $\text{HNO}_3 + \text{H}_2\text{O} \longrightarrow \text{NO}_3^- + \text{H}_3\text{O}^+$
+- **Calcul du pH d'un monoacide fort de concentration $C_a$ :**
+  $$[\text{H}_3\text{O}^+] = C_a \implies \mathbf{\text{pH} = -\log C_a}$$
+  *(Valable pour $10^{-6}\text{ mol/L} \le C_a \le 10^{-1}\text{ mol/L}$)*
+
+> [!CAUTION]
+> **Le Piège N°1 du Bac S2 — Le Diacide fort $\text{H}_2\text{SO}_4$ :**
+> L'acide sulfurique libère **2 protons** par molécule dissoute :
+> $$\text{H}_2\text{SO}_4 + 2\,\text{H}_2\text{O} \longrightarrow \text{SO}_4^{2-} + 2\,\text{H}_3\text{O}^+$$
+> $$[\text{H}_3\text{O}^+] = 2\,C_a \implies \mathbf{\text{pH} = -\log(2\,C_a)}$$
+> *Exemple :* Si $C_a = 5{,}0 \times 10^{-3}\text{ mol/L}$, alors $[\text{H}_3\text{O}^+] = 10^{-2}\text{ mol/L} \implies \text{pH} = 2{,}00$ !
+
+---
+
+### B. La Base Forte
+Une **base forte** est un composé qui s'ionise totalement en solution aqueuse pour libérer des ions hydroxyde $\text{OH}^-$.
+
+- **Bases fortes classiques du Bac S2 :**
+  - Hydroxyde de sodium (soude) : $\text{NaOH} \\xrightarrow{\text{eau}} \text{Na}^+ + \text{OH}^-$
+  - Hydroxyde de potassium (potasse) : $\text{KOH} \\xrightarrow{\text{eau}} \text{K}^+ + \text{OH}^-$
+- **Calcul du pH d'une monobase forte de concentration $C_b$ à $25^\circ\text{C}$ :**
+  $$[\text{OH}^-] = C_b \implies \text{pOH} = -\log C_b$$
+  Comme $\text{pH} + \text{pOH} = 14{,}00$ :
+  $$\mathbf{\text{pH} = 14 + \log C_b}$$
+
+---
+
+## 2. La Réaction de Neutralisation Fort-Fort
+
+Lorsqu'on mélange une solution d'acide fort et une solution de base forte, les ions spectateurs ($\text{Na}^+$, $\text{Cl}^-$) ne participent pas à la réaction.
+
+### Équation-bilan unique
+$$\text{H}_3\text{O}^+ + \text{OH}^- \longrightarrow 2\,\text{H}_2\text{O}$$
+
+### Caractéristiques thermodynamiques
+1. **Quasi-totale :** La constante d'équilibre est l'inverse du produit ionique de l'eau :
+   $$K = \frac{1}{K_e} = 10^{14} \quad (\text{à } 25^\circ\text{C})$$
+   La réaction est donc quantitative et irréversible (flèche unique $\longrightarrow$).
+2. **Très rapide :** La neutralisation protonique est quasi-instantanée.
+3. **Nettement exothermique :** La réaction dégage de la chaleur ($\Delta H < 0$).
+
+---
+
+## 3. Titrage pH-métrique d'un Acide Fort par une Base Forte
+
+On introduit un volume $V_a$ d'acide fort de concentration $C_a$ dans un bécher, et on verse progressivement à la burette une solution de base forte de concentration $C_b$ connue (volume versé $V_b$).
+
+### A. Définition et Condition de l'Équivalence
+L'**équivalence acido-basique** est atteinte lorsque les quantités de matière d'acide et de base ont été mélangées dans les proportions stœchiométriques de la réaction :
+$$n_a(\text{initial}) = n_b(\text{versé à } E) \iff \mathbf{C_a V_a = C_b V_{bE}}$$
+
+On en déduit la concentration inconnue :
+$$C_a = \frac{C_b \times V_{bE}}{V_a}$$
+
+### B. Nature et pH de la solution à l'équivalence
+À l'équivalence, tous les ions $\text{H}_3\text{O}^+$ et $\text{OH}^-$ ont réagi pour donner de l'eau. Le milieu ne contient plus que les ions spectateurs $\text{Na}^+$ et $\text{Cl}^-$, formant une solution aqueuse de **chlorure de sodium $\text{NaCl}$** (sel neutre).
+Par conséquent, à $25^\circ\text{C}$ :
+$$\mathbf{\text{pH}_E = 7{,}00}$$
+
+---
+
+## 4. Analyse de la Courbe de Titrage $\text{pH} = f(V_b)$
+
+La courbe présente trois régions distinctes :
+
+\`\`\`
+ pH ^
+14  |                                             --- Asymptote pH = 14 + log(Cb)
+    |                                           /
+    |                                          |
+ 7  | - - - - - - - - - - - - - - - - - - - - -E - - - Point d'équivalence (pHE = 7.00)
+    |                                          |
+    |                                          /
+    |                             /------------ Saut de pH brutal (de ~3 à ~11)
+ 1  | ---------------------------/
+ 0  +---------------------------------------------> Vb (mL)
+    0                                        VbE
+\`\`\`
+
+1. **Avant l'équivalence ($V_b < V_{bE}$) :**
+   L'acide est en excès. Le pH varie très lentement (effet tampon de dilution).
+   $$[\text{H}_3\text{O}^+] = \frac{C_a V_a - C_b V_b}{V_a + V_b} \implies \text{pH} = -\log\left(\frac{C_a V_a - C_b V_b}{V_a + V_b}\right)$$
+2. **Au voisinage de l'équivalence ($V_b \approx V_{bE}$) :**
+   Un **saut de pH spectaculaire** se produit (brusque variation de $\text{pH} \approx 3$ à $\text{pH} \approx 11$ pour une seule goutte de soude !). Le point d'inflexion est le point d'équivalence $E$.
+3. **Après l'équivalence ($V_b > V_{bE}$) :**
+   La base forte est en excès. Le pH tend vers l'asymptote horizontale $\text{pH} = 14 + \log C_b$.
+   $$[\text{OH}^-] = \frac{C_b V_b - C_a V_a}{V_a + V_b} \implies \text{pH} = 14 + \log\left(\frac{C_b V_b - C_a V_a}{V_a + V_b}\right)$$
+
+---
+
+## 5. Méthode des Tangentes Parallèles
+
+Pour déterminer graphiquement les coordonnées $(V_{bE}\,;\, \text{pH}_E)$ :
+1. Tracer deux tangentes $(\mathcal{T}_1)$ et $(\mathcal{T}_2)$ à la courbe, situées de part et d'autre du saut de pH et **parfaitement parallèles entre elles**.
+2. Tracer un segment perpendiculaire commun aux deux tangentes et repérer son milieu.
+3. Tracer la droite médiane parallèle $(\mathcal{D})$ équidistante des deux tangentes.
+4. L'intersection de $(\mathcal{D})$ avec la courbe donne exactement le **point d'équivalence $E(V_{bE}\,;\, 7{,}00)$**.
+
+---
+
+## 6. Choix de l'Indicateur Coloré
+
+> [!TIP]
+> **Critère officiel d'adéquation :**
+> Un indicateur coloré convient pour repérer l'équivalence d'un titrage si et seulement si **le pH à l'équivalence $\text{pH}_E$ est situé dans sa zone de virage**.
+>
+> Pour un titrage acide fort / base forte à $25^\circ\text{C}$ ($\text{pH}_E = 7{,}00$) :
+> - **Bleu de bromothymol (BBT)** : Zone $[6{,}0 \,;\, 7{,}6]$. Comme $7{,}00 \in [6{,}0 \,;\, 7{,}6]$, le **BBT est l'indicateur parfait par excellence**. Il vire du jaune au bleu en passant par sa **teinte sensible verte** exactement à l'équivalence stœchiométrique.
+> - La *phénolphtaléine* ($8{,}2 - 10{,}0$) et l'*hélianthine* ($3{,}1 - 4{,}4$) virent également lors du saut brutal mais légèrement après ou avant la neutralité stœchiométrique.
+
+---
+
+## 7. Réflexes d'Or du Baccalauréat Sénégalais
+
+> [!IMPORTANT]
+> 1. Monoacide fort : $\text{pH} = -\log C_a$ ; Base forte : $\text{pH} = 14 + \log C_b$.
+> 2. Diacide $\text{H}_2\text{SO}_4$ : $[\text{H}_3\text{O}^+] = 2\,C_a \implies \text{pH} = -\log(2\,C_a)$ et $V_{bE} = \frac{2\,C_a V_a}{C_b}$ !
+> 3. Équation de neutralisation : $\text{H}_3\text{O}^+ + \text{OH}^- \longrightarrow 2\,\text{H}_2\text{O}$ (totale, $K = 10^{14}$).
+> 4. À l'équivalence : $n_a = n_b \implies C_a V_a = C_b V_{bE}$ et $\mathbf{\text{pH}_E = 7{,}00}$ à $25^\circ\text{C}$.
+> 5. Indicateur : le **BBT** est l'indicateur optimal (virage au vert à $\text{pH} = 7{,}0$).
+
+> [!WOLOF]
+> - « Acide fort bi (naka HCl) bu duggee ci ndox dafay def H₃O⁺ ak Cl⁻ bépp, amul benn molécule bu des ! »
+> - « H₂SO₄ diacide la : benn mole bu nekk ñaari H₃O⁺ lay jur, motax VbE dafay doublewu bu ñu koy doser ! »
+> - « Équivalence bi pH bi 7 la koy doon faww ci 25°C ndax ndoxum xorom neutre lay jur ! »
+> - « BBT mooy champion dosage fort-fort bi ndax teinte sensible verte bi dafa tàbbi ci 7,00 exact ! »
+`
 
 };
 
@@ -1943,6 +2095,19 @@ export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: stri
     titleLower.includes('echelle de ph')
   ) {
     return RICH_LESSONS_MAP.autoprotolyse_ph;
+  }
+
+  if (
+    titleLower.includes('acide fort') ||
+    titleLower.includes('base forte') ||
+    titleLower.includes('fort-fort') ||
+    titleLower.includes('fort fort') ||
+    titleLower.includes('dosage fort') ||
+    titleLower.includes('titrage fort') ||
+    titleLower.includes('neutralisation fort') ||
+    titleLower.includes('dissociation totale')
+  ) {
+    return RICH_LESSONS_MAP.acide_fort_base_forte;
   }
 
   if (

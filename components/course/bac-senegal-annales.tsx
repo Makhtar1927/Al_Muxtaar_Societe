@@ -523,6 +523,136 @@ Le pH augmente exactement de **$+1{,}00$ unité**, tout en restant strictement a
     },
   ],
 
+  // C6 : ACIDE FORT & BASE FORTE — DOSAGE FORT-FORT (CHIMIE S2)
+  acide_fort_base_forte: [
+    {
+      year: 2019,
+      session: 'Session Normale (S2)',
+      points: 'Exercice 1 — Chimie Générale (4 Points)',
+      topic: 'Dosage pH-métrique fort-fort, Méthode des tangentes, Concentrations à divers états et Bilan de matière',
+      enonce: `On dose un volume $V_a = 20{,}0\text{ mL}$ d'une solution aqueuse d'acide chlorhydrique $S_a$ de concentration molaire $C_a$ inconnue par une solution aqueuse d'hydroxyde de sodium $S_b$ de concentration molaire $C_b = 1{,}0 \times 10^{-1}\text{ mol/L}$.
+Le suivi du pH au cours de l'addition du volume $V_b$ de soude a permis de tracer la courbe $pH = f(V_b)$.
+
+1. Faire un schéma annoté et soigné du dispositif expérimental de dosage pH-métrique.
+2. Écrire l'équation-bilan de la réaction de dosage. Quelles sont ses caractéristiques essentielles ?
+3. Par la méthode des tangentes parallèles appliquée à la courbe expérimentale, on détermine les coordonnées du point d'équivalence $E$ : $V_{bE} = 16{,}0\text{ mL}$ et $pH_E = 7{,}00$.
+   a) Définir l'équivalence acido-basique.
+   b) Calculer la concentration molaire $C_a$ de la solution d'acide chlorhydrique.
+4. Calculer la composition molaire et le pH du mélange réactionnel pour un volume de soude versé $V_b = 8{,}0\text{ mL}$ (demi-équivalence).
+5. Quel indicateur coloré parmi la phénolphtaléine ($8{,}2 - 10{,}0$), l'hélianthine ($3{,}1 - 4{,}4$) et le bleu de bromothymol ($6{,}0 - 7{,}6$) conviendrait le mieux pour un dosage colorimétrique ? Justifier rigoureusement.`,
+      solution: `### 1. Schéma annoté du dispositif expérimental
+Le montage comporte :
+- Une **burette graduée** de $25\text{ mL}$ fixée à une potence, contenant la solution titrante (solution de soude $S_b$, $C_b = 0{,}10\text{ mol/L}$).
+- Un **bécher** de $100\text{ mL}$ placé sur un agitateur magnétique, contenant le volume prélevé à la pipette jaugée : $V_a = 20{,}0\text{ mL}$ de la solution titrée d'acide chlorhydrique $S_a$.
+- Un **barreau aimanté** pour assurer l'homogénéisation continue de la solution.
+- Une **électrode combinée** de pH plongeant dans la solution sans toucher les parois ni le barreau.
+- Un **pH-mètre numérique** étalonné relié à l'électrode.
+
+---
+
+### 2. Équation-bilan de la réaction de dosage
+L'acide chlorhydrique ($H_3O^+ + Cl^-$) et la soude ($Na^+ + OH^-$) sont totalement dissociés dans l'eau.
+L'équation-bilan s'écrit :
+$$H_3O^+ + OH^- \longrightarrow 2\,H_2O$$
+*(Les ions $Na^+$ et $Cl^-$ sont des ions spectateurs).*
+**Caractéristiques :** Réaction **totale** (constante $K = 1/K_e = 10^{14}$ à $25^\circ\text{C}$), **rapide** et **exothermique** (dégagement de chaleur).
+
+---
+
+### 3. Exploitation du point d'équivalence $E$
+a) **Définition de l'équivalence :**
+L'équivalence acido-basique est l'état du système où les réactifs (l'acide titré et la base titrante) ont été mélangés dans les **proportions stœchiométriques**. Les ions $H_3O^+$ et $OH^-$ sont alors totalement consommés.
+
+b) **Calcul de la concentration $C_a$ :**
+À l'équivalence stœchiométrique :
+$$n_a = n_b \iff C_a \times V_a = C_b \times V_{bE}$$
+$$C_a = \frac{C_b \times V_{bE}}{V_a} = \frac{0{,}10 \times 16{,}0}{20{,}0} = \mathbf{8{,}0 \times 10^{-2}\text{ mol/L}}$$
+
+---
+
+### 4. Composition et pH à la demi-équivalence ($V_b = 8{,}0\text{ mL}$)
+- Quantité de matière initiale d'ions $H_3O^+$ :
+  $$n_0(H_3O^+) = C_a \times V_a = 8{,}0 \times 10^{-2} \times 0{,}020 = 1{,}6 \times 10^{-3}\text{ mol}$$
+- Quantité d'ions $OH^-$ apportée :
+  $$n(OH^-) = C_b \times V_b = 0{,}10 \times 0{,}008 = 0{,}80 \times 10^{-3}\text{ mol}$$
+- Quantité d'ions $H_3O^+$ restante :
+  $$n_r(H_3O^+) = 1{,}6 \times 10^{-3} - 0{,}80 \times 10^{-3} = 0{,}80 \times 10^{-3}\text{ mol}$$
+- Volume total du mélange :
+  $$V_\text{tot} = V_a + V_b = 20{,}0 + 8{,}0 = 28{,}0\text{ mL} = 0{,}028\text{ L}$$
+- Concentration résiduelle en ions hydronium :
+  $$[H_3O^+] = \frac{n_r(H_3O^+)}{V_\text{tot}} = \frac{0{,}80 \times 10^{-3}}{0{,}028} \approx 2{,}86 \times 10^{-2}\text{ mol/L}$$
+- Calcul du pH :
+  $$pH = -\log(2{,}86 \times 10^{-2}) = \mathbf{1{,}54}$$
+
+---
+
+### 5. Choix de l'indicateur coloré
+Le pH à l'équivalence vaut **$pH_E = 7{,}00$** (solution de chlorure de sodium, sel neutre).
+Pour qu'un indicateur coloré convienne, sa **zone de virage doit impérativement englober le $pH_E$**.
+- Zone de virage du **Bleu de bromothymol (BBT)** : $[6{,}0 \,;\, 7{,}6]$.
+Comme $7{,}00 \in [6{,}0 \,;\, 7{,}6]$, le **BBT est l'indicateur idéal**. Il passera nettement du jaune au bleu en traversant sa teinte sensible verte exactement à la goutte équivalente.`,
+      baremeAstuce: "Bac S2 : N'oubliez jamais d'ajouter le volume Vb au volume Va pour calculer la concentration à chaque instant : [H₃O⁺] = n_restant / (Va + Vb) !",
+    },
+    {
+      year: 2016,
+      session: 'Session Normale (S2)',
+      points: 'Exercice 1 — Chimie (4 Points)',
+      topic: 'Titrage comparé Monoacide fort (HCl) vs Diacide fort (H₂SO₄) et Volume équivalent',
+      enonce: `On réalise deux dosages indépendants à l'aide d'une solution de soude ($Na^+ + OH^-$) de concentration $C_b = 0{,}20\text{ mol/L}$ :
+- **Expérience 1 :** On dose $V_1 = 10{,}0\text{ mL}$ d'une solution d'acide chlorhydrique $HCl$ de concentration $C_1 = 0{,}10\text{ mol/L}$.
+- **Expérience 2 :** On dose $V_2 = 10{,}0\text{ mL}$ d'une solution d'acide sulfurique $H_2SO_4$ de concentration $C_2 = 0{,}10\text{ mol/L}$.
+
+1. Donner l'expression du pH d'une solution de monoacide fort en fonction de sa concentration, puis calculer le pH initial de la solution de $HCl$.
+2. En considérant les deux acidités de l'acide sulfurique comme totalement dissociées dans l'eau :
+   a) Écrire l'équation de dissolution complète de $H_2SO_4$ dans l'eau.
+   b) En déduire la concentration $[H_3O^+]$ et le pH initial de la solution de $H_2SO_4$.
+3. Déterminer les volumes de soude $V_{bE1}$ et $V_{bE2}$ nécessaires pour atteindre l'équivalence dans chaque expérience.
+4. Comparer les deux volumes équivalents et interpréter le résultat.
+5. Quel est le pH du mélange à l'équivalence dans les deux cas à $25^\circ\text{C}$ ? Justifier.`,
+      solution: `### 1. pH initial de la solution de $HCl$
+L'acide chlorhydrique est un monoacide fort :
+$$HCl + H_2O \longrightarrow H_3O^+ + Cl^-$$
+$$[H_3O^+] = C_1 = 0{,}10\text{ mol/L} \implies pH_1 = -\log(0{,}10) = \mathbf{1{,}00}$$
+
+---
+
+### 2. Dissolution et pH initial de $H_2SO_4$
+a) L'acide sulfurique est un **diacide fort** (dissociation de 2 protons $H^+$) :
+$$H_2SO_4 + 2\,H_2O \longrightarrow 2\,H_3O^+ + SO_4^{2-}$$
+b) Chaque mole de $H_2SO_4$ libère deux moles de $H_3O^+$ :
+$$[H_3O^+] = 2 \times C_2 = 2 \times 0{,}10 = 0{,}20\text{ mol/L}$$
+$$pH_2 = -\log(0{,}20) = \mathbf{0{,}70}$$
+
+---
+
+### 3. Calcul des volumes équivalents
+- **Expérience 1 (Monoacide HCl) :**
+  $$C_1 \times V_1 = C_b \times V_{bE1} \implies V_{bE1} = \frac{C_1 \times V_1}{C_b} = \frac{0{,}10 \times 10{,}0}{0{,}20} = \mathbf{5{,}0\text{ mL}}$$
+
+- **Expérience 2 (Diacide H₂SO₄) :**
+  L'équation de neutralisation globale s'écrit :
+  $$(2\,H_3O^+ + SO_4^{2-}) + 2\,(Na^+ + OH^-) \longrightarrow 4\,H_2O + 2\,Na^+ + SO_4^{2-}$$
+  À l'équivalence stœchiométrique, la quantité de matière d'ions $OH^-$ versée est égale à la quantité d'ions $H_3O^+$ initiale :
+  $$n(OH^-) = n(H_3O^+) \iff C_b \times V_{bE2} = 2 \times C_2 \times V_2$$
+  $$V_{bE2} = \frac{2 \times C_2 \times V_2}{C_b} = \frac{2 \times 0{,}10 \times 10{,}0}{0{,}20} = \mathbf{10{,}0\text{ mL}}$$
+
+---
+
+### 4. Comparaison et interprétation
+On constate que **$V_{bE2} = 2 \times V_{bE1}$** ($10{,}0\text{ mL} = 2 \times 5{,}0\text{ mL}$).
+**Interprétation :** À volumes et concentrations molaires identiques, l'acide sulfurique apporte **deux fois plus de protons $H_3O^+$** que l'acide chlorhydrique. Il faut donc verser exactement le **double** de base forte pour parvenir à la neutralisation complète.
+
+---
+
+### 5. pH à l'équivalence à $25^\circ\text{C}$
+Dans les deux cas, la neutralisation de tous les ions $H_3O^+$ et $OH^-$ aboutit à une solution de sels neutres ($NaCl$ pour le premier, $Na_2SO_4$ pour le second) dont les ions n'ont aucune propriété acido-basique dans l'eau.
+Par conséquent, à $25^\circ\text{C}$ :
+$$\mathbf{pH_E = 7{,}00}$$
+Le point d'équivalence est rigoureusement neutre dans les deux expériences.`,
+      baremeAstuce: "Bac S2 — Réflexe classique : Pour H₂SO₄, écrivez TOUJOURS la stœchiométrie n(OH⁻) = 2 n(H₂SO₄) avant d'isoler V_bE !",
+    },
+  ],
+
   // 1. LIMITES & CONTINUITÉ
   limites: [
     {
