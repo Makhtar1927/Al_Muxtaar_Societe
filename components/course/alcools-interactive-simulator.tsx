@@ -1279,7 +1279,7 @@ export default function AlcoolsInteractiveSimulator() {
                   <span>Test de Lucas : Protocole d&apos;Identification de Classe</span>
                 </h3>
                 <p className="text-xs text-navy/60 mt-0.5">
-                  Réactif de Lucas : Solution de chlorure de zinc anhydre ($ZnCl_2$) dissous dans l&apos;acide chlorhydrique concentré ($HCl$).
+                  Réactif de Lucas : Solution de chlorure de zinc anhydre (ZnCl₂) dissous dans l&apos;acide chlorhydrique concentré (HCl).
                 </p>
               </div>
 
@@ -1388,7 +1388,7 @@ export default function AlcoolsInteractiveSimulator() {
                         Alcool Tertiaire (3°) : Trouble Immédiat (&lt; 30 s)
                       </span>
                       <p className="leading-relaxed">
-                        Le carbocation tertiaire intermédiaire ($R_3C^+$) est ultra-stable. La substitution par l&apos;ion chlorure ($Cl^-$) est instantanée. Le dérivé halogéné insoluble ($R—Cl$) précipite sous forme de gouttelettes laiteuses.
+                        Le carbocation tertiaire intermédiaire (R₃C⁺) est ultra-stable. La substitution par l&apos;ion chlorure (Cl⁻) est instantanée. Le dérivé halogéné insoluble (R—Cl) précipite sous forme de gouttelettes laiteuses.
                       </p>
                     </div>
                   )}

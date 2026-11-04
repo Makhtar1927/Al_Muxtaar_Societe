@@ -254,7 +254,7 @@ export default function CinetiqueInteractiveSimulator() {
             <div className="space-y-1.5">
               <div className="flex justify-between text-xs font-semibold text-navy">
                 <span className="flex items-center gap-1">
-                  <Flame className="w-3.5 h-3.5 text-amber-500" /> Température ($T$) :
+                  <Flame className="w-3.5 h-3.5 text-amber-500" /> Température (T) :
                 </span>
                 <span className="font-mono text-turquoise font-bold">{temperature} °C</span>
               </div>
@@ -278,7 +278,7 @@ export default function CinetiqueInteractiveSimulator() {
             {/* Concentration */}
             <div className="space-y-1.5">
               <div className="flex justify-between text-xs font-semibold text-navy">
-                <span>🧪 Concentration $[I^-]_0$ :</span>
+                <span>🧪 Concentration [I⁻]₀ :</span>
                 <span className="font-mono text-turquoise font-bold">{concentration.toFixed(2)} mol/L</span>
               </div>
               <input
@@ -338,8 +338,8 @@ export default function CinetiqueInteractiveSimulator() {
               </div>
               <p className="text-[10px] text-blue-800 leading-tight">
                 {isTrempeActive
-                  ? '✓ Réaction figée net ! Agitation thermique nulle, vitesse $v = 0$.'
-                  : 'Stoppe brutalement la réaction à l’instant $t$ pour doser.'}
+                  ? '✓ Réaction figée net ! Agitation thermique nulle, vitesse v = 0.'
+                  : 'Stoppe brutalement la réaction à l’instant t pour doser.'}
               </p>
             </div>
 
@@ -360,7 +360,7 @@ export default function CinetiqueInteractiveSimulator() {
                   </>
                 ) : (
                   <>
-                    <Play className="w-4 h-4" /> Démarrer ($t = {time.toFixed(1)}$ min)
+                    <Play className="w-4 h-4" /> Démarrer (t = {time.toFixed(1)} min)
                   </>
                 )}
               </button>
@@ -450,7 +450,7 @@ export default function CinetiqueInteractiveSimulator() {
 
                 <p className="text-[11px] font-medium text-navy/70 mt-1">
                   {ratio < 0.05
-                    ? 'Incolore ($t = 0$)'
+                    ? 'Incolore (t = 0)'
                     : ratio < 0.5
                     ? 'Jaune (I₂ naissant)'
                     : 'Brun acajou foncé (I₂ formé)'}
@@ -459,32 +459,32 @@ export default function CinetiqueInteractiveSimulator() {
 
               <div className="sm:col-span-7 grid grid-cols-2 gap-2 text-center">
                 <div className="bg-white rounded-xl p-2.5 border border-navy/10">
-                  <span className="text-[10px] text-text/50 uppercase block font-semibold">Date $t$</span>
+                  <span className="text-[10px] text-text/50 uppercase block font-semibold">Date t</span>
                   <span className="text-base font-bold text-navy">{time.toFixed(1)} min</span>
                 </div>
                 <div className="bg-white rounded-xl p-2.5 border border-navy/10">
-                  <span className="text-[10px] text-text/50 uppercase block font-semibold">Avancement $x(t)$</span>
+                  <span className="text-[10px] text-text/50 uppercase block font-semibold">Avancement x(t)</span>
                   <span className="text-base font-bold text-turquoise">{currentX.toFixed(2)} mmol</span>
                   <span className="text-[9px] text-text/40 block">sur {xMax.toFixed(2)} mmol</span>
                 </div>
                 <div className="bg-white rounded-xl p-2.5 border border-navy/10">
-                  <span className="text-[10px] text-text/50 uppercase block font-semibold">Vitesse $v(t)$</span>
+                  <span className="text-[10px] text-text/50 uppercase block font-semibold">Vitesse v(t)</span>
                   <span className="text-base font-bold text-gold">{currentV.toFixed(3)}</span>
                   <span className="text-[8px] text-text/40 block">mmol·L⁻¹·min⁻¹</span>
                 </div>
                 <div className="bg-white rounded-xl p-2.5 border border-navy/10">
-                  <span className="text-[10px] text-text/50 uppercase block font-semibold">Temps $t_{1/2}$</span>
+                  <span className="text-[10px] text-text/50 uppercase block font-semibold">Temps t₁/₂</span>
                   <span className="text-base font-bold text-emerald-600">
                     {isFinite(tDemi) ? `${tDemi.toFixed(1)} min` : '∞'}
                   </span>
-                  <span className="text-[8px] text-text/40 block">à $x = {(xMax / 2).toFixed(2)}$</span>
+                  <span className="text-[8px] text-text/40 block">à x = {(xMax / 2).toFixed(2)}</span>
                 </div>
               </div>
             </div>
 
             <div className="bg-white rounded-2xl border border-navy/10 p-3 shadow-xs space-y-1">
               <div className="flex items-center justify-between text-xs font-semibold px-2">
-                <span className="text-navy">Courbe Cinétique : $x = f(t)$ &amp; Tangente</span>
+                <span className="text-navy">Courbe Cinétique : x = f(t) &amp; Tangente</span>
                 <span className="text-gold font-bold text-[11px]">Pente de la tangente = Vitesse instantanée</span>
               </div>
 
@@ -579,8 +579,8 @@ export default function CinetiqueInteractiveSimulator() {
                   <MathRenderer content="$$A = \\varepsilon \\cdot \\ell \\cdot [I_2] = k \\cdot x(t)$$" />
                 </div>
                 <p className="text-xs text-text/70 leading-relaxed">
-                  L&apos;absorbance $A$ est strictement proportionnelle à la concentration en diiode formé.
-                  La vitesse volumique s’obtient directement par dérivation de $A$ :
+                  L&apos;absorbance A est strictement proportionnelle à la concentration en diiode formé.
+                  La vitesse volumique s’obtient directement par dérivation de A :
                 </p>
                 <div className="bg-surface rounded-lg p-2 text-center text-xs font-bold text-navy">
                   <MathRenderer content="$$v(t) = \\frac{1}{\\varepsilon \\cdot \\ell \\cdot V} \\frac{dA}{dt}$$" />
@@ -661,7 +661,7 @@ export default function CinetiqueInteractiveSimulator() {
                 {isEquivalentReached ? '✓ Équivalence Atteinte ! Solution Décolorée' : 'En cours de titrage...'}
               </span>
               <p className="text-[11px] text-text/60">
-                Volume versé : <span className="font-mono font-bold text-navy">{buretteVolume.toFixed(1)} mL</span> / $V_E = {vEquivalence.toFixed(1)}$ mL
+                Volume versé : <span className="font-mono font-bold text-navy">{buretteVolume.toFixed(1)} mL</span> / VE = {vEquivalence.toFixed(1)} mL
               </p>
             </div>
           </div>
@@ -715,7 +715,7 @@ export default function CinetiqueInteractiveSimulator() {
                 Pourquoi la trempe est obligatoire avant le dosage ?
               </span>
               <p className="text-xs text-blue-950 leading-relaxed">
-                Le dosage à la burette prend entre 1 et 3 minutes. Sans trempe dans l’eau glacée, la réaction continuerait dans l&apos;erlenmeyer pendant qu&apos;on verse la burette : le volume $V_E$ mesuré ne correspondrait plus du tout à la date $t$ du prélèvement !
+                Le dosage à la burette prend entre 1 et 3 minutes. Sans trempe dans l’eau glacée, la réaction continuerait dans l&apos;erlenmeyer pendant qu&apos;on verse la burette : le volume VE mesuré ne correspondrait plus du tout à la date t du prélèvement !
               </p>
             </div>
           </div>
@@ -783,7 +783,7 @@ export default function CinetiqueInteractiveSimulator() {
                   L&apos;erreur fatale commise par beaucoup de candidats au Bac S2 : affirmer que le catalyseur augmente le rendement ou la quantité finale x_max.
                 </p>
                 <div className="p-2.5 rounded-xl bg-white border border-rose-200 text-xs font-bold text-rose-900">
-                  ⚠️ Le catalyseur augmente la vitesse (pente plus forte) et divise le temps $t_{1/2}$, mais{' '}
+                  ⚠️ Le catalyseur augmente la vitesse (pente plus forte) et divise le temps t₁/₂, mais{' '}
                   <span className="underline decoration-rose-500 font-black">
                     x_max reste STRICTEMENT INCHANGÉ
                   </span>{' '}
