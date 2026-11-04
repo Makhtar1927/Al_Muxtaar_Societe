@@ -1138,12 +1138,12 @@ export default async function LessonReaderPage({ params }: PageProps) {
     lessonMeta = createdLesson;
   }
 
-  // Provisioning pour Physique-Chimie (Chapitre 1 : Cinétique Chimique)
+  // Provisioning pour C4 : Cinétique chimique (Physique-Chimie S2)
   if (!lessonMeta && params.lesson === '60000000-0000-0000-0001-000000000001') {
     await admin.from('chapters').upsert({
       id: '50000000-0000-0000-0001-000000000001',
-      title: 'Cinétique Chimique & Vitesse de Réaction',
-      order_index: 1,
+      title: 'C4 : Cinétique chimique',
+      order_index: 4,
       status: 'published',
     }, { onConflict: 'id' });
 
@@ -1154,7 +1154,7 @@ export default async function LessonReaderPage({ params }: PageProps) {
         chapter_id: '50000000-0000-0000-0001-000000000001',
         title: 'Facteurs cinétiques, vitesse volumique et suivi temporel',
         order_index: 1,
-        content_markdown: '# Chapitre 1 : Cinétique Chimique & Vitesse de Réaction',
+        content_markdown: '# C4 : Cinétique Chimique — Facteurs cinétiques, vitesse volumique et suivi temporel',
         is_free: true,
         status: 'published',
       }, { onConflict: 'id' })
@@ -1171,7 +1171,7 @@ export default async function LessonReaderPage({ params }: PageProps) {
         chapter_id: '50000000-0000-0000-0001-000000000001',
         title: 'Méthodes graphiques, tangentes et temps de demi-réaction',
         order_index: 2,
-        content_markdown: '# Chapitre 1 : Cinétique Chimique — Méthodes Graphiques',
+        content_markdown: '# C4 : Cinétique Chimique — Méthodes graphiques, tangentes et temps de demi-réaction',
         is_free: false,
         status: 'published',
       }, { onConflict: 'id' })
@@ -1188,7 +1188,7 @@ export default async function LessonReaderPage({ params }: PageProps) {
         chapter_id: '50000000-0000-0000-0001-000000000001',
         title: 'Trempe chimique, catalyse et mécanismes réactionnels',
         order_index: 3,
-        content_markdown: '# Chapitre 1 : Cinétique Chimique — Trempe et Catalyse',
+        content_markdown: '# C4 : Cinétique Chimique — Trempe chimique, catalyse et mécanismes réactionnels',
         is_free: false,
         status: 'published',
       }, { onConflict: 'id' })
@@ -1571,12 +1571,17 @@ if (lessonMeta && lessonMeta.status !== 'published') {
   const isCinetique =
     !isAlcools &&
     !isAmines &&
+    !isAcidesDerives &&
     (lessonMeta.title.toLowerCase().includes('cinetique') ||
       lessonMeta.title.toLowerCase().includes('cinétique') ||
       lessonMeta.title.toLowerCase().includes('vitesse de réaction') ||
       lessonMeta.title.toLowerCase().includes('facteur cinétique') ||
       (chapter?.title?.toLowerCase() || '').includes('cinetique') ||
-      (chapter?.title?.toLowerCase() || '').includes('cinétique'));
+      (chapter?.title?.toLowerCase() || '').includes('cinétique') ||
+      params.lesson === '60000000-0000-0000-0001-000000000001' ||
+      params.lesson === '60000000-0000-0000-0001-000000000002' ||
+      params.lesson === '60000000-0000-0000-0001-000000000003' ||
+      params.chapter === '50000000-0000-0000-0001-000000000001');
 
   const isDerivation =
     !isAlcools &&

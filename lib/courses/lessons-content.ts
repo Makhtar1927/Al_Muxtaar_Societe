@@ -127,7 +127,7 @@ Le **test de Lucas** permet de distinguer rapidement la classe d'un alcool au la
 4. Justifier les anomalies de température d'ébullition et la variation de solubilité par les liaisons hydrogène.
 5. Exploiter les résultats du test de Lucas pour identifier un isomère inconnu.
 `,
-  cinetique: `# Chapitre 1 : Cinétique Chimique & Vitesse de Réaction (Terminale S2)
+  cinetique: `# C4 : Cinétique Chimique & Vitesse de Réaction (Terminale S2)
 
 Bienvenue dans le premier chapitre de **Sciences Physiques (Chimie)** pour la classe de **Terminale S2**, rigoureusement aligné sur le programme officiel sénégalais (MEN / IGEF / Office du Bac).
 

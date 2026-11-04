@@ -269,7 +269,7 @@ export default function CinetiqueQuizEmbedded() {
   };
 
   return (
-    <div className="my-8 rounded-3xl border border-navy/15 bg-white p-4 sm:p-6 shadow-sm">
+    <div className="bg-white rounded-3xl border border-navy/10 p-5 sm:p-7 shadow-sm space-y-6">
       {/* En-tête */}
       <div className="flex flex-wrap items-center justify-between gap-2 border-b border-navy/10 pb-4">
         <div>
