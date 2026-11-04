@@ -79,6 +79,9 @@ import AutoprotolysePhQuizEmbedded from '@/components/course/autoprotolyse-ph-qu
 import AcideFortBaseForteReflexesCard from '@/components/course/acide-fort-base-forte-reflexes-card';
 import AcideFortBaseForteInteractiveSimulator from '@/components/course/acide-fort-base-forte-interactive-simulator';
 import AcideFortBaseForteQuizEmbedded from '@/components/course/acide-fort-base-forte-quiz-embedded';
+import AcideFaibleBaseFaibleReflexesCard from '@/components/course/acide-faible-base-faible-reflexes-card';
+import AcideFaibleBaseFaibleInteractiveSimulator from '@/components/course/acide-faible-base-faible-interactive-simulator';
+import AcideFaibleBaseFaibleQuizEmbedded from '@/components/course/acide-faible-base-faible-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
@@ -338,6 +341,49 @@ const ACIDE_FORT_BASE_FORTE_AUDIO_CHAPTERS: AudioChapter[] = [
     icon: "rigueur_compas",
     textScript:
       "Pour justifier le choix de l'indicateur au Bac, énoncez toujours le critère officiel : la zone de virage de l'indicateur doit englober le pH à l'équivalence. Le BBT avec sa zone de 6,0 à 7,6 contient idéalement 7,00. Sa teinte sensible verte apparaît pile à l'équivalence stœchiométrique !",
+  },
+];
+
+const ACIDE_FAIBLE_BASE_FAIBLE_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Enjeux des Acides et Bases Faibles au Bac S2",
+    badge: "Introduction",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass de Chimie des Solutions de Terminale S2. Les acides et bases faibles, les constantes Ka et pKa, et les diagrammes de prédominance forment le cœur du deuxième exercice de chimie du Baccalauréat sénégalais. Un acide faible ne se dissocie que partiellement dans l'eau : la double flèche est obligatoire !",
+  },
+  {
+    timeSeconds: 45,
+    title: "2. Ka et pKa : Le piège de la Température",
+    badge: "Règle d'or",
+    icon: "theoreme_equerre",
+    textScript:
+      "Retenez la règle capitale de l'Office du Bac : la constante d'acidité Ka ne dépend strictement que de la température ! Elle ne varie jamais avec la concentration de la solution. Plus le pKa est petit, plus le Ka est grand et plus l'acide est fort.",
+  },
+  {
+    timeSeconds: 110,
+    title: "3. La Formule Reine d'Henderson-Hasselbalch",
+    badge: "Formule clé",
+    icon: "formule_cle",
+    textScript:
+      "La relation d'Henderson-Hasselbalch relie directement le pH au pKa : pH égal pKa plus log de la concentration en base sur la concentration en acide. Si la concentration en base égale celle en acide, le logarithme s'annule et le pH vaut exactement le pKa !",
+  },
+  {
+    timeSeconds: 175,
+    title: "4. Diagramme de Prédominance et Croisement à 50%",
+    badge: "Méthode",
+    icon: "technique_outils",
+    textScript:
+      "Sur l'axe des pH, la frontière est le pKa. À gauche, pour pH inférieur au pKa, la forme acide HA prédomine. À droite, pour pH supérieur au pKa, la base conjuguée A moins prédomine. Sur les courbes de distribution en S, les deux courbes se croisent pile à 50% pour pH égal pKa.",
+  },
+  {
+    timeSeconds: 240,
+    title: "5. La Loi d'Ostwald et l'Effet de la Dilution",
+    badge: "Piège Bac",
+    icon: "piege_bac",
+    textScript:
+      "Attention au piège de la dilution d'un acide faible : d'après la loi d'Ostwald, quand on dilue la solution, le coefficient de dissociation alpha augmente ! Cependant, la concentration en ions H3O+ diminue, donc le pH augmente vers 7 sans jamais dépasser la neutralité.",
   },
 ];
 
@@ -1357,6 +1403,40 @@ export default async function LessonReaderPage({ params }: PageProps) {
     lessonMeta = createdLesson;
   }
 
+  // Provisioning pour C7 : Acides et bases faibles (Physique-Chimie S2)
+  if (!lessonMeta && (
+    params.lesson === '60000000-0000-0001-0001-000000000017' ||
+    params.lesson === '60000000-0000-0001-0001-000000000018' ||
+    params.lesson === '60000000-0000-0001-0001-000000000019'
+  )) {
+    await admin.from('chapters').upsert({
+      id: '50000000-0000-0001-0001-000000000007',
+      title: "C7 : Acides et bases faibles – Couples acide-base – Constante d’acidité (pKa)",
+      order_index: 7,
+      status: 'published',
+    }, { onConflict: 'id' });
+    const c7Map: Record<string, [string, number]> = {
+      '60000000-0000-0001-0001-000000000017': ["Couples acide-base faibles et constante d’acidité Ka et pKa", 1],
+      '60000000-0000-0001-0001-000000000018': ["Diagramme de prédominance et relation pH = pKa + log([B]/[A])", 2],
+      '60000000-0000-0001-0001-000000000019': ["Classification et comparaison de la force relative des couples", 3],
+    };
+    const [c7Title, c7Order] = c7Map[params.lesson] || ['C7 Acides et bases faibles', 1];
+    const { data: createdLesson } = await admin
+      .from('lessons')
+      .upsert({
+        id: params.lesson,
+        chapter_id: '50000000-0000-0001-0001-000000000007',
+        title: c7Title,
+        order_index: c7Order,
+        content_markdown: `# C7 : Acides et Bases Faibles — ${c7Title}`,
+        is_free: false,
+        status: 'published',
+      }, { onConflict: 'id' })
+      .select()
+      .single();
+    lessonMeta = createdLesson;
+  }
+
   // Provisioning pour C1 : Alcools (Physique-Chimie S2)
   if (!lessonMeta && params.lesson === '60000000-0000-0001-0001-000000000001') {
     await admin.from('chapters').upsert({
@@ -1777,7 +1857,29 @@ if (lessonMeta && lessonMeta.status !== 'published') {
       params.lesson === '60000000-0000-0001-0001-000000000016' ||
       params.chapter === '50000000-0000-0001-0001-000000000006');
 
+  const isAcideFaibleBaseFaible =
+    !isAlcools &&
+    !isAmines &&
+    !isAcidesDerives &&
+    !isCinetique &&
+    !isAutoprotolysePh &&
+    !isAcideFortBaseForte &&
+    (lessonMeta.title.toLowerCase().includes('acide faible') ||
+      lessonMeta.title.toLowerCase().includes('base faible') ||
+      lessonMeta.title.toLowerCase().includes('pka') ||
+      lessonMeta.title.toLowerCase().includes("constante d'acidité") ||
+      lessonMeta.title.toLowerCase().includes('constante d’acidité') ||
+      lessonMeta.title.toLowerCase().includes('henderson') ||
+      lessonMeta.title.toLowerCase().includes('ostwald') ||
+      (chapter?.title?.toLowerCase() || '').includes('acide faible') ||
+      (chapter?.title?.toLowerCase() || '').includes('base faible') ||
+      params.lesson === '60000000-0000-0001-0001-000000000017' ||
+      params.lesson === '60000000-0000-0001-0001-000000000018' ||
+      params.lesson === '60000000-0000-0001-0001-000000000019' ||
+      params.chapter === '50000000-0000-0001-0001-000000000007');
+
   const isDerivation =
+    !isAcideFaibleBaseFaible &&
     !isAlcools &&
     !isCinetique &&
     !isAsymptotes &&
@@ -1901,6 +2003,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'Masterclass Audio : Autoprotolyse, pH & Indicateurs Colorés'
                     : isAcideFortBaseForte
                     ? 'Masterclass Audio : Acide Fort, Base Forte & Titrage Fort-Fort'
+                    : isAcideFaibleBaseFaible
+                    ? 'Masterclass Audio : Acides Faibles, Bases Faibles & pKa'
                     : isTvi
                     ? 'Masterclass Audio : TVI & Théorème de la Bijection'
                     : isAsymptotes
@@ -1940,6 +2044,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'Terminale S2 • Chimie : Les 5 réflexes pour le Ke, le pH et les indicateurs au Bac'
                     : isAcideFortBaseForte
                     ? 'Terminale S2 • Chimie : Les 5 réflexes pour le dosage fort-fort, les tangentes et le BBT'
+                    : isAcideFaibleBaseFaible
+                    ? 'Terminale S2 • Chimie : Les 5 réflexes pour Ka, Henderson et Ostwald au Bac'
                     : isTvi
                     ? 'Terminale S2 • Les 5 réflexes pour la Partie A & B'
                     : isAsymptotes
@@ -1979,6 +2085,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? AUTOPROTOLYSE_PH_AUDIO_CHAPTERS
                     : isAcideFortBaseForte
                     ? ACIDE_FORT_BASE_FORTE_AUDIO_CHAPTERS
+                    : isAcideFaibleBaseFaible
+                    ? ACIDE_FAIBLE_BASE_FAIBLE_AUDIO_CHAPTERS
                     : isTvi
                     ? TVI_AUDIO_CHAPTERS
                     : isAsymptotes
@@ -2053,6 +2161,11 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <>
                   <AcideFortBaseForteReflexesCard />
                   <AcideFortBaseForteInteractiveSimulator />
+                </>
+              ) : isAcideFaibleBaseFaible ? (
+                <>
+                  <AcideFaibleBaseFaibleReflexesCard />
+                  <AcideFaibleBaseFaibleInteractiveSimulator />
                 </>
               ) : isTvi ? (
                 <>
@@ -2159,6 +2272,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'autoprotolyse_ph'
                     : isAcideFortBaseForte
                     ? 'acide_fort_base_forte'
+                    : isAcideFaibleBaseFaible
+                    ? 'acide_faible_base_faible'
                     : isTvi
                     ? 'tvi'
                     : isAsymptotes
@@ -2207,6 +2322,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <AutoprotolysePhQuizEmbedded />
               ) : isAcideFortBaseForte ? (
                 <AcideFortBaseForteQuizEmbedded />
+              ) : isAcideFaibleBaseFaible ? (
+                <AcideFaibleBaseFaibleQuizEmbedded />
               ) : isTvi ? (
                 <TviQuizEmbedded />
               ) : isAsymptotes ? (

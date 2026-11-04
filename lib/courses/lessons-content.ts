@@ -2063,8 +2063,180 @@ La méthode officielle prescrite par l'Office du Baccalauréat sénégalais pour
 `
 };
 
+  // C7 : ACIDES ET BASES FAIBLES – COUPLES ACIDE-BASE – CONSTANTE D'ACIDITÉ Ka / pKa (Terminale S2 Sénégal)
+RICH_LESSONS_MAP.acide_faible_base_faible = `# C7 : Acides et Bases Faibles – Couples Acide-Base – Constante d'Acidité (pKa) (Terminale S2)
+
+## Objectifs Pédagogiques Officiels (Baccalauréat S2)
+
+> [!IMPORTANT]
+> 1. Définir un **acide faible** et une **base faible** par leur dissociation **partielle et réversible** dans l'eau (double flèche $\\rightleftharpoons$, coefficient $\\alpha < 1$).
+> 2. Exprimer la **constante d'acidité $K_a$** et le $pK_a = -\\log K_a$ d'un couple acide-base $\\text{HA}/\\text{A}^-$.
+> 3. Maîtriser la **relation d'Henderson-Hasselbalch** : $\\text{pH} = pK_a + \\log\\left(\\dfrac{[\\text{A}^-]}{[\\text{HA}]}\\right)$.
+> 4. Construire et exploiter le **diagramme de prédominance** et les **courbes de distribution en $S$** (intersection à $50\\%$ pour $\\text{pH} = pK_a$).
+> 5. Énoncer et appliquer la **loi de dilution d'Ostwald** : quand $C \\searrow$, $\\alpha \\nearrow$, mais $[\\text{H}_3\\text{O}^+] \\searrow$ et $\\text{pH} \\nearrow$.
+> 6. Classer et comparer la **force relative des couples** sur l'échelle des $pK_a$ et utiliser la relation $pK_a + pK_b = 14{,}00$ à $25^\\circ\\text{C}$.
+
+---
+
+## 1. Définition d'un Acide Faible et d'une Base Faible
+
+### A. L'Acide Faible
+Un **acide faible** ne se dissocie que **partiellement** dans l'eau. La réaction n'est jamais totale et conduit à un état d'équilibre dynamique noté avec une double flèche :
+
+$$\\text{HA} + \\text{H}_2\\text{O} \\rightleftharpoons \\text{A}^- + \\text{H}_3\\text{O}^+$$
+
+- À l'état final d'équilibre, il subsiste toujours des molécules intactes $\\text{HA}$ en solution : $[\\text{HA}]_{\\text{éq}} > 0$.
+- Le **coefficient de dissociation $\\alpha$** (ou taux d'avancement final $\\tau$) vérifie rigoureusement :
+  $$\\alpha = \\frac{[\\text{A}^-]}{C} = \\frac{[\\text{H}_3\\text{O}^+]}{C} < 1 \\quad (\\text{souvent } \\alpha < 0{,}05)$$
+
+### B. La Base Faible
+Une **base faible** réagit de façon limitée avec l'eau en captant un proton :
+
+$$\\text{B} + \\text{H}_2\\text{O} \\rightleftharpoons \\text{BH}^+ + \\text{OH}^-$$
+
+*Exemple roi du Bac S2 :* L'ammoniac $\\text{NH}_3$ :
+$$\\text{NH}_3 + \\text{H}_2\\text{O} \\rightleftharpoons \\text{NH}_4^+ + \\text{OH}^-$$
+
+---
+
+## 2. La Constante d'Acidité $K_a$ et le $pK_a$
+
+Pour tout couple acide-base $\\text{HA}/\\text{A}^-$ (ou $\\text{BH}^+/\\text{B}$), la **constante d'acidité $K_a$** est la constante thermodynamique associée à l'équilibre de dissociation de l'acide dans l'eau :
+
+$$K_a = \\frac{[\\text{A}^-][\\text{H}_3\\text{O}^+]}{[\\text{HA}]}$$
+
+Le **$pK_a$** est défini par :
+$$pK_a = -\\log K_a \\iff K_a = 10^{-pK_a}$$
+
+> [!CAUTION]
+> **Règle absolue du Bac S2 :**
+> - La constante d'acidité $K_a$ ne dépend **QUE de la température** $T$.
+> - Elle est strictement **indépendante de la concentration initiale $C$** de la solution et du pH.
+> - L'eau étant le solvant (activité égale à 1), elle **n'apparaît JAMAIS au dénominateur** de $K_a$.
+
+---
+
+## 3. La Relation Fondamentale d'Henderson-Hasselbalch
+
+En prenant le logarithme décimal de l'expression de $K_a$ :
+$$-\\log K_a = -\\log[\\text{H}_3\\text{O}^+] - \\log\\left(\\frac{[\\text{A}^-]}{[\\text{HA}]}\\right)$$
+On obtient la formule d'or :
+
+$$\\mathbf{\\text{pH} = pK_a + \\log\\left(\\frac{[\\text{A}^-]}{[\\text{HA}]}\\right)} \\iff \\mathbf{\\frac{[\\text{A}^-]}{[\\text{HA}]} = 10^{\\text{pH} - pK_a}}$$
+
+### Les 3 situations fondamentales :
+1. **Si $[\\text{A}^-] = [\\text{HA}]$ :** $\\log(1) = 0 \\implies \\mathbf{\\text{pH} = pK_a}$ (point de demi-équivalence d'un titrage ou solution tampon équimolaire).
+2. **Si $[\\text{HA}] > [\\text{A}^-]$ :** $\\log\\left(\\frac{[\\text{A}^-]}{[\\text{HA}]}\\right) < 0 \\implies \\mathbf{\\text{pH} < pK_a}$ (la forme acide prédomine).
+3. **Si $[\\text{A}^-] > [\\text{HA}]$ :** $\\log\\left(\\frac{[\\text{A}^-]}{[\\text{HA}]}\\right) > 0 \\implies \\mathbf{\\text{pH} > pK_a}$ (la forme basique prédomine).
+
+---
+
+## 4. Diagramme de Prédominance et Courbes de Distribution
+
+### A. Diagramme de Prédominance sur Axe de pH
+Sur un axe horizontal gradué en unités de pH de 0 à 14, la valeur du $pK_a$ constitue la frontière exacte :
+
+| Zone de pH | Relation de concentration | Espèce prédominante |
+| :--- | :---: | :--- |
+| $\\text{pH} \\le pK_a - 1$ | $[\\text{HA}] \\ge 10\\,[\\text{A}^-]$ | **HA ultra-majoritaire ($> 90\\%$)** |
+| $\\text{pH} < pK_a$ | $[\\text{HA}] > [\\text{A}^-]$ | **HA prédomine** |
+| $\\mathbf{\\text{pH} = pK_a}$ | $[\\text{HA}] = [\\text{A}^-]$ | **Égalité stricte ($50\\% \\text{ HA} / 50\\% \\text{ A}^-$)** |
+| $\\text{pH} > pK_a$ | $[\\text{A}^-] > [\\text{HA}]$ | **A⁻ prédomine** |
+| $\\text{pH} \\ge pK_a + 1$ | $[\\text{A}^-] \\ge 10\\,[\\text{HA}]$ | **A⁻ ultra-majoritaire ($> 90\\%$)** |
+
+### B. Courbes de Distribution en S (Pourcentages d'espèces)
+Les pourcentages respectifs des formes acide et basique s'écrivent :
+$$\\alpha_{\\text{HA}} = \\frac{[\\text{HA}]}{C} = \\frac{1}{1 + 10^{\\text{pH} - pK_a}} \\qquad \\alpha_{\\text{A}^-} = \\frac{[\\text{A}^-]}{C} = \\frac{10^{\\text{pH} - pK_a}}{1 + 10^{\\text{pH} - pK_a}}$$
+
+- La courbe de $\\text{HA}$ est une **sigmoïde décroissante** (de $100\\%$ à $0\\%$).
+- La courbe de $\\text{A}^-$ est une **sigmoïde croissante** (de $0\\%$ à $100\\%$).
+- **Leur point d'intersection unique se situe exactement à l'ordonnée $50\\%$ et a pour abscisse $\\text{pH} = pK_a$ !**
+
+---
+
+## 5. Loi de Dilution d'Ostwald
+
+Soit une solution aqueuse d'un acide faible $\\text{HA}$ de concentration $C$.
+
+Tableau d'avancement volumique :
+- $[\\text{HA}] = C(1 - \\alpha)$
+- $[\\text{A}^-] = [\\text{H}_3\\text{O}^+] = C\\alpha$
+
+En injectant dans l'expression de $K_a$ :
+$$K_a = \\frac{(C\\alpha)(C\\alpha)}{C(1 - \\alpha)} = \\mathbf{\\frac{\\alpha^2 \\, C}{1 - \\alpha}}$$
+
+### Analyse de la dilution (Ostwald) :
+Comme $K_a$ est constant à température fixée :
+- Si la concentration $C \\to 0$ (dilution progressive), le dénominateur doit compenser $\\implies \\mathbf{\\alpha \\to 1}$.
+- **Énoncé de la loi d'Ostwald :** *Plus une solution d'acide faible est diluée, plus son coefficient de dissociation $\\alpha$ augmente.* À dilution infinie, tout acide faible se comporte comme un acide fort ($\\alpha \\to 1$).
+- **Attention au pH lors de la dilution :** Bien que $\\alpha$ augmente, le produit $[\\text{H}_3\\text{O}^+] = C\\alpha \\approx \\sqrt{K_a \\cdot C}$ diminue, donc **le pH augmente** vers 7 sans jamais franchir la neutralité.
+
+---
+
+## 6. Classification et Force Relative des Couples Acide-Base
+
+### A. Échelle des $pK_a$
+Pour deux acides faibles mis en présence d'eau à la même concentration :
+- **Plus le $pK_a$ est faible ($K_a$ élevé), plus l'acide est fort** (il libère plus facilement ses protons).
+- **Plus le $pK_a$ est élevé ($K_a$ faible), plus l'acide est faible.**
+
+### B. Force de la Base Conjuguée & Produit $K_a \\cdot K_b$
+Pour tout couple $\\text{HA}/\\text{A}^-$ dans l'eau :
+$$K_a = \\frac{[\\text{A}^-][\\text{H}_3\\text{O}^+]}{[\\text{HA}]} \\qquad K_b = \\frac{[\\text{HA}][\\text{OH}^-]}{[\\text{A}^-]}$$
+En faisant le produit membre à membre :
+$$K_a \\times K_b = [\\text{H}_3\\text{O}^+][\\text{OH}^-] = K_e = 10^{-14} \\quad (\\text{à } 25^\\circ\\text{C})$$
+$$\\mathbf{pK_a + pK_b = pK_e = 14{,}00}$$
+
+> [!TIP]
+> **Règle fondamentale d'inversion :**
+> **Plus un acide est fort, plus sa base conjuguée est faible, et inversement.**
+> - L'acide éthanoïque ($pK_a = 4{,}75$) est plus fort que l'ion ammonium $\\text{NH}_4^+$ ($pK_a = 9{,}25$).
+> - En revanche, l'ammoniac $\\text{NH}_3$ est une base beaucoup plus forte que l'ion acétate $\\text{CH}_3\\text{COO}^-$.
+
+---
+
+## 7. Réflexes d'Or du Baccalauréat Sénégalais
+
+> [!IMPORTANT]
+> 1. Acide faible dans l'eau : double flèche $\\rightleftharpoons$ OBLIGATOIRE (écrire $\\longrightarrow$ fait perdre les points).
+> 2. $K_a = \\frac{[\\text{A}^-][\\text{H}_3\\text{O}^+]}{[\\text{HA}]}$ ne dépend QUE de la température.
+> 3. Henderson-Hasselbalch : $\\text{pH} = pK_a + \\log\\left(\\frac{[\\text{Base}]}{[\\text{Acide}]}\\right)$. Si $[\\text{Base}] = [\\text{Acide}]$, alors $\\text{pH} = pK_a$.
+> 4. Intersection des courbes de distribution en $S$ : toujours en $\\text{pH} = pK_a$ à l'ordonnée $50\\%$.
+> 5. Ostwald : quand $C \\searrow$, $\\alpha \\nearrow$, mais $[\\text{H}_3\\text{O}^+] \\searrow$ et $\\text{pH} \\nearrow$.
+> 6. Force relative : $pK_a \\searrow \\implies$ acide plus fort $\\implies$ base conjuguée plus faible.
+
+> [!WOLOF]
+> - « Acide faible bi (naka acide acétique CH₃COOH) du jeex bépp ci ndox mi ! Dafa am lu ci des waxtu wu nekk, motax ñu koy bind ak ñaari flèche ⇌. »
+> - « Constante Ka bi tàngaay bi rekk la dépendre ! Bu pKa bi tuuti, acide bi dafa gën a dëgër. »
+> - « Bu [Base] = [Acide], pH bi day yem ci pKa bi rek ! Ci diagramme bi, dañuy croiser ci 50-50 ci pKa exact. »
+> - « Loi Ostwald : boo yokkee ndox (dilution), alpha bi day yokk ndax molécules yi dañuy gën a xàjjikoo, waaye pH bi day yéeg jëm 7 ! »
+`;
+/*
+\`
+};
+
+*/
 export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: string, rawContent: string | null): string {
   const titleLower = `${lessonTitle} ${chapterTitle}`.toLowerCase();
+
+  if (
+    titleLower.includes('acide faible') ||
+    titleLower.includes('base faible') ||
+    titleLower.includes('constante d’acidité') ||
+    titleLower.includes("constante d'acidité") ||
+    titleLower.includes('constante d’acidite') ||
+    titleLower.includes("constante d'acidite") ||
+    titleLower.includes('pka') ||
+    titleLower.includes('henderson') ||
+    titleLower.includes('ostwald') ||
+    titleLower.includes('couples acide-base') ||
+    titleLower.includes('couples acide/base') ||
+    titleLower.includes('force relative') ||
+    titleLower.includes('prédominance') ||
+    titleLower.includes('predominance')
+  ) {
+    return RICH_LESSONS_MAP.acide_faible_base_faible;
+  }
 
   if (
     titleLower.includes('alcool') ||

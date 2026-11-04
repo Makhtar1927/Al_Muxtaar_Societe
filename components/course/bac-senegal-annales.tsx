@@ -1169,6 +1169,124 @@ $$y(7) = 3,7(7) + 7,9 = 25,9 + 7,9 = 33,8 \\text{ dizaines de millions} = 338 \\
     },
   ],
 
+  // ── C7 : ACIDE FAIBLE – BASE FAIBLE – Ka / pKa ──────────────────────────
+  acide_faible_base_faible: [
+    {
+      year: 2021,
+      session: 'Session Normale (S2)',
+      points: 'Exercice 2 — Chimie des Solutions (5 Points)',
+      topic: 'Acide acétique, constante Ka, Henderson-Hasselbalch et diagramme de prédominance',
+      enonce: `L'acide acétique $\\text{CH}_3\\text{COOH}$ (noté $\\text{HA}$) forme le couple $\\text{HA}/\\text{A}^-$ avec $pK_a = 4{,}75$ à $25^\\circ\\text{C}$.
+
+**Partie A**
+
+1. Écrire l'équation d'équilibre de dissolution de $\\text{HA}$ dans l'eau. Calculer $K_a$.
+2. Expliquer pourquoi $K_a$ ne dépend pas de la concentration de la solution.
+
+**Partie B**
+
+3. On mesure $\\text{pH} = 2{,}875$ pour une solution de $C = 0{,}10\\text{ mol/L}$. Identifier l'espèce prédominante et calculer le coefficient de dissociation $\\alpha$.
+4. Tracer le diagramme de prédominance du couple $\\text{HA}/\\text{A}^-$.
+
+**Partie C**
+
+5. On mélange 100 mL de solution de $\\text{HA}$ ($C_a = 0{,}10\\text{ mol/L}$) et 100 mL d'acétate de sodium ($C_b = 0{,}10\\text{ mol/L}$). Calculer le pH.
+6. Rôle tampon : que se passe-t-il si on ajoute quelques gouttes d'acide fort à ce mélange ?`,
+      solution: `### Partie A
+
+**1. Équation d'équilibre et $K_a$**
+$$\\text{CH}_3\\text{COOH} + \\text{H}_2\\text{O} \\rightleftharpoons \\text{CH}_3\\text{COO}^- + \\text{H}_3\\text{O}^+$$
+$$K_a = 10^{-4{,}75} \\approx 1{,}78 \\times 10^{-5}$$
+
+**2. Indépendance de $K_a$ vis-à-vis de $C$**
+$K_a$ est une constante thermodynamique fixée uniquement par la température (énergie libre de Gibbs). La concentration $C$ modifie $\\alpha$ mais pas le rapport des activités à l'équilibre.
+
+---
+
+### Partie B
+
+**3. Prédominance et $\\alpha$**
+$\\text{pH} = 2{,}875 < pK_a = 4{,}75 \\implies$ **$\\text{HA}$ prédomine**.
+$$[\\text{H}_3\\text{O}^+] = 10^{-2{,}875} \\approx 1{,}33 \\times 10^{-3}\\text{ mol/L}$$
+$$\\alpha = \\frac{[\\text{H}_3\\text{O}^+]}{C} = \\frac{1{,}33 \\times 10^{-3}}{0{,}10} \\approx \\mathbf{1{,}33\\%}$$
+
+**4. Diagramme de prédominance**
+
+Axe pH de 0 à 14, marqueur $pK_a = 4{,}75$ :
+
+| $\\text{pH} < 4{,}75$ | $\\text{pH} = 4{,}75$ | $\\text{pH} > 4{,}75$ |
+|:---:|:---:|:---:|
+| **HA prédomine** | $[\\text{HA}] = [\\text{A}^-]$ | **A⁻ prédomine** |
+
+---
+
+### Partie C
+
+**5. pH du mélange tampon**
+$n_{\\text{HA}} = n_{\\text{A}^-} = 0{,}10 \\times 0{,}100 = 0{,}010\\text{ mol}$. Relation d'Henderson :
+$$\\text{pH} = pK_a + \\log\\!\\left(\\frac{n_{\\text{A}^-}}{n_{\\text{HA}}}\\right) = 4{,}75 + \\log(1) = \\mathbf{4{,}75}$$
+
+**6. Rôle tampon**
+L'ion acétate $\\text{A}^-$ neutralise les protons ajoutés :
+$$\\text{A}^- + \\text{H}_3\\text{O}^+ \\rightleftharpoons \\text{HA} + \\text{H}_2\\text{O}$$
+Le pH varie très peu : c'est l'effet tampon.`,
+      baremeAstuce: `Barème Office du Bac : équation ⇌ + Ka (0,75 pt) · explication indépendance Ka/T (0,5 pt) · prédominance pH < pKa + calcul α (1,25 pt) · diagramme avec pKa et espèces annotées (1 pt) · Henderson-Hasselbalch pH = 4,75 (1 pt) · rôle tampon avec équation ionique (0,5 pt). Piège fatal : écrire → au lieu de ⇌ pour un acide faible est une erreur éliminatoire au Bac S2 !`,
+    },
+    {
+      year: 2018,
+      session: 'Session Normale (S2)',
+      points: 'Exercice 3 — Chimie des Solutions (4 Points)',
+      topic: 'Classification des couples acide-base, force relative et calcul de pH par Ostwald',
+      enonce: `On donne les $pK_a$ à $25^\\circ\\text{C}$ de quatre couples :
+
+| Couple acide/base | $pK_a$ |
+|:---|:---:|
+| $\\text{HCOOH}/\\text{HCOO}^-$ (acide méthanoïque) | $3{,}75$ |
+| $\\text{CH}_3\\text{COOH}/\\text{CH}_3\\text{COO}^-$ (acide acétique) | $4{,}75$ |
+| $\\text{H}_2\\text{CO}_3/\\text{HCO}_3^-$ (acide carbonique) | $6{,}35$ |
+| $\\text{NH}_4^+/\\text{NH}_3$ (ion ammonium) | $9{,}25$ |
+
+1. Classer les acides par ordre de force décroissante. Justifier par $K_a$.
+2. Classer les bases conjuguées par ordre de force basique décroissante et énoncer la relation force acide / force base conjuguée.
+3. À $\\text{pH} = 5{,}50$, identifier l'espèce prédominante de chaque couple.
+4. Calculer le pH d'une solution de $\\text{HCOOH}$ de concentration $C = 5{,}0 \\times 10^{-2}\\text{ mol/L}$, en admettant $\\alpha \\ll 1$.`,
+      solution: `### 1. Classement des acides
+
+$K_a = 10^{-pK_a}$ : plus $pK_a$ petit $\\implies$ plus $K_a$ grand $\\implies$ plus l'acide est fort.
+
+Classement force décroissante : $\\text{HCOOH} > \\text{CH}_3\\text{COOH} > \\text{H}_2\\text{CO}_3 > \\text{NH}_4^+$.
+
+---
+
+### 2. Bases conjuguées
+
+**Relation** : plus un acide est fort, plus sa base conjuguée est faible (et inversement).
+
+Classement force basique décroissante : $\\text{NH}_3 > \\text{HCO}_3^- > \\text{CH}_3\\text{COO}^- > \\text{HCOO}^-$.
+
+---
+
+### 3. Prédominance à pH $= 5{,}50$
+
+| Couple | $pK_a$ | pH vs $pK_a$ | Espèce prédominante |
+|:---|:---:|:---:|:---|
+| $\\text{HCOOH}/\\text{HCOO}^-$ | $3{,}75$ | $5{,}50 > 3{,}75$ | **$\\text{HCOO}^-$** |
+| $\\text{CH}_3\\text{COOH}/\\text{CH}_3\\text{COO}^-$ | $4{,}75$ | $5{,}50 > 4{,}75$ | **$\\text{CH}_3\\text{COO}^-$** |
+| $\\text{H}_2\\text{CO}_3/\\text{HCO}_3^-$ | $6{,}35$ | $5{,}50 < 6{,}35$ | **$\\text{H}_2\\text{CO}_3$** |
+| $\\text{NH}_4^+/\\text{NH}_3$ | $9{,}25$ | $5{,}50 < 9{,}25$ | **$\\text{NH}_4^+$** |
+
+---
+
+### 4. pH de l'acide méthanoïque
+
+Avec $\\alpha \\ll 1$ : $K_a \\approx x^2 / C$, donc :
+$$x = [\\text{H}_3\\text{O}^+] = \\sqrt{K_a \\times C} = \\sqrt{10^{-3{,}75} \\times 5{,}0 \\times 10^{-2}} = \\sqrt{8{,}9 \\times 10^{-6}} \\approx 2{,}98 \\times 10^{-3}\\text{ mol/L}$$
+$$\\text{pH} = -\\log(2{,}98 \\times 10^{-3}) \\approx \\mathbf{2{,}53}$$
+Vérification : $\\alpha = 2{,}98 \\times 10^{-3} / 5{,}0 \\times 10^{-2} = 6{,}0\\% < 20\\%$ ✓.`,
+      baremeAstuce: `Barème Office du Bac : classement acides + justification Ka (0,75 pt) · bases conjuguées + relation inverse (0,75 pt) · 4 prédominances à pH = 5,50 (1 pt) · pH par Ostwald (approximation justifiée) (1,5 pt). Astuce : Pour le diagramme, tracez un axe unique de 0 à 14 et placez les 4 pKa dans l'ordre. Vérifiez TOUJOURS la validité de l'hypothèse α ≪ 1 après le calcul.`,
+    },
+  ],
+
   // 12. GÉOMÉTRIE DANS L'ESPACE
   geometrie: [
     {

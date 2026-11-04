@@ -17,10 +17,16 @@ function normalizeMathString(str: string): string {
   return str
     .replace(/\x0crac/g, '\\frac') // \f mangé par template string
     .replace(/\t(imes)/g, '\\times') // \t mangé par template string
+    .replace(/\t(ext)/g, '\\text') // \t mangé par template string
+    .replace(/\x0dightleftharpoons/g, '\\rightleftharpoons')
+    .replace(/\x0dightarrow/g, '\\rightarrow')
+    .replace(/\r/g, '')
     .replace(/\\?rac(?=\{|\d|\s*0)/g, '\\frac') // 'rac00' ou 'rac{...}'
     .replace(/\\?rac\s*\\?infty/g, '\\frac{\\infty}')
     .replace(/0imes\\?infty/g, '0 \\times \\infty')
-    .replace(/\+infty\s*-\s*infty/g, '+\\infty - \\infty');
+    .replace(/\+infty\s*-\s*infty/g, '+\\infty - \\infty')
+    // Fix double-escaped LaTeX macros in memory (e.g. \\times -> \times, \\text -> \text)
+    .replace(/\\\\([a-zA-Z]+)/g, '\\$1');
 }
 
 /**
@@ -98,49 +104,138 @@ function renderMarkdownWithKatex(raw: string): string {
       continue;
     }
 
-    // Callouts & Blockquotes (> quote)
-    if (line.startsWith('> ')) {
+    // Markdown Tables (| Header 1 | Header 2 |)
+    if (line.trim().startsWith('|') && line.trim().endsWith('|')) {
       if (inUnorderedList) { htmlLines.push('</ul>'); inUnorderedList = false; }
       if (inOrderedList) { htmlLines.push('</ol>'); inOrderedList = false; }
-      const quoteText = line.slice(2).trim();
 
-      if (quoteText.startsWith('[!ASTUCE]')) {
-        const body = quoteText.replace(/^\[!ASTUCE\]\s*/, '');
-        htmlLines.push(`<div class="my-4 rounded-2xl border-l-4 border-emerald-500 bg-emerald-50/80 p-3.5 sm:p-4 shadow-sm text-emerald-950 text-xs sm:text-sm"><div class="flex items-center gap-2 font-bold text-emerald-800 mb-1"><img src="/icons/10_ampoule_astuce.svg" width="20" height="20" class="inline-block shrink-0" alt="" /><span>Astuce Bac Sénégal</span></div><p class="leading-relaxed text-emerald-900">${body}</p></div>`);
+      const tableLines: string[] = [];
+      while (i < lines.length && lines[i].trim().startsWith('|') && lines[i].trim().endsWith('|')) {
+        tableLines.push(lines[i].trim());
+        i++;
+      }
+      i--; // adjust loop index
+
+      if (tableLines.length >= 2) {
+        const parseRow = (rowStr: string) =>
+          rowStr
+            .replace(/^\|/, '')
+            .replace(/\|$/, '')
+            .split('|')
+            .map((c) => c.trim());
+
+        const headers = parseRow(tableLines[0]);
+        let bodyStartIndex = 1;
+        if (tableLines.length > 1 && tableLines[1].replace(/[\s|:-]/g, '').length === 0) {
+          bodyStartIndex = 2;
+        }
+
+        let tableHtml = '<div class="my-6 overflow-x-auto rounded-2xl border border-navy/15 bg-white shadow-xs">';
+        tableHtml += '<table class="w-full border-collapse text-left text-xs sm:text-sm">';
+        tableHtml += '<thead class="bg-navy/5 border-b border-navy/10 text-navy font-bold"><tr>';
+        headers.forEach((h) => {
+          tableHtml += `<th class="px-3.5 py-2.5 sm:px-4 sm:py-3 whitespace-nowrap">${h}</th>`;
+        });
+        tableHtml += '</tr></thead><tbody class="divide-y divide-navy/10">';
+
+        for (let r = bodyStartIndex; r < tableLines.length; r++) {
+          const cells = parseRow(tableLines[r]);
+          tableHtml += '<tr class="hover:bg-surface/50 transition-colors">';
+          cells.forEach((c) => {
+            tableHtml += `<td class="px-3.5 py-2.5 sm:px-4 sm:py-3 leading-relaxed">${c}</td>`;
+          });
+          tableHtml += '</tr>';
+        }
+
+        tableHtml += '</tbody></table></div>';
+        htmlLines.push(tableHtml);
         continue;
       }
+    }
 
-      if (quoteText.startsWith('[!METHODE]')) {
-        const body = quoteText.replace(/^\[!METHODE\]\s*/, '');
-        htmlLines.push(`<div class="my-4 rounded-2xl border-l-4 border-turquoise bg-turquoise/10 p-3.5 sm:p-4 shadow-sm text-navy text-xs sm:text-sm"><div class="flex items-center gap-2 font-bold text-turquoise mb-1"><img src="/icons/01_cible_reflexe.svg" width="20" height="20" class="inline-block shrink-0" alt="" /><span>Méthode &amp; Réflexe Clé</span></div><p class="leading-relaxed">${body}</p></div>`);
-        continue;
+    // Callouts & Blockquotes (> quote)
+    if (line.startsWith('> ') || line.trim() === '>') {
+      if (inUnorderedList) { htmlLines.push('</ul>'); inUnorderedList = false; }
+      if (inOrderedList) { htmlLines.push('</ol>'); inOrderedList = false; }
+
+      const rawQuoteLines: string[] = [];
+      while (i < lines.length && (lines[i].startsWith('> ') || lines[i].trim() === '>')) {
+        rawQuoteLines.push(lines[i].replace(/^>\s?/, ''));
+        i++;
+      }
+      i--; // adjust loop index
+
+      const firstLine = rawQuoteLines[0] || '';
+      const calloutMatch = firstLine.match(/^\[!([A-Z_]+)\]\s*(.*)$/);
+
+      if (calloutMatch) {
+        const type = calloutMatch[1];
+        const remainingFirst = calloutMatch[2];
+        const bodyLines = remainingFirst ? [remainingFirst, ...rawQuoteLines.slice(1)] : rawQuoteLines.slice(1);
+
+        const formatBody = (linesArr: string[]) => {
+          return linesArr
+            .filter((l) => l.trim().length > 0)
+            .map((l) => {
+              const trimmed = l.trim();
+              if (trimmed.match(/^[-*]\s+/)) {
+                return `<div class="flex items-start gap-2 my-1"><span class="opacity-60 shrink-0 select-none">•</span><span class="leading-relaxed">${trimmed.replace(/^[-*]\s+/, '')}</span></div>`;
+              }
+              const numMatch = trimmed.match(/^(\d+)\.\s+(.*)$/);
+              if (numMatch) {
+                return `<div class="flex items-start gap-2 my-1.5"><span class="font-bold opacity-80 shrink-0 select-none">${numMatch[1]}.</span><span class="leading-relaxed">${numMatch[2]}</span></div>`;
+              }
+              return `<p class="my-1 leading-relaxed">${trimmed}</p>`;
+            })
+            .join('');
+        };
+
+        const contentHtml = formatBody(bodyLines);
+
+        if (type === 'IMPORTANT') {
+          htmlLines.push(`<div class="my-5 rounded-2xl border-l-4 border-navy bg-navy/5 p-4 sm:p-5 shadow-xs text-navy text-xs sm:text-sm border border-navy/15"><div class="flex items-center gap-2 font-bold text-navy mb-2"><img src="/icons/01_cible_reflexe.svg" width="20" height="20" class="inline-block shrink-0" alt="" /><span>Points Essentiels du Baccalauréat</span></div><div class="leading-relaxed text-navy/90 font-medium">${contentHtml}</div></div>`);
+          continue;
+        }
+
+        if (type === 'CAUTION' || type === 'WARNING' || type === 'PIEGE' || type === 'ATTENTION') {
+          htmlLines.push(`<div class="my-5 rounded-2xl border-l-4 border-rose-500 bg-rose-50/90 p-4 sm:p-5 shadow-xs text-rose-950 text-xs sm:text-sm border border-rose-200"><div class="flex items-center gap-2 font-bold text-rose-800 mb-2"><img src="/icons/02_avertissement.svg" width="20" height="20" class="inline-block shrink-0" alt="" /><span>Piège Éliminatoire Bac S2</span></div><div class="leading-relaxed text-rose-900">${contentHtml}</div></div>`);
+          continue;
+        }
+
+        if (type === 'TIP' || type === 'CONSEIL_BAC' || type === 'ASTUCE') {
+          htmlLines.push(`<div class="my-5 rounded-2xl border-l-4 border-emerald-500 bg-emerald-50/80 p-4 sm:p-5 shadow-xs text-emerald-950 text-xs sm:text-sm border border-emerald-200"><div class="flex items-center gap-2 font-bold text-emerald-800 mb-2"><img src="/icons/10_ampoule_astuce.svg" width="20" height="20" class="inline-block shrink-0" alt="" /><span>Conseil d'Excellence Bac S2</span></div><div class="leading-relaxed text-emerald-900">${contentHtml}</div></div>`);
+          continue;
+        }
+
+        if (type === 'THEOREME') {
+          htmlLines.push(`<div class="my-5 rounded-2xl border-l-4 border-indigo-600 bg-indigo-50/80 p-4 sm:p-5 shadow-xs text-indigo-950 text-xs sm:text-sm border border-indigo-200"><div class="flex items-center gap-2 font-bold text-indigo-900 mb-2"><img src="/icons/03_theoreme_equerre.svg" width="20" height="20" class="inline-block shrink-0" alt="" /><span>Théorème &amp; Loi Fondamentale</span></div><div class="leading-relaxed text-indigo-950 font-medium">${contentHtml}</div></div>`);
+          continue;
+        }
+
+        if (type === 'METHODE') {
+          htmlLines.push(`<div class="my-5 rounded-2xl border-l-4 border-turquoise bg-turquoise/10 p-4 sm:p-5 shadow-xs text-navy text-xs sm:text-sm border border-turquoise/20"><div class="flex items-center gap-2 font-bold text-turquoise mb-2"><img src="/icons/01_cible_reflexe.svg" width="20" height="20" class="inline-block shrink-0" alt="" /><span>Méthode &amp; Réflexe Clé</span></div><div class="leading-relaxed">${contentHtml}</div></div>`);
+          continue;
+        }
+
+        if (type === 'EXEMPLE') {
+          htmlLines.push(`<div class="my-5 rounded-2xl border-l-4 border-amber-500 bg-amber-50/80 p-4 sm:p-5 shadow-xs text-amber-950 text-xs sm:text-sm border border-amber-200"><div class="flex items-center gap-2 font-bold text-amber-800 mb-2"><img src="/icons/20_exercice_crayon.svg" width="20" height="20" class="inline-block shrink-0" alt="" /><span>Exemple Type Résolu</span></div><div class="leading-relaxed text-amber-900">${contentHtml}</div></div>`);
+          continue;
+        }
+
+        if (type === 'WOLOF') {
+          htmlLines.push(`<div class="my-5 rounded-2xl border-l-4 border-amber-600 bg-amber-500/10 p-4 sm:p-5 shadow-xs text-amber-950 text-xs sm:text-sm border border-amber-500/20"><div class="flex items-center gap-2 font-bold text-amber-900 mb-2"><span class="text-base">🇸🇳</span><span>Xam-xam ci Wolof • Décodage Pédagogique</span></div><div class="leading-relaxed text-amber-950 font-medium">${contentHtml}</div></div>`);
+          continue;
+        }
+
+        if (type === 'VIE_REELLE' || type === 'CONCRET') {
+          htmlLines.push(`<div class="my-5 rounded-2xl border-l-4 border-indigo-600 bg-indigo-50/80 p-4 sm:p-5 shadow-xs text-indigo-950 text-xs sm:text-sm border border-indigo-500/20"><div class="flex items-center gap-2 font-bold text-indigo-900 mb-2"><span class="text-base">🌍</span><span>Illustration de la Vie Réelle • Comprendre Concrètement</span></div><div class="leading-relaxed text-indigo-950">${contentHtml}</div></div>`);
+          continue;
+        }
       }
 
-      if (quoteText.startsWith('[!PIEGE]') || quoteText.startsWith('[!ATTENTION]')) {
-        const body = quoteText.replace(/^\[!(?:PIEGE|ATTENTION)\]\s*/, '');
-        htmlLines.push(`<div class="my-4 rounded-2xl border-l-4 border-rose-500 bg-rose-50/80 p-3.5 sm:p-4 shadow-sm text-rose-950 text-xs sm:text-sm"><div class="flex items-center gap-2 font-bold text-rose-800 mb-1"><img src="/icons/02_avertissement.svg" width="20" height="20" class="inline-block shrink-0" alt="" /><span>Attention au piège fréquent</span></div><p class="leading-relaxed text-rose-900">${body}</p></div>`);
-        continue;
-      }
-
-      if (quoteText.startsWith('[!EXEMPLE]')) {
-        const body = quoteText.replace(/^\[!EXEMPLE\]\s*/, '');
-        htmlLines.push(`<div class="my-4 rounded-2xl border-l-4 border-amber-500 bg-amber-50/80 p-3.5 sm:p-4 shadow-sm text-amber-950 text-xs sm:text-sm"><div class="flex items-center gap-2 font-bold text-amber-800 mb-1"><img src="/icons/20_exercice_crayon.svg" width="20" height="20" class="inline-block shrink-0" alt="" /><span>Exemple Type Résolu</span></div><p class="leading-relaxed text-amber-900">${body}</p></div>`);
-        continue;
-      }
-
-      if (quoteText.startsWith('[!WOLOF]')) {
-        const body = quoteText.replace(/^\[!WOLOF\]\s*/, '');
-        htmlLines.push(`<div class="my-4 rounded-2xl border-l-4 border-amber-600 bg-amber-500/10 p-3.5 sm:p-4 shadow-sm text-amber-950 text-xs sm:text-sm border border-amber-500/20"><div class="flex items-center gap-2 font-bold text-amber-900 mb-1"><span class="text-base">🇸🇳</span><span>Xam-xam ci Wolof • Décodage Pédagogique</span></div><p class="leading-relaxed text-amber-950 font-medium">${body}</p></div>`);
-        continue;
-      }
-
-      if (quoteText.startsWith('[!VIE_REELLE]') || quoteText.startsWith('[!CONCRET]')) {
-        const body = quoteText.replace(/^\[!(?:VIE_REELLE|CONCRET)\]\s*/, '');
-        htmlLines.push(`<div class="my-4 rounded-2xl border-l-4 border-indigo-600 bg-indigo-50/80 p-3.5 sm:p-4 shadow-sm text-indigo-950 text-xs sm:text-sm border border-indigo-500/20"><div class="flex items-center gap-2 font-bold text-indigo-900 mb-1"><span class="text-base">🌍</span><span>Illustration de la Vie Réelle • Comprendre Concrètement</span></div><p class="leading-relaxed text-indigo-950">${body}</p></div>`);
-        continue;
-      }
-
-      htmlLines.push(`<blockquote class="border-l-4 border-turquoise pl-3.5 py-1.5 my-3 bg-turquoise/5 rounded-r-xl text-text/80 italic text-xs sm:text-sm leading-relaxed">${quoteText}</blockquote>`);
+      // Standard Blockquote
+      const quoteBody = rawQuoteLines.map((l) => `<p class="my-1">${l.trim()}</p>`).join('');
+      htmlLines.push(`<blockquote class="border-l-4 border-turquoise pl-4 py-2 my-4 bg-turquoise/5 rounded-r-2xl text-text/80 italic text-xs sm:text-sm leading-relaxed">${quoteBody}</blockquote>`);
       continue;
     }
 
