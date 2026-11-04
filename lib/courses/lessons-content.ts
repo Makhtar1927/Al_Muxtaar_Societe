@@ -1689,6 +1689,110 @@ $$R-\\text{COCl} + 2\\,R'-\\text{NH}_2 \\longrightarrow R-\\text{CO}-\\text{NH}-
 > 3. « Amine tertiaire du def amide ndax amul benn H ci azote bi ! »
 `,
 
+  // C3 : ACIDES CARBOXYLIQUES & DERIVES (Chimie Organique - Terminale S2)
+  acides_derives: `# C3 : Acides Carboxyliques & Derives (Terminale S2)
+
+## 1. Acides Carboxyliques — Nomenclature
+
+Groupe fonctionnel : $-\\text{COOH}$ (carboxyle).
+
+| Formule | Nom UICPA |
+|---------|----------|
+| $H-COOH$ | Acide methanoique |
+| $CH_3-COOH$ | Acide ethanoique (vinaigre) |
+| $CH_3CH_2-COOH$ | Acide propanoique |
+
+---
+
+## 2. Esters — Nomenclature
+
+Formation : $R-COOH + R'-OH \\rightleftharpoons R-COO-R' + H_2O$
+
+Nomenclature : [acide → **-ate**] + **de** + [alcool → **-yle**]
+
+Exemple : **Ethanoate d'ethyle** = arome poire / vernis a ongles.
+
+---
+
+## 3. Equilibre d'Esterification
+
+### Caracteristiques
+- **Lente** : catalyseur $H_2SO_4$ ou reflux a reflux.
+- **Limitee** ($\\rightleftharpoons$) : jamais totale.
+- **Athermique** ($\\Delta H \\approx 0$) : T n'influence PAS le rendement limite.
+
+### Tableau d'avancement (equimolaire, $n_0$ mol)
+
+| Espece | Acide | Alcool | Ester | Eau |
+|--------|-------|--------|-------|-----|
+| $t=0$ | $n_0$ | $n_0$ | $0$ | $0$ |
+| equilibre | $n_0-x$ | $n_0-x$ | $x$ | $x$ |
+
+$$K = \\left(\\frac{x}{n_0-x}\\right)^2 \\quad ; \\quad \\tau = \\frac{x_{eq}}{n_0}$$
+
+### Rendements limites Bac S2
+
+| Classe d'alcool | $K$ | $\\tau$ |
+|----------------|-----|--------|
+| Primaire ($1^\\circ$) | $\\approx 4$ | **67 %** |
+| Secondaire ($2^\\circ$) | $\\approx 2{,}25$ | **60 %** |
+| Tertiaire ($3^\\circ$) | $\\approx 0{,}005$ | **5 %** |
+
+---
+
+## 4. Ameliorer le Rendement — Le Chatelier
+
+- **Exces d'alcool ou d'acide** : pousse l'equilibre vers la droite.
+- **Dean-Stark** (elimination de l'eau) : retire un produit → equilibre direct → $\\tau \\approx 98\\%$.
+
+> [!WOLOF] **Truc Wolof :** « Dean-Stark bi moy piege ndox bi. Bu tax ndox bi dem, ester bi yokku ! »
+
+---
+
+## 5. Derives Reactifs — Reactions Totales
+
+| Derive | Reaction | $\\tau$ |
+|--------|----------|--------|
+| Chlorure d'acyle $R-CO-Cl$ | $+R'OH \\to$ Ester $+ HCl$ | **100 %** |
+| Anhydride $(R-CO)_2O$ | $+R'OH \\to$ Ester $+ RCOOH$ | **100 %** |
+
+> [!WOLOF] « Derives reactifs = totale 100 %. Esterification directe = 67 %. Lepp du same ! »
+
+---
+
+## 6. Saponification des Corps Gras
+
+$$\\text{Triester} + 3\\,NaOH \\longrightarrow \\text{Glycerol} + 3\\,R-COO^-Na^+$$
+
+- **Totale et irreversible** ($\\longrightarrow$). Ecrire $\\rightleftharpoons$ = erreur eliminatoire !
+- 1 corps gras + **3 NaOH** → 1 glycerol + **3 savons**.
+
+### Relargage
+
+Ajout de $NaCl$ sature → ion $Na^+$ commun → solubilite du savon chute → **pain de savon precipite**.
+
+### Structure Amphiphile
+
+- **Tete** $-COO^-Na^+$ : polaire, **hydrophile**.
+- **Queue** $R-$ : apolaire, **lipophile**.
+- Formation de **micelles** en suspension.
+
+---
+
+## 7. Reflexes Essentiels Bac S2
+
+> [!IMPORTANT]
+> 1. Esterification **athermique** → T ne change pas $\\tau$.
+> 2. $\\tau$ : $1^\\circ$ = 67 %, $2^\\circ$ = 60 %, $3^\\circ$ = 5 %.
+> 3. Dean-Stark / exces → $\\tau$ augmente (Le Chatelier).
+> 4. Chlorure d'acyle → 100 % (total).
+> 5. Saponification → **→** (totale), jamais ⇌.
+
+> [!WOLOF]
+> « Chauffe accelere cinetique, waaye du tooxi rendement ! Athermique la ! »
+> « Saponification = totale. Ci bac : → (fleche), du ⇌ ! »
+`
+
 };
 
 export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: string, rawContent: string | null): string {
@@ -1699,6 +1803,21 @@ export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: stri
     titleLower.includes('alcol')
   ) {
     return RICH_LESSONS_MAP.alcools;
+  }
+
+  if (
+    titleLower.includes('acide carboxylique') ||
+    titleLower.includes('ester') ||
+    titleLower.includes('saponification') ||
+    titleLower.includes('anhydride') ||
+    titleLower.includes("chlorure d'acyle") ||
+    titleLower.includes('esterification') ||
+    titleLower.includes('estérification') ||
+    titleLower.includes('corps gras') ||
+    titleLower.includes('savon') ||
+    titleLower.includes('dean-stark')
+  ) {
+    return RICH_LESSONS_MAP.acides_derives;
   }
 
   if (

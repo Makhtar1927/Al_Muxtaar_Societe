@@ -255,6 +255,115 @@ Le milieu est donc **acide à l\'équivalence : $pH_E < 7$** (typiquement autour
     },
   ],
 
+  // 0. ACIDES CARBOXYLIQUES & DÉRIVÉS (CHIMIE S2 - C3)
+  acides_derives: [
+    {
+      year: 2022,
+      session: 'Session Normale (S2)',
+      points: 'Exercice 2 — Chimie Organique (5 Points)',
+      topic: "Estérification directe — Constante d'\u00e9quilibre K, Rendement limite et Dean-Stark",
+      enonce: `On étudie l'estérification entre l'acide propanoïque $CH_3CH_2COOH$ et le propan-1-ol $CH_3CH_2CH_2OH$.
+On mélange $n_0 = 1{,}00\\\\text{ mol}$ de chaque réactif à température ambiante puis on chauffe à reflux.
+
+1. Écrire l'équation-bilan. Préciser ses caractéristiques cinétique, thermodynamique et thermique.
+2. Dresser le tableau d'avancement (avancement $x$). Exprimer $K$ en fonction de $x_{\\\\text{éq}}$ et $n_0$.
+3. À l'équilibre, $\\\\chi_{\\\\text{ester}} = 0{,}40$. Calculer $x_{\\\\text{éq}}$ puis $K$.
+4. Déduire le taux d'avancement $\\\\tau$ et identifier la classe de l'alcool.
+5. On installe un Dean-Stark. a) Expliquer par Le Chatelier comment le rendement augmente. b) Avec $\\\\tau = 98\\\\%$, calculer la masse d'ester. ($M = 116\\\\text{ g/mol}$)`,
+      solution: `### 1. Équation-bilan et caractéristiques
+$$CH_3CH_2COOH + CH_3CH_2CH_2OH \\\\rightleftharpoons CH_3CH_2COOCH_2CH_2CH_3 + H_2O$$
+(Propanoate de propyle + eau)
+
+- **Lente** : catalyseur $H_2SO_4$ ou reflux nécessaire.
+- **Limitée / réversible** ($\\\\rightleftharpoons$).
+- **Athermique** ($\\\\Delta H \\\\approx 0$) : T n\'influence pas le rendement limite.
+
+---
+
+### 2. Tableau d\'avancement et K
+
+| Espèce | Acide | Alcool | Ester | Eau |
+|--------|-------|--------|-------|-----|
+| $t=0$ | $n_0$ | $n_0$ | $0$ | $0$ |
+| équilibre | $n_0 - x$ | $n_0 - x$ | $x$ | $x$ |
+
+$$K = \\\\left(\\\\frac{x}{n_0-x}\\\\right)^2$$
+
+---
+
+### 3. Calcul de $x_{\\\\text{éq}}$ et $K$
+
+$$\\\\chi_{\\\\text{ester}} = \\\\frac{x_{\\\\text{éq}}}{2n_0} = 0{,}40 \\\\implies x_{\\\\text{éq}} = 0{,}80\\\\text{ mol}$$
+
+$$K = \\\\left(\\\\frac{0{,}80}{0{,}20}\\\\right)^2 = 16$$
+
+---
+
+### 4. Taux et classe
+
+$$\\\\tau = 0{,}80 = 80\\\\% \\\\implies \\\\text{alcool primaire } (1^\\\\circ)$$
+
+---
+
+### 5. Dean-Stark
+
+**a)** Le Dean-Stark élimine l\'eau (produit). Par Le Chatelier, éliminer un produit déplace l'équilibre **dans le sens direct** →, vers plus d\'ester. Le rendement s\'approche de 100 %.
+
+**b)** $m = 0{,}98 \\\\times 116 = 113{,}7\\\\text{ g}$`,
+      baremeAstuce: "Bac S2 : (1) ⇌ et non \u2192 pour l\'estérification. (2) K = (x/(n₀−x))². (3) Pour Le Chatelier : « éliminer un produit » + « sens direct ». (4) Chauffer n\'augmente PAS le rendement (athermique)!",
+    },
+    {
+      year: 2018,
+      session: 'Session Normale (S2)',
+      points: 'Exercice 2 — Chimie Organique (5 Points)',
+      topic: "Saponification d\'un corps gras — Stœchiométrie, Masse de savon et Relargage",
+      enonce: `On saponifie $n_{\\\\text{TG}} = 0{,}10\\\\text{ mol}$ de tripalmitine $C_3H_5(OOC\\\\text{-}C_{15}H_{31})_3$ par $NaOH$ aqueux.
+
+1. Équation-bilan de la saponification. Nature de la réaction.
+2. Identifier les deux produits organiques. Nommer le savon.
+3. Calculer $n_{\\\\text{min}}(NaOH)$.
+4. a) Calculer $M$ du palmitate de sodium $C_{15}H_{31}COO^-Na^+$. b) Masse de savon produit.
+5. On ajoute $NaCl$ en excès. a) Phénomène observé ? Nommer le procédé. b) Explication par l\'ion commun. c) Intérêt industriel.`,
+      solution: `### 1. Équation-bilan
+
+$$C_3H_5(OOC\\\\text{-}C_{15}H_{31})_3 + 3\\\\,NaOH \\\\longrightarrow C_3H_5(OH)_3 + 3\\\\,C_{15}H_{31}COO^-Na^+$$
+
+Réaction **totale et irréversible** ($\\\\longrightarrow$). K >> 1. Rapide en milieu chaud basique.
+
+---
+
+### 2. Produits
+
+- **Glycérol** : $C_3H_5(OH)_3$ (propane-1,2,3-triol).
+- **Palmitate de sodium** : $C_{15}H_{31}COO^-Na^+$ (savon).
+
+---
+
+### 3. Quantité de NaOH
+
+$$n(NaOH) = 3 \\\\times 0{,}10 = 0{,}30\\\\text{ mol}$$
+
+---
+
+### 4. Masse de savon
+
+**a)** $M = 16 \\\\times 12 + 31 + 2 \\\\times 16 + 23 = 278\\\\text{ g/mol}$
+
+**b)** $n = 3 \\\\times 0{,}10 = 0{,}30\\\\text{ mol}$, $m = 0{,}30 \\\\times 278 = 83{,}4\\\\text{ g}$
+
+---
+
+### 5. Relargage
+
+**a)** Le savon **précipite** (pain de savon flottant). Procédé : **relargage** (*salting-out*).
+
+**b)** $NaCl$ libère $Na^+$ (ion commun avec $RCOO^-Na^+$). La solubilité du savon chute $\\\\implies$ précipitation.
+
+**c)** Purification du savon + récupération du glycérol (cosmétique, pharmacie).`,
+      baremeAstuce: "Bac S2 : (1) \u2192 et NON \u21cc pour la saponification. (2) Coefficient 3 devant NaOH obligatoire. (3) Citer « ion Na⁺ commun » pour le relargage. (4) Nommer les deux produits : glycérol ET palmitate de sodium.",
+    },
+  ],
+
   // 0. CINÉTIQUE CHIMIQUE (CHIMIE S2)
   cinetique: [
     {

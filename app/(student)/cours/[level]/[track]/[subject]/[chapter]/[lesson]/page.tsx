@@ -70,6 +70,9 @@ import AlcoolsQuizEmbedded from '@/components/course/alcools-quiz-embedded';
 import AminesReflexesCard from '@/components/course/amines-reflexes-card';
 import AminesInteractiveSimulator from '@/components/course/amines-interactive-simulator';
 import AminesQuizEmbedded from '@/components/course/amines-quiz-embedded';
+import AcidesDerivesReflexesCard from '@/components/course/acides-derives-reflexes-card';
+import AcidesDerivesInteractiveSimulator from '@/components/course/acides-derives-interactive-simulator';
+import { AcidesDerivesQuizEmbedded } from '@/components/course/acides-derives-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
@@ -157,6 +160,49 @@ const AMINES_AUDIO_CHAPTERS: AudioChapter[] = [
     icon: "formule_cle",
     textScript:
       "Retenez la règle d'or pour le Bac : lors de l'action d'un chlorure d'acyle sur une amine primaire ou secondaire, mettez TOUJOURS un coefficient 2 devant l'amine ! La première mole forme l'amide, la deuxième mole neutralise immédiatement l'acide chlorhydrique produit.",
+  },
+];
+
+const ACIDES_DERIVES_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Enjeux des Acides et Esters au Bac S2 Sénégal",
+    badge: "Introduction",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass de Chimie Organique sur les Acides carboxyliques et leurs dérivés. Ce chapitre est le cœur battant des épreuves du Baccalauréat au Sénégal : équilibres d'estérification-hydrolyse, constante K, déplacements de Le Chatelier, dérivés réactifs et fabrication industrielle du savon.",
+  },
+  {
+    timeSeconds: 45,
+    title: "2. Le Piège d'or : Estérification Réaction Athermique",
+    badge: "Piège Bac",
+    icon: "piege_bac",
+    textScript:
+      "Retenez ce réflexe capital : la réaction d'estérification directe est athermique, son delta H est nul ! Le chauffage à reflux augmente considérablement la vitesse de réaction, mais il ne change STRICTEMENT JAMAIS le rendement limite à l'équilibre. Répondre que la température déplace l'équilibre est l'erreur numéro un sanctionnée au Bac !",
+  },
+  {
+    timeSeconds: 115,
+    title: "3. Les Rendements Limites : 67%, 60% et 5%",
+    badge: "Formule clé",
+    icon: "theoreme_equerre",
+    textScript:
+      "En mélange équimolaire initial, la classe de l'alcool dicte la constante K et le rendement limite : 67% pour un alcool primaire avec K égal 4, 60% pour un alcool secondaire avec K égal 2,25, et seulement 5% pour un alcool tertiaire avec K égal 0,005. À retenir par cœur pour identifier l'alcool dans un énoncé !",
+  },
+  {
+    timeSeconds: 180,
+    title: "4. Le Chatelier, Dean-Stark et Dérivés Réactifs",
+    badge: "Méthode",
+    icon: "technique_outils",
+    textScript:
+      "Pour forcer l'estérification à dépasser 67%, appliquez Le Chatelier : éliminez l'eau en continu grâce au séparateur Dean-Stark, ou introduisez un excès d'un des réactifs. Et si l'on veut un rendement total de 100% rapide, on remplace l'acide par un chlorure d'acyle avec dégagement caractéristique de fumées de HCl.",
+  },
+  {
+    timeSeconds: 245,
+    title: "5. Saponification et Relargage au Sel Saturé",
+    badge: "Fabrication",
+    icon: "formule_cle",
+    textScript:
+      "La saponification d'un triglycéride par la soude est totale et irréversible : une mole de corps gras réagit avec trois moles de NaOH pour donner une mole de glycérol et trois moles de savon. Pour séparer le savon, on réalise le relargage par ajout d'eau salée saturée : l'effet d'ion commun sodium fait précipiter le pain de savon solide.",
   },
 ];
 
@@ -1269,7 +1315,83 @@ export default async function LessonReaderPage({ params }: PageProps) {
     lessonMeta = createdLesson;
   }
 
-  if (lessonMeta && lessonMeta.status !== 'published') {
+    // Provisioning pour C3 : Acides carboxyliques et dérivés (Physique-Chimie S2)
+  if (!lessonMeta && params.lesson === '60000000-0000-0001-0001-000000000007') {
+    await admin.from('chapters').upsert({
+      id: '50000000-0000-0001-0001-000000000003',
+      title: 'C3 : Acides carboxyliques et dérivés',
+      order_index: 3,
+      status: 'published',
+    }, { onConflict: 'id' });
+
+    const { data: createdLesson } = await admin
+      .from('lessons')
+      .upsert({
+        id: '60000000-0000-0001-0001-000000000007',
+        chapter_id: '50000000-0000-0001-0001-000000000003',
+        title: 'Structure et nomenclature des acides carboxyliques et esters',
+        order_index: 1,
+        content_markdown: '# C3 : Acides Carboxyliques — Structure, nomenclature et esters',
+        is_free: false,
+        status: 'published',
+      }, { onConflict: 'id' })
+      .select()
+      .single();
+    lessonMeta = createdLesson;
+  }
+
+  if (!lessonMeta && params.lesson === '60000000-0000-0001-0001-000000000008') {
+    const { data: createdLesson } = await admin
+      .from('lessons')
+      .upsert({
+        id: '60000000-0000-0001-0001-000000000008',
+        chapter_id: '50000000-0000-0001-0001-000000000003',
+        title: 'Chlorures d’acyle, anhydrides d’acide et amides',
+        order_index: 2,
+        content_markdown: '# C3 : Dérivés réactifs — Chlorures d’acyle, anhydrides et amides',
+        is_free: false,
+        status: 'published',
+      }, { onConflict: 'id' })
+      .select()
+      .single();
+    lessonMeta = createdLesson;
+  }
+
+  if (!lessonMeta && params.lesson === '60000000-0000-0001-0001-000000000009') {
+    const { data: createdLesson } = await admin
+      .from('lessons')
+      .upsert({
+        id: '60000000-0000-0001-0001-000000000009',
+        chapter_id: '50000000-0000-0001-0001-000000000003',
+        title: 'Estérification directe et hydrolyse : état d’équilibre et rendement',
+        order_index: 3,
+        content_markdown: '# C3 : Estérification directe et hydrolyse — Équilibre, constante K et rendement',
+        is_free: false,
+        status: 'published',
+      }, { onConflict: 'id' })
+      .select()
+      .single();
+    lessonMeta = createdLesson;
+  }
+
+  if (!lessonMeta && params.lesson === '60000000-0000-0001-0001-000000000010') {
+    const { data: createdLesson } = await admin
+      .from('lessons')
+      .upsert({
+        id: '60000000-0000-0001-0001-000000000010',
+        chapter_id: '50000000-0000-0001-0001-000000000003',
+        title: 'Saponification des esters et fabrication des savons',
+        order_index: 4,
+        content_markdown: '# C3 : Saponification des esters et fabrication des savons',
+        is_free: false,
+        status: 'published',
+      }, { onConflict: 'id' })
+      .select()
+      .single();
+    lessonMeta = createdLesson;
+  }
+
+if (lessonMeta && lessonMeta.status !== 'published') {
     await admin.from('lessons').update({ status: 'published' }).eq('id', lessonMeta.id);
     lessonMeta.status = 'published';
   }
@@ -1430,6 +1552,22 @@ export default async function LessonReaderPage({ params }: PageProps) {
       params.lesson === '60000000-0000-0001-0001-000000000006' ||
       params.chapter === '50000000-0000-0001-0001-000000000002');
 
+  const isAcidesDerives =
+    !isAlcools &&
+    !isAmines &&
+    (lessonMeta.title.toLowerCase().includes('acide') ||
+      lessonMeta.title.toLowerCase().includes('ester') ||
+      lessonMeta.title.toLowerCase().includes('saponification') ||
+      lessonMeta.title.toLowerCase().includes('anhydride') ||
+      lessonMeta.title.toLowerCase().includes('chlorure') ||
+      (chapter?.title?.toLowerCase() || '').includes('acide') ||
+      (chapter?.title?.toLowerCase() || '').includes('ester') ||
+      params.lesson === '60000000-0000-0001-0001-000000000007' ||
+      params.lesson === '60000000-0000-0001-0001-000000000008' ||
+      params.lesson === '60000000-0000-0001-0001-000000000009' ||
+      params.lesson === '60000000-0000-0001-0001-000000000010' ||
+      params.chapter === '50000000-0000-0001-0001-000000000003');
+
   const isCinetique =
     !isAlcools &&
     !isAmines &&
@@ -1556,6 +1694,8 @@ export default async function LessonReaderPage({ params }: PageProps) {
                     ? 'Masterclass Audio : Classes d\'Alcools & Nomenclature'
                     : isAmines
                     ? 'Masterclass Audio : Amines, Classes & Réaction d\'Hofmann'
+                    : isAcidesDerives
+                    ? 'Masterclass Audio : Acides Carboxyliques, Esters & Saponification'
                     : isCinetique
                     ? 'Masterclass Audio : Cinétique Chimique & Vitesse de Réaction'
                     : isTvi
@@ -1589,6 +1729,8 @@ export default async function LessonReaderPage({ params }: PageProps) {
                     ? 'Terminale S2 • Chimie : Les 5 réflexes pour reconnaître la classe et nommer'
                     : isAmines
                     ? 'Terminale S2 • Chimie : Les 5 réflexes pour maîtriser la basicité et Hofmann au Bac'
+                    : isAcidesDerives
+                    ? 'Terminale S2 • Chimie : Les 5 réflexes pour l\'estérification, Dean-Stark et le savon'
                     : isCinetique
                     ? 'Terminale S2 • Chimie : Les 5 réflexes pour l\'exercice cinétique au Bac'
                     : isTvi
@@ -1622,6 +1764,8 @@ export default async function LessonReaderPage({ params }: PageProps) {
                     ? ALCOOLS_AUDIO_CHAPTERS
                     : isAmines
                     ? AMINES_AUDIO_CHAPTERS
+                    : isAcidesDerives
+                    ? ACIDES_DERIVES_AUDIO_CHAPTERS
                     : isCinetique
                     ? CINETIQUE_AUDIO_CHAPTERS
                     : isTvi
@@ -1678,6 +1822,11 @@ export default async function LessonReaderPage({ params }: PageProps) {
                 <>
                   <AminesReflexesCard />
                   <AminesInteractiveSimulator />
+                </>
+              ) : isAcidesDerives ? (
+                <>
+                  <AcidesDerivesReflexesCard />
+                  <AcidesDerivesInteractiveSimulator />
                 </>
               ) : isCinetique ? (
                 <>
@@ -1781,6 +1930,8 @@ export default async function LessonReaderPage({ params }: PageProps) {
                     ? 'alcools'
                     : isAmines
                     ? 'amines'
+                    : isAcidesDerives
+                    ? 'acides_derives'
                     : isCinetique
                     ? 'cinetique'
                     : isTvi
@@ -1823,6 +1974,8 @@ export default async function LessonReaderPage({ params }: PageProps) {
                 <AlcoolsQuizEmbedded />
               ) : isAmines ? (
                 <AminesQuizEmbedded />
+              ) : isAcidesDerives ? (
+                <AcidesDerivesQuizEmbedded />
               ) : isCinetique ? (
                 <CinetiqueQuizEmbedded />
               ) : isTvi ? (
