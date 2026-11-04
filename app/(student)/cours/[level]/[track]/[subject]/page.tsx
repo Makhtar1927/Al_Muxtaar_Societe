@@ -17,6 +17,7 @@ import {
   MATHEMATIQUES_DOMAINS,
   ensureMathematiquesInDatabase,
 } from '@/lib/curriculum/mathematiques-data';
+import MathsRecueilEpreuves from '@/components/course/maths-recueil-epreuves';
 
 interface PageProps {
   params: {
@@ -729,6 +730,13 @@ export default async function SubjectChaptersPage({ params }: PageProps) {
                 </div>
               );
             })}
+          </div>
+        )}
+
+        {/* Méga Recueil de 30 Épreuves et Corrigés — Terminale S2 Sénégal */}
+        {isMaths && (
+          <div className="pt-4">
+            <MathsRecueilEpreuves />
           </div>
         )}
       </div>
