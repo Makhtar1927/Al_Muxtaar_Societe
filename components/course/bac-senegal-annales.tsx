@@ -433,6 +433,96 @@ L'ajout d'eau glacée constitue une **trempe chimique** (baisse brutale de la te
     },
   ],
 
+  // 0. AUTOPROTOLYSE DE L'EAU, pH & INDICATEURS COLORÉS (CHIMIE S2 - C5)
+  autoprotolyse_ph: [
+    {
+      year: 2021,
+      session: 'Session Normale (S2)',
+      points: 'Exercice 1 — Solutions Aqueuses (4 Points)',
+      topic: "Autoprotolyse de l'eau, Produit ionique Ke à température variable et Neutralité",
+      enonce: `On étudie l'équilibre d'autoprotolyse de l'eau pure :
+$$2\\,\\text{H}_2\\text{O} \\rightleftharpoons \\text{H}_3\\text{O}^+ + \\text{OH}^-$$
+
+1. Rappeler la définition du produit ionique de l'eau $K_e$. Donner sa valeur à $25^\\circ\\text{C}$ ainsi que la valeur de $pK_e$.
+2. L'autoprotolyse de l'eau est une réaction endothermique ($\\Delta H > 0$).
+   a) En appliquant la loi de Le Chatelier (règle de van 't Hoff), justifier l'évolution de la valeur de $K_e$ lorsque la température augmente.
+   b) À la température de $60^\\circ\\text{C}$, on mesure que $K_e = 1{,}0 \\times 10^{-13}$. Calculer la valeur de $pK_e$ à cette température.
+3. a) Déterminer la valeur du pH de l'eau pure à $60^\\circ\\text{C}$.
+   b) Un élève affirme que « cette eau est acide car son pH est inférieur à 7,00 ». Critiquer cette affirmation en précisant la condition générale de neutralité d'une solution aqueuse.`,
+      solution: `### 1. Définition et valeurs de $K_e$ et $pK_e$ à $25^\\circ\\text{C}$
+- Le **produit ionique de l'eau $K_e$** est la constante d'équilibre associée à la réaction d'autoprotolyse de l'eau :
+$$K_e = [\\text{H}_3\\text{O}^+][\\text{OH}^-]$$
+- À $25^\\circ\\text{C}$, **$K_e = 1{,}0 \\times 10^{-14}$** et **$pK_e = -\\log(K_e) = 14{,}0$**.
+
+---
+
+### 2. Influence de la température sur $K_e$
+a) D'après la loi de van 't Hoff, une élévation de température déplace un équilibre chimique dans le **sens endothermique** ($\\Delta H > 0$), c'est-à-dire ici dans le **sens direct** (formation de plus d'ions $\\text{H}_3\\text{O}^+$ et $\\text{OH}^-$).
+Par conséquent, lorsque la température augmente, la concentration en ions augmente et la constante **$K_e$ augmente**.
+
+b) À $60^\\circ\\text{C}$ :
+$$pK_e = -\\log(K_e) = -\\log(1{,}0 \\times 10^{-13}) = \\mathbf{13{,}0}$$
+*(Remarque : $K_e$ augmente bien de $10^{-14}$ à $10^{-13}$, ce qui confirme la diminution de $pK_e$ de 14 à 13).*
+
+---
+
+### 3. pH de l'eau pure à $60^\\circ\\text{C}$ et neutralité
+a) Dans l'eau pure, l'électroneutralité et la stœchiométrie imposent :
+$$[\\text{H}_3\\text{O}^+] = [\\text{OH}^-] = \\sqrt{K_e} = \\sqrt{1{,}0 \\times 10^{-13}} = 10^{-6{,}5}\\text{ mol/L}$$
+$$\\text{pH} = -\\log[\\text{H}_3\\text{O}^+] = \\mathbf{6{,}50}$$
+
+b) **Critique rigoureuse de l'affirmation de l'élève :**
+L'affirmation de l'élève est **fausse**.
+- Une solution aqueuse est définie comme **neutre** si et seulement si :
+$$[\\text{H}_3\\text{O}^+] = [\\text{OH}^-] \\iff \\text{pH} = \\frac{1}{2}\\,pK_e$$
+- La valeur $\\text{pH} = 7{,}00$ n'est le seuil de neutralité **qu'à $25^\\circ\\text{C}$ exclusivement** (car $pK_e = 14{,}00$).
+- À $60^\\circ\\text{C}$, le seuil de neutralité est $\\text{pH}_\\text{neutre} = \\frac{1}{2}\\,pK_e = 6{,}50$.
+L'eau pure à $60^\\circ\\text{C}$ ayant un pH de $6{,}50$, elle est **strictement NEUTRE**. Elle ne contient aucun acide.`,
+      baremeAstuce: "Bac S2 — Piège majeur : ne confondez JAMAIS « pH < 7 » et « milieu acide ». La seule définition absolue de la neutralité est [H₃O⁺] = [OH⁻] = √(Ke), soit pH = ½ pKe.",
+    },
+    {
+      year: 2017,
+      session: 'Session Normale (S2)',
+      points: 'Exercice 1 — Chimie (4 Points)',
+      topic: "Zone de virage des indicateurs colorés, Choix pour un titrage et Effet de dilution",
+      enonce: `On dispose d'un indicateur coloré acido-basique, le Bleu de Bromothymol (BBT), noté $\\text{HIn} / \\text{In}^-$, de constante d'acidité $pK_i = 7{,}0$. Sa forme acide $\\text{HIn}$ est jaune et sa forme basique $\\text{In}^-$ est bleue.
+
+1. Écrire l'équation de la réaction de l'indicateur $\\text{HIn}$ avec l'eau.
+2. Définir la zone de virage d'un indicateur coloré et donner l'intervalle de pH correspondant pour le BBT.
+3. Quelle teinte prend une solution aqueuse de BBT à $\\text{pH} = 6{,}8$ ? Justifier.
+4. On dose un volume $V_a = 20\\text{ mL}$ d'acide chlorhydrique de concentration $C_a = 0{,}05\\text{ mol/L}$ par une solution de soude de concentration $C_b = 0{,}05\\text{ mol/L}$.
+   a) Justifier pourquoi le BBT est l'indicateur idéal pour repérer l'équivalence de ce dosage.
+   b) Que se passe-t-il si l'on dilue 10 fois la solution d'acide chlorhydrique avant le dosage ? Calculer son nouveau pH.`,
+      solution: `### 1. Équation de réaction avec l'eau
+$$\\text{HIn} + \\text{H}_2\\text{O} \\rightleftharpoons \\text{In}^- + \\text{H}_3\\text{O}^+$$
+
+---
+
+### 2. Définition et zone de virage du BBT
+- La **zone de virage** est l'intervalle de pH dans lequel les deux formes $\\text{HIn}$ et $\\text{In}^-$ coexistent en concentrations du même ordre de grandeur ($0{,}1 \\le [\\text{In}^-]/[\\text{HIn}] \\le 10$). L'œil ne distingue plus nettement une seule couleur pure mais perçoit une **teinte sensible** intermédiaire.
+- Pour le BBT ($pK_i = 7{,}0$), la zone de virage s'étend approximativement sur $[pK_i - 1 \\,;\\, pK_i + 1]$, soit **entre $\\text{pH} = 6{,}0$ (jaune) et $\\text{pH} = 7{,}6$ (bleu)**.
+
+---
+
+### 3. Teinte à $\\text{pH} = 6{,}8$
+$\\text{pH} = 6{,}8$ est compris dans la zone de virage $[6{,}0 \\,;\\, 7{,}6]$.
+La solution prend la **teinte sensible verte** (superposition optique de la forme acide jaune et de la forme basique bleue).
+
+---
+
+### 4. Titrage fort-fort et dilution
+a) Lors du titrage d'un acide fort par une base forte à $25^\\circ\\text{C}$, la réaction de neutralité $\\text{H}_3\\text{O}^+ + \\text{OH}^- \\to 2\\,\\text{H}_2\\text{O}$ conduit à l'équivalence à une solution neutre de chlorure de sodium, avec **$pH_E = 7{,}00$**.
+Le critère de validité impose que le $pH_E$ appartienne à la zone de virage de l'indicateur.
+Comme **$7{,}00 \\in [6{,}0 \\,;\\, 7{,}6]$**, le virage du BBT (du jaune au bleu en passant par le vert net) coïncide exactement avec le point d'équivalence : le BBT est donc l'indicateur idéal.
+
+b) **Effet de la dilution par 10 :**
+- Concentration initiale : $C_a = 0{,}05\\text{ mol/L} \\implies \\text{pH}_0 = -\\log(0{,}05) = 1{,}30$.
+- Après dilution par 10 : $C_a' = 0{,}005\\text{ mol/L} \\implies \\text{pH}' = -\\log(0{,}005) = 2{,}30$.
+Le pH augmente exactement de **$+1{,}00$ unité**, tout en restant strictement acide.`,
+      baremeAstuce: "Critère Bac S2 : Pour justifier le choix d'un indicateur, énoncez explicitement que « le pH à l'équivalence pHE est inclus dans la zone de virage de l'indicateur ».",
+    },
+  ],
+
   // 1. LIMITES & CONTINUITÉ
   limites: [
     {

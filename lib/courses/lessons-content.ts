@@ -1791,6 +1791,132 @@ Ajout de $NaCl$ sature → ion $Na^+$ commun → solubilite du savon chute → *
 > [!WOLOF]
 > « Chauffe accelere cinetique, waaye du tooxi rendement ! Athermique la ! »
 > « Saponification = totale. Ci bac : → (fleche), du ⇌ ! »
+`,
+
+  // C5 : AUTOPROTOLYSE DE L'EAU, pH DES SOLUTIONS & INDICATEURS COLORÉS (Terminale S2 Sénégal)
+  autoprotolyse_ph: `# C5 : Autoprotolyse de l'Eau, pH des Solutions Aqueuses & Indicateurs Colorés (Terminale S2)
+
+## Objectifs Pédagogiques Officiels (Bac S2)
+
+> [!IMPORTANT]
+> 1. Définir l'**autoprotolyse de l'eau** et son produit ionique $K_e$.
+> 2. Expliquer l'**effet de la température** sur $K_e$ et $pK_e$ (réaction endothermique).
+> 3. Maîtriser le **critère fondamental de neutralité** : $[\\text{H}_3\\text{O}^+] = [\\text{OH}^-] \\iff \\text{pH} = \\frac{1}{2}\\,pK_e$.
+> 4. Comprendre la structure, le diagramme de prédominance et la **zone de virage** des indicateurs colorés.
+> 5. Analyser l'**effet de la dilution** sur le pH d'une solution acide ou basique.
+
+---
+
+## 1. L'Équilibre d'Autoprotolyse de l'Eau
+
+L'eau pure n'est pas un isolant électrique parfait : elle subit une ionisation spontanée extrêmement faible.
+
+### Équation-bilan
+$$2\\,\\text{H}_2\\text{O} \\rightleftharpoons \\text{H}_3\\text{O}^+ + \\text{OH}^-$$
+
+- L'eau joue à la fois le rôle d'acide et de base : c'est un **ampholyte** (espèce amphotère).
+- Couples acide/base associés : $\\text{H}_3\\text{O}^+ / \\text{H}_2\\text{O}$ et $\\text{H}_2\\text{O} / \\text{OH}^-$.
+
+### Le Produit Ionique $K_e$
+La constante d'équilibre associée s'appelle le **produit ionique de l'eau** :
+$$K_e = [\\text{H}_3\\text{O}^+][\\text{OH}^-] \\quad \\text{et} \\quad pK_e = -\\log(K_e)$$
+
+À **$25^\\circ\\text{C}$** :
+$$K_e = 1{,}0 \\times 10^{-14} \\quad \\iff \\quad pK_e = 14{,}00$$
+
+> [!CAUTION]
+> **Règle absolue :** Le produit ionique $K_e$ ne dépend **QUE de la température**. Il reste valable dans **TOUTE solution aqueuse**, qu'elle soit acide, basique ou neutre !
+
+---
+
+## 2. Influence de la Température : Le Piège d'Or du Bac S2
+
+L'autoprotolyse de l'eau est une réaction **endothermique** ($\\Delta H > 0$).
+
+D'après la loi de van 't Hoff : une élévation de température favorise le sens endothermique (sens direct $\\to$).
+
+| Température | $K_e$ | $pK_e$ | pH de neutralité ($[\\text{H}_3\\text{O}^+] = [\\text{OH}^-]$) |
+| :--- | :--- | :--- | :--- |
+| **$0^\\circ\\text{C}$** | $1{,}1 \\times 10^{-15}$ | $14{,}94$ | **$7{,}47$** |
+| **$25^\\circ\\text{C}$** | $1{,}0 \\times 10^{-14}$ | $14{,}00$ | **$7{,}00$** |
+| **$60^\\circ\\text{C}$** | $1{,}0 \\times 10^{-13}$ | $13{,}00$ | **$6{,}50$** |
+| **$100^\\circ\\text{C}$** | $5{,}1 \\times 10^{-13}$ | $12{,}29$ | **$6{,}15$** |
+
+> [!WARNING]
+> **Le Piège N°1 de l'Office du Baccalauréat sénégalais :**
+> À $60^\\circ\\text{C}$, une eau pure a un pH de $6{,}50$. Est-elle acide ?
+> **Réponse officielle :** NON ! Elle est rigoureusement **NEUTRE** car $[\\text{H}_3\\text{O}^+] = [\\text{OH}^-] = \\sqrt{K_e} = 10^{-6{,}50}\\text{ mol/L}$.
+> Ne jamais confondre *pH < 7* et *milieu acide* quand la température est différente de $25^\\circ\\text{C}$ !
+
+---
+
+## 3. Définition du pH & Relations Fondamentales
+
+Pour toute solution aqueuse diluée ($[\\text{H}_3\\text{O}^+] \\le 0{,}1\\text{ mol/L}$) :
+$$\\text{pH} = -\\log[\\text{H}_3\\text{O}^+] \\iff [\\text{H}_3\\text{O}^+] = 10^{-\\text{pH}}$$
+
+### Relation universelle
+$$K_e = [\\text{H}_3\\text{O}^+][\\text{OH}^-] \\iff \\text{pH} + \\text{pOH} = pK_e$$
+À $25^\\circ\\text{C}$ :
+$$\\text{pH} + \\text{pOH} = 14{,}00$$
+
+### Échelle de pH à $25^\\circ\\text{C}$
+- **Solution Acide** : $[\\text{H}_3\\text{O}^+] > [\\text{OH}^-] \\iff \\text{pH} < 7{,}00$
+- **Solution Neutre** : $[\\text{H}_3\\text{O}^+] = [\\text{OH}^-] \\iff \\text{pH} = 7{,}00$
+- **Solution Basique** : $[\\text{H}_3\\text{O}^+] < [\\text{OH}^-] \\iff \\text{pH} > 7{,}00$
+
+---
+
+## 4. Les Indicateurs Colorés Acido-Basiques
+
+Un indicateur coloré est un couple acide faible / base faible $\\text{HIn} / \\text{In}^-$ dont les formes acide et basique ont des teintes distinctes :
+$$\\text{HIn} + \\text{H}_2\\text{O} \\rightleftharpoons \\text{In}^- + \\text{H}_3\\text{O}^+ \\quad ; \\quad K_i = \\frac{[\\text{In}^-][\\text{H}_3\\text{O}^+]}{[\\text{HIn}]}$$
+
+Relation d'Henderson-Hasselbalch :
+$$\\text{pH} = pK_i + \\log\\left(\\frac{[\\text{In}^-]}{[\\text{HIn}]}\\right)$$
+
+### Diagramme de Prédominance et Zone de Virage
+- **Si $\\text{pH} < pK_i - 1$** : $[\\text{HIn}] \\ge 10 [\\text{In}^-]$ $\\implies$ La **couleur acide** s'impose à l'œil nu.
+- **Si $\\text{pH} > pK_i + 1$** : $[\\text{In}^-] \\ge 10 [\\text{HIn}]$ $\\implies$ La **couleur basique** s'impose à l'œil nu.
+- **Si $pK_i - 1 \\le \\text{pH} \\le pK_i + 1$** : C'est la **zone de virage** de l'indicateur. L'œil perçoit la **teinte sensible** (mélange des deux couleurs).
+
+### Tableau des 3 Indicateurs Phares du Bac S2
+
+| Indicateur | $pK_i$ | Couleur Acide (HIn) | Zone de Virage | Teinte Sensible | Couleur Basique (In⁻) |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Hélianthine** | $3{,}7$ | Rouge | $3{,}1 - 4{,}4$ | Orangée | Jaune |
+| **Bleu de bromothymol (BBT)** | $7{,}0$ | Jaune | $6{,}0 - 7{,}6$ | **Verte** | Bleu |
+| **Phénolphtaléine** | $9{,}4$ | Incolore | $8{,}2 - 10{,}0$ | Rose pâle | Rose violacé |
+
+> [!TIP]
+> **Critère officiel de choix d'un indicateur pour un titrage :**
+> Un indicateur coloré convient pour repérer l'équivalence si et seulement si **le pH à l'équivalence $pH_E$ est situé à l'intérieur de sa zone de virage**.
+
+---
+
+## 5. Effet de la Dilution sur le pH
+
+- **Acide fort de concentration $C$** : $\\text{pH} = -\\log C$.
+  Si on dilue 10 fois ($C' = C/10$), $\\text{pH}' = -\\log(C/10) = \\text{pH} + 1$.
+- **Base forte de concentration $C$** : $\\text{pH} = 14 + \\log C$.
+  Si on dilue 10 fois, $\\text{pH}' = \\text{pH} - 1$.
+- **Dilution infinie** : Le pH tend vers la neutralité ($7{,}00$ à $25^\\circ\\text{C}$) mais ne la franchit JAMAIS en raison de l'apport des $10^{-7}\\text{ mol/L}$ de l'autoprotolyse de l'eau.
+
+---
+
+## 6. Réflexes d'Or du Baccalauréat Sénégalais
+
+> [!IMPORTANT]
+> 1. $K_e$ ne dépend QUE de la température $T$. Quand $T \\nearrow$, $K_e \\nearrow$ et $pK_e \\searrow$.
+> 2. Définition rigoureuse de la neutralité : $[\\text{H}_3\\text{O}^+] = [\\text{OH}^-] \\iff \\text{pH} = \\frac{1}{2}\\,pK_e$.
+> 3. Zone de virage d'un indicateur : $[pK_i - 1 \\,;\\, pK_i + 1]$.
+> 4. Choix d'indicateur : $pH_E \\in [\\text{Zone de virage}]$.
+> 5. Dilution par 10 : $\\Delta\\text{pH} = +1$ pour acide fort, $\\Delta\\text{pH} = -1$ pour base forte.
+
+> [!WOLOF]
+> - « Ndox mu sell mi (eau pure) dafay xàjjikoo ci boppam tuuti def ay ions H₃O⁺ ak OH⁻. »
+> - « Tàngaay bi bu yéegee ci 60 °C, pH bi day wàcc ci 6,5 waaye ndox mi neutre la ba tey ndax [H₃O⁺] = [OH⁻] ! »
+> - « Zone de virage bi mooy diggante bi melo yi di jaxasoo def teinte sensible ! »
 `
 
 };
@@ -1803,6 +1929,20 @@ export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: stri
     titleLower.includes('alcol')
   ) {
     return RICH_LESSONS_MAP.alcools;
+  }
+
+  if (
+    titleLower.includes('autoprotolyse') ||
+    titleLower.includes('produit ionique') ||
+    titleLower.includes('indicateur coloré') ||
+    titleLower.includes('indicateurs colorés') ||
+    titleLower.includes('zone de virage') ||
+    titleLower.includes('ph d’une solution') ||
+    titleLower.includes("ph d'une solution") ||
+    titleLower.includes('échelle de ph') ||
+    titleLower.includes('echelle de ph')
+  ) {
+    return RICH_LESSONS_MAP.autoprotolyse_ph;
   }
 
   if (

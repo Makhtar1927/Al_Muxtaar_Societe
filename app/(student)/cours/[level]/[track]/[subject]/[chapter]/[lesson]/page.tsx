@@ -73,6 +73,9 @@ import AminesQuizEmbedded from '@/components/course/amines-quiz-embedded';
 import AcidesDerivesReflexesCard from '@/components/course/acides-derives-reflexes-card';
 import AcidesDerivesInteractiveSimulator from '@/components/course/acides-derives-interactive-simulator';
 import { AcidesDerivesQuizEmbedded } from '@/components/course/acides-derives-quiz-embedded';
+import AutoprotolysePhReflexesCard from '@/components/course/autoprotolyse-ph-reflexes-card';
+import AutoprotolysePhInteractiveSimulator from '@/components/course/autoprotolyse-ph-interactive-simulator';
+import AutoprotolysePhQuizEmbedded from '@/components/course/autoprotolyse-ph-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
@@ -246,6 +249,49 @@ const CINETIQUE_AUDIO_CHAPTERS: AudioChapter[] = [
     icon: "formule_cle",
     textScript:
       "Pour calculer la vitesse volumique v, tracez la tangente, calculez sa pente dx/dt et divisez obligatoirement par le volume total V de la solution. Et pour le temps de demi-réaction t1/2, projetez x_max divisé par 2 sur l'axe des temps.",
+  },
+];
+
+const AUTOPROTOLYSE_PH_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Enjeux de l'Autoprotolyse au Bac S2",
+    badge: "Introduction",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass de Chimie Terminale S2 sur les solutions aqueuses. L'autoprotolyse de l'eau, le pH et les indicateurs colores sont au coeur des epreuves du Baccalaureat senegalais. Maitriser le produit ionique Ke et ses variations avec la temperature vous assure les points du premier exercice de Chimie.",
+  },
+  {
+    timeSeconds: 50,
+    title: "2. Le Produit Ionique Ke et pKe",
+    badge: "Definition",
+    icon: "formule_cle",
+    textScript:
+      "Le produit ionique Ke est la constante d equilibre de l autoprotolyse. A 25 degres Celsius, Ke vaut 10 puissance moins 14 et pKe vaut 14. Retenez la regle absolue : Ke ne depend QUE de la temperature, jamais de la nature de la solution !",
+  },
+  {
+    timeSeconds: 115,
+    title: "3. Le Piege N 1 du Bac : pH 6,5 signifie NEUTRE a 60 C",
+    badge: "Piege Bac",
+    icon: "piege_bac",
+    textScript:
+      "Voici le piege favori des examinateurs senegalais : a 60 degres Celsius, pKe vaut 13. Le pH de neutralite est alors 6,5. Une eau pure a 60 degres a un pH de 6,5 mais elle est RIGOUREUSEMENT NEUTRE parce que concentration de H3O plus est strictement egale a concentration de OH moins. Ne jamais confondre pH inferieur a 7 avec milieu acide hors de 25 degres !",
+  },
+  {
+    timeSeconds: 180,
+    title: "4. Zone de Virage des Indicateurs Colores",
+    badge: "Methode",
+    icon: "technique_outils",
+    textScript:
+      "Un indicateur colore est un couple acide base HIn sur In moins. Sa zone de virage s etend de pKi moins 1 a pKi plus 1. Pour choisir un indicateur lors d un titrage, le pH a l equivalence doit se situer DANS la zone de virage. Le BBT vire entre 6 et 7,6. La phenolphtaleine entre 8,2 et 10 pour les acides faibles.",
+  },
+  {
+    timeSeconds: 245,
+    title: "5. Dilution et Asymptote a pH 7",
+    badge: "Calcul",
+    icon: "rigueur_compas",
+    textScript:
+      "Diluer un acide fort par 10 augmente le pH de 1 unite exactement. Diluer une base forte par 10 diminue le pH de 1 unite. Par dilution infinie, le pH tend vers 7 sans jamais le depasser pour un acide, ni le descendre pour une base. C est l asymptote de neutralite imposee par l autoprotolyse de l eau.",
   },
 ];
 
@@ -1197,6 +1243,40 @@ export default async function LessonReaderPage({ params }: PageProps) {
     lessonMeta = createdLesson;
   }
 
+  // Provisioning pour C5 : Autoprotolyse de l'eau (Physique-Chimie S2)
+  if (!lessonMeta && (
+    params.lesson === '60000000-0000-0001-0001-000000000011' ||
+    params.lesson === '60000000-0000-0001-0001-000000000012' ||
+    params.lesson === '60000000-0000-0001-0001-000000000013'
+  )) {
+    await admin.from('chapters').upsert({
+      id: '50000000-0000-0001-0001-000000000005',
+      title: "C5 : Autoprotolyse de l'eau – pH d'une solution aqueuse – Indicateurs colorés",
+      order_index: 5,
+      status: 'published',
+    }, { onConflict: 'id' });
+    const c5Map: Record<string, [string, number]> = {
+      '60000000-0000-0001-0001-000000000011': ["\u00c9quilibre d'autoprotolyse de l'eau et produit ionique Ke", 1],
+      '60000000-0000-0001-0001-000000000012': ['D\u00e9finition du pH, \u00e9chelle et relations de concentration', 2],
+      '60000000-0000-0001-0001-000000000013': ['Indicateurs color\u00e9s acido-basiques et zone de virage', 3],
+    };
+    const [c5Title, c5Order] = c5Map[params.lesson] || ['C5 Autoprotolyse', 1];
+    const { data: createdLesson } = await admin
+      .from('lessons')
+      .upsert({
+        id: params.lesson,
+        chapter_id: '50000000-0000-0001-0001-000000000005',
+        title: c5Title,
+        order_index: c5Order,
+        content_markdown: `# C5 : Autoprotolyse — ${c5Title}`,
+        is_free: false,
+        status: 'published',
+      }, { onConflict: 'id' })
+      .select()
+      .single();
+    lessonMeta = createdLesson;
+  }
+
   // Provisioning pour C1 : Alcools (Physique-Chimie S2)
   if (!lessonMeta && params.lesson === '60000000-0000-0001-0001-000000000001') {
     await admin.from('chapters').upsert({
@@ -1583,6 +1663,22 @@ if (lessonMeta && lessonMeta.status !== 'published') {
       params.lesson === '60000000-0000-0000-0001-000000000003' ||
       params.chapter === '50000000-0000-0000-0001-000000000001');
 
+  const isAutoprotolysePh =
+    !isAlcools &&
+    !isAmines &&
+    !isAcidesDerives &&
+    !isCinetique &&
+    (lessonMeta.title.toLowerCase().includes('autoprotolyse') ||
+      lessonMeta.title.toLowerCase().includes('produit ionique') ||
+      lessonMeta.title.toLowerCase().includes('indicateur color') ||
+      lessonMeta.title.toLowerCase().includes('zone de virage') ||
+      lessonMeta.title.toLowerCase().includes('ph d') ||
+      (chapter?.title?.toLowerCase() || '').includes('autoprotolyse') ||
+      params.lesson === '60000000-0000-0001-0001-000000000011' ||
+      params.lesson === '60000000-0000-0001-0001-000000000012' ||
+      params.lesson === '60000000-0000-0001-0001-000000000013' ||
+      params.chapter === '50000000-0000-0001-0001-000000000005');
+
   const isDerivation =
     !isAlcools &&
     !isCinetique &&
@@ -1703,6 +1799,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'Masterclass Audio : Acides Carboxyliques, Esters & Saponification'
                     : isCinetique
                     ? 'Masterclass Audio : Cinétique Chimique & Vitesse de Réaction'
+                    : isAutoprotolysePh
+                    ? 'Masterclass Audio : Autoprotolyse, pH & Indicateurs Colorés'
                     : isTvi
                     ? 'Masterclass Audio : TVI & Théorème de la Bijection'
                     : isAsymptotes
@@ -1738,6 +1836,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'Terminale S2 • Chimie : Les 5 réflexes pour l\'estérification, Dean-Stark et le savon'
                     : isCinetique
                     ? 'Terminale S2 • Chimie : Les 5 réflexes pour l\'exercice cinétique au Bac'
+                    : isAutoprotolysePh
+                    ? 'Terminale S2 • Chimie : Les 5 réflexes pour le Ke, le pH et les indicateurs au Bac'
                     : isTvi
                     ? 'Terminale S2 • Les 5 réflexes pour la Partie A & B'
                     : isAsymptotes
@@ -1773,6 +1873,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? ACIDES_DERIVES_AUDIO_CHAPTERS
                     : isCinetique
                     ? CINETIQUE_AUDIO_CHAPTERS
+                    : isAutoprotolysePh
+                    ? AUTOPROTOLYSE_PH_AUDIO_CHAPTERS
                     : isTvi
                     ? TVI_AUDIO_CHAPTERS
                     : isAsymptotes
@@ -1837,6 +1939,11 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <>
                   <CinetiqueReflexesCard />
                   <CinetiqueInteractiveSimulator />
+                </>
+              ) : isAutoprotolysePh ? (
+                <>
+                  <AutoprotolysePhReflexesCard />
+                  <AutoprotolysePhInteractiveSimulator />
                 </>
               ) : isTvi ? (
                 <>
@@ -1939,6 +2046,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'acides_derives'
                     : isCinetique
                     ? 'cinetique'
+                    : isAutoprotolysePh
+                    ? 'autoprotolyse_ph'
                     : isTvi
                     ? 'tvi'
                     : isAsymptotes
@@ -1983,6 +2092,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <AcidesDerivesQuizEmbedded />
               ) : isCinetique ? (
                 <CinetiqueQuizEmbedded />
+              ) : isAutoprotolysePh ? (
+                <AutoprotolysePhQuizEmbedded />
               ) : isTvi ? (
                 <TviQuizEmbedded />
               ) : isAsymptotes ? (
