@@ -364,6 +364,20 @@ export async function validateStudentRegistrationAction(
     });
   }
 
+  // Si un code promo était associé aux notes ou au paiement, comptabiliser l'affiliation (150 FCFA)
+  try {
+    const promoMatch = (notes || '').match(/\[Code Promo:\s*([A-Za-z0-9_-]+)\]/i);
+    if (promoMatch && promoMatch[1]) {
+      const { recordValidatedAffiliation } = await import('@/lib/influencers/service');
+      await recordValidatedAffiliation(promoMatch[1], subscriptionId, {
+        name: `${student.first_name || ''} ${student.last_name || ''}`.trim(),
+        phone: student.phone,
+      });
+    }
+  } catch (affilErr) {
+    console.warn('Erreur comptabilisation affiliation:', affilErr);
+  }
+
   // 4. Journal d'audit
   await admin.from('audit_logs').insert({
     actor_id: adminUser.id,

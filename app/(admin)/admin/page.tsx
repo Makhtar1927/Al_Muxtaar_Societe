@@ -7,6 +7,8 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
+import { Sparkles } from 'lucide-react';
+import { getAllInfluencers } from '@/lib/influencers/service';
 
 export const metadata: Metadata = {
   title: 'Administration | Al Muxtaar Société',
@@ -62,6 +64,7 @@ export default async function AdminPage() {
     expiringSoonResult,
     recentPaymentsResult,
     recentLogsResult,
+    influencersList,
   ] = await Promise.all([
     admin.from('payments').select('*', { count: 'exact', head: true }).eq('status', 'pending'),
     admin.from('subscriptions').select('*', { count: 'exact', head: true }).eq('status', 'active'),
@@ -70,7 +73,10 @@ export default async function AdminPage() {
     admin.from('subscriptions').select('*', { count: 'exact', head: true }).eq('status', 'active').lte('end_date', inSevenDays.toISOString()),
     admin.from('subscriptions').select(`id, status, created_at, plans(name, price_fcfa), profiles!user_id(first_name, last_name, phone)`).order('created_at', { ascending: false }).limit(8),
     admin.from('audit_logs').select('id, action, target_type, created_at, meta').order('created_at', { ascending: false }).limit(5),
+    getAllInfluencers(),
   ]);
+
+  const activeInfluencersCount = (influencersList ?? []).filter((inf) => inf.is_active).length;
 
   const pendingPaymentsCount = pendingPaymentsResult.count;
   const activeSubsCount = activeSubsResult.count;
@@ -118,7 +124,7 @@ export default async function AdminPage() {
       </div>
 
       {/* Quick Navigation Cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
         <Link href="/admin/abonnements" className="block group">
           <Card className="hover:border-turquoise transition-all cursor-pointer h-full p-4 sm:p-5 flex flex-col justify-between bg-white shadow-sm hover:shadow-md">
             <div className="flex items-center justify-between">
@@ -159,6 +165,23 @@ export default async function AdminPage() {
             <div className="mt-4">
               <p className="font-extrabold text-navy text-sm group-hover:text-turquoise transition-colors">Annuaire Élèves</p>
               <p className="text-xs text-text/60 mt-0.5">Validation d&apos;inscription &amp; accès</p>
+            </div>
+          </Card>
+        </Link>
+
+        <Link href="/admin/influenceurs" className="block group">
+          <Card className="hover:border-turquoise transition-all cursor-pointer h-full p-4 sm:p-5 flex flex-col justify-between bg-white shadow-sm hover:shadow-md border-amber-200/60 bg-gradient-to-b from-amber-50/20 to-white">
+            <div className="flex items-center justify-between">
+              <div className="w-11 h-11 rounded-2xl bg-amber-500/15 flex items-center justify-center text-amber-600">
+                <Sparkles className="w-6 h-6" />
+              </div>
+              <span className="text-[10px] font-black uppercase tracking-wider bg-amber-100 text-amber-900 border border-amber-300 px-2 py-0.5 rounded-full">
+                {activeInfluencersCount} actifs
+              </span>
+            </div>
+            <div className="mt-4">
+              <p className="font-extrabold text-navy text-sm group-hover:text-amber-600 transition-colors">Influenceurs &amp; Promo</p>
+              <p className="text-xs text-text/60 mt-0.5">Codes, 150 F/sub &amp; relevés</p>
             </div>
           </Card>
         </Link>

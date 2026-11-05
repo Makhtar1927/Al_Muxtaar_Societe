@@ -1,15 +1,16 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/components/ui/toast';
 import { requestSubscriptionAction } from '@/lib/subscription/actions';
+import { verifyPromoCodeAction } from '@/lib/influencers/actions';
 import { Icon } from '@/components/ui/icon';
 import { WaveLogo } from '@/components/ui/icons/wave-logo';
 import { WhatsAppLogo } from '@/components/ui/icons/whatsapp-logo';
-import { CheckCircle2, Clock, AlertCircle, ArrowRight, Smartphone } from 'lucide-react';
+import { CheckCircle2, Clock, AlertCircle, ArrowRight, Smartphone, Sparkles, Tag } from 'lucide-react';
 
 interface Plan {
   id: string;
@@ -134,6 +135,46 @@ export default function AbonnementForm({
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
+  // Promo code states
+  const [promoCode, setPromoCode] = useState('');
+  const [verifyingPromo, setVerifyingPromo] = useState(false);
+  const [promoSuccess, setPromoSuccess] = useState<string | null>(null);
+  const [promoError, setPromoError] = useState<string | null>(null);
+
+  // Auto detect promo code from URL (?code=XYZ or ?promo=XYZ)
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const codeFromUrl = params.get('code') || params.get('promo');
+      if (codeFromUrl) {
+        const clean = codeFromUrl.toUpperCase();
+        setPromoCode(clean);
+        verifyCode(clean);
+      }
+    }
+  }, []);
+
+  async function verifyCode(codeToVerify: string) {
+    const clean = codeToVerify.trim().toUpperCase();
+    if (!clean) {
+      setPromoSuccess(null);
+      setPromoError(null);
+      return;
+    }
+    setVerifyingPromo(true);
+    setPromoError(null);
+    const res = await verifyPromoCodeAction(clean);
+    setVerifyingPromo(false);
+    if (res.success) {
+      setPromoSuccess(res.data.discountText);
+      setPromoError(null);
+      showToast(res.data.discountText, 'success');
+    } else {
+      setPromoSuccess(null);
+      setPromoError(res.error || 'Code promo invalide ou inactif.');
+    }
+  }
+
   const currentPlan = plans.find((p) => p.id === selectedPlan) ?? plans[0];
   const waveAmount = currentPlan?.price_fcfa ?? 700;
   const cleanBase = WAVE_BASE_URL.endsWith('/') ? WAVE_BASE_URL : `${WAVE_BASE_URL}/`;
@@ -153,6 +194,9 @@ export default function AbonnementForm({
     const fd = new FormData();
     fd.append('plan_id', selectedPlan);
     if (userPhone) fd.append('phone_sender', userPhone);
+    if (promoCode && promoSuccess) {
+      fd.append('promo_code', promoCode.trim().toUpperCase());
+    }
 
     const result = await requestSubscriptionAction(fd);
     setLoading(false);
@@ -237,6 +281,55 @@ export default function AbonnementForm({
             );
           })}
         </div>
+      </div>
+
+      {/* Code Promo / Code Parrainage Influenceur */}
+      <div className="rounded-2xl border border-navy/10 bg-white p-4 shadow-xs space-y-2.5">
+        <div className="flex items-center justify-between">
+          <label className="text-xs font-bold uppercase tracking-wider text-navy flex items-center gap-1.5">
+            <Tag className="w-3.5 h-3.5 text-turquoise" />
+            <span>Code promo / Parrainage Influenceur</span>
+          </label>
+          <span className="text-[10px] text-text/50 font-medium">Optionnel</span>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <input
+            type="text"
+            placeholder="Ex : MAJOR_S2, EXCELLENCE..."
+            value={promoCode}
+            onChange={(e) => {
+              setPromoCode(e.target.value.toUpperCase());
+              setPromoSuccess(null);
+              setPromoError(null);
+            }}
+            className="flex-1 rounded-xl border border-navy/20 bg-surface px-3 py-2 text-xs font-bold tracking-wider text-navy uppercase placeholder:normal-case placeholder:font-normal placeholder:tracking-normal focus:outline-none focus:ring-2 focus:ring-turquoise/40"
+          />
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            onClick={() => verifyCode(promoCode)}
+            disabled={verifyingPromo || !promoCode.trim()}
+            className="text-xs whitespace-nowrap"
+          >
+            {verifyingPromo ? 'Vérification…' : 'Appliquer'}
+          </Button>
+        </div>
+
+        {promoSuccess && (
+          <div className="flex items-center gap-2 text-xs font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200 rounded-xl p-2.5">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            <span>{promoSuccess}</span>
+          </div>
+        )}
+
+        {promoError && (
+          <div className="flex items-center gap-2 text-xs font-semibold text-rose-800 bg-rose-50 border border-rose-200 rounded-xl p-2.5">
+            <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
+            <span>{promoError}</span>
+          </div>
+        )}
       </div>
 
       {/* Bloc d'action Wave officiel */}

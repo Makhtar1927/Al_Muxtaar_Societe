@@ -111,6 +111,12 @@ export async function requestSubscriptionAction(
   const senderNumber = phone_sender?.trim() || studentPhone;
   const studentFullName = profile ? `${profile.first_name} ${profile.last_name}` : 'Élève';
 
+  const promoCodeRaw = (formData.get('promo_code') as string)?.trim().toUpperCase() || '';
+  let finalNotes = notes?.trim() || `Paiement Wave de ${studentFullName} (${senderNumber})`;
+  if (promoCodeRaw) {
+    finalNotes = `${finalNotes} [Code Promo: ${promoCodeRaw}]`;
+  }
+
   const { error: payErr } = await admin.from('payments').insert({
     subscription_id: sub.id,
     student_id: user.id,
@@ -118,7 +124,7 @@ export async function requestSubscriptionAction(
     amount: plan.price_fcfa,
     provider: 'wave',
     transaction_code: `WAVE-${senderNumber}`,
-    notes: notes?.trim() || `Paiement Wave de ${studentFullName} (${senderNumber})`,
+    notes: finalNotes,
     status: 'pending',
   });
 
@@ -226,6 +232,27 @@ export async function activateSubscriptionAction(
     })
     .eq('subscription_id', subscription_id)
     .eq('status', 'pending');
+
+  // Si activation confirmée par l'admin : comptabiliser la commission de 150 FCFA à l'influenceur
+  if (action === 'activate') {
+    try {
+      const { data: payRow } = await admin
+        .from('payments')
+        .select('notes')
+        .eq('subscription_id', subscription_id)
+        .order('created_at', { ascending: false })
+        .limit(1)
+        .maybeSingle();
+
+      const promoMatch = (payRow?.notes || '').match(/\[Code Promo:\s*([A-Za-z0-9_-]+)\]/i);
+      if (promoMatch && promoMatch[1]) {
+        const { recordValidatedAffiliation } = await import('@/lib/influencers/service');
+        await recordValidatedAffiliation(promoMatch[1], subscription_id);
+      }
+    } catch (affilErr) {
+      console.warn('Erreur comptabilisation affiliation:', affilErr);
+    }
+  }
 
   // Journal d'audit (sécurisé)
   try {

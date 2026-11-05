@@ -20,6 +20,7 @@ import {
   Menu,
   X,
   ShieldCheck,
+  Sparkles,
 } from "lucide-react";
 
 interface AdminNavProps {
@@ -30,6 +31,7 @@ const ADMIN_NAV_LINKS = [
   { href: "/admin", label: "Tableau de bord", icon: LayoutDashboard },
   { href: "/admin/abonnements", label: "Abonnements", icon: CreditCard, hasPendingBadge: true },
   { href: "/admin/eleves", label: "Élèves", icon: Users },
+  { href: "/admin/influenceurs", label: "Influenceurs", icon: Sparkles },
   { href: "/admin/contenu", label: "Contenu & Cours", icon: BookOpen },
   { href: "/admin/tarifs", label: "Tarifs & Formules", icon: Receipt },
   { href: "/admin/journal", label: "Audit & Erreurs", icon: FileText },
