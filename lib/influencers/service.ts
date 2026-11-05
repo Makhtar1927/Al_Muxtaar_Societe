@@ -195,17 +195,25 @@ function saveLocalStore(store: LocalStore) {
 // ─── Fonctions publiques du service ──────────────────────────────────────────
 
 /**
- * Récupère tous les influenceurs
+ * Récupère tous les influenceurs (Supabase en priorité, puis store local)
  */
 export async function getAllInfluencers(): Promise<Influencer[]> {
   const admin = createAdminClient();
   try {
-    const { data, error } = await admin.from('influencers').select('*').order('created_at', { ascending: false });
-    if (!error && data && data.length > 0) {
-      return data as Influencer[];
+    const { data, error } = await admin
+      .from('influencers')
+      .select('*')
+      .order('created_at', { ascending: false });
+    if (!error && data) {
+      // Supabase OK — on retourne directement (peut être vide si aucun inséré via BD)
+      // Merger avec le store local pour ne rien perdre
+      const localStore = loadLocalStore();
+      const supabaseIds = new Set(data.map((d: any) => d.id));
+      const localOnly = localStore.influencers.filter((inf) => !supabaseIds.has(inf.id));
+      return [...data as Influencer[], ...localOnly];
     }
   } catch (e) {
-    // Fallback store
+    // Fallback
   }
   const store = loadLocalStore();
   return store.influencers;
@@ -284,29 +292,43 @@ export async function createInfluencer(data: {
   }
 
   const now = new Date().toISOString();
-  const randomSuffix = Math.random().toString(36).substring(2, 10);
-  const newInf: Influencer = {
-    id: `inf_${Date.now()}_${randomSuffix}`,
+
+  // Payload pour Supabase : on ne passe PAS d'id — PostgreSQL génère un UUID valide
+  const insertPayload = {
     full_name: data.full_name.trim(),
     phone: data.phone.trim(),
     promo_code: cleanCode,
-    commission_per_subscription: data.commission_per_subscription || 150, // 150 FCFA
-    access_key: `inf_key_${cleanCode.toLowerCase()}_${randomSuffix}`,
+    commission_per_subscription: data.commission_per_subscription || 150,
     is_active: true,
     notes: data.notes?.trim() || null,
-    created_at: now,
-    updated_at: now,
   };
 
   const admin = createAdminClient();
   try {
-    const { data: dbData, error } = await admin.from('influencers').insert(newInf).select().single();
+    const { data: dbData, error } = await admin
+      .from('influencers')
+      .insert(insertPayload)
+      .select()
+      .single();
     if (!error && dbData) {
       return { success: true, data: dbData as Influencer, message: 'Influenceur créé avec succès !' };
     }
+    if (error) {
+      console.error('Supabase createInfluencer error:', error.message, error.code);
+    }
   } catch (e) {
-    // Fallback local store
+    console.error('Supabase createInfluencer exception:', e);
   }
+
+  // Fallback: store JSON local (seulement si Supabase échoue)
+  const randomSuffix = Math.random().toString(36).substring(2, 10);
+  const newInf: Influencer = {
+    id: `inf_${Date.now()}_${randomSuffix}`,
+    ...insertPayload,
+    access_key: `inf_key_${cleanCode.toLowerCase()}_${randomSuffix}`,
+    created_at: now,
+    updated_at: now,
+  };
 
   const store = loadLocalStore();
   store.influencers.unshift(newInf);
