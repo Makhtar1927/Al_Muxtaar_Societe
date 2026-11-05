@@ -46,7 +46,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       locale: 'fr_SN',
       images: [
         {
-          url: '/assets/apercu-lien-1200x630.jpg',
+          url: 'https://almuxtaar.vercel.app/assets/apercu-lien-1200x630.jpg',
+          secureUrl: 'https://almuxtaar.vercel.app/assets/apercu-lien-1200x630.jpg',
           width: 1200,
           height: 630,
           type: 'image/jpeg',
@@ -58,7 +59,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: `Espace Partenaire • ${partnerName} | Al Muxtaar Doc`,
       description: `Code promo exclusif ${promoCode} pour réviser avec Al Muxtaar Doc au Sénégal.`,
-      images: ['/assets/apercu-lien-1200x630.jpg'],
+      images: ['https://almuxtaar.vercel.app/assets/apercu-lien-1200x630.jpg'],
     },
   };
 }

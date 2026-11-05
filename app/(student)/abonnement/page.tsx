@@ -12,7 +12,8 @@ export const metadata = {
     locale: 'fr_SN',
     images: [
       {
-        url: '/assets/apercu-lien-1200x630.jpg',
+        url: 'https://almuxtaar.vercel.app/assets/apercu-lien-1200x630.jpg',
+        secureUrl: 'https://almuxtaar.vercel.app/assets/apercu-lien-1200x630.jpg',
         width: 1200,
         height: 630,
         type: 'image/jpeg',
@@ -24,7 +25,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Abonnement Al Muxtaar Doc — Réussir le Bac S2',
     description: 'Accès complet dès 700 FCFA / mois avec paiement Wave direct.',
-    images: ['/assets/apercu-lien-1200x630.jpg'],
+    images: ['https://almuxtaar.vercel.app/assets/apercu-lien-1200x630.jpg'],
   },
 };
 

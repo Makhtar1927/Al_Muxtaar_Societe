@@ -5,13 +5,21 @@ import { ToastProvider } from "@/components/ui/toast";
 import PageTransitionLoader from "@/components/layout/page-transition-loader";
 import { Suspense } from "react";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
-  ? process.env.NEXT_PUBLIC_SITE_URL
-  : process.env.VERCEL_PROJECT_PRODUCTION_URL
-  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  : process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : "https://almuxtaar.vercel.app";
+function getSiteUrl(): string {
+  const envUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  if (envUrl && !envUrl.includes('localhost') && !envUrl.includes('127.0.0.1')) {
+    return envUrl.replace(/\/+$/, '');
+  }
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL.replace(/\/+$/, '')}`;
+  }
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL.replace(/\/+$/, '')}`;
+  }
+  return 'https://almuxtaar.vercel.app';
+}
+
+const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -35,19 +43,11 @@ export const metadata: Metadata = {
       "Plateforme éducative de référence au Sénégal : cours complets, exercices corrigés et fiches réflexes dès 700 FCFA / mois. Programme sénégalais & paiement direct Wave.",
     images: [
       {
-        url: "/assets/apercu-lien-1200x630.jpg",
+        url: `${siteUrl}/assets/apercu-lien-1200x630.jpg`,
         secureUrl: `${siteUrl}/assets/apercu-lien-1200x630.jpg`,
         width: 1200,
         height: 630,
         type: "image/jpeg",
-        alt: "Al Muxtaar Société — Tous tes cours de la 3ème à la Terminale",
-      },
-      {
-        url: "/assets/apercu-lien-1200x630.png",
-        secureUrl: `${siteUrl}/assets/apercu-lien-1200x630.png`,
-        width: 1200,
-        height: 630,
-        type: "image/png",
         alt: "Al Muxtaar Société — Tous tes cours de la 3ème à la Terminale",
       },
     ],
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     title: "Al Muxtaar Société — Tous tes cours, de la 3ème à la Terminale",
     description:
       "Plateforme éducative de référence au Sénégal : cours complets, exercices corrigés et fiches réflexes dès 700 FCFA / mois.",
-    images: ["/assets/apercu-lien-1200x630.jpg"],
+    images: [`${siteUrl}/assets/apercu-lien-1200x630.jpg`],
   },
 };
 
