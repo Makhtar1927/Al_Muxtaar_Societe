@@ -170,10 +170,10 @@ export async function activateSubscriptionAction(
 
   const { subscription_id, action, notes } = parsed.data;
 
-  // Récupérer l'abonnement et la durée du plan
+  // Récupérer l'abonnement et les informations du plan
   const { data: sub } = await admin
     .from('subscriptions')
-    .select('id, user_id, plan_id, plans(duration_days)')
+    .select('id, user_id, plan_id, plans(duration_days, price_fcfa, name)')
     .eq('id', subscription_id)
     .single();
   if (!sub) return { success: false, error: 'Abonnement introuvable' };
@@ -233,12 +233,13 @@ export async function activateSubscriptionAction(
     .eq('subscription_id', subscription_id)
     .eq('status', 'pending');
 
-  // Si activation confirmée par l'admin : comptabiliser la commission de 150 FCFA à l'influenceur
+  // Si activation confirmée par l'admin : comptabiliser la commission
+  // (150 FCFA pour abonnement 700 FCFA, 400 FCFA pour abonnement 2000 FCFA)
   if (action === 'activate') {
     try {
       const { data: payRow } = await admin
         .from('payments')
-        .select('notes')
+        .select('notes, amount')
         .eq('subscription_id', subscription_id)
         .order('created_at', { ascending: false })
         .limit(1)
@@ -246,11 +247,16 @@ export async function activateSubscriptionAction(
 
       const promoMatch = (payRow?.notes || '').match(/\[Code Promo:\s*([A-Za-z0-9_-]+)\]/i);
       if (promoMatch && promoMatch[1]) {
+        const planPrice = payRow?.amount || (sub.plans as any)?.price_fcfa || 700;
+        const planName = (sub.plans as any)?.name;
         const { recordValidatedAffiliation } = await import('@/lib/influencers/service');
-        await recordValidatedAffiliation(promoMatch[1], subscription_id);
+        await recordValidatedAffiliation(promoMatch[1], subscription_id, {
+          planAmount: planPrice,
+          planName: planName,
+        });
       }
     } catch (affilErr) {
-      console.warn('Erreur comptabilisation affiliation:', affilErr);
+      console.warn('Erreur comptabilisation commission influenceur:', affilErr);
     }
   }
 

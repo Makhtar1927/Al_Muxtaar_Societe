@@ -87,7 +87,7 @@ export default function InfluencerDashboardClient({
   }
 
   function shareWhatsApp() {
-    const text = `🇸🇳 Révisez le Baccalauréat avec Al Muxtaar Doc !\n\nProfitez de l'accès complet à tous les chapitres de Maths et Physique-Chimie Tle S2 dès 700 FCFA.\nUtilisez mon code promo officiel : *${influencer.promo_code}*\n\n👉 Cliquez ici pour vous abonner : ${shareLink}`;
+    const text = `🇸🇳 Révisez le Baccalauréat avec Al Muxtaar Doc !\n\nProfitez de l'accès complet à tous les chapitres de Maths et Physique-Chimie Tle S2 dès 700 FCFA (mensuel) ou 2 000 FCFA (trimestriel).\nUtilisez mon code promo officiel : *${influencer.promo_code}*\n\n👉 Cliquez ici pour vous abonner : ${shareLink}`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
   }
 
@@ -145,9 +145,9 @@ export default function InfluencerDashboardClient({
             </thead>
             <tbody>
               <tr>
-                <td className="border p-2 font-medium">Abonnements élèves validés (Formule 700 FCFA)</td>
+                <td className="border p-2 font-medium">Commissions abonnements validés (Formules 700 FCFA &amp; 2 000 FCFA)</td>
                 <td className="border p-2 text-center font-bold">{selectedStatement.validated_subscriptions_count}</td>
-                <td className="border p-2 text-right">150 FCFA</td>
+                <td className="border p-2 text-right">150 F (700 F) / 400 F (2 000 F)</td>
                 <td className="border p-2 text-right font-black text-sm">
                   {formatFCFA(selectedStatement.total_commission_fcfa)}
                 </td>
@@ -174,7 +174,7 @@ export default function InfluencerDashboardClient({
               Espace Partenaire • {influencer.full_name}
             </h1>
             <p className="text-xs sm:text-sm text-surface-muted mt-1.5 max-w-xl leading-relaxed">
-              Vous percevez <strong className="text-turquoise font-black">150 FCFA</strong> sur chaque abonnement élève validé par l&apos;administration avec votre code promo.
+              Vous percevez <strong className="text-turquoise font-black">150 FCFA</strong> sur chaque abonnement mensuel (700 F) et <strong className="text-amber-400 font-black">400 FCFA</strong> sur chaque formule trimestrielle (2 000 F) validé par l&apos;administration avec votre code promo.
             </p>
           </div>
 
@@ -280,13 +280,13 @@ export default function InfluencerDashboardClient({
         {/* Current Month Earnings */}
         <div className="rounded-2xl bg-white border border-emerald-500/30 bg-emerald-50/30 p-4 shadow-sm">
           <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 block">
-            Gains ce mois (150 F / élève)
+            Gains ce mois
           </span>
           <p className="text-2xl sm:text-3xl font-black text-emerald-700 mt-1">
             {formatFCFA(currentMonthPayout.total_commission_fcfa)}
           </p>
           <span className="text-[10px] text-emerald-800 font-semibold inline-block mt-1">
-            ⏳ Versement fin de mois par Wave
+            150 F (plan 700 F) • 400 F (plan 2000 F)
           </span>
         </div>
 
@@ -380,10 +380,14 @@ export default function InfluencerDashboardClient({
 
             <div className="text-xs text-text/70 leading-relaxed bg-surface p-4 rounded-xl space-y-1.5">
               <p className="font-semibold text-navy">
-                📌 Règle de comptabilisation stricte :
+                📌 Barème des commissions :
               </p>
-              <p>
-                Chaque élève qui s&apos;abonne avec votre code promo <strong className="text-navy">{influencer.promo_code}</strong> est pris en compte <strong>dès que l&apos;administrateur valide formellement son paiement</strong>.
+              <ul className="list-disc list-inside space-y-0.5 text-navy/90 font-medium pl-1">
+                <li><strong className="text-turquoise">150 FCFA</strong> par abonnement mensuel (700 FCFA)</li>
+                <li><strong className="text-amber-600">400 FCFA</strong> par abonnement trimestriel (2 000 FCFA)</li>
+              </ul>
+              <p className="pt-1">
+                Chaque élève qui s&apos;abonne avec votre code promo <strong className="text-navy">{influencer.promo_code}</strong> est crédité <strong>dès que l&apos;administrateur valide formellement son paiement</strong>.
               </p>
               <p>
                 Le total cumulé de ce mois vous sera versé directement par transfert Wave sur votre numéro <strong className="text-navy">{influencer.phone}</strong> à la fin du mois.
@@ -400,7 +404,7 @@ export default function InfluencerDashboardClient({
 
             {recentAffiliations.length === 0 ? (
               <p className="text-xs text-text/50 italic py-6 text-center">
-                Aucune inscription validée enregistrée pour le moment. Partagez votre lien pour commencer à cumuler vos 150 FCFA par élève !
+                Aucune inscription validée enregistrée pour le moment. Partagez votre lien pour commencer à cumuler vos commissions (150 F / 400 F) !
               </p>
             ) : (
               <div className="divide-y divide-navy/5">
@@ -411,7 +415,7 @@ export default function InfluencerDashboardClient({
                         {item.student_name || 'Élève anonymisé (Bac S2)'}
                       </p>
                       <p className="text-text/50 text-[11px]">
-                        Validé le {formatDate(item.validated_at)} • Période {item.period_month}
+                        {item.plan_name || (item.commission_fcfa === 400 ? 'Formule Trimestrielle (2 000 FCFA)' : 'Formule Mensuelle (700 FCFA)')} • Validé le {formatDate(item.validated_at)}
                       </p>
                     </div>
                     <span className="font-black text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
@@ -547,7 +551,7 @@ export default function InfluencerDashboardClient({
                 {influencer.promo_code}
               </span>
               <span className="text-[11px] text-amber-200/90 block mt-1 font-semibold">
-                Dès 700 FCFA / mois seulement
+                Dès 700 F (mensuel) • 2 000 F (trimestre)
               </span>
             </div>
 

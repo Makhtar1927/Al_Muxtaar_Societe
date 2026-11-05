@@ -179,7 +179,7 @@ export default function InfluenceursManagerClient({ initialInfluencers, initialP
           <p className="text-2xl sm:text-3xl font-black text-emerald-800 mt-1">
             {formatFCFA(totalCommissionsThisMonth)}
           </p>
-          <p className="text-[10px] text-emerald-700 mt-0.5">150 FCFA / élève validé</p>
+          <p className="text-[10px] text-emerald-700 mt-0.5">150 F (plan 700) • 400 F (plan 2000)</p>
         </div>
 
         <div className="rounded-2xl border border-navy/10 bg-white p-4 shadow-sm">
@@ -198,7 +198,7 @@ export default function InfluenceursManagerClient({ initialInfluencers, initialP
         <div>
           <h2 className="text-base font-bold text-navy">Gestion des Partenaires &amp; Codes Promo</h2>
           <p className="text-xs text-text/60 mt-0.5">
-            Attribuez des codes promo uniques et suivez les règlements mensuels de 150 FCFA par abonnement validé.
+            Attribuez des codes promo uniques et suivez les règlements mensuels (150 FCFA sur abonnement 700 F, 400 FCFA sur abonnement 2000 F).
           </p>
         </div>
 
@@ -255,7 +255,7 @@ export default function InfluenceursManagerClient({ initialInfluencers, initialP
                     </td>
                     <td className="px-5 py-3.5 font-mono text-xs">{inf.phone}</td>
                     <td className="px-5 py-3.5 font-bold text-emerald-700">
-                      {inf.commission_per_subscription || 150} FCFA / sub
+                      150 F (700 F) • 400 F (2000 F)
                     </td>
                     <td className="px-5 py-3.5">
                       <div className="flex items-center gap-2">
@@ -316,7 +316,7 @@ export default function InfluenceursManagerClient({ initialInfluencers, initialP
                 <th className="px-5 py-3.5">Mois</th>
                 <th className="px-5 py-3.5">Influenceur</th>
                 <th className="px-5 py-3.5">Élèves Validés</th>
-                <th className="px-5 py-3.5">Montant Dû (150 F/sub)</th>
+                <th className="px-5 py-3.5">Montant Dû</th>
                 <th className="px-5 py-3.5">Statut</th>
                 <th className="px-5 py-3.5">Réf. Wave</th>
                 <th className="px-5 py-3.5 text-right">Action Règlement</th>
@@ -388,7 +388,7 @@ export default function InfluenceursManagerClient({ initialInfluencers, initialP
           isOpen
           onClose={() => setIsCreateModalOpen(false)}
           title="Ajouter un Partenaire Influenceur"
-          description="Créez un code promo unique. L'influenceur recevra 150 FCFA par élève dont le paiement est validé par l'admin."
+          description="Créez un code promo unique. L'influenceur recevra 150 FCFA (plan 700 F) ou 400 FCFA (plan 2000 F) par élève dont le paiement est validé par l'admin."
         >
           <form onSubmit={handleCreateInfluencer} className="space-y-4 pt-1 text-sm">
             <div>
@@ -427,7 +427,7 @@ export default function InfluenceursManagerClient({ initialInfluencers, initialP
                 required
               />
               <p className="text-[11px] text-text/50 mt-1">
-                L&apos;élève entrera ce code pour bénéficier de l&apos;abonnement et créditer l&apos;influenceur de 150 FCFA.
+                L&apos;élève entrera ce code pour bénéficier de l&apos;abonnement. L&apos;influenceur sera crédité de 150 FCFA (plan 700 F) ou 400 FCFA (plan 2000 F).
               </p>
             </div>
 

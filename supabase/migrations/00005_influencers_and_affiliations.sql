@@ -1,6 +1,6 @@
 
 -- ============================================================
--- Migration 00005 — Influencers & Affiliation System (150 FCFA/sub)
+-- Migration 00005 — Influencers & Affiliation System (150 FCFA / plan 700 F, 400 FCFA / plan 2000 F)
 -- ============================================================
 
 -- 1. Table des influenceurs / partenaires de parrainage
@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS public.influencers (
   full_name                   TEXT NOT NULL,
   phone                       TEXT NOT NULL,
   promo_code                  TEXT UNIQUE NOT NULL,
-  commission_per_subscription INT NOT NULL DEFAULT 150, -- 150 FCFA par défaut
+  commission_per_subscription INT NOT NULL DEFAULT 150, -- Base 150 FCFA (plan 700 F), 400 FCFA (plan 2000 F)
   access_key                  TEXT UNIQUE NOT NULL DEFAULT encode(gen_random_bytes(16), 'hex'),
   is_active                   BOOLEAN NOT NULL DEFAULT TRUE,
   notes                       TEXT,

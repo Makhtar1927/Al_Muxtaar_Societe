@@ -364,7 +364,8 @@ export async function validateStudentRegistrationAction(
     });
   }
 
-  // Si un code promo était associé aux notes ou au paiement, comptabiliser l'affiliation (150 FCFA)
+  // Si un code promo était associé aux notes ou au paiement, comptabiliser l'affiliation
+  // (150 FCFA pour abonnement 700 FCFA, 400 FCFA pour abonnement 2000 FCFA)
   try {
     const promoMatch = (notes || '').match(/\[Code Promo:\s*([A-Za-z0-9_-]+)\]/i);
     if (promoMatch && promoMatch[1]) {
@@ -372,6 +373,8 @@ export async function validateStudentRegistrationAction(
       await recordValidatedAffiliation(promoMatch[1], subscriptionId, {
         name: `${student.first_name || ''} ${student.last_name || ''}`.trim(),
         phone: student.phone,
+        planAmount: planPrice,
+        planName: planName,
       });
     }
   } catch (affilErr) {

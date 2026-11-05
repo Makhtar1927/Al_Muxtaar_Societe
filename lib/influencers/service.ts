@@ -37,9 +37,23 @@ export interface AffiliationRecord {
   subscription_id: string;
   student_name?: string;
   student_phone?: string;
-  commission_fcfa: number;
+  plan_name?: string;
+  plan_amount?: number; // 700 ou 2000 FCFA
+  commission_fcfa: number; // 150 ou 400 FCFA
   period_month: string;
   validated_at: string;
+}
+
+/**
+ * Barème officiel des commissions influenceurs :
+ * - 150 FCFA pour un abonnement à 700 FCFA (mensuel)
+ * - 400 FCFA pour un abonnement à 2000 FCFA (trimestriel / pass)
+ */
+export function computeCommissionForPlan(amount?: number | null): number {
+  if (!amount || amount <= 0) return 150;
+  if (amount >= 2000) return 400;
+  if (amount >= 700) return 150;
+  return 150;
 }
 
 export type ActionResult<T = null> =
@@ -106,17 +120,46 @@ function getDefaultStore(): LocalStore {
       influencer_id: 'inf_ambassadeur_01',
       period_month: currentMonth,
       validated_subscriptions_count: 8,
-      total_commission_fcfa: 8 * 150, // 1 200 FCFA
+      total_commission_fcfa: 6 * 150 + 2 * 400, // 1 700 FCFA (6 plans 700 F + 2 plans 2000 F)
       status: 'in_progress',
       created_at: now,
       updated_at: now,
     },
   ];
 
+  const initialAffiliations: AffiliationRecord[] = [
+    {
+      id: 'aff_demo_01',
+      influencer_id: 'inf_ambassadeur_01',
+      promo_code: 'MAJOR_S2',
+      subscription_id: 'sub_demo_01',
+      student_name: 'Moussa Diop (Terminale S2)',
+      student_phone: '+221 77 345 67 89',
+      plan_name: 'Abonnement Trimestriel (2 000 FCFA)',
+      plan_amount: 2000,
+      commission_fcfa: 400,
+      period_month: currentMonth,
+      validated_at: now,
+    },
+    {
+      id: 'aff_demo_02',
+      influencer_id: 'inf_ambassadeur_01',
+      promo_code: 'MAJOR_S2',
+      subscription_id: 'sub_demo_02',
+      student_name: 'Fatou Ndiaye (Terminale S2)',
+      student_phone: '+221 78 123 99 88',
+      plan_name: 'Abonnement Mensuel (700 FCFA)',
+      plan_amount: 700,
+      commission_fcfa: 150,
+      period_month: currentMonth,
+      validated_at: now,
+    },
+  ];
+
   return {
     influencers: initialInfluencers,
     payouts: initialPayouts,
-    affiliations: [],
+    affiliations: initialAffiliations,
   };
 }
 
@@ -273,12 +316,14 @@ export async function createInfluencer(data: {
 }
 
 /**
- * Enregistre et comptabilise une commission de 150 FCFA LORSQUE LE PAIEMENT EST VALIDÉ PAR L'ADMIN.
+ * Enregistre et comptabilise une commission LORSQUE LE PAIEMENT EST VALIDÉ PAR L'ADMIN :
+ * - 150 FCFA pour un abonnement à 700 FCFA
+ * - 400 FCFA pour un abonnement à 2000 FCFA
  */
 export async function recordValidatedAffiliation(
   promoCode: string,
   subscriptionId: string,
-  studentInfo?: { name?: string; phone?: string }
+  studentInfo?: { name?: string; phone?: string; planAmount?: number; planName?: string }
 ): Promise<ActionResult> {
   const cleanCode = promoCode?.trim().toUpperCase();
   if (!cleanCode) return { success: false, error: 'Aucun code promo fourni.' };
@@ -286,12 +331,47 @@ export async function recordValidatedAffiliation(
   const influencer = await getInfluencerByCode(cleanCode);
   if (!influencer) return { success: false, error: 'Influenceur introuvable pour ce code promo.' };
 
+  const admin = createAdminClient();
+
+  // Déterminer le montant du plan pour attribuer la commission adéquate
+  let planAmount = studentInfo?.planAmount;
+  let planName = studentInfo?.planName;
+
+  if (!planAmount) {
+    try {
+      const { data: payRow } = await admin
+        .from('payments')
+        .select('amount, plan_id, plans(name, price_fcfa)')
+        .eq('subscription_id', subscriptionId)
+        .order('created_at', { ascending: false })
+        .limit(1)
+        .maybeSingle();
+
+      if (payRow?.amount) {
+        planAmount = payRow.amount;
+        planName = planName || (payRow.plans as any)?.name;
+      } else {
+        const { data: subRow } = await admin
+          .from('subscriptions')
+          .select('plans(name, price_fcfa)')
+          .eq('id', subscriptionId)
+          .maybeSingle();
+        if (subRow?.plans) {
+          planAmount = (subRow.plans as any)?.price_fcfa;
+          planName = planName || (subRow.plans as any)?.name;
+        }
+      }
+    } catch (fetchErr) {
+      console.warn('Erreur détermination montant pour commission:', fetchErr);
+    }
+  }
+
+  // 150 FCFA (plan 700 F) ou 400 FCFA (plan 2000 F)
+  const commission = computeCommissionForPlan(planAmount);
   const now = new Date();
   const periodMonth = now.toISOString().slice(0, 7); // ex : '2026-11'
-  const commission = influencer.commission_per_subscription || 150;
 
   // 1. Essai d'enregistrement en BDD Supabase
-  const admin = createAdminClient();
   try {
     // Mettre à jour payments si existant
     await admin
@@ -319,6 +399,7 @@ export async function recordValidatedAffiliation(
       target_id: influencer.id,
       meta: {
         promo_code: cleanCode,
+        plan_amount: planAmount || 700,
         commission_fcfa: commission,
         period_month: periodMonth,
         subscription_id: subscriptionId,
@@ -347,6 +428,8 @@ export async function recordValidatedAffiliation(
     subscription_id: subscriptionId,
     student_name: studentInfo?.name,
     student_phone: studentInfo?.phone,
+    plan_name: planName || (planAmount && planAmount >= 2000 ? 'Trimestriel (2 000 FCFA)' : 'Mensuel (700 FCFA)'),
+    plan_amount: planAmount || 700,
     commission_fcfa: commission,
     period_month: periodMonth,
     validated_at: now.toISOString(),
