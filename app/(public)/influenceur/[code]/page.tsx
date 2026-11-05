@@ -31,11 +31,35 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ? (await getInfluencerByCode(code)) || (await getInfluencerByAccessKey(code))
     : null;
 
+  const partnerName = influencer?.full_name || 'Partenaire Officiel';
+  const promoCode = influencer?.promo_code || code;
+
   return {
     title: influencer
-      ? `Espace Influenceur • ${influencer.full_name} | Al Muxtaar Société`
-      : 'Espace Influenceur | Al Muxtaar Société',
-    description: 'Suivi des commissions de parrainage et relevés mensuels Al Muxtaar.',
+      ? `Espace Partenaire • ${partnerName} (Code : ${promoCode}) | Al Muxtaar Doc`
+      : 'Espace Partenaire & Ambassadeur | Al Muxtaar Doc',
+    description: `Recommandé par ${partnerName} : Révisez et réussissez le Bac S2 avec Al Muxtaar Doc. Utilisez le code promo exclusif ${promoCode} dès 700 FCFA.`,
+    openGraph: {
+      title: `Espace Partenaire • ${partnerName} | Al Muxtaar Doc`,
+      description: `Révisez le Bac S2 avec Al Muxtaar Doc. Code Promo : ${promoCode} (dès 700 FCFA).`,
+      type: 'website',
+      locale: 'fr_SN',
+      images: [
+        {
+          url: '/assets/og-almuxtaar-preview.png',
+          width: 1200,
+          height: 630,
+          type: 'image/png',
+          alt: `Espace Partenaire ${partnerName} — Al Muxtaar Doc Bac S2`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `Espace Partenaire • ${partnerName} | Al Muxtaar Doc`,
+      description: `Code promo exclusif ${promoCode} pour réviser le Bac S2 au Sénégal.`,
+      images: ['/assets/og-almuxtaar-preview.png'],
+    },
   };
 }
 

@@ -3,8 +3,29 @@ import { redirect } from 'next/navigation';
 import AbonnementForm from '@/components/student/abonnement-form';
 
 export const metadata = {
-  title: 'Mon Abonnement — Al Muxtaar Société',
-  description: 'Choisissez votre formule et activez votre accès via paiement Wave officiel.',
+  title: "Formules d'Abonnement — Al Muxtaar Doc | Bac S2 Sénégal",
+  description: "Débloquez l'accès complet aux cours de Maths et Physique-Chimie Terminale S2, exercices corrigés et simulateurs dès 700 FCFA. Paiement Wave direct.",
+  openGraph: {
+    title: 'Abonnement Al Muxtaar Doc — Bac S2 Sénégal',
+    description: 'Accès complet dès 700 FCFA / mois. Cours conformes au programme officiel sénégalais et paiement Wave direct.',
+    type: 'website',
+    locale: 'fr_SN',
+    images: [
+      {
+        url: '/assets/og-almuxtaar-preview.png',
+        width: 1200,
+        height: 630,
+        type: 'image/png',
+        alt: 'Formules d Abonnement Al Muxtaar Doc Bac S2',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Abonnement Al Muxtaar Doc — Réussir le Bac S2',
+    description: 'Accès complet dès 700 FCFA / mois avec paiement Wave direct.',
+    images: ['/assets/og-almuxtaar-preview.png'],
+  },
 };
 
 export default async function AbonnementPage() {

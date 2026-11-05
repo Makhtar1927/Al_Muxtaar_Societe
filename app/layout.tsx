@@ -5,8 +5,16 @@ import { ToastProvider } from "@/components/ui/toast";
 import PageTransitionLoader from "@/components/layout/page-transition-loader";
 import { Suspense } from "react";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+  ? process.env.NEXT_PUBLIC_SITE_URL
+  : process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : "https://almuxtaar.vercel.app";
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://almuxtaar.sn"),
+  metadataBase: new URL(siteUrl),
   title: "Al_Muxtaar_Société | Plateforme Éducative & Numérique",
   description:
     "Plateforme d'excellence éducative au Sénégal : cours en ligne conformes au programme officiel sénégalais, services et solutions numériques.",
@@ -14,32 +22,40 @@ export const metadata: Metadata = {
   authors: [{ name: "Al Muxtaar Société" }],
   manifest: "/manifest.json",
   icons: {
-    icon: "/assets/logo/al_muxtaar_symbole.svg",
-    apple: "/assets/logo/al_muxtaar_symbole.svg",
+    icon: "/assets/logo/logo.png",
+    apple: "/assets/logo/logo.png",
   },
   openGraph: {
     type: "website",
     locale: "fr_SN",
-    url: "https://almuxtaar.sn",
+    url: siteUrl,
     siteName: "Al Muxtaar Société",
-    title: "Al Muxtaar Société — Éducation d'excellence & Services au Sénégal",
+    title: "Al Muxtaar Doc — Plateforme d'Excellence Bac S2 Sénégal",
     description:
-      "La référence éducative pour le Baccalauréat S2 au Sénégal. Cours avec KaTeX, exercices corrigés et suivi personnalisé.",
+      "La référence éducative pour le Baccalauréat S2 au Sénégal. Cours complets, fiches réflexes, annales corrigées et accompagnement sur-mesure dès 700 FCFA.",
     images: [
       {
-        url: "/assets/logo/al_muxtaar_symbole.svg",
-        width: 715,
-        height: 605,
-        alt: "Logo Symbole Al Muxtaar Société",
+        url: "/assets/og-almuxtaar-preview.png",
+        width: 1200,
+        height: 630,
+        type: "image/png",
+        alt: "Al Muxtaar Doc — Réussir le Bac S2 au Sénégal",
+      },
+      {
+        url: "/assets/og-almuxtaar-preview.jpg",
+        width: 1200,
+        height: 630,
+        type: "image/jpeg",
+        alt: "Al Muxtaar Doc — Réussir le Bac S2 au Sénégal",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Al Muxtaar Société — Réussir le Bac S2 au Sénégal",
+    title: "Al Muxtaar Doc — Réussir le Bac S2 au Sénégal",
     description:
-      "Cours de mathématiques conformes au programme sénégalais avec exercices corrigés et quiz interactifs.",
-    images: ["/assets/logo/al_muxtaar_symbole.svg"],
+      "La plateforme d'excellence pour réviser le Bac S2 : cours complets, annales corrigées et fiches réflexes dès 700 FCFA.",
+    images: ["/assets/og-almuxtaar-preview.png"],
   },
 };
 
