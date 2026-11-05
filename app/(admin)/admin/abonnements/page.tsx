@@ -36,7 +36,7 @@ export default async function AdminAbonnementsPage() {
        payments(id, provider, transaction_code, proof_image_url, status, notes, reviewed_at)`
     )
     .order('created_at', { ascending: false })
-    .limit(200);
+    .limit(2000);
 
   return (
     <main className="min-h-screen bg-surface py-8 px-4">

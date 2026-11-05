@@ -23,7 +23,10 @@ import {
   UserCheck,
   Calendar,
   Lock,
+  Phone,
 } from 'lucide-react';
+import { Pagination } from '@/components/ui/pagination';
+import { WhatsAppLogo } from '@/components/ui/icons/whatsapp-logo';
 
 export interface PlanOption {
   id: string;
@@ -77,6 +80,10 @@ export default function ElevesManagerClient({ initialProfiles, availablePlans = 
   const [roleFilter, setRoleFilter] = useState<'all' | 'student' | 'editor' | 'admin'>('all');
   const [statusFilter, setStatusFilter] = useState<StatusFilter>('all');
 
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(15);
+
   // Selected student for full details modal
   const [selectedUser, setSelectedUser] = useState<ProfileItem | null>(null);
 
@@ -127,6 +134,12 @@ export default function ElevesManagerClient({ initialProfiles, availablePlans = 
 
     return matchesSearch && matchesRole && matchesStatus;
   });
+
+  // Paginated profiles slice
+  const paginatedProfiles = React.useMemo(() => {
+    const start = (currentPage - 1) * pageSize;
+    return filtered.slice(start, start + pageSize);
+  }, [filtered, currentPage, pageSize]);
 
   // Action: Validate student registration & activate subscription
   function handleValidateRegistration(user: ProfileItem, planId?: string, days?: number, notes?: string) {
@@ -328,55 +341,61 @@ export default function ElevesManagerClient({ initialProfiles, availablePlans = 
   return (
     <div className="space-y-6">
       {/* KPI Cards — Quick access and filters */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
         <button
           type="button"
-          onClick={() => setStatusFilter('all')}
-          className={`p-4 rounded-2xl border text-left transition-all ${
+          onClick={() => {
+            setStatusFilter('all');
+            setCurrentPage(1);
+          }}
+          className={`p-3 sm:p-4 rounded-2xl border text-left transition-all min-w-0 ${
             statusFilter === 'all'
               ? 'border-navy bg-navy text-white shadow-md'
               : 'border-navy/10 bg-white hover:border-navy/30'
           }`}
         >
           <div className="flex items-center justify-between">
-            <span className={`text-xs font-bold uppercase tracking-wider ${statusFilter === 'all' ? 'text-white/70' : 'text-navy/60'}`}>
+            <span className={`text-[11px] sm:text-xs font-bold uppercase tracking-wider truncate ${statusFilter === 'all' ? 'text-white/70' : 'text-navy/60'}`}>
               Total Inscrits
             </span>
-            <UserCheck className={`w-4 h-4 ${statusFilter === 'all' ? 'text-white' : 'text-navy'}`} />
+            <UserCheck className={`w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 ${statusFilter === 'all' ? 'text-white' : 'text-navy'}`} />
           </div>
-          <p className={`text-2xl sm:text-3xl font-black mt-2 ${statusFilter === 'all' ? 'text-white' : 'text-navy'}`}>
+          <p className={`text-xl sm:text-3xl font-black mt-1 sm:mt-2 ${statusFilter === 'all' ? 'text-white' : 'text-navy'}`}>
             {totalCount}
           </p>
-          <p className={`text-[11px] mt-0.5 ${statusFilter === 'all' ? 'text-white/70' : 'text-text/60'}`}>
+          <p className={`text-[10px] sm:text-[11px] mt-0.5 truncate ${statusFilter === 'all' ? 'text-white/70' : 'text-text/60'}`}>
             Tous comptes confondus
           </p>
         </button>
 
         <button
           type="button"
-          onClick={() => setStatusFilter('decouverte')}
-          className={`p-4 rounded-2xl border text-left transition-all relative overflow-hidden ${
+          onClick={() => {
+            setStatusFilter('decouverte');
+            setCurrentPage(1);
+          }}
+          className={`p-3 sm:p-4 rounded-2xl border text-left transition-all relative overflow-hidden min-w-0 ${
             statusFilter === 'decouverte'
               ? 'border-amber-500 bg-amber-500 text-white shadow-md'
               : 'border-amber-200 bg-amber-50/80 hover:border-amber-300'
           }`}
         >
           <div className="flex items-center justify-between">
-            <span className={`text-xs font-bold uppercase tracking-wider ${statusFilter === 'decouverte' ? 'text-white/90' : 'text-amber-900'}`}>
+            <span className={`text-[11px] sm:text-xs font-bold uppercase tracking-wider truncate ${statusFilter === 'decouverte' ? 'text-white/90' : 'text-amber-900'}`}>
               À Valider (Découverte)
             </span>
-            <Clock className={`w-4 h-4 ${statusFilter === 'decouverte' ? 'text-white' : 'text-amber-600'}`} />
+            <Clock className={`w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 ${statusFilter === 'decouverte' ? 'text-white' : 'text-amber-600'}`} />
           </div>
-          <p className={`text-2xl sm:text-3xl font-black mt-2 ${statusFilter === 'decouverte' ? 'text-white' : 'text-amber-950'}`}>
+          <p className={`text-xl sm:text-3xl font-black mt-1 sm:mt-2 ${statusFilter === 'decouverte' ? 'text-white' : 'text-amber-950'}`}>
             {decouverteCount}
           </p>
           <div className="flex items-center gap-1 mt-0.5">
             {decouverteCount > 0 ? (
-              <span className={`text-[10px] font-bold px-1.5 py-0.2 rounded-full ${statusFilter === 'decouverte' ? 'bg-white/20 text-white' : 'bg-amber-200/90 text-amber-900 animate-pulse'}`}>
-                1ère leçon seule • Bouton valider actif
+              <span className={`text-[9px] sm:text-[10px] font-bold px-1.5 py-0.2 rounded-full truncate ${statusFilter === 'decouverte' ? 'bg-white/20 text-white' : 'bg-amber-200/90 text-amber-900 animate-pulse'}`}>
+                1ère leçon • Valider actif
               </span>
             ) : (
-              <span className={`text-[11px] ${statusFilter === 'decouverte' ? 'text-white/70' : 'text-amber-800/70'}`}>
+              <span className={`text-[10px] sm:text-[11px] truncate ${statusFilter === 'decouverte' ? 'text-white/70' : 'text-amber-800/70'}`}>
                 Aucun en attente
               </span>
             )}
@@ -385,58 +404,67 @@ export default function ElevesManagerClient({ initialProfiles, availablePlans = 
 
         <button
           type="button"
-          onClick={() => setStatusFilter('pending')}
-          className={`p-4 rounded-2xl border text-left transition-all ${
+          onClick={() => {
+            setStatusFilter('pending');
+            setCurrentPage(1);
+          }}
+          className={`p-3 sm:p-4 rounded-2xl border text-left transition-all min-w-0 ${
             statusFilter === 'pending'
               ? 'border-gold bg-gold text-navy shadow-md'
               : 'border-gold/30 bg-gold/10 hover:border-gold/50'
           }`}
         >
           <div className="flex items-center justify-between">
-            <span className={`text-xs font-bold uppercase tracking-wider ${statusFilter === 'pending' ? 'text-navy' : 'text-amber-900'}`}>
+            <span className={`text-[11px] sm:text-xs font-bold uppercase tracking-wider truncate ${statusFilter === 'pending' ? 'text-navy' : 'text-amber-900'}`}>
               En attente Wave
             </span>
-            <Clock className="w-4 h-4 text-amber-700" />
+            <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-700 shrink-0" />
           </div>
-          <p className="text-2xl sm:text-3xl font-black mt-2 text-navy">
+          <p className="text-xl sm:text-3xl font-black mt-1 sm:mt-2 text-navy">
             {pendingWaveCount}
           </p>
-          <p className={`text-[11px] mt-0.5 ${statusFilter === 'pending' ? 'text-navy/80' : 'text-text/60'}`}>
-            Preuve de paiement reçue
+          <p className={`text-[10px] sm:text-[11px] mt-0.5 truncate ${statusFilter === 'pending' ? 'text-navy/80' : 'text-text/60'}`}>
+            Preuve de paiement
           </p>
         </button>
 
         <button
           type="button"
-          onClick={() => setStatusFilter('active')}
-          className={`p-4 rounded-2xl border text-left transition-all ${
+          onClick={() => {
+            setStatusFilter('active');
+            setCurrentPage(1);
+          }}
+          className={`p-3 sm:p-4 rounded-2xl border text-left transition-all min-w-0 ${
             statusFilter === 'active'
               ? 'border-emerald-600 bg-emerald-600 text-white shadow-md'
               : 'border-emerald-200 bg-emerald-50/80 hover:border-emerald-300'
           }`}
         >
           <div className="flex items-center justify-between">
-            <span className={`text-xs font-bold uppercase tracking-wider ${statusFilter === 'active' ? 'text-white/90' : 'text-emerald-900'}`}>
+            <span className={`text-[11px] sm:text-xs font-bold uppercase tracking-wider truncate ${statusFilter === 'active' ? 'text-white/90' : 'text-emerald-900'}`}>
               Abonnés Actifs
             </span>
-            <ShieldCheck className={`w-4 h-4 ${statusFilter === 'active' ? 'text-white' : 'text-emerald-600'}`} />
+            <ShieldCheck className={`w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 ${statusFilter === 'active' ? 'text-white' : 'text-emerald-600'}`} />
           </div>
-          <p className={`text-2xl sm:text-3xl font-black mt-2 ${statusFilter === 'active' ? 'text-white' : 'text-emerald-950'}`}>
+          <p className={`text-xl sm:text-3xl font-black mt-1 sm:mt-2 ${statusFilter === 'active' ? 'text-white' : 'text-emerald-950'}`}>
             {activeCount}
           </p>
-          <p className={`text-[11px] mt-0.5 ${statusFilter === 'active' ? 'text-white/70' : 'text-emerald-800/70'}`}>
+          <p className={`text-[10px] sm:text-[11px] mt-0.5 truncate ${statusFilter === 'active' ? 'text-white/70' : 'text-emerald-800/70'}`}>
             Accès complet illimité
           </p>
         </button>
       </div>
 
       {/* Search and filters bar */}
-      <div className="bg-white rounded-2xl border border-navy/10 p-4 shadow-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+      <div className="bg-white rounded-2xl border border-navy/10 p-3 sm:p-4 shadow-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
         <div className="flex-1">
           <Input
             placeholder="Rechercher par nom, prénom ou téléphone (+221...)"
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => {
+              setSearch(e.target.value);
+              setCurrentPage(1);
+            }}
           />
         </div>
 
@@ -444,8 +472,11 @@ export default function ElevesManagerClient({ initialProfiles, availablePlans = 
           {/* Status filter */}
           <select
             value={statusFilter}
-            onChange={(e) => setStatusFilter(e.target.value as StatusFilter)}
-            className="rounded-xl border border-navy/20 bg-surface px-3 py-2 text-xs font-semibold text-navy focus:outline-none focus:ring-2 focus:ring-turquoise/40"
+            onChange={(e) => {
+              setStatusFilter(e.target.value as StatusFilter);
+              setCurrentPage(1);
+            }}
+            className="flex-1 sm:flex-none rounded-xl border border-navy/20 bg-surface px-3 py-2 text-xs font-semibold text-navy focus:outline-none focus:ring-2 focus:ring-turquoise/40"
           >
             <option value="all">Tous les statuts ({profiles.length})</option>
             <option value="decouverte">⏳ Découverte (1ère leçon) — À valider ({decouverteCount})</option>
@@ -457,7 +488,10 @@ export default function ElevesManagerClient({ initialProfiles, availablePlans = 
           {/* Role filter */}
           <select
             value={roleFilter}
-            onChange={(e) => setRoleFilter(e.target.value as typeof roleFilter)}
+            onChange={(e) => {
+              setRoleFilter(e.target.value as typeof roleFilter);
+              setCurrentPage(1);
+            }}
             className="rounded-xl border border-navy/20 bg-surface px-3 py-2 text-xs text-text focus:outline-none focus:ring-2 focus:ring-turquoise/40"
           >
             <option value="all">Tous les rôles</option>
@@ -499,9 +533,172 @@ export default function ElevesManagerClient({ initialProfiles, availablePlans = 
         </div>
       )}
 
-      {/* Students list table */}
+      {/* Students list section */}
       <div className="bg-white rounded-2xl border border-navy/10 shadow-sm overflow-hidden">
-        <div className="overflow-x-auto">
+        {/* Header with count */}
+        <div className="p-4 border-b border-navy/10 flex items-center justify-between">
+          <h3 className="font-bold text-navy text-sm uppercase tracking-wider">
+            Liste des Comptes Élèves ({filtered.length})
+          </h3>
+        </div>
+
+        {/* 1. Mobile Cards (< md) */}
+        <div className="block md:hidden divide-y divide-navy/5">
+          {paginatedProfiles.length === 0 ? (
+            <div className="p-8 text-center text-text/50">
+              <p className="font-semibold text-navy text-sm">Aucun élève trouvé</p>
+              <p className="text-xs text-text/60 mt-1">
+                {statusFilter !== 'all'
+                  ? 'Aucun élève ne correspond au filtre sélectionné.'
+                  : 'Aucun compte ne correspond à votre recherche.'}
+              </p>
+              {statusFilter !== 'all' && (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setStatusFilter('all')}
+                  className="mt-3 text-xs"
+                >
+                  Afficher tous les inscrits
+                </Button>
+              )}
+            </div>
+          ) : (
+            paginatedProfiles.map((u) => {
+              const activeSub = u.subscriptions?.find((s) => s.status === 'active');
+              const pendingSub = u.subscriptions?.find((s) => s.status === 'pending');
+              const rawPhone = u.phone ? u.phone.replace(/[^0-9]/g, '') : '';
+
+              return (
+                <div key={u.id} className="p-4 space-y-3">
+                  {/* Top row: Name, Role and Class */}
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <h4 className="font-bold text-navy text-sm">
+                        {u.full_name ?? 'Sans nom'}
+                      </h4>
+                      <div className="flex items-center gap-1.5 mt-0.5">
+                        <span
+                          className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${
+                            u.role === 'admin'
+                              ? 'bg-navy text-white'
+                              : u.role === 'editor'
+                              ? 'bg-turquoise/15 text-turquoise'
+                              : 'bg-navy/5 text-navy/70'
+                          }`}
+                        >
+                          {u.role === 'student' ? 'Élève' : u.role}
+                        </span>
+                        {u.is_banned && (
+                          <span className="text-[10px] bg-coral/15 text-coral font-bold px-1.5 py-0.5 rounded">
+                            Suspendu
+                          </span>
+                        )}
+                        <span className="text-[11px] text-text/50 font-normal">
+                          • {formatDate(u.created_at)}
+                        </span>
+                      </div>
+                    </div>
+
+                    <span className="text-xs font-semibold text-navy/80 bg-surface px-2.5 py-1 rounded-lg border border-navy/10 shrink-0">
+                      {u.level ?? 'Terminale'} {u.track ? `(${u.track})` : ''}
+                    </span>
+                  </div>
+
+                  {/* Middle row: Phone & Status */}
+                  <div className="flex flex-wrap items-center justify-between gap-2 pt-0.5">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-mono font-semibold text-navy bg-surface px-2 py-1 rounded-md border border-navy/5 flex items-center gap-1">
+                        <Phone className="w-3 h-3 text-text/40" />
+                        {u.phone}
+                      </span>
+                      {rawPhone && (
+                        <a
+                          href={`https://wa.me/${rawPhone}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-1 rounded-md bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/30 text-emerald-800 transition-colors"
+                          title="Contacter sur WhatsApp"
+                        >
+                          <WhatsAppLogo size={14} />
+                        </a>
+                      )}
+                    </div>
+
+                    <div>
+                      {activeSub ? (
+                        <div className="text-right">
+                          <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full border border-emerald-300">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                            Abonné actif
+                          </span>
+                          {activeSub.ends_at && (
+                            <p className="text-[10px] text-text/60 mt-0.5">
+                              Jusqu&apos;au {formatDate(activeSub.ends_at)}
+                            </p>
+                          )}
+                        </div>
+                      ) : pendingSub ? (
+                        <span className="inline-flex items-center gap-1 text-[11px] font-bold text-amber-900 bg-amber-100 px-2 py-0.5 rounded-full border border-amber-300 animate-pulse">
+                          <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                          En attente Wave
+                        </span>
+                      ) : (
+                        <div className="text-right">
+                          <span className="inline-flex items-center gap-1 text-[11px] font-bold text-amber-900 bg-amber-100/90 px-2 py-0.5 rounded-full border border-amber-300">
+                            <Clock className="w-3 h-3 text-amber-700" />
+                            Découverte (1ère leçon)
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Actions row on mobile */}
+                  <div className="pt-2 flex items-center gap-2">
+                    {!activeSub ? (
+                      <Button
+                        size="sm"
+                        className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 py-2.5 rounded-xl shadow-sm"
+                        disabled={isPending}
+                        onClick={() => {
+                          setValidatingUser(u);
+                          setSelectedPlanId(availablePlans[0]?.id || '');
+                          setCustomDays(availablePlans[0]?.duration_days || 30);
+                        }}
+                      >
+                        <CheckCircle2 className="w-4 h-4" />
+                        <span>Valider l&apos;inscription</span>
+                      </Button>
+                    ) : (
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="flex-1 text-xs text-emerald-800 border-emerald-200 hover:bg-emerald-50 font-semibold py-2"
+                        disabled={isPending}
+                        onClick={() => handleExtendStudent(u, 30)}
+                      >
+                        +30 j
+                      </Button>
+                    )}
+
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="text-xs text-navy/80 hover:text-navy py-2 px-3"
+                      onClick={() => setSelectedUser(u)}
+                    >
+                      Fiche élève
+                    </Button>
+                  </div>
+                </div>
+              );
+            })
+          )}
+        </div>
+
+        {/* 2. Desktop Table (>= md) */}
+        <div className="hidden md:block overflow-x-auto">
           <table className="w-full text-left text-sm">
             <thead className="bg-surface border-b border-navy/10 text-xs text-text/60 uppercase">
               <tr>
@@ -514,7 +711,7 @@ export default function ElevesManagerClient({ initialProfiles, availablePlans = 
               </tr>
             </thead>
             <tbody className="divide-y divide-navy/5">
-              {filtered.length === 0 ? (
+              {paginatedProfiles.length === 0 ? (
                 <tr>
                   <td colSpan={6} className="text-center py-12 text-text/50">
                     <div className="max-w-sm mx-auto space-y-2">
@@ -538,7 +735,7 @@ export default function ElevesManagerClient({ initialProfiles, availablePlans = 
                   </td>
                 </tr>
               ) : (
-                filtered.map((u) => {
+                paginatedProfiles.map((u) => {
                   const activeSub = u.subscriptions?.find((s) => s.status === 'active');
                   const pendingSub = u.subscriptions?.find((s) => s.status === 'pending');
 
@@ -612,7 +809,6 @@ export default function ElevesManagerClient({ initialProfiles, availablePlans = 
                       </td>
                       <td className="px-5 py-3.5 text-right">
                         <div className="flex items-center justify-end gap-2">
-                          {/* PRIMARY ACTION: Validate registration button if not active */}
                           {!activeSub ? (
                             <Button
                               size="sm"
@@ -656,6 +852,20 @@ export default function ElevesManagerClient({ initialProfiles, availablePlans = 
             </tbody>
           </table>
         </div>
+
+        {/* Pagination Controls */}
+        {filtered.length > 0 && (
+          <div className="p-3 border-t border-navy/10">
+            <Pagination
+              currentPage={currentPage}
+              totalItems={filtered.length}
+              pageSize={pageSize}
+              onPageChange={setCurrentPage}
+              onPageSizeChange={setPageSize}
+              itemLabel="élèves"
+            />
+          </div>
+        )}
       </div>
 
       {/* QUICK VALIDATION MODAL (Bouton Valider l'inscription) */}
