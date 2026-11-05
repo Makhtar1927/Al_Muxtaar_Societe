@@ -286,7 +286,7 @@ export async function validateStudentRegistrationAction(
   // 3. Vérification souscription existante
   const { data: existingSub } = await admin
     .from('subscriptions')
-    .select('id, status, plan_id')
+    .select('id, status, plan_id, promo_code')
     .eq('user_id', studentId)
     .in('status', ['pending', 'active'])
     .order('created_at', { ascending: false })
@@ -364,13 +364,39 @@ export async function validateStudentRegistrationAction(
     });
   }
 
-  // Si un code promo était associé aux notes ou au paiement, comptabiliser l'affiliation
-  // (150 FCFA pour abonnement 700 FCFA, 400 FCFA pour abonnement 2000 FCFA)
+  // Comptabiliser la commission influenceur si un code promo est associé à cet abonnement
+  // Stratégie robuste : lire promo_code depuis subscription, puis payment, puis notes du payment
   try {
-    const promoMatch = (notes || '').match(/\[Code Promo:\s*([A-Za-z0-9_-]+)\]/i);
-    if (promoMatch && promoMatch[1]) {
+    let promoCode: string | null = existingSub?.promo_code || null;
+
+    if (!promoCode) {
+      // Chercher dans le paiement lié
+      const { data: payRow } = await admin
+        .from('payments')
+        .select('promo_code, notes')
+        .eq('subscription_id', subscriptionId)
+        .order('created_at', { ascending: false })
+        .limit(1)
+        .maybeSingle();
+
+      if (payRow?.promo_code) {
+        promoCode = payRow.promo_code;
+      } else if (payRow?.notes) {
+        // Fallback legacy : regex dans les notes
+        const promoMatch = payRow.notes.match(/\[Code Promo:\s*([A-Za-z0-9_-]+)\]/i);
+        if (promoMatch?.[1]) promoCode = promoMatch[1];
+      }
+    }
+
+    // Fallback final : regex dans le paramètre notes passé par l'admin
+    if (!promoCode) {
+      const promoMatch = (notes || '').match(/\[Code Promo:\s*([A-Za-z0-9_-]+)\]/i);
+      if (promoMatch?.[1]) promoCode = promoMatch[1];
+    }
+
+    if (promoCode) {
       const { recordValidatedAffiliation } = await import('@/lib/influencers/service');
-      await recordValidatedAffiliation(promoMatch[1], subscriptionId, {
+      await recordValidatedAffiliation(promoCode, subscriptionId, {
         name: `${student.first_name || ''} ${student.last_name || ''}`.trim(),
         phone: student.phone,
         planAmount: planPrice,

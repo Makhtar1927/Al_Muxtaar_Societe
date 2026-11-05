@@ -98,6 +98,8 @@ export async function requestSubscriptionAction(
       user_id: user.id,
       plan_id,
       status: 'pending',
+      // Sauvegarder le code promo dès la création de la subscription
+      ...(((formData.get('promo_code') as string)?.trim().toUpperCase() || '') ? { promo_code: (formData.get('promo_code') as string).trim().toUpperCase() } : {}),
     })
     .select('id')
     .single();
@@ -117,6 +119,14 @@ export async function requestSubscriptionAction(
     finalNotes = `${finalNotes} [Code Promo: ${promoCodeRaw}]`;
   }
 
+  // Sauvegarder le code promo dans la subscription pour lecture fiable par l'admin
+  if (promoCodeRaw) {
+    await admin
+      .from('subscriptions')
+      .update({ promo_code: promoCodeRaw })
+      .eq('id', sub.id);
+  }
+
   const { error: payErr } = await admin.from('payments').insert({
     subscription_id: sub.id,
     student_id: user.id,
@@ -125,6 +135,8 @@ export async function requestSubscriptionAction(
     provider: 'wave',
     transaction_code: `WAVE-${senderNumber}`,
     notes: finalNotes,
+    // Stocker aussi le promo_code directement dans payments pour fiabilité
+    ...(promoCodeRaw ? { promo_code: promoCodeRaw } : {}),
     status: 'pending',
   });
 
@@ -173,7 +185,7 @@ export async function activateSubscriptionAction(
   // Récupérer l'abonnement et les informations du plan
   const { data: sub } = await admin
     .from('subscriptions')
-    .select('id, user_id, plan_id, plans(duration_days, price_fcfa, name)')
+    .select('id, user_id, plan_id, promo_code, plans(duration_days, price_fcfa, name)')
     .eq('id', subscription_id)
     .single();
   if (!sub) return { success: false, error: 'Abonnement introuvable' };
@@ -237,20 +249,35 @@ export async function activateSubscriptionAction(
   // (150 FCFA pour abonnement 700 FCFA, 400 FCFA pour abonnement 2000 FCFA)
   if (action === 'activate') {
     try {
-      const { data: payRow } = await admin
-        .from('payments')
-        .select('notes, amount')
-        .eq('subscription_id', subscription_id)
-        .order('created_at', { ascending: false })
-        .limit(1)
-        .maybeSingle();
+      // Stratégie robuste en 3 niveaux pour trouver le code promo :
+      // 1. Colonne promo_code dans subscriptions (source la plus fiable)
+      // 2. Colonne promo_code dans payments
+      // 3. Regex dans payments.notes (fallback legacy)
+      let promoCode: string | null = (sub as any).promo_code || null;
 
-      const promoMatch = (payRow?.notes || '').match(/\[Code Promo:\s*([A-Za-z0-9_-]+)\]/i);
-      if (promoMatch && promoMatch[1]) {
-        const planPrice = payRow?.amount || (sub.plans as any)?.price_fcfa || 700;
+      if (!promoCode) {
+        // Lire payments AVANT l'écrasement des notes (déjà mis à jour ci-dessus, donc lire promo_code)
+        const { data: payRow } = await admin
+          .from('payments')
+          .select('promo_code, notes, amount')
+          .eq('subscription_id', subscription_id)
+          .order('created_at', { ascending: false })
+          .limit(1)
+          .maybeSingle();
+
+        if (payRow?.promo_code) {
+          promoCode = payRow.promo_code;
+        } else if (payRow?.notes) {
+          const promoMatch = payRow.notes.match(/\[Code Promo:\s*([A-Za-z0-9_-]+)\]/i);
+          if (promoMatch?.[1]) promoCode = promoMatch[1];
+        }
+      }
+
+      if (promoCode) {
+        const planPrice = (sub.plans as any)?.price_fcfa || 700;
         const planName = (sub.plans as any)?.name;
         const { recordValidatedAffiliation } = await import('@/lib/influencers/service');
-        await recordValidatedAffiliation(promoMatch[1], subscription_id, {
+        await recordValidatedAffiliation(promoCode, subscription_id, {
           planAmount: planPrice,
           planName: planName,
         });
