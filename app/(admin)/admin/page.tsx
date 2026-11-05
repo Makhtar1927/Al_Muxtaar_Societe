@@ -144,13 +144,21 @@ export default async function AdminPage() {
               <div className="w-11 h-11 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-600">
                 <Icon name="profil" size={24} />
               </div>
-              <span className="text-[10px] font-black uppercase tracking-wider bg-surface text-navy/70 border border-navy/10 px-2 py-0.5 rounded-full">
-                {totalStudentsCount} inscrits
-              </span>
+              <div className="flex items-center gap-1.5">
+                {Math.max(0, totalStudentsCount - (activeSubsCount ?? 0)) > 0 ? (
+                  <span className="text-[10px] font-black uppercase tracking-wider bg-amber-100 text-amber-900 border border-amber-300 px-2 py-0.5 rounded-full animate-pulse">
+                    {Math.max(0, totalStudentsCount - (activeSubsCount ?? 0))} à valider
+                  </span>
+                ) : (
+                  <span className="text-[10px] font-black uppercase tracking-wider bg-surface text-navy/70 border border-navy/10 px-2 py-0.5 rounded-full">
+                    {totalStudentsCount} inscrits
+                  </span>
+                )}
+              </div>
             </div>
             <div className="mt-4">
               <p className="font-extrabold text-navy text-sm group-hover:text-turquoise transition-colors">Annuaire Élèves</p>
-              <p className="text-xs text-text/60 mt-0.5">Gestion des profils et filières</p>
+              <p className="text-xs text-text/60 mt-0.5">Validation d&apos;inscription &amp; accès</p>
             </div>
           </Card>
         </Link>

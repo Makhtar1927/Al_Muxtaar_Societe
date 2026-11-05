@@ -216,4 +216,314 @@ export async function createTestErrorAction(
   };
 }
 
+// ─── Validate Student Registration & Activate Access ─────────────────────────
+
+export async function validateStudentRegistrationAction(
+  studentId: string,
+  planId?: string,
+  customDays?: number,
+  notes?: string,
+): Promise<ActionResult> {
+  let adminUser: { id: string };
+  try {
+    const auth = await requireAdmin();
+    adminUser = auth.user;
+  } catch (e) {
+    return { success: false, error: (e as Error).message };
+  }
+
+  const admin = createAdminClient();
+
+  // 1. Profil de l'élève
+  const { data: student, error: studentError } = await admin
+    .from('profiles')
+    .select('id, first_name, last_name, phone, email')
+    .eq('id', studentId)
+    .single();
+
+  if (studentError || !student) {
+    return { success: false, error: 'Profil élève introuvable.' };
+  }
+
+  // 2. Détermination du Plan et de la durée
+  let durationDays = customDays || 30;
+  let selectedPlanId = planId;
+  let planPrice = 700;
+  let planName = 'Abonnement Mensuel';
+
+  if (selectedPlanId) {
+    const { data: plan } = await admin
+      .from('plans')
+      .select('id, name, duration_days, price_fcfa')
+      .eq('id', selectedPlanId)
+      .single();
+    if (plan) {
+      durationDays = plan.duration_days || customDays || 30;
+      planPrice = plan.price_fcfa || 700;
+      planName = plan.name || planName;
+    }
+  } else {
+    // Premier plan actif par défaut
+    const { data: defaultPlan } = await admin
+      .from('plans')
+      .select('id, name, duration_days, price_fcfa')
+      .eq('is_active', true)
+      .order('price_fcfa', { ascending: true })
+      .limit(1)
+      .maybeSingle();
+
+    if (defaultPlan) {
+      selectedPlanId = defaultPlan.id;
+      durationDays = defaultPlan.duration_days || 30;
+      planPrice = defaultPlan.price_fcfa || 700;
+      planName = defaultPlan.name;
+    }
+  }
+
+  const startDate = new Date();
+  const endDate = new Date(startDate.getTime() + durationDays * 24 * 60 * 60 * 1000);
+
+  // 3. Vérification souscription existante
+  const { data: existingSub } = await admin
+    .from('subscriptions')
+    .select('id, status, plan_id')
+    .eq('user_id', studentId)
+    .in('status', ['pending', 'active'])
+    .order('created_at', { ascending: false })
+    .limit(1)
+    .maybeSingle();
+
+  let subscriptionId: string;
+
+  if (existingSub) {
+    subscriptionId = existingSub.id;
+    const { error: updateSubErr } = await admin
+      .from('subscriptions')
+      .update({
+        plan_id: selectedPlanId || existingSub.plan_id,
+        status: 'active',
+        start_date: startDate.toISOString(),
+        end_date: endDate.toISOString(),
+        activated_by: adminUser.id,
+        updated_at: new Date().toISOString(),
+      })
+      .eq('id', subscriptionId);
+
+    if (updateSubErr) {
+      return { success: false, error: "Erreur lors de l'activation : " + updateSubErr.message };
+    }
+
+    // Valider tout paiement en attente lié
+    await admin
+      .from('payments')
+      .update({
+        status: 'confirmed',
+        reviewed_by: adminUser.id,
+        reviewed_at: new Date().toISOString(),
+        notes: notes || "Inscription et accès validés manuellement par l'administrateur",
+      })
+      .eq('subscription_id', subscriptionId)
+      .eq('status', 'pending');
+  } else {
+    if (!selectedPlanId) {
+      return { success: false, error: 'Aucune formule d’abonnement active configurée.' };
+    }
+
+    const { data: newSub, error: insertSubErr } = await admin
+      .from('subscriptions')
+      .insert({
+        user_id: studentId,
+        plan_id: selectedPlanId,
+        status: 'active',
+        start_date: startDate.toISOString(),
+        end_date: endDate.toISOString(),
+        activated_by: adminUser.id,
+      })
+      .select('id')
+      .single();
+
+    if (insertSubErr || !newSub) {
+      return { success: false, error: "Erreur création abonnement : " + (insertSubErr?.message || '') };
+    }
+
+    subscriptionId = newSub.id;
+
+    // Enregistrement de paiement d'activation
+    const studentFullName = `${student.first_name || ''} ${student.last_name || ''}`.trim() || 'Élève';
+    await admin.from('payments').insert({
+      subscription_id: subscriptionId,
+      student_id: studentId,
+      plan_id: selectedPlanId,
+      amount: planPrice,
+      provider: 'other',
+      transaction_code: `VAL-ADMIN-${Date.now().toString(36).toUpperCase()}`,
+      status: 'confirmed',
+      notes: notes || `Inscription validée manuellement pour ${studentFullName}`,
+      reviewed_by: adminUser.id,
+      reviewed_at: new Date().toISOString(),
+    });
+  }
+
+  // 4. Journal d'audit
+  await admin.from('audit_logs').insert({
+    actor_id: adminUser.id,
+    action: 'student.registration_validated',
+    target_type: 'profile',
+    target_id: studentId,
+    meta: {
+      subscription_id: subscriptionId,
+      duration_days: durationDays,
+      plan_name: planName,
+      end_date: endDate.toISOString(),
+      notes: notes || null,
+    },
+  });
+
+  // 5. Notification à l'élève
+  try {
+    await admin.from('notifications').insert({
+      user_id: studentId,
+      type: 'subscription_activated',
+      title: 'Inscription et Accès Validés !',
+      body: `Félicitations ! Votre inscription a été validée par l'administration. Votre accès complet est actif jusqu'au ${endDate.toLocaleDateString('fr-FR')}.`,
+      meta: { subscription_id: subscriptionId },
+    });
+  } catch (notifErr) {
+    console.warn('Erreur notification élève:', notifErr);
+  }
+
+  revalidatePath('/admin/eleves');
+  revalidatePath('/admin/abonnements');
+  revalidatePath('/admin');
+  revalidatePath('/dashboard');
+  revalidatePath('/cours');
+  revalidatePath('/abonnement');
+
+  return {
+    success: true,
+    data: null,
+    message: `Inscription validée ! Accès complet activé (${durationDays} jours).`,
+  };
+}
+
+// ─── Extend Student Access (from Admin Élèves) ───────────────────────────────
+
+export async function extendStudentAccessFromElevesAction(
+  studentId: string,
+  days: number = 30,
+): Promise<ActionResult> {
+  let adminUser: { id: string };
+  try {
+    const auth = await requireAdmin();
+    adminUser = auth.user;
+  } catch (e) {
+    return { success: false, error: (e as Error).message };
+  }
+
+  const admin = createAdminClient();
+
+  const { data: sub } = await admin
+    .from('subscriptions')
+    .select('id, end_date, user_id, status')
+    .eq('user_id', studentId)
+    .order('created_at', { ascending: false })
+    .limit(1)
+    .maybeSingle();
+
+  if (!sub) {
+    return validateStudentRegistrationAction(studentId, undefined, days, 'Prolongation/Activation directe');
+  }
+
+  const currentEnd = sub.end_date && new Date(sub.end_date) > new Date()
+    ? new Date(sub.end_date)
+    : new Date();
+  const newEndDate = new Date(currentEnd.getTime() + days * 24 * 60 * 60 * 1000);
+
+  const { error } = await admin
+    .from('subscriptions')
+    .update({
+      end_date: newEndDate.toISOString(),
+      status: 'active',
+      updated_at: new Date().toISOString(),
+    })
+    .eq('id', sub.id);
+
+  if (error) return { success: false, error: 'Erreur lors de la prolongation : ' + error.message };
+
+  await admin.from('audit_logs').insert({
+    actor_id: adminUser.id,
+    action: 'subscription.extended',
+    target_type: 'subscription',
+    target_id: sub.id,
+    meta: { days, new_end_date: newEndDate.toISOString(), user_id: studentId },
+  });
+
+  try {
+    await admin.from('notifications').insert({
+      user_id: studentId,
+      type: 'subscription_activated',
+      title: 'Abonnement prolongé',
+      body: `Votre abonnement a été prolongé de ${days} jours jusqu'au ${newEndDate.toLocaleDateString('fr-FR')}.`,
+      meta: { subscription_id: sub.id },
+    });
+  } catch (notifErr) {
+    console.warn('Erreur notification prolongation:', notifErr);
+  }
+
+  revalidatePath('/admin/eleves');
+  revalidatePath('/admin/abonnements');
+  revalidatePath('/dashboard');
+  revalidatePath('/cours');
+
+  return {
+    success: true,
+    data: null,
+    message: `Abonnement prolongé de ${days} jours (fin : ${newEndDate.toLocaleDateString('fr-FR')}).`,
+  };
+}
+
+// ─── Suspend Student Access ──────────────────────────────────────────────────
+
+export async function suspendStudentAccessAction(
+  studentId: string,
+  reason?: string,
+): Promise<ActionResult> {
+  let adminUser: { id: string };
+  try {
+    const auth = await requireAdmin();
+    adminUser = auth.user;
+  } catch (e) {
+    return { success: false, error: (e as Error).message };
+  }
+
+  const admin = createAdminClient();
+
+  const { error } = await admin
+    .from('subscriptions')
+    .update({
+      status: 'suspended',
+      updated_at: new Date().toISOString(),
+    })
+    .eq('user_id', studentId)
+    .eq('status', 'active');
+
+  if (error) return { success: false, error: error.message };
+
+  await admin.from('audit_logs').insert({
+    actor_id: adminUser.id,
+    action: 'subscription.suspended',
+    target_type: 'profile',
+    target_id: studentId,
+    meta: { reason: reason || 'Suspension manuelle par admin' },
+  });
+
+  revalidatePath('/admin/eleves');
+  revalidatePath('/admin/abonnements');
+  revalidatePath('/dashboard');
+  revalidatePath('/cours');
+
+  return { success: true, data: null, message: 'Accès abonnement suspendu avec succès.' };
+}
+
+
 

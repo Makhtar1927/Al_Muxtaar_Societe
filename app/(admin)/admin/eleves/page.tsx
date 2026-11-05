@@ -42,6 +42,20 @@ export default async function AdminElevesPage() {
     .from('subscriptions')
     .select('id, user_id, status, end_date');
 
+  // 2b. Récupération des plans actifs pour l'attribution manuelle
+  const { data: rawPlans } = await admin
+    .from('plans')
+    .select('id, name, duration_days, price_fcfa, is_active')
+    .eq('is_active', true)
+    .order('price_fcfa', { ascending: true });
+
+  const availablePlans = (rawPlans ?? []).map((p: any) => ({
+    id: p.id,
+    name: p.name,
+    duration_days: p.duration_days ?? 30,
+    price_fcfa: p.price_fcfa ?? p.price ?? 700,
+  }));
+
   const subsByUserId = new Map<string, any[]>();
   for (const s of rawSubs ?? []) {
     if (!subsByUserId.has(s.user_id)) subsByUserId.set(s.user_id, []);
@@ -128,6 +142,7 @@ export default async function AdminElevesPage() {
 
         <ElevesManagerClient
           initialProfiles={normalised as Parameters<typeof ElevesManagerClient>[0]['initialProfiles']}
+          availablePlans={availablePlans}
         />
       </div>
     </main>
