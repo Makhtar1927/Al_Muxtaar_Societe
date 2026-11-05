@@ -427,6 +427,33 @@ export async function recordValidatedAffiliation(
       })
       .eq('id', subscriptionId);
 
+    // Mettre à jour ou créer la synthèse mensuelle directement dans Supabase influencer_payouts
+    const { data: dbPayout } = await admin
+      .from('influencer_payouts')
+      .select('*')
+      .eq('influencer_id', influencer.id)
+      .eq('period_month', periodMonth)
+      .maybeSingle();
+
+    if (dbPayout) {
+      await admin
+        .from('influencer_payouts')
+        .update({
+          validated_subscriptions_count: (dbPayout.validated_subscriptions_count || 0) + 1,
+          total_commission_fcfa: (dbPayout.total_commission_fcfa || 0) + commission,
+          updated_at: now.toISOString(),
+        })
+        .eq('id', dbPayout.id);
+    } else {
+      await admin.from('influencer_payouts').insert({
+        influencer_id: influencer.id,
+        period_month: periodMonth,
+        validated_subscriptions_count: 1,
+        total_commission_fcfa: commission,
+        status: 'in_progress',
+      });
+    }
+
     // Audit log
     await admin.from('audit_logs').insert({
       action: 'influencer.commission_credited',
@@ -579,11 +606,48 @@ export async function getInfluencerMonthlyStats(influencerOrId: string | Influen
     totalAllTimeSubs += p.validated_subscriptions_count;
   });
 
-  // Affiliations récentes pour cet influenceur
-  const recentAffiliations = store.affiliations
-    .filter((a) => a.influencer_id === influencer!.id)
-    .sort((a, b) => b.validated_at.localeCompare(a.validated_at))
-    .slice(0, 50);
+  // Affiliations récentes pour cet influenceur (Supabase en priorité, puis store local)
+  let recentAffiliations: AffiliationRecord[] = [];
+  try {
+    const { data: dbAffiliations } = await admin
+      .from('payments')
+      .select('id, subscription_id, promo_code, amount, influencer_commission, created_at, reviewed_at, profiles(first_name, last_name, phone), plans(name)')
+      .eq('influencer_id', influencer.id)
+      .eq('status', 'confirmed')
+      .order('created_at', { ascending: false })
+      .limit(50);
+
+    if (dbAffiliations && dbAffiliations.length > 0) {
+      recentAffiliations = dbAffiliations.map((a: any) => {
+        const studentProfile = a.profiles as { first_name?: string; last_name?: string; phone?: string } | null;
+        const studentFullName = studentProfile
+          ? `${studentProfile.first_name || ''} ${studentProfile.last_name || ''}`.trim()
+          : 'Élève';
+        return {
+          id: a.id,
+          influencer_id: influencer!.id,
+          promo_code: a.promo_code || influencer!.promo_code,
+          subscription_id: a.subscription_id,
+          student_name: studentFullName || 'Élève',
+          student_phone: studentProfile?.phone,
+          plan_name: (a.plans as any)?.name || 'Abonnement Mensuel (700 FCFA)',
+          plan_amount: a.amount || 700,
+          commission_fcfa: a.influencer_commission || computeCommissionForPlan(a.amount),
+          period_month: (a.reviewed_at || a.created_at || new Date().toISOString()).slice(0, 7),
+          validated_at: a.reviewed_at || a.created_at,
+        };
+      });
+    }
+  } catch (affilDbErr) {
+    console.warn('Erreur chargement affiliations Supabase:', affilDbErr);
+  }
+
+  if (recentAffiliations.length === 0) {
+    recentAffiliations = store.affiliations
+      .filter((a) => a.influencer_id === influencer!.id)
+      .sort((a, b) => b.validated_at.localeCompare(a.validated_at))
+      .slice(0, 50);
+  }
 
   return {
     influencer,
@@ -603,25 +667,55 @@ export async function markPayoutAsPaid(
   paymentReference: string,
   notes?: string
 ): Promise<ActionResult> {
-  const store = loadLocalStore();
-  const payout = store.payouts.find((p) => p.id === payoutId);
-  if (!payout) {
-    return { success: false, error: 'Relevé mensuel introuvable.' };
+  const now = new Date().toISOString();
+  const cleanRef = paymentReference.trim() || `WAVE-TRANS-${Date.now()}`;
+  const cleanNotes = notes?.trim() || 'Versement mensuel Wave validé';
+
+  // 1. Mise à jour dans Supabase en priorité
+  const admin = createAdminClient();
+  try {
+    const { data: updated, error: dbErr } = await admin
+      .from('influencer_payouts')
+      .update({
+        status: 'paid',
+        paid_at: now,
+        payment_reference: cleanRef,
+        notes: cleanNotes,
+        updated_at: now,
+      })
+      .eq('id', payoutId)
+      .select()
+      .maybeSingle();
+
+    if (!dbErr && updated) {
+      return {
+        success: true,
+        data: null,
+        message: `Période ${updated.period_month || ''} marquée comme versée avec succès !`,
+      };
+    }
+  } catch (e) {
+    console.warn('Supabase markPayoutAsPaid error, fallback to store:', e);
   }
 
-  const now = new Date().toISOString();
-  payout.status = 'paid';
-  payout.paid_at = now;
-  payout.payment_reference = paymentReference.trim() || `WAVE-TRANS-${Date.now()}`;
-  payout.notes = notes?.trim() || 'Versement mensuel Wave validé';
-  payout.updated_at = now;
+  // 2. Fallback store local
+  const store = loadLocalStore();
+  const payout = store.payouts.find((p) => p.id === payoutId);
+  if (payout) {
+    payout.status = 'paid';
+    payout.paid_at = now;
+    payout.payment_reference = cleanRef;
+    payout.notes = cleanNotes;
+    payout.updated_at = now;
+    saveLocalStore(store);
 
-  saveLocalStore(store);
+    return {
+      success: true,
+      data: null,
+      message: `Période ${payout.period_month} marquée comme versée avec succès !`,
+    };
+  }
 
-  return {
-    success: true,
-    data: null,
-    message: `Période ${payout.period_month} marquée comme versée avec succès !`,
-  };
+  return { success: false, error: 'Relevé mensuel introuvable.' };
 }
 

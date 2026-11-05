@@ -1,5 +1,6 @@
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
+import { createAdminClient } from '@/lib/supabase/admin';
 import { getAllInfluencers, getInfluencerMonthlyStats } from '@/lib/influencers/service';
 import InfluenceursManagerClient from '@/components/admin/influenceurs-manager-client';
 import fs from 'fs';
@@ -30,16 +31,33 @@ export default async function AdminInfluenceursPage() {
 
   const influencers = await getAllInfluencers();
 
-  // Load store payouts for admin overview
+  // Charger les règlements mensuels : Supabase en priorité pour persistance Vercel
   let payouts: any[] = [];
   try {
-    const storePath = path.join(process.cwd(), 'data', 'influencers-store.json');
-    if (fs.existsSync(storePath)) {
-      const parsed = JSON.parse(fs.readFileSync(storePath, 'utf8'));
-      payouts = parsed.payouts || [];
+    const admin = createAdminClient();
+    const { data: dbPayouts, error: pErr } = await admin
+      .from('influencer_payouts')
+      .select('*')
+      .order('period_month', { ascending: false });
+
+    if (!pErr && dbPayouts && dbPayouts.length > 0) {
+      payouts = dbPayouts;
     }
   } catch (e) {
-    payouts = [];
+    console.warn('Erreur chargement Supabase influencer_payouts:', e);
+  }
+
+  // Fallback store local si base vide
+  if (payouts.length === 0) {
+    try {
+      const storePath = path.join(process.cwd(), 'data', 'influencers-store.json');
+      if (fs.existsSync(storePath)) {
+        const parsed = JSON.parse(fs.readFileSync(storePath, 'utf8'));
+        payouts = parsed.payouts || [];
+      }
+    } catch (e) {
+      payouts = [];
+    }
   }
 
   return (
