@@ -194,8 +194,9 @@ export default function AbonnementForm({
     const fd = new FormData();
     fd.append('plan_id', selectedPlan);
     if (userPhone) fd.append('phone_sender', userPhone);
-    if (promoCode && promoSuccess) {
-      fd.append('promo_code', promoCode.trim().toUpperCase());
+    const cleanPromo = promoCode.trim().toUpperCase();
+    if (cleanPromo) {
+      fd.append('promo_code', cleanPromo);
     }
 
     const result = await requestSubscriptionAction(fd);

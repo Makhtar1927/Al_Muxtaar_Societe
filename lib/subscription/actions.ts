@@ -115,15 +115,26 @@ export async function requestSubscriptionAction(
 
   const promoCodeRaw = (formData.get('promo_code') as string)?.trim().toUpperCase() || '';
   let finalNotes = notes?.trim() || `Paiement Wave de ${studentFullName} (${senderNumber})`;
+  let matchedInfluencerId: string | null = null;
   if (promoCodeRaw) {
     finalNotes = `${finalNotes} [Code Promo: ${promoCodeRaw}]`;
+    try {
+      const { getInfluencerByCode } = await import('@/lib/influencers/service');
+      const inf = await getInfluencerByCode(promoCodeRaw);
+      if (inf) matchedInfluencerId = inf.id;
+    } catch (e) {
+      console.warn('Erreur résolution influenceur:', e);
+    }
   }
 
-  // Sauvegarder le code promo dans la subscription pour lecture fiable par l'admin
+  // Sauvegarder le code promo et influencer_id dans la subscription pour lecture fiable par l'admin
   if (promoCodeRaw) {
     await admin
       .from('subscriptions')
-      .update({ promo_code: promoCodeRaw })
+      .update({
+        promo_code: promoCodeRaw,
+        ...(matchedInfluencerId ? { influencer_id: matchedInfluencerId } : {}),
+      })
       .eq('id', sub.id);
   }
 
@@ -137,6 +148,7 @@ export async function requestSubscriptionAction(
     notes: finalNotes,
     // Stocker aussi le promo_code directement dans payments pour fiabilité
     ...(promoCodeRaw ? { promo_code: promoCodeRaw } : {}),
+    ...(matchedInfluencerId ? { influencer_id: matchedInfluencerId } : {}),
     status: 'pending',
   });
 
