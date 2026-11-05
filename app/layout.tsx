@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import ServiceWorkerRegister from "@/components/pwa/service-worker-register";
+import PwaInstallPrompt from "@/components/pwa/pwa-install-prompt";
 import { ToastProvider } from "@/components/ui/toast";
 import PageTransitionLoader from "@/components/layout/page-transition-loader";
 import { Suspense } from "react";
@@ -80,6 +81,7 @@ export default function RootLayout({
           <PageTransitionLoader />
         </Suspense>
         <ServiceWorkerRegister />
+        <PwaInstallPrompt />
         <ToastProvider>{children}</ToastProvider>
       </body>
     </html>
