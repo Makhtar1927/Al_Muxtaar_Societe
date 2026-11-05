@@ -54,7 +54,7 @@ export default async function InfluencerCodePage({ params }: Props) {
   const stats = await getInfluencerMonthlyStats(influencer);
 
   return (
-    <main className="min-h-screen bg-surface py-8 px-4 sm:px-6">
+    <main className="min-h-screen bg-surface py-5 sm:py-8 md:py-10 px-3 sm:px-6">
       <div className="max-w-5xl mx-auto">
         <InfluencerDashboardClient
           influencer={stats.influencer}
