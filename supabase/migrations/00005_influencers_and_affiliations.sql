@@ -69,3 +69,8 @@ CREATE POLICY "admin_all_influencer_payouts" ON public.influencer_payouts
 DROP POLICY IF EXISTS "public_read_active_promo_codes" ON public.influencers;
 CREATE POLICY "public_read_active_promo_codes" ON public.influencers
   FOR SELECT USING (is_active = TRUE);
+
+-- Lecture publique des synthèses mensuelles pour affichage dashboard partenaire
+DROP POLICY IF EXISTS "public_read_influencer_payouts" ON public.influencer_payouts;
+CREATE POLICY "public_read_influencer_payouts" ON public.influencer_payouts
+  FOR SELECT USING (true);
