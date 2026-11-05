@@ -15,9 +15,21 @@ interface Props {
   };
 }
 
+async function resolveParamCode(params: any): Promise<string> {
+  const p = await Promise.resolve(params);
+  if (!p?.code) return '';
+  try {
+    return decodeURIComponent(p.code).trim();
+  } catch {
+    return String(p.code).trim();
+  }
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const code = decodeURIComponent(params.code);
-  const influencer = (await getInfluencerByCode(code)) || (await getInfluencerByAccessKey(code));
+  const code = await resolveParamCode(params);
+  const influencer = code
+    ? (await getInfluencerByCode(code)) || (await getInfluencerByAccessKey(code))
+    : null;
 
   return {
     title: influencer
@@ -28,14 +40,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function InfluencerCodePage({ params }: Props) {
-  const code = decodeURIComponent(params.code);
+  const code = await resolveParamCode(params);
+  if (!code) {
+    notFound();
+  }
+
   const influencer = (await getInfluencerByCode(code)) || (await getInfluencerByAccessKey(code));
 
   if (!influencer) {
     notFound();
   }
 
-  const stats = await getInfluencerMonthlyStats(influencer.id);
+  const stats = await getInfluencerMonthlyStats(influencer);
 
   return (
     <main className="min-h-screen bg-surface py-8 px-4 sm:px-6">

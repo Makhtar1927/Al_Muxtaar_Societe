@@ -25,16 +25,29 @@ console.log('Error:', error?.message || 'none');
 console.log('Data:', JSON.stringify(data, null, 2));
 console.log('Count:', data?.length ?? 0);
 
-// Vérifier les colonnes de subscriptions
-const { data: subCols, error: subErr } = await supabase.rpc('column_exists', {}).select('*').limit(1);
+// Test getInfluencerByCode avec Service Key
+const cleanCode = 'DIAGNE221';
+const { data: inf, error: infErr } = await supabase
+  .from('influencers')
+  .select('*')
+  .ilike('promo_code', cleanCode)
+  .eq('is_active', true)
+  .maybeSingle();
 
-// Tenter de lire une subscription pour voir les colonnes disponibles
-const { data: subSample, error: subSampleErr } = await supabase.from('subscriptions').select('id, promo_code, influencer_id').limit(1);
-console.log('\n=== subscriptions promo_code/influencer_id ===');
-console.log('Error:', subSampleErr?.message || 'none');
-console.log('Sample:', subSample);
+console.log('\n=== TEST getInfluencerByCode (Service Role) ===');
+console.log('Error:', infErr);
+console.log('Found:', inf);
 
-const { data: paySample, error: paySampleErr } = await supabase.from('payments').select('id, promo_code, influencer_id, influencer_commission').limit(1);
-console.log('\n=== payments promo_code/influencer_commission ===');
-console.log('Error:', paySampleErr?.message || 'none');
-console.log('Sample:', paySample);
+// Test avec Anon Key
+let anonKey = parseVal('NEXT_PUBLIC_SUPABASE_ANON_KEY').replace(/^["']|["']$/g, '');
+const anonSupabase = createClient(url, anonKey);
+const { data: anonInf, error: anonErr } = await anonSupabase
+  .from('influencers')
+  .select('*')
+  .ilike('promo_code', cleanCode)
+  .eq('is_active', true)
+  .maybeSingle();
+
+console.log('\n=== TEST getInfluencerByCode (Anon Key) ===');
+console.log('Error:', anonErr);
+console.log('Found:', anonInf);

@@ -223,9 +223,17 @@ export async function getAllInfluencers(): Promise<Influencer[]> {
  * Recherche un influenceur par son code promo (insensible à la casse)
  */
 export async function getInfluencerByCode(code: string): Promise<Influencer | null> {
-  const cleanCode = code.trim().toUpperCase();
+  const cleanCode = code ? String(code).trim().toUpperCase() : '';
   if (!cleanCode) return null;
 
+  // Utiliser getAllInfluencers() pour garantir la cohérence absolue avec la liste admin
+  const all = await getAllInfluencers();
+  const match = all.find(
+    (inf) => inf.promo_code?.toUpperCase() === cleanCode && inf.is_active
+  );
+  if (match) return match;
+
+  // Requête directe de secours
   const admin = createAdminClient();
   try {
     const { data, error } = await admin
@@ -250,14 +258,19 @@ export async function getInfluencerByCode(code: string): Promise<Influencer | nu
  * Recherche un influenceur par sa clé secrète d'accès
  */
 export async function getInfluencerByAccessKey(accessKey: string): Promise<Influencer | null> {
-  if (!accessKey) return null;
+  const cleanKey = accessKey ? String(accessKey).trim() : '';
+  if (!cleanKey) return null;
+
+  const all = await getAllInfluencers();
+  const match = all.find((inf) => inf.access_key === cleanKey && inf.is_active);
+  if (match) return match;
 
   const admin = createAdminClient();
   try {
     const { data, error } = await admin
       .from('influencers')
       .select('*')
-      .eq('access_key', accessKey)
+      .eq('access_key', cleanKey)
       .maybeSingle();
 
     if (!error && data) {
@@ -268,7 +281,7 @@ export async function getInfluencerByAccessKey(accessKey: string): Promise<Influ
   }
 
   const store = loadLocalStore();
-  return store.influencers.find((inf) => inf.access_key === accessKey) || null;
+  return store.influencers.find((inf) => inf.access_key === cleanKey && inf.is_active) || null;
 }
 
 /**
@@ -493,7 +506,7 @@ export async function recordValidatedAffiliation(
 /**
  * Récupère les statistiques et l'historique mensuel inviolable d'un influenceur
  */
-export async function getInfluencerMonthlyStats(influencerId: string): Promise<{
+export async function getInfluencerMonthlyStats(influencerOrId: string | Influencer): Promise<{
   influencer: Influencer;
   currentMonthPayout: InfluencerPayout;
   historyPayouts: InfluencerPayout[];
@@ -501,14 +514,45 @@ export async function getInfluencerMonthlyStats(influencerId: string): Promise<{
   totalAllTimeSubs: number;
   recentAffiliations: AffiliationRecord[];
 }> {
+  let influencer: Influencer | undefined;
+
+  if (typeof influencerOrId === 'object' && influencerOrId?.id) {
+    influencer = influencerOrId;
+  } else {
+    const all = await getAllInfluencers();
+    influencer = all.find((i) => i.id === influencerOrId);
+  }
+
+  if (!influencer) {
+    const all = await getAllInfluencers();
+    influencer = all[0];
+  }
+
   const store = loadLocalStore();
-  const influencer = store.influencers.find((i) => i.id === influencerId) || store.influencers[0];
   const nowMonth = new Date().toISOString().slice(0, 7);
 
-  // Tous les paiements mensuels pour cet influenceur, triés du plus récent au plus ancien
-  const allPayouts = store.payouts
-    .filter((p) => p.influencer_id === influencer.id)
-    .sort((a, b) => b.period_month.localeCompare(a.period_month));
+  // Recherche des règlements mensuels : Supabase en priorité
+  let allPayouts: InfluencerPayout[] = [];
+  const admin = createAdminClient();
+  try {
+    const { data: dbPayouts } = await admin
+      .from('influencer_payouts')
+      .select('*')
+      .eq('influencer_id', influencer.id)
+      .order('period_month', { ascending: false });
+
+    if (dbPayouts && dbPayouts.length > 0) {
+      allPayouts = dbPayouts as InfluencerPayout[];
+    }
+  } catch (e) {
+    // fallback
+  }
+
+  if (allPayouts.length === 0) {
+    allPayouts = store.payouts
+      .filter((p) => p.influencer_id === influencer!.id)
+      .sort((a, b) => b.period_month.localeCompare(a.period_month));
+  }
 
   let currentMonthPayout = allPayouts.find((p) => p.period_month === nowMonth);
   if (!currentMonthPayout) {
@@ -537,7 +581,7 @@ export async function getInfluencerMonthlyStats(influencerId: string): Promise<{
 
   // Affiliations récentes pour cet influenceur
   const recentAffiliations = store.affiliations
-    .filter((a) => a.influencer_id === influencer.id)
+    .filter((a) => a.influencer_id === influencer!.id)
     .sort((a, b) => b.validated_at.localeCompare(a.validated_at))
     .slice(0, 50);
 
