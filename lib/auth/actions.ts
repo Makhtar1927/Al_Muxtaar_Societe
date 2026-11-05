@@ -26,6 +26,7 @@ export async function signUpAction(
     phone: formData.get("phone") as string,
     email: (formData.get("email") as string) || "",
     password: formData.get("password") as string,
+    confirmPassword: (formData.get("confirmPassword") as string) || "",
     level: (formData.get("level") as string) || "Terminale",
     track: (formData.get("track") as string) || "S2",
     avatar: (formData.get("avatar") as string) || "avatar_00_defaut_neutre.svg",

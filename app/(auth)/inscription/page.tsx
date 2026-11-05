@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Avatar, AVATAR_NAMES } from "@/components/ui/avatar";
 import { Modal } from "@/components/ui/modal";
+import { Eye, EyeOff, Check } from "lucide-react";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -32,6 +33,32 @@ export default function InscriptionPage() {
   const [selectedAvatar, setSelectedAvatar] = React.useState<string>("avatar_01_eleve_garcon.svg");
   const [isAvatarModalOpen, setIsAvatarModalOpen] = React.useState(false);
 
+  // Password confirmation & visibility states
+  const [password, setPassword] = React.useState("");
+  const [confirmPassword, setConfirmPassword] = React.useState("");
+  const [showPassword, setShowPassword] = React.useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
+  const [clientError, setClientError] = React.useState<string | null>(null);
+
+  const passwordsMatch = confirmPassword.length > 0 && password === confirmPassword;
+  const passwordsMismatch = confirmPassword.length > 0 && password !== confirmPassword;
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    if (password.length < 6) {
+      e.preventDefault();
+      setClientError("Le mot de passe doit comporter au moins 6 caractères.");
+      return;
+    }
+    if (password !== confirmPassword) {
+      e.preventDefault();
+      setClientError("Les deux mots de passe ne correspondent pas. Veuillez vérifier.");
+      return;
+    }
+    setClientError(null);
+  };
+
+  const displayedError = clientError || (state?.error ? translateAuthError(state.error) : null);
+
   return (
     <Card className="border border-surface-muted shadow-hover">
       <CardHeader className="text-center pb-4">
@@ -52,14 +79,14 @@ export default function InscriptionPage() {
       </CardHeader>
 
       <CardContent>
-        {state?.error && (
+        {displayedError && (
           <div className="mb-4 rounded-xl border border-coral/30 bg-coral-light p-3 text-xs font-semibold text-coral flex items-center gap-2">
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />
-            <span>{translateAuthError(state.error)}</span>
+            <span>{displayedError}</span>
           </div>
         )}
 
-        <form action={formAction} className="space-y-4">
+        <form action={formAction} onSubmit={handleSubmit} className="space-y-4">
           <input type="hidden" name="avatar" value={selectedAvatar} />
 
           <div className="grid grid-cols-2 gap-3">
@@ -125,11 +152,68 @@ export default function InscriptionPage() {
 
           <Input
             name="password"
-            type="password"
+            type={showPassword ? "text" : "password"}
             label="Mot de passe"
             placeholder="Au moins 6 caractères"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+              if (clientError) setClientError(null);
+            }}
             required
+            rightAction={
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="p-1.5 text-navy-light/60 hover:text-navy transition-colors focus:outline-none"
+                aria-label={showPassword ? "Masquer le mot de passe" : "Afficher le mot de passe"}
+                tabIndex={-1}
+              >
+                {showPassword ? (
+                  <EyeOff className="w-4 h-4 text-navy/70" />
+                ) : (
+                  <Eye className="w-4 h-4 text-navy/70" />
+                )}
+              </button>
+            }
           />
+
+          <div>
+            <Input
+              name="confirmPassword"
+              type={showConfirmPassword ? "text" : "password"}
+              label="Confirmer le mot de passe"
+              placeholder="Retapez votre mot de passe"
+              value={confirmPassword}
+              onChange={(e) => {
+                setConfirmPassword(e.target.value);
+                if (clientError) setClientError(null);
+              }}
+              required
+              error={passwordsMismatch ? "Les deux mots de passe ne correspondent pas" : undefined}
+              rightAction={
+                <button
+                  type="button"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  className="p-1.5 text-navy-light/60 hover:text-navy transition-colors focus:outline-none"
+                  aria-label={showConfirmPassword ? "Masquer le mot de passe" : "Afficher le mot de passe"}
+                  tabIndex={-1}
+                >
+                  {showConfirmPassword ? (
+                    <EyeOff className="w-4 h-4 text-navy/70" />
+                  ) : (
+                    <Eye className="w-4 h-4 text-navy/70" />
+                  )}
+                </button>
+              }
+            />
+            {passwordsMatch && (
+              <p className="text-xs font-semibold text-emerald-600 flex items-center gap-1 mt-1">
+                <Check className="w-3.5 h-3.5 text-emerald-500" strokeWidth={3} />
+                <span>Les mots de passe correspondent parfaitement</span>
+              </p>
+            )}
+          </div>
 
           <p className="text-[11px] text-navy-light leading-relaxed">
             En créant votre compte, vous acceptez nos{" "}

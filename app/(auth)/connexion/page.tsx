@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Icon } from "@/components/ui/icon";
+import { Eye, EyeOff } from "lucide-react";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -30,6 +31,7 @@ function ConnexionForm() {
   const searchParams = useSearchParams();
   const isRegistered = searchParams.get("registered") === "true";
   const [state, formAction] = useFormState<AuthState, FormData>(signInAction, {});
+  const [showPassword, setShowPassword] = React.useState(false);
 
   return (
     <Card className="border border-surface-muted shadow-hover">
@@ -82,9 +84,24 @@ function ConnexionForm() {
             </div>
             <Input
               name="password"
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Votre mot de passe"
               required
+              rightAction={
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="p-1.5 text-navy-light/60 hover:text-navy transition-colors focus:outline-none"
+                  aria-label={showPassword ? "Masquer le mot de passe" : "Afficher le mot de passe"}
+                  tabIndex={-1}
+                >
+                  {showPassword ? (
+                    <EyeOff className="w-4 h-4 text-navy/70" />
+                  ) : (
+                    <Eye className="w-4 h-4 text-navy/70" />
+                  )}
+                </button>
+              }
             />
           </div>
 
