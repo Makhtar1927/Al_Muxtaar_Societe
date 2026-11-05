@@ -30,32 +30,34 @@ export const metadata: Metadata = {
     locale: "fr_SN",
     url: siteUrl,
     siteName: "Al Muxtaar Société",
-    title: "Al Muxtaar Doc — Plateforme d'Excellence Bac S2 Sénégal",
+    title: "Al Muxtaar Société — Tous tes cours, de la 3ème à la Terminale",
     description:
-      "La référence éducative pour le Baccalauréat S2 au Sénégal. Cours complets, fiches réflexes, annales corrigées et accompagnement sur-mesure dès 700 FCFA.",
+      "Plateforme éducative de référence au Sénégal : cours complets, exercices corrigés et fiches réflexes dès 700 FCFA / mois. Programme sénégalais & paiement direct Wave.",
     images: [
       {
-        url: "/assets/og-almuxtaar-preview.png",
-        width: 1200,
-        height: 630,
-        type: "image/png",
-        alt: "Al Muxtaar Doc — Réussir le Bac S2 au Sénégal",
-      },
-      {
-        url: "/assets/og-almuxtaar-preview.jpg",
+        url: "/assets/apercu-lien-1200x630.jpg",
+        secureUrl: `${siteUrl}/assets/apercu-lien-1200x630.jpg`,
         width: 1200,
         height: 630,
         type: "image/jpeg",
-        alt: "Al Muxtaar Doc — Réussir le Bac S2 au Sénégal",
+        alt: "Al Muxtaar Société — Tous tes cours de la 3ème à la Terminale",
+      },
+      {
+        url: "/assets/apercu-lien-1200x630.png",
+        secureUrl: `${siteUrl}/assets/apercu-lien-1200x630.png`,
+        width: 1200,
+        height: 630,
+        type: "image/png",
+        alt: "Al Muxtaar Société — Tous tes cours de la 3ème à la Terminale",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Al Muxtaar Doc — Réussir le Bac S2 au Sénégal",
+    title: "Al Muxtaar Société — Tous tes cours, de la 3ème à la Terminale",
     description:
-      "La plateforme d'excellence pour réviser le Bac S2 : cours complets, annales corrigées et fiches réflexes dès 700 FCFA.",
-    images: ["/assets/og-almuxtaar-preview.png"],
+      "Plateforme éducative de référence au Sénégal : cours complets, exercices corrigés et fiches réflexes dès 700 FCFA / mois.",
+    images: ["/assets/apercu-lien-1200x630.jpg"],
   },
 };
 

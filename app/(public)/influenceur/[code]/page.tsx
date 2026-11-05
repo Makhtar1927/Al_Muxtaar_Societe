@@ -41,24 +41,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: `Recommandé par ${partnerName} : Révisez et réussissez le Bac S2 avec Al Muxtaar Doc. Utilisez le code promo exclusif ${promoCode} dès 700 FCFA.`,
     openGraph: {
       title: `Espace Partenaire • ${partnerName} | Al Muxtaar Doc`,
-      description: `Révisez le Bac S2 avec Al Muxtaar Doc. Code Promo : ${promoCode} (dès 700 FCFA).`,
+      description: `Recommandé par ${partnerName} : Révisez et réussissez avec Al Muxtaar Doc (Code Promo : ${promoCode}). Formules dès 700 FCFA.`,
       type: 'website',
       locale: 'fr_SN',
       images: [
         {
-          url: '/assets/og-almuxtaar-preview.png',
+          url: '/assets/apercu-lien-1200x630.jpg',
           width: 1200,
           height: 630,
-          type: 'image/png',
-          alt: `Espace Partenaire ${partnerName} — Al Muxtaar Doc Bac S2`,
+          type: 'image/jpeg',
+          alt: `Espace Partenaire ${partnerName} — Al Muxtaar`,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
       title: `Espace Partenaire • ${partnerName} | Al Muxtaar Doc`,
-      description: `Code promo exclusif ${promoCode} pour réviser le Bac S2 au Sénégal.`,
-      images: ['/assets/og-almuxtaar-preview.png'],
+      description: `Code promo exclusif ${promoCode} pour réviser avec Al Muxtaar Doc au Sénégal.`,
+      images: ['/assets/apercu-lien-1200x630.jpg'],
     },
   };
 }

@@ -12,10 +12,10 @@ export const metadata = {
     locale: 'fr_SN',
     images: [
       {
-        url: '/assets/og-almuxtaar-preview.png',
+        url: '/assets/apercu-lien-1200x630.jpg',
         width: 1200,
         height: 630,
-        type: 'image/png',
+        type: 'image/jpeg',
         alt: 'Formules d Abonnement Al Muxtaar Doc Bac S2',
       },
     ],
@@ -24,7 +24,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Abonnement Al Muxtaar Doc — Réussir le Bac S2',
     description: 'Accès complet dès 700 FCFA / mois avec paiement Wave direct.',
-    images: ['/assets/og-almuxtaar-preview.png'],
+    images: ['/assets/apercu-lien-1200x630.jpg'],
   },
 };
 
