@@ -1201,7 +1201,7 @@ Bienvenue dans ce cours d'excellence dédié aux **Nombres Complexes**, l'un des
 
 ## 1. Définition et Formes d'un Nombre Complexe
 
-L'ensemble des nombres complexes $\\mathbb{C}$ étend $\\mathbb{R}$ en introduisant un élément imaginaire $i$ tel que :
+L'ensemble des nombres complexes $\mathbb{C}$ étend $\mathbb{R}$ en introduisant un élément imaginaire $i$ tel que :
 $$i^2 = -1$$
 
 Tout nombre complexe $z$ admet trois représentations complémentaires :
@@ -1213,77 +1213,194 @@ Tout nombre complexe $z$ admet trois représentations complémentaires :
 > [!VIE_REELLE] Ne voyez plus un nombre complexe comme une entité bizarre ou fictive : c'est exactement la **carte marine d'un capitaine au large de Dakar** !
 > - L'axe des réels est l'axe Est-Ouest, et l'axe des imaginaires est l'axe Nord-Sud.
 > - Le **module $|z|$** est tout simplement la **distance en kilomètres** séparant la pirogue du Port de Dakar (l'origine $O$).
-> - L'**argument $\\arg(z)$** est le **cap indiqué par la boussole** (l'angle orienté par rapport à l'Est).
-> - Multiplier par $i$, c'est effectuer un virage sec de $90^\\circ$ vers la gauche (quart de tour antihoraire). Et élever à la puissance $n$ (formule de Moivre), c'est multiplier la distance au phare par $r^n$ et faire tourner la boussole de $n$ fois l'angle de cap !
+> - L'**argument $\arg(z)$** est le **cap indiqué par la boussole** (l'angle orienté par rapport à l'Est).
+> - Multiplier par $i$, c'est effectuer un virage sec de $90^\circ$ vers la gauche (quart de tour antihoraire). Et élever à la puissance $n$ (formule de Moivre), c'est multiplier la distance au phare par $r^n$ et faire tourner la boussole de $n$ fois l'angle de cap !
 
 > [!WOLOF] **Xam-xam ci Wolof :** Nimero complexe $z = a + ib$ du lenn luy kumpa : dafa melni nataalu gaal ci géej gi ci wetu Dakar :
 > - Partie réelle $a$ mooy penku ak sowwu (Est-Ouest), partie imaginaire $b$ mooy bët gànnaar ak bët saloum (Nord-Sud).
-> - **Module $|z| = \\sqrt{a^2 + b^2}$** mooy guddaayu yoon bi ci diggante gaal gi ak por Dakar ($O$).
-> - **Argument $\\arg(z)$** mooy xool fu boussole bi jëm ci biir géej gi (angle orienté).
-> - Boo jëlee $i$ di ko xool : booy multiplier ak $i$, dangay dëpp sa gaal ci cammooñ ci angle $90^\\circ$ ($\\frac{\\pi}{2}$). Formule de Moivre $(z^n)$ dafay wax : soréwaay bi day yokk ($r^n$) te boussole bi day wër $n$ yoon ($n\\theta$) !
+> - **Module $|z| = \sqrt{a^2 + b^2}$** mooy guddaayu yoon bi ci diggante gaal gi ak por Dakar ($O$).
+> - **Argument $\arg(z)$** mooy xool fu boussole bi jëm ci biir géej gi (angle orienté).
+> - Boo jëlee $i$ di ko xool : booy multiplier ak $i$, dangay dëpp sa gaal ci cammooñ ci angle $90^\circ$ ($\frac{\pi}{2}$). Formule de Moivre $(z^n)$ dafay wax : soréwaay bi day yokk ($r^n$) te boussole bi day wër $n$ yoon ($n\theta$) !
 
-### 1.1 Forme Algébrique : $z = a + ib$ ($a, b \\in \\mathbb{R}$)
-- **Partie réelle :** $\\operatorname{Re}(z) = a$
-- **Partie imaginaire :** $\\operatorname{Im}(z) = b$ (attention : la partie imaginaire est un réel, le $i$ n'en fait pas partie !)
-- **Conjugué :** $\\overline{z} = a - ib$. Propriété capitale : $z \\cdot \\overline{z} = a^2 + b^2 = |z|^2$.
-- $z$ est un **réel pur** $\\iff \\operatorname{Im}(z) = 0 \\iff z = \\overline{z}$.
-- $z$ est un **imaginaire pur** $\\iff \\operatorname{Re}(z) = 0 \\iff z = -\\overline{z}$.
+### 1.1 Forme Algébrique : $z = a + ib$ ($a, b \in \mathbb{R}$)
+- **Partie réelle :** $\operatorname{Re}(z) = a$
+- **Partie imaginaire :** $\operatorname{Im}(z) = b$ (attention : la partie imaginaire est un réel, le $i$ n'en fait pas partie !)
+- **Conjugué :** $\overline{z} = a - ib$. Propriété capitale : $z \cdot \overline{z} = a^2 + b^2 = |z|^2$.
+- $z$ est un **réel pur** $\iff \operatorname{Im}(z) = 0 \iff z = \overline{z}$.
+- $z$ est un **imaginaire pur** $\iff \operatorname{Re}(z) = 0 \iff z = -\overline{z}$.
 
 ### 1.2 Module et Argument
-Soit $z = a + ib \\neq 0$ :
-- **Module :** $|z| = \\sqrt{a^2 + b^2} > 0$ (représente la distance $OM$ dans le plan complexe).
-- **Argument :** $\\theta = \\arg(z) \\pmod{2\\pi}$ vérifiant :
-  $$\\cos\\theta = \\frac{a}{|z|} \\qquad \\sin\\theta = \\frac{b}{|z|}$$
+Soit $z = a + ib \neq 0$ :
+- **Module :** $|z| = \sqrt{a^2 + b^2} > 0$ (représente la distance $OM$ dans le plan complexe).
+- **Argument :** $\theta = \arg(z) \pmod{2\pi}$ vérifiant :
+  $$\cos\theta = \frac{a}{|z|} \qquad \sin\theta = \frac{b}{|z|}$$
 
 ### 1.3 Forme Trigonométrique et Forme Exponentielle
-$$z = r(\\cos\\theta + i\\sin\\theta) = r e^{i\\theta} \\quad (r = |z| > 0)$$
-
-> [!THEOREME] **Formules Fondamentales de Moivre & d'Euler :**
-> - **Formule de Moivre :** Pour tout entier $n \\in \\mathbb{Z}$ :
->   $$(e^{i\\theta})^n = e^{i n\\theta} \\iff (\\cos\\theta + i\\sin\\theta)^n = \\cos(n\\theta) + i\\sin(n\\theta)$$
-> - **Formules d'Euler (Linéarisation) :**
->   $$\\cos\\theta = \\frac{e^{i\\theta} + e^{-i\\theta}}{2} \\qquad \\sin\\theta = \\frac{e^{i\\theta} - e^{-i\\theta}}{2i}$$
+$$z = r(\cos\theta + i\sin\theta) = r e^{i\theta} \quad (r = |z| > 0)$$
 
 ---
 
-## 2. Résolution d'Équations dans $\\mathbb{C}$
+## 2. Formules Fondamentales de Moivre et d'Euler & Linéarisation
 
-### 2.1 Équations du second degré à coefficients réels : $a z^2 + b z + c = 0$
-On calcule le discriminant $\\Delta = b^2 - 4ac$ :
-- Si $\\Delta > 0$ : deux solutions réelles distinctes $z_{1,2} = \\frac{-b \\pm \\sqrt{\\Delta}}{2a}$.
-- Si $\\Delta = 0$ : une solution réelle double $z_0 = -\\frac{b}{2a}$.
-- Si $\\Delta < 0$ : deux solutions complexes conjuguées :
-  $$z_1 = \\frac{-b - i\\sqrt{|\\Delta|}}{2a} \\qquad z_2 = \\frac{-b + i\\sqrt{|\\Delta|}}{2a} = \\overline{z_1}$$
+### 2.1 Formule de Moivre (Puissances de nombres complexes)
+Pour tout réel $\theta$ et pour tout entier relatif $n \in \mathbb{Z}$ :
+$$(\cos\theta + i\sin\theta)^n = \cos(n\theta) + i\sin(n\theta) \iff (e^{i\theta})^n = e^{i n\theta}$$
 
-### 2.2 Racines carrées d'un nombre complexe $Z = X + iY$
-Pour trouver les nombres $z = x + iy$ tels que $z^2 = Z$, on résout le système :
-$$\\begin{cases} x^2 - y^2 = X & (\\operatorname{Re}(z^2) = \\operatorname{Re}(Z)) \\\\ x^2 + y^2 = \\sqrt{X^2 + Y^2} & (|z|^2 = |Z|) \\\\ 2xy = Y & (\\text{signe du produit } xy) \\end{cases}$$
+> [!CONSEIL_BAC] **Réflexe Bac S2 :** Pour calculer $(1 - i\sqrt{3})^{12}$, ne développez jamais avec le binôme de Newton ! Écrivez d'abord $1 - i\sqrt{3} = 2 e^{-i\frac{\pi}{3}}$, puis appliquez Moivre :
+> $$(1 - i\sqrt{3})^{12} = \left(2 e^{-i\frac{\pi}{3}}\right)^{12} = 2^{12} \cdot e^{-i \frac{12\pi}{3}} = 4096 \cdot e^{-i 4\pi} = 4096(1) = 4096$$
+
+### 2.2 Formules d'Euler & Linéarisation
+Pour tout réel $x$ :
+$$\cos x = \frac{e^{ix} + e^{-ix}}{2} \qquad \sin x = \frac{e^{ix} - e^{-ix}}{2i}$$
+
+**Méthode de linéarisation (Incontournable pour le calcul d'intégrales en Terminale S2) :**
+Exemple : Linéariser $\cos^3 x$ :
+$$\begin{aligned}
+\cos^3 x &= \left(\frac{e^{ix} + e^{-ix}}{2}\right)^3 = \frac{1}{8} \left((e^{ix})^3 + 3(e^{ix})^2(e^{-ix}) + 3(e^{ix})(e^{-ix})^2 + (e^{-ix})^3\right) \\
+&= \frac{1}{8} \left(e^{i3x} + 3e^{ix} + 3e^{-ix} + e^{-i3x}\right) \\
+&= \frac{1}{8} \left((e^{i3x} + e^{-i3x}) + 3(e^{ix} + e^{-ix})\right) \\
+&= \frac{1}{8} (2\cos(3x) + 3 \cdot 2\cos x) = \frac{1}{4}\cos(3x) + \frac{3}{4}\cos x
+\end{aligned}$$
 
 ---
 
-## 3. Géométrie et Nombres Complexes (L'arme absolue au Bac S2)
+## 3. Résolution d'Équations dans $\mathbb{C}$
 
-Dans le plan complexe rapporté à un repère orthonormé direct $(O; \\vec{u}, \\vec{v})$ :
+### 3.1 Racines carrées d'un nombre complexe $Z = X + iY$
+Pour déterminer les racines carrées $\delta = x + iy$ d'un nombre complexe $Z = X + iY$, on résout le système fondamental en 3 équations :
+$$\begin{cases}
+x^2 - y^2 = X & (\text{Égalité des parties réelles}) \\
+x^2 + y^2 = \sqrt{X^2 + Y^2} = |Z| & (\text{Égalité des modules}) \\
+2xy = Y & (\text{Signe du produit } xy)
+\end{cases}$$
 
-### 3.1 Distances et Angles orientés
+- En additionnant (1) et (2) : $2x^2 = X + |Z| \implies x = \pm \sqrt{\frac{X + |Z|}{2}}$.
+- En soustrayant (1) de (2) : $2y^2 = |Z| - X \implies y = \pm \sqrt{\frac{|Z| - X}{2}}$.
+- L'équation (3) impose à $x$ et $y$ d'avoir le **même signe** si $Y > 0$, ou des **signes opposés** si $Y < 0$.
+
+### 3.2 Équations du second degré à coefficients complexes : $a z^2 + b z + c = 0$ ($a \neq 0$)
+1. Calculer le discriminant : $\Delta = b^2 - 4ac$.
+2. Déterminer une racine carrée $\delta$ de $\Delta$ (telle que $\delta^2 = \Delta$).
+3. Les deux solutions distinctes sont :
+   $$z_1 = \frac{-b - \delta}{2a} \qquad z_2 = \frac{-b + \delta}{2a}$$
+
+### 3.3 Équations de degré supérieur avec racine évidente
+Au Baccalauréat sénégalais, les équations du 3ème degré $z^3 + \alpha z^2 + \beta z + \gamma = 0$ comportent systématiquement une indication :
+- *"Montrer que l'équation admet une solution imaginaire pure $z_0 = ib$ ($b \in \mathbb{R}$)"* :
+  On injecte $z_0 = ib$ dans l'équation, on sépare la partie réelle et la partie imaginaire et on résout le système.
+- Ensuite, on factorise par $(z - z_0)$ par identification des coefficients ou division euclidienne pour obtenir une équation du 2nd degré facile à résoudre.
+
+---
+
+## 4. Géométrie et Nombres Complexes (L'arme absolue au Bac S2)
+
+Dans le plan complexe rapporté à un repère orthonormé direct $(O; \vec{u}, \vec{v})$ :
+
+### 4.1 Distances et Angles orientés
 Soient trois points distincts $A(z_A)$, $B(z_B)$, $C(z_C)$ :
 - **Distance :** $AB = |z_B - z_A|$.
-- **Angle orienté :** $(\\vec{AB}, \\vec{AC}) = \\arg\\left(\\frac{z_C - z_A}{z_B - z_A}\\right) \\pmod{2\\pi}$.
+- **Angle orienté :** $(\vec{AB}, \vec{AC}) = \arg\left(\frac{z_C - z_A}{z_B - z_A}\right) \pmod{2\pi}$.
+- Pour quatre points $A, B, C, D$ ($A \neq B$ et $C \neq D$) :
+  $$(\vec{AB}, \vec{CD}) = \arg\left(\frac{z_D - z_C}{z_B - z_A}\right) \pmod{2\pi}$$
 
-### 3.2 Nature des Triangles
-On calcule le quotient clé : $Q = \\frac{z_C - z_A}{z_B - z_A}$.
-- Si $Q = \\pm i = e^{\\pm i\\frac{\\pi}{2}}$ : le triangle $ABC$ est **rectangle et isocèle en $A$**.
-- Si $Q = e^{\\pm i\\frac{\\pi}{3}} = \\frac{1}{2} \\pm i\\frac{\\sqrt{3}}{2}$ : le triangle $ABC$ est **équilatéral**.
-- Si $Q$ est un réel pur : les points $A, B, C$ sont **alignés**.
-- Si $Q$ est un imaginaire pur : $(AB) \\perp (AC)$ (triangle **rectangle en $A$**).
+### 4.2 Nature des Triangles via le Quotient Maître : $Q = \dfrac{z_C - z_A}{z_B - z_A}$
 
-### 3.3 Écritures Complexes des Transformations du Plan
-- **Translation** de vecteur $\\vec{w}(b)$ : $z' = z + b$.
-- **Homothétie** de centre $\\Omega(\\omega)$ et de rapport $k \\in \\mathbb{R}^*$ : $z' - \\omega = k(z - \\omega)$.
-- **Rotation** de centre $\\Omega(\\omega)$ et d'angle $\\alpha$ : $z' - \\omega = e^{i\\alpha}(z - \\omega)$.
-- **Similitude directe** de centre $\\Omega(\\omega)$, de rapport $k > 0$ et d'angle $\\theta$ : $z' - \\omega = k e^{i\\theta}(z - \\omega) \\iff z' = a z + b$ avec $a = k e^{i\\theta} \\neq 1$.
+| Valeur du quotient $Q$ | Propriété géométrique | Nature du triangle $ABC$ |
+| :--- | :--- | :--- |
+| **$Q = \pm i = e^{\pm i\frac{\pi}{2}}$** | $|Q| = 1 \implies AB = AC$ et $(\vec{AB}, \vec{AC}) = \pm\frac{\pi}{2}$ | **Rectangle et isocèle en $A$** |
+| **$Q = e^{\pm i\frac{\pi}{3}} = \frac{1}{2} \pm i\frac{\sqrt{3}}{2}$** | $|Q| = 1 \implies AB = AC$ et $(\vec{AB}, \vec{AC}) = \pm\frac{\pi}{3}$ | **Équilatéral** |
+| **$Q \in i\mathbb{R}^*$ (imaginaire pur)** | $(\vec{AB}, \vec{AC}) = \pm\frac{\pi}{2} \pmod\pi$ | **Rectangle en $A$** |
+| **$|Q| = 1$** | $AB = AC$ | **Isocèle en $A$** |
+| **$Q \in \mathbb{R}^*$ (réel pur)** | $(\vec{AB}, \vec{AC}) = 0 \pmod\pi$ | **Points $A, B, C$ alignés** |
+
+---
+
+## 5. Guide Ultime des Ensembles de Points $(\mathcal{E})$ au Bac S2
+
+Chaque année au Bac S2, une question demande de déterminer la nature et les éléments caractéristiques de l'ensemble des points $M(z)$ vérifiant une relation donnée.
+
+### 5.1 Ensembles définis par des Modules (Distances)
+- **$|z - z_A| = |z - z_B| \iff AM = BM$** :
+  L'ensemble $(\mathcal{E})$ est la **médiatrice du segment $[AB]$**.
+- **$|z - z_A| = R$ ($R > 0$) $\iff AM = R$** :
+  L'ensemble $(\mathcal{E})$ est le **cercle de centre $A$ et de rayon $R$**.
+- **$|z - z_A| = k|z - z_B|$ ($k > 0, k \neq 1$) $\iff \frac{AM}{BM} = k$** :
+  Cercle d'Apollonius dont le diamètre est déterminé par les barycentres $G_1 = \operatorname{bar}\{(A, 1), (B, k)\}$ et $G_2 = \operatorname{bar}\{(A, 1), (B, -k)\}$.
+
+### 5.2 Ensembles définis par des Arguments (Angles orientés)
+Soit $Z = \frac{z - z_A}{z - z_B}$ avec $z \neq z_B$ ($M \neq B$) :
+- **$Z \in \mathbb{R}^* \iff \arg(Z) = 0 \pmod\pi$** :
+  $(\vec{MB}, \vec{MA}) = 0 \pmod\pi \implies$ L'ensemble $(\mathcal{E})$ est la **droite $(AB)$ privée des points $A$ et $B$**.
+- **$Z \in \mathbb{R}^*_+ \iff \arg(Z) = 0 \pmod{2\pi}$** :
+  L'ensemble $(\mathcal{E})$ est la **droite $(AB)$ privée du segment $[AB]$**.
+- **$Z \in \mathbb{R}^*_- \iff \arg(Z) = \pi \pmod{2\pi}$** :
+  L'ensemble $(\mathcal{E})$ est le **segment $[AB]$ ouvert (privé de $A$ et $B$)**.
+- **$Z \in i\mathbb{R}^* \iff \arg(Z) = \frac{\pi}{2} \pmod\pi$** :
+  $(\vec{MB}, \vec{MA}) = \frac{\pi}{2} \pmod\pi \implies$ $(MA) \perp (MB)$.
+  L'ensemble $(\mathcal{E})$ est le **cercle de diamètre $[AB]$ privé des points $A$ et $B$**.
+
+---
+
+## 6. Similitudes Planes Directes
+
+Une similitude plane directe $S$ est une transformation qui conserve les rapports de distances et les angles orientés.
+
+### 6.1 Écriture complexe générale
+Toute similitude directe admet une écriture de la forme :
+$$z' = a z + b \quad (a, b \in \mathbb{C}, \; a \neq 0)$$
+
+### 6.2 Classification selon le paramètre $a$
+1. **Si $a = 1$ :** $z' = z + b$ est la **translation** de vecteur $\vec{u}$ d'affixe $b$.
+2. **Si $a \in \mathbb{R}^* \setminus \{1\}$ :** $z' = a z + b$ est une **homothétie** de rapport $k = a$ et de centre $\Omega$ d'affixe $\omega = \frac{b}{1 - a}$.
+3. **Si $|a| = 1$ et $a \neq 1$ ($a = e^{i\theta}$) :** $z' = e^{i\theta} z + b$ est une **rotation** d'angle $\theta = \arg(a)$ et de centre $\Omega$ d'affixe $\omega = \frac{b}{1 - a}$.
+4. **Cas général ($a \neq 1, |a| \neq 1$) :** $S$ est la **similitude directe** d'éléments caractéristiques :
+   - **Centre $\Omega$** : unique point invariant vérifiant $\omega = a\omega + b \implies \omega = \frac{b}{1 - a}$.
+   - **Rapport $k$** : $k = |a| > 0$.
+   - **Angle $\theta$** : $\theta = \arg(a) \pmod{2\pi}$.
+   - **Forme réduite canonique :** $z' - \omega = k e^{i\theta}(z - \omega)$.
+
+> [!THEOREME] **Propriétés géométriques des Similitudes :**
+> - L'image d'une droite est une droite.
+> - L'image d'un cercle $\mathcal{C}(A, R)$ est le cercle $\mathcal{C}(S(A), kR)$.
+> - Si une figure a pour aire $\mathcal{A}$, son image par $S$ a pour aire $\mathcal{A}' = k^2 \times \mathcal{A}$.
+
+---
+
+## 7. Exercice Type Baccalauréat Sénégal S2 Corrigé Pas à Pas
+
+> [!BAC_SENEGAL] **Énoncé (Extrait conforme Bac S2) :**
+> Dans le plan complexe rapporté au repère orthonormé direct $(O; \vec{u}, \vec{v})$, on considère les points $A, B, C$ d'affixes respectives :
+> $$z_A = 1 + i, \qquad z_B = 3 - i, \qquad z_C = 2 + 2i$$
+> 1. Déterminer la forme algébrique du quotient $Q = \dfrac{z_C - z_A}{z_B - z_A}$.
+> 2. En déduire la nature exacte du triangle $ABC$.
+> 3. Déterminer l'écriture complexe de la similitude directe $S$ de centre $A$ qui transforme $B$ en $C$.
+> 4. Préciser le rapport $k$ et l'angle $\theta$ de la similitude $S$.
+
+### Correction Détaillée et Barème Officiel :
+
+**1. Calcul du quotient $Q$ :**
+$$Q = \frac{(2 + 2i) - (1 + i)}{(3 - i) - (1 + i)} = \frac{1 + i}{2 - 2i} = \frac{1 + i}{2(1 - i)}$$
+Multiplions numérateur et dénominateur par le conjugué $(1 + i)$ :
+$$Q = \frac{(1 + i)^2}{2(1^2 + (-1)^2)} = \frac{1 + 2i - 1}{2(2)} = \frac{2i}{4} = \frac{1}{2}i$$
+
+**2. Nature du triangle $ABC$ :**
+- Module : $|Q| = \left|\frac{1}{2}i\right| = \frac{1}{2} \implies \frac{AC}{AB} = \frac{1}{2} \implies AC = \frac{1}{2}AB$.
+- Argument : $\arg(Q) = \arg\left(\frac{1}{2}i\right) = \frac{\pi}{2} \pmod{2\pi} \implies (\vec{AB}, \vec{AC}) = \frac{\pi}{2} \pmod{2\pi}$.
+Conclusion : Le triangle $ABC$ est **rectangle en $A$** (non isocèle, puisque $AC = \frac{1}{2}AB$).
+
+**3. Écriture complexe de la similitude $S$ :**
+Puisque $S$ a pour centre $A$ et transforme $B$ en $C$ :
+$$z_C - z_A = a(z_B - z_A) \implies a = \frac{z_C - z_A}{z_B - z_A} = Q = \frac{1}{2}i$$
+La forme réduite est donc :
+$$z' - z_A = \frac{1}{2}i(z - z_A) \iff z' - (1 + i) = \frac{1}{2}i(z - (1 + i))$$
+$$z' = \frac{1}{2}i z - \frac{1}{2}i - \frac{1}{2}i^2 + 1 + i = \frac{1}{2}i z + \frac{1}{2} + 1 + \frac{1}{2}i$$
+$$z' = \frac{1}{2}i z + \frac{3}{2} + \frac{1}{2}i$$
+
+**4. Éléments caractéristiques de $S$ :**
+- Rapport : $k = |a| = \left|\frac{1}{2}i\right| = \frac{1}{2}$.
+- Angle : $\theta = \arg(a) = \arg\left(\frac{1}{2}i\right) = \frac{\pi}{2} \pmod{2\pi}$.
+- Centre : Le point $A(1 + i)$.
 `,
-
   probabilites: `# Chapitre 9 : Dénombrement et Probabilités (Terminale S2)
 
 Bienvenue dans ce cours d'excellence consacré au **Dénombrement et aux Probabilités**, un chapitre classique et stratégique du **Baccalauréat Scientifique (Série S2)** au Sénégal (exercice noté sur 4 à 5 points).

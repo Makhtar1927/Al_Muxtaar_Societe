@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import TrigCircle from '@/components/interactive/trig-circle';
 import FunctionGrapher from '@/components/interactive/function-grapher';
+import ComplexesInteractiveSimulator from '@/components/course/complexes-interactive-simulator';
 
 export const metadata = {
   title: 'Laboratoire Mathématique — Al Muxtaar Doc',
@@ -46,6 +47,11 @@ export default function MathLabPage() {
         {/* Widget 2: Function Grapher & Tangent */}
         <section className="space-y-3">
           <FunctionGrapher />
+        </section>
+
+        {/* Widget 3: Laboratoire Nombres Complexes & Plan d'Argand */}
+        <section className="space-y-3">
+          <ComplexesInteractiveSimulator />
         </section>
 
         {/* Practical Bac Tips Card */}
