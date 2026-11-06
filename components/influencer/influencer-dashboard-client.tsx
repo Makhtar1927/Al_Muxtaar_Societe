@@ -120,10 +120,10 @@ export default function InfluencerDashboardClient({
     }, 200);
   }
 
-  // Simulation calculations (avg 70% mensuel à 150 F, 30% trimestriel à 400 F -> avg 225 F / sub)
+  // Simulation calculations (avg 60% mensuel à 150 F, 30% trimestriel à 400 F, 10% annuel à 500 F)
   const simMinEarnings = simSubsCount * 150;
-  const simMaxEarnings = simSubsCount * 400;
-  const simEstimatedEarnings = Math.round(simSubsCount * 0.7 * 150 + simSubsCount * 0.3 * 400);
+  const simMaxEarnings = simSubsCount * 500;
+  const simEstimatedEarnings = Math.round(simSubsCount * 0.6 * 150 + simSubsCount * 0.3 * 400 + simSubsCount * 0.1 * 500);
 
   return (
     <div className="space-y-6 sm:space-y-8 animate-in fade-in duration-300">
@@ -183,13 +183,13 @@ export default function InfluencerDashboardClient({
             <tbody>
               <tr>
                 <td className="border p-2.5 font-medium">
-                  Commissions d&apos;affiliation Terminale S2 (Formules 700 F &amp; 2 000 F)
+                  Commissions d&apos;affiliation Terminale S2 (Formules 700 F, 2 000 F &amp; 5 000 F)
                 </td>
                 <td className="border p-2.5 text-center font-bold">
                   {selectedStatement.validated_subscriptions_count}
                 </td>
                 <td className="border p-2.5 text-right font-medium text-gray-700">
-                  150 F (700 F) • 400 F (2 000 F)
+                  150 F (700 F) • 400 F (2 000 F) • 500 F (5 000 F)
                 </td>
                 <td className="border p-2.5 text-right font-black text-sm text-emerald-800">
                   {formatFCFA(selectedStatement.total_commission_fcfa)}
@@ -251,6 +251,9 @@ export default function InfluencerDashboardClient({
               </span>
               <span className="inline-flex items-center gap-1 bg-amber-500/20 text-amber-300 font-black px-2.5 py-1 rounded-lg border border-amber-400/30">
                 +400 FCFA <span className="font-normal text-[11px] text-white/80">/ plan 2 000 F</span>
+              </span>
+              <span className="inline-flex items-center gap-1 bg-purple-500/20 text-purple-300 font-black px-2.5 py-1 rounded-lg border border-purple-400/30">
+                +500 FCFA <span className="font-normal text-[11px] text-white/80">/ plan 5 000 F</span>
               </span>
             </div>
           </div>
@@ -545,7 +548,8 @@ export default function InfluencerDashboardClient({
                 </span>
                 <p className="text-text/75 leading-relaxed">
                   • <strong>150 FCFA</strong> sur formule mensuelle (700 FCFA)<br />
-                  • <strong>400 FCFA</strong> sur formule trimestrielle (2 000 FCFA)
+                  • <strong>400 FCFA</strong> sur formule trimestrielle (2 000 FCFA)<br />
+                  • <strong>500 FCFA</strong> sur formule annuelle (5 000 FCFA)
                 </p>
               </div>
 

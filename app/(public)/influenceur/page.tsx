@@ -77,7 +77,7 @@ export default function InfluencerPortalPage() {
             <span>Comment fonctionne le partenariat ?</span>
           </div>
           <p className="leading-relaxed">
-            Pour chaque élève qui s&apos;abonne avec votre code promo, vous recevez <strong className="text-emerald-700 font-black">150 FCFA</strong> (sur la formule 700 F) ou <strong className="text-amber-600 font-black">400 FCFA</strong> (sur la formule 2 000 F) dès la validation administrative.
+            Pour chaque élève qui s&apos;abonne avec votre code promo, vous recevez <strong className="text-emerald-700 font-black">150 FCFA</strong> (sur la formule 700 F), <strong className="text-amber-600 font-black">400 FCFA</strong> (sur la formule 2 000 F) ou <strong className="text-purple-600 font-black">500 FCFA</strong> (sur la formule annuelle 5 000 F) dès la validation administrative.
           </p>
           <p className="leading-relaxed text-text/60">
             Règlement mensuel par transfert direct Wave sur votre numéro de téléphone.

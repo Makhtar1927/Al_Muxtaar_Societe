@@ -71,7 +71,7 @@ export default async function AdminInfluenceursPage() {
             Influenceurs, Ambassadeurs &amp; Codes Promo
           </h1>
           <p className="text-text/70 text-sm mt-0.5">
-            Suivi des parrainages d&apos;élèves, attribution des commissions (150 FCFA / abonnement validé) et validation des versements mensuels Wave.
+            Suivi des parrainages d&apos;élèves, attribution des commissions (150 F, 400 F, 500 F / abonnement validé) et validation des versements mensuels Wave.
           </p>
         </div>
 

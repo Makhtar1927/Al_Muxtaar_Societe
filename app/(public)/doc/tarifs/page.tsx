@@ -48,6 +48,25 @@ const PLANS = [
       "Idéal pour couvrir toutes les compositions trimestrielles + Bac",
     ],
   },
+  {
+    id: "1-an",
+    name: "Formule Annuelle (1 An)",
+    duration: "365 jours d'accès illimité",
+    price: "5 000 FCFA",
+    priceDaily: "Soit 416 FCFA / mois — Meilleure économie de l'année",
+    popular: false,
+    features: [
+      "Accès complet aux cours actifs : Terminale S2 Mathématiques (13 chapitres)",
+      "Accès immédiat aux nouveaux cours publiés (S1, L2, PC, SVT\u2026)",
+      "Exercices d'application corrigés pas à pas",
+      "Quiz interactifs avec score et correction détaillée",
+      "Suivi de votre progression personnelle",
+      "Consultation mobile fluide et légère (3G compatible)",
+      "Fiches réflexes Bac & simulateurs interactifs inclus",
+      "Couvre toute l'année scolaire sans interruption",
+      "Idéal pour réviser sereinement jusqu'au Baccalauréat",
+    ],
+  },
 ];
 
 export default function TarifsPage() {
@@ -72,8 +91,8 @@ export default function TarifsPage() {
       </section>
 
       {/* Grille des Formules */}
-      <section className="mx-auto max-w-5xl px-4 sm:px-6">
-        <div className="grid gap-6 md:grid-cols-2">
+      <section className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="grid gap-6 md:grid-cols-3">
           {PLANS.map((plan) => (
             <Card
               key={plan.id}
@@ -168,7 +187,7 @@ export default function TarifsPage() {
               <WaveLogo size={22} />
               <span>Canal Officiel Wave Money — Al Muxtaar</span>
             </h4>
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-3 text-xs sm:text-sm font-mono font-bold text-navy">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-3 text-xs sm:text-sm font-mono font-bold text-navy flex-wrap">
               <a
                 href={`${waveBaseLink}?amount=700`}
                 target="_blank"
@@ -187,6 +206,16 @@ export default function TarifsPage() {
               >
                 <WaveLogo size={16} />
                 <span>Payer Formule 3 Mois (2 000 F)</span>
+                <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2.5} />
+              </a>
+              <a
+                href={`${waveBaseLink}?amount=5000`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-xl bg-[#1DC3EC] text-navy px-4 py-2.5 shadow-sm hover:bg-[#00B5E2] transition-colors font-sans text-xs font-black inline-flex items-center gap-2"
+              >
+                <WaveLogo size={16} />
+                <span>Payer Formule 1 An (5 000 F)</span>
                 <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2.5} />
               </a>
             </div>

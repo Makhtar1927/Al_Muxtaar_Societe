@@ -41,6 +41,7 @@ export default function ConditionsPage() {
           <ul className="list-disc pl-5 space-y-1">
             <li><strong>Formule 1 Mois (30 jours)</strong> : 700 FCFA TTC</li>
             <li><strong>Formule Trimestrielle (90 jours)</strong> : 2 000 FCFA TTC</li>
+            <li><strong>Formule Annuelle (365 jours)</strong> : 5 000 FCFA TTC</li>
           </ul>
           <p>
             Le règlement s&apos;effectue par transfert mobile (Wave, Orange Money) vers les numéros marchands officiels de la société. L&apos;activation des droits d&apos;accès est opérée manuellement par un administrateur après vérification du numéro de transaction.

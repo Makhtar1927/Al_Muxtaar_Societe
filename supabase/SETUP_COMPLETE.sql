@@ -767,9 +767,13 @@ END $$;
 INSERT INTO public.plans (id, name, duration_days, price_fcfa, is_active)
 VALUES
   ('10000000-0000-0000-0000-000000000001', 'Formule 1 Mois', 30, 700, true),
-  ('10000000-0000-0000-0000-000000000002', 'Formule Trimestrielle (3 Mois)', 90, 2000, true)
+  ('10000000-0000-0000-0000-000000000002', 'Formule Trimestrielle (3 Mois)', 90, 2000, true),
+  ('10000000-0000-0000-0000-000000000003', 'Formule Annuelle (1 An)', 365, 5000, true)
 ON CONFLICT (id) DO UPDATE SET
-  price_fcfa = EXCLUDED.price_fcfa;
+  name = EXCLUDED.name,
+  duration_days = EXCLUDED.duration_days,
+  price_fcfa = EXCLUDED.price_fcfa,
+  is_active = EXCLUDED.is_active;
 
 -- 3. Niveaux scolaires
 INSERT INTO public.levels (id, name, code, order_index)

@@ -241,7 +241,7 @@ export default function InfluenceursManagerClient({ initialInfluencers, initialP
           <p className="text-lg sm:text-2xl font-black text-emerald-800 mt-1 truncate">
             {formatFCFA(totalCommissionsThisMonth)}
           </p>
-          <p className="text-[10px] text-emerald-700 mt-0.5 truncate">150 F (700) • 400 F (2000)</p>
+          <p className="text-[10px] text-emerald-700 mt-0.5 truncate">150 F (700) • 400 F (2000) • 500 F (5000)</p>
         </div>
 
         <div className="rounded-2xl border border-navy/10 bg-white p-3.5 sm:p-4 shadow-sm min-w-0">
@@ -339,7 +339,7 @@ export default function InfluenceursManagerClient({ initialInfluencers, initialP
                       {inf.phone}
                     </span>
                     <span className="font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-md">
-                      150 F (700 F) • 400 F (2000 F)
+                      150 F (700 F) • 400 F (2000 F) • 500 F (5000 F)
                     </span>
                   </div>
 
@@ -425,7 +425,7 @@ export default function InfluenceursManagerClient({ initialInfluencers, initialP
                       </td>
                       <td className="px-5 py-3.5 font-mono text-xs">{inf.phone}</td>
                       <td className="px-5 py-3.5 font-bold text-emerald-700">
-                        150 F (700 F) • 400 F (2000 F)
+                        150 F (700 F) • 400 F (2000 F) • 500 F (5000 F)
                       </td>
                       <td className="px-5 py-3.5">
                         <div className="flex items-center gap-2">
@@ -678,7 +678,7 @@ export default function InfluenceursManagerClient({ initialInfluencers, initialP
           isOpen
           onClose={() => setIsCreateModalOpen(false)}
           title="Ajouter un Partenaire Influenceur"
-          description="Créez un code promo unique. L'influenceur recevra 150 FCFA (plan 700 F) ou 400 FCFA (plan 2000 F) par élève dont le paiement est validé par l'admin."
+          description="Créez un code promo unique. L'influenceur recevra 150 FCFA (plan 700 F), 400 FCFA (plan 2000 F) ou 500 FCFA (plan 5000 F) par élève dont le paiement est validé par l'admin."
         >
           <form onSubmit={handleCreateInfluencer} className="space-y-4 pt-1 text-sm">
             <div>
@@ -717,7 +717,7 @@ export default function InfluenceursManagerClient({ initialInfluencers, initialP
                 required
               />
               <p className="text-[11px] text-text/50 mt-1">
-                L&apos;élève entrera ce code pour bénéficier de l&apos;abonnement. L&apos;influenceur sera crédité de 150 FCFA (plan 700 F) ou 400 FCFA (plan 2000 F).
+                L&apos;élève entrera ce code pour bénéficier de l&apos;abonnement. L&apos;influenceur sera crédité de 150 FCFA (plan 700 F), 400 FCFA (plan 2000 F) ou 500 FCFA (plan 5000 F).
               </p>
             </div>
 

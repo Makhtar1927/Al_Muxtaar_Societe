@@ -47,10 +47,12 @@ export interface AffiliationRecord {
 /**
  * Barème officiel des commissions influenceurs :
  * - 150 FCFA pour un abonnement à 700 FCFA (mensuel)
- * - 400 FCFA pour un abonnement à 2000 FCFA (trimestriel / pass)
+ * - 400 FCFA pour un abonnement à 2 000 FCFA (trimestriel)
+ * - 500 FCFA pour un abonnement à 5 000 FCFA (annuel)
  */
 export function computeCommissionForPlan(amount?: number | null): number {
   if (!amount || amount <= 0) return 150;
+  if (amount >= 5000) return 500;
   if (amount >= 2000) return 400;
   if (amount >= 700) return 150;
   return 150;
