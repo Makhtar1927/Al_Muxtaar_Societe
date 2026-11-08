@@ -17,7 +17,6 @@ export default function HomePage() {
       {/* ── 1. HERO INSTITUTIONNEL DE LA SOCIÉTÉ ── */}
       <section className="mx-auto max-w-5xl px-4 text-center sm:px-6">
         <div className="mx-auto mb-4 inline-flex items-center gap-2 rounded-full bg-turquoise-light px-4 py-1.5 text-xs font-black text-turquoise border border-turquoise/20">
-          <Icon name="orientation" size={16} />
           AL MUXTAAR SOCIÉTÉ · ÉCOSYSTÈME TECHNOLOGIQUE &amp; ÉDUCATIF
         </div>
         <h1 className="text-3xl font-black tracking-tight text-navy sm:text-5xl lg:text-6xl leading-tight">
@@ -34,13 +33,11 @@ export default function HomePage() {
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <a href="#ecosysteme">
             <Button variant="primary" size="lg" className="w-full sm:w-auto font-black shadow-md">
-              <Icon name="orientation" size={20} className="mr-2" />
               Explorer nos 3 pôles d&apos;activités
             </Button>
           </a>
           <Link href="/doc">
             <Button variant="outline" size="lg" className="w-full sm:w-auto font-bold border-turquoise text-turquoise hover:bg-turquoise-light/30">
-              <Icon name="doc" size={20} className="mr-2" />
               Espace Éducatif
             </Button>
           </Link>
