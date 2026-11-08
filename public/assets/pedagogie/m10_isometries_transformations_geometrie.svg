@@ -1,0 +1,236 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 680" width="100%" height="100%" style="background-color: #0b1120; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0d9488" />
+      <stop offset="50%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+    <linearGradient id="directGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#065f46" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#047857" stop-opacity="0.7" />
+    </linearGradient>
+    <linearGradient id="indirectGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#881337" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#be123c" stop-opacity="0.7" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#34d399" />
+    </marker>
+    <marker id="arrowPink" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#fb7185" />
+    </marker>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1000" height="680" fill="url(#bgGrad)" />
+  <rect x="15" y="15" width="970" height="650" rx="16" fill="none" stroke="#334155" stroke-width="1.5" stroke-dasharray="8 6" />
+
+  <!-- Header Banner -->
+  <g transform="translate(40, 30)">
+    <rect width="920" height="70" rx="12" fill="#0f172a" stroke="#1e293b" stroke-width="2" />
+    <text x="460" y="32" font-size="20" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="1">
+      CHAPITRE M10 : ISOMÉTRIES DU PLAN ORIENTÉ (TERMINALE S2)
+    </text>
+    <text x="460" y="55" font-size="13" font-weight="500" fill="#94a3b8" text-anchor="middle">
+      Classification Universelle • Conservation des Distances (d(f(M), f(N)) = MN) • Déplacements &amp; Antidéplacements
+    </text>
+  </g>
+
+  <!-- Classification Branch Header: Directes (Gauche) -->
+  <g transform="translate(40, 115)">
+    <!-- DIRECTES CARD -->
+    <rect width="445" height="42" rx="8" fill="url(#directGrad)" stroke="#10b981" stroke-width="1.5" />
+    <text x="222" y="26" font-size="15" font-weight="700" fill="#ecfdf5" text-anchor="middle">
+      1. ISOMÉTRIES DIRECTES (DÉPLACEMENTS) • det(f) = +1
+    </text>
+  </g>
+
+  <!-- Classification Branch Header: Indirectes (Droite) -->
+  <g transform="translate(515, 115)">
+    <!-- INDIRECTES CARD -->
+    <rect width="445" height="42" rx="8" fill="url(#indirectGrad)" stroke="#f43f5e" stroke-width="1.5" />
+    <text x="222" y="26" font-size="15" font-weight="700" fill="#fff1f2" text-anchor="middle">
+      2. ISOMÉTRIES INDIRECTES (ANTIDÉPLACEMENTS) • det(f) = -1
+    </text>
+  </g>
+
+  <!-- DIRECT BOX 1: TRANSLATION -->
+  <g transform="translate(40, 170)">
+    <rect width="215" height="210" rx="10" fill="url(#cardGrad)" stroke="#059669" stroke-width="1.5" />
+    <rect x="0" y="0" width="215" height="32" rx="10" fill="#064e3b" />
+    <text x="107" y="21" font-size="13" font-weight="700" fill="#6ee7b7" text-anchor="middle">
+      TRANSLATION t_u (u ≠ 0)
+    </text>
+    
+    <!-- Mini schema translation -->
+    <circle cx="50" cy="75" r="4" fill="#38bdf8" />
+    <text x="42" y="70" font-size="10" fill="#94a3b8">M</text>
+    <circle cx="155" cy="65" r="4" fill="#34d399" />
+    <text x="165" y="70" font-size="10" fill="#34d399">M'</text>
+    <line x1="50" y1="75" x2="150" y2="66" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)" />
+    
+    <!-- Text specs -->
+    <text x="15" y="115" font-size="11" font-weight="600" fill="#f1f5f9">• Points Invariants : <tspan fill="#f87171">Ø (Aucun)</tspan></text>
+    <text x="15" y="135" font-size="11" fill="#cbd5e1">• Écriture : <tspan fill="#38bdf8">z' = z + b</tspan></text>
+    <text x="15" y="155" font-size="11" fill="#cbd5e1">• Décomposition en réflexions :</text>
+    <text x="25" y="172" font-size="11" font-weight="700" fill="#34d399">t_u = S_Δ2 ∘ S_Δ1</text>
+    <text x="25" y="188" font-size="10" fill="#94a3b8">(Δ1 // Δ2, dist = ‖u‖ / 2)</text>
+    <text x="15" y="202" font-size="10" fill="#64748b">Si u = 0 ⇒ f = Id (Tout point invariant)</text>
+  </g>
+
+  <!-- DIRECT BOX 2: ROTATION -->
+  <g transform="translate(270, 170)">
+    <rect width="215" height="210" rx="10" fill="url(#cardGrad)" stroke="#059669" stroke-width="1.5" />
+    <rect x="0" y="0" width="215" height="32" rx="10" fill="#064e3b" />
+    <text x="107" y="21" font-size="13" font-weight="700" fill="#6ee7b7" text-anchor="middle">
+      ROTATION r(Ω, θ) (θ ≠ 0)
+    </text>
+
+    <!-- Mini schema rotation -->
+    <circle cx="107" cy="85" r="5" fill="#f59e0b" />
+    <text x="107" y="100" font-size="10" font-weight="700" fill="#f59e0b" text-anchor="middle">Ω (Centre)</text>
+    <circle cx="50" cy="60" r="4" fill="#38bdf8" />
+    <text x="42" y="55" font-size="10" fill="#94a3b8">M</text>
+    <circle cx="150" cy="50" r="4" fill="#34d399" />
+    <text x="160" y="55" font-size="10" fill="#34d399">M'</text>
+    <path d="M 50 60 Q 107 40 150 50" fill="none" stroke="#f59e0b" stroke-dasharray="3 3" />
+    <text x="107" y="42" font-size="9" fill="#f59e0b" text-anchor="middle">angle θ</text>
+
+    <!-- Text specs -->
+    <text x="15" y="115" font-size="11" font-weight="600" fill="#f1f5f9">• Points Invariants : <tspan fill="#34d399">{ Ω } (Unique)</tspan></text>
+    <text x="15" y="135" font-size="11" fill="#cbd5e1">• Écriture : <tspan fill="#38bdf8">z' = e^(iθ) z + b</tspan></text>
+    <text x="15" y="155" font-size="11" fill="#cbd5e1">• Décomposition en réflexions :</text>
+    <text x="25" y="172" font-size="11" font-weight="700" fill="#34d399">r(Ω, θ) = S_Δ2 ∘ S_Δ1</text>
+    <text x="25" y="188" font-size="10" fill="#94a3b8">(Δ1 ∩ Δ2 = {Ω}, (Δ1, Δ2) = θ/2)</text>
+    <text x="15" y="202" font-size="10" fill="#f59e0b">Demi-tour si θ = π ⇒ symétrie centrale</text>
+  </g>
+
+  <!-- INDIRECT BOX 1: RÉFLEXION AXIALE -->
+  <g transform="translate(515, 170)">
+    <rect width="215" height="210" rx="10" fill="url(#cardGrad)" stroke="#e11d48" stroke-width="1.5" />
+    <rect x="0" y="0" width="215" height="32" rx="10" fill="#4c0519" />
+    <text x="107" y="21" font-size="13" font-weight="700" fill="#fda4af" text-anchor="middle">
+      RÉFLEXION S_Δ (AXIALE)
+    </text>
+
+    <!-- Mini schema reflexion -->
+    <line x1="107" y1="40" x2="107" y2="95" stroke="#f43f5e" stroke-width="2" stroke-dasharray="4 2" />
+    <text x="115" y="52" font-size="10" font-weight="700" fill="#f43f5e">Axe Δ</text>
+    <circle cx="45" cy="68" r="4" fill="#38bdf8" />
+    <text x="35" y="65" font-size="10" fill="#94a3b8">M</text>
+    <circle cx="170" cy="68" r="4" fill="#fb7185" />
+    <text x="180" y="65" font-size="10" fill="#fb7185">M'</text>
+    <line x1="45" y1="68" x2="170" y2="68" stroke="#64748b" stroke-dasharray="2 2" />
+    <rect x="102" y="63" width="5" height="5" fill="none" stroke="#94a3b8" />
+
+    <!-- Text specs -->
+    <text x="15" y="115" font-size="11" font-weight="600" fill="#f1f5f9">• Points Invariants : <tspan fill="#38bdf8">Droite Δ entière</tspan></text>
+    <text x="15" y="135" font-size="11" fill="#cbd5e1">• Écriture : <tspan fill="#fb7185">z' = e^(iθ) z̄ + b</tspan></text>
+    <text x="15" y="155" font-size="11" fill="#cbd5e1">• Propriété fondamentale :</text>
+    <text x="25" y="172" font-size="11" font-weight="700" fill="#fb7185">S_Δ ∘ S_Δ = Id (Involutive)</text>
+    <text x="15" y="188" font-size="10" fill="#94a3b8">Δ est la médiatrice de [MM']</text>
+    <text x="15" y="202" font-size="10" fill="#cbd5e1">Inverse l'orientation des angles</text>
+  </g>
+
+  <!-- INDIRECT BOX 2: SYMÉTRIE GLISSÉE -->
+  <g transform="translate(745, 170)">
+    <rect width="215" height="210" rx="10" fill="url(#cardGrad)" stroke="#e11d48" stroke-width="1.5" />
+    <rect x="0" y="0" width="215" height="32" rx="10" fill="#4c0519" />
+    <text x="107" y="21" font-size="13" font-weight="700" fill="#fda4af" text-anchor="middle">
+      SYMÉTRIE GLISSÉE f
+    </text>
+
+    <!-- Mini schema glissée -->
+    <line x1="30" y1="75" x2="190" y2="75" stroke="#f43f5e" stroke-width="1.5" stroke-dasharray="3 2" />
+    <text x="180" y="70" font-size="9" fill="#f43f5e">Axe Δ</text>
+    <circle cx="50" cy="50" r="4" fill="#38bdf8" />
+    <text x="40" y="48" font-size="9" fill="#94a3b8">M</text>
+    <circle cx="150" cy="98" r="4" fill="#fb7185" />
+    <text x="160" y="103" font-size="9" fill="#fb7185">f(M)</text>
+    <line x1="50" y1="75" x2="150" y2="75" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)" />
+    <text x="100" y="68" font-size="9" fill="#38bdf8" text-anchor="middle">vecteur u // Δ</text>
+
+    <!-- Text specs -->
+    <text x="15" y="115" font-size="11" font-weight="600" fill="#f1f5f9">• Points Invariants : <tspan fill="#f87171">Ø (Aucun)</tspan></text>
+    <text x="15" y="132" font-size="11" fill="#cbd5e1">• Décomposition canonique :</text>
+    <text x="25" y="148" font-size="11" font-weight="700" fill="#fb7185">f = t_u ∘ S_Δ = S_Δ ∘ t_u</text>
+    <text x="15" y="165" font-size="11" fill="#f59e0b">• RÈGLE D'OR DU BAC S2 :</text>
+    <text x="25" y="182" font-size="11" font-weight="800" fill="#34d399">f ∘ f = t_(2u)</text>
+    <text x="15" y="200" font-size="10" fill="#94a3b8">Milieu I de [M, f(M)] ∈ axe Δ !</text>
+  </g>
+
+  <!-- BOTTOM COMPARATIVE TABLE -->
+  <g transform="translate(40, 400)">
+    <rect width="920" height="250" rx="12" fill="#0f172a" stroke="#334155" stroke-width="1.5" />
+    
+    <!-- Table Title Banner -->
+    <path d="M 0 12 Q 0 0 12 0 L 908 0 Q 920 0 920 12 L 920 36 L 0 36 Z" fill="#1e293b" />
+    <text x="460" y="24" font-size="14" font-weight="700" fill="#38bdf8" text-anchor="middle" letter-spacing="0.5">
+      TABLEAU UNIVERSEL DE RECONNAISSANCE BAC S2 : POINTS INVARIANTS &amp; FORME COMPLEXE
+    </text>
+
+    <!-- Headers -->
+    <line x1="0" y1="65" x2="920" y2="65" stroke="#334155" stroke-width="1" />
+    <text x="130" y="54" font-size="12" font-weight="700" fill="#94a3b8" text-anchor="middle">Transformation f</text>
+    <text x="320" y="54" font-size="12" font-weight="700" fill="#94a3b8" text-anchor="middle">Nature &amp; Déterminant</text>
+    <text x="500" y="54" font-size="12" font-weight="700" fill="#94a3b8" text-anchor="middle">Points Invariants Inv(f)</text>
+    <text x="690" y="54" font-size="12" font-weight="700" fill="#94a3b8" text-anchor="middle">Écriture Complexe</text>
+    <text x="840" y="54" font-size="12" font-weight="700" fill="#94a3b8" text-anchor="middle">Carré f ∘ f</text>
+
+    <!-- Row 1: Identité -->
+    <rect x="5" y="68" width="910" height="32" rx="4" fill="#1e293b" fill-opacity="0.4" />
+    <text x="130" y="89" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">Identité Id</text>
+    <text x="320" y="89" font-size="11" fill="#34d399" text-anchor="middle">Directe (+1)</text>
+    <text x="500" y="89" font-size="11" fill="#38bdf8" text-anchor="middle">Tout le plan P entier</text>
+    <text x="690" y="89" font-size="11" fill="#cbd5e1" text-anchor="middle">z' = z</text>
+    <text x="840" y="89" font-size="11" fill="#cbd5e1" text-anchor="middle">Id</text>
+
+    <!-- Row 2: Translation -->
+    <rect x="5" y="103" width="910" height="32" rx="4" fill="#0f172a" />
+    <text x="130" y="124" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">Translation t_u (u ≠ 0)</text>
+    <text x="320" y="124" font-size="11" fill="#34d399" text-anchor="middle">Directe (+1)</text>
+    <text x="500" y="124" font-size="11" fill="#f87171" text-anchor="middle">Ø (Aucun point fixe)</text>
+    <text x="690" y="124" font-size="11" fill="#cbd5e1" text-anchor="middle">z' = z + b (b ≠ 0)</text>
+    <text x="840" y="124" font-size="11" fill="#38bdf8" text-anchor="middle">t_(2u)</text>
+
+    <!-- Row 3: Rotation -->
+    <rect x="5" y="138" width="910" height="32" rx="4" fill="#1e293b" fill-opacity="0.4" />
+    <text x="130" y="159" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">Rotation r(Ω, θ)</text>
+    <text x="320" y="159" font-size="11" fill="#34d399" text-anchor="middle">Directe (+1)</text>
+    <text x="500" y="159" font-size="11" fill="#f59e0b" text-anchor="middle">{ Ω } (Unique)</text>
+    <text x="690" y="159" font-size="11" fill="#cbd5e1" text-anchor="middle">z' = e^(iθ) z + b</text>
+    <text x="840" y="159" font-size="11" fill="#34d399" text-anchor="middle">r(Ω, 2θ)</text>
+
+    <!-- Row 4: Réflexion -->
+    <rect x="5" y="173" width="910" height="32" rx="4" fill="#0f172a" />
+    <text x="130" y="194" font-size="12" font-weight="700" fill="#f8fafc" text-anchor="middle">Réflexion S_Δ</text>
+    <text x="320" y="194" font-size="11" fill="#fb7185" text-anchor="middle">Indirecte (-1)</text>
+    <text x="500" y="194" font-size="11" fill="#38bdf8" text-anchor="middle">Droite Δ (Infinité)</text>
+    <text x="690" y="194" font-size="11" fill="#cbd5e1" text-anchor="middle">z' = e^(iθ) z̄ + b</text>
+    <text x="840" y="194" font-size="11" fill="#f59e0b" text-anchor="middle">Id (Involutive)</text>
+
+    <!-- Row 5: Symétrie glissée -->
+    <rect x="5" y="208" width="910" height="34" rx="4" fill="#881337" fill-opacity="0.25" stroke="#be123c" stroke-width="1" />
+    <text x="130" y="230" font-size="12" font-weight="800" fill="#fb7185" text-anchor="middle">Symétrie glissée f</text>
+    <text x="320" y="230" font-size="11" font-weight="700" fill="#fb7185" text-anchor="middle">Indirecte (-1)</text>
+    <text x="500" y="230" font-size="11" font-weight="700" fill="#f87171" text-anchor="middle">Ø (Aucun point fixe)</text>
+    <text x="690" y="230" font-size="11" font-weight="600" fill="#cbd5e1" text-anchor="middle">z' = e^(iθ) z̄ + b (axe Δ // u)</text>
+    <text x="840" y="230" font-size="12" font-weight="800" fill="#34d399" text-anchor="middle">t_(2u) (Translation !)</text>
+  </g>
+</svg>
+

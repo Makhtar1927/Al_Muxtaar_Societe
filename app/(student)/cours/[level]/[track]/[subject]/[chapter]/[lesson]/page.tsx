@@ -54,6 +54,8 @@ import ComplexesInteractiveSimulator from '@/components/course/complexes-interac
 import ComplexesQuizEmbedded from '@/components/course/complexes-quiz-embedded';
 import SimilitudesReflexesCard from '@/components/course/similitudes-reflexes-card';
 import SimilitudesQuizEmbedded from '@/components/course/similitudes-quiz-embedded';
+import IsometriesReflexesCard from '@/components/course/isometries-reflexes-card';
+import IsometriesQuizEmbedded from '@/components/course/isometries-quiz-embedded';
 import ProbabilitesReflexesCard from '@/components/course/probabilites-reflexes-card';
 import ProbabilitesInteractiveSimulator from '@/components/course/probabilites-interactive-simulator';
 import ProbabilitesQuizEmbedded from '@/components/course/probabilites-quiz-embedded';
@@ -819,6 +821,49 @@ const COMPLEXES_AUDIO_CHAPTERS: AudioChapter[] = [
     icon: "cle_solution",
     textScript:
       "Pour z prime égal a z plus b, le rapport est le module de a, l'angle est l'argument de a, et le centre invariant oméga se calcule par b sur 1 moins a. Ne confondez pas avec une translation qui correspond au cas particulier où a vaut exactement 1.",
+  },
+];
+
+const ISOMETRIES_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Définition d'une isométrie & Déplacements vs Antidéplacements",
+    badge: "Introduction",
+    icon: "cible_reflexe",
+    textScript:
+      "Une isométrie est une transformation qui conserve toutes les distances. Elle conserve également les angles géométriques et les aires. Si elle conserve les angles orientés, c'est un déplacement, comme les translations et les rotations. Si elle inverse les angles orientés, c'est un antidéplacement, comme les réflexions axiales et les symétries glissées.",
+  },
+  {
+    timeSeconds: 60,
+    title: "2. Écriture complexe & table des points invariants Inv(f)",
+    badge: "Méthode",
+    icon: "cle_solution",
+    textScript:
+      "L'écriture complexe permet d'identifier immédiatement la nature globale : exponentielle de i thêta fois z plus b pour les déplacements, et exponentielle de i thêta fois le conjugué de z plus b pour les antidéplacements. Pour trancher, résolvez z prime égal z : si l'ensemble des points fixes est une droite, c'est une réflexion ; si c'est vide et indirect, c'est une symétrie glissée.",
+  },
+  {
+    timeSeconds: 130,
+    title: "3. Décomposition d'une isométrie en réflexions axiales",
+    badge: "Théorème",
+    icon: "theoreme_equerre",
+    textScript:
+      "Toute translation est la composée de deux réflexions d'axes parallèles distants de la moitié de la norme du vecteur. Toute rotation est la composée de deux réflexions d'axes sécants en son centre avec un angle moitié. Le théorème fondamental énonce que toute isométrie du plan est la composée d'au plus trois réflexions axiales.",
+  },
+  {
+    timeSeconds: 200,
+    title: "4. La symétrie glissée : vecteur u, axe Δ et propriété du carré",
+    badge: "Piège Fréquent",
+    icon: "avertissement",
+    textScript:
+      "Une symétrie glissée f est la composée commutative d'une réflexion d'axe Delta et d'une translation de vecteur u parallèle à Delta. Retenez la propriété fondamentale : f rond f est la translation de vecteur 2 u. De plus, pour tout point M, le milieu du segment joignant M à son image appartient obligatoirement à l'axe Delta.",
+  },
+  {
+    timeSeconds: 280,
+    title: "5. Détermination par 3 points & exercice Bac S2 corrigé",
+    badge: "Synthèse",
+    icon: "cle_solution",
+    textScript:
+      "Trois points non alignés et leurs images isométriques déterminent une unique isométrie du plan. Si l'ordre trigonométrique des sommets est préservé, c'est un déplacement ; s'il est inversé, c'est un antidéplacement. Dans l'exercice type Bac, cherchez toujours les points invariants en posant z égal x plus i y pour identifier l'axe ou le centre.",
   },
 ];
 
@@ -1820,9 +1865,16 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     lessonMeta.title.toLowerCase().includes('equadiff') ||
     lessonMeta.title.toLowerCase().includes('équadiff');
 
+  const isIsometries =
+    lessonMeta.title.toLowerCase().includes('isom') ||
+    (chapter?.title?.toLowerCase() || '').includes('isom') ||
+    lessonMeta.title.toLowerCase().includes('transformation') ||
+    (chapter?.title?.toLowerCase() || '').includes('transformation');
+
   const isSimilitudes =
-    lessonMeta.title.toLowerCase().includes('similitude') ||
-    (chapter?.title?.toLowerCase() || '').includes('similitude');
+    !isIsometries &&
+    (lessonMeta.title.toLowerCase().includes('similitude') ||
+    (chapter?.title?.toLowerCase() || '').includes('similitude'));
 
   const isComplexes =
     !isSimilitudes &&
@@ -2139,6 +2191,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'Masterclass Audio : Primitives & Calcul Intégral'
                     : isEquadiff
                     ? 'Masterclass Audio : Équations Différentielles'
+                    : isIsometries
+                    ? 'Masterclass Audio : Isométries et Transformations du Plan'
                     : isSimilitudes
                     ? 'Masterclass Audio : Similitudes Planes Directes'
                     : isComplexes
@@ -2184,6 +2238,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'Terminale S2 • Les 5 réflexes pour les aires et l\'intégration'
                     : isEquadiff
                     ? 'Terminale S2 • Les 5 réflexes pour le 1er et 2nd ordre'
+                    : isIsometries
+                    ? 'Terminale S2 • Les 5 méthodes d\'or pour les isométries du plan'
                     : isSimilitudes
                     ? 'Terminale S2 • Les 7 réflexes d\'or pour les similitudes directes'
                     : isComplexes
@@ -2229,7 +2285,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? INTEGRATION_AUDIO_CHAPTERS
                     : isEquadiff
                     ? EQUADIFF_AUDIO_CHAPTERS
-                                        : isSimilitudes
+                                        : isIsometries
+                    ? ISOMETRIES_AUDIO_CHAPTERS
+                    : isSimilitudes
                     ? SIMILITUDES_AUDIO_CHAPTERS
                     : isComplexes
                     ? COMPLEXES_AUDIO_CHAPTERS
@@ -2337,6 +2395,10 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                   <EquadiffReflexesCard />
                   <EquadiffInteractiveSimulator />
                 </>
+              ) : isIsometries ? (
+                <>
+                  <IsometriesReflexesCard />
+                </>
               ) : isSimilitudes ? (
                 <>
                   <SimilitudesReflexesCard />
@@ -2429,6 +2491,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'primitives'
                     : isEquadiff
                     ? 'equadiff'
+                    : isIsometries
+                    ? 'isometries'
                     : isSimilitudes
                     ? 'similitudes'
                     : isComplexes
@@ -2483,6 +2547,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <PrimitivesQuizEmbedded />
               ) : isEquadiff ? (
                 <EquadiffQuizEmbedded />
+              ) : isIsometries ? (
+                <IsometriesQuizEmbedded />
               ) : isSimilitudes ? (
                 <SimilitudesQuizEmbedded />
               ) : isComplexes ? (
