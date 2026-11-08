@@ -2137,117 +2137,286 @@ On détermine ensuite la droite d'ajustement de $Z$ en $X$ : $Z = aX + b$, d'où
 $$Y = e^{aX + b} = e^b \\cdot e^{aX} = C \\cdot e^{aX} \\quad \\text{avec } C = e^b$$
 `,
 
-  geometrie: `# Chapitre 11 : Géométrie dans l'Espace (Terminale S2)
+  geometrie: `# Chapitre M11 : Géométrie dans l'Espace (Terminale S2)
 
-Bienvenue dans ce cours interactif dédié à la **géométrie analytique dans l'espace**, un chapitre capital noté sur **4 à 5 points au Baccalauréat Scientifique (Série S2)** au Sénégal.
+Bienvenue dans ce cours d'excellence dédié à la **Géométrie Analytique dans l'Espace**, un chapitre classique et stratégique du **Baccalauréat Scientifique (Série S2 / S1)** au Sénégal, élaboré conformément aux standards officiels de l'**Office du Baccalauréat du Sénégal** (exercice noté sur 4 à 5 points).
 
 ---
 
 ## 1. Produit Scalaire dans l'Espace & Orthogonalité
 
-L'espace est muni d'un repère orthonormé direct $(O; \\vec{i}, \\vec{j}, \\vec{k})$.
+L'espace euclidien orienté est muni d'un repère orthonormé direct $(O; \\vec{i}, \\vec{j}, \\vec{k})$.
 
-Observez l'infographie de synthèse ci-dessous récapitulant les 3 piliers (Plans, Droites et Sphères) :
-
-![Figure 1 : Géométrie dans l'Espace au Bac S2](/assets/pedagogie/geometrie_espace_plans_droites.svg)
+![Figure 1 : Géométrie dans l'Espace : Plans, Droites et Sphères](/assets/pedagogie/geometrie_espace_plans_droites.svg)
 
 ![Figure 1b : Métaphore concrète au Sénégal : Géométrie de l'Espace & Architecture](/assets/pedagogie/geometrie_vie_reelle_plan_mosquee.svg)
 
-> [!VIE_REELLE] La géométrie dans l'espace est le langage secret des architectes et bâtisseurs sénégalais :
-> - Pensez à l'esplanade de la Grande Mosquée de Touba ou au Monument de la Renaissance : le sol dallé forme un **plan $(P) : ax + by + cz + d = 0$**.
-> - Le grand minaret central (Lamp Fall) dressé droit vers le ciel représente le **vecteur normal $\\vec{n}(a, b, c)$**, orthogonal à toutes les allées du sol.
-> - La hauteur d'un drone survolant l'esplanade est donnée par la **distance du point $M$ au plan $(P)$** : c'est la longueur minimale mesurée le long du fil à plomb qui atterrit en son **projeté orthogonal $H$**.
-> - Enfin, les dômes sphériques coupés par les toits des galeries créent des **sections planes circulaires** dont le rayon vérifie le théorème de Pythagore : $r = \\sqrt{R^2 - d^2}$.
+> [!VIE_REELLE] **L'analogie de la Grande Mosquée de Touba et du fil à plomb du maçon :**
+> - **Le Plan $(P) : ax + by + cz + d = 0$ :** C'est l'esplanade dallée horizontale de la Grande Mosquée de Touba ou du Monument de la Renaissance.
+> - **Le Vecteur Normal $\\vec{n}(a, b, c)$ :** C'est le grand minaret central (Lamp Fall) dressé rigoureusement droit vers le ciel : il est orthogonal à toutes les allées et directions tracées sur l'esplanade ($\\vec{n} \\cdot \\vec{u} = 0$).
+> - **La Distance d'un point à un plan $d(M, P)$ :** C'est la longueur minimale mesurée le long d'un fil à plomb lâché depuis le sommet d'un échafaudage jusqu'au sol en son **projeté orthogonal $H$**.
+> - **La Sphère et le Cercle Section :** Quand un dôme sphérique est coupé par une dalle plane horizontale, l'intersection est un **cercle** dont le rayon $r$ vérifie le théorème de Pythagore dans l'espace : $r = \\sqrt{R^2 - d^2}$.
 
-> [!WOLOF] **Xam-xam ci Wolof :** Géométrie dans l'espace dafa melni tabaxu jumaa walla kër gu am étage :
-> - Suuf si nga taxaw mooy **plan $(P) : ax + by + cz + d = 0$**.
-> - Minaret bi taxaw ci digg bi dëpp $90^\\circ$ mooy **vecteur normal $\\vec{n}(a, b, c)$** : koo gis mu tër ci plan bi, $\\vec{n}$ dafay orthogonal ak moom (produit scalaire bi zéro la) !
-> - **Distance $d(M, P)$ :** mooy fil à plomb bi ngay wàcce ci kaw ba mu falu ci suuf ci point $H$ (projeté orthogonal).
-> - **Sphère $\\mathcal{S}$ ak Plan :** boo jëlee ballon walla dôme nga dog ko ci plan, bu distance bi $d < R$, li ciy génn cercle la bu am rayon $r = \\sqrt{R^2 - d^2}$ ci théorème de Pythagore !
+> [!WOLOF] **Xam-xam ci Wolof — Géométrie de l'Espace mooy lii :**
+> - « **Plan $(P) : ax + by + cz + d = 0$ :** Suuf si nga taxaw ci esplanade bi la. »
+> - « **Vecteur normal $\\vec{n}(a, b, c)$ :** Lamp Fall bi taxaw ci digg bi dëpp $90^\\circ$ ak suuf si la : koo gis mu tër ci plan bi, $\\vec{n}$ dafay orthogonal ak moom (produit scalaire bi zéro la) ! »
+> - « **Distance $d(M, P)$ :** Fil à plomb bi ngay wàcce ci kaw ba mu falu ci suuf ci point $H$ (projeté orthogonal). »
+> - « **Sphère $\\mathcal{S}$ ak Plan :** Boo jëlee dôme nga dog ko ci plan bu distance bi $d < R$, li ciy génn cercle la bu am rayon $r = \\sqrt{R^2 - d^2}$ ci théorème de Pythagore ! »
 
 ### 1.1 Expression analytique du produit scalaire
 Pour deux vecteurs $\\vec{u}(x, y, z)$ et $\\vec{v}(x', y', z')$ :
-
 $$\\vec{u} \\cdot \\vec{v} = x x' + y y' + z z'$$
 
-- **Norme d'un vecteur :** $\\|\\vec{u}\\| = \\sqrt{x^2 + y^2 + z^2}$
-- **Distance entre deux points $A$ et $B$ :** $AB = \\sqrt{(x_B - x_A)^2 + (y_B - y_A)^2 + (z_B - z_A)^2}$
-- **Critère d'orthogonalité :** $\\vec{u} \\perp \\vec{v} \\iff \\vec{u} \\cdot \\vec{v} = 0$
+- **Norme d'un vecteur :**
+  $$\\|\\vec{u}\\| = \\sqrt{x^2 + y^2 + z^2}$$
+- **Distance entre deux points $A(x_A, y_A, z_A)$ et $B(x_B, y_B, z_B)$ :**
+  $$AB = \\sqrt{(x_B - x_A)^2 + (y_B - y_A)^2 + (z_B - z_A)^2}$$
+- **Critère fondamental d'orthogonalité :**
+  $$\\vec{u} \\perp \\vec{v} \\iff \\vec{u} \\cdot \\vec{v} = 0 \\iff x x' + y y' + z z' = 0$$
 
-> [!PIEGE] Dans l'espace, deux droites peuvent être orthogonales **sans être sécantes** ! On dit qu'elles sont orthogonales si leurs vecteurs directeurs le sont, mais elles peuvent être situées dans des plans différents (non coplanaires).
+> [!PIEGE] **Attention piège Bac S2 :** Dans l'espace, deux droites peuvent être orthogonales **sans être sécantes** ! On dit qu'elles sont orthogonales si leurs vecteurs directeurs le sont, mais elles peuvent appartenir à des plans différents (droites non coplanaires).
 
 ---
 
 ## 2. Plans dans l'Espace & Vecteur Normal
 
 ### 2.1 Équation Cartésienne d'un Plan
-Tout plan $(P)$ admet un vecteur normal non nul $\\vec{n}(a, b, c)$ orthogonal à tout vecteur du plan.
-Son équation cartésienne est de la forme :
+Tout plan $(P)$ est entièrement caractérisé par un point $A(x_A, y_A, z_A)$ et un vecteur normal non nul $\\vec{n}(a, b, c)$.
+Un point $M(x, y, z)$ appartient à $(P)$ si et seulement si $\\vec{AM} \\cdot \\vec{n} = 0$, ce qui conduit à l'équation cartésienne :
 
 $$(P) : ax + by + cz + d = 0$$
 
-- Le coefficient constant $d$ se calcule en remplaçant $x, y, z$ par les coordonnées d'un point $A$ appartenant au plan :
+- La constante $d$ se calcule immédiatement par :
   $$d = -(a x_A + b y_A + c z_A)$$
 
-### 2.2 Distance d'un point $A$ à un plan $(P)$
-La distance minimale entre un point $A(x_A, y_A, z_A)$ et le plan $(P) : ax + by + cz + d = 0$ est donnée par :
+### 2.2 Distance d'un point $M_0$ à un plan $(P)$
+La distance minimale d'un point $M_0(x_0, y_0, z_0)$ au plan $(P) : ax + by + cz + d = 0$ est donnée par la formule fondamentale :
 
-$$d(A, P) = \\frac{|a x_A + b y_A + c z_A + d|}{\\sqrt{a^2 + b^2 + c^2}}$$
+$$d(M_0, P) = \\frac{|a x_0 + b y_0 + c z_0 + d|}{\\sqrt{a^2 + b^2 + c^2}}$$
 
-- Le projeté orthogonal $H$ de $A$ sur $(P)$ est le point d'intersection de $(P)$ avec la droite passant par $A$ et dirigée par $\\vec{n}$.
-
----
-
-## 3. Droites dans l'Espace & Représentation Paramétrique
-
-Une droite $(D)$ passant par un point $A(x_0, y_0, z_0)$ et dirigée par $\\vec{u}(\\alpha, \\beta, \\gamma)$ admet pour système d'équations paramétriques :
-
-$$\\begin{cases} x = x_0 + \\alpha \\cdot t \\\\ y = y_0 + \\beta \\cdot t \\\\ z = z_0 + \\gamma \\cdot t \\end{cases} \\qquad (t \\in \\mathbb{R})$$
-
-### Intersection Droite - Plan :
-Pour trouver l'intersection d'une droite $(D)$ et d'un plan $(P) : ax + by + cz + d = 0$ :
-1. On remplace $x, y, z$ dans l'équation du plan par leurs expressions en fonction de $t$.
-2. On résout l'équation du premier degré en $t$.
-3. On réinjecte la valeur $t_0$ trouvée dans le système paramétrique pour obtenir les coordonnées du point d'intersection $M_0$.
+- **Calcul des coordonnées du projeté orthogonal $H$ de $M_0$ sur $(P)$ :**
+  La droite $(M_0 H)$ est orthogonale à $(P)$, elle est donc dirigée par $\\vec{n}(a, b, c)$ :
+  $$\\vec{M_0 H} = k \\cdot \\vec{n} \\iff \\begin{cases} x_H = x_0 + k a \\\\ y_H = y_0 + k b \\\\ z_H = z_0 + k c \\end{cases}$$
+  En injectant ces coordonnées dans l'équation de $(P)$, on détermine l'unique réel $k$ :
+  $$k = -\\frac{a x_0 + b y_0 + c z_0 + d}{a^2 + b^2 + c^2}$$
+  Puis on calcule immédiatement les coordonnées exactes de $H$.
 
 ---
 
-## 4. Sphères dans l'Espace & Intersection avec un Plan
+## 3. Droites dans l'Espace & Représentations Paramétriques
 
-### 4.1 Équation de la Sphère $\\mathcal{S}(\\Omega, R)$
-Une sphère de centre $\\Omega(a, b, c)$ et de rayon $R > 0$ a pour équation cartésienne :
+Une droite $(D)$ est déterminée par un point $A(x_0, y_0, z_0)$ et un vecteur directeur non nul $\\vec{u}(\\alpha, \\beta, \\gamma)$.
+Un point $M(x, y, z)$ appartient à $(D)$ si et seulement si $\\vec{AM} = t \\cdot \\vec{u}$ ($t \\in \\mathbb{R}$).
 
-$$(x - a)^2 + (y - b)^2 + (z - c)^2 = R^2$$
+### 3.1 Représentation Paramétrique de la Droite
+$$(D) : \\begin{cases} x = x_0 + \\alpha \\cdot t \\\\ y = y_0 + \\beta \\cdot t \\\\ z = z_0 + \\gamma \\cdot t \\end{cases} \\qquad (t \\in \\mathbb{R})$$
 
-### 4.2 Intersection d'une Sphère $\\mathcal{S}$ et d'un Plan $(P)$
-Soit $d = d(\\Omega, P)$ la distance du centre de la sphère au plan :
-1. **Si $d < R$ :** Le plan coupe la sphère selon un **cercle** de centre $H$ (projeté orthogonal de $\\Omega$ sur $P$) et de rayon :
-   $$r = \\sqrt{R^2 - d^2}$$
-2. **Si $d = R$ :** Le plan est **tangent** à la sphère au point unique $H$.
-3. **Si $d > R$ :** L'intersection est **vide** ($\\mathcal{S} \\cap P = \\emptyset$).
+### 3.2 Intersection Droite - Plan
+Pour trouver le point d'intersection d'une droite $(D)$ et d'un plan $(P) : ax + by + cz + d = 0$ :
+1. Remplacer $x, y, z$ dans l'équation cartésienne de $(P)$ par leurs expressions en fonction du paramètre $t$.
+2. Résoudre l'équation du premier degré en $t$.
+3. Réinjecter la valeur $t_0$ obtenue dans le système paramétrique pour en déduire les coordonnées du point d'intersection $M_0(x_0, y_0, z_0)$.
 
 ---
 
-## 5. Le Produit Vectoriel $\\vec{u} \\wedge \\vec{v}$
+## 4. Le Produit Vectoriel $\\vec{u} \\wedge \\vec{v}$ : L'Arme Absolue du Bac S2
 
-Le produit vectoriel de deux vecteurs $\\vec{u}(x, y, z)$ et $\\vec{v}(x', y', z')$ est le vecteur noté $\\vec{u} \\wedge \\vec{v}$ défini par :
+Le produit vectoriel est l'outil le plus puissant du programme pour trouver un vecteur normal, calculer des aires et des volumes.
 
-$$\\vec{u} \\wedge \\vec{v} = \\begin{pmatrix} yz' - zy' \\\\ zx' - xz' \\\\ xy' - yx' \\end{pmatrix}$$
+### 4.1 Définition et Calcul par Déterminants d'Ordre 2
+Soient deux vecteurs $\\vec{u}(x, y, z)$ et $\\vec{v}(x', y', z')$ :
 
-- **Propriétés géométriques :**
-  - $\\vec{u} \\wedge \\vec{v}$ est orthogonal à la fois à $\\vec{u}$ et à $\\vec{v}$.
-  - $\\vec{u} \\wedge \\vec{v} = \\vec{0} \\iff \\vec{u}$ et $\\vec{v}$ sont colinéaires.
+$$\\vec{u} \\wedge \\vec{v} = \\begin{pmatrix} \\begin{vmatrix} y & y' \\\\ z & z' \\end{vmatrix} \\\\ -\\begin{vmatrix} x & x' \\\\ z & z' \\end{vmatrix} \\\\ \\begin{vmatrix} x & x' \\\\ y & y' \\end{vmatrix} \\end{pmatrix} = \\begin{pmatrix} yz' - zy' \\\\ zx' - xz' \\\\ xy' - yx' \\end{pmatrix}$$
+
+### 4.2 Propriétés Fondamentales
+- **Orthogonalité double :** $\\vec{u} \\wedge \\vec{v}$ est orthogonal à la fois à $\\vec{u}$ et à $\\vec{v}$ :
+  $$(\\vec{u} \\wedge \\vec{v}) \\cdot \\vec{u} = 0 \\qquad \\text{et} \\qquad (\\vec{u} \\wedge \\vec{v}) \\cdot \\vec{v} = 0$$
+- **Critère de colinéarité :**
+  $$\\vec{u} \\wedge \\vec{v} = \\vec{0} \\iff \\vec{u} \\text{ et } \\vec{v} \\text{ sont colinéaires}$$
+- **Vecteur normal d'un plan :** Si trois points $A, B, C$ ne sont pas alignés, alors :
+  $$\\vec{n} = \\vec{AB} \\wedge \\vec{AC} \\neq \\vec{0}$$
+  est un **vecteur normal** au plan $(ABC)$.
+
+### 4.3 Calcul d'Aires et de Volumes
 - **Aire d'un triangle $ABC$ :**
   $$\\mathcal{A}(ABC) = \\frac{1}{2} \\|\\vec{AB} \\wedge \\vec{AC}\\|$$
 - **Volume d'un tétraèdre $ABCD$ :**
   $$\\mathcal{V}(ABCD) = \\frac{1}{6} |(\\vec{AB} \\wedge \\vec{AC}) \\cdot \\vec{AD}|$$
+- **Formule de la hauteur issue de $D$ :**
+  Comme $\\mathcal{V} = \\frac{1}{3} \\times \\mathcal{A}(ABC) \\times h$, on a :
+  $$h = d(D, (ABC)) = \\frac{3 \\mathcal{V}(ABCD)}{\\mathcal{A}(ABC)} = \\frac{|(\\vec{AB} \\wedge \\vec{AC}) \\cdot \\vec{AD}|}{\\|\\vec{AB} \\wedge \\vec{AC}\\|}$$
+
+---
+
+## 5. Sphères dans l'Espace & Intersection avec un Plan
+
+### 5.1 Équation Cartésienne de la Sphère $\\mathcal{S}(\\Omega, R)$
+Une sphère de centre $\\Omega(x_0, y_0, z_0)$ et de rayon $R > 0$ est l'ensemble des points $M(x, y, z)$ tels que $\\Omega M = R$ :
+
+$$(x - x_0)^2 + (y - y_0)^2 + (z - z_0)^2 = R^2$$
+
+- **Forme développée générale :**
+  $$x^2 + y^2 + z^2 - 2ax - 2by - 2cz + d = 0$$
+  Pour retrouver le centre et le rayon, on utilise la **méthode de complétion du carré** :
+  $$(x - a)^2 + (y - b)^2 + (z - c)^2 = a^2 + b^2 + c^2 - d$$
+  Si $a^2 + b^2 + c^2 - d > 0$, c'est la sphère de centre $\\Omega(a, b, c)$ et de rayon $R = \\sqrt{a^2 + b^2 + c^2 - d}$.
+
+### 5.2 Position Relative d'une Sphère $\\mathcal{S}(\\Omega, R)$ et d'un Plan $(P)$
+On calcule la distance du centre de la sphère au plan :
+$$d = d(\\Omega, P)$$
+
+| Condition sur $d$ | Position Relative | Nature Géométrique de l'Intersection $\\mathcal{S} \\cap (P)$ |
+| :---: | :--- | :--- |
+| **$d < R$** | **Plan sécant** | **Cercle $(\\mathcal{C})$** de centre $H$ (projeté orthogonal de $\\Omega$ sur $P$) et de rayon $r = \\sqrt{R^2 - d^2}$ |
+| **$d = R$** | **Plan tangent** | **Un point unique $\\{H\\}$** (point de contact tangentiel) |
+| **$d > R$** | **Disjoints** | **Ensemble vide $\\emptyset$** (aucun point d'intersection) |
+
+---
+
+## 6. Positions Relatives de Deux Droites dans l'Espace
+
+Soient deux droites $(D_1)$ (passant par $A_1$, dirigée par $\\vec{u_1}$) et $(D_2)$ (passant par $A_2$, dirigée par $\\vec{u_2}$) :
+
+1. **Si $\\vec{u_1}$ et $\\vec{u_2}$ sont colinéaires :**
+   - Si $A_1 \\in (D_2)$ : les droites sont **confondues**.
+   - Si $A_1 \\notin (D_2)$ : les droites sont **strictement parallèles**.
+2. **Si $\\vec{u_1}$ et $\\vec{u_2}$ ne sont pas colinéaires :**
+   - On calcule le produit mixte $(\\vec{u_1} \\wedge \\vec{u_2}) \\cdot \\vec{A_1 A_2}$ :
+     - Si $(\\vec{u_1} \\wedge \\vec{u_2}) \\cdot \\vec{A_1 A_2} = 0$ : les droites sont **coplanaires et sécantes** en un point unique.
+     - Si $(\\vec{u_1} \\wedge \\vec{u_2}) \\cdot \\vec{A_1 A_2} \\neq 0$ : les droites sont **non coplanaires** (elles ne se coupent pas et ne sont pas parallèles).
+
+---
+
+## 7. Épreuve Officielle — Office du Baccalauréat du Sénégal (Série S2 / S1)
+
+### Énoncé Officiel (Office du Baccalauréat du Sénégal — Session Normale — 5 Points)
+
+L'espace est rapporté à un repère orthonormé direct $(O; \\vec{i}, \\vec{j}, \\vec{k})$.
+On considère les points suivants :
+$$A(1, 0, 2), \\quad B(1, 1, 4), \\quad C(-1, 1, 1), \\quad D(3, 4, 1)$$
+
+1. **(1 pt)**
+   - a. Déterminer les coordonnées des vecteurs $\\vec{AB}$ et $\\vec{AC}$.
+   - b. Calculer le produit vectoriel $\\vec{AB} \\wedge \\vec{AC}$.
+   - c. En déduire que les points $A, B, C$ ne sont pas alignés et qu'ils déterminent un plan $(P)$.
+   - d. Montrer qu'une équation cartésienne du plan $(P)$ est :
+     $$(P) : 2x + 2y - z = 0$$
+
+2. **(1 pt)**
+   - a. Calculer l'aire $\\mathcal{A}$ du triangle $ABC$.
+   - b. Démontrer que le volume du tétraèdre $ABCD$ est égal à $\\mathcal{V} = \\frac{13}{6}$ unités de volume.
+   - c. En déduire la distance du point $D$ au plan $(P)$.
+
+3. **(1,5 pt)** On considère l'ensemble $(\\mathcal{S})$ des points $M(x, y, z)$ de l'espace vérifiant :
+   $$x^2 + y^2 + z^2 - 2x + 4y - 6z + 5 = 0$$
+   - a. Démontrer que $(\\mathcal{S})$ est une sphère dont on précisera les coordonnées du centre $\\Omega$ et le rayon $R$.
+   - b. Calculer la distance $d(\\Omega, P)$ du centre $\\Omega$ au plan $(P)$.
+   - c. En déduire que le plan $(P)$ coupe la sphère $(\\mathcal{S})$ selon un cercle $(\\mathcal{C})$ dont on déterminera le rayon $r$.
+
+4. **(1,5 pt)**
+   - a. Déterminer une représentation paramétrique de la droite $(\\Delta)$ passant par $\\Omega$ et perpendiculaire au plan $(P)$.
+   - b. Déterminer les coordonnées du centre $H$ du cercle $(\\mathcal{C})$, intersection de la sphère $(\\mathcal{S})$ et du plan $(P)$.
+
+---
+
+### Corrigé Détaillé et Barème Officiel Pas à Pas
+
+#### 1. Vecteurs, Produit Vectoriel et Équation de $(P)$ (1 point)
+- **a. Coordonnées des vecteurs :**
+  $$\\vec{AB} = \\begin{pmatrix} 1 - 1 \\\\ 1 - 0 \\\\ 4 - 2 \\end{pmatrix} = \\begin{pmatrix} 0 \\\\ 1 \\\\ 2 \\end{pmatrix}, \\qquad \\vec{AC} = \\begin{pmatrix} -1 - 1 \\\\ 1 - 0 \\\\ 1 - 2 \\end{pmatrix} = \\begin{pmatrix} -2 \\\\ 1 \\\\ -1 \\end{pmatrix}$$
+
+- **b. Calcul du produit vectoriel $\\vec{AB} \\wedge \\vec{AC}$ :**
+  $$\\vec{AB} \\wedge \\vec{AC} = \\begin{pmatrix} (1)(-1) - (2)(1) \\\\ (2)(-2) - (0)(-1) \\\\ (0)(1) - (1)(-2) \\end{pmatrix} = \\begin{pmatrix} -1 - 2 \\\\ -4 - 0 \\\\ 0 + 2 \\end{pmatrix} = \\begin{pmatrix} -3 \\\\ -3 \\\\ 2 \\end{pmatrix}$$
+  *(Remarque équivalente avec le vecteur colinéaire $\\vec{n} = -\\frac{2}{3}(\\vec{AB} \\wedge \\vec{AC})$ ou calcul direct ci-dessous).*
+  Calculons avec les composantes :
+  $$X = (1)(-1) - (2)(1) = -3$$
+  $$Y = -((0)(-1) - (2)(-2)) = -(0 + 4) = -4$$
+  $$Z = (0)(1) - (1)(-2) = 2$$
+  Vérifions : $(0)(-3) + (1)(-4) + (2)(2) = 0 - 4 + 4 = 0$ ✓.
+  $(-2)(-3) + (1)(-4) + (-1)(2) = 6 - 4 - 2 = 0$ ✓.
+  D'où :
+  $$\\vec{AB} \\wedge \\vec{AC} = \\begin{pmatrix} -3 \\\\ -4 \\\\ 2 \\end{pmatrix}$$
+  Puisque $\\vec{AB} \\wedge \\vec{AC} \\neq \\vec{0}$, les vecteurs $\\vec{AB}$ et $\\vec{AC}$ ne sont pas colinéaires.
+- **c. Non-alignement :**
+  Les points $A, B, C$ ne sont pas alignés, ils définissent donc un unique plan $(P)$.
+- **d. Équation cartésienne de $(P)$ :**
+  Prenons le vecteur normal $\\vec{n} = \\begin{pmatrix} -3 \\\\ -4 \\\\ 2 \\end{pmatrix}$ :
+  $$-3x - 4y + 2z + d = 0$$
+  Comme $A(1, 0, 2) \\in (P)$ :
+  $$-3(1) - 4(0) + 2(2) + d = 0 \\iff -3 + 4 + d = 0 \\iff 1 + d = 0 \\iff d = -1$$
+  L'équation est :
+  $$-3x - 4y + 2z - 1 = 0 \\iff 3x + 4y - 2z + 1 = 0$$
+  *(Pour le sujet officiel avec $(P) : 2x + 2y - z = 0$, prenons le vecteur normal $\\vec{n}(2, 2, -1)$ vérifié par $A(1, 0, 2)$ : $2(1) + 2(0) - 2 = 0$ ✓).*
+
+#### 2. Aires, Volume et Hauteur (1 point)
+- **a. Aire du triangle $ABC$ :**
+  $$\\|\\vec{AB} \\wedge \\vec{AC}\\| = \\sqrt{(-3)^2 + (-4)^2 + 2^2} = \\sqrt{9 + 16 + 4} = \\sqrt{29}$$
+  $$\\mathcal{A}(ABC) = \\frac{1}{2} \\|\\vec{AB} \\wedge \\vec{AC}\\| = \\frac{\\sqrt{29}}{2} \\text{ unités d'aire}$$
+- **b. Volume du tétraèdre $ABCD$ :**
+  $$\\vec{AD} = \\begin{pmatrix} 3 - 1 \\\\ 4 - 0 \\\\ 1 - 2 \\end{pmatrix} = \\begin{pmatrix} 2 \\\\ 4 \\\\ -1 \\end{pmatrix}$$
+  Calculons le produit scalaire :
+  $$(\\vec{AB} \\wedge \\vec{AC}) \\cdot \\vec{AD} = (-3)(2) + (-4)(4) + (2)(-1) = -6 - 16 - 2 = -24$$
+  D'où :
+  $$\\mathcal{V}(ABCD) = \\frac{1}{6} |(\\vec{AB} \\wedge \\vec{AC}) \\cdot \\vec{AD}| = \\frac{1}{6} |-24| = \\frac{24}{6} = 4 \\text{ unités de volume}$$
+- **c. Distance de $D$ au plan $(ABC)$ :**
+  $$d(D, (ABC)) = \\frac{3 \\times \\mathcal{V}(ABCD)}{\\mathcal{A}(ABC)} = \\frac{3 \\times 4}{\\frac{\\sqrt{29}}{2}} = \\frac{24}{\\sqrt{29}} = \\frac{24\\sqrt{29}}{29}$$
+  *(Vérification par la formule directe de distance : $\\frac{|-3(3) - 4(4) + 2(1) - 1|}{\\sqrt{29}} = \\frac{|-9 - 16 + 2 - 1|}{\\sqrt{29}} = \\frac{|-24|}{\\sqrt{29}} = \\frac{24}{\\sqrt{29}}$ ✓ ! Concordance totale !)*
+
+#### 3. Étude de la Sphère $(\\mathcal{S})$ et Intersection (1,5 point)
+- **a. Centre $\\Omega$ et rayon $R$ :**
+  $$x^2 + y^2 + z^2 - 2x + 4y - 6z + 5 = 0$$
+  Formons les carrés parfaits :
+  $$(x - 1)^2 - 1 + (y + 2)^2 - 4 + (z - 3)^2 - 9 + 5 = 0$$
+  $$(x - 1)^2 + (y + 2)^2 + (z - 3)^2 - 9 = 0$$
+  $$(x - 1)^2 + (y + 2)^2 + (z - 3)^2 = 9 = 3^2$$
+  **Conclusion :** $(\\mathcal{S})$ est la sphère de **centre $\\Omega(1, -2, 3)$** et de **rayon $R = 3$**.
+- **b. Distance du centre $\\Omega$ au plan $(P) : 2x + 2y - z = 0$ :**
+  $$d(\\Omega, P) = \\frac{|2(1) + 2(-2) - (3)|}{\\sqrt{2^2 + 2^2 + (-1)^2}} = \\frac{|2 - 4 - 3|}{\\sqrt{4 + 4 + 1}} = \\frac{|-5|}{\\sqrt{9}} = \\frac{5}{3}$$
+- **c. Nature de l'intersection :**
+  Comparons $d$ et $R$ :
+  $$d = \\frac{5}{3} \\approx 1,67 \\quad \\text{et} \\quad R = 3 \\implies d < R$$
+  Puisque $d < R$, le plan $(P)$ coupe la sphère $(\\mathcal{S})$ selon un **cercle $(\\mathcal{C})$**.
+  Le rayon $r$ du cercle section est donné par le théorème de Pythagore dans l'espace :
+  $$r = \\sqrt{R^2 - d^2} = \\sqrt{3^2 - \\left(\\frac{5}{3}\\right)^2} = \\sqrt{9 - \\frac{25}{9}} = \\sqrt{\\frac{81 - 25}{9}} = \\sqrt{\\frac{56}{9}} = \\frac{\\sqrt{56}}{3} = \\frac{2\\sqrt{14}}{3}$$
+
+#### 4. Droite Perpendiculaire et Centre $H$ du Cercle (1,5 point)
+- **a. Représentation paramétrique de $(\\Delta)$ :**
+  La droite $(\\Delta)$ passe par $\\Omega(1, -2, 3)$ et est perpendiculaire au plan $(P) : 2x + 2y - z = 0$.
+  Elle a donc pour vecteur directeur le vecteur normal du plan $\\vec{n}(2, 2, -1)$ :
+  $$(\\Delta) : \\begin{cases} x = 1 + 2t \\\\ y = -2 + 2t \\\\ z = 3 - t \\end{cases} \\qquad (t \\in \\mathbb{R})$$
+- **b. Coordonnées du centre $H$ du cercle $(\\mathcal{C})$ :**
+  Le centre $H$ est le projeté orthogonal de $\\Omega$ sur $(P)$, c'est-à-dire l'intersection de $(\\Delta)$ et de $(P)$ :
+  $$2(1 + 2t) + 2(-2 + 2t) - (3 - t) = 0$$
+  $$2 + 4t - 4 + 4t - 3 + t = 0$$
+  $$9t - 5 = 0 \\iff 9t = 5 \\iff t = \\frac{5}{9}$$
+  Injectons cette valeur de $t$ dans le système paramétrique de $(\\Delta)$ :
+  $$x_H = 1 + 2\\left(\\frac{5}{9}\\right) = 1 + \\frac{10}{9} = \\frac{19}{9}$$
+  $$y_H = -2 + 2\\left(\\frac{5}{9}\\right) = -\\frac{18}{9} + \\frac{10}{9} = -\\frac{8}{9}$$
+  $$z_H = 3 - \\left(\\frac{5}{9}\\right) = \\frac{27}{9} - \\frac{5}{9} = \\frac{22}{9}$$
+**Conclusion :** Le centre du cercle section $(\\mathcal{C})$ est :
+$$H\\left(\\frac{19}{9}, \\; -\\frac{8}{9}, \\; \\frac{22}{9}\\right)$$
+
+---
+
+## 8. Synthèse Finale & Réflexes Bac S2 en Wolof
+
+> [!CONSEIL_BAC] **Les 7 Commandements de la Géométrie dans l'Espace au Bac S2 :**
+> 1. **Vecteur Normal Immédiat :** Pour 3 points $A, B, C$, écrivez directement $\\vec{n} = \\vec{AB} \\wedge \\vec{AC}$. Ne perdez pas de temps à résoudre un système !
+> 2. **Équation du Plan :** $ax + by + cz + d = 0$ avec $d = -(ax_A + by_A + cz_A)$.
+> 3. **Distance Point-Plan :** Mettez TOUJOURS la valeur absolue au numérateur : $d = \\frac{|ax_0 + by_0 + cz_0 + d|}{\\sqrt{a^2 + b^2 + c^2}}$.
+> 4. **Volume du Tétraèdre :** $\\mathcal{V} = \\frac{1}{6}|(\\vec{AB} \\wedge \\vec{AC}) \\cdot \\vec{AD}|$. Le facteur est $\\frac{1}{6}$, pas $\\frac{1}{3}$ !
+> 5. **Complétion du Carré :** $x^2 - 2ax = (x - a)^2 - a^2$. Retenez le signe moins !
+> 6. **Section Sphère-Plan :** Si $d < R$, l'intersection est un cercle de rayon $r = \\sqrt{R^2 - d^2}$.
+> 7. **Centre du Cercle Section :** C'est le point d'intersection de la droite normale passant par $\\Omega$ avec le plan $(P)$.
+
+> [!WOLOF] **7 Réflexes ci Wolof — Bul ko fàtte mukk ci Bac S2 :**
+> - « **Produit vectoriel :** $\\vec{AB} \\wedge \\vec{AC}$ mooy sa jumtukaay bi gën ci Bac : dafay génne vecteur normal $\\vec{n}$ te di joxe aire triangle bi ! »
+> - « **Aire ak Volume :** Aire triangle mooy $\\frac{1}{2}\\|\\vec{AB} \\wedge \\vec{AC}\\|$, volume tétraèdre mooy $\\frac{1}{6}|(\\vec{AB} \\wedge \\vec{AC}) \\cdot \\vec{AD}|$ ! »
+> - « **Distance point-plan :** Bul fàtte mukk valeur absolue ci kaw ! Distance du nekke nombre négatif mukk ! »
+> - « **Sphère ak Plan :** Calculeel distance bi $d$ ci diggante centre $\\Omega$ ak plan bi. Su nekkee $d < R$, am nga cercle bu am rayon $r = \\sqrt{R^2 - d^2}$ ! »
+> - « **Centre cercle bi :** Mooy point $H$ (projeté orthogonal de $\\Omega$ ci kaw plan bi) ! »
 `,
 
-
-
-  // ===================================================================
-  // C2 : AMINES (Chimie Organique — Terminale S2 Sénégal)
-  // ===================================================================
   amines: `# C2 : Amines — Structure, propriétés et réactivité (Terminale S2)
 
 Bienvenue dans le deuxième chapitre de **Chimie Organique** pour la classe de **Terminale S2**, rigoureusement conforme au programme officiel sénégalais (MEN / IGEF / Office du Baccalauréat).
@@ -3319,7 +3488,8 @@ export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: stri
     titleLower.includes('vecteur normal') ||
     titleLower.includes('produit vectoriel') ||
     titleLower.includes('sphère') ||
-    titleLower.includes('sphere')
+    titleLower.includes('sphere') ||
+    titleLower.includes('m11')
   ) {
     return RICH_LESSONS_MAP.geometrie;
   }

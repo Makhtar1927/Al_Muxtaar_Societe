@@ -1902,7 +1902,10 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     lessonMeta.title.toLowerCase().includes('geometrie') ||
     lessonMeta.title.toLowerCase().includes('sphère') ||
     lessonMeta.title.toLowerCase().includes('sphere') ||
-    lessonMeta.title.toLowerCase().includes('vecteur normal');
+    lessonMeta.title.toLowerCase().includes('vecteur normal') ||
+    lessonMeta.title.toLowerCase().includes('m11') ||
+    (chapter?.title?.toLowerCase() || '').includes('espace') ||
+    (chapter?.title?.toLowerCase() || '').includes('m11');
 
   const isLogarithme =
     lessonMeta.title.toLowerCase().includes('logarithm') ||
