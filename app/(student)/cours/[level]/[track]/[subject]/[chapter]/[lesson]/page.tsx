@@ -82,6 +82,9 @@ import AcideFortBaseForteQuizEmbedded from '@/components/course/acide-fort-base-
 import AcideFaibleBaseFaibleReflexesCard from '@/components/course/acide-faible-base-faible-reflexes-card';
 import AcideFaibleBaseFaibleInteractiveSimulator from '@/components/course/acide-faible-base-faible-interactive-simulator';
 import AcideFaibleBaseFaibleQuizEmbedded from '@/components/course/acide-faible-base-faible-quiz-embedded';
+import DosageAcideFaibleBaseForteReflexesCard from '@/components/course/dosage-acide-faible-base-forte-reflexes-card';
+import DosageAcideFaibleBaseForteInteractiveSimulator from '@/components/course/dosage-acide-faible-base-forte-interactive-simulator';
+import DosageAcideFaibleBaseForteQuizEmbedded from '@/components/course/dosage-acide-faible-base-forte-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
@@ -384,6 +387,49 @@ const ACIDE_FAIBLE_BASE_FAIBLE_AUDIO_CHAPTERS: AudioChapter[] = [
     icon: "piege_bac",
     textScript:
       "Attention au piège de la dilution d'un acide faible : d'après la loi d'Ostwald, quand on dilue la solution, le coefficient de dissociation alpha augmente ! Cependant, la concentration en ions H3O+ diminue, donc le pH augmente vers 7 sans jamais dépasser la neutralité.",
+  },
+];
+
+const DOSAGE_AF_BF_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Enjeux du Dosage Acide Faible - Base Forte au Bac S2",
+    badge: "Introduction",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass de Chimie des Solutions de Terminale S2. Le dosage d'un acide faible par la soude est un grand classique du Baccalauréat sénégalais. Il permet de déterminer une concentration inconnue, d'illustrer la demi-équivalence et de maîtriser les solutions tampons.",
+  },
+  {
+    timeSeconds: 45,
+    title: "2. Équation de Dosage et Équivalence Basique (pHe > 7)",
+    badge: "Réaction",
+    icon: "theoreme_equerre",
+    textScript:
+      "La réaction AH plus OH- donne A- plus H2O est quasi-totale avec une constante KR supérieure à 10 puissance 4. À l'équivalence Ca Va égal Cb VbE, tout l'acide est transformé en sa base conjuguée A-. Dans l'eau, cette base faible rend le milieu basique : le pH à l'équivalence est toujours strictement supérieur à 7 !",
+  },
+  {
+    timeSeconds: 115,
+    title: "3. Théorème de la Demi-Équivalence : pH = pKa",
+    badge: "Théorème",
+    icon: "technique_outils",
+    textScript:
+      "Au volume VbE sur 2, la moitié de l'acide a été neutralisée. La concentration en acide restant est rigoureusement égale à la concentration en base conjuguée formée. D'après Henderson-Hasselbalch, le pH mesuré est exactement égal au pKa du couple ! C'est la méthode de référence pour mesurer un pKa.",
+  },
+  {
+    timeSeconds: 180,
+    title: "4. Solutions Tampons & Applications Vitales",
+    badge: "Stabilité",
+    icon: "rigueur_compas",
+    textScript:
+      "Une solution tampon résiste aux ajouts modérés d'acide fort ou de base forte, et son pH est insensible à la dilution. Cette propriété est essentielle pour la vie : le pH de notre sang est régulé à 7,4 par les tampons biologiques. On la prépare par demi-neutralisation ou mélange équimolaire.",
+  },
+  {
+    timeSeconds: 245,
+    title: "5. Choix de l'Indicateur Coloré (Phénolphtaléine)",
+    badge: "Méthode",
+    icon: "cible_reflexe",
+    textScript:
+      "Pour repérer l'équivalence, la zone de virage de l'indicateur doit encadrer le pH à l'équivalence. Comme pHe se situe entre 8 et 9, seule la phénolphtaléine, dont la zone est 8,2 à 10, convient parfaitement. Le bleu de bromothymol virerait trop tôt et l'hélianthine est proscrite !",
   },
 ];
 
@@ -1878,7 +1924,30 @@ if (lessonMeta && lessonMeta.status !== 'published') {
       params.lesson === '60000000-0000-0001-0001-000000000019' ||
       params.chapter === '50000000-0000-0001-0001-000000000007');
 
+  const isDosageAcideFaibleBaseForte =
+    !isAlcools &&
+    !isAmines &&
+    !isAcidesDerives &&
+    !isCinetique &&
+    !isAutoprotolysePh &&
+    !isAcideFortBaseForte &&
+    !isAcideFaibleBaseFaible &&
+    (lessonMeta.title.toLowerCase().includes('dosage acide faible') ||
+      lessonMeta.title.toLowerCase().includes('effet tampon') ||
+      lessonMeta.title.toLowerCase().includes('demi-équivalence') ||
+      lessonMeta.title.toLowerCase().includes('demi-equivalence') ||
+      lessonMeta.title.toLowerCase().includes('solution tampon') ||
+      lessonMeta.title.toLowerCase().includes('solutions tampons') ||
+      (chapter?.title?.toLowerCase() || '').includes('effet tampon') ||
+      (chapter?.title?.toLowerCase() || '').includes('dosage') ||
+      (chapter?.title?.toLowerCase() || '').includes('c8') ||
+      params.lesson === '60000000-0000-0001-0001-000000000020' ||
+      params.lesson === '60000000-0000-0001-0001-000000000021' ||
+      params.lesson === '60000000-0000-0001-0001-000000000022' ||
+      params.chapter === '50000000-0000-0001-0001-000000000008');
+
   const isDerivation =
+    !isDosageAcideFaibleBaseForte &&
     !isAcideFaibleBaseFaible &&
     !isAlcools &&
     !isCinetique &&
@@ -2005,6 +2074,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'Masterclass Audio : Acide Fort, Base Forte & Titrage Fort-Fort'
                     : isAcideFaibleBaseFaible
                     ? 'Masterclass Audio : Acides Faibles, Bases Faibles & pKa'
+                    : isDosageAcideFaibleBaseForte
+                    ? 'Masterclass Audio : Dosage Acide Faible / Base Forte & Effet Tampon'
                     : isTvi
                     ? 'Masterclass Audio : TVI & Théorème de la Bijection'
                     : isAsymptotes
@@ -2046,6 +2117,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'Terminale S2 • Chimie : Les 5 réflexes pour le dosage fort-fort, les tangentes et le BBT'
                     : isAcideFaibleBaseFaible
                     ? 'Terminale S2 • Chimie : Les 5 réflexes pour Ka, Henderson et Ostwald au Bac'
+                    : isDosageAcideFaibleBaseForte
+                    ? 'Terminale S2 • Chimie : Les 5 réflexes pour le dosage faible-fort, l\'effet tampon et le pKa'
                     : isTvi
                     ? 'Terminale S2 • Les 5 réflexes pour la Partie A & B'
                     : isAsymptotes
@@ -2087,6 +2160,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? ACIDE_FORT_BASE_FORTE_AUDIO_CHAPTERS
                     : isAcideFaibleBaseFaible
                     ? ACIDE_FAIBLE_BASE_FAIBLE_AUDIO_CHAPTERS
+                    : isDosageAcideFaibleBaseForte
+                    ? DOSAGE_AF_BF_AUDIO_CHAPTERS
                     : isTvi
                     ? TVI_AUDIO_CHAPTERS
                     : isAsymptotes
@@ -2166,6 +2241,11 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <>
                   <AcideFaibleBaseFaibleReflexesCard />
                   <AcideFaibleBaseFaibleInteractiveSimulator />
+                </>
+              ) : isDosageAcideFaibleBaseForte ? (
+                <>
+                  <DosageAcideFaibleBaseForteReflexesCard />
+                  <DosageAcideFaibleBaseForteInteractiveSimulator />
                 </>
               ) : isTvi ? (
                 <>
@@ -2274,6 +2354,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'acide_fort_base_forte'
                     : isAcideFaibleBaseFaible
                     ? 'acide_faible_base_faible'
+                    : isDosageAcideFaibleBaseForte
+                    ? 'dosage_acide_faible_base_forte'
                     : isTvi
                     ? 'tvi'
                     : isAsymptotes
@@ -2324,6 +2406,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <AcideFortBaseForteQuizEmbedded />
               ) : isAcideFaibleBaseFaible ? (
                 <AcideFaibleBaseFaibleQuizEmbedded />
+              ) : isDosageAcideFaibleBaseForte ? (
+                <DosageAcideFaibleBaseForteQuizEmbedded />
               ) : isTvi ? (
                 <TviQuizEmbedded />
               ) : isAsymptotes ? (

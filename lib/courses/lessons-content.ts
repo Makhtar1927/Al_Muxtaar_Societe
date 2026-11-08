@@ -2328,13 +2328,226 @@ $$\\mathbf{pK_a + pK_b = pK_e = 14{,}00}$$
 > - « Bu [Base] = [Acide], pH bi day yem ci pKa bi rek ! Ci diagramme bi, dañuy croiser ci 50-50 ci pKa exact. »
 > - « Loi Ostwald : boo yokkee ndox (dilution), alpha bi day yokk ndax molécules yi dañuy gën a xàjjikoo, waaye pH bi day yéeg jëm 7 ! »
 `;
-/*
-\`
-};
 
-*/
+RICH_LESSONS_MAP.dosage_acide_faible_base_forte = `# C8 : Réaction Acide Faible / Base Forte, Effet Tampon et Dosages (Terminale S2)
+
+Bienvenue dans le huitième chapitre de **Chimie de Terminale S2**, rigoureusement conforme au programme officiel sénégalais (MEN / IGEF / Office du Baccalauréat).
+
+L'étude du dosage d'un acide faible par une base forte et la notion de **solution tampon** constituent un sujet récurrent et hautement valorisé au Baccalauréat sénégalais (exercices de chimie notés sur 4 à 6 points). Ce chapitre fait le lien direct entre les équilibres chimiques partiels du chapitre C7 et les applications pratiques au laboratoire et en médecine.
+
+---
+
+## 1. Caractéristiques de la Réaction de Dosage
+
+Soit un acide faible noté $\\text{AH}$ (ex : acide éthanoïque $\\text{CH}_3\\text{COOH}$) dosé par une solution aqueuse de soude $(\\text{Na}^+ + \\text{OH}^-)$ de concentration connue $C_b$.
+
+### 1.1 Équation-bilan du dosage
+Les ions sodium $\\text{Na}^+$ étant des ions spectateurs (indifférents), l'équation de la réaction s'écrit :
+$$\\text{AH} + \\text{OH}^- \\xrightarrow{K_R} \\text{A}^- + \\text{H}_2\\text{O}$$
+
+### 1.2 Constante de réaction $K_R$
+La constante de la réaction de dosage s'exprime en fonction de la constante d'acidité $K_a$ du couple et du produit ionique de l'eau $K_e$ :
+$$K_R = \\frac{[\\text{A}^-]}{[\\text{AH}][\\text{OH}^-]} = \\frac{[\\text{A}^-][\\text{H}_3\\text{O}^+]}{[\\text{AH}]} \\times \\frac{1}{[\\text{H}_3\\text{O}^+][\\text{OH}^-]} = \\frac{K_a}{K_e} = 10^{14 - pK_a}$$
+
+*Exemple type Bac S2 :* Pour l'acide éthanoïque ($pK_a = 4{,}8$ à $25^\\circ\\text{C}$) :
+$$K_R = 10^{14 - 4{,}8} = 10^{9{,}2} \\approx 1{,}58 \\times 10^9 \\gg 10^4$$
+
+> [!THEOREME] **Propriétés de la Réaction de Dosage :**
+> Puisque $K_R \\gg 10^4$, la réaction de dosage est :
+> 1. **Quasi-totale (quantitative) :** le réactif limitant est intégralement consommé. On l'écrit avec une **flèche simple ($\to$)**.
+> 2. **Rapide :** l'équilibre chimique est atteint de manière quasi-instantanée dès l'ajout de la goutte de soude.
+> 3. **Unique et exothermique :** aucune réaction parasite ne vient perturber la stœchiométrie du titrage.
+
+---
+
+## 2. Allure de la Courbe de Titrage $pH = f(V_b)$
+
+La courbe obtenue lors du titrage pH-métrique d'un acide faible par une base forte présente une forme en "S" asymétrique caractérisée par **quatre zones fondamentales** :
+
+![Figure 1 : Courbe caractéristique de dosage acide faible - base forte avec méthode des tangentes et demi-équivalence](/assets/pedagogie/dosage_acide_faible_base_forte_courbe.svg)
+
+### 2.1 Les 4 zones remarquables de la courbe :
+1. **Point initial ($V_b = 0$) :**
+   La solution ne contient que l'acide faible à la concentration $C_a$. Le pH est supérieur à celui d'un acide fort de même concentration :
+   $$\\text{pH}_0 \\approx \\frac{1}{2}(pK_a - \\log C_a)$$
+2. **Zone de courbure initiale :**
+   Le pH remonte d'abord rapidement sur les premiers millilitres en raison de la neutralisation des premiers ions $\\text{H}_3\\text{O}^+$, puis la pente s'adoucit très nettement.
+3. **Plateau de demi-équivalence (Zone Tampon) :**
+   Entre $0{,}2 V_{bE}$ et $0{,}8 V_{bE}$, la courbe présente une très faible pente. Le pH varie très lentement : c'est le **domaine de l'effet tampon**.
+4. **Saut de pH à l'équivalence :**
+   Un saut brusque de pH se produit au voisinage de $V_{bE}$, d'amplitude plus faible (environ 4 à 5 unités de pH) que pour un dosage fort-fort (environ 6 à 7 unités).
+5. **Palier supérieur basique ($V_b > V_{bE}$) :**
+   Le pH tend asymptotiquement vers celui de la soude versée en excès.
+
+---
+
+## 3. Le Point d'Équivalence $E(V_{bE}, pH_E)$
+
+### 3.1 Définition et relation d'équivalence
+L'équivalence est atteinte lorsque les quantités de matière d'acide initialement présent et de base forte versée sont dans les proportions stœchiométriques :
+$$n_a = n_b \\iff C_a V_a = C_b V_{bE} \\implies C_a = \\frac{C_b V_{bE}}{V_a}$$
+
+### 3.2 Nature acido-basique du milieu à l'équivalence : $\\text{pH}_E > 7$
+> [!ATTENTION] **Le Piège Éliminatoire N°1 au Baccalauréat Sénégalais :**
+> Contrairement au dosage d'un acide fort par une base forte où $\\text{pH}_E = 7{,}00$, pour un acide faible dosé par une base forte, **le pH à l'équivalence est TOUJOURS STRICTEMENT SUPÉRIEUR À 7 à $25^\\circ\\text{C}$ ($\\text{pH}_E > 7$)** !
+
+*Démonstration exigée au Bac :*
+À l'équivalence, tout l'acide $\\text{AH}$ a été converti en sa base conjuguée $\\text{A}^-$. Le mélange final est une solution aqueuse de base faible de concentration :
+$$C'_b = \\frac{C_a V_a}{V_a + V_{bE}} = \\frac{C_b V_{bE}}{V_a + V_{bE}}$$
+Dans l'eau, cette base faible subit une hydrolyse partielle génératrice d'ions hydroxyde :
+$$\\text{A}^- + \\text{H}_2\\text{O} \\rightleftharpoons \\text{AH} + \\text{OH}^-$$
+La présence de ces ions $\\text{OH}^-$ confère à la solution un caractère basique. La formule approchée donne :
+$$\\text{pH}_E = 7 + \\frac{1}{2} pK_a + \\frac{1}{2}\\log C'_b > 7$$
+
+### 3.3 Détermination graphique de l'équivalence : Méthode des Tangentes Parallèles
+Pour repérer expérimentalement $E(V_{bE}, \\text{pH}_E)$ :
+1. Tracer deux tangentes parallèles à la courbe de part et d'autre du point d'inflexion (l'une avant le saut, l'autre après).
+2. Tracer une droite perpendiculaire commune à ces deux tangentes.
+3. Déterminer le milieu de ce segment perpendiculaire et tracer la droite médiane équidistante (parallèle aux deux premières tangentes).
+4. L'intersection de la médiane avec la courbe de titrage donne exactement le **point d'équivalence $E$**.
+
+---
+
+## 4. La Demi-Équivalence : Détermination Graphique du $pK_a$
+
+### 4.1 Théorème fondamental de la demi-équivalence
+Lorsque le volume de soude versé correspond à la moitié du volume équivalent :
+$$V_b = \\frac{V_{bE}}{2}$$
+Exactement la moitié de la quantité initiale d'acide faible a été neutralisée et transformée en base conjuguée $\\text{A}^-$ :
+$$n(\\text{AH})_{\\text{restant}} = C_a V_a - C_b \\left(\\frac{V_{bE}}{2}\\right) = C_a V_a - \\frac{C_a V_a}{2} = \\frac{C_a V_a}{2}$$
+$$n(\\text{A}^-)_{\\text{formé}} = C_b V_b = \\frac{C_a V_a}{2}$$
+Ainsi :
+$$[\\text{AH}] = [\\text{A}^-] \\iff \\frac{[\\text{A}^-]}{[\\text{AH}]} = 1$$
+
+En appliquant la relation d'Henderson-Hasselbalch :
+$$\\text{pH} = pK_a + \\log\\left(\\frac{[\\text{A}^-]}{[\\text{AH}]}\\right) = pK_a + \\log(1) = pK_a + 0 = pK_a$$
+
+> [!THEOREME] **Règle d'or du Bac S2 :**
+> À la demi-équivalence ($V_b = \\frac{V_{bE}}{2}$), l'ordonnée lue sur la courbe de dosage donne directement la valeur du **$pK_a$ du couple acide/base dosé** !
+> $$\boxed{\\text{pH}\\left(\\frac{V_{bE}}{2}\\right) = pK_a}$$
+
+*Propriété géométrique :* En ce point de demi-équivalence, la pente de la courbe $\\dfrac{d\\text{pH}}{dV_b}$ est **minimale**. La solution y présente sa résistance maximale aux variations de pH.
+
+---
+
+## 5. Les Solutions Tampons & Effet Tampon
+
+### 5.1 Définition officielle
+Une **solution tampon** est une solution dont le pH varie très peu :
+- Lors d'un ajout modéré d'acide fort ou de base forte.
+- Lors d'une dilution modérée avec de l'eau distillée.
+
+Elle est constituée d'un mélange équimolaire ou de concentrations très voisines d'un acide faible et de sa base conjuguée :
+$$[\\text{AH}] \\approx [\\text{A}^-]$$
+
+> [!WOLOF] **Xam-xam ci Wolof :** Solution tampon dafa melni nit ku am kersa ak dal : boo ko tënkee tuuti acide walla base, du soppiku dara ! pH bi dafay taxaw temm. Ni la sunu deret dunde : pH 7,4 rekk la wara nekk, tampon bi moo koy samm !
+
+### 5.2 Pourquoi le pH d'une solution tampon est-il stable ?
+1. **Lors d'un ajout d'ions $\\text{H}_3\\text{O}^+$ (acide fort) :**
+   Les protons ajoutés réagissent immédiatement avec la base faible $\\text{A}^-$ présente en grande quantité :
+   $$\\text{A}^- + \\text{H}_3\\text{O}^+ \\to \\text{AH} + \\text{H}_2\\text{O}$$
+   Les ions $\\text{H}_3\\text{O}^+$ parasites sont ainsi détruits et convertis en molécules d'acide faible.
+2. **Lors d'un ajout d'ions $\\text{OH}^-$ (base forte) :**
+   Les ions hydroxydes réagissent immédiatement avec l'acide faible $\\text{AH}$ :
+   $$\\text{AH} + \\text{OH}^- \\to \\text{A}^- + \\text{H}_2\\text{O}$$
+   Les ions $\\text{OH}^-$ sont détruits et convertis en base conjuguée.
+3. **Lors d'une dilution :**
+   D'après Henderson-Hasselbalch, $\\text{pH} = pK_a + \\log\\left(\\dfrac{n(\\text{A}^-)}{n(\\text{AH})}\\right)$. L'ajout d'eau distillée augmente le volume total mais ne modifie pas les quantités de matière $n(\\text{A}^-)$ et $n(\\text{AH})$. Le rapport reste inchangé, donc le pH ne varie pas !
+
+### 5.3 Les 3 Méthodes de Préparation d'une Solution Tampon au Laboratoire
+Au Baccalauréat sénégalais, la description du protocole expérimental de préparation d'une solution tampon est un classique absolu :
+
+| Méthode | Protocole Expérimental | Justification Chimique |
+| :--- | :--- | :--- |
+| **1. Mélange équimolaire direct** | Mélanger des volumes égaux d'acide faible $\\text{AH}$ et de son sel de sodium $\\text{NaA}$ à même concentration $C_0$. | $[\\text{AH}] = [\\text{A}^-] \\implies \\text{pH} = pK_a$. |
+| **2. Demi-neutralisation d'un acide faible par une base forte** | À un volume $V_a$ d'acide faible de concentration $C_a$, verser un volume $V_b = \\dfrac{V_{bE}}{2} = \\dfrac{C_a V_a}{2 C_b}$ de soude NaOH. | On neutralise la moitié de l'acide $\\implies$ Demi-équivalence $\\implies \\text{pH} = pK_a$. |
+| **3. Demi-neutralisation d'une base faible par un acide fort** | À un volume $V_b$ de base faible (ex: $\\text{NH}_3$) de concentration $C_b$, verser un volume d'acide chlorhydrique $V_a = \\dfrac{V_{aE}}{2}$. | On neutralise la moitié de la base faible $\\implies$ Formation de son acide conjugué $\\implies [\\text{B}] = [\\text{BH}^+]$. |
+
+---
+
+## 6. Choix de l'Indicateur Coloré Convenable
+
+Pour détecter visuellement l'équivalence lors d'un dosage colorimétrique sans pH-mètre :
+> [!CONSEIL_BAC] **Critère Impératif de Choix :**
+> La **zone de virage** de l'indicateur coloré doit **englober impérativement la valeur du pH au point d'équivalence $\\text{pH}_E$** :
+> $$\boxed{\\text{pH}_E \\in [\\text{p}K_i - 1 \,;\, \text{p}K_i + 1]}$$
+
+*Comparatif pour le dosage acide faible / base forte ($\\text{pH}_E \\approx 8{,}5 - 9{,}0$) :*
+- **Phénolphtaléine (Zone de virage : 8,2 – 10,0) :**
+  Passage d'incolore à rose fuchsia persistant. Puisque $\\text{pH}_E \\in [8{,}2 \,;\, 10{,}0]$, la phénolphtaléine est l'indicateur **parfait, idéal et rigoureusement adapté**.
+- **Bleu de bromothymol BBT (Zone de virage : 6,0 – 7,6) :**
+  Vire du jaune au bleu en passant par le vert à $\\text{pH} = 7{,}0$. Or, à $\\text{pH} = 7{,}0$, l'équivalence n'est pas encore atteinte pour un acide faible ! Le virage se produit prématurément. Le BBT est donc **inadapté ou très imprécis**.
+- **Hélianthine (Zone de virage : 3,1 – 4,4) :**
+  Vire dès le tout début du dosage. Totalement **inutilisable**.
+
+---
+
+## 7. Problème Type Baccalauréat Sénégal S2 Corrigé Pas à Pas
+
+> [!BAC_SENEGAL] **Énoncé Officiel Type Bac S2 :**
+> On prélève un volume $V_a = 20\\text{ mL}$ d'une solution aqueuse d'acide éthanoïque $\\text{CH}_3\\text{COOH}$ de concentration molaire $C_a$ inconnue.
+> On réalise le dosage pH-métrique par une solution de soude de concentration $C_b = 0{,}10\\text{ mol/L}$.
+> 1. Écrire l'équation de la réaction du dosage.
+> 2. Le volume de soude versé à l'équivalence déterminé par la méthode des tangentes est $V_{bE} = 16\\text{ mL}$ et $\\text{pH}_E = 8{,}8$.
+>    a) Calculer la concentration $C_a$ de l'acide éthanoïque.
+>    b) Justifier pourquoi $\\text{pH}_E > 7$.
+> 3. Déterminer le volume $V_{b\\frac{1}{2}}$ à la demi-équivalence et en déduire la valeur du $pK_a$ du couple sachant que le pH mesuré à ce volume vaut $4{,}8$.
+> 4. Parmi les indicateurs suivants, lequel choisirez-vous ? Justifier.
+>    - Hélianthine : 3,1 – 4,4
+>    - Bleu de bromothymol : 6,0 – 7,6
+>    - Phénolphtaléine : 8,2 – 10,0
+> 5. On souhaite préparer $V = 100\\text{ mL}$ d'une solution tampon de $\\text{pH} = 4{,}8$ en utilisant la solution d'acide et la solution de soude précédentes. Décrire le protocole opératoire précis.
+
+### Correction Détaillée et Barème de Notation :
+
+**1. Équation de la réaction :**
+$$\\text{CH}_3\\text{COOH} + \\text{OH}^- \\to \\text{CH}_3\\text{COO}^- + \\text{H}_2\\text{O}$$
+*(1 point)* Flèche simple obligatoire car la réaction est quasi-totale ($K_R \\gg 10^4$).
+
+**2. a) Calcul de $C_a$ :**
+À l'équivalence : $C_a V_a = C_b V_{bE} \\implies C_a = \\dfrac{C_b V_{bE}}{V_a}$ :
+$$C_a = \\frac{0{,}10 \\times 16}{20} = 0{,}08\\text{ mol/L}$$
+*(1 point)*
+
+**2. b) Justification de $\\text{pH}_E > 7$ :**
+À l'équivalence, tout l'acide éthanoïque a été transformé en sa base conjuguée, l'ion éthanoate $\\text{CH}_3\\text{COO}^-$. La solution obtenue est une solution aqueuse de base faible qui réagit partiellement avec l'eau selon :
+$$\\text{CH}_3\\text{COO}^- + \\text{H}_2\\text{O} \\rightleftharpoons \\text{CH}_3\\text{COOH} + \\text{OH}^-$$
+La formation d'ions $\\text{OH}^-$ confère un caractère basique au milieu, d'où $\\text{pH}_E = 8{,}8 > 7$. *(1 point)*
+
+**3. Demi-équivalence et $pK_a$ :**
+$$V_{b\\frac{1}{2}} = \\frac{V_{bE}}{2} = \\frac{16}{2} = 8\\text{ mL}$$
+À ce volume, $[\\text{CH}_3\\text{COOH}] = [\\text{CH}_3\\text{COO}^-]$, donc $\\text{pH} = pK_a + \\log(1) = pK_a$.
+D'où :
+$$pK_a = \\text{pH}(8\\text{ mL}) = 4{,}8$$
+*(1 point)*
+
+**4. Choix de l'indicateur coloré :**
+L'indicateur convenable doit avoir sa zone de virage contenant $\\text{pH}_E = 8{,}8$.
+Seule la **phénolphtaléine** dont la zone de virage est $[8{,}2 \,;\, 10{,}0]$ contient $8{,}8$. *(1 point)*
+
+**5. Protocole de préparation de la solution tampon :**
+Pour obtenir une solution tampon de $\\text{pH} = 4{,}8 = pK_a$, il faut se placer à la demi-équivalence :
+$$n(\\text{OH}^-) = \\frac{1}{2} n_0(\\text{AH}) \\iff C_b V_b = \\frac{1}{2} C_a V_a \\implies V_b = \\frac{C_a V_a}{2 C_b} = \\frac{0{,}08 V_a}{2 \\times 0{,}10} = 0{,}4 V_a$$
+Le volume total souhaité est $V = V_a + V_b = V_a + 0{,}4 V_a = 1{,}4 V_a = 100\\text{ mL}$.
+$$V_a = \\frac{100}{1{,}4} \\approx 71{,}4\\text{ mL}$$
+$$V_b = 100 - 71{,}4 = 28{,}6\\text{ mL}$$
+*Protocole :* À l'aide d'une burette graduée ou de pipettes jaugées, prélever $71{,}4\\text{ mL}$ de la solution d'acide éthanoïque et y ajouter $28{,}6\\text{ mL}$ de la solution de soude. Agiter soigneusement : la solution obtenue a un volume de $100\\text{ mL}$ et un pH stable de $4{,}80$. *(1 point)*
+`;
+
 export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: string, rawContent: string | null): string {
   const titleLower = `${lessonTitle} ${chapterTitle}`.toLowerCase();
+
+  if (
+    titleLower.includes('dosage acide faible') ||
+    titleLower.includes('effet tampon') ||
+    titleLower.includes('tampon') ||
+    titleLower.includes('demi-équivalence') ||
+    titleLower.includes('demi-equivalence') ||
+    titleLower.includes('dosage') ||
+    titleLower.includes('c8')
+  ) {
+    return RICH_LESSONS_MAP.dosage_acide_faible_base_forte;
+  }
 
   if (
     titleLower.includes('acide faible') ||
