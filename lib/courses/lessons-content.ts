@@ -2220,91 +2220,254 @@ On tire successivement et sans remise $3$ boules de l'urne.
 > - « **Pascal ak Newton :** $(a+b)^n = \\sum C_n^k a^{n-k} b^k$ te somme des coefficients $C_n^k$ mooy $2^n$ ! »
 `,
 
-  probabilites:`# Chapitre M12 : Probabilités Conditionnelles et Variables Aléatoires (Terminale S2)
+  probabilites: `# Chapitre M12 : Probabilités (Terminale S2)
 
-Bienvenue dans ce cours d'excellence consacré au **Dénombrement et aux Probabilités**, un chapitre classique et stratégique du **Baccalauréat Scientifique (Série S2)** au Sénégal (exercice noté sur 4 à 5 points).
+Bienvenue dans ce cours d'excellence dédié aux **Probabilités**, chapitre central et stratégique du **Baccalauréat Scientifique (Série S2)** au Sénégal (exercice noté sur 4 à 5 points, souvent dans l'exercice d'analyse).
 
----
-
-## 1. Dénombrement & Modèles de Tirages
-
-L'étape cruciale consiste à identifier immédiatement le type de tirage décrit dans l'énoncé de l'exercice :
-
-![Figure 1 : Les 3 modèles fondamentaux de tirages et les probabilités au Bac S2](/assets/pedagogie/denombrement_probabilites_modeles.svg)
-
-![Figure 1b : Métaphore concrète au Sénégal : Les 3 Tirages & la Loi Binomiale](/assets/pedagogie/probabilites_vie_reelle_tirage_urne.svg)
-
-> [!VIE_REELLE] Les tirages en probabilités correspondent exactement à des situations de la vie quotidienne au Sénégal :
-> - **Tirage simultané ($C_n^p$) :** Choisir une délégation de 3 élèves pour représenter le lycée au Concours Général. L'ordre n'a aucune importance, ils partent tous ensemble dans le même véhicule !
-> - **Tirage successif sans remise ($A_n^p$) :** Attribuer le 1er prix, le 2e prix et le 3e prix à un tournoi de lutte ou de football (Navétanes). Ici, l'ordre est capital : être 1er n'est pas être 3e, et un même joueur ne peut pas occuper deux marches du podium !
-> - **Tirage successif avec remise ($n^p$) :** Composer un code secret Wave ou Orange Money à 4 chiffres : l'ordre compte (le code 1234 est différent de 4321) et on peut répéter le même chiffre (ex : 7777).
-
-> [!WOLOF] **Xam-xam ci Wolof :** Tirages ci probabilités dafa am ñetti mbootaay yu leer :
-> - **Simultané ($C_n^p$) :** Da ngay xëp loxo bi ci mbuus mi jël ñetti mbir ci benn yoon (melni tànn ñetti xarit ñu dem marché). Ordre amul benn solo !
-> - **Successif sans remise ($A_n^p$) :** Da ngay jël kenn ci ginnaaw kenn te koo jël du dellu (melni joxe 1er prix, ñaareel prix ak ñetteel prix ci lamb). Ordre am na solo lool !
-> - **Successif avec remise ($n^p$) :** Da ngay jël nga dellodi ko (melni code secret Wave bi ngay bind ci sa téléphone : mën nga bind 0000) !
-> - **Réflexe « Au moins un » :** Boo déggee « au moins benn », bu ko gëstoo benn-benn ! Bindal rek : $1 - P(\\text{benna amul})$, mooy tax ngay am point yépp ci 10 secondes !
-
-### Tableau de Synthèse des 3 Tirages Classiques :
-
-| Type de Tirage | L'ordre compte-t-il ? | Répétition possible ? | Outil mathématique & Formule |
-| :--- | :---: | :---: | :--- |
-| **Simultané** (en même temps) | **NON** | NON | **Combinaisons :** $C_n^p = \\binom{n}{p} = \\frac{n!}{p!(n-p)!}$ |
-| **Successif SANS remise** | **OUI** | NON | **Arrangements :** $A_n^p = \\frac{n!}{(n-p)!}$ |
-| **Successif AVEC remise** | **OUI** | **OUI** | **P-listes :** $n^p$ |
-
-> [!METHODE] **La formule fondamentale de l'équiprobabilité :**
-> Si tous les tirages élémentaires ont la même chance de se produire dans l'univers $\\Omega$ :
-> $$P(A) = \\frac{\\text{Card}(A)}{\\text{Card}(\\Omega)} = \\frac{\\text{Nombre de cas favorables}}{\\text{Nombre de cas possibles}}$$
+Les probabilités permettent de **quantifier l'incertitude** : elles sont le prolongement naturel du Dénombrement (M11) et constituent le socle de la statistique moderne.
 
 ---
 
-## 2. Événements, Opérations et Formules Clés
+## 1. Rappels Fondamentaux & Vocabulaire
 
-Soient $A$ et $B$ deux événements d'un univers $\\Omega$ :
-- **Probabilité de la réunion :**
-  $$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$
-- **Événements incompatibles (disjoints) :** Si $A \\cap B = \\emptyset$, alors $P(A \\cup B) = P(A) + P(B)$.
-- **Événement contraire :** $P(\\overline{A}) = 1 - P(A)$.
-  > [!ASTUCE] Le réflexe de l'événement contraire est indispensable dès que l'énoncé contient l'expression :
-  > **« Obtenir AU MOINS un... »** $\\implies P(\\text{Au moins un}) = 1 - P(\\text{Aucun})$.
+### 1.1 Univers, Événements et Probabilité
+
+Soit une expérience aléatoire. On note :
+- $\\Omega$ : l'**univers** (ensemble de tous les résultats possibles, appelés issues).
+- $A, B, C, \\dots$ : des **événements** (sous-ensembles de $\\Omega$).
+- $\\bar{A}$ (ou $A^c$) : l'**événement contraire** de $A$ : toutes les issues de $\\Omega$ qui ne sont pas dans $A$.
+
+**Propriétés fondamentales d'une probabilité $P$ :**
+$0 \\le P(A) \\le 1, \\qquad P(\\Omega) = 1, \\qquad P(\\emptyset) = 0$
+$P(\\bar{A}) = 1 - P(A)$
+
+**Incompatibilité :** $A$ et $B$ sont **incompatibles** (ou disjoints) si $A \\cap B = \\emptyset$. Dans ce cas :
+$P(A \\cup B) = P(A) + P(B)$
+
+**Cas général (additivité) :**
+$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$
+
+**Équiprobabilité :** Si toutes les issues sont équiprobables :
+$P(A) = \\frac{\\text{Card}(A)}{\\text{Card}(\\Omega)}$
+
+> [!VIE_REELLE] **Analogie Sénégalaise — Match de football :**
+> Un match de Navétanes entre Parcelles Assainies et Médina. L'univers $\\Omega = \\{$victoire PA, victoire Médina, match nul$\\}$. Si les équipes sont équilibrées : $P(\\text{victoire PA}) = 1/3$.
+> L'événement contraire de « victoire PA » est « PA ne gagne pas » = victoire Médina **OU** nul.
+> $P(\\bar{A}) = 1 - 1/3 = 2/3$.
+
+> [!WOLOF] **Xam-xam ci Wolof :**
+> « Probabilité $P(A)$ mooy yéen fate bu am na ci $A$ ci 100 xob ci Dieu. $P(\\Omega) = 1$ mooy dafa am ci wàllu bi. $P(\\bar{A}) = 1 - P(A)$ mooy lu amul ci $A$ ».
 
 ---
 
-## 3. Probabilités Conditionnelles & Formule des Probabilités Totales
+## 2. Probabilités Conditionnelles
 
-### 3.1 Probabilité Conditionnelle
-Soit $B$ un événement de probabilité non nulle ($P(B) > 0$). La probabilité de $A$ sachant que $B$ est réalisé est :
-$$P_B(A) = P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)} \\iff P(A \\cap B) = P(B) \\times P_B(A)$$
+### Définition
 
-### 3.2 Indépendance de deux événements
+Soient $A$ et $B$ deux événements avec $P(B) \\neq 0$. La **probabilité conditionnelle** de $A$ sachant $B$ est :
+
+$P_B(A) = P(A | B) = \\frac{P(A \\cap B)}{P(B)}$
+
+**Interprétation :** C'est la probabilité que $A$ se réalise, si l'on sait déjà que $B$ s'est réalisé.
+
+**Conséquence directe :**
+$P(A \\cap B) = P(B) \\times P_B(A) = P(A) \\times P_A(B)$
+
+### 2.1 Événements Indépendants
+
 $A$ et $B$ sont **indépendants** si et seulement si :
-$$P(A \\cap B) = P(A) \\times P(B) \\iff P_B(A) = P(A)$$
+$P(A \\cap B) = P(A) \\times P(B)$
 
-### 3.3 Formule des Probabilités Totales (Partition de l'univers)
-Si une famille d'événements $\\{B_1, B_2, \\dots, B_n\\}$ forme une partition de $\\Omega$ (par exemple $B$ et $\\overline{B}$) :
-$$P(A) = P(A \\cap B) + P(A \\cap \\overline{B}) = P(B) \\cdot P_B(A) + P(\\overline{B}) \\cdot P_{\\overline{B}}(A)$$
+Équivalences : $A$ et $B$ indépendants $\\iff$ $P_B(A) = P(A)$ $\\iff$ $P_A(B) = P(B)$.
+
+> [!NOTE] **Attention — Indépendance ≠ Incompatibilité !**
+> - **Incompatibles :** $A$ et $B$ ne peuvent pas se produire en même temps ($A \\cap B = \\emptyset$).
+> - **Indépendants :** La réalisation de l'un ne modifie pas la probabilité de l'autre.
+> Ces deux notions sont souvent confondues au Bac. Si $P(A) > 0$ et $P(B) > 0$ : deux événements incompatibles ne peuvent **pas** être indépendants (car $P(A \\cap B) = 0 \\neq P(A)P(B)$).
+
+> [!VIE_REELLE] **Exemple Sénégalais :**
+> On lance un dé et on tire une carte dans un jeu. Ces deux actions sont **indépendantes** : le résultat du dé n'influence en rien la carte tirée.
+>
+> En revanche : on tire une boule dans une urne (sans remise), puis une seconde. La 2ème boule **dépend** de la première (car l'urne a changé après le premier tirage).
 
 ---
 
-## 4. Variables Aléatoires & Schéma de Bernoulli
+## 3. Formule des Probabilités Totales
 
-Une variable aléatoire discrète $X$ associe un nombre réel à chaque issue de l'univers $\\Omega$.
+### Système Complet d'Événements
 
-### 4.1 Loi de probabilité, Espérance et Variance
-- **Loi de probabilité :** Tableau associant chaque valeur possible $x_i$ à sa probabilité $P(X = x_i)$, avec la vérification obligatoire : $\\sum P(X = x_i) = 1$.
-- **Espérance mathématique (valeur moyenne) :**
-  $$E(X) = \\sum_{i=1}^k x_i \\cdot P(X = x_i)$$
-  *(Un jeu est dit **équitable** si $E(X) = 0$)*.
-- **Variance :** $V(X) = E(X^2) - [E(X)]^2 = \\sum x_i^2 P(X = x_i) - [E(X)]^2$.
-- **Écart-type :** $\\sigma(X) = \\sqrt{V(X)}$.
+Des événements $A_1, A_2, \\dots, A_k$ forment un **système complet** (partition de $\\Omega$) si :
+1. Ils sont deux à deux incompatibles : $A_i \\cap A_j = \\emptyset$ pour $i \\neq j$.
+2. Ils recouvrent $\\Omega$ : $A_1 \\cup A_2 \\cup \\dots \\cup A_k = \\Omega$.
+3. Chaque $P(A_i) > 0$.
 
-### 4.2 La Loi Binomiale $\\mathcal{B}(n, p)$
-Lorsqu'on répète $n$ fois de manière indépendante une même épreuve de Bernoulli n'ayant que deux issues (Succès avec probabilité $p$, Échec avec probabilité $q = 1 - p$), la variable $X$ comptant le nombre de succès suit la loi binomiale $\\mathcal{B}(n, p)$ :
-$$P(X = k) = C_n^k \\cdot p^k \\cdot (1 - p)^{n - k} \\quad (k \\in \\{0, 1, \\dots, n\\})$$
+### Formule des Probabilités Totales
 
-- **Espérance :** $E(X) = n \\cdot p$
-- **Variance :** $V(X) = n \\cdot p \\cdot (1 - p)$
+Pour tout événement $B$ :
+$P(B) = \\sum_{i=1}^{k} P(A_i) \\times P_{A_i}(B) = P(A_1)P_{A_1}(B) + P(A_2)P_{A_2}(B) + \\dots + P(A_k)P_{A_k}(B)$
+
+**Cas particulier (partition en 2) :** $A$ et $\\bar{A}$ forment toujours une partition de $\\Omega$ :
+$P(B) = P(A) \\times P_A(B) + P(\\bar{A}) \\times P_{\\bar{A}}(B)$
+
+> [!TIP] **L'Arbre Pondéré : l'outil indispensable au Bac S2**
+> L'arbre pondéré est la traduction visuelle de la formule des probabilités totales.
+> - Chaque **branche** porte une probabilité.
+> - Le produit des probabilités le long d'un chemin donne la probabilité de l'intersection des événements.
+> - La **somme** des probabilités de tous les chemins menant à $B$ donne $P(B)$ (formule des proba. totales).
+> - **Vérification :** La somme des proba. issues d'un même nœud vaut toujours **1**.
+
+> [!EXEMPLE] **Exercice type Bac S2 — Urnes et Arbre pondéré :**
+> Une urne $U_1$ contient 3 boules rouges et 2 boules bleues. Une urne $U_2$ contient 1 boule rouge et 4 boules bleues. On choisit une urne au hasard ($P(U_1) = P(U_2) = 1/2$), puis on tire une boule.
+>
+> **Calculer $P(R)$ où $R$ = « la boule tirée est rouge ».**
+>
+> Arbre pondéré :
+> - Branche $U_1$ (prob. statistiques/2$) → boule rouge (prob. $3/5$) : contribue statistiques/2 \\times 3/5 = 3/10$.
+> - Branche $U_1$ (prob. statistiques/2$) → boule bleue (prob. $2/5$) : contribue statistiques/2 \\times 2/5 = 2/10$.
+> - Branche $U_2$ (prob. statistiques/2$) → boule rouge (prob. statistiques/5$) : contribue statistiques/2 \\times 1/5 = 1/10$.
+> - Branche $U_2$ (prob. statistiques/2$) → boule bleue (prob. $4/5$) : contribue statistiques/2 \\times 4/5 = 4/10$.
+> $P(R) = \\frac{1}{2} \\times \\frac{3}{5} + \\frac{1}{2} \\times \\frac{1}{5} = \\frac{3}{10} + \\frac{1}{10} = \\frac{4}{10} = \\frac{2}{5}$
+
+---
+
+## 4. Formule de Bayes (Probabilité A Posteriori)
+
+La **formule de Bayes** permet de « remonter » dans l'arbre : étant donné un résultat observé ($B$), on cherche quelle en est la cause la plus probable ($A_i$).
+
+$P_{B}(A_i) = \\frac{P(A_i) \\times P_{A_i}(B)}{P(B)} = \\frac{P(A_i \\cap B)}{\\sum_{j} P(A_j) P_{A_j}(B)}$
+
+> [!EXEMPLE] **Suite de l'exercice Urnes — Formule de Bayes :**
+> On sait que la boule tirée est rouge ($R$). Quelle est la probabilité qu'elle provienne de $U_1$ ?
+> $P_R(U_1) = \\frac{P(U_1 \\cap R)}{P(R)} = \\frac{P(U_1) \\times P_{U_1}(R)}{P(R)} = \\frac{\\frac{1}{2} \\times \\frac{3}{5}}{\\frac{2}{5}} = \\frac{\\frac{3}{10}}{\\frac{4}{10}} = \\frac{3}{4}$
+> **Interprétation :** Si l'on a tiré une boule rouge, il y a 75 % de chances qu'elle vienne de l'urne $U_1$ (qui avait plus de rouges).
+
+> [!WOLOF] **Bayes en Wolof :**
+> « Bayes mooy laajal : « Naka moo woon ak soow bi mu jeex ? » Su ma xam ne boule bi dafa weex, Bayes dafa ma jàng ndax $U_1$ walla $U_2$ la bëgg ci am bu dëkk. »
+
+---
+
+## 5. Variables Aléatoires Discrètes
+
+### Définition
+
+Une **variable aléatoire (v.a.)** $X$ est une fonction qui associe à chaque issue de $\\Omega$ un nombre réel.
+
+La **loi de probabilité** de $X$ est l'ensemble des couples $(x_i, P(X = x_i))$ avec $\\sum_i P(X = x_i) = 1$.
+
+### Espérance Mathématique $E(X)$
+
+L'**espérance** est la valeur moyenne de $X$ sur un très grand nombre d'expériences :
+
+$E(X) = \\sum_i x_i \\times P(X = x_i)$
+
+### Variance $V(X)$ et Écart-type $\\sigma(X)$
+
+La **variance** mesure la dispersion des valeurs de $X$ autour de son espérance :
+
+$V(X) = E(X^2) - [E(X)]^2 = \\sum_i x_i^2 \\cdot P(X = x_i) - [E(X)]^2$
+
+L'**écart-type** : $\\sigma(X) = \\sqrt{V(X)}$.
+
+> [!TIP] **Méthode pratique pour le Bac S2 :**
+> Dresser un tableau avec les lignes $x_i$, $P(X = x_i)$, $x_i \\cdot P(X = x_i)$, $x_i^2 \\cdot P(X = x_i)$.
+> Puis : $E(X) = \\sum x_i \\cdot P(X = x_i)$ et $V(X) = \\sum x_i^2 \\cdot P(X = x_i) - [E(X)]^2$.
+
+> [!VIE_REELLE] **Exemple Sénégalais — Jeu de Cartes :**
+> Dans un jeu de loterie sénégalais, on gagne $X$ francs CFA selon le résultat.
+> L'espérance $E(X)$ représente le gain moyen par partie sur le long terme.
+> Si $E(X) < 0$, le joueur perd en moyenne à chaque partie : le jeu n'est pas favorable !
+
+---
+
+## 6. La Loi Binomiale $\\mathcal{B}(n, p)$
+
+### Schéma de Bernoulli
+
+Une **épreuve de Bernoulli** est une expérience aléatoire à deux issues :
+- **Succès $S$** de probabilité $p$ ($0 < p < 1$).
+- **Échec $\\bar{S}$** de probabilité $q = 1 - p$.
+
+Un **schéma de Bernoulli d'ordre $n$** consiste à répéter $n$ fois de façon **indépendante** la même épreuve de Bernoulli (même probabilité $p$).
+
+### Définition de la Loi Binomiale
+
+Soit $X$ le nombre de succès lors d'un schéma de Bernoulli d'ordre $n$ de paramètre $p$.
+
+$X$ suit la **loi binomiale** $\\mathcal{B}(n, p)$ et pour tout $k \\in \\{0, 1, \\dots, n\\}$ :
+
+$P(X = k) = \\binom{n}{k} p^k (1-p)^{n-k} = C_n^k \\, p^k \\, q^{n-k}$
+
+### Espérance et Variance de la Loi Binomiale
+
+$E(X) = np \\qquad V(X) = np(1-p) = npq \\qquad \\sigma(X) = \\sqrt{npq}$
+
+Ces formules sont **à connaître par cœur** pour le Bac S2 !
+
+> [!VIE_REELLE] **Analogie Sénégalaise — Penalty :**
+> Un grand attaquant de la Ligue 1 Sénégalaise réussit ses penalties avec une probabilité $p = 0,8$.
+> On lui accorde 5 tentatives de penalty. Soit $X$ le nombre de buts marqués.
+> $X \\sim \\mathcal{B}(5, 0,8)$.
+> - $P(X = 5) = C_5^5 \\times (0,8)^5 \\times (0,2)^0 = 1 \\times 0,32768 = 0,328$ (il marque tous les 5).
+> - $P(X = 3) = C_5^3 \\times (0,8)^3 \\times (0,2)^2 = 10 \\times 0,512 \\times 0,04 = 0,2048$.
+> - $E(X) = 5 \\times 0,8 = 4$ buts en moyenne. $V(X) = 5 \\times 0,8 \\times 0,2 = 0,8$.
+
+> [!WOLOF] **Loi Binomiale en Wolof :**
+> « Loi binomiale $\\mathcal{B}(n, p)$ dafa melni: da ngay yor $n$ xob yu ndigël te ci bépp xob bi da ngay am "succès" ak yoon $p$. $X$ mooy lolol "succès" yu may ci $n$ xob yi.
+> Formule : $P(X = k) = C_n^k \\times p^k \\times (1-p)^{n-k}$.
+> Espérance $E(X) = np$ : lu xiif ci am na "succès" bi fi ëlëk. »
+
+---
+
+## 7. Méthodes d'Or pour le Bac S2
+
+### Méthode 1 — « Au moins un » : Passer par le Contraire
+
+$P(X \\ge 1) = 1 - P(X = 0) = 1 - (1-p)^n$
+
+**Règle d'or :** Dès que l'énoncé dit « **au moins un** », calculez d'abord $P(\\text{aucun succès}) = (1-p)^n$, puis soustrayez de 1.
+
+> [!EXEMPLE] **Exemple Bac S2 :**
+> On lance 4 fois un dé équilibré. Quelle est la probabilité d'obtenir au moins un 6 ?
+> - $p = P(\\text{obtenir un 6}) = 1/6$.
+> - $P(\\text{aucun 6 en 4 lancers}) = (5/6)^4 = 625/1296$.
+> - $P(\\text{au moins un 6}) = 1 - 625/1296 = 671/1296 \\approx 0,518$.
+
+### Méthode 2 — Identifier la Loi Binomiale
+
+Vérifier que toutes les conditions sont réunies :
+1. **$n$ épreuves** identiques et **indépendantes**.
+2. Chaque épreuve a exactement **2 issues** : succès ($p$) ou échec (statistiques-p$).
+3. **$p$ est constant** à chaque épreuve.
+
+Si ces 3 conditions sont vérifiées : $X \\sim \\mathcal{B}(n, p)$.
+
+> [!CAUTION] **Pièges fréquents au Bac S2 :**
+> - Oublier que, **sans remise**, les épreuves ne sont plus indépendantes → la loi binomiale ne s'applique plus.
+> - Confondre $P(X = k)$ (exactement $k$ succès) et $P(X \\le k)$ (au plus $k$ succès).
+> - Oublier les unités dans la réponse finale (en particulier pour $E(X)$, qui a la même unité que $X$).
+
+### Méthode 3 — L'Arbre Pondéré : Structure en 2 Étapes
+
+Pour un arbre pondéré à 2 niveaux :
+- **Nœuds du 1er niveau** : causes possibles $A_1, \\dots, A_k$ avec $\\sum P(A_i) = 1$.
+- **Nœuds du 2ème niveau** : effets $B$ et $\\bar{B}$ avec $P_{A_i}(B) + P_{A_i}(\\bar{B}) = 1$.
+- **Probabilité d'un chemin** : produit des probabilités des branches.
+- **Probabilité totale de $B$** : somme des chemins menant à $B$.
+
+---
+
+## 8. Annales du Baccalauréat S2 — Section Officielle
+
+Cette section présente les **sujets officiels du Baccalauréat S2 sénégalais** en Probabilités, avec le barème exact et le corrigé pas-à-pas, conformément aux directives de l'**Office du Baccalauréat du Sénégal**.
+
+> [!IMPORTANT] **Stratégie Bac S2 — Probabilités :**
+> L'exercice de probabilités au Bac S2 suit toujours la même structure :
+> 1. **Partie A** (Dénombrement ou Probabilités classiques) : $C_n^p$, $A_n^p$, événement contraire.
+> 2. **Partie B** (Arbre pondéré) : Construction de l'arbre, probabilités totales, Bayes.
+> 3. **Partie C** (Variable aléatoire) : Loi de probabilité, espérance, variance ou loi binomiale.
+>
+> Travailler ces 3 parties dans l'ordre est toujours la bonne stratégie. Ne jamais passer à la partie suivante sans avoir terminé la précédente.
+
 `,
 
   statistiques: `# Chapitre 10 : Séries Statistiques Doubles & Ajustements Linéaires (Terminale S2)
