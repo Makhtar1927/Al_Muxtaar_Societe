@@ -49,8 +49,6 @@ function normalizeMathString(str: string): string {
     .replace(/(?<![a-zA-Z\\])mathbbR\b/g, '\\mathbb{R}')
     .replace(/(?<![a-zA-Z\\])mathbbZ\b/g, '\\mathbb{Z}')
     .replace(/(?<![a-zA-Z\\])mathbbN\b/g, '\\mathbb{N}')
-    // Si \mathbb{...} se trouve hors des dollars $...$, l'envelopper automatiquement
-    .replace(/(?<!\$)\\mathbb\{([CRZN])\}(?!\$)/g, '$\\mathbb{$1}$')
     .replace(/(?<![a-zA-Z\\])qquad(?=[a-zA-Z\\])/g, '\\qquad ')
     .replace(/(?<![a-zA-Z\\])quad(?=[a-zA-Z\\])/g, '\\quad ')
     .replace(/(?<![a-zA-Z\\])cos(?=\^|\s|\(|[0-9xX])/g, '\\cos ')
@@ -69,6 +67,8 @@ function cleanMathFormula(math: string): string {
   if (!math) return '';
   return math
     .trim()
+    // Supprime tout dollar parasite accidentellement inséré à l'intérieur d'une formule
+    .replace(/\$/g, '')
     // Répare \f \frac et \df \frac
     .replace(/\\f\s*\\frac/g, '\\frac')
     .replace(/\\df\s*\\frac/g, '\\dfrac')
