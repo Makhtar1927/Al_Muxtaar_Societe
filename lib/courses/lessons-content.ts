@@ -140,6 +140,19 @@ Le **test de Lucas** permet de distinguer rapidement la classe d'un alcool au la
 
 Bienvenue dans le premier chapitre de **Sciences Physiques (Chimie)** pour la classe de **Terminale S2**, rigoureusement aligné sur le programme officiel sénégalais (MEN / IGEF / Office du Bac).
 
+---
+
+![Figure 1 : Cinétique chimique, courbe d'avancement x(t), vitesse volumique et facteurs cinétiques](/assets/pedagogie/c4_cinetique_vitesse_facteurs.svg)
+
+> [!VIE_REELLE] **La Cinétique Chimique au Sénégal : Attaya et Réfrigérateur !**
+> - **La Température (Préparation de l'Attaya)** : Pour que les feuilles de thé vert libèrent rapidement la théine et leurs tanins, on fait bouillir l'eau sur le fourneau à charbon ardent. À haute température ($100^\circ\text{C}$), la vitesse d'extraction est multipliée par dix !
+> - **La Trempe (Conservation des aliments)** : Pourquoi met-on le reste de Ceebu Jën au réfrigérateur ? Le froid ($4^\circ\text{C}$) ralentit drastiquement la vitesse des réactions enzymatiques et bactériennes d'oxydation, prolongeant la fraîcheur du plat.
+
+---
+
+
+Bienvenue dans le premier chapitre de **Sciences Physiques (Chimie)** pour la classe de **Terminale S2**, rigoureusement aligné sur le programme officiel sénégalais (MEN / IGEF / Office du Bac).
+
 La cinétique chimique est la branche de la chimie qui étudie la **vitesse des transformations chimiques** et les facteurs expérimentaux qui permettent de les accélérer, de les ralentir ou de les figer.
 
 ---
@@ -1210,7 +1223,7 @@ Bienvenue dans ce cours d'excellence dédié aux **Nombres Complexes**, l'un des
 
 ## 1. Définition et Formes d'un Nombre Complexe
 
-L'ensemble des nombres complexes $\mathbb{C}$ étend $\mathbb{R}$ en introduisant un élément imaginaire $i$ tel que :
+L'ensemble des nombres complexes $\\mathbb{C}$ étend $\\mathbb{R}$ en introduisant un élément imaginaire $i$ tel que :
 $$i^2 = -1$$
 
 Tout nombre complexe $z$ admet trois représentations complémentaires :
@@ -1222,80 +1235,91 @@ Tout nombre complexe $z$ admet trois représentations complémentaires :
 > [!VIE_REELLE] Ne voyez plus un nombre complexe comme une entité bizarre ou fictive : c'est exactement la **carte marine d'un capitaine au large de Dakar** !
 > - L'axe des réels est l'axe Est-Ouest, et l'axe des imaginaires est l'axe Nord-Sud.
 > - Le **module $|z|$** est tout simplement la **distance en kilomètres** séparant la pirogue du Port de Dakar (l'origine $O$).
-> - L'**argument $\arg(z)$** est le **cap indiqué par la boussole** (l'angle orienté par rapport à l'Est).
-> - Multiplier par $i$, c'est effectuer un virage sec de $90^\circ$ vers la gauche (quart de tour antihoraire). Et élever à la puissance $n$ (formule de Moivre), c'est multiplier la distance au phare par $r^n$ et faire tourner la boussole de $n$ fois l'angle de cap !
+> - L'**argument $\\arg(z)$** est le **cap indiqué par la boussole** (l'angle orienté par rapport à l'Est).
+> - Multiplier par $i$, c'est effectuer un virage sec de $90^\\circ$ vers la gauche (quart de tour antihoraire). Et élever à la puissance $n$ (formule de Moivre), c'est multiplier la distance au phare par $r^n$ et faire tourner la boussole de $n$ fois l'angle de cap !
 
 > [!WOLOF] **Xam-xam ci Wolof :** Nimero complexe $z = a + ib$ du lenn luy kumpa : dafa melni nataalu gaal ci géej gi ci wetu Dakar :
 > - Partie réelle $a$ mooy penku ak sowwu (Est-Ouest), partie imaginaire $b$ mooy bët gànnaar ak bët saloum (Nord-Sud).
-> - **Module $|z| = \sqrt{a^2 + b^2}$** mooy guddaayu yoon bi ci diggante gaal gi ak por Dakar ($O$).
-> - **Argument $\arg(z)$** mooy xool fu boussole bi jëm ci biir géej gi (angle orienté).
-> - Boo jëlee $i$ di ko xool : booy multiplier ak $i$, dangay dëpp sa gaal ci cammooñ ci angle $90^\circ$ ($\frac{\pi}{2}$). Formule de Moivre $(z^n)$ dafay wax : soréwaay bi day yokk ($r^n$) te boussole bi day wër $n$ yoon ($n\theta$) !
+> - **Module $|z| = \\sqrt{a^2 + b^2}$** mooy guddaayu yoon bi ci diggante gaal gi ak por Dakar ($O$).
+> - **Argument $\\arg(z)$** mooy xool fu boussole bi jëm ci biir géej gi (angle orienté).
+> - Boo jëlee $i$ di ko xool : booy multiplier ak $i$, dangay dëpp sa gaal ci cammooñ ci angle $90^\\circ$ ($\\frac{\\pi}{2}$). Formule de Moivre $(z^n)$ dafay wax : soréwaay bi day yokk ($r^n$) te boussole bi day wër $n$ yoon ($n\\theta$) !
 
-### 1.1 Forme Algébrique : $z = a + ib$ ($a, b \in \mathbb{R}$)
+### 1.1 Forme Algébrique : $z = a + ib$ ($a, b \\in \\mathbb{R}$)
 - **Partie réelle :** $\operatorname{Re}(z) = a$
 - **Partie imaginaire :** $\operatorname{Im}(z) = b$ (attention : la partie imaginaire est un réel, le $i$ n'en fait pas partie !)
-- **Conjugué :** $\overline{z} = a - ib$. Propriété capitale : $z \cdot \overline{z} = a^2 + b^2 = |z|^2$.
-- $z$ est un **réel pur** $\iff \operatorname{Im}(z) = 0 \iff z = \overline{z}$.
-- $z$ est un **imaginaire pur** $\iff \operatorname{Re}(z) = 0 \iff z = -\overline{z}$.
+- **Conjugué :** $\\overline{z} = a - ib$. Propriété capitale : $z \\cdot \\overline{z} = a^2 + b^2 = |z|^2$.
+- $z$ est un **réel pur** $\\iff \operatorname{Im}(z) = 0 \\iff z = \\overline{z}$.
+- $z$ est un **imaginaire pur** $\\iff \operatorname{Re}(z) = 0 \\iff z = -\\overline{z}$.
 
 ### 1.2 Module et Argument
-Soit $z = a + ib \neq 0$ :
-- **Module :** $|z| = \sqrt{a^2 + b^2} > 0$ (représente la distance $OM$ dans le plan complexe).
-- **Argument :** $\theta = \arg(z) \pmod{2\pi}$ vérifiant :
-  $$\cos\theta = \frac{a}{|z|} \qquad \sin\theta = \frac{b}{|z|}$$
+Soit $z = a + ib \\neq 0$ :
+- **Module :** $|z| = \\sqrt{a^2 + b^2} > 0$ (représente la distance $OM$ dans le plan complexe).
+- **Argument :** $\\theta = \\arg(z) \\pmod{2\\pi}$ vérifiant :
+  $$\\cos\\theta = \\frac{a}{|z|} \\qquad \\sin\\theta = \\frac{b}{|z|}$$
 
 ### 1.3 Forme Trigonométrique et Forme Exponentielle
-$$z = r(\cos\theta + i\sin\theta) = r e^{i\theta} \quad (r = |z| > 0)$$
+$$z = r(\\cos\\theta + i\\sin\\theta) = r e^{i\\theta} \\quad (r = |z| > 0)$$
 
 ---
 
 ## 2. Formules Fondamentales de Moivre et d'Euler & Linéarisation
 
 ### 2.1 Formule de Moivre (Puissances de nombres complexes)
-Pour tout réel $\theta$ et pour tout entier relatif $n \in \mathbb{Z}$ :
-$$(\cos\theta + i\sin\theta)^n = \cos(n\theta) + i\sin(n\theta) \iff (e^{i\theta})^n = e^{i n\theta}$$
+Pour tout réel $\\theta$ et pour tout entier relatif $n \\in \\mathbb{Z}$ :
+$$(\\cos\\theta + i\\sin\\theta)^n = \\cos(n\\theta) + i\\sin(n\\theta) \\iff (e^{i\\theta})^n = e^{i n\\theta}$$
 
-> [!CONSEIL_BAC] **Réflexe Bac S2 :** Pour calculer $(1 - i\sqrt{3})^{12}$, ne développez jamais avec le binôme de Newton ! Écrivez d'abord $1 - i\sqrt{3} = 2 e^{-i\frac{\pi}{3}}$, puis appliquez Moivre :
-> $$(1 - i\sqrt{3})^{12} = \left(2 e^{-i\frac{\pi}{3}}\right)^{12} = 2^{12} \cdot e^{-i \frac{12\pi}{3}} = 4096 \cdot e^{-i 4\pi} = 4096(1) = 4096$$
+> [!CONSEIL_BAC] **Réflexe Bac S2 :** Pour calculer $(1 - i\\sqrt{3})^{12}$, ne développez jamais avec le binôme de Newton ! Écrivez d'abord $1 - i\\sqrt{3} = 2 e^{-i\\frac{\\pi}{3}}$, puis appliquez Moivre :
+> $$(1 - i\\sqrt{3})^{12} = \\left(2 e^{-i\\frac{\\pi}{3}}\\right)^{12} = 2^{12} \\cdot e^{-i \\frac{12\\pi}{3}} = 4096 \\cdot e^{-i 4\\pi} = 4096(1) = 4096$$
 
 ### 2.2 Formules d'Euler & Linéarisation
 Pour tout réel $x$ :
-$$\cos x = \frac{e^{ix} + e^{-ix}}{2} \qquad \sin x = \frac{e^{ix} - e^{-ix}}{2i}$$
+$$\\cos x = \\frac{e^{ix} + e^{-ix}}{2} \\qquad \\sin x = \\frac{e^{ix} - e^{-ix}}{2i}$$
 
 **Méthode de linéarisation (Incontournable pour le calcul d'intégrales en Terminale S2) :**
-Exemple : Linéariser $\cos^3 x$ :
-$$\begin{aligned}
-\cos^3 x &= \left(\frac{e^{ix} + e^{-ix}}{2}\right)^3 = \frac{1}{8} \left((e^{ix})^3 + 3(e^{ix})^2(e^{-ix}) + 3(e^{ix})(e^{-ix})^2 + (e^{-ix})^3\right) \\
-&= \frac{1}{8} \left(e^{i3x} + 3e^{ix} + 3e^{-ix} + e^{-i3x}\right) \\
-&= \frac{1}{8} \left((e^{i3x} + e^{-i3x}) + 3(e^{ix} + e^{-ix})\right) \\
-&= \frac{1}{8} (2\cos(3x) + 3 \cdot 2\cos x) = \frac{1}{4}\cos(3x) + \frac{3}{4}\cos x
-\end{aligned}$$
+Exemple : Linéariser $\\cos^3 x$ :
+$$\\begin{aligned}
+\\cos^3 x &= \\left(\\frac{e^{ix} + e^{-ix}}{2}\\right)^3 = \\frac{1}{8} \\left((e^{ix})^3 + 3(e^{ix})^2(e^{-ix}) + 3(e^{ix})(e^{-ix})^2 + (e^{-ix})^3\\right) \\\\
+&= \\frac{1}{8} \\left(e^{i3x} + 3e^{ix} + 3e^{-ix} + e^{-i3x}\\right) \\\\
+&= \\frac{1}{8} \\left((e^{i3x} + e^{-i3x}) + 3(e^{ix} + e^{-ix})\\right) \\\\
+&= \\frac{1}{8} (2\\cos(3x) + 3 \\cdot 2\\cos x) = \\frac{1}{4}\\cos(3x) + \\frac{3}{4}\\cos x
+\\end{aligned}$$
+
+> [!VIE_REELLE] **À quoi sert la linéarisation dans la vraie vie ?**
+> Pensez au réseau électrique de la Senelec ou aux signaux radio de la RTS : les générateurs produisent des ondes sinusoïdales pures $\\cos(\\omega t)$. Quand ces signaux traversent un amplificateur non linéaire, la puissance $(\\cos t)^3$ crée des harmoniques parasites ($3\\omega$). La linéarisation permet aux ingénieurs de décomposer une onde déformée en une somme d'ondes pures $\\frac{1}{4}\\cos(3x) + \\frac{3}{4}\\cos x$, infiniment plus simples à filtrer et à intégrer !
+
+> [!WOLOF] **Xam-xam ci Wolof — Linéarisation :**
+> - « Linéarisation dafa melni suukër bu ñu tëj ci biir paket bu dëgër $(\\cos^3 x)$ : bu dee calcul intégrale, mënuloo ko jëfandikoo noonu ! »
+> - « Dangay jël formule Euler yi, tasaaro ko ci binôme de Newton ba mu génn ay kàddu yu amul benn puissance : $\\frac{1}{4}\\cos(3x) + \\frac{3}{4}\\cos x$. Loolu mooy soppi kàddu gu xat mu doon sumbu calcul bu yomb a primitiver ! »
 
 ---
 
-## 3. Résolution d'Équations dans $\mathbb{C}$
+## 3. Résolution d'Équations dans $\\mathbb{C}$
 
 ### 3.1 Racines carrées d'un nombre complexe $Z = X + iY$
-Pour déterminer les racines carrées $\delta = x + iy$ d'un nombre complexe $Z = X + iY$, on résout le système fondamental en 3 équations :
-$$\begin{cases}
-x^2 - y^2 = X & (\text{Égalité des parties réelles}) \\
-x^2 + y^2 = \sqrt{X^2 + Y^2} = |Z| & (\text{Égalité des modules}) \\
-2xy = Y & (\text{Signe du produit } xy)
-\end{cases}$$
+Pour déterminer les racines carrées $\\delta = x + iy$ d'un nombre complexe $Z = X + iY$, on résout le système fondamental en 3 équations :
+$$\\begin{cases}
+x^2 - y^2 = X & (\\text{Égalité des parties réelles}) \\\\
+x^2 + y^2 = \\sqrt{X^2 + Y^2} = |Z| & (\\text{Égalité des modules}) \\\\
+2xy = Y & (\\text{Signe du produit } xy)
+\\end{cases}$$
 
-- En additionnant (1) et (2) : $2x^2 = X + |Z| \implies x = \pm \sqrt{\frac{X + |Z|}{2}}$.
-- En soustrayant (1) de (2) : $2y^2 = |Z| - X \implies y = \pm \sqrt{\frac{|Z| - X}{2}}$.
+- En additionnant (1) et (2) : $2x^2 = X + |Z| \\implies x = \\pm \\sqrt{\\frac{X + |Z|}{2}}$.
+- En soustrayant (1) de (2) : $2y^2 = |Z| - X \\implies y = \\pm \\sqrt{\\frac{|Z| - X}{2}}$.
 - L'équation (3) impose à $x$ et $y$ d'avoir le **même signe** si $Y > 0$, ou des **signes opposés** si $Y < 0$.
 
-### 3.2 Équations du second degré à coefficients complexes : $a z^2 + b z + c = 0$ ($a \neq 0$)
-1. Calculer le discriminant : $\Delta = b^2 - 4ac$.
-2. Déterminer une racine carrée $\delta$ de $\Delta$ (telle que $\delta^2 = \Delta$).
+> [!WOLOF] **Xam-xam ci Wolof — Racines carrées ci $\\mathbb{C}$ :**
+> - « Ci biir $\\mathbb{R}$, nimero bu négatif amul racine carrée. Waaye ci $\\mathbb{C}$, lépp am na racine ! Même $-1$ am na ñaari racines : $i$ ak $-i$. »
+> - « Système ñaari xarala yi : bul fàtte mukk équation $2xy = Y$ ! Moom mooy wax ndax $x$ ak $y$ dañuy bokk signe ($++$ wala $--$) bu $Y > 0$, wala dañuy wuute signe ($+-$ wala $-+$) bu $Y < 0$. »
+
+### 3.2 Équations du second degré à coefficients complexes : $a z^2 + b z + c = 0$ ($a \\neq 0$)
+1. Calculer le discriminant : $\\Delta = b^2 - 4ac$.
+2. Déterminer une racine carrée $\\delta$ de $\\Delta$ (telle que $\\delta^2 = \\Delta$).
 3. Les deux solutions distinctes sont :
-   $$z_1 = \frac{-b - \delta}{2a} \qquad z_2 = \frac{-b + \delta}{2a}$$
+   $$z_1 = \\frac{-b - \\delta}{2a} \\qquad z_2 = \\frac{-b + \\delta}{2a}$$
 
 ### 3.3 Équations de degré supérieur avec racine évidente
-Au Baccalauréat sénégalais, les équations du 3ème degré $z^3 + \alpha z^2 + \beta z + \gamma = 0$ comportent systématiquement une indication :
-- *"Montrer que l'équation admet une solution imaginaire pure $z_0 = ib$ ($b \in \mathbb{R}$)"* :
+Au Baccalauréat sénégalais, les équations du 3ème degré $z^3 + \\alpha z^2 + \\beta z + \\gamma = 0$ comportent systématiquement une indication :
+- *"Montrer que l'équation admet une solution imaginaire pure $z_0 = ib$ ($b \\in \\mathbb{R}$)"* :
   On injecte $z_0 = ib$ dans l'équation, on sépare la partie réelle et la partie imaginaire et on résout le système.
 - Ensuite, on factorise par $(z - z_0)$ par identification des coefficients ou division euclidienne pour obtenir une équation du 2nd degré facile à résoudre.
 
@@ -1303,50 +1327,60 @@ Au Baccalauréat sénégalais, les équations du 3ème degré $z^3 + \alpha z^2 
 
 ## 4. Géométrie et Nombres Complexes (L'arme absolue au Bac S2)
 
-Dans le plan complexe rapporté à un repère orthonormé direct $(O; \vec{u}, \vec{v})$ :
+Dans le plan complexe rapporté à un repère orthonormé direct $(O; \\vec{u}, \\vec{v})$ :
 
 ### 4.1 Distances et Angles orientés
 Soient trois points distincts $A(z_A)$, $B(z_B)$, $C(z_C)$ :
 - **Distance :** $AB = |z_B - z_A|$.
-- **Angle orienté :** $(\vec{AB}, \vec{AC}) = \arg\left(\frac{z_C - z_A}{z_B - z_A}\right) \pmod{2\pi}$.
-- Pour quatre points $A, B, C, D$ ($A \neq B$ et $C \neq D$) :
-  $$(\vec{AB}, \vec{CD}) = \arg\left(\frac{z_D - z_C}{z_B - z_A}\right) \pmod{2\pi}$$
+- **Angle orienté :** $(\\vec{AB}, \\vec{AC}) = \\arg\\left(\\frac{z_C - z_A}{z_B - z_A}\\right) \\pmod{2\\pi}$.
+- Pour quatre points $A, B, C, D$ ($A \\neq B$ et $C \\neq D$) :
+  $$(\\vec{AB}, \\vec{CD}) = \\arg\\left(\\frac{z_D - z_C}{z_B - z_A}\\right) \\pmod{2\\pi}$$
 
-### 4.2 Nature des Triangles via le Quotient Maître : $Q = \dfrac{z_C - z_A}{z_B - z_A}$
+### 4.2 Nature des Triangles via le Quotient Maître : $Q = \\dfrac{z_C - z_A}{z_B - z_A}$
 
 | Valeur du quotient $Q$ | Propriété géométrique | Nature du triangle $ABC$ |
 | :--- | :--- | :--- |
-| **$Q = \pm i = e^{\pm i\frac{\pi}{2}}$** | $|Q| = 1 \implies AB = AC$ et $(\vec{AB}, \vec{AC}) = \pm\frac{\pi}{2}$ | **Rectangle et isocèle en $A$** |
-| **$Q = e^{\pm i\frac{\pi}{3}} = \frac{1}{2} \pm i\frac{\sqrt{3}}{2}$** | $|Q| = 1 \implies AB = AC$ et $(\vec{AB}, \vec{AC}) = \pm\frac{\pi}{3}$ | **Équilatéral** |
-| **$Q \in i\mathbb{R}^*$ (imaginaire pur)** | $(\vec{AB}, \vec{AC}) = \pm\frac{\pi}{2} \pmod\pi$ | **Rectangle en $A$** |
+| **$Q = \\pm i = e^{\\pm i\\frac{\\pi}{2}}$** | $|Q| = 1 \\implies AB = AC$ et $(\\vec{AB}, \\vec{AC}) = \\pm\\frac{\\pi}{2}$ | **Rectangle et isocèle en $A$** |
+| **$Q = e^{\\pm i\\frac{\\pi}{3}} = \\frac{1}{2} \\pm i\\frac{\\sqrt{3}}{2}$** | $|Q| = 1 \\implies AB = AC$ et $(\\vec{AB}, \\vec{AC}) = \\pm\\frac{\\pi}{3}$ | **Équilatéral** |
+| **$Q \\in i\\mathbb{R}^*$ (imaginaire pur)** | $(\\vec{AB}, \\vec{AC}) = \\pm\\frac{\\pi}{2} \\pmod\\pi$ | **Rectangle en $A$** |
 | **$|Q| = 1$** | $AB = AC$ | **Isocèle en $A$** |
-| **$Q \in \mathbb{R}^*$ (réel pur)** | $(\vec{AB}, \vec{AC}) = 0 \pmod\pi$ | **Points $A, B, C$ alignés** |
+| **$Q \\in \\mathbb{R}^*$ (réel pur)** | $(\\vec{AB}, \\vec{AC}) = 0 \\pmod\\pi$ | **Points $A, B, C$ alignés** |
+
+> [!WOLOF] **Xam-xam ci Wolof — Quotient Maître $Q$ :**
+> - « Quotient $Q = \\dfrac{z_C - z_A}{z_B - z_A}$ mooy clé universel bi ci Bac S2 :
+>   - Module $|Q| = \\dfrac{AC}{AB}$ dafay wax guddaay yi ndax dañoo tollook !
+>   - Argument $\\arg(Q) = (\\vec{AB}, \\vec{AC})$ mooy angle bi ci diggante ñaari cotés yi.
+>   - Boo amee $Q = i$, xamale ne $AC = AB$ te angle bi $90^\\circ$ la : triangle rectangle isocèle en $A$ sans hésiter ! »
 
 ---
 
-## 5. Guide Ultime des Ensembles de Points $(\mathcal{E})$ au Bac S2
+## 5. Guide Ultime des Ensembles de Points $(\\mathcal{E})$ au Bac S2
 
 Chaque année au Bac S2, une question demande de déterminer la nature et les éléments caractéristiques de l'ensemble des points $M(z)$ vérifiant une relation donnée.
 
 ### 5.1 Ensembles définis par des Modules (Distances)
-- **$|z - z_A| = |z - z_B| \iff AM = BM$** :
-  L'ensemble $(\mathcal{E})$ est la **médiatrice du segment $[AB]$**.
-- **$|z - z_A| = R$ ($R > 0$) $\iff AM = R$** :
-  L'ensemble $(\mathcal{E})$ est le **cercle de centre $A$ et de rayon $R$**.
-- **$|z - z_A| = k|z - z_B|$ ($k > 0, k \neq 1$) $\iff \frac{AM}{BM} = k$** :
-  Cercle d'Apollonius dont le diamètre est déterminé par les barycentres $G_1 = \operatorname{bar}\{(A, 1), (B, k)\}$ et $G_2 = \operatorname{bar}\{(A, 1), (B, -k)\}$.
+- **$|z - z_A| = |z - z_B| \\iff AM = BM$** :
+  L'ensemble $(\\mathcal{E})$ est la **médiatrice du segment $[AB]$**.
+- **$|z - z_A| = R$ ($R > 0$) $\\iff AM = R$** :
+  L'ensemble $(\\mathcal{E})$ est le **cercle de centre $A$ et de rayon $R$**.
+- **$|z - z_A| = k|z - z_B|$ ($k > 0, k \\neq 1$) $\\iff \\frac{AM}{BM} = k$** :
+  Cercle d'Apollonius dont le diamètre est déterminé par les barycentres $G_1 = \\operatorname{bar}\\{(A, 1), (B, k)\\}$ et $G_2 = \\operatorname{bar}\\{(A, 1), (B, -k)\\}$.
 
 ### 5.2 Ensembles définis par des Arguments (Angles orientés)
-Soit $Z = \frac{z - z_A}{z - z_B}$ avec $z \neq z_B$ ($M \neq B$) :
-- **$Z \in \mathbb{R}^* \iff \arg(Z) = 0 \pmod\pi$** :
-  $(\vec{MB}, \vec{MA}) = 0 \pmod\pi \implies$ L'ensemble $(\mathcal{E})$ est la **droite $(AB)$ privée des points $A$ et $B$**.
-- **$Z \in \mathbb{R}^*_+ \iff \arg(Z) = 0 \pmod{2\pi}$** :
-  L'ensemble $(\mathcal{E})$ est la **droite $(AB)$ privée du segment $[AB]$**.
-- **$Z \in \mathbb{R}^*_- \iff \arg(Z) = \pi \pmod{2\pi}$** :
-  L'ensemble $(\mathcal{E})$ est le **segment $[AB]$ ouvert (privé de $A$ et $B$)**.
-- **$Z \in i\mathbb{R}^* \iff \arg(Z) = \frac{\pi}{2} \pmod\pi$** :
-  $(\vec{MB}, \vec{MA}) = \frac{\pi}{2} \pmod\pi \implies$ $(MA) \perp (MB)$.
-  L'ensemble $(\mathcal{E})$ est le **cercle de diamètre $[AB]$ privé des points $A$ et $B$**.
+Soit $Z = \\frac{z - z_A}{z - z_B}$ avec $z \\neq z_B$ ($M \\neq B$) :
+- **$Z \\in \\mathbb{R}^* \\iff \\arg(Z) = 0 \\pmod\\pi$** :
+  $(\\vec{MB}, \\vec{MA}) = 0 \\pmod\\pi \\implies$ L'ensemble $(\\mathcal{E})$ est la **droite $(AB)$ privée des points $A$ et $B$**.
+- **$Z \\in \\mathbb{R}^*_+ \\iff \\arg(Z) = 0 \\pmod{2\\pi}$** :
+  L'ensemble $(\\mathcal{E})$ est la **droite $(AB)$ privée du segment $[AB]$**.
+- **$Z \\in \\mathbb{R}^*_- \\iff \\arg(Z) = \\pi \\pmod{2\\pi}$** :
+  L'ensemble $(\\mathcal{E})$ est le **segment $[AB]$ ouvert (privé de $A$ et $B$)**.
+- **$Z \\in i\\mathbb{R}^* \\iff \\arg(Z) = \\frac{\\pi}{2} \\pmod\\pi$** :
+  $(\\vec{MB}, \\vec{MA}) = \\frac{\\pi}{2} \\pmod\\pi \\implies (MA) \\perp (MB)$.
+  L'ensemble $(\\mathcal{E})$ est le **cercle de diamètre $[AB]$ privé des points $A$ et $B$**.
+
+> [!WOLOF] **Xam-xam ci Wolof — Ensembles de Points :**
+> - « Boo gisee module $|z - z_A| = |z - z_B|$ : xalaatal ñaari kër $A$ ak $B$. Point $M$ bu tollook ñaar ñépp, médiatrice la ! »
+> - « Boo gisee argument bu am $\\frac{\\pi}{2}$ : angle droit la, motax mu nekk cercle de diamètre $[AB]$. »
 
 ---
 
@@ -1356,59 +1390,102 @@ Une similitude plane directe $S$ est une transformation qui conserve les rapport
 
 ### 6.1 Écriture complexe générale
 Toute similitude directe admet une écriture de la forme :
-$$z' = a z + b \quad (a, b \in \mathbb{C}, \; a \neq 0)$$
+$$z' = a z + b \\quad (a, b \\in \\mathbb{C}, \\; a \\neq 0)$$
 
 ### 6.2 Classification selon le paramètre $a$
-1. **Si $a = 1$ :** $z' = z + b$ est la **translation** de vecteur $\vec{u}$ d'affixe $b$.
-2. **Si $a \in \mathbb{R}^* \setminus \{1\}$ :** $z' = a z + b$ est une **homothétie** de rapport $k = a$ et de centre $\Omega$ d'affixe $\omega = \frac{b}{1 - a}$.
-3. **Si $|a| = 1$ et $a \neq 1$ ($a = e^{i\theta}$) :** $z' = e^{i\theta} z + b$ est une **rotation** d'angle $\theta = \arg(a)$ et de centre $\Omega$ d'affixe $\omega = \frac{b}{1 - a}$.
-4. **Cas général ($a \neq 1, |a| \neq 1$) :** $S$ est la **similitude directe** d'éléments caractéristiques :
-   - **Centre $\Omega$** : unique point invariant vérifiant $\omega = a\omega + b \implies \omega = \frac{b}{1 - a}$.
+1. **Si $a = 1$ :** $z' = z + b$ est la **translation** de vecteur $\\vec{u}$ d'affixe $b$.
+2. **Si $a \\in \\mathbb{R}^* \\setminus \\{1\\}$ :** $z' = a z + b$ est une **homothétie** de rapport $k = a$ et de centre $\\Omega$ d'affixe $\\omega = \\frac{b}{1 - a}$.
+3. **Si $|a| = 1$ et $a \\neq 1$ ($a = e^{i\\theta}$) :** $z' = e^{i\\theta} z + b$ est une **rotation** d'angle $\\theta = \\arg(a)$ et de centre $\\Omega$ d'affixe $\\omega = \\frac{b}{1 - a}$.
+4. **Cas général ($a \\neq 1, |a| \\neq 1$) :** $S$ est la **similitude directe** d'éléments caractéristiques :
+   - **Centre $\\Omega$** : unique point invariant vérifiant $\\omega = a\\omega + b \\implies \\omega = \\frac{b}{1 - a}$.
    - **Rapport $k$** : $k = |a| > 0$.
-   - **Angle $\theta$** : $\theta = \arg(a) \pmod{2\pi}$.
-   - **Forme réduite canonique :** $z' - \omega = k e^{i\theta}(z - \omega)$.
+   - **Angle $\\theta$** : $\\theta = \\arg(a) \\pmod{2\\pi}$.
+   - **Forme réduite canonique :** $z' - \\omega = k e^{i\\theta}(z - \\omega)$.
 
 > [!THEOREME] **Propriétés géométriques des Similitudes :**
 > - L'image d'une droite est une droite.
-> - L'image d'un cercle $\mathcal{C}(A, R)$ est le cercle $\mathcal{C}(S(A), kR)$.
-> - Si une figure a pour aire $\mathcal{A}$, son image par $S$ a pour aire $\mathcal{A}' = k^2 \times \mathcal{A}$.
+> - L'image d'un cercle $\\mathcal{C}(A, R)$ est le cercle $\\mathcal{C}(S(A), kR)$.
+> - Si une figure a pour aire $\\mathcal{A}$, son image par $S$ a pour aire $\\mathcal{A}' = k^2 \\times \\mathcal{A}$.
+
+> [!WOLOF] **Xam-xam ci Wolof — Similitude directe :**
+> - « Similitude directe $z' = az + b$ dafa bolé ñaari mbir : rotation (wër ci angle $\\theta$) ak homothétie (yokk wala wàññi soréwaay bi ci rapport $k$). »
+> - « Centre $\\Omega$ d'affixe $\\omega = \\frac{b}{1-a}$ mooy point bi du jog muk ci bérabam ! »
 
 ---
 
 ## 7. Exercice Type Baccalauréat Sénégal S2 Corrigé Pas à Pas
 
 > [!BAC_SENEGAL] **Énoncé (Extrait conforme Bac S2) :**
-> Dans le plan complexe rapporté au repère orthonormé direct $(O; \vec{u}, \vec{v})$, on considère les points $A, B, C$ d'affixes respectives :
-> $$z_A = 1 + i, \qquad z_B = 3 - i, \qquad z_C = 2 + 2i$$
-> 1. Déterminer la forme algébrique du quotient $Q = \dfrac{z_C - z_A}{z_B - z_A}$.
+> Dans le plan complexe rapporté au repère orthonormé direct $(O; \\vec{u}, \\vec{v})$, on considère les points $A, B, C$ d'affixes respectives :
+> $$z_A = 1 + i, \\qquad z_B = 3 - i, \\qquad z_C = 2 + 2i$$
+> 1. Déterminer la forme algébrique du quotient $Q = \\dfrac{z_C - z_A}{z_B - z_A}$.
 > 2. En déduire la nature exacte du triangle $ABC$.
 > 3. Déterminer l'écriture complexe de la similitude directe $S$ de centre $A$ qui transforme $B$ en $C$.
-> 4. Préciser le rapport $k$ et l'angle $\theta$ de la similitude $S$.
+> 4. Préciser le rapport $k$ et l'angle $\\theta$ de la similitude $S$.
 
 ### Correction Détaillée et Barème Officiel :
 
 **1. Calcul du quotient $Q$ :**
-$$Q = \frac{(2 + 2i) - (1 + i)}{(3 - i) - (1 + i)} = \frac{1 + i}{2 - 2i} = \frac{1 + i}{2(1 - i)}$$
+$$Q = \\frac{(2 + 2i) - (1 + i)}{(3 - i) - (1 + i)} = \\frac{1 + i}{2 - 2i} = \\frac{1 + i}{2(1 - i)}$$
 Multiplions numérateur et dénominateur par le conjugué $(1 + i)$ :
-$$Q = \frac{(1 + i)^2}{2(1^2 + (-1)^2)} = \frac{1 + 2i - 1}{2(2)} = \frac{2i}{4} = \frac{1}{2}i$$
+$$Q = \\frac{(1 + i)^2}{2(1^2 + (-1)^2)} = \\frac{1 + 2i - 1}{2(2)} = \\frac{2i}{4} = \\frac{1}{2}i$$
 
 **2. Nature du triangle $ABC$ :**
-- Module : $|Q| = \left|\frac{1}{2}i\right| = \frac{1}{2} \implies \frac{AC}{AB} = \frac{1}{2} \implies AC = \frac{1}{2}AB$.
-- Argument : $\arg(Q) = \arg\left(\frac{1}{2}i\right) = \frac{\pi}{2} \pmod{2\pi} \implies (\vec{AB}, \vec{AC}) = \frac{\pi}{2} \pmod{2\pi}$.
-Conclusion : Le triangle $ABC$ est **rectangle en $A$** (non isocèle, puisque $AC = \frac{1}{2}AB$).
+- Module : $|Q| = \\left|\\frac{1}{2}i\\right| = \\frac{1}{2} \\implies \\frac{AC}{AB} = \\frac{1}{2} \\implies AC = \\frac{1}{2}AB$.
+- Argument : $\\arg(Q) = \\arg\\left(\\frac{1}{2}i\\right) = \\frac{\\pi}{2} \\pmod{2\\pi} \\implies (\\vec{AB}, \\vec{AC}) = \\frac{\\pi}{2} \\pmod{2\\pi}$.
+Conclusion : Le triangle $ABC$ est **rectangle en $A$** (non isocèle, puisque $AC = \\frac{1}{2}AB$).
 
 **3. Écriture complexe de la similitude $S$ :**
 Puisque $S$ a pour centre $A$ et transforme $B$ en $C$ :
-$$z_C - z_A = a(z_B - z_A) \implies a = \frac{z_C - z_A}{z_B - z_A} = Q = \frac{1}{2}i$$
+$$z_C - z_A = a(z_B - z_A) \\implies a = \\frac{z_C - z_A}{z_B - z_A} = Q = \\frac{1}{2}i$$
 La forme réduite est donc :
-$$z' - z_A = \frac{1}{2}i(z - z_A) \iff z' - (1 + i) = \frac{1}{2}i(z - (1 + i))$$
-$$z' = \frac{1}{2}i z - \frac{1}{2}i - \frac{1}{2}i^2 + 1 + i = \frac{1}{2}i z + \frac{1}{2} + 1 + \frac{1}{2}i$$
-$$z' = \frac{1}{2}i z + \frac{3}{2} + \frac{1}{2}i$$
+$$z' - z_A = \\frac{1}{2}i(z - z_A) \\iff z' - (1 + i) = \\frac{1}{2}i(z - (1 + i))$$
+$$z' = \\frac{1}{2}i z - \\frac{1}{2}i - \\frac{1}{2}i^2 + 1 + i = \\frac{1}{2}i z + \\frac{1}{2} + 1 + \\frac{1}{2}i$$
+$$z' = \\frac{1}{2}i z + \\frac{3}{2} + \\frac{1}{2}i$$
 
 **4. Éléments caractéristiques de $S$ :**
-- Rapport : $k = |a| = \left|\frac{1}{2}i\right| = \frac{1}{2}$.
-- Angle : $\theta = \arg(a) = \arg\left(\frac{1}{2}i\right) = \frac{\pi}{2} \pmod{2\pi}$.
+- Rapport : $k = |a| = \\left|\\frac{1}{2}i\\right| = \\frac{1}{2}$.
+- Angle : $\\theta = \\arg(a) = \\arg\\left(\\frac{1}{2}i\\right) = \\frac{\\pi}{2} \\pmod{2\\pi}$.
 - Centre : Le point $A(1 + i)$.
+---
+
+## 8. Synthèse Finale — Les 7 Réflexes Absolus du Bac S2 sur les Nombres Complexes
+
+> [!IMPORTANT]
+> **Réflexes à maîtriser par cœur pour l'exercice de Nombres Complexes (M8 Bac S2) :**
+> 1. **Puissances $z^n$ (Formule de Moivre) :** Ne jamais développer ! Passer immédiatement en forme exponentielle $z = r e^{i\\theta} \\implies z^n = r^n e^{i n\\theta}$.
+> 2. **Quotient Maître $Q = \\dfrac{z_C - z_A}{z_B - z_A}$ :**
+>    - Si $Q = \\pm i \\implies$ triangle rectangle isocèle en $A$.
+>    - Si $Q = e^{\\pm i\\frac{\\pi}{3}} \\implies$ triangle équilatéral.
+>    - Si $Q \\in i\\mathbb{R}^* \\implies$ triangle rectangle en $A$.
+>    - Si $Q \\in \\mathbb{R}^* \\implies$ points $A, B, C$ alignés.
+> 3. **Racines carrées d'un complexe $Z = X + iY$ :** Poser le système fondamental à 3 équations ($x^2 - y^2 = X$, $x^2 + y^2 = |Z|$, $2xy = Y$). L'équation $2xy = Y$ fixe le signe commun ou opposé de $x$ et $y$.
+> 4. **Ensemble de points avec module :**
+>    - $|z - z_A| = |z - z_B| \\iff AM = BM \\implies$ médiatrice du segment $[AB]$.
+>    - $|z - z_A| = R \\iff AM = R \\implies$ cercle de centre $A$ et de rayon $R$.
+> 5. **Ensemble de points avec argument :**
+>    - $\\arg\\left(\\dfrac{z - z_A}{z - z_B}\\right) = \\pm\\dfrac{\\pi}{2} \\pmod\\pi \\implies$ cercle de diamètre $[AB]$ privé de $A$ et $B$.
+>    - $\\arg\\left(\\dfrac{z - z_A}{z - z_B}\\right) = 0 \\pmod\\pi \\implies$ droite $(AB)$ privée de $A$ et $B$.
+> 6. **Similitude plane directe $z' = az + b$ :**
+>    - Si $a = 1 \\implies$ translation de vecteur $\\vec{u}(b)$.
+>    - Si $a \\neq 1 \\implies$ rapport $k = |a|$, angle $\\theta = \\arg(a)$, centre invariant $\\Omega$ d'affixe $\\omega = \\dfrac{b}{1 - a}$.
+> 7. **Linéarisation avec Euler :** $\\cos x = \\dfrac{e^{ix} + e^{-ix}}{2}$ et $\\sin x = \\dfrac{e^{ix} - e^{-ix}}{2i}$. Développer par le binôme de Newton puis regrouper les termes conjugués.
+
+> [!CONSEIL_BAC] **Tableau de Bord Récapitulatif M8 :**
+>
+> | Situation posée au Bac S2 | Outil mathématique clé | Conclusion géométrique |
+> | :--- | :---: | :--- |
+> | Quotient $Q = \\frac{z_C - z_A}{z_B - z_A} = i$ | $|Q| = 1$ et $\\arg(Q) = \\frac{\\pi}{2}$ | **Rectangle isocèle en $A$** |
+> | Quotient $Q = \\frac{1}{2} + i\\frac{\\sqrt{3}}{2}$ | $|Q| = 1$ et $\\arg(Q) = \\frac{\\pi}{3}$ | **Équilatéral** |
+> | Module $|z - z_A| = |z - z_B|$ | Distance $AM = BM$ | **Médiatrice de $[AB]$** |
+> | Angle $(\\vec{MB}, \\vec{MA}) = \\frac{\\pi}{2} \\pmod\\pi$ | Orthogonalité $(MA) \\perp (MB)$ | **Cercle de diamètre $[AB]$** privé de $A, B$ |
+> | Similitude $z' = az + b$ ($a \\neq 1$) | $k = |a|, \\theta = \\arg(a), \\omega = \\frac{b}{1-a}$ | **Similitude directe de centre $\\Omega$** |
+
+> [!WOLOF] **Réflexes Finals en Wolof — Bul ko fàtte ci Bac S2 :**
+> - « **Quotient $Q$ :** Mooy clé maîtresse bi ci figures géométriques ! Boo amee $Q = i$, xamal ne triangle rectangle isocèle la ci $A$. »
+> - « **Moivre :** Bul développer $(a+ib)^n$ mukk ! Soppi ko ci forme exponentielle $r e^{i\\theta}$, def $r^n e^{in\\theta}$, point bi leer nàññ ! »
+> - « **Similitude directe :** Centre $\\Omega(\\omega)$ mooy $\\frac{b}{1-a}$, rapport $k = |a|$, angle $\\theta = \\arg(a)$. Nataal bi dafay tourné te yokk soréwaay bi ! »
+> - « **Ensemble de points :** Module mooy distance (médiatrice wala cercle), argument mooy angle (droite alignée wala cercle diamètre $[AB]$) ! »
 `,
   probabilites: `# Chapitre 9 : Dénombrement et Probabilités (Terminale S2)
 
@@ -1825,7 +1902,27 @@ $$R-\\text{COCl} + 2\\,R'-\\text{NH}_2 \\longrightarrow R-\\text{CO}-\\text{NH}-
 `,
 
   // C3 : ACIDES CARBOXYLIQUES & DERIVES (Chimie Organique - Terminale S2)
-  acides_derives: `# C3 : Acides Carboxyliques & Derives (Terminale S2)
+  acides_derives: `# C3 : Acides Carboxyliques & Dérivés (Terminale S2)
+
+Bienvenue dans le troisième chapitre de **Chimie Organique** de **Terminale S2**, rigoureusement conforme au programme officiel sénégalais (MEN / IGEF / Office du Baccalauréat).
+
+---
+
+![Figure 1 : Estérification, Saponification et fabrication de savon artisanal](/assets/pedagogie/c3_acides_esters_savon.svg)
+
+> [!VIE_REELLE] **La Chimie du Savon au Sénégal :**
+> - La fabrication traditionnelle du savon de ménage (savon kogn ou savon noir) dans les ateliers de Kaolack, Touba ou Thiès repose intégralement sur la réaction de **saponification** :
+> - On chauffe une huile végétale (huile de palme, d'arachide ou suif) avec de la soude concentrée $(\\text{NaOH})$.
+> - Le corps gras (triester du glycérol) est hydrolysé en milieu basique pour former du glycérol et du carboxylate de sodium, qui est le savon pur !
+> - L'ajout d'eau salée saturée (saumure $\\text{NaCl}$) provoque le **relargage** : le savon précipite instantanément en surface car il est insoluble dans l'eau salée.
+
+> [!WOLOF] **Xam-xam ci Wolof — Saponification ak Savon artisanal ci Senegaal :**
+> - « Fabriquer savon ci sunu kër yi (savon kogn), saponification lañuy def sans ñu koy xam ! »
+> - « Dañuy jël diw tiir (huile de palme) wala diw tiir (corps gras) bolé ko ak soude $(\\text{NaOH})$ walla potasse $(\\text{KOH})$. »
+> - « Réaction bi dafay jur ñaari mbir : savon bi ak glycérol bi. Bu ñu sancee xorom $(\\text{NaCl})$ ci biir, savon bi dafay dëpp génn ci kaw (relargage) ! »
+
+---
+
 
 ## 1. Acides Carboxyliques — Nomenclature
 
@@ -1930,6 +2027,25 @@ Ajout de $NaCl$ sature → ion $Na^+$ commun → solubilite du savon chute → *
 
   // C5 : AUTOPROTOLYSE DE L'EAU, pH DES SOLUTIONS & INDICATEURS COLORÉS (Terminale S2 Sénégal)
   autoprotolyse_ph: `# C5 : Autoprotolyse de l'Eau, pH des Solutions Aqueuses & Indicateurs Colorés (Terminale S2)
+
+Bienvenue dans le cinquième chapitre de **Chimie Générale** de **Terminale S2**, rigoureusement conforme au programme officiel sénégalais (MEN / IGEF / Office du Baccalauréat).
+
+---
+
+![Figure 1 : Échelle de pH de 0 à 14 et comparaison de solutions quotidiennes au Sénégal](/assets/pedagogie/c5_autoprotolyse_ph_echelle.svg)
+
+> [!VIE_REELLE] **L'Échelle de pH dans notre quotidien au Sénégal :**
+> - **Le jus de Bissap ($\text{pH} \approx 2{,}5$)** : très acide en raison de la présence d'acides organiques (acide malique et citrique). Ses pigments rouges (anthocyanes) changent de couleur avec le pH : c'est un véritable indicateur coloré naturel !
+> - **L'eau pure et le sang ($\text{pH} \approx 7{,}4$)** : milieu très proche de la neutralité biologique.
+> - **L'eau de Javel et les cendres ($\text{pH} \approx 11 - 12$)** : fortement basiques, parfaites pour la désinfection et la saponification.
+
+> [!WOLOF] **Xam-xam ci Wolof — Échelle de pH ak Autoprotolyse :**
+> - « Ndox mu sell mi (eau pure) du dormant : ci biir ndox mi, ñaari molécules dañuy dajje bépp instant di joxe $\text{H}_3\text{O}^+$ ak $\text{OH}^-$. »
+> - « Bissap bi dafa am melo bu xonq ndax dafa tàng acide ($\text{pH} = 2{,}5$). Boo ci tufee ndoxu javel bu for ($\text{pH} = 12$), dafay soppi melo ba doon vert/jaune instantanément ! Moom ci boppam indicateur coloré naturel la ! »
+> - « Tàngaay bi bu yéegee ci $60^\circ\text{C}$, $pK_e$ bi day wàcc ci $13$ : pH neutralité bi day nekk $6{,}5$ ! Bul jàpp ne $6{,}5$ à $60^\circ\text{C}$ acide la, neutre la ndax $[\text{H}_3\text{O}^+] = [\text{OH}^-]$ ! »
+
+---
+
 
 ## Objectifs Pédagogiques Officiels (Bac S2)
 
@@ -2057,6 +2173,24 @@ $$\\text{pH} = pK_i + \\log\\left(\\frac{[\\text{In}^-]}{[\\text{HIn}]}\\right)$
 
   // C6 : ACIDE FORT – BASE FORTE – RÉACTION FORT-FORT & DOSAGE (Terminale S2 Sénégal)
   acide_fort_base_forte: `# C6 : Acide Fort – Base Forte – Réaction Acide Fort / Base Forte – Dosage (Terminale S2)
+
+Bienvenue dans le sixième chapitre de **Chimie Générale** de **Terminale S2**, rigoureusement conforme au programme officiel sénégalais (MEN / IGEF / Office du Baccalauréat).
+
+---
+
+![Figure 1 : Titrage acido-basique fort-fort et méthode des tangentes](/assets/pedagogie/c6_acide_fort_base_forte_titrage.svg)
+
+> [!VIE_REELLE] **Neutralisation dans la vie quotidienne au Sénégal :**
+> - Lorsqu'une personne souffre de brûlures d'estomac intenses dues à une hypersécrétion d'acide chlorhydrique $\\text{HCl}$ $(\\text{pH} \\approx 1{,}5)$, le médecin prescrit un antiacide basique.
+> - La réaction gastrique est exactement une réaction de neutralisation acido-basique : l'acide fort et la base forte se neutralisent pour donner de l'eau et un sel inoffensif, restaurant le confort digestif !
+
+> [!WOLOF] **Xam-xam ci Wolof — Titrage fort-fort :**
+> - « Titrage fort-fort mooy neutralisation 100% totale : protons $\\text{H}_3\\text{O}^+$ ak hydroxydes $\\text{OH}^-$ dañuy dajje def ndox $2\\,\\text{H}_2\\text{O}$. »
+> - « Ci point d'équivalence $E$, pH bi dafay nekk $7{,}00$ pile à 25 °C ndax solution bu sel neutre rekk moo des ! »
+> - « Indicateur bi gën mooy **BBT (Bleu de bromothymol)** ndax zone de virage bi $[6{,}0 \\,;\\, 7{,}6]$ dafa tëj $7{,}00$ ci digg bi ci saut de pH bi ! »
+
+---
+
 
 ## Objectifs Pédagogiques Officiels (Baccalauréat S2)
 
@@ -2200,6 +2334,24 @@ La méthode officielle prescrite par l'Office du Baccalauréat sénégalais pour
 
   // C7 : ACIDES ET BASES FAIBLES – COUPLES ACIDE-BASE – CONSTANTE D'ACIDITÉ Ka / pKa (Terminale S2 Sénégal)
 RICH_LESSONS_MAP.acide_faible_base_faible = `# C7 : Acides et Bases Faibles – Couples Acide-Base – Constante d'Acidité (pKa) (Terminale S2)
+
+Bienvenue dans le septième chapitre de **Chimie Générale** de **Terminale S2**, rigoureusement conforme au programme officiel sénégalais (MEN / IGEF / Office du Baccalauréat).
+
+---
+
+![Figure 1 : Diagramme de prédominance, pKa et courbes de distribution en S](/assets/pedagogie/c7_acide_faible_base_faible_pka.svg)
+
+> [!VIE_REELLE] **L'Équilibre Acide-Base dans la nature sénégalaise :**
+> - **L'acide éthanoïque du Vinaigre ($\text{p}K_a = 4{,}8$)** : Contrairement à l'acide chlorhydrique qui détruit tout sur son passage, le vinaigre ne brûle pas la langue car seule une infime fraction (environ 1%) de ses molécules se dissocie en ions $\text{H}_3\text{O}^+$. C'est un équilibre dynamique partiel !
+> - **Le goût aigre du Lait caillé (Sow)** : La fermentation lactique transforme le lactose en acide lactique ($\text{p}K_a = 3{,}9$). À mesure que le pH descend sous 4,6, les caséines du lait coagulent pour former le caillé crémeux typique de notre gastronomie.
+
+> [!WOLOF] **Xam-xam ci Wolof — Acide faible ak pKa :**
+> - « Acide faible dafa melni nit ku xawa sàggan : bu tàbbee ci ndox, lépp du joxe $\text{H}_3\text{O}^+$ ! Dafa am lu ci des waxtu wu nekk ci forme HA (dissociation partielle $\rightleftharpoons$). »
+> - « $pK_a$ mooy digg bi (50% acide / 50% base) : bu $\text{pH} < pK_a$, forme acide HA moo ëpp ; bu $\text{pH} > pK_a$, forme basique $\text{A}^-$ moo ëpp ! »
+> - « Ci courbes de distribution en S yi, point d'intersection à 50% dafay joxe directement valeur $pK_a$ bi ! »
+
+---
+
 
 ## Objectifs Pédagogiques Officiels (Baccalauréat S2)
 
@@ -2384,6 +2536,21 @@ La courbe obtenue lors du titrage pH-métrique d'un acide faible par une base fo
 
 ![Figure 1 : Courbe caractéristique de dosage acide faible - base forte avec méthode des tangentes et demi-équivalence](/assets/pedagogie/dosage_acide_faible_base_forte_courbe.svg)
 
+> [!VIE_REELLE] **Le Tampon Bicarbonate du Sang — La Chimie du Sport au Sénégal !**
+> - Lors d'un match de football intense (Navétanes, Ligue 1 sénégalaise), tes muscles produisent de l'acide lactique $\\text{CH}_3\\text{CH(OH)COOH}$ qui libère des protons $\\text{H}^+$ dans le sang.
+> - Sans tampon, le pH sanguin chuterait de $7{,}40$ à moins de $6{,}80$ en quelques secondes → **coma acidosique**.
+> - Mais le sang contient le **système tampon bicarbonate** $\\text{H}_2\\text{CO}_3 / \\text{HCO}_3^-$ ($pK_a = 6{,}10$) qui capte les protons : $\\text{HCO}_3^- + \\text{H}^+ \\to \\text{H}_2\\text{CO}_3 \\to \\text{H}_2\\text{O} + \\text{CO}_2$.
+> - Le $\\text{CO}_2$ excédentaire est évacué par la respiration accélérée. C'est pourquoi tu halètes après un sprint !
+> - **Lien avec le Bac :** À la demi-équivalence, $V_b = \\frac{V_{bE}}{2} \\implies \\text{pH} = pK_a$. C'est exactement le principe qui explique l'efficacité maximale du tampon bicarbonate sanguin !
+
+> [!WOLOF] **Xam-xam ci Wolof — Tampon Bicarbonate u Deret ak Jëkkël :**
+> - « Deret bi ci wër-gu-yaram gi dafa am tampon bu am solo bu tudd **bicarbonate** $(\\text{H}_2\\text{CO}_3 / \\text{HCO}_3^-)$. »
+> - « Boo defee sport bu méti naka navétanes, dëkk ji day jur acide lactique. Tampon bi day jël acide bi diko soppi $\\text{CO}_2$ bi ngay génne ci say poumons ! »
+> - « Motax pH deret bi du soppiku mukk : dafay des ci $7{,}40 \\pm 0{,}02$ ! Kuko amul woon, benn match football rekk nit ki dafay coma acidosique. »
+> - « **Réflexe Bac :** $V_b = \\frac{V_{bE}}{2}$ mooy demi-équivalence, foofu lañuy lire $pK_a$ ci courbe bi ! »
+
+---
+
 ### 2.1 Les 4 zones remarquables de la courbe :
 1. **Point initial ($V_b = 0$) :**
    La solution ne contient que l'acide faible à la concentration $C_a$. Le pH est supérieur à celui d'un acide fort de même concentration :
@@ -2442,7 +2609,7 @@ $$\\text{pH} = pK_a + \\log\\left(\\frac{[\\text{A}^-]}{[\\text{AH}]}\\right) = 
 
 > [!THEOREME] **Règle d'or du Bac S2 :**
 > À la demi-équivalence ($V_b = \\frac{V_{bE}}{2}$), l'ordonnée lue sur la courbe de dosage donne directement la valeur du **$pK_a$ du couple acide/base dosé** !
-> $$\boxed{\\text{pH}\\left(\\frac{V_{bE}}{2}\\right) = pK_a}$$
+> $$\\boxed{\\text{pH}\\left(\\frac{V_{bE}}{2}\\right) = pK_a}$$
 
 *Propriété géométrique :* En ce point de demi-équivalence, la pente de la courbe $\\dfrac{d\\text{pH}}{dV_b}$ est **minimale**. La solution y présente sa résistance maximale aux variations de pH.
 
@@ -2458,11 +2625,11 @@ Une **solution tampon** est une solution dont le pH varie très peu :
 Elle est constituée d'un mélange équimolaire ou de concentrations très voisines d'un acide faible et de sa base conjuguée :
 $$[\\text{AH}] \\approx [\\text{A}^-]$$
 
-> [!WOLOF] **Xam-xam ci Wolof — Système Tampon u deret ci wér-gu-yaram :
-> - « Sunu deret dafa am tampon d'or bu tudd **tampon bicarbonate** $(\text{H}_2\text{CO}_3 / \text{HCO}_3^-)$. »
-> - « Sa yaram boo defee sport bu méti (naka navétanes yi), dafay jur acide lactique. Tampon bicarbonate bi day jël acide bi diko soppi $\text{CO}_2$ bi ngay génne ci say loxo ak say poumons ! »
-> - « Motax pH deret bi du soppiku mukk : dafay des ci $7{,}40 \pm 0{,}02$ ! Kuko amul woon, benn match football rekk nit ki dafay coma acidosique. »
-> - « Demi-équivalence : $V_b = \frac{V_{bE}}{2}$ mooy point bi tampon bi gën a dëgëre ci aduna ! »
+> [!WOLOF] **Xam-xam ci Wolof — Système Tampon u deret ci wér-gu-yaram :**
+> - « Sunu deret dafa am tampon d'or bu tudd **tampon bicarbonate** $(\\text{H}_2\\text{CO}_3 / \\text{HCO}_3^-)$. »
+> - « Sa yaram boo defee sport bu méti (naka navétanes yi), dafay jur acide lactique. Tampon bicarbonate bi day jël acide bi diko soppi $\\text{CO}_2$ bi ngay génne ci say loxo ak say poumons ! »
+> - « Motax pH deret bi du soppiku mukk : dafay des ci $7{,}40 \\pm 0{,}02$ ! Kuko amul woon, benn match football rekk nit ki dafay coma acidosique. »
+> - « Demi-équivalence : $V_b = \\frac{V_{bE}}{2}$ mooy point bi tampon bi gën a dëgëre ci aduna ! »
 
 ### 5.2 Pourquoi le pH d'une solution tampon est-il stable ?
 1. **Lors d'un ajout d'ions $\\text{H}_3\\text{O}^+$ (acide fort) :**
@@ -2492,7 +2659,7 @@ Au Baccalauréat sénégalais, la description du protocole expérimental de pré
 Pour détecter visuellement l'équivalence lors d'un dosage colorimétrique sans pH-mètre :
 > [!CONSEIL_BAC] **Critère Impératif de Choix :**
 > La **zone de virage** de l'indicateur coloré doit **englober impérativement la valeur du pH au point d'équivalence $\\text{pH}_E$** :
-> $$\boxed{\\text{pH}_E \\in [\\text{p}K_i - 1 \,;\, \text{p}K_i + 1]}$$
+> $$\\boxed{\\text{pH}_E \\in [\\text{p}K_i - 1 \\,;\\, \\text{p}K_i + 1]}$$
 
 *Comparatif pour le dosage acide faible / base forte ($\\text{pH}_E \\approx 8{,}5 - 9{,}0$) :*
 - **Phénolphtaléine (Zone de virage : 8,2 – 10,0) :**
@@ -2554,6 +2721,36 @@ Le volume total souhaité est $V = V_a + V_b = V_a + 0{,}4 V_a = 1{,}4 V_a = 100
 $$V_a = \\frac{100}{1{,}4} \\approx 71{,}4\\text{ mL}$$
 $$V_b = 100 - 71{,}4 = 28{,}6\\text{ mL}$$
 *Protocole :* À l'aide d'une burette graduée ou de pipettes jaugées, prélever $71{,}4\\text{ mL}$ de la solution d'acide éthanoïque et y ajouter $28{,}6\\text{ mL}$ de la solution de soude. Agiter soigneusement : la solution obtenue a un volume de $100\\text{ mL}$ et un pH stable de $4{,}80$. *(1 point)*
+
+---
+
+## 8. Synthèse Finale — Les 7 Réflexes Absolus du Bac S2
+
+> [!IMPORTANT]
+> **Réflexes à maîtriser par cœur pour l'épreuve de Chimie (C8) :**
+> 1. **Équation de dosage :** flèche simple $\\\\to$ obligatoire (quasi-totale), car $K_R = 10^{14 - pK_a} \\\\gg 10^4$.
+> 2. **Relation d'équivalence :** $C_a V_a = C_b V_{bE}$.
+> 3. **pH à l'équivalence :** TOUJOURS $\\\\text{pH}_E > 7$ pour acide faible/base forte (jamais $7{,}00$).
+> 4. **Demi-équivalence :** $V_b = \\\\frac{V_{bE}}{2} \\\\implies \\\\text{pH} = pK_a$ (lecture directe du $pK_a$ sur la courbe !).
+> 5. **Indicateur :** Phénolphtaléine ($8{,}2 - 10{,}0$) ✅ — BBT ($6{,}0 - 7{,}6$) ❌ pour acide faible.
+> 6. **Solution tampon :** $[\\\\text{AH}] \\\\approx [\\\\text{A}^-]$ → pH stable même sous acide, base ou dilution.
+> 7. **Méthode des tangentes parallèles** pour la lecture graphique du point d'équivalence $E$.
+
+> [!CONSEIL_BAC] **Tableau de Bord Rapide C8 — Dosage Acide Faible / Base Forte :**
+>
+> | Point de la courbe | Volume $V_b$ | pH caractéristique |
+> | :--- | :---: | :--- |
+> | Début ($V_b = 0$) | $0$ | $\\\\text{pH}_0 \\\\approx \\\\frac{1}{2}(pK_a - \\\\log C_a)$ |
+> | **Demi-équivalence** | $\\\\frac{V_{bE}}{2}$ | $\\\\mathbf{\\\\text{pH} = pK_a}$ — Clé d'or Bac ! |
+> | **Équivalence** | $V_{bE}$ | $\\\\text{pH}_E > 7$ (base faible $\\\\text{A}^-$ en excès) |
+> | Après équivalence | $> V_{bE}$ | pH soude excès $\\\\approx 14 + \\\\log(C_b')$ |
+
+> [!WOLOF] **Réflexes Finals en Wolof — Bul ko jaaxal !**
+> - « **Équation bi :** Flèche simple $\\\\to$ la obligatoirement ! Boo bindal $\\\\rightleftharpoons$, point bi dafay wàcc. »
+> - « **pH_E > 7 toujours :** Acide faible dosé par base forte = basique ci équivalence. Bul jàpp ne pH 7 la ! »
+> - « **Demi-équivalence :** Lireel pH bi ci $V_{bE}/2$ ci courbe bi, moom rekk mooy $pK_a$ bi ! »
+> - « **Phénolphtaléine** la indicateur bi gën a nef — BBT du ko jëf ndax zone de virage bi trop tôt la ! »
+> - « **Tampon bi :** pH stable la si ñu yokkee ndaw acide walla base. Dafa melni goalkeeper bu dëgër gu du tólliku ! »
 `;
 
 export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: string, rawContent: string | null): string {

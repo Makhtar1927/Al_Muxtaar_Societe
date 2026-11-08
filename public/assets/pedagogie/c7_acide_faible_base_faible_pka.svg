@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" width="100%" height="100%" style="background:#0F172A; font-family:system-ui, -apple-system, sans-serif;">
+  <rect width="900" height="480" fill="#0B132B" rx="16"/>
+  <rect x="2" y="2" width="896" height="476" fill="none" stroke="#334155" stroke-width="1.5" rx="14"/>
+  
+  <!-- Header Title -->
+  <g transform="translate(450, 32)" text-anchor="middle">
+    <rect x="-280" y="-16" width="560" height="32" rx="16" fill="#1E293B" stroke="#8B5CF6" stroke-width="1.5"/>
+    <text y="5" fill="#C4B5FD" font-size="13" font-weight="800" letter-spacing="1">C7 : ACIDE FAIBLE, BASE FAIBLE, pKa &amp; COURBES DE DISTRIBUTION</text>
+  </g>
+
+  <!-- Left: Predominance Axis (0 to 14) -->
+  <g transform="translate(40, 75)">
+    <rect width="400" height="375" fill="#1E293B" rx="12" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="32" fill="#E2E8F0" font-size="14" font-weight="700">1. Diagramme de Prédominance</text>
+    <text x="20" y="52" fill="#94A3B8" font-size="11">Axe de pH et zones de prédominance du couple HA / A⁻</text>
+
+    <!-- Axis line -->
+    <line x1="30" y1="120" x2="370" y2="120" stroke="#64748B" stroke-width="3"/>
+    <!-- Arrows -->
+    <polygon points="370,116 380,120 370,124" fill="#64748B"/>
+    <text x="382" y="124" fill="#94A3B8" font-size="10" font-weight="700">pH</text>
+
+    <!-- pH 0, pKa, 14 marks -->
+    <line x1="40" y1="112" x2="40" y2="128" stroke="#94A3B8" stroke-width="2"/>
+    <text x="40" y="145" fill="#94A3B8" font-size="10" font-weight="700" text-anchor="middle">0</text>
+
+    <!-- pKa marker -->
+    <line x1="200" y1="100" x2="200" y2="140" stroke="#F59E0B" stroke-width="3"/>
+    <rect x="175" y="80" width="50" height="20" rx="4" fill="#F59E0B"/>
+    <text x="200" y="94" fill="#0F172A" font-size="11" font-weight="800" text-anchor="middle">pKₐ</text>
+    <text x="200" y="155" fill="#F59E0B" font-size="10" font-weight="700" text-anchor="middle">[HA] = [A⁻]</text>
+
+    <line x1="360" y1="112" x2="360" y2="128" stroke="#94A3B8" stroke-width="2"/>
+    <text x="360" y="145" fill="#94A3B8" font-size="10" font-weight="700" text-anchor="middle">14</text>
+
+    <!-- Acid Zone -->
+    <rect x="45" y="170" width="140" height="50" rx="8" fill="#EF4444" fill-opacity="0.15" stroke="#EF4444" stroke-width="1.5"/>
+    <text x="115" y="192" fill="#F87171" font-size="12" font-weight="800" text-anchor="middle">Forme Acide HA</text>
+    <text x="115" y="208" fill="#FCA5A5" font-size="10" text-anchor="middle">pH &lt; pKₐ : [HA] &gt; [A⁻]</text>
+
+    <!-- Base Zone -->
+    <rect x="215" y="170" width="140" height="50" rx="8" fill="#3B82F6" fill-opacity="0.15" stroke="#3B82F6" stroke-width="1.5"/>
+    <text x="285" y="192" fill="#60A5FA" font-size="12" font-weight="800" text-anchor="middle">Forme Base A⁻</text>
+    <text x="285" y="208" fill="#93C5FD" font-size="10" text-anchor="middle">pH &gt; pKₐ : [A⁻] &gt; [HA]</text>
+
+    <!-- Formula Henderson-Hasselbalch -->
+    <rect x="25" y="240" width="350" height="115" rx="8" fill="#0F172A" stroke="#8B5CF6" stroke-width="1"/>
+    <text x="40" y="265" fill="#A78BFA" font-size="12" font-weight="800">Formule d'Or d'Henderson-Hasselbalch :</text>
+    <text x="40" y="295" fill="#F8FAFC" font-size="15" font-weight="800">pH = pKₐ + log([A⁻] / [HA])</text>
+    <text x="40" y="325" fill="#94A3B8" font-size="11">• Si pH = pKₐ ⟹ [A⁻] = [HA] (égalité 50/50)</text>
+    <text x="40" y="343" fill="#94A3B8" font-size="11">• Si pH = pKₐ + 1 ⟹ [A⁻] = 10 · [HA] (91% base)</text>
+  </g>
+
+  <!-- Right: S-shaped Distribution Curves α(HA) and α(A⁻) -->
+  <g transform="translate(460, 75)">
+    <rect width="400" height="375" fill="#1E293B" rx="12" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="32" fill="#E2E8F0" font-size="14" font-weight="700">2. Courbes de Distribution en S (α en %)</text>
+    <text x="20" y="52" fill="#94A3B8" font-size="11">Intersection capitale à 50% au point d'abscisse pH = pKₐ</text>
+
+    <!-- Graph Axes -->
+    <line x1="50" y1="280" x2="360" y2="280" stroke="#475569" stroke-width="1.5"/>
+    <line x1="50" y1="80" x2="50" y2="280" stroke="#475569" stroke-width="1.5"/>
+    <text x="365" y="284" fill="#94A3B8" font-size="10" font-weight="700">pH</text>
+    <text x="50" y="72" fill="#94A3B8" font-size="10" font-weight="700" text-anchor="middle">α (%)</text>
+
+    <!-- 100% and 50% grid lines -->
+    <line x1="50" y1="100" x2="350" y2="100" stroke="#334155" stroke-dasharray="3,3"/>
+    <text x="42" y="104" fill="#94A3B8" font-size="9" text-anchor="end">100%</text>
+
+    <line x1="50" y1="190" x2="350" y2="190" stroke="#F59E0B" stroke-dasharray="3,3"/>
+    <text x="42" y="194" fill="#F59E0B" font-size="9" font-weight="700" text-anchor="end">50%</text>
+
+    <!-- Curve HA: starts at 100% (y=100), passes through (200, 190), ends at 0% (y=280) -->
+    <path d="M 50,102 C 130,105 160,140 200,190 C 240,240 270,278 350,280" fill="none" stroke="#EF4444" stroke-width="3"/>
+    <text x="90" y="130" fill="#F87171" font-size="11" font-weight="700">α(HA)</text>
+
+    <!-- Curve A⁻: starts at 0% (y=280), passes through (200, 190), ends at 100% (y=100) -->
+    <path d="M 50,278 C 130,275 160,240 200,190 C 240,140 270,102 350,100" fill="none" stroke="#38BDF8" stroke-width="3"/>
+    <text x="310" y="130" fill="#38BDF8" font-size="11" font-weight="700">α(A⁻)</text>
+
+    <!-- Intersection Point (200, 190) -->
+    <line x1="200" y1="190" x2="200" y2="280" stroke="#F59E0B" stroke-width="1.5" stroke-dasharray="3,3"/>
+    <circle cx="200" cy="190" r="5" fill="#F59E0B" stroke="#FFFFFF" stroke-width="2"/>
+    <rect x="180" y="285" width="40" height="18" rx="4" fill="#F59E0B"/>
+    <text x="200" y="297" fill="#0F172A" font-size="10" font-weight="800" text-anchor="middle">pKₐ</text>
+
+    <!-- Note box -->
+    <rect x="25" y="315" width="350" height="45" rx="6" fill="#0F172A" stroke="#334155"/>
+    <text x="35" y="333" fill="#34D399" font-size="10" font-weight="700">Réflexe Bac S2 :</text>
+    <text x="35" y="348" fill="#94A3B8" font-size="10">L'abscisse du point d'intersection à 50% donne DIRECTEMENT le pKₐ !</text>
+  </g>
+</svg>

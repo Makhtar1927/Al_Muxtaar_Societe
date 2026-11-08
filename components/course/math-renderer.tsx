@@ -10,23 +10,93 @@ interface MathRendererProps {
 
 /**
  * Nettoie et normalise les formules mathématiques KaTeX :
- * Répare les séquences d'échappement mangées par JS (ex: \f -> form feed, \t -> tab)
+ * Répare les séquences d'échappement mangées par JS (ex: \f -> form feed, \t -> tab, \b -> backspace)
  */
 function normalizeMathString(str: string): string {
   if (!str) return '';
   return str
-    .replace(/\x0crac/g, '\\frac') // \f mangé par template string
-    .replace(/\x08oxed/g, '\\boxed') // \b mangé par template string
-    .replace(/\t(imes)/g, '\\times') // \t mangé par template string
-    .replace(/\t(ext)/g, '\\text') // \t mangé par template string
-    .replace(/\x0dightleftharpoons/g, '\\rightleftharpoons')
-    .replace(/\x0dightarrow/g, '\\rightarrow')
+    // 1. Caractères de contrôle ASCII mangés par les template literals JS
+    .replace(/\x08egin/g, '\\begin')
+    .replace(/\x08oxed/g, '\\boxed')
+    .replace(/\x08ar/g, '\\bar')
+    .replace(/\x08eta/g, '\\beta')
+    .replace(/\x08/g, '\\')
+    .replace(/\x0crac/g, '\\frac')
+    .replace(/d\x0crac/g, '\\dfrac')
+    .replace(/\x0c/g, '\\f')
+    .replace(/\x0b/g, '\\v')
+    .replace(/\t(?=[a-zA-Z])/g, '\\t')
+    .replace(/\r(?=[a-zA-Z])/g, '\\r')
     .replace(/\r/g, '')
-    // Ne remplacer que les 'rac' orphelins non précédés de 'f' ou 'd'
+
+    // 2. Glyphes de remplacement Unicode (carrés □, \u25A1, \uFFFD)
+    .replace(/[□\u0008\u25A1\uFFFD]oxed/g, '\\boxed')
+    .replace(/[□\u0008\u25A1\uFFFD]egin/g, '\\begin')
+    .replace(/\bBegin\{/g, '\\begin{')
+
+    // 3. Artefacts de remplacements corrompus (\f \frac, \df \frac)
+    .replace(/\\f\s*\\frac/g, '\\frac')
+    .replace(/\\df\s*\\frac/g, '\\dfrac')
+    .replace(/\\df(?=\s*\{)/g, '\\dfrac')
+
+    // 4. Commandes orphelines sans antislash
     .replace(/(?<![a-zA-Z\\])rac(?=\{|\d|\s*0)/g, '\\frac')
+    .replace(/(?<![a-zA-Z\\])ight(?=[)\]|.}]|$|\^)/g, '\\right')
+    .replace(/(?<![a-zA-Z\\])eft(?=[(\[|.{]|$)/g, '\\left')
+    .replace(/(?<![a-zA-Z\\])boxed(?=\{)/g, '\\boxed')
+    .replace(/(?<![a-zA-Z\\])mathbb(?=\{)/g, '\\mathbb')
+    .replace(/(?<![a-zA-Z\\])mathbbC\b/g, '\\mathbb{C}')
+    .replace(/(?<![a-zA-Z\\])mathbbR\b/g, '\\mathbb{R}')
+    .replace(/(?<![a-zA-Z\\])mathbbZ\b/g, '\\mathbb{Z}')
+    .replace(/(?<![a-zA-Z\\])mathbbN\b/g, '\\mathbb{N}')
+    // Si \mathbb{...} se trouve hors des dollars $...$, l'envelopper automatiquement
+    .replace(/(?<!\$)\\mathbb\{([CRZN])\}(?!\$)/g, '$\\mathbb{$1}$')
+    .replace(/(?<![a-zA-Z\\])qquad(?=[a-zA-Z\\])/g, '\\qquad ')
+    .replace(/(?<![a-zA-Z\\])quad(?=[a-zA-Z\\])/g, '\\quad ')
+    .replace(/(?<![a-zA-Z\\])cos(?=\^|\s|\(|[0-9xX])/g, '\\cos ')
+    .replace(/(?<![a-zA-Z\\])sin(?=\^|\s|\(|[0-9xX])/g, '\\sin ')
     .replace(/0imes\\?infty/g, '0 \\times \\infty')
     .replace(/\+infty\s*-\s*infty/g, '+\\infty - \\infty')
-    // Fix double-escaped LaTeX macros in memory (e.g. \\times -> \times, \\text -> \text)
+
+    // 5. Normalisation des macros double-échappées
+    .replace(/\\\\([a-zA-Z]+)/g, '\\$1');
+}
+
+/**
+ * Nettoie une formule KaTeX spécifique avant rendu (protection ultime anti-ParseError)
+ */
+function cleanMathFormula(math: string): string {
+  if (!math) return '';
+  return math
+    .trim()
+    // Répare \f \frac et \df \frac
+    .replace(/\\f\s*\\frac/g, '\\frac')
+    .replace(/\\df\s*\\frac/g, '\\dfrac')
+    .replace(/\\df(?=\s*\{)/g, '\\dfrac')
+    // Répare □oxed et Begin
+    .replace(/[□\u0008\u25A1\uFFFD]oxed/g, '\\boxed')
+    .replace(/(?<!\\)boxed(?=\{)/g, '\\boxed')
+    .replace(/[□\u0008\u25A1\uFFFD]egin/g, '\\begin')
+    .replace(/\bBegin\{/g, '\\begin{')
+    .replace(/(?<!\\)\bbegin\{/g, '\\begin{')
+    .replace(/(?<!\\)\bend\{/g, '\\end{')
+    // Répare ight / eft
+    .replace(/(?<![a-zA-Z\\])ight(?=[)\]|.}]|$|\^)/g, '\\right')
+    .replace(/(?<![a-zA-Z\\])eft(?=[(\[|.{]|$)/g, '\\left')
+    // Répare mathbbC / mathbb
+    .replace(/(?<!\\)mathbbC\b/g, '\\mathbb{C}')
+    .replace(/(?<!\\)mathbbR\b/g, '\\mathbb{R}')
+    .replace(/(?<!\\)mathbb(?=\{)/g, '\\mathbb')
+    // Répare cos / sin / qquad
+    .replace(/(?<!\\)\bcos(?=\^|\s|\(|[0-9xX]|$)/g, '\\cos ')
+    .replace(/(?<!\\)\bsin(?=\^|\s|\(|[0-9xX]|$)/g, '\\sin ')
+    .replace(/(?<!\\)\bqquad(?=[a-zA-Z\\]|$)/g, '\\qquad ')
+    // Répare les sauts de ligne simples dans \begin{aligned} ou \begin{cases}
+    // ex: "&= ... \ \n &=" -> doit être "&= ... \\ \n &="
+    .replace(/(?<!\\)\\\s*(?=\n\s*&|\n\s*\\end)/g, '\\\\')
+    // Supprime tout caractère de contrôle ASCII invisible résiduel (\b, \0, etc.)
+    .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, '')
+    // Normalise double antislash sur commandes simples (ex: \\text -> \text)
     .replace(/\\\\([a-zA-Z]+)/g, '\\$1');
 }
 
@@ -49,14 +119,15 @@ function renderMarkdownWithKatex(raw: string): string {
   // 1. Protect block math $$...$$
   const blockMath: string[] = [];
   let text = cleaned.replace(/\$\$([\s\S]*?)\$\$/g, (_, math) => {
+    const formula = cleanMathFormula(math);
     try {
-      const rendered = katex.renderToString(math.trim(), {
+      const rendered = katex.renderToString(formula, {
         displayMode: true,
         throwOnError: false,
       });
       blockMath.push(`<div class="my-3 overflow-x-auto py-2 text-center text-sm sm:text-base">${rendered}</div>`);
     } catch {
-      blockMath.push(`<pre class="text-coral my-2 text-xs overflow-x-auto">${math}</pre>`);
+      blockMath.push(`<pre class="text-coral my-2 text-xs overflow-x-auto">${formula}</pre>`);
     }
     return `___BLOCK_MATH_${blockMath.length - 1}___`;
   });
@@ -64,14 +135,15 @@ function renderMarkdownWithKatex(raw: string): string {
   // 2. Protect inline math $...$ (avoiding double $)
   const inlineMath: string[] = [];
   text = text.replace(/(?<!\$)\$(?!\$)(.*?)(?<!\$)\$(?!\$)/g, (_, math) => {
+    const formula = cleanMathFormula(math);
     try {
-      const rendered = katex.renderToString(math.trim(), {
+      const rendered = katex.renderToString(formula, {
         displayMode: false,
         throwOnError: false,
       });
       inlineMath.push(rendered);
     } catch {
-      inlineMath.push(`<code>${math}</code>`);
+      inlineMath.push(`<code>${formula}</code>`);
     }
     return `___INLINE_MATH_${inlineMath.length - 1}___`;
   });
