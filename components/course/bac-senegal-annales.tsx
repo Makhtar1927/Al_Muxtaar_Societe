@@ -1064,6 +1064,102 @@ On en déduit par changement d'angle les valeurs remarquables de $\\cos(7\\pi/12
     },
   ],
 
+  // 9. DÉNOMBREMENT (S2 - M11)
+  denombrement: [
+    {
+      year: 2023,
+      session: 'Session Normale (S2)',
+      points: 'Exercice 1 — Dénombrement & Tirages (4 Points)',
+      topic: 'Tirage simultané, tirage successif sans remise, boules bicolores et événement contraire',
+      enonce: `Une urne contient $10$ boules indiscernables au toucher :
+- $4$ boules rouges numérotées de $1$ à $4$ ;
+- $6$ boules vertes numérotées de $1$ à $6$.
+
+**Partie A : Tirage simultané**
+On tire simultanément $3$ boules de l'urne.
+1. Quel est le nombre total de tirages possibles ?
+2. Déterminer le nombre de tirages contenant :
+   a) Exactement $2$ boules rouges et $1$ boule verte.
+   b) Des boules de la même couleur (tirage unicolore).
+   c) Au moins une boule rouge.
+
+**Partie B : Tirage successif sans remise**
+On tire successivement et sans remise $3$ boules de l'urne.
+1. Quel est le nombre total de tirages possibles ?
+2. Déterminer le nombre de tirages contenant $1$ boule rouge au premier tirage et $2$ boules vertes ensuite.`,
+      solution: `### Partie A : Tirages simultanés ($C_n^p$)
+
+Comme le tirage est simultané, l'ordre n'intervient pas et il n'y a pas de remise. On utilise les combinaisons $C_n^p$.
+
+**1. Nombre total de tirages possibles**
+On choisit 3 boules parmi les 10 boules de l'urne :
+$$\\text{Card}(\\Omega_A) = C_{10}^3 = \\frac{10 \\times 9 \\times 8}{3 \\times 2 \\times 1} = 120 \\text{ tirages possibles}$$
+
+**2. a) Tirages avec exactement 2 rouges et 1 verte**
+On choisit 2 boules rouges parmi les 4, et 1 boule verte parmi les 6 :
+$$N_1 = C_4^2 \\times C_6^1 = \\frac{4 \\times 3}{2} \\times 6 = 6 \\times 6 = 36 \\text{ tirages}$$
+
+**2. b) Tirage unicolore (3 rouges OU 3 vertes)**
+Les deux cas sont incompatibles (principe additif) :
+$$N_2 = C_4^3 + C_6^3 = 4 + \\frac{6 \\times 5 \\times 4}{3 \\times 2 \\times 1} = 4 + 20 = 24 \\text{ tirages}$$
+
+**2. c) Au moins une boule rouge (Événement contraire)**
+Le contraire de « au moins une rouge » est « aucune rouge », c'est-à-dire tirer 3 boules vertes parmi les 6 :
+$$N_{\\text{aucune rouge}} = C_6^3 = 20$$
+Par soustraction du total :
+$$N_3 = \\text{Card}(\\Omega_A) - N_{\\text{aucune rouge}} = 120 - 20 = 100 \\text{ tirages}$$
+
+---
+
+### Partie B : Tirages successifs sans remise ($A_n^p$)
+
+L'ordre des tirages compte impérativement et il n'y a pas de répétition.
+
+**1. Nombre total de tirages possibles**
+On forme un arrangement de 3 boules parmi 10 :
+$$\\text{Card}(\\Omega_B) = A_{10}^3 = 10 \\times 9 \\times 8 = 720 \\text{ tirages possibles}$$
+
+**2. Tirage d'une rouge en 1er, puis 2 vertes**
+- 1er tirage (rouge) : $4$ choix possibles.
+- 2e tirage (verte) : $6$ choix possibles.
+- 3e tirage (verte) : $5$ choix restants.
+$$N = 4 \\times 6 \\times 5 = 120 \\text{ tirages}$$
+*(Ou par arrangements : $A_4^1 \\times A_6^2 = 4 \\times (6 \\times 5) = 120$).*`,
+      baremeAstuce: `Barème indicatif Office du Bac : Partie A.1 (0,75 pt) · A.2.a (0,75 pt) · A.2.b (0,75 pt) · A.2.c par l'événement contraire (0,75 pt) · Partie B.1 & B.2 (1 pt). Astuce d'Or : Dès que vous lisez « au moins un » dans un sujet de Bac, passez TOUJOURS par l'événement contraire pour gagner du temps et éviter les erreurs d'omission.`,
+    },
+    {
+      year: 2019,
+      session: 'Session de Remplacement (S2)',
+      points: 'Exercice 1 — Anagrammes & Choix de comités (4 Points)',
+      topic: 'Permutations avec répétition, combinaisons et contraintes hiérarchiques',
+      enonce: `1. Combien d'anagrammes distincts peut-on former avec les lettres du mot « FATICK » ? Même question avec le mot « CASAMANCE ».
+2. Une association de quartier à Saint-Louis compte $8$ hommes et $6$ femmes. On souhaite élire un bureau restreint de $4$ membres.
+   a) De combien de façons peut-on composer ce bureau sans distinction de poste ?
+   b) Combien de bureaux comportent exactement $2$ hommes et $2$ femmes ?
+   c) Le bureau doit obligatoirement être composé d'un Président, d'un Vice-Président, d'un Trésorier et d'un Secrétaire Général. De combien de façons peut-on attribuer ces postes distincts parmi les 14 personnes ?`,
+      solution: `### 1. Anagrammes de mots
+- Pour « FATICK » : Le mot comporte 6 lettres toutes distinctes.
+  $$N_1 = 6! = 720 \\text{ anagrammes}$$
+- Pour « CASAMANCE » : Le mot comporte 9 lettres avec des répétitions : la lettre **A** apparaît 3 fois, la lettre **C** apparaît 2 fois, les lettres S, M, N, E apparaissent 1 fois.
+  $$N_2 = \\frac{9!}{3! \\times 2!} = \\frac{362\\,880}{6 \\times 2} = \\frac{362\\,880}{12} = 30\\,240 \\text{ anagrammes distincts}$$
+
+---
+
+### 2. Composition du bureau
+**a) Bureau de 4 personnes sans distinction de rôle :**
+On choisit un sous-ensemble non ordonné de 4 personnes parmi les 14 :
+$$N_a = C_{14}^4 = \\frac{14 \\times 13 \\times 12 \\times 11}{4 \\times 3 \\times 2 \\times 1} = 1\\,001 \\text{ bureaux}$$
+
+**b) Parité : 2 hommes et 2 femmes :**
+$$N_b = C_8^2 \\times C_6^2 = \\frac{8 \\times 7}{2} \\times \\frac{6 \\times 5}{2} = 28 \\times 15 = 420 \\text{ bureaux}$$
+
+**c) Postes distincts et hiérarchisés :**
+Chaque personne reçoit un poste unique : l'ordre et l'attribution comptent. On utilise les arrangements de 4 parmi 14 :
+$$N_c = A_{14}^4 = 14 \\times 13 \\times 12 \\times 11 = 24\\,024 \\text{ bureaux différents}$$`,
+      baremeAstuce: `Barème Office du Bac : Formule des anagrammes avec répétition n!/(n1!n2!...) (1 pt) · Bureau sans rôles C_14^4 (1 pt) · Bureau paritaire (1 pt) · Postes nommés A_14^4 (1 pt). Conseil : Retenez que « bureau avec postes distincts » = Arrangements ($A_n^p$), alors que « délégation / comité sans rôles » = Combinaisons ($C_n^p$).`,
+    },
+  ],
+
   // 10. DÉNOMBREMENT & PROBABILITÉS
   probabilites: [
     {

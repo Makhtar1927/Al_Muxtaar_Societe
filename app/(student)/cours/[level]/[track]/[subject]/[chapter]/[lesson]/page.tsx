@@ -1926,12 +1926,22 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     (lessonMeta.title.toLowerCase().includes('complexe') ||
     lessonMeta.title.toLowerCase().includes('affixe'));
 
+  const isDenombrement =
+    lessonMeta.title.toLowerCase().includes('dénombrement') ||
+    lessonMeta.title.toLowerCase().includes('denombrement') ||
+    lessonMeta.title.toLowerCase().includes('arrangement') ||
+    lessonMeta.title.toLowerCase().includes('combinaison') ||
+    lessonMeta.title.toLowerCase().includes('permutation') ||
+    (chapter?.title?.toLowerCase() || '').includes('dénombrement') ||
+    (chapter?.title?.toLowerCase() || '').includes('denombrement');
+
   const isProbabilites =
+    !isDenombrement && (
     lessonMeta.title.toLowerCase().includes('probabilit') ||
     lessonMeta.title.toLowerCase().includes('dénombrement') ||
     lessonMeta.title.toLowerCase().includes('denombrement') ||
     lessonMeta.title.toLowerCase().includes('aléatoire') ||
-    lessonMeta.title.toLowerCase().includes('aleatoire');
+    lessonMeta.title.toLowerCase().includes('aleatoire'));
 
   const isStatistiques =
     lessonMeta.title.toLowerCase().includes('statistique') ||
@@ -2107,6 +2117,7 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     !isIntegration &&
     !isEquadiff &&
     !isComplexes &&
+    !isDenombrement &&
     !isProbabilites &&
     !isStatistiques &&
     !isGeometrie &&
@@ -2245,6 +2256,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'Masterclass Audio : Similitudes Planes Directes'
                     : isComplexes
                     ? 'Masterclass Audio : Nombres Complexes & Géométrie'
+                    : isDenombrement
+                    ? 'Masterclass Audio : Dénombrement — Arrangements, Combinaisons & Binôme'
                     : isProbabilites
                     ? 'Masterclass Audio : Dénombrement & Probabilités'
                     : isStatistiques
@@ -2292,6 +2305,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'Terminale S2 • Les 7 réflexes d\'or pour les similitudes directes'
                     : isComplexes
                     ? 'Terminale S2 • Les 5 réflexes pour les figures et similitudes'
+                    : isDenombrement
+                    ? 'Terminale S2 • Les 5 méthodes d\'or pour choisir p-listes, arrangements ou combinaisons'
                     : isProbabilites
                     ? 'Terminale S2 • Les 5 réflexes pour l\'urne et la loi binomiale'
                     : isStatistiques
@@ -2339,6 +2354,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? SIMILITUDES_AUDIO_CHAPTERS
                     : isComplexes
                     ? COMPLEXES_AUDIO_CHAPTERS
+                    : isDenombrement
+                    ? undefined
                     : isProbabilites
                     ? PROBABILITES_AUDIO_CHAPTERS
                     : isStatistiques
@@ -2456,6 +2473,10 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                   <ComplexesReflexesCard />
                   <ComplexesInteractiveSimulator />
                 </>
+              ) : isDenombrement ? (
+                <>
+                  <DenombrementReflexesCard />
+                </>
               ) : isProbabilites ? (
                 <>
                   <ProbabilitesReflexesCard />
@@ -2545,6 +2566,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'similitudes'
                     : isComplexes
                     ? 'complexes'
+                    : isDenombrement
+                    ? 'denombrement'
                     : isProbabilites
                     ? 'probabilites'
                     : isStatistiques
@@ -2601,6 +2624,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <SimilitudesQuizEmbedded />
               ) : isComplexes ? (
                 <ComplexesQuizEmbedded />
+              ) : isDenombrement ? (
+                <DenombrementQuizEmbedded />
               ) : isProbabilites ? (
                 <ProbabilitesQuizEmbedded />
               ) : isStatistiques ? (

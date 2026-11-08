@@ -1946,7 +1946,7 @@ $$z_A = 0, \\quad z_B = 1, \\quad z_D = i, \\quad z_C = 1 + i$$
 `,
   denombrement: `# Chapitre M11 : Dénombrement (Terminale S2)
 
-Bienvenue dans ce cours d'excellence dédié au **Dénombrement**, un chapitre fondamental et stratégique du **Baccalauréat Scientifique (Série S2)** au Sénégal, élaboré conformément aux directives officielles de l'**Office du Baccalauréat du Sénégal** (noté sur 4 à 5 points).
+Bienvenue dans ce cours d'excellence dédié au **Dénombrement**, un chapitre fondamental et stratégique du **Baccalauréat Scientifique (Série S2)** au Sénégal, élaboré conformément aux directives officielles de l'**Office du Baccalauréat du Sénégal** (exercice noté sur 4 à 5 points).
 
 Le dénombrement est l'art de compter le nombre d'éléments d'un ensemble fini sans avoir besoin de les énumérer un à un. Il constitue le socle mathématique indispensable de la théorie des probabilités.
 
@@ -1957,83 +1957,83 @@ Le dénombrement est l'art de compter le nombre d'éléments d'un ensemble fini 
 Toute la théorie du dénombrement repose sur deux principes logiques universels :
 
 ### 1.1 Le Principe Additif (Règle du « OU » / Ensembles Disjoints)
-Si une action peut être réalisée de $n_1$ façons, ou de $n_2$ façons (les deux options étant strictement mutuellement exclusives, c'est-à-dire d'intersection vide $A \cap B = \emptyset$), alors l'action peut être réalisée de :
-$n = n_1 + n_2 \text{ façons}$
+Si une action peut être réalisée de $n_1$ façons, ou de $n_2$ façons (les deux options étant strictement mutuellement exclusives, c'est-à-dire d'intersection vide $A \\cap B = \\emptyset$), alors l'action peut être réalisée de :
+$n = n_1 + n_2 \\text{ façons}$
 
-Plus généralement, pour une partition d'un ensemble fini $E$ en $k$ sous-ensembles deux à deux disjoints $A_1, A_2, \dots, A_k$ :
-$\text{Card}(E) = \sum_{i=1}^k \text{Card}(A_i) = \text{Card}(A_1) + \text{Card}(A_2) + \dots + \text{Card}(A_k)$
+Plus généralement, pour une partition d'un ensemble fini $E$ en $k$ sous-ensembles deux à deux disjoints $A_1, A_2, \\dots, A_k$ :
+$\\text{Card}(E) = \\sum_{i=1}^k \\text{Card}(A_i) = \\text{Card}(A_1) + \\text{Card}(A_2) + \\dots + \\text{Card}(A_k)$
 
 ### 1.2 Le Principe Multiplicatif (Règle du « ET » / Arbre de Choix)
 Si une procédure se décompose en $p$ étapes successives indépendantes, où la première étape offre $n_1$ choix possibles, la deuxième $n_2$ choix possibles, ..., et la $p$-ième $n_p$ choix possibles, alors le nombre total de résultats possibles est le produit :
-$N = n_1 \times n_2 \times \dots \times n_p$
+$N = n_1 \\times n_2 \\times \\dots \\times n_p$
 
 ![Figure 1 : Arbre de Décision du Dénombrement • Choisir le bon modèle en 2 questions](/assets/pedagogie/m11_denombrement_tirages_arbres.svg)
 
 > [!VIE_REELLE] **L'analogie du « Ceebu Jën » et des bus « Dakar Dem Dikk » :**
 > - **Principe Additif (« OU ») :** Pour aller de Dakar à Saint-Louis, vous pouvez prendre soit le bus « Dakar Dem Dikk » (3 départs par jour), soit un car sept-places à la gare des Baux-Maraîchers (15 départs). Vous ne pouvez pas être dans les deux à la fois ! Le nombre total de trajets possibles est $3 + 15 = 18$ choix.
-> - **Principe Multiplicatif (« ET ») :** Dans un restaurant traditionnel sénégalais, on compose son menu : 3 types de riz (Ceebu Jën rouge, Ceebu Jën blanc, Ceebu Yapp), 2 sauces (Daxaar ou Beugueuj) et 4 boissons locales (Bissap, Bouye, Gingembre, Ditakh). Le nombre de menus complets distincts est $3 \times 2 \times 4 = 24$ menus !
+> - **Principe Multiplicatif (« ET ») :** Dans un restaurant traditionnel sénégalais, on compose son menu : 3 types de riz (Ceebu Jën rouge, Ceebu Jën blanc, Ceebu Yapp), 2 sauces (Daxaar ou Beugueuj) et 4 boissons locales (Bissap, Bouye, Gingembre, Ditakh). Le nombre de menus complets distincts est $3 \\times 2 \\times 4 = 24$ menus !
 
 > [!WOLOF] **Xam-xam ci Wolof — Additif ak Multiplicatif :**
 > - « **Additif (WALLA) :** Su nekkee dañuy tànn ci benn mbootaay WALLA ci beneen te dañoo séqu (amul benn élément bu bokk ci ñaar yépp), da ngay **boole** (additionner) : $n_1 + n_2$. »
-> - « **Multiplicatif (AK) :** Su nekkee étape 1 dafay am AK étape 2 AK étape 3 (naka tànn yére AK tànn dall), da ngay **fulté** (multiplier) : $n_1 \times n_2 \times n_3$. »
+> - « **Multiplicatif (AK) :** Su nekkee étape 1 dafay am AK étape 2 AK étape 3 (naka tànn yére AK tànn dall), da ngay **fulté** (multiplier) : $n_1 \\times n_2 \\times n_3$. »
 
 ---
 
 ## 2. Les $p$-listes (Listes avec Répétition & Ordre)
 
 ### Définition
-Soit $E$ un ensemble fini non vide à $n$ éléments ($n = \text{Card}(E)$) et $p$ un entier naturel non nul ($p \in \mathbb{N}^*$).
+Soit $E$ un ensemble fini non vide à $n$ éléments ($n = \\text{Card}(E)$) et $p$ un entier naturel non nul ($p \\in \\mathbb{N}^*$).
 Une **$p$-liste** (ou $p$-uplet) d'éléments de $E$ est une suite ordonnée de $p$ éléments de $E$, distincts ou non.
 
-$\text{Nombre de } p\text{-listes d'un ensemble à } n \text{ éléments} = n^p$
+$\\text{Nombre de } p\\text{-listes d'un ensemble à } n \\text{ éléments} = n^p$
 
 ### Conditions d'application :
-1. **L'ordre compte :** $(a, b) \neq (b, a)$.
+1. **L'ordre compte :** $(a, b) \\neq (b, a)$.
 2. **La répétition est autorisée :** $(a, a, a)$ est une $p$-liste valide.
 
 > [!EXEMPLE] **Exemples types Bac S2 :**
-> 1. **Code secret Wave ou Orange Money :** Un code PIN à 4 chiffres choisis parmi les 10 chiffres de 0 à 9 est une 4-liste de $\{0, 1, \dots, 9\}$.
->    $N = 10^4 = 10\,000 \text{ codes possibles}$
-> 2. **Numéros de téléphone mobile au Sénégal :** Un numéro commence par 77, 78, 76 ou 70, suivi de 7 chiffres de 0 à 9. Le nombre de numéros par préfixe est $10^7 = 10\,000\,000$.
+> 1. **Code secret Wave ou Orange Money :** Un code PIN à 4 chiffres choisis parmi les 10 chiffres de 0 à 9 est une 4-liste de $\\{0, 1, \\dots, 9\\}$.
+>    $N = 10^4 = 10\\,000 \\text{ codes possibles}$
+> 2. **Numéros de téléphone mobile au Sénégal :** Un numéro commence par 77, 78, 76 ou 70, suivi de 7 chiffres de 0 à 9. Le nombre de numéros par préfixe est probabilites0^7 = 10\\,000\\,000$.
 
 ---
 
 ## 3. Les Permutations & Factorielles ($n!$)
 
 ### 3.1 Définition et Notation Factorielle
-Pour tout entier naturel $n \ge 1$, on appelle **factorielle $n$**, notée $n!$, le produit de tous les entiers strictement positifs de 1 à $n$ :
-$n! = n \times (n-1) \times (n-2) \times \dots \times 2 \times 1$
+Pour tout entier naturel $n \\ge 1$, on appelle **factorielle $n$**, notée $n!$, le produit de tous les entiers strictement positifs de 1 à $n$ :
+$n! = n \\times (n-1) \\times (n-2) \\times \\dots \\times 2 \\times 1$
 Par convention universelle :
 $0! = 1$
 
 ### 3.2 Permutation d'un ensemble fini
 Une **permutation** d'un ensemble fini $E$ à $n$ éléments est une bijection de $E$ sur lui-même (c'est-à-dire un arrangement de TOUS les $n$ éléments de $E$).
-$\text{Nombre de permutations de } n \text{ éléments} = n!$
+$\\text{Nombre de permutations de } n \\text{ éléments} = n!$
 
 ### 3.3 Permutations avec répétition (Formule des Anagrammes)
-Soit un mot de $n$ lettres contenant $n_1$ fois une première lettre, $n_2$ fois une deuxième lettre, ..., $n_k$ fois une $k$-ième lettre (avec $n_1 + n_2 + \dots + n_k = n$).
+Soit un mot de $n$ lettres contenant $n_1$ fois une première lettre, $n_2$ fois une deuxième lettre, ..., $n_k$ fois une $k$-ième lettre (avec $n_1 + n_2 + \\dots + n_k = n$).
 Le nombre d'anagrammes distincts est :
-$N = \frac{n!}{n_1! \times n_2! \times \dots \times n_k!}$
+$N = \\frac{n!}{n_1! \\times n_2! \\times \\dots \\times n_k!}$
 
 > [!EXEMPLE] **Anagrammes classiques du Baccalauréat sénégalais :**
 > - **« DAKAR »** : 5 lettres dont deux « A » ($n_A = 2$) :
->   $N = \frac{5!}{2!} = \frac{120}{2} = 60 \text{ anagrammes}$
+>   $N = \\frac{5!}{2!} = \\frac{120}{2} = 60 \\text{ anagrammes}$
 > - **« SENEGAL »** : 7 lettres dont deux « E » ($n_E = 2$) :
->   $N = \frac{7!}{2!} = \frac{5\,040}{2} = 2\,520 \text{ anagrammes}$
+>   $N = \\frac{7!}{2!} = \\frac{5\\,040}{2} = 2\\,520 \\text{ anagrammes}$
 
 ---
 
 ## 4. Les Arrangements ($A_n^p$)
 
 ### Définition
-Soit $E$ un ensemble à $n$ éléments et $p$ un entier tel que $1 \le p \le n$.
+Soit $E$ un ensemble à $n$ éléments et $p$ un entier tel que probabilites \\le p \\le n$.
 Un **arrangement** de $p$ éléments de $E$ est une $p$-liste d'éléments **deux à deux distincts** de $E$.
 
-$\text{Formule des Arrangements : } A_n^p = \frac{n!}{(n-p)!} = n \times (n-1) \times \dots \times (n-p+1)$
+$\\text{Formule des Arrangements : } A_n^p = \\frac{n!}{(n-p)!} = n \\times (n-1) \\times \\dots \\times (n-p+1)$
 
 ### Conditions d'application :
 1. **L'ordre compte :** être 1er est différent d'être 2e.
-2. **Pas de répétition :** un élément sélectionné ne peut plus être réutilisé ($p \le n$).
+2. **Pas de répétition :** un élément sélectionné ne peut plus être réutilisé ($p \\le n$).
 
 ### Propriétés :
 - $A_n^1 = n$
@@ -2043,41 +2043,41 @@ $\text{Formule des Arrangements : } A_n^p = \frac{n!}{(n-p)!} = n \times (n-1) \
 > [!VIE_REELLE] **Le Podium des Navétanes et de l'Arène Nationale :**
 > Lors d'un tournoi de lutte traditionnelle avec 12 lutteurs inscrits, on décerne le Drapeau du Chef de l'État (1er), le 2e prix et le 3e prix.
 > L'ordre compte impérativement (le champion n'est pas le 3e) et un lutteur ne peut pas monter sur deux marches du podium en même temps :
-> $N = A_{12}^3 = 12 \times 11 \times 10 = 1\,320 \text{ podiums possibles}$
+> $N = A_{12}^3 = 12 \\times 11 \\times 10 = 1\\,320 \\text{ podiums possibles}$
 
 ---
 
-## 5. Les Combinaisons ($C_n^p$ ou $\binom{n}{p}$)
+## 5. Les Combinaisons ($C_n^p$ ou $\\binom{n}{p}$)
 
 ### Définition
-Soit $E$ un ensemble à $n$ éléments et $p$ un entier tel que $0 \le p \le n$.
+Soit $E$ un ensemble à $n$ éléments et $p$ un entier tel que $0 \\le p \\le n$.
 Une **combinaison** de $p$ éléments de $E$ est un **sous-ensemble** (ou partie) à $p$ éléments de $E$.
 
-$\text{Formule des Combinaisons : } C_n^p = \binom{n}{p} = \frac{A_n^p}{p!} = \frac{n!}{p!(n-p)!}$
+$\\text{Formule des Combinaisons : } C_n^p = \\binom{n}{p} = \\frac{A_n^p}{p!} = \\frac{n!}{p!(n-p)!}$
 
 ### Relation fondamentale entre Arrangements et Combinaisons :
-$A_n^p = p! \times C_n^p$
+$A_n^p = p! \\times C_n^p$
 *Justification :* Pour former un arrangement de $p$ éléments, on choisit d'abord les $p$ éléments sans ordre ($C_n^p$ façons), puis on les ordonne ($p!$ permutations).
 
 ### Propriétés d'Or des Combinaisons :
 1. **Valeurs aux bornes :**
-   $C_n^0 = 1, \qquad C_n^1 = n, \qquad C_n^n = 1$
+   $C_n^0 = 1, \\qquad C_n^1 = n, \\qquad C_n^n = 1$
 2. **Propriété de symétrie :**
    $C_n^p = C_n^{n-p}$
-   *(Choisir $p$ éléments à emporter revient exactement à choisir les $n-p$ éléments à laisser ! Ex : $C_{10}^8 = C_{10}^2 = \frac{10 \times 9}{2} = 45$).*
+   *(Choisir $p$ éléments à emporter revient exactement à choisir les $n-p$ éléments à laisser ! Ex : $C_{10}^8 = C_{10}^2 = \\frac{10 \\times 9}{2} = 45$).*
 3. **Relation de Pascal (Fondamentale) :**
-   Pour tous entiers $1 \le p \le n-1$ :
+   Pour tous entiers probabilites \\le p \\le n-1$ :
    $C_n^p = C_{n-1}^p + C_{n-1}^{p-1}$
 
 ### Le Triangle de Pascal :
-| $n \backslash p$ | $0$ | $1$ | $2$ | $3$ | $4$ | $5$ |
+| $n$ \\ $p$ | $0$ | probabilites$ | $2$ | $3$ | $4$ | $5$ |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **0** | $1$ | | | | | |
-| **1** | $1$ | $1$ | | | | |
-| **2** | $1$ | $2$ | $1$ | | | |
-| **3** | $1$ | $3$ | $3$ | $1$ | | |
-| **4** | $1$ | $4$ | $6$ | $4$ | $1$ | |
-| **5** | $1$ | $5$ | $10$ | $10$ | $5$ | $1$ |
+| **0** | probabilites$ | | | | | |
+| **1** | probabilites$ | probabilites$ | | | | |
+| **2** | probabilites$ | $2$ | probabilites$ | | | |
+| **3** | probabilites$ | $3$ | $3$ | probabilites$ | | |
+| **4** | probabilites$ | $4$ | $6$ | $4$ | probabilites$ | |
+| **5** | probabilites$ | $5$ | probabilites0$ | probabilites0$ | $5$ | probabilites$ |
 
 > [!WOLOF] **Xam-xam ci Wolof — Combinaison C_n^p :**
 > - « Combinaison mooy tànn mbooloo bu amul ordre : dafa melni ñetti xarit yu bokk jënd benn kilo thieb ci boutique bi. Képp ku ci jëkk wax ak ku ci mujj wax ñoom ñépp ñoo yor thieb bi. Motax ñu koy divisé ci $p!$ ndax ordre bi amul benn solo ! »
@@ -2086,15 +2086,15 @@ $A_n^p = p! \times C_n^p$
 
 ## 6. La Formule du Binôme de Newton
 
-Pour tous réels ou complexes $a$ et $b$, et pour tout entier naturel $n \ge 1$ :
+Pour tous réels ou complexes $a$ et $b$, et pour tout entier naturel $n \\ge 1$ :
 
-$(a + b)^n = \sum_{k=0}^n C_n^k a^{n-k} b^k = C_n^0 a^n + C_n^1 a^{n-1}b + C_n^2 a^{n-2}b^2 + \dots + C_n^n b^n$
+$(a + b)^n = \\sum_{k=0}^n C_n^k a^{n-k} b^k = C_n^0 a^n + C_n^1 a^{n-1}b + C_n^2 a^{n-2}b^2 + \\dots + C_n^n b^n$
 
 ### Sommes remarquables issues du Binôme :
 1. **Nombre total de parties de $E$ (en posant $a = 1, b = 1$) :**
-   $\text{Card}(\mathcal{P}(E)) = \sum_{k=0}^n C_n^k = C_n^0 + C_n^1 + C_n^2 + \dots + C_n^n = (1 + 1)^n = 2^n$
+   $\\text{Card}(\\mathcal{P}(E)) = \\sum_{k=0}^n C_n^k = C_n^0 + C_n^1 + C_n^2 + \\dots + C_n^n = (1 + 1)^n = 2^n$
 2. **Somme alternée (en posant $a = 1, b = -1$) :**
-   $\sum_{k=0}^n (-1)^k C_n^k = C_n^0 - C_n^1 + C_n^2 - \dots + (-1)^n C_n^n = (1 - 1)^n = 0$
+   $\\sum_{k=0}^n (-1)^k C_n^k = C_n^0 - C_n^1 + C_n^2 - \\dots + (-1)^n C_n^n = (1 - 1)^n = 0$
 
 ---
 
@@ -2102,11 +2102,11 @@ $(a + b)^n = \sum_{k=0}^n C_n^k a^{n-k} b^k = C_n^0 a^n + C_n^1 a^{n-1}b + C_n^2
 
 Soit une urne contenant $N$ boules, dont $n_R$ rouges et $n_V$ vertes ($N = n_R + n_V$). On extrait $p$ boules.
 
-| Type de Tirage énoncé au Bac | Outil mathématique | Nombre total de cas possibles $\text{Card}(\Omega)$ | Tirer exactement $k$ rouges et $p-k$ vertes |
+| Type de Tirage énoncé au Bac | Outil mathématique | Nombre total de cas possibles $\\text{Card}(\\Omega)$ | Tirer exactement $k$ rouges et $p-k$ vertes |
 | :--- | :---: | :---: | :---: |
-| **Simultanément** (ou d'un coup) | **Combinaisons** $C_N^p$ | $\text{Card}(\Omega) = C_N^p$ | $C_{n_R}^k \times C_{n_V}^{p-k}$ |
-| **Successivement sans remise** | **Arrangements** $A_N^p$ | $\text{Card}(\Omega) = A_N^p$ | $C_p^k \times A_{n_R}^k \times A_{n_V}^{p-k}$ |
-| **Successivement avec remise** | **$p$-listes** | $\text{Card}(\Omega) = N^p$ | $C_p^k \times (n_R)^k \times (n_V)^{p-k}$ |
+| **Simultanément** (ou d'un coup) | **Combinaisons** $C_N^p$ | $\\text{Card}(\\Omega) = C_N^p$ | $C_{n_R}^k \\times C_{n_V}^{p-k}$ |
+| **Successivement sans remise** | **Arrangements** $A_N^p$ | $\\text{Card}(\\Omega) = A_N^p$ | $C_p^k \\times A_{n_R}^k \\times A_{n_V}^{p-k}$ |
+| **Successivement avec remise** | **$p$-listes** | $\\text{Card}(\\Omega) = N^p$ | $C_p^k \\times (n_R)^k \\times (n_V)^{p-k}$ |
 
 > [!CAUTION] **Piège classique Bac S2 sur les tirages successifs :**
 > En tirage successif, n'oubliez **JAMAIS** le coefficient d'ordre $C_p^k$ qui compte les différentes positions possibles des couleurs ! En tirage simultané, il n'y a pas d'ordre, donc pas de coefficient $C_p^k$.
@@ -2117,14 +2117,14 @@ Soit une urne contenant $N$ boules, dont $n_R$ rouges et $n_V$ vertes ($N = n_R 
 
 ### Énoncé Officiel (Office du Baccalauréat du Sénégal — 4 Points)
 
-Une urne opaque contient $10$ boules indiscernables au toucher :
-- $4$ boules blanches numérotées $1, 2, 3, 4$.
-- $3$ boules rouges numérotées $1, 2, 3$.
-- $3$ boules noires numérotées $1, 2, 3$.
+Une urne opaque contient probabilites0$ boules indiscernables au toucher :
+- $4$ boules blanches numérotées probabilites, 2, 3, 4$.
+- $3$ boules rouges numérotées probabilites, 2, 3$.
+- $3$ boules noires numérotées probabilites, 2, 3$.
 
 #### Partie A : Tirage Simultané (2 points)
 On tire simultanément $3$ boules de l'urne.
-1. **(0,5 pt)** Démontrer que le nombre total de tirages possibles est $\text{Card}(\Omega) = 120$.
+1. **(0,5 pt)** Démontrer que le nombre total de tirages possibles est $\\text{Card}(\\Omega) = 120$.
 2. **(0,5 pt)** Déterminer le nombre de tirages unicolores (contenant 3 boules de même couleur).
 3. **(0,5 pt)** Déterminer le nombre de tirages tricolores (contenant une boule de chaque couleur).
 4. **(0,5 pt)** Déterminer le nombre de tirages contenant au moins une boule blanche.
@@ -2143,22 +2143,22 @@ On tire successivement et sans remise $3$ boules de l'urne.
 
 - **1. Nombre total de tirages possibles (0,5 point) :**
   Le tirage est simultané, il s'agit donc de choisir sans ordre 3 boules parmi les 10 disponibles :
-  $\text{Card}(\Omega) = C_{10}^3 = \frac{10 \times 9 \times 8}{3 \times 2 \times 1} = \frac{720}{6} = 120$
-  **Conclusion :** Il y a exactement $120$ tirages possibles.
+  $\\text{Card}(\\Omega) = C_{10}^3 = \\frac{10 \\times 9 \\times 8}{3 \\times 2 \\times 1} = \\frac{720}{6} = 120$
+  **Conclusion :** Il y a exactement probabilites20$ tirages possibles.
 
 - **2. Tirages unicolores (0,5 point) :**
   Un tirage est unicolore s'il est composé de 3 blanches OU 3 rouges OU 3 noires :
-  $N_1 = C_4^3 + C_3^3 + C_3^3 = 4 + 1 + 1 = 6 \text{ tirages}$
+  $N_1 = C_4^3 + C_3^3 + C_3^3 = 4 + 1 + 1 = 6 \\text{ tirages}$
 
 - **3. Tirages tricolores (0,5 point) :**
   Un tirage tricolore contient exactement 1 blanche ET 1 rouge ET 1 noire :
-  $N_2 = C_4^1 \times C_3^1 \times C_3^1 = 4 \times 3 \times 3 = 36 \text{ tirages}$
+  $N_2 = C_4^1 \\times C_3^1 \\times C_3^1 = 4 \\times 3 \\times 3 = 36 \\text{ tirages}$
 
 - **4. Tirages avec au moins une boule blanche (0,5 point) :**
-  Utilisons le réflexe impératif de l'**événement contraire** $\overline{E}$ : « n'obtenir aucune boule blanche », c'est-à-dire tirer les 3 boules parmi les $10 - 4 = 6$ boules de couleur rouge ou noire :
-  $\text{Card}(\overline{E}) = C_6^3 = \frac{6 \times 5 \times 4}{3 \times 2 \times 1} = 20$
+  Utilisons le réflexe impératif de l'**événement contraire** $\\overline{E}$ : « n'obtenir aucune boule blanche », c'est-à-dire tirer les 3 boules parmi les probabilites0 - 4 = 6$ boules de couleur rouge ou noire :
+  $\\text{Card}(\\overline{E}) = C_6^3 = \\frac{6 \\times 5 \\times 4}{3 \\times 2 \\times 1} = 20$
   Par soustraction du total :
-  $\text{Card}(E) = \text{Card}(\Omega) - \text{Card}(\overline{E}) = 120 - 20 = 100 \text{ tirages}$
+  $\\text{Card}(E) = \\text{Card}(\\Omega) - \\text{Card}(\\overline{E}) = 120 - 20 = 100 \\text{ tirages}$
 
 ---
 
@@ -2166,22 +2166,22 @@ On tire successivement et sans remise $3$ boules de l'urne.
 
 - **1. Nombre total de tirages possibles (0,5 point) :**
   Le tirage est successif et sans remise, l'ordre compte et il n'y a pas de répétition :
-  $\text{Card}(\Omega') = A_{10}^3 = 10 \times 9 \times 8 = 720 \text{ tirages possibles}$
+  $\\text{Card}(\\Omega') = A_{10}^3 = 10 \\times 9 \\times 8 = 720 \\text{ tirages possibles}$
 
 - **2. Première rouge et dernière noire (0,5 point) :**
   La procédure de choix se décompose en 3 étapes ordonnées :
   - Étape 1 : Choisir la 1ère boule parmi les 3 rouges ($3$ choix possibles).
   - Étape 2 : Choisir la 3ème boule parmi les 3 noires ($3$ choix possibles).
-  - Étape 3 : Choisir la 2ème boule parmi les $10 - 2 = 8$ boules restantes ($8$ choix possibles).
+  - Étape 3 : Choisir la 2ème boule parmi les probabilites0 - 2 = 8$ boules restantes ($8$ choix possibles).
   Par le principe multiplicatif :
-  $N_3 = 3 \times 8 \times 3 = 72 \text{ tirages}$
+  $N_3 = 3 \\times 8 \\times 3 = 72 \\text{ tirages}$
 
 - **3. Exactement 2 boules portant un numéro impair (1 point) :**
   Comptabilisons les numéros pairs et impairs dans l'urne :
   - Numéros impairs :
-    - Blanches : $1, 3$ (2 boules)
-    - Rouges : $1, 3$ (2 boules)
-    - Noires : $1, 3$ (2 boules)
+    - Blanches : probabilites, 3$ (2 boules)
+    - Rouges : probabilites, 3$ (2 boules)
+    - Noires : probabilites, 3$ (2 boules)
     - Total de boules impaires : $2 + 2 + 2 = 6$ boules.
   - Numéros pairs :
     - Blanches : $2, 4$ (2 boules)
@@ -2191,24 +2191,24 @@ On tire successivement et sans remise $3$ boules de l'urne.
   
   Pour obtenir exactement 2 boules impaires et 1 boule paire lors d'un tirage successif :
   - Choisir les 2 emplacements des boules impaires parmi les 3 tirages : $C_3^2 = 3$ façons (ex : $(I, I, P)$, $(I, P, I)$ ou $(P, I, I)$).
-  - Choisir et ordonner 2 boules impaires parmi les 6 : $A_6^2 = 6 \times 5 = 30$.
+  - Choisir et ordonner 2 boules impaires parmi les 6 : $A_6^2 = 6 \\times 5 = 30$.
   - Choisir 1 boule paire parmi les 4 : $A_4^1 = 4$.
   
   Par le principe multiplicatif avec coefficient d'ordre :
-  $N_4 = C_3^2 \times A_6^2 \times A_4^1 = 3 \times 30 \times 4 = 360 \text{ tirages}$
+  $N_4 = C_3^2 \\times A_6^2 \\times A_4^1 = 3 \\times 30 \\times 4 = 360 \\text{ tirages}$
 
 ---
 
 ## 9. Synthèse Finale & 7 Réflexes d'Or en Wolof
 
 > [!CONSEIL_BAC] **Les 7 Commandements du Dénombrement au Bac S2 :**
-> 1. **La question de l'Ordre :** Demandez-vous toujours : si j'échange l'ordre des éléments, est-ce un résultat différent ? Si NON $\to C_n^p$. Si OUI $\to A_n^p$ ou $n^p$.
-> 2. **La question de la Répétition :** Les éléments peuvent-ils être repris ? Si OUI $\to n^p$. Si NON $\to A_n^p$ ou $C_n^p$.
-> 3. **Le réflexe « Au moins un » :** Ne calculez JAMAIS la somme directe ! Posez immédiatement : $\text{Card} = \text{Total} - \text{Card}(\text{Aucun})$.
-> 4. **ET / OU :** « ET » signifie $\times$ (multiplication). « OU » signifie $+$ (addition pour cas disjoints).
+> 1. **La question de l'Ordre :** Demandez-vous toujours : si j'échange l'ordre des éléments, est-ce un résultat différent ? Si NON $\\to C_n^p$. Si OUI $\\to A_n^p$ ou $n^p$.
+> 2. **La question de la Répétition :** Les éléments peuvent-ils être repris ? Si OUI $\\to n^p$. Si NON $\\to A_n^p$ ou $C_n^p$.
+> 3. **Le réflexe « Au moins un » :** Ne calculez JAMAIS la somme directe ! Posez immédiatement : $\\text{Card} = \\text{Total} - \\text{Card}(\\text{Aucun})$.
+> 4. **ET / OU :** « ET » signifie $\\times$ (multiplication). « OU » signifie $+$ (addition pour cas disjoints).
 > 5. **Permutation avec répétition :** Pour un mot de $n$ lettres, divisez $n!$ par les factorielles des fréquences de chaque lettre répétée.
 > 6. **Tirage successif et ordre :** N'oubliez jamais le coefficient d'ordre $C_p^k$ lors des tirages successifs bicolores.
-> 7. **Calcul mental des combinaisons :** Développez $C_n^p = \frac{n(n-1)\dots}{p!}$ et simplifiez avant de multiplier pour éviter les gros nombres.
+> 7. **Calcul mental des combinaisons :** Développez $C_n^p = \\frac{n(n-1)\\dots}{p!}$ et simplifiez avant de multiplier pour éviter les gros nombres.
 
 > [!WOLOF] **7 Réflexes ci Wolof — Bul ko fàtte mukk ci Bac S2 :**
 > - « **Simultané :** Mooy $C_n^p$ (bolé ci loxo benn yoon — ordre amul solo mukk) ! »
@@ -2217,7 +2217,7 @@ On tire successivement et sans remise $3$ boules de l'urne.
 > - « **Au moins un :** Dindil « benn amul » ci Total bi, nga am li nga bëgg ci 5 secondes ! »
 > - « **AK mooy ×, WALLA mooy + :** Bul jaxase multiplication ak addition mukk ci problème bi ! »
 > - « **Anagrammes :** Factorielle total bi ci kaw, factorielle répétitions yi ci suuf ! »
-> - « **Pascal ak Newton :** $(a+b)^n = \sum C_n^k a^{n-k} b^k$ te somme des coefficients $C_n^k$ mooy $2^n$ ! »
+> - « **Pascal ak Newton :** $(a+b)^n = \\sum C_n^k a^{n-k} b^k$ te somme des coefficients $C_n^k$ mooy $2^n$ ! »
 `,
 
   probabilites:`# Chapitre M12 : Probabilités Conditionnelles et Variables Aléatoires (Terminale S2)
