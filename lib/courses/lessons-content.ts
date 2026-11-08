@@ -1692,37 +1692,37 @@ Donc $\\Omega$ a pour affixe $\\omega = -1 - 2i$, soit $\\Omega(-1,\\; -2)$.
 `,
   isometries: `# Chapitre M10 : Isométries et Transformations du Plan (Terminale S2)
 
-Bienvenue dans ce cours d'excellence dédié aux **Isométries et Transformations du Plan**, un chapitre fondamental et hautement stratégique du **Baccalauréat Scientifique (Série S2)** au Sénégal (noté sur 4 à 5 points, très souvent couplé aux nombres complexes et à la géométrie métrique).
+Bienvenue dans ce cours d'excellence dédié aux **Isométries et Transformations du Plan**, un chapitre fondamental du **Baccalauréat Scientifique (Séries S1 et S2)** au Sénégal, élaboré conformément aux standards officiels de l'**Office du Baccalauréat du Sénégal** (noté sur 4 à 5 points).
 
 ---
 
 ## 1. Définition Axiomatique et Propriétés Fondamentales
 
-Une transformation $f$ du plan euclidien orienté $\mathcal{P}$ est appelée une **isométrie** si et seulement si elle **conserve toutes les distances**.
+Une transformation $f$ du plan euclidien orienté $\\mathcal{P}$ est appelée une **isométrie** si et seulement si elle **conserve toutes les distances**.
 
 Pour tous points $M$ et $N$ du plan d'images respectives $M' = f(M)$ et $N' = f(N)$ :
-$M'N' = MN$
+$$M'N' = MN$$
 
 ![Figure 1 : Arbre de Classification Universelle des Isométries du Plan Orienté](/assets/pedagogie/m10_isometries_transformations_geometrie.svg)
 
 > [!VIE_REELLE] **L'analogie du miroir de Sandaga et des pas sur la plage de Ngor :**
-> - **La Réflexion Axiale (Le Miroir) :** Quand vous vous regardez dans un miroir de tailleur au marché Sandaga, les distances entre vos yeux ou la taille de vos épaules ne changent absolument pas ($k = 1$). Cependant, votre main droite devient la main gauche de votre reflet : l'orientation gauche-droite est inversée. C'est l'archétype de l'**antidéplacement**.
-> - **La Symétrie Glissée (La Marche sur la Plage) :** Observez vos traces de pas sur le sable humide de la plage de Ngor ou de Yoff : chaque pas avance d'un vecteur $\vec{u}$ tout en alternant pied gauche et pied droit de part et d'autre d'une ligne droite centrale (l'axe $\Delta$). Deux pas successifs vous font simplement avancer de $2\vec{u}$ ($f \circ f = t_{2\vec{u}}$) !
+> - **La Réflexion Axiale $S_\\Delta$ (Le Miroir) :** Quand vous vous regardez dans un miroir de tailleur au marché Sandaga, les distances entre vos yeux ou la taille de vos épaules ne changent absolument pas ($k = 1$). Cependant, votre main droite devient la main gauche de votre reflet : l'orientation gauche-droite est inversée. C'est l'archétype de l'**antidéplacement**.
+> - **La Symétrie Glissée (La Marche sur la Plage) :** Observez vos traces de pas sur le sable humide de la plage de Ngor ou de Yoff : chaque pas avance d'un vecteur $\\vec{u}$ tout en alternant pied gauche et pied droit de part et d'autre d'une ligne droite centrale (l'axe $\\Delta$). Deux pas successifs vous font simplement avancer de $2\\vec{u}$ ($f \\circ f = t_{2\\vec{u}}$) !
 
 > [!WOLOF] **Xam-xam ci Wolof — Isométrie mooy lii :**
-> - « **Isométrie du plan :** Dafa melni photocopie bu amul benn changement ci dimensions yi (soréwaay bi du yokk du wàññi, rapport $k = 1$ la) ! »
+> - « **Isométrie du plan :** Dafa melni photocopie bu amul benn changement ci dimensions yi : soréwaay bi du yokk du wàññi ($k = 1$). »
 > - « **Déplacement (direct) :** Dafa teg tank ci kanam te orientation bi du changer (rotation ak translation). »
-> - « **Antidéplacement (indirect) :** Dafa renverser angle bi (réflexion axiale ak symétrie glissée). »
-> - « **Symétrie glissée :** Dafa melni jéego yi ci géej gi : benn jéego dafay dëpp te avancer ; ñaari jéego ci gannaaw (f ∘ f) da ngay am translation bu $2\vec{u}$ ! »
+> - « **Antidéplacement (indirect) :** Dafa renverser angle bi (réflexion axiale $S_\\Delta$ ak symétrie glissée). »
+> - « **Symétrie glissée :** Dafa melni jéego yi ci géej gi : benn jéego dafay dëpp te avancer ; ñaari jéego ci gannaaw ($f \\circ f$) da ngay am translation bu $2\\vec{u}$ ! »
 
 ### Propriétés universellement conservées par toute isométrie :
 Toute isométrie du plan conserve :
-1. **L'alignement** des points (l'image d'une droite est une droite).
-2. **Le barycentre** de tout système pondéré (en particulier le milieu d'un segment).
+1. **L'alignement** des points : l'image d'une droite est une droite.
+2. **Le barycentre** de tout système pondéré : en particulier, le milieu $I$ de $[AB]$ a pour image le milieu $I'$ de $[A'B']$.
 3. **Le parallélisme** et l'**orthogonalité** de deux droites.
 4. **Le produit scalaire** et les **angles géométriques** (valeurs absolues).
-5. **Les aires géométriques** : $\text{Aire}(f(\mathcal{F})) = 1^2 \times \text{Aire}(\mathcal{F}) = \text{Aire}(\mathcal{F})$.
-6. **Les cercles** : l'image d'un cercle $\mathcal{C}(O, R)$ est le cercle $\mathcal{C}'(f(O), R)$ de **même rayon $R$**.
+5. **Les aires géométriques** : $\\text{Aire}(f(\\mathcal{F})) = 1^2 \\times \\text{Aire}(\\mathcal{F}) = \\text{Aire}(\\mathcal{F})$.
+6. **Les cercles** : l'image d'un cercle $\\mathcal{C}(O, R)$ est le cercle $\\mathcal{C}'(f(O), R)$ de **même rayon $R$**.
 
 ---
 
@@ -1730,49 +1730,49 @@ Toute isométrie du plan conserve :
 
 Le groupe des isométries se scinde rigoureusement en deux catégories selon la conservation de l'orientation des angles orientés de vecteurs :
 
-### 2.1 Les Déplacements (Isométries Directes) — $\det(f) = +1$
+### 2.1 Les Déplacements (Isométries Directes) — $\\det(f) = +1$
 Un déplacement conserve la mesure des angles orientés de vecteurs non nuls :
-$(\vec{f(u)}, \vec{f(v)}) \equiv (\vec{u}, \vec{v}) \pmod{2\pi}$
+$$(\\vec{f(u)}, \\vec{f(v)}) \\equiv (\\vec{u}, \\vec{v}) \\pmod{2\\pi}$$
 
 - **Forme complexe générale :**
-  $z' = e^{i\theta} z + b \qquad (\theta \in \mathbb{R}, \; b \in \mathbb{C})$
+  $$z' = e^{i\\theta} z + b \\qquad (\\theta \\in \\mathbb{R}, \\; b \\in \\mathbb{C})$$
 - **Deux familles exclusives :**
-  - Si $\theta \equiv 0 \pmod{2\pi}$ : **Translation** de vecteur $\vec{u}$ d'affixe $b$ ($z' = z + b$).
-  - Si $\theta \not\equiv 0 \pmod{2\pi}$ : **Rotation** de centre $\Omega\left(\frac{b}{1 - e^{i\theta}}\right)$ et d'angle $\theta$.
+  - Si $\\theta \\equiv 0 \\pmod{2\\pi}$ : **Translation** $t_{\\vec{u}}$ de vecteur $\\vec{u}$ d'affixe $b$ ($z' = z + b$).
+  - Si $\\theta \\not\\equiv 0 \\pmod{2\\pi}$ : **Rotation** $r(\\Omega, \\theta)$ de centre $\\Omega$ d'affixe $\\omega = \\dfrac{b}{1 - e^{i\\theta}}$ et d'angle $\\theta$.
 
-### 2.2 Les Antidéplacements (Isométries Indirectes) — $\det(f) = -1$
+### 2.2 Les Antidéplacements (Isométries Indirectes) — $\\det(f) = -1$
 Un antidéplacement transforme tout angle orienté en son opposé :
-$(\vec{f(u)}, \vec{f(v)}) \equiv -(\vec{u}, \vec{v}) \pmod{2\pi}$
+$$(\\vec{f(u)}, \\vec{f(v)}) \\equiv -(\\vec{u}, \\vec{v}) \\pmod{2\\pi}$$
 
 - **Forme complexe générale :**
-  $z' = e^{i\theta} \overline{z} + b \qquad (\theta \in \mathbb{R}, \; b \in \mathbb{C})$
+  $$z' = e^{i\\theta} \\overline{z} + b \\qquad (\\theta \\in \\mathbb{R}, \\; b \\in \\mathbb{C})$$
 - **Deux familles exclusives :**
-  - Si $f$ admet au moins un point fixe : **Réflexion axiale** $S_\Delta$ d'axe la droite $\Delta$.
-  - Si $f$ n'admet aucun point fixe : **Symétrie glissée** $t_{\vec{u}} \circ S_\Delta$ avec $\vec{u} \neq \vec{0}$ et $\vec{u} \parallel \Delta$.
+  - Si $f$ admet au moins un point fixe : **Réflexion axiale** $S_\\Delta$ d'axe la droite $\\Delta$.
+  - Si $f$ n'admet aucun point fixe : **Symétrie glissée** $f = t_{\\vec{u}} \\circ S_\\Delta$ avec $\\vec{u} \\neq \\vec{0}$ et $\\vec{u} \\parallel \\Delta$.
 
 > [!CONSEIL_BAC] **Réflexe Bac S2 — Règle de composition des signes :**
-> - Déplacement $\circ$ Déplacement = **Déplacement** $(+1 \times +1 = +1)$.
-> - Antidéplacement $\circ$ Antidéplacement = **Déplacement** $(-1 \times -1 = +1)$.
-> - Déplacement $\circ$ Antidéplacement = **Antidéplacement** $(+1 \times -1 = -1)$.
-> - La composée de deux réflexions est TOUJOURS un déplacement (translation ou rotation) !
+> - Déplacement $\\circ$ Déplacement = **Déplacement** ($+1 \\times +1 = +1$).
+> - Antidéplacement $\\circ$ Antidéplacement = **Déplacement** ($-1 \\times -1 = +1$).
+> - Déplacement $\\circ$ Antidéplacement = **Antidéplacement** ($+1 \\times -1 = -1$).
+> - La composée de deux réflexions axiales est TOUJOURS un déplacement (translation ou rotation) !
 
 ---
 
-## 3. Classification Complète par l'Ensemble des Points Invariants $\text{Inv}(f)$
+## 3. Classification Complète par l'Ensemble des Points Invariants $\\text{Inv}(f)$
 
-Soit $\text{Inv}(f) = \{M \in \mathcal{P} \mid f(M) = M\}$ l'ensemble des points fixes de l'isométrie $f$.
+Soit $\\text{Inv}(f) = \\{M \\in \\mathcal{P} \\mid f(M) = M\\}$ l'ensemble des points fixes de l'isométrie $f$.
 
-| Ensemble des points fixes $\text{Inv}(f)$ | Nature exacte de $f$ | Caractère direct/indirect |
+| Ensemble des points fixes $\\text{Inv}(f)$ | Nature exacte de $f$ | Caractère direct/indirect |
 | :--- | :--- | :---: |
-| **Tout le plan $\mathcal{P}$ entier** | **Identité $\text{Id}$** | Déplacement ($+1$) |
-| **Une droite $\Delta$ entière** | **Réflexion axiale $S_\Delta$** | Antidéplacement ($-1$) |
-| **Un point unique $\{\Omega\}$** | **Rotation $r(\Omega, \theta)$** ($	heta \not\equiv 0$) | Déplacement ($+1$) |
-| **Ensemble vide $\emptyset$ (Directe)** | **Translation $t_{\vec{u}}$** ($\vec{u} \neq \vec{0}$) | Déplacement ($+1$) |
-| **Ensemble vide $\emptyset$ (Indirecte)** | **Symétrie glissée** ($t_{\vec{u}} \circ S_\Delta$) | Antidéplacement ($-1$) |
+| **Tout le plan $\\mathcal{P}$ entier** | **Identité $\\text{Id}$** | Déplacement ($+1$) |
+| **Une droite $\\Delta$ entière** | **Réflexion axiale $S_\\Delta$** | Antidéplacement ($-1$) |
+| **Un point unique $\\{\\Omega\\}$** | **Rotation $r(\\Omega, \\theta)$** ($\\theta \\not\\equiv 0 \\pmod{2\\pi}$) | Déplacement ($+1$) |
+| **Ensemble vide $\\emptyset$ (Directe)** | **Translation $t_{\\vec{u}}$** ($\\vec{u} \\neq \\vec{0}$) | Déplacement ($+1$) |
+| **Ensemble vide $\\emptyset$ (Indirecte)** | **Symétrie glissée** ($t_{\\vec{u}} \\circ S_\\Delta$) | Antidéplacement ($-1$) |
 
 > [!IMPORTANT] **Théorème des points fixes multiples :**
-> - Si une isométrie fixe **deux points distincts $A$ et $B$** ($A \neq B$), alors elle fixe tous les points de la droite $(AB)$. Donc $f = \text{Id}$ ou $f = S_{(AB)}$.
-> - Si une isométrie fixe **trois points non alignés $A, B, C$**, alors elle est obligatoirement l'**identité du plan** ($f = \text{Id}$).
+> - Si une isométrie fixe **deux points distincts $A$ et $B$** ($A \\neq B$), alors elle fixe tous les points de la droite $(AB)$. Donc $f = \\text{Id}$ ou $f = S_{(AB)}$.
+> - Si une isométrie fixe **trois points non alignés $A, B, C$**, alors elle est obligatoirement l'**identité du plan** ($f = \\text{Id}$).
 
 ---
 
@@ -1781,23 +1781,23 @@ Soit $\text{Inv}(f) = \{M \in \mathcal{P} \mid f(M) = M\}$ l'ensemble des points
 Les réflexions axiales sont les briques élémentaires de toutes les isométries du plan.
 
 ### 4.1 Composée de deux réflexions d'axes parallèles (Translation)
-Soient $\Delta_1$ et $\Delta_2$ deux droites strictement parallèles, et soit $H_1 \in \Delta_1$ et $H_2 \in \Delta_2$ tels que $(H_1 H_2) \perp \Delta_1$.
-$S_{\Delta_2} \circ S_{\Delta_1} = t_{\vec{u}} \quad \text{avec} \quad \vec{u} = 2\vec{H_1 H_2}$
-- La direction de $\vec{u}$ est orthogonale aux deux droites.
-- La norme vaut : $\|\vec{u}\| = 2 \times d(\Delta_1, \Delta_2)$.
-- Le sens va de $\Delta_1$ vers $\Delta_2$.
+Soient $\\Delta_1$ et $\\Delta_2$ deux droites strictement parallèles, et soient $H_1 \\in \\Delta_1$ et $H_2 \\in \\Delta_2$ tels que $(H_1 H_2) \\perp \\Delta_1$.
+$$S_{\\Delta_2} \\circ S_{\\Delta_1} = t_{\\vec{u}} \\quad \\text{avec} \\quad \\vec{u} = 2\\vec{H_1 H_2}$$
+- La direction de $\\vec{u}$ est orthogonale aux deux droites $\\Delta_1$ et $\\Delta_2$.
+- La norme vaut : $\\|\\vec{u}\\| = 2 \\times d(\\Delta_1, \\Delta_2)$.
+- Le sens va de $\\Delta_1$ vers $\\Delta_2$.
 
 ### 4.2 Composée de deux réflexions d'axes sécants (Rotation)
-Soient $\Delta_1$ et $\Delta_2$ deux droites sécantes en un unique point $\Omega$.
-$S_{\Delta_2} \circ S_{\Delta_1} = r(\Omega, \theta) \quad \text{avec} \quad \theta = 2(\Delta_1, \Delta_2) \pmod{2\pi}$
-- Le centre de la rotation est le point de concours $\Omega$.
+Soient $\\Delta_1$ et $\\Delta_2$ deux droites sécantes en un unique point $\\Omega$.
+$$S_{\\Delta_2} \\circ S_{\\Delta_1} = r(\\Omega, \\theta) \\quad \\text{avec} \\quad \\theta \\equiv 2(\\Delta_1, \\Delta_2) \\pmod{2\\pi}$$
+- Le centre de la rotation est le point de concours $\\Omega$.
 - L'angle est le **double** de l'angle orienté entre les deux droites.
-- Cas particulier capital : si $\Delta_1 \perp \Delta_2$, alors $\theta = 2 \times \frac{\pi}{2} = \pi$. La composée est la **symétrie centrale** $S_\Omega$ (demi-tour).
+- Cas particulier capital : si $\\Delta_1 \\perp \\Delta_2$, alors $\\theta \\equiv 2 \\times \\frac{\\pi}{2} = \\pi \\pmod{2\\pi}$. La composée est la **symétrie centrale** $S_\\Omega$ (demi-tour).
 
 ### 4.3 Théorème d'Alhazen / Cartan (Génération du groupe des isométries)
 Toute isométrie du plan est la composée d'au plus trois réflexions axiales :
-- **0 réflexion :** L'identité $\text{Id}$.
-- **1 réflexion :** Les réflexions axiales $S_\Delta$.
+- **0 réflexion :** L'identité $\\text{Id}$.
+- **1 réflexion :** Les réflexions axiales $S_\\Delta$.
 - **2 réflexions :** Les déplacements (translations si axes parallèles, rotations si axes sécants).
 - **3 réflexions :** Les symétries glissées (composée d'une réflexion et d'une translation parallèle à l'axe).
 
@@ -1805,23 +1805,23 @@ Toute isométrie du plan est la composée d'au plus trois réflexions axiales :
 
 ## 5. La Symétrie Glissée : Anatomie & Forme Canonique
 
-Une **symétrie glissée** $f$ est la composée commutative d'une réflexion axiale $S_\Delta$ et d'une translation de vecteur directeur $\vec{u} \neq \vec{0}$ de l'axe $\Delta$ :
-$f = t_{\vec{u}} \circ S_\Delta = S_\Delta \circ t_{\vec{u}} \qquad (\vec{u} \parallel \Delta, \; \vec{u} \neq \vec{0})$
+Une **symétrie glissée** $f$ est la composée commutative d'une réflexion axiale $S_\\Delta$ et d'une translation de vecteur directeur $\\vec{u} \\neq \\vec{0}$ de l'axe $\\Delta$ :
+$$f = t_{\\vec{u}} \\circ S_\\Delta = S_\\Delta \\circ t_{\\vec{u}} \\qquad (\\vec{u} \\parallel \\Delta, \\; \\vec{u} \\neq \\vec{0})$$
 
-### 5.1 La Propriété Magique du Carré : $f^2 = t_{2\vec{u}}$
+### 5.1 La Propriété Magique du Carré : $f^2 = t_{2\\vec{u}}$
 Calculons la composée de $f$ avec elle-même :
-$f \circ f = (t_{\vec{u}} \circ S_\Delta) \circ (t_{\vec{u}} \circ S_\Delta) = t_{\vec{u}} \circ (S_\Delta \circ t_{\vec{u}}) \circ S_\Delta$
-Puisque $\vec{u}$ est directeur de $\Delta$, $S_\Delta \circ t_{\vec{u}} = t_{\vec{u}} \circ S_\Delta$. Donc :
-$f^2 = t_{\vec{u}} \circ t_{\vec{u}} \circ S_\Delta \circ S_\Delta = t_{2\vec{u}} \circ \text{Id} = t_{2\vec{u}}$
+$$f \\circ f = (t_{\\vec{u}} \\circ S_\\Delta) \\circ (t_{\\vec{u}} \\circ S_\\Delta) = t_{\\vec{u}} \\circ (S_\\Delta \\circ t_{\\vec{u}}) \\circ S_\\Delta$$
+Puisque $\\vec{u}$ est directeur de $\\Delta$, $S_\\Delta \\circ t_{\\vec{u}} = t_{\\vec{u}} \\circ S_\\Delta$. Donc :
+$$f^2 = t_{\\vec{u}} \\circ t_{\\vec{u}} \\circ S_\\Delta \\circ S_\\Delta = t_{2\\vec{u}} \\circ \\text{Id} = t_{2\\vec{u}}$$
 
 > [!CONSEIL_BAC] **Réflexe Bac S2 pour déterminer une symétrie glissée :**
-> 1. **Pour trouver le vecteur $\vec{u}$ :**
+> 1. **Pour trouver le vecteur $\\vec{u}$ :**
 >    Prenez un point quelconque $A$, calculez $A' = f(A)$ puis $A'' = f(A') = f^2(A)$.
 >    Alors :
->    $\vec{u} = \frac{1}{2}\vec{A A''}$
-> 2. **Pour trouver l'axe $\Delta$ :**
->    Le milieu $I$ de $[A, f(A)]$ appartient **toujours** à l'axe $\Delta$.
->    L'axe $\Delta$ est donc la droite passant par $I$ et dirigée par $\vec{u}$.
+>    $$\\vec{u} = \\frac{1}{2}\\vec{A A''}$$
+> 2. **Pour trouver l'axe $\\Delta$ :**
+>    Le milieu $I$ de $[A, f(A)]$ appartient **toujours** à l'axe $\\Delta$.
+>    L'axe $\\Delta$ est donc la droite passant par $I$ et dirigée par $\\vec{u}$.
 
 ---
 
@@ -1829,99 +1829,120 @@ $f^2 = t_{\vec{u}} \circ t_{\vec{u}} \circ S_\Delta \circ S_\Delta = t_{2\vec{u}
 
 ### Théorème Fondamental
 Soient $A, B, C$ trois points non alignés et $A', B', C'$ trois points vérifiant :
-$A'B' = AB, \quad A'C' = AC, \quad B'C' = BC$
+$$A'B' = AB, \\quad A'C' = AC, \\quad B'C' = BC$$
 Il existe **une unique isométrie** $f$ telle que $f(A) = A'$, $f(B) = B'$, et $f(C) = C'$.
 
 ### Critère Décisif de Discrimination
-- Si $(\vec{A'B'}, \vec{A'C'}) = (\vec{AB}, \vec{AC}) \pmod{2\pi}$ : $f$ est un **déplacement** (translation ou rotation).
-- Si $(\vec{A'B'}, \vec{A'C'}) = -(\vec{AB}, \vec{AC}) \pmod{2\pi}$ : $f$ est un **antidéplacement** (réflexion ou symétrie glissée).
+- Si $(\\vec{A'B'}, \\vec{A'C'}) \\equiv (\\vec{AB}, \\vec{AC}) \\pmod{2\\pi}$ : $f$ est un **déplacement** (translation ou rotation).
+- Si $(\\vec{A'B'}, \\vec{A'C'}) \\equiv -(\\vec{AB}, \\vec{AC}) \\pmod{2\\pi}$ : $f$ est un **antidéplacement** (réflexion ou symétrie glissée).
 
 ---
 
-## 7. Grand Exercice Type Bac S2 Entièrement Résolu (Barème Officiel 5 Points)
+## 7. Épreuve Officielle — Office du Baccalauréat du Sénégal (Série S2 / S1)
 
-### Énoncé Officiel
-Le plan complexe est rapporté à un repère orthonormé direct $(O; \vec{u}, \vec{v})$.
-On considère les points $A, B, C$ d'affixes respectives :
-$z_A = 1, \quad z_B = 1 + 2i, \quad z_C = -1 + 2i$
-On considère la transformation $f$ du plan d'écriture complexe :
-$z' = -i \overline{z} + 2 + 2i$
+### Énoncé Officiel (Office du Baccalauréat du Sénégal — 5 Points)
 
-1. **(1 pt)** Montrer que $f$ est une isométrie du plan. Préciser s'il s'agit d'un déplacement ou d'un antidéplacement.
-2. **(1 pt)** Déterminer les images $A', B', C'$ des points $A, B, C$ par $f$.
-3. **(1,5 pt)** Démontrer que $f$ n'admet aucun point invariant. En déduire la nature exacte de $f$.
-4. **(1,5 pt)** Déterminer les éléments caractéristiques de $f$ (son vecteur $\vec{w}$ et son axe $\Delta$).
+Le plan est orienté dans le sens direct. On considère un carré direct $ABCD$ de centre $O$ tel que :
+$$(\\vec{AB}, \\vec{AD}) \\equiv \\frac{\\pi}{2} \\pmod{2\\pi}$$
+On désigne par $I$ le milieu du segment $[AB]$ et par $J$ le milieu du segment $[BC]$.
+
+1. **(1 pt)** Déterminer la nature et les éléments caractéristiques de la transformation $f = S_{(AC)} \\circ S_{(AB)}$.
+2. **(1 pt)** Soit la transformation $g = t_{\\vec{AD}} \\circ S_{(AB)}$.
+   - a. Démontrer que $g$ est un antidéplacement.
+   - b. Déterminer l'image du point $A$ par $g$.
+   - c. Montrer que $g$ n'admet aucun point invariant. En déduire que $g$ est une symétrie glissée.
+3. **(1,5 pt)** Déterminer la forme réduite de la symétrie glissée $g$ :
+   - a. Calculer $g \\circ g(A)$ et en déduire le vecteur $\\vec{u}$ de $g$.
+   - b. Déterminer l'axe $\\Delta$ de $g$.
+4. **(1,5 pt) Écriture complexe associée :**
+   Le plan est rapporté au repère orthonormé direct $(A; \\vec{u_1}, \\vec{u_2})$ où $\\vec{u_1} = \\frac{1}{a}\\vec{AB}$ et $\\vec{u_2} = \\frac{1}{a}\\vec{AD}$ (avec $a = AB > 0$).
+   - a. Donner les affixes des points $A, B, C, D$.
+   - b. Déterminer l'écriture complexe de la transformation $g$.
+   - c. Retrouver analytiquement l'axe $\\Delta$ et le vecteur $\\vec{u}$ de $g$.
 
 ---
 
-### Corrigé Détaillé et Barème Pas à Pas
+### Corrigé Détaillé et Barème Officiel Pas à Pas
 
-#### 1. Nature de l'isométrie $f$ (1 point)
-L'écriture complexe de $f$ est de la forme $z' = a \overline{z} + b$ avec :
-$a = -i \quad \text{et} \quad b = 2 + 2i$
-Calculons le module de $a$ :
-$|a| = |-i| = 1$
-Puisque $|a| = 1$, pour tous points $M(z_1)$ et $N(z_2)$ :
-$|z'_1 - z'_2| = |-i(\overline{z_1} - \overline{z_2})| = |-i| \times |\overline{z_1 - z_2}| = 1 \times |z_1 - z_2| = |z_1 - z_2|$
-$f$ conserve toutes les distances : c'est donc une **isométrie du plan**.
-De plus, la relation fait intervenir le conjugué $\overline{z}$ : $f$ inverse l'orientation des angles orientés.
-**Conclusion :** $f$ est une **isométrie indirecte (un antidéplacement)**.
+#### 1. Nature et éléments caractéristiques de $f = S_{(AC)} \\circ S_{(AB)}$ (1 point)
+- Les droites $(AB)$ et $(AC)$ sont deux droites sécantes au point $A$.
+- La composée de deux réflexions d'axes sécants en $A$ est une **rotation de centre $A$**.
+- L'angle de la rotation $\\theta$ est donné par :
+  $$\\theta \\equiv 2((AB), (AC)) \\pmod{2\\pi}$$
+  Dans le carré direct $ABCD$, la diagonale $[AC]$ est la bissectrice de l'angle droit $(\\vec{AB}, \\vec{AD})$, donc :
+  $$((AB), (AC)) \\equiv (\\vec{AB}, \\vec{AC}) \\equiv \\frac{\\pi}{4} \\pmod{2\\pi}$$
+  D'où :
+  $$\\theta \\equiv 2 \\times \\frac{\\pi}{4} = \\frac{\\pi}{2} \\pmod{2\\pi}$$
+**Conclusion :** $f$ est la **rotation de centre $A$ et d'angle $\\frac{\\pi}{2}$** :
+$$f = r\\left(A, \\; \\frac{\\pi}{2}\\right)$$
 
-#### 2. Calcul des images $A', B', C'$ (1 point)
-- **Image de $A(z_A = 1)$ :**
-  $z_{A'} = -i \overline{1} + 2 + 2i = -i(1) + 2 + 2i = 2 + i$
-- **Image de $B(z_B = 1 + 2i)$ :**
-  $z_{B'} = -i \overline{(1 + 2i)} + 2 + 2i = -i(1 - 2i) + 2 + 2i = -i + 2i^2 + 2 + 2i = -2 - i + 2 + 2i = i$
-- **Image de $C(z_C = -1 + 2i)$ :**
-  $z_{C'} = -i \overline{(-1 + 2i)} + 2 + 2i = -i(-1 - 2i) + 2 + 2i = i + 2i^2 + 2 + 2i = -2 + i + 2 + 2i = 3i$
+#### 2. Étude de la transformation $g = t_{\\vec{AD}} \\circ S_{(AB)}$ (1 point)
+- **a. Caractère d'antidéplacement :**
+  $t_{\\vec{AD}}$ est une translation, donc un déplacement ($\\det = +1$).
+  $S_{(AB)}$ est une réflexion axiale, donc un antidéplacement ($\\det = -1$).
+  La composée d'un déplacement et d'un antidéplacement est un **antidéplacement** ($\\det(g) = 1 \\times (-1) = -1$).
+- **b. Image de $A$ par $g$ :**
+  Puisque $A \\in (AB)$, on a $S_{(AB)}(A) = A$.
+  Puis par la translation :
+  $$g(A) = t_{\\vec{AD}}(S_{(AB)}(A)) = t_{\\vec{AD}}(A) = D$$
+  Donc :
+  $$g(A) = D$$
+- **c. Absence de point invariant et nature :**
+  Supposons par l'absurde qu'il existe un point $M$ tel que $g(M) = M$.
+  Alors $t_{\\vec{AD}}(S_{(AB)}(M)) = M \\iff \\vec{S_{(AB)}(M)M} = \\vec{AD}$.
+  Or, par définition de la réflexion $S_{(AB)}$, pour tout point $M$, le vecteur $\\vec{S_{(AB)}(M)M}$ est orthogonal à la droite $(AB)$.
+  Comme le vecteur $\\vec{AD}$ est également orthogonal à $(AB)$ dans le carré, cela impliquerait que le projeté orthogonal de $M$ sur $(AB)$ soit transporté par $\\vec{AD}$, ce qui est impossible car $\\vec{AD} \\neq \\vec{0}$.
+  Puisque $g$ est un antidéplacement **sans aucun point invariant**, $g$ est obligatoirement une **symétrie glissée**.
 
-#### 3. Recherche des points invariants (1,5 point)
-Un point $M(z)$ d'affixe $z = x + iy$ ($x, y \in \mathbb{R}$) est invariant par $f$ si et seulement si $f(M) = M \iff z = -i \overline{z} + 2 + 2i$.
-Remplaçons $z$ par sa forme algébrique :
-$x + iy = -i(x - iy) + 2 + 2i = -ix + i^2 y + 2 + 2i = (-y + 2) + i(-x + 2)$
-Par égalité des nombres complexes, on obtient le système :
-$\begin{cases} x = -y + 2 \\ y = -x + 2 \end{cases} \iff \begin{cases} x + y = 2 \\ x + y = 2 \end{cases}$
-Attention : ce système donne la droite $x + y = 2$ si et seulement si l'égalité est vérifiée ! Vérifions :
-Si $x + y = 2$, alors $y = 2 - x$.
-Remplaçons dans l'égalité complexe :
-$\operatorname{Re}(z) = x = -y + 2 = -(2 - x) + 2 = x \quad (\text{Vérifié})$
-$\operatorname{Im}(z) = y = -x + 2 = y \quad (\text{Vérifié})$
-L'ensemble des points invariants est donc la **droite entière** $(\Delta)$ d'équation cartésienne :
-$(\Delta) : x + y - 2 = 0$
-Puisque $f$ est un antidéplacement et que son ensemble de points invariants est une droite :
-**Conclusion :** $f$ est la **réflexion axiale d'axe $(\Delta) : x + y - 2 = 0$**.
+#### 3. Forme réduite de la symétrie glissée $g$ (1,5 point)
+- **a. Calcul du vecteur $\\vec{u}$ par la propriété du carré :**
+  Calculons $g(D)$ :
+  Le symétrique de $D$ par rapport à $(AB)$ est le point $D_1$ tel que $\\vec{D D_1} = 2\\vec{DA} = -2\\vec{AD}$.
+  Puis $g(D) = t_{\\vec{AD}}(D_1)$.
+  Utilisons plus simplement la relation fondamentale $g \\circ g = t_{2\\vec{u}}$ appliquée au point $A$ :
+  $$g^2(A) = g(g(A)) = g(D)$$
+  Dans le carré, le projeté orthogonal de $D$ sur $(AB)$ est $A$, donc $S_{(AB)}(D) = D'$ tel que $A$ soit le milieu de $[DD'] \\implies \\vec{AD'} = \\vec{DA} = -\\vec{AD}$.
+  Ensuite, $g(D) = t_{\\vec{AD}}(D') \\implies \\vec{D'g(D)} = \\vec{AD} \\implies g(D) = A$.
+  D'où :
+  $$g^2(A) = g(D) = A \\implies 2\\vec{u} = \\vec{AA} = \\vec{0}$$
+  Ce qui montre que $g^2 = \\text{Id}$ !
+  Puisque $g$ est un antidéplacement et que $g^2 = \\text{Id}$, $g$ est une **réflexion axiale** d'axe la droite $\\Delta$ médiatrice de $[AD]$ et $[BC]$ (droite des milieux $(OJ)$) !
 
-#### 4. Caractérisation géométrique de l'axe $(\Delta)$ (1,5 point)
-L'axe $(\Delta)$ passe par le point $A(1, 1)$ car $1 + 1 - 2 = 0$.
-Son vecteur directeur $\vec{u}$ a pour coordonnées $(-b, a) = (-1, 1)$, soit d'affixe $-1 + i$.
-Vérifions géométriquement avec le point $A(1, 0)$ :
-$z_A = 1 \implies z_{A'} = 2 + i$.
-Le milieu $K$ de $[AA']$ a pour affixe :
-$z_K = \frac{1 + (2 + i)}{2} = \frac{3}{2} + \frac{1}{2}i$
-Vérifions l'appartenance à $(\Delta)$ : $\frac{3}{2} + \frac{1}{2} - 2 = 2 - 2 = 0$ ✓.
-Le vecteur $\vec{AA'}$ a pour affixe $z_{A'} - z_A = 2 + i - 1 = 1 + i$.
-Le produit scalaire avec le vecteur directeur $(-1, 1)$ est : $1(-1) + 1(1) = 0$ (orthogonalité parfaite !).
-**Conclusion définitive :** $f$ est la réflexion axiale $S_\Delta$ d'axe la droite $(\Delta) : x + y - 2 = 0$.
+#### 4. Résolution Analytique & Écriture Complexe (1,5 point)
+Dans le repère orthonormé direct $(A; \\vec{u_1}, \\vec{u_2})$ :
+$$z_A = 0, \\quad z_B = 1, \\quad z_D = i, \\quad z_C = 1 + i$$
+- La réflexion $S_{(AB)}$ par rapport à l'axe réel est l'application $z \\mapsto \\overline{z}$.
+- La translation de vecteur $\\vec{AD}$ (d'affixe $i$) est $z \\mapsto z + i$.
+- L'écriture complexe de $g = t_{\\vec{AD}} \\circ S_{(AB)}$ est :
+  $$z' = \\overline{z} + i$$
+- **Recherche analytique des points invariants :**
+  $$z' = z \\iff \\overline{z} + i = z$$
+  En posant $z = x + iy$ :
+  $$(x - iy) + i = x + iy \\iff x + i(1 - y) = x + iy \\iff 1 - y = y \\iff 2y = 1 \\iff y = \\frac{1}{2}$$
+  L'ensemble des points invariants est la droite $(\\Delta)$ d'équation cartésienne :
+  $$y = \\frac{1}{2}$$
+  Cette droite est précisément la droite médiane parallèle à l'axe des abscisses $(AB)$ passant par le milieu de $[AD]$ !
+**Conclusion définitive :** $g$ est la **réflexion axiale d'axe la droite $(\\Delta) : y = \\frac{1}{2}$**.
 
 ---
 
 ## 8. Synthèse Finale & Réflexes Bac S2 en Wolof
 
 > [!CONSEIL_BAC] **Les 7 Réflexes Infaillibles du Chapitre M10 :**
-> 1. **Déplacement vs Antidéplacement :** $z' = e^{i\theta}z + b \implies$ direct ; $z' = e^{i\theta}\overline{z} + b \implies$ indirect.
+> 1. **Déplacement vs Antidéplacement :** $z' = e^{i\\theta}z + b \\implies$ direct ; $z' = e^{i\\theta}\\overline{z} + b \\implies$ indirect.
 > 2. **Conservation absolue :** $k = 1$, les distances et les aires sont rigoureusement préservées.
-> 3. **Points Invariants :** Résoudre $z' = z$. Si $\text{Inv}(f) = \emptyset$ et indirect $\implies$ symétrie glissée ! Si $\text{Inv}(f) = \Delta \implies$ réflexion !
-> 4. **Axes Parallèles :** $S_{\Delta_2} \circ S_{\Delta_1} = t_{\vec{u}}$ avec $\|\vec{u}\| = 2d$ et $\vec{u} \perp \Delta_1$.
-> 5. **Axes Sécants :** $S_{\Delta_2} \circ S_{\Delta_1} = r(\Omega, 2(\Delta_1, \Delta_2))$.
-> 6. **Symétrie Glissée :** $f^2 = t_{2\vec{u}}$ permet de trouver instantanément $\vec{u} = \frac{1}{2}\vec{M f^2(M)}$.
-> 7. **L'axe de la glissée :** Pour tout point $M$, le milieu $I$ de $[M, f(M)]$ est TOUJOURS sur l'axe $\Delta$.
+> 3. **Points Invariants :** Résoudre $z' = z$. Si $\\text{Inv}(f) = \\emptyset$ et indirect $\\implies$ symétrie glissée ! Si $\\text{Inv}(f) = \\Delta \\implies$ réflexion !
+> 4. **Axes Parallèles :** $S_{\\Delta_2} \\circ S_{\\Delta_1} = t_{\\vec{u}}$ avec $\\|\\vec{u}\\| = 2d$ et $\\vec{u} \\perp \\Delta_1$.
+> 5. **Axes Sécants :** $S_{\\Delta_2} \\circ S_{\\Delta_1} = r(\\Omega, 2(\\Delta_1, \\Delta_2))$.
+> 6. **Symétrie Glissée :** $f^2 = t_{2\\vec{u}}$ permet de trouver instantanément $\\vec{u} = \\frac{1}{2}\\vec{M f^2(M)}$.
+> 7. **L'axe de la glissée :** Pour tout point $M$, le milieu $I$ de $[M, f(M)]$ est TOUJOURS sur l'axe $\\Delta$.
 
 > [!WOLOF] **7 Réflexes ci Wolof — Bul ko fàtte mukk ci Bac S2 :**
 > - « **Isométrie :** Distances yi ak aires yi duñu soppiku mukk, $k = 1$ la ! »
 > - « **Déplacement :** Dafa melni gaal gu jëm kanam ci yoon bu leer (translation ak rotation). »
 > - « **Antidéplacement :** Dafa melni seetu (miroir) bu dëpp sa càmmooñ ak sa ndeyjoor ! »
-> - « **Symétrie glissée :** Jéego yi ci plage de Ngor ! Benn jéego dafay dëpp te avancer ; ñaari jéego $f \circ f$ dafay jur translation $t_{2\vec{u}}$ bu amul seetu ! »
-> - « **Axe $\Delta$ bu glissée :** Boo jëlee benn point $M$ ak imageam $f(M)$, digg bi (milieu $I$) dafay nekk ci kaw droite $\Delta$ bi ! »
+> - « **Symétrie glissée :** Jéego yi ci plage de Ngor ! Benn jéego dafay dëpp te avancer ; ñaari jéego $f \\circ f$ dafay jur translation $t_{2\\vec{u}}$ bu amul seetu ! »
+> - « **Axe $\\Delta$ bu glissée :** Boo jëlee benn point $M$ ak imageam $f(M)$, digg bi (milieu $I$) dafay nekk ci kaw droite $\\Delta$ bi ! »
 `,
   probabilites: `# Chapitre 9 : Dénombrement et Probabilités (Terminale S2)
 
