@@ -805,7 +805,7 @@ $$\\begin{cases} \\ln'(x) = \\dfrac{1}{x} & \\forall x > 0 \\\\ \\ln(1) = 0 \\en
 > [!WOLOF] **Xam-xam ci Wolof :** Logarithme $\ln(x)$ dafa melni pésekat bu am kersa : lu amul walla lu négatif mënul dugg ci biiram muk (faw $u(x) > 0$). Ci 0 day xóot lool ba ci $-\infty$, ci 1 lay génn ci kaw suuf ($\ln(1) = 0$), ginaaw 1 nak dafay doon positif te di yéeg ndànk-ndànk ba melni mbonat !
 
 ### Propriétés immédiates :
-- **Ensemble de définition :** $\\left. D_{\\ln} = \\right]0, +\\infty[$. Le logarithme d'un nombre négatif ou nul **n'existe pas**.
+- **Ensemble de définition :** $D_{\\ln} = ]0, +\\infty[$. Le logarithme d'un nombre négatif ou nul **n'existe pas**.
 - **Sens de variation :** Pour tout $x > 0$, $\\ln'(x) = \\frac{1}{x} > 0$. Donc la fonction $\\ln$ est **strictement croissante** sur $]0, +\\infty[$.
 - **Le nombre $e$ :** Il existe un unique réel $e \\approx 2{,}71828$ tel que $\\ln(e) = 1$.
 - **Signe de $\\ln(x)$ :**

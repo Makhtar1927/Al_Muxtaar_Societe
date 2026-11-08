@@ -36,10 +36,10 @@ const LOGARITHME_QUESTION_BANK: RawQuestion[] = [
     difficulty: 1,
     question: `Quel est l'ensemble de définition $D_f$ de la fonction $f(x) = \\ln(2x - 6)$ ?`,
     answers: [
-      { id: '1', text: `$\\left. D_f = \\right]3, +\\infty[$`, isCorrect: true, explanation: "✓ Exact ! La condition d'existence impose $2x - 6 > 0 \\iff 2x > 6 \\iff x > 3$." },
-      { id: '2', text: `$\\left. D_f = [3, +\\infty[$`, isCorrect: false, explanation: "Faux : $\\ln(0)$ n'est pas défini ! L'inégalité doit être STRICTEMENT positive, crochet ouvert." },
-      { id: '3', text: `$\\left. D_f = \\mathbb{R} \\setminus \\{3\\}$`, isCorrect: false, explanation: "Ceci serait vrai pour $f(x) = \\ln|2x - 6|$, mais ici l'expression sans valeur absolue ne tolère pas les négatifs." },
-      { id: '4', text: `$\\left. D_f = \\right]0, +\\infty[$`, isCorrect: false, explanation: "On ne résout pas $x > 0$, mais bien $u(x) > 0$ avec $u(x) = 2x - 6$." },
+      { id: '1', text: `$D_f = ]3, +\\infty[$`, isCorrect: true, explanation: "✓ Exact ! La condition d'existence impose $2x - 6 > 0 \\iff 2x > 6 \\iff x > 3$." },
+      { id: '2', text: `$D_f = [3, +\\infty[$`, isCorrect: false, explanation: "Faux : $\\ln(0)$ n'est pas défini ! L'inégalité doit être STRICTEMENT positive, crochet ouvert." },
+      { id: '3', text: `$D_f = \\mathbb{R} \\setminus \\{3\\}$`, isCorrect: false, explanation: "Ceci serait vrai pour $f(x) = \\ln|2x - 6|$, mais ici l'expression sans valeur absolue ne tolère pas les négatifs." },
+      { id: '4', text: `$D_f = ]0, +\\infty[$`, isCorrect: false, explanation: "On ne résout pas $x > 0$, mais bien $u(x) > 0$ avec $u(x) = 2x - 6$." },
     ],
   },
   {

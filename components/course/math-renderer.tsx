@@ -69,6 +69,9 @@ function cleanMathFormula(math: string): string {
     .trim()
     // Supprime tout dollar parasite accidentellement inséré à l'intérieur d'une formule
     .replace(/\$/g, '')
+    // Supprime les \left. ou \right. orphelins (ex: "\left. D_f" -> "D_f")
+    .replace(/\\left\.\s*(?=[a-zA-Z0-9\\[])/g, '')
+    .replace(/\\right\.\s*(?=[a-zA-Z0-9\\])/g, '')
     // Répare \f \frac et \df \frac
     .replace(/\\f\s*\\frac/g, '\\frac')
     .replace(/\\df\s*\\frac/g, '\\dfrac')

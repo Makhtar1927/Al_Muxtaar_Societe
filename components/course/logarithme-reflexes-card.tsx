@@ -46,7 +46,7 @@ $$\\ln(A) \\le \\ln(B) \\iff A \\le B \\quad (A > 0, B > 0)$$
 $$\\ln(A) = k \\iff A = e^k \\quad (A > 0)$$`,
     exemple: `Résoudre dans $\\mathbb{R}$ l'équation $\\ln(x + 1) + \\ln(x - 2) = \\ln(4)$ :
 
-1. *Domaine d'existence :* $x + 1 > 0 \\implies x > -1$ et $x - 2 > 0 \\implies x > 2$. Donc $\\left. D_E = \\right]2, +\\infty[$.
+1. *Domaine d'existence :* $x + 1 > 0 \\implies x > -1$ et $x - 2 > 0 \\implies x > 2$. Donc $D_E = ]2, +\\infty[$.
 2. *Résolution :* $\\ln((x + 1)(x - 2)) = \\ln(4) \\iff (x + 1)(x - 2) = 4$.
    $$x^2 - x - 2 = 4 \\iff x^2 - x - 6 = 0$$
    Racines : $\\Delta = 1 + 24 = 25$. $x_1 = \\dfrac{1 - 5}{2} = -2$, $x_2 = \\dfrac{1 + 5}{2} = 3$.
