@@ -52,6 +52,8 @@ import EquadiffQuizEmbedded from '@/components/course/equadiff-quiz-embedded';
 import ComplexesReflexesCard from '@/components/course/complexes-reflexes-card';
 import ComplexesInteractiveSimulator from '@/components/course/complexes-interactive-simulator';
 import ComplexesQuizEmbedded from '@/components/course/complexes-quiz-embedded';
+import SimilitudesReflexesCard from '@/components/course/similitudes-reflexes-card';
+import SimilitudesQuizEmbedded from '@/components/course/similitudes-quiz-embedded';
 import ProbabilitesReflexesCard from '@/components/course/probabilites-reflexes-card';
 import ProbabilitesInteractiveSimulator from '@/components/course/probabilites-interactive-simulator';
 import ProbabilitesQuizEmbedded from '@/components/course/probabilites-quiz-embedded';
@@ -118,7 +120,7 @@ const ALCOOLS_AUDIO_CHAPTERS: AudioChapter[] = [
     timeSeconds: 175,
     title: "4. Le secret des Liaisons Hydrogène",
     badge: "Physique",
-    icon: "formule_cle",
+    icon: "cle_solution",
     textScript:
       "Pourquoi l'éthanol bout-il à 78 degrés alors que le propane bout à moins 42 degrés ? C'est la question favorite du Bac ! Répondez toujours que la forte polarisation de la liaison O H crée des liaisons hydrogène intermoléculaires solides qui demandent un apport thermique important pour être dissociées.",
   },
@@ -169,7 +171,7 @@ const AMINES_AUDIO_CHAPTERS: AudioChapter[] = [
     timeSeconds: 235,
     title: "5. Synthèse d'Amides : Le Facteur 2 Obligatoire",
     badge: "Formule clé",
-    icon: "formule_cle",
+    icon: "cle_solution",
     textScript:
       "Retenez la règle d'or pour le Bac : lors de l'action d'un chlorure d'acyle sur une amine primaire ou secondaire, mettez TOUJOURS un coefficient 2 devant l'amine ! La première mole forme l'amide, la deuxième mole neutralise immédiatement l'acide chlorhydrique produit.",
   },
@@ -212,7 +214,7 @@ const ACIDES_DERIVES_AUDIO_CHAPTERS: AudioChapter[] = [
     timeSeconds: 245,
     title: "5. Saponification et Relargage au Sel Saturé",
     badge: "Fabrication",
-    icon: "formule_cle",
+    icon: "cle_solution",
     textScript:
       "La saponification d'un triglycéride par la soude est totale et irréversible : une mole de corps gras réagit avec trois moles de NaOH pour donner une mole de glycérol et trois moles de savon. Pour séparer le savon, on réalise le relargage par ajout d'eau salée saturée : l'effet d'ion commun sodium fait précipiter le pain de savon solide.",
   },
@@ -255,7 +257,7 @@ const CINETIQUE_AUDIO_CHAPTERS: AudioChapter[] = [
     timeSeconds: 230,
     title: "5. Tangente et Temps de Demi-Réaction",
     badge: "Calcul",
-    icon: "formule_cle",
+    icon: "cle_solution",
     textScript:
       "Pour calculer la vitesse volumique v, tracez la tangente, calculez sa pente dx/dt et divisez obligatoirement par le volume total V de la solution. Et pour le temps de demi-réaction t1/2, projetez x_max divisé par 2 sur l'axe des temps.",
   },
@@ -274,7 +276,7 @@ const AUTOPROTOLYSE_PH_AUDIO_CHAPTERS: AudioChapter[] = [
     timeSeconds: 50,
     title: "2. Le Produit Ionique Ke et pKe",
     badge: "Definition",
-    icon: "formule_cle",
+    icon: "cle_solution",
     textScript:
       "Le produit ionique Ke est la constante d equilibre de l autoprotolyse. A 25 degres Celsius, Ke vaut 10 puissance moins 14 et pKe vaut 14. Retenez la regle absolue : Ke ne depend QUE de la temperature, jamais de la nature de la solution !",
   },
@@ -317,7 +319,7 @@ const ACIDE_FORT_BASE_FORTE_AUDIO_CHAPTERS: AudioChapter[] = [
     timeSeconds: 50,
     title: "2. Dissociation Totale & Piège du Diacide H₂SO₄",
     badge: "Formule clé",
-    icon: "formule_cle",
+    icon: "cle_solution",
     textScript:
       "Pour un monoacide fort comme HCl, la dissociation est totale : pH égal moins log de Ca. Pour une base forte comme NaOH, pH égal 14 plus log de Cb. Mais retenez le piège capital du Bac : l'acide sulfurique H2SO4 est un diacide fort ! Chaque mole libère deux protons, donc la concentration en H3O+ vaut deux fois Ca et le pH vaut moins log de 2 Ca !",
   },
@@ -368,7 +370,7 @@ const ACIDE_FAIBLE_BASE_FAIBLE_AUDIO_CHAPTERS: AudioChapter[] = [
     timeSeconds: 110,
     title: "3. La Formule Reine d'Henderson-Hasselbalch",
     badge: "Formule clé",
-    icon: "formule_cle",
+    icon: "cle_solution",
     textScript:
       "La relation d'Henderson-Hasselbalch relie directement le pH au pKa : pH égal pKa plus log de la concentration en base sur la concentration en acide. Si la concentration en base égale celle en acide, le logarithme s'annule et le pH vaut exactement le pKa !",
   },
@@ -489,7 +491,7 @@ const DERIVATION_AUDIO_CHAPTERS: AudioChapter[] = [
     timeSeconds: 50,
     title: "2. Taux d'accroissement et demi-tangentes",
     badge: "Définition",
-    icon: "formule_cle",
+    icon: "cle_solution",
     textScript:
       "Pour étudier la dérivabilité en un point critique, calculez toujours la limite du taux d'accroissement. Si la limite est infinie, la fonction n'est pas dérivable mais la courbe possède une demi-tangente verticale.",
   },
@@ -532,7 +534,7 @@ const ASYMPTOTES_AUDIO_CHAPTERS: AudioChapter[] = [
     timeSeconds: 45,
     title: "2. Asymptote Verticale et Horizontale",
     badge: "Définition",
-    icon: "formule_cle",
+    icon: "cle_solution",
     textScript:
       "Retenez la règle mnémotechnique : si la limite en un nombre donne l'infini, la droite est verticale d'équation x égal ce nombre. Si la limite à l'infini donne un nombre fini L, la droite est horizontale d'équation y égal L.",
   },
@@ -591,7 +593,7 @@ const SUITES_AUDIO_CHAPTERS: AudioChapter[] = [
     timeSeconds: 175,
     title: "4. Théorème de Convergence Monotone",
     badge: "Rigueur",
-    icon: "formule_cle",
+    icon: "cle_solution",
     textScript:
       "Le théorème de convergence monotone prouve l'existence de la limite, mais ne donne pas sa valeur. Il faut ensuite résoudre l'équation de point fixe L égal f de L pour trouver la limite.",
   },
@@ -634,7 +636,7 @@ const LOGARITHME_AUDIO_CHAPTERS: AudioChapter[] = [
     timeSeconds: 175,
     title: "4. Dérivée Composite : u'/u",
     badge: "Formule",
-    icon: "formule_cle",
+    icon: "cle_solution",
     textScript:
       "La dérivée de ln de u est égale à u prime sur u. N'oubliez jamais la dérivée interne u prime au numérateur. Et si vous avez ln de A sur B, simplifiez d'abord en ln de A moins ln de B avant de dériver pour gagner du temps.",
   },
@@ -677,7 +679,7 @@ const EXPONENTIELLE_AUDIO_CHAPTERS: AudioChapter[] = [
     timeSeconds: 175,
     title: "4. Dérivée Composite : u' · eᵘ",
     badge: "Formule",
-    icon: "formule_cle",
+    icon: "cle_solution",
     textScript:
       "La dérivée de e puissance u est u prime fois e puissance u. Attention aux signes : pour e puissance moins x, la dérivée est moins e puissance moins x. Pour un produit, appliquez toujours la formule u prime v plus u v prime avec rigueur.",
   },
@@ -728,7 +730,7 @@ const INTEGRATION_AUDIO_CHAPTERS: AudioChapter[] = [
     timeSeconds: 245,
     title: "5. Relation de Chasles et Valeur Moyenne",
     badge: "Formule",
-    icon: "formule_cle",
+    icon: "cle_solution",
     textScript:
       "La relation de Chasles permet de découper une intégrale si la fonction change d'expression ou pour intégrer une valeur absolue. La valeur moyenne sur l'intervalle a b s'obtient en divisant l'intégrale par la longueur de l'intervalle b moins a.",
   },
@@ -817,6 +819,49 @@ const COMPLEXES_AUDIO_CHAPTERS: AudioChapter[] = [
     icon: "cle_solution",
     textScript:
       "Pour z prime égal a z plus b, le rapport est le module de a, l'angle est l'argument de a, et le centre invariant oméga se calcule par b sur 1 moins a. Ne confondez pas avec une translation qui correspond au cas particulier où a vaut exactement 1.",
+  },
+];
+
+const SIMILITUDES_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Introduction & Définition géométrique d'une similitude directe",
+    badge: "Introduction",
+    icon: "cible_reflexe",
+    textScript:
+      "Une similitude plane directe est une transformation du plan complexe qui conserve les rapports de distances et les angles orientés. Elle s'écrit z prime égal a z plus b, avec a et b complexes et a non nul. C'est la généralisation à la fois des rotations, des homothéties et des translations.",
+  },
+  {
+    timeSeconds: 55,
+    title: "2. Écriture complexe z' = az+b & classification selon a",
+    badge: "Méthode",
+    icon: "cle_solution",
+    textScript:
+      "Le paramètre a encode tout : son module donne le rapport k, son argument donne l'angle thêta. Si a vaut 1, c'est une translation. Si a est réel positif différent de 1, c'est une homothétie. Si le module de a vaut 1 et a différent de 1, c'est une rotation. Dans les autres cas, c'est une similitude directe propre avec rotation et dilatation simultanées.",
+  },
+  {
+    timeSeconds: 120,
+    title: "3. Détermination par 2 points & centre Ω",
+    badge: "Exercice Bac",
+    icon: "avertissement",
+    textScript:
+      "Pour trouver a et b depuis deux images, calculez a égal z B prime moins z A prime sur z B moins z A, puis b égal z A prime moins a fois z A. Le centre Oméga a pour affixe oméga égal b sur 1 moins a. Vérification : S appliqué à oméga doit redonner oméga.",
+  },
+  {
+    timeSeconds: 195,
+    title: "4. Images de figures & le piège des aires k²",
+    badge: "Piège Fréquent",
+    icon: "avertissement",
+    textScript:
+      "L'image d'un cercle de centre C et rayon r est un cercle de centre S de C et rayon k fois r. ATTENTION : l'aire est multipliée par k carré, pas par k ! Si k vaut 3, les longueurs sont multipliées par 3 mais les aires sont multipliées par 9. C'est le piège le plus fréquent au Baccalauréat sénégalais sur ce chapitre.",
+  },
+  {
+    timeSeconds: 270,
+    title: "5. Composée, réciproque & exercice Bac S2 corrigé",
+    badge: "Synthèse",
+    icon: "cle_solution",
+    textScript:
+      "La composée de deux similitudes de paramètres a1 et a2 a pour paramètre a1 fois a2 : les rapports se multiplient et les angles s'additionnent. La réciproque de z prime égal az plus b est z égal z prime moins b sur a. Exercice corrigé : pour z prime égal 1 plus i fois z plus 2 moins i, le rapport k vaut racine de 2, l'angle vaut pi sur 4, et le centre Oméga a pour affixe moins 1 moins 2i.",
   },
 ];
 
@@ -1775,10 +1820,14 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     lessonMeta.title.toLowerCase().includes('equadiff') ||
     lessonMeta.title.toLowerCase().includes('équadiff');
 
+  const isSimilitudes =
+    lessonMeta.title.toLowerCase().includes('similitude') ||
+    (chapter?.title?.toLowerCase() || '').includes('similitude');
+
   const isComplexes =
-    lessonMeta.title.toLowerCase().includes('complexe') ||
-    lessonMeta.title.toLowerCase().includes('affixe') ||
-    lessonMeta.title.toLowerCase().includes('similitude');
+    !isSimilitudes &&
+    (lessonMeta.title.toLowerCase().includes('complexe') ||
+    lessonMeta.title.toLowerCase().includes('affixe'));
 
   const isProbabilites =
     lessonMeta.title.toLowerCase().includes('probabilit') ||
@@ -2090,6 +2139,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'Masterclass Audio : Primitives & Calcul Intégral'
                     : isEquadiff
                     ? 'Masterclass Audio : Équations Différentielles'
+                    : isSimilitudes
+                    ? 'Masterclass Audio : Similitudes Planes Directes'
                     : isComplexes
                     ? 'Masterclass Audio : Nombres Complexes & Géométrie'
                     : isProbabilites
@@ -2133,6 +2184,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'Terminale S2 • Les 5 réflexes pour les aires et l\'intégration'
                     : isEquadiff
                     ? 'Terminale S2 • Les 5 réflexes pour le 1er et 2nd ordre'
+                    : isSimilitudes
+                    ? 'Terminale S2 • Les 7 réflexes d\'or pour les similitudes directes'
                     : isComplexes
                     ? 'Terminale S2 • Les 5 réflexes pour les figures et similitudes'
                     : isProbabilites
@@ -2176,6 +2229,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? INTEGRATION_AUDIO_CHAPTERS
                     : isEquadiff
                     ? EQUADIFF_AUDIO_CHAPTERS
+                                        : isSimilitudes
+                    ? SIMILITUDES_AUDIO_CHAPTERS
                     : isComplexes
                     ? COMPLEXES_AUDIO_CHAPTERS
                     : isProbabilites
@@ -2282,6 +2337,10 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                   <EquadiffReflexesCard />
                   <EquadiffInteractiveSimulator />
                 </>
+              ) : isSimilitudes ? (
+                <>
+                  <SimilitudesReflexesCard />
+                </>
               ) : isComplexes ? (
                 <>
                   <ComplexesReflexesCard />
@@ -2370,6 +2429,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'primitives'
                     : isEquadiff
                     ? 'equadiff'
+                    : isSimilitudes
+                    ? 'similitudes'
                     : isComplexes
                     ? 'complexes'
                     : isProbabilites
@@ -2422,6 +2483,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <PrimitivesQuizEmbedded />
               ) : isEquadiff ? (
                 <EquadiffQuizEmbedded />
+              ) : isSimilitudes ? (
+                <SimilitudesQuizEmbedded />
               ) : isComplexes ? (
                 <ComplexesQuizEmbedded />
               ) : isProbabilites ? (

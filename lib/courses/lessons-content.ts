@@ -1487,6 +1487,209 @@ $$z' = \\frac{1}{2}i z + \\frac{3}{2} + \\frac{1}{2}i$$
 > - « **Similitude directe :** Centre $\\Omega(\\omega)$ mooy $\\frac{b}{1-a}$, rapport $k = |a|$, angle $\\theta = \\arg(a)$. Nataal bi dafay tourné te yokk soréwaay bi ! »
 > - « **Ensemble de points :** Module mooy distance (médiatrice wala cercle), argument mooy angle (droite alignée wala cercle diamètre $[AB]$) ! »
 `,
+  similitudes: `# Chapitre M9 : Similitudes Planes Directes (Terminale S2)
+
+Bienvenue dans ce cours d'excellence consacré aux **Similitudes Planes Directes**, un chapitre stratégique du **Baccalauréat Scientifique (Série S2)** au Sénégal — souvent intégré à l'exercice sur les nombres complexes (noté sur 4 à 5 points).
+
+---
+
+## 1. Définition Géométrique d'une Similitude Directe
+
+> [!VIE_REELLE] Imaginez la **fonction « zoom » de l'écran de votre smartphone** : quand vous écartez deux doigts sur la carte de Dakar, l'image est agrandie (rapport $k > 1$) et peut aussi pivoter (angle $\\theta$). C'est exactement une similitude plane directe ! Le point fixe autour duquel tout tourne s'appelle **le centre $\\Omega$**. Les motifs géométriques des **pagnes tissés à Thiès ou Ziguinchor** sont aussi des compositions de similitudes (rotation + homothétie) qui répètent le même motif à différentes échelles et orientations.
+
+Une **similitude plane directe** $S$ est une transformation du plan complexe qui :
+- **Conserve les rapports de distances** : $S(A)S(B) / AB = k$ (constante appelée **rapport**),
+- **Conserve les angles orientés** (préserve l'orientation),
+- S'écrit sous forme complexe : $z' = az + b$ avec $a, b \\in \\mathbb{C}$ et $a \\neq 0$.
+
+![Diagramme M9 : Centre Ω, rapport k, angle θ et formule canonique](/assets/pedagogie/m9_similitudes_directes_geometrie.svg)
+
+> [!WOLOF] **Similitude directe ci Wolof :** Similitude directe $S$ dafa melni **zoom bi ci jëkëram telewwoon bi**, kanam Dakar bi :**
+> - **Rapport $k = |a|$** mooy lii ñu yokk wala ñu dëkk image bi (boo yokk $k > 1$ la agrandissement, boo dëkk $0 < k < 1$ la réduction).
+> - **Angle $\\theta = \\arg(a)$** mooy angle rotation bi — naqar bu similitude bi dëkk si figure bi.
+> - **Centre $\\Omega$** mooy dëkk bu dëgg — point bu wàcc ak S, dey wallu ci bokk bi !
+
+---
+
+## 2. Écriture Complexe Générale : $z' = az + b$
+
+Toute similitude directe $S$ admet une écriture complexe de la forme :
+
+$$z' = az + b \\quad (a, b \\in \\mathbb{C},\\; a \\neq 0)$$
+
+où :
+- $a$ est le **paramètre complexe** qui encode rapport et angle,
+- $b$ est un complexe quelconque (translation résiduelle).
+
+> [!CONSEIL_BAC] **Réflexe Bac S2 :** Dès que l'énoncé dit « similitude directe de la forme $z' = az + b$ », la **première chose à faire** est d'identifier $a$ et $b$, puis de calculer $|a|$ et $\\arg(a)$.
+
+---
+
+## 3. Classification selon $a$
+
+| Valeur de $a$ | Transformation | Éléments caractéristiques |
+| :---: | :--- | :--- |
+| $a = 1$ | **Translation** de vecteur $\\vec{u}$ d'affixe $b$ | Pas de point fixe |
+| $a \\in \\mathbb{R}^+$, $a \\neq 1$ | **Homothétie** de centre $\\Omega$, rapport $k = a$ | Centre $\\Omega$ (affixe $\\omega = \\frac{b}{1-a}$) |
+| $|a| = 1$, $a \\neq 1$ | **Rotation** de centre $\\Omega$, angle $\\theta = \\arg(a)$ | Centre $\\Omega$, $k = 1$ |
+| $a \\in \\mathbb{R}^-$, $a \\neq -1$ | **Homothétie** de rapport $k = a < 0$ | Centre $\\Omega$, rotation d'angle $\\pi$ |
+| Cas général | **Similitude directe propre** (rotation + homothétie) | Centre $\\Omega$, rapport $k = |a|$, angle $\\theta = \\arg(a)$ |
+
+> [!IMPORTANT] **Règle d'or :** Si $a \\in \\mathbb{R}^+$ → la similitude est une **homothétie** (pas de rotation). Si $|a| = 1$ → c'est une **rotation** (pas de dilatation). Dans tous les autres cas, c'est une similitude directe propre.
+
+---
+
+## 4. Détermination des Éléments par Deux Points Images
+
+Si on connaît les images de deux points distincts $A$ et $B$ (d'affixes $z_A, z_B$) par images $A'$ et $B'$ (d'affixes $z_{A'}, z_{B'}$), alors :
+
+$$a = \\frac{z_{B'} - z_{A'}}{z_B - z_A} \\qquad \\text{puis} \\qquad b = z_{A'} - a \\cdot z_A$$
+
+> [!CONSEIL_BAC] **Méthode systématique Bac S2 :**
+> 1. Calculer $a = \\frac{z_{B'} - z_{A'}}{z_B - z_A}$ (affixe complexe).
+> 2. Calculer $b = z_{A'} - a \\cdot z_A$ (ou vérifier avec $B'$).
+> 3. En déduire $k = |a|$, $\\theta = \\arg(a)$, $\\omega = \\frac{b}{1-a}$ (si $a \\neq 1$).
+
+**Exemple type Bac S2 :**
+Soit $S$ la similitude directe telle que $S(1) = i$ et $S(i) = -1$.
+
+$z_A = 1$, $z_{A'} = i$, $z_B = i$, $z_{B'} = -1$.
+
+$$a = \\frac{-1 - i}{i - 1} = \\frac{-(1+i)}{-(1-i)} = \\frac{1+i}{1-i} = \\frac{(1+i)^2}{(1-i)(1+i)} = \\frac{2i}{2} = i$$
+
+$$b = i - i \\cdot 1 = i - i = 0$$
+
+Donc $S : z' = iz$ — c'est une **rotation** de centre $O$ et d'angle $\\frac{\\pi}{2}$ (car $|a| = |i| = 1$, $\\arg(i) = \\frac{\\pi}{2}$).
+
+---
+
+## 5. Centre $\\Omega$ et Construction Géométrique
+
+### 5.1 Calcul du centre $\\Omega$
+
+Lorsque $a \\neq 1$, la similitude admet un **unique point fixe** $\\Omega$ d'affixe $\\omega$ :
+
+$$\\omega = \\frac{b}{1 - a}$$
+
+**Vérification :** $S(\\omega) = a\\omega + b = a \\cdot \\frac{b}{1-a} + b = \\frac{ab + b(1-a)}{1-a} = \\frac{b}{1-a} = \\omega$ ✓
+
+### 5.2 Construction géométrique du centre $\\Omega$
+
+Le centre $\\Omega$ est à l'intersection de deux **arcs capables** :
+- L'arc capable de l'angle $\\theta$ sur le segment $[AA']$.
+- L'arc capable de l'angle $\\theta$ sur le segment $[BB']$.
+
+> [!WOLOF] **Centre $\\Omega$ ci Wolof :** Centre $\\Omega$ mooy **dëkk bu dëgg — wundu bu dul dóór ak S**. Boo bëgg ko yëgël : dëkk bi mooy géen ci yoon bi — mbooloo bi dëkk bi jëm $AA'$ ak $BB'$ ci angle $\\theta$. Yëgël nak soxor bi ci kàddu bi : $\\omega = \\frac{b}{1-a}$ !
+
+---
+
+## 6. Images de Figures et le Piège des Aires ($k^2$)
+
+### 6.1 Image d'un segment, droite, cercle
+
+| Figure $F$ | Image $S(F)$ |
+| :--- | :--- |
+| Segment $[AB]$ de longueur $l$ | Segment $[A'B']$ de longueur $k \\cdot l$ |
+| Droite $(AB)$ | Droite $(A'B')$ faisant un angle $\\theta$ avec $(AB)$ |
+| Cercle de centre $C$, rayon $r$ | Cercle de centre $C' = S(C)$, rayon $k \\cdot r$ |
+
+### 6.2 ⚠️ Le Piège des Aires : facteur $k^2$
+
+> [!CAUTION] **Piège classique Bac S2 :** Si le rapport de la similitude est $k$, alors l'**aire est multipliée par $k^2$**, PAS par $k$ !
+> $$\\text{Aire}(S(F)) = k^2 \\times \\text{Aire}(F)$$
+> Exemple : $k = 3 \\Rightarrow$ aire multipliée par **9**, pas par 3 !
+
+**Justification :** Les longueurs sont multipliées par $k$, donc les surfaces (produit de deux longueurs) sont multipliées par $k \\times k = k^2$.
+
+> [!VIE_REELLE] Sur un plan d'architecte sénégalais à l'échelle $1/50$ (rapport $k = 1/50$), la surface réelle d'une pièce est $k^2 = \\frac{1}{2500}$ fois la surface dessinée. Un appartement de $60 \\text{ m}^2$ sur le plan correspond à seulement $60/2500 = 0,024 \\text{ m}^2$ dessiné !
+
+---
+
+## 7. Composée et Réciproque
+
+### 7.1 Composée de deux similitudes directes
+
+La composée de deux similitudes directes $S_1 : z' = a_1 z + b_1$ et $S_2 : z' = a_2 z + b_2$ est :
+
+$$S_2 \\circ S_1 : z' = a_2(a_1 z + b_1) + b_2 = a_2 a_1 z + (a_2 b_1 + b_2)$$
+
+Donc : $a_{\\text{composée}} = a_1 a_2$ et $b_{\\text{composée}} = a_2 b_1 + b_2$.
+
+Les rapports se **multiplient** : $k_{\\text{composée}} = k_1 k_2$.
+Les angles s'**additionnent** : $\\theta_{\\text{composée}} = \\theta_1 + \\theta_2 \\pmod{2\\pi}$.
+
+### 7.2 Similitude réciproque $S^{-1}$
+
+La similitude réciproque de $S : z' = az + b$ est :
+
+$$S^{-1} : z = \\frac{z' - b}{a} \\quad \\text{soit} \\quad S^{-1}(z') = \\frac{1}{a} z' - \\frac{b}{a}$$
+
+Ses éléments : rapport $\\frac{1}{k}$, angle $-\\theta$, même centre $\\Omega$.
+
+---
+
+## 8. Exercice Type Bac S2 Corrigé Pas à Pas
+
+### Énoncé
+
+Dans le plan complexe, on considère la similitude directe $S$ définie par $z' = (1 + i)z + 2 - i$.
+
+**Calculer** le rapport $k$, l'angle $\\theta$, l'affixe $\\omega$ du centre $\\Omega$, et l'image du cercle $\\mathcal{C}$ de centre $A(2, 0)$ et de rayon 3.
+
+### Corrigé Barème
+
+**Étape 1 — Identification (1 point) :**
+$$a = 1 + i, \\quad b = 2 - i$$
+
+**Étape 2 — Rapport et angle (1 point) :**
+$$k = |a| = |1 + i| = \\sqrt{1^2 + 1^2} = \\sqrt{2}$$
+$$\\theta = \\arg(a) = \\arg(1 + i) = \\frac{\\pi}{4}$$
+
+**Étape 3 — Centre $\\Omega$ (1 point) :**
+$$\\omega = \\frac{b}{1 - a} = \\frac{2 - i}{1 - (1+i)} = \\frac{2-i}{-i} = \\frac{(2-i)(-i)}{(-i)(-i)} \\cdot \\frac{1}{1}$$
+$$= \\frac{-2i + i^2}{-i^2} = \\frac{-2i - 1}{1} = -1 - 2i$$
+
+Donc $\\Omega$ a pour affixe $\\omega = -1 - 2i$, soit $\\Omega(-1,\\; -2)$.
+
+**Étape 4 — Image du cercle $\\mathcal{C}$ (1 point) :**
+- Centre : $A' = S(A)$ d'affixe $z_{A'} = (1+i) \\cdot 2 + 2 - i = 2 + 2i + 2 - i = 4 + i$. Donc $A'(4,\\; 1)$.
+- Rayon : $r' = k \\cdot r = \\sqrt{2} \\cdot 3 = 3\\sqrt{2}$.
+
+**Conclusion :** $S(\\mathcal{C})$ est le cercle de centre $A'(4, 1)$ et de rayon $3\\sqrt{2}$.
+
+> [!CONSEIL_BAC] **Barème type Bac S2 :** 1 pt identification → 1 pt $k$ et $\\theta$ → 1 pt centre $\\Omega$ → 1 pt image figure. Ne jamais oublier de calculer l'image du centre séparément !
+
+---
+
+## 9. Synthèse Finale — 7 Réflexes d'Or
+
+> [!IMPORTANT] **Les 7 Réflexes Infaillibles M9 (Bac S2) :**
+>
+> 1. **Écrire $z' = az + b$** et identifier $a$ et $b$ immédiatement.
+> 2. **Rapport $k = |a|$** — jamais $k = a$ (sauf si $a \\in \\mathbb{R}^+$) !
+> 3. **Angle $\\theta = \\arg(a)$** — utiliser la forme exponentielle ou trigonométrique.
+> 4. **Centre $\\omega = \\frac{b}{1-a}$** — seulement si $a \\neq 1$ (sinon : translation).
+> 5. **Image d'une figure :** centre → image du centre, rayon → rayon $\\times k$.
+> 6. **Aire = $k^2 \\times$ Aire initiale** — JAMAIS $k \\times$ Aire !
+> 7. **Composée :** $a_{12} = a_1 \\cdot a_2$, $k_{12} = k_1 k_2$, $\\theta_{12} = \\theta_1 + \\theta_2$.
+
+> [!CONSEIL_BAC] **Tableau de Bord Récapitulatif M9 :**
+>
+> | Situation posée au Bac S2 | Formule clé | Résultat |
+> | :--- | :---: | :--- |
+> | Identifier $k$ et $\\theta$ | $a = k e^{i\\theta}$ | $k = |a|$, $\\theta = \\arg(a)$ |
+> | Trouver le centre $\\Omega$ | $\\omega = \\frac{b}{1-a}$ | Affixe du point fixe |
+> | Calculer $a$ depuis 2 points | $a = \\frac{z_{B'} - z_{A'}}{z_B - z_A}$ | Rapport + angle |
+> | Image d'un cercle (centre $C$, rayon $r$) | $C' = S(C)$, $r' = kr$ | Nouveau cercle |
+> | Aire d'une figure image | $\\text{Aire}' = k^2 \\times \\text{Aire}$ | Facteur $k^2$ |
+> | Composée $S_2 \\circ S_1$ | $a_{12} = a_1 a_2$, $b_{12} = a_2 b_1 + b_2$ | Nouvelle similitude |
+
+> [!WOLOF] **7 Réflexes Finals en Wolof — Bul ko fàtte ci Bac S2 :**
+> - « **$a$ mooy clé bi :** $k = |a|$ mooy rapport bi, $\\theta = \\arg(a)$ mooy angle bi. Bul xamlu $a$ ci réel pure rekk — ab complexe la ! »
+> - « **Centre $\\Omega$ :** $\\omega = \\frac{b}{1-a}$ — dëkk bu dul dóór ak similitude bi. Boo xeex ko : $a\\omega + b = \\omega$ la yëgël ! »
+> - « **Piège Aire :** Boo def similitude ak rapport $k$, naari ko yokk — aire bi yokk ci $k^2$. Dafa melni ndaaje — boo yokk benn côté ci 3, volume bi yokk ci 9 (ci 2D) ! »
+> - « **Composée :** $a$ yi ñu xeex, $k$ yi ñu xeex — dafa melni taalibe bu dëkk benn cours ci yeneen ! »
+`,
   probabilites: `# Chapitre 9 : Dénombrement et Probabilités (Terminale S2)
 
 Bienvenue dans ce cours d'excellence consacré au **Dénombrement et aux Probabilités**, un chapitre classique et stratégique du **Baccalauréat Scientifique (Série S2)** au Sénégal (exercice noté sur 4 à 5 points).
@@ -2888,9 +3091,14 @@ export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: stri
   }
 
   if (
-    titleLower.includes('complexe') ||
-    titleLower.includes('affixe') ||
     titleLower.includes('similitude')
+  ) {
+    return RICH_LESSONS_MAP.similitudes;
+  }
+
+  if (
+    titleLower.includes('complexe') ||
+    titleLower.includes('affixe')
   ) {
     return RICH_LESSONS_MAP.complexes;
   }

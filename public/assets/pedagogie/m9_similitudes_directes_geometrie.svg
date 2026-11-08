@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="100%" height="100%" style="background:#0F172A; font-family:system-ui, -apple-system, sans-serif;">
+  <rect width="900" height="520" fill="#0B132B" rx="16"/>
+  <rect x="2" y="2" width="896" height="516" fill="none" stroke="#334155" stroke-width="1.5" rx="14"/>
+  
+  <!-- Header Title -->
+  <g transform="translate(450, 36)" text-anchor="middle">
+    <rect x="-300" y="-18" width="600" height="36" rx="18" fill="#1E293B" stroke="#00F5D4" stroke-width="1.5"/>
+    <text y="6" fill="#00F5D4" font-size="14" font-weight="800" letter-spacing="1">M9 : SIMILITUDES PLANES DIRECTES — GÉOMÉTRIE ET FORMULES CLÉS</text>
+  </g>
+
+  <!-- Left: Geometric Diagram -->
+  <g transform="translate(40, 75)">
+    <rect width="460" height="415" rx="14" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+    
+    <!-- Title -->
+    <text x="24" y="32" fill="#E2E8F0" font-size="14" font-weight="700">1. Action géométrique : Rotation θ + Homothétie k</text>
+    <text x="24" y="52" fill="#94A3B8" font-size="11">Transformation d'un triangle ABC en A'B'C' de centre invariant Ω</text>
+
+    <!-- Center Omega Point -->
+    <g transform="translate(80, 240)">
+      <circle r="8" fill="#F59E0B" stroke="#FBBF24" stroke-width="2"/>
+      <circle r="3" fill="#0F172A"/>
+      <text x="-12" y="-14" fill="#FBBF24" font-size="14" font-weight="800">Ω (Centre)</text>
+      <text x="-12" y="26" fill="#F59E0B" font-size="11" font-weight="600">ω = b / (1 - a)</text>
+      
+      <!-- Rays to A and A' -->
+      <line x1="0" y1="0" x2="110" y2="-90" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="4,4"/>
+      <line x1="0" y1="0" x2="260" y2="-40" stroke="#00F5D4" stroke-width="1.5" stroke-dasharray="4,4"/>
+      
+      <!-- Rays to B and B' -->
+      <line x1="0" y1="0" x2="140" y2="-10" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="4,4"/>
+      <line x1="0" y1="0" x2="310" y2="70" stroke="#00F5D4" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+      <!-- Rotation arc for angle theta -->
+      <path d="M 55 -45 A 70 70 0 0 1 68 -10" fill="none" stroke="#F43F5E" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+      <text x="76" y="-24" fill="#FB7185" font-size="12" font-weight="800">θ = arg(a)</text>
+    </g>
+
+    <!-- Initial Triangle ABC (Cyan/Blue) -->
+    <polygon points="190,150 220,230 150,210" fill="#38BDF8" fill-opacity="0.25" stroke="#38BDF8" stroke-width="2"/>
+    <circle cx="190" cy="150" r="4" fill="#38BDF8"/>
+    <text x="180" y="142" fill="#BAE6FD" font-size="12" font-weight="700">A</text>
+    <circle cx="220" cy="230" r="4" fill="#38BDF8"/>
+    <text x="228" y="240" fill="#BAE6FD" font-size="12" font-weight="700">B</text>
+    <circle cx="150" cy="210" r="4" fill="#38BDF8"/>
+    <text x="134" y="218" fill="#BAE6FD" font-size="12" font-weight="700">C</text>
+    <text x="186" y="202" fill="#38BDF8" font-size="11" font-weight="700" text-anchor="middle">Aire A</text>
+
+    <!-- Transformed Triangle A'B'C' (Teal/Emerald - enlarged & rotated) -->
+    <polygon points="340,200 390,310 270,300" fill="#00F5D4" fill-opacity="0.25" stroke="#00F5D4" stroke-width="2.5"/>
+    <circle cx="340" cy="200" r="5" fill="#00F5D4"/>
+    <text x="345" y="195" fill="#A7F3D0" font-size="13" font-weight="800">A&apos; = S(A)</text>
+    <circle cx="390" cy="310" r="5" fill="#00F5D4"/>
+    <text x="400" y="322" fill="#A7F3D0" font-size="13" font-weight="800">B&apos; = S(B)</text>
+    <circle cx="270" cy="300" r="5" fill="#00F5D4"/>
+    <text x="238" y="315" fill="#A7F3D0" font-size="13" font-weight="800">C&apos; = S(C)</text>
+    <text x="330" y="275" fill="#00F5D4" font-size="12" font-weight="800" text-anchor="middle">Aire A&apos; = k² × A</text>
+
+    <!-- Bottom note -->
+    <rect x="20" y="358" width="420" height="42" rx="8" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+    <text x="230" y="376" fill="#F8FAFC" font-size="11" font-weight="600" text-anchor="middle">Distance : A&apos;B&apos; = k × AB  |  Angle : (AB, A&apos;B&apos;) = θ [2π]</text>
+    <text x="230" y="392" fill="#F59E0B" font-size="10.5" font-weight="700" text-anchor="middle">Triangle semblable : (ΩA, ΩA&apos;) = θ et ΩA&apos; / ΩA = k</text>
+  </g>
+
+  <!-- Right: 3 Rules Cards -->
+  <g transform="translate(520, 75)">
+    <!-- Card 1: Formule Canonique & Elements -->
+    <rect width="340" height="125" rx="12" fill="#1E293B" stroke="#00F5D4" stroke-width="1.5"/>
+    <rect x="12" y="10" width="316" height="26" rx="6" fill="#042F2E"/>
+    <text x="170" y="27" fill="#00F5D4" font-size="12" font-weight="800" text-anchor="middle">ÉCRITURE COMPLEXE : z&apos; = a z + b</text>
+    <text x="20" y="60" fill="#F8FAFC" font-size="12" font-weight="700">• Rapport : <tspan fill="#00F5D4">k = |a| &gt; 0</tspan></text>
+    <text x="20" y="80" fill="#F8FAFC" font-size="12" font-weight="700">• Angle : <tspan fill="#FB7185">θ = arg(a) [2π]</tspan></text>
+    <text x="20" y="100" fill="#F8FAFC" font-size="12" font-weight="700">• Centre invariant : <tspan fill="#F59E0B">ω = b / (1 - a)</tspan> (si a ≠ 1)</text>
+    <text x="20" y="120" fill="#94A3B8" font-size="10.5">Forme réduite : z&apos; - ω = k e^{iθ}(z - ω)</text>
+
+    <!-- Card 2: Classification selon a -->
+    <g transform="translate(0, 140)">
+      <rect width="340" height="135" rx="12" fill="#1E293B" stroke="#38BDF8" stroke-width="1.5"/>
+      <rect x="12" y="10" width="316" height="26" rx="6" fill="#0C4A6E"/>
+      <text x="170" y="27" fill="#38BDF8" font-size="12" font-weight="800" text-anchor="middle">CLASSIFICATION SELON LE PARAMÈTRE a</text>
+      <text x="20" y="58" fill="#F8FAFC" font-size="11" font-weight="600">★ <tspan fill="#38BDF8" font-weight="700">a = 1 :</tspan> Translation de vecteur u(b)</text>
+      <text x="20" y="78" fill="#F8FAFC" font-size="11" font-weight="600">★ <tspan fill="#38BDF8" font-weight="700">a ∈ ℝ* \ {1} :</tspan> Homothétie h(Ω, k = a)</text>
+      <text x="20" y="98" fill="#F8FAFC" font-size="11" font-weight="600">★ <tspan fill="#38BDF8" font-weight="700">|a| = 1, a ≠ 1 :</tspan> Rotation r(Ω, θ = arg(a))</text>
+      <text x="20" y="118" fill="#F8FAFC" font-size="11" font-weight="600">★ <tspan fill="#38BDF8" font-weight="700">|a| ≠ 1, a ∉ ℝ :</tspan> Similitude directe générale</text>
+      <text x="20" y="136" fill="#F59E0B" font-size="10" font-weight="700">Décomposition : S = h(Ω, k) ∘ r(Ω, θ) = r ∘ h</text>
+    </g>
+
+    <!-- Card 3: Réflexe Bac S2 -->
+    <g transform="translate(0, 290)">
+      <rect width="340" height="125" rx="12" fill="#1E293B" stroke="#F59E0B" stroke-width="1.5"/>
+      <rect x="12" y="10" width="316" height="26" rx="6" fill="#451A03"/>
+      <text x="170" y="27" fill="#F59E0B" font-size="12" font-weight="800" text-anchor="middle">RÉFLEXES D&apos;OR DU BACCALAURÉAT S2</text>
+      <text x="20" y="58" fill="#E2E8F0" font-size="11">1. Donnée de 2 points : <tspan fill="#00F5D4">a = (z_B&apos; - z_A&apos;) / (z_B - z_A)</tspan></text>
+      <text x="20" y="78" fill="#E2E8F0" font-size="11">2. Image d&apos;un cercle C(I, R) : <tspan fill="#38BDF8">C&apos;(S(I), k·R)</tspan></text>
+      <text x="20" y="98" fill="#E2E8F0" font-size="11">3. Aire d&apos;une surface : <tspan fill="#FB7185">Aire(S(F)) = k² × Aire(F)</tspan></text>
+      <text x="20" y="118" fill="#94A3B8" font-size="10">4. Composée : S₁ ∘ S₂ a pour rapport k₁k₂ et angle θ₁ + θ₂</text>
+    </g>
+  </g>
+</svg>
