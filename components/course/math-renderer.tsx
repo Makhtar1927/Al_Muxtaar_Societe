@@ -16,13 +16,14 @@ function normalizeMathString(str: string): string {
   if (!str) return '';
   return str
     .replace(/\x0crac/g, '\\frac') // \f mangé par template string
+    .replace(/\x08oxed/g, '\\boxed') // \b mangé par template string
     .replace(/\t(imes)/g, '\\times') // \t mangé par template string
     .replace(/\t(ext)/g, '\\text') // \t mangé par template string
     .replace(/\x0dightleftharpoons/g, '\\rightleftharpoons')
     .replace(/\x0dightarrow/g, '\\rightarrow')
     .replace(/\r/g, '')
-    .replace(/\\?rac(?=\{|\d|\s*0)/g, '\\frac') // 'rac00' ou 'rac{...}'
-    .replace(/\\?rac\s*\\?infty/g, '\\frac{\\infty}')
+    // Ne remplacer que les 'rac' orphelins non précédés de 'f' ou 'd'
+    .replace(/(?<![a-zA-Z\\])rac(?=\{|\d|\s*0)/g, '\\frac')
     .replace(/0imes\\?infty/g, '0 \\times \\infty')
     .replace(/\+infty\s*-\s*infty/g, '+\\infty - \\infty')
     // Fix double-escaped LaTeX macros in memory (e.g. \\times -> \times, \\text -> \text)
@@ -208,7 +209,7 @@ function renderMarkdownWithKatex(raw: string): string {
         }
 
         if (type === 'THEOREME') {
-          htmlLines.push(`<div class="my-5 rounded-2xl border-l-4 border-indigo-600 bg-indigo-50/80 p-4 sm:p-5 shadow-xs text-indigo-950 text-xs sm:text-sm border border-indigo-200"><div class="flex items-center gap-2 font-bold text-indigo-900 mb-2"><img src="/icons/03_theoreme_equerre.svg" width="20" height="20" class="inline-block shrink-0" alt="" /><span>Théorème &amp; Loi Fondamentale</span></div><div class="leading-relaxed text-indigo-950 font-medium">${contentHtml}</div></div>`);
+          htmlLines.push(`<div class="my-5 rounded-2xl border-l-4 border-indigo-600 bg-indigo-50/80 p-4 sm:p-5 shadow-xs text-indigo-950 text-xs sm:text-sm border border-indigo-200"><div class="flex items-center gap-2 font-bold text-indigo-900 mb-2"><img src="/icons/19_theoreme_equerre.svg" width="20" height="20" class="inline-block shrink-0" alt="" /><span>Théorème &amp; Loi Fondamentale</span></div><div class="leading-relaxed text-indigo-950 font-medium">${contentHtml}</div></div>`);
           continue;
         }
 

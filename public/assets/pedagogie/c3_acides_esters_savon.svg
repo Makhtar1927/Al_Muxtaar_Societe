@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450" width="100%" height="100%" style="background:#0F172A; font-family:system-ui, sans-serif;">
+  <rect width="900" height="450" fill="#0B132B" rx="16"/>
+  <rect x="2" y="2" width="896" height="446" fill="none" stroke="#334155" stroke-width="1.5" rx="14"/>
+  
+  <g transform="translate(450, 32)" text-anchor="middle">
+    <rect x="-260" y="-16" width="520" height="32" rx="16" fill="#1E293B" stroke="#F59E0B" stroke-width="1.5"/>
+    <text y="5" fill="#FBBF24" font-size="13" font-weight="800" letter-spacing="1">C3 : ACIDES, ESTÉRIFICATION &amp; SAPONIFICATION DU SAVON</text>
+  </g>
+
+  <g transform="translate(40, 75)">
+    <rect width="390" height="230" rx="12" fill="#1E293B" stroke="#38BDF8" stroke-width="1.5"/>
+    <text x="195" y="32" fill="#38BDF8" font-size="13" font-weight="800" text-anchor="middle">ESTÉRIFICATION DIRECTE</text>
+    <text x="195" y="65" fill="#F8FAFC" font-size="14" font-weight="700" text-anchor="middle">Acide Carboxylique + Alcool ⇌ Ester + Eau</text>
+    <text x="25" y="100" fill="#94A3B8" font-size="11">• Réaction : <tspan fill="#F8FAFC" font-weight="600">Lente, Réversible (Limité), Athermique</tspan></text>
+    <text x="25" y="125" fill="#94A3B8" font-size="11">• Rendement équimolaire avec alcool 1° : <tspan fill="#38BDF8" font-weight="700">67%</tspan></text>
+    <text x="25" y="145" fill="#94A3B8" font-size="11">• Rendement avec alcool 2° : <tspan fill="#FBBF24" font-weight="700">60%</tspan> | Alcool 3° : <tspan fill="#F43F5E" font-weight="700">5%</tspan></text>
+    <path d="M 25 160 L 365 160" stroke="#334155" stroke-width="1"/>
+    <text x="25" y="185" fill="#34D399" font-size="11.5" font-weight="700">Comment augmenter le rendement ?</text>
+    <text x="25" y="205" fill="#CBD5E1" font-size="10.5">1) Excès d'un réactif  2) Éliminer l'eau au Dean-Stark</text>
+  </g>
+
+  <g transform="translate(470, 75)">
+    <rect width="390" height="230" rx="12" fill="#1E293B" stroke="#10B981" stroke-width="1.5"/>
+    <text x="195" y="32" fill="#34D399" font-size="13" font-weight="800" text-anchor="middle">DÉRIVÉS ULTRA-RÉACTIFS (100% TOTAL)</text>
+    <text x="195" y="65" fill="#F8FAFC" font-size="14" font-weight="700" text-anchor="middle">Chlorure d'acyle / Anhydride + Alcool ➜ Ester</text>
+    <text x="25" y="100" fill="#94A3B8" font-size="11">• Réaction avec chlorure d'acyle : <tspan fill="#34D399" font-weight="700">Rapide &amp; Totale</tspan></text>
+    <text x="25" y="120" fill="#94A3B8" font-size="11">• Sous-produit gazeux : <tspan fill="#F8FAFC" font-weight="600">HCl(g) à neutraliser par une base</tspan></text>
+    <text x="25" y="145" fill="#94A3B8" font-size="11">• Avec anhydride d'acide : <tspan fill="#34D399" font-weight="700">Totale &amp; sans eau</tspan></text>
+    <path d="M 25 160 L 365 160" stroke="#334155" stroke-width="1"/>
+    <text x="25" y="185" fill="#FBBF24" font-size="11.5" font-weight="700">Le Savon (Saponification d'un triglycéride) :</text>
+    <text x="25" y="205" fill="#CBD5E1" font-size="10.5">Triglycéride + 3 NaOH ➜ Glycérol + 3 Savons (R-COO⁻, Na⁺)</text>
+  </g>
+
+  <g transform="translate(40, 325)">
+    <rect width="820" height="100" rx="12" fill="#1E293B" stroke="#F59E0B" stroke-width="1"/>
+    <circle cx="35" cy="50" r="18" fill="#F59E0B" opacity="0.2"/>
+    <text x="35" y="55" fill="#FBBF24" font-size="18" text-anchor="middle">🧼</text>
+    <text x="65" y="32" fill="#FBBF24" font-size="12" font-weight="800">FABRICATION TRADITIONNELLE DU SAVON AU SÉNÉGAL (KAOLACK / DIOURBEL) :</text>
+    <text x="65" y="52" fill="#E2E8F0" font-size="11">1. <tspan font-weight="700" fill="#FBBF24">Huile d'arachide locale :</tspan> Riche en trioléine (triglycéride de l'acide oléique).</text>
+    <text x="65" y="70" fill="#E2E8F0" font-size="11">2. <tspan font-weight="700" fill="#34D399">Relargage au sel marin (Lac Rose) :</tspan> L'ajout d'eau saturée en NaCl précipite le savon car il est insoluble dans l'eau salée !</text>
+    <text x="65" y="88" fill="#CBD5E1" font-size="10.5" font-style="italic">« Saponification mooy jël diw tiir walla diw gerte boole ko ak soude bu tàng, relargué ko ak xoromu Lac Rose ! »</text>
+  </g>
+</svg>

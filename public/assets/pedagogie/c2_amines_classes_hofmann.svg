@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450" width="100%" height="100%" style="background:#0F172A; font-family:system-ui, sans-serif;">
+  <rect width="900" height="450" fill="#0B132B" rx="16"/>
+  <rect x="2" y="2" width="896" height="446" fill="none" stroke="#334155" stroke-width="1.5" rx="14"/>
+  
+  <g transform="translate(450, 32)" text-anchor="middle">
+    <rect x="-250" y="-16" width="500" height="32" rx="16" fill="#1E293B" stroke="#A855F7" stroke-width="1.5"/>
+    <text y="5" fill="#C084FC" font-size="13" font-weight="800" letter-spacing="1">C2 : AMINES, BASICITÉ, HOFMANN &amp; VIE QUOTIDIENNE</text>
+  </g>
+
+  <!-- 3 Classes Amines -->
+  <g transform="translate(40, 75)">
+    <rect width="250" height="230" rx="12" fill="#1E293B" stroke="#38BDF8" stroke-width="1.5"/>
+    <text x="125" y="32" fill="#38BDF8" font-size="13" font-weight="800" text-anchor="middle">AMINE PRIMAIRE (1°)</text>
+    <text x="125" y="70" fill="#F8FAFC" font-size="16" font-weight="700" text-anchor="middle">R — NH₂</text>
+    <text x="20" y="110" fill="#94A3B8" font-size="11">Règle d'or sur l'Azote N :</text>
+    <text x="20" y="130" fill="#38BDF8" font-size="12" font-weight="700">★ 2 atomes d'Hydrogène sur N</text>
+    <text x="20" y="150" fill="#E2E8F0" font-size="11">Ex : Méthanamine CH₃-NH₂</text>
+    <path d="M 20 165 L 230 165" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="190" fill="#FBBF24" font-size="11">Hofmann : 1ère étape</text>
+    <text x="20" y="210" fill="#94A3B8" font-size="10.5">Attaque avec dérivé halogéné R-X</text>
+  </g>
+
+  <g transform="translate(325, 75)">
+    <rect width="250" height="230" rx="12" fill="#1E293B" stroke="#A855F7" stroke-width="1.5"/>
+    <text x="125" y="32" fill="#C084FC" font-size="13" font-weight="800" text-anchor="middle">AMINE SECONDAIRE (2°)</text>
+    <text x="125" y="70" fill="#F8FAFC" font-size="16" font-weight="700" text-anchor="middle">R — NH — R&apos;</text>
+    <text x="20" y="110" fill="#94A3B8" font-size="11">Règle d'or sur l'Azote N :</text>
+    <text x="20" y="130" fill="#C084FC" font-size="12" font-weight="700">★ 1 seul Hydrogène sur N</text>
+    <text x="20" y="150" fill="#E2E8F0" font-size="11">Ex : Diméthylamine (CH₃)₂NH</text>
+    <path d="M 20 165 L 230 165" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="190" fill="#FBBF24" font-size="11">Hofmann : 2ème étape</text>
+    <text x="20" y="210" fill="#94A3B8" font-size="10.5">Effet inducteur donneur +I accru</text>
+  </g>
+
+  <g transform="translate(610, 75)">
+    <rect width="250" height="230" rx="12" fill="#1E293B" stroke="#EC4899" stroke-width="1.5"/>
+    <text x="125" y="32" fill="#F472B6" font-size="13" font-weight="800" text-anchor="middle">AMINE TERTIAIRE (3°)</text>
+    <text x="125" y="70" fill="#F8FAFC" font-size="16" font-weight="700" text-anchor="middle">R — N(R&apos;) — R&apos;&apos;</text>
+    <text x="20" y="110" fill="#94A3B8" font-size="11">Règle d'or sur l'Azote N :</text>
+    <text x="20" y="130" fill="#F472B6" font-size="12" font-weight="700">★ 0 Hydrogène sur N</text>
+    <text x="20" y="150" fill="#E2E8F0" font-size="11">Ex : Triméthylamine (CH₃)₃N</text>
+    <path d="M 20 165 L 230 165" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="190" fill="#FBBF24" font-size="11">Hofmann final : Sel Quaternaire</text>
+    <text x="20" y="210" fill="#94A3B8" font-size="10.5">Donne [R₄N⁺, X⁻] tensioactif</text>
+  </g>
+
+  <!-- Real life banner Senegal -->
+  <g transform="translate(40, 325)">
+    <rect width="820" height="100" rx="12" fill="#1E293B" stroke="#F59E0B" stroke-width="1"/>
+    <circle cx="35" cy="50" r="18" fill="#F59E0B" opacity="0.2"/>
+    <text x="35" y="55" fill="#FBBF24" font-size="18" text-anchor="middle">🐟</text>
+    <text x="65" y="32" fill="#FBBF24" font-size="12" font-weight="800">POURQUOI MET-ON DU CITRON SUR LE POISSON À MBOUR OU KAYAR ?</text>
+    <text x="65" y="52" fill="#E2E8F0" font-size="11">1. <tspan font-weight="700" fill="#C084FC">L'odeur de poisson :</tspan> Les amines volatiles comme la triméthylamine (CH₃)₃N sont responsables de l'odeur du poisson.</text>
+    <text x="65" y="70" fill="#E2E8F0" font-size="11">2. <tspan font-weight="700" fill="#34D399">Neutralisation acide-base :</tspan> L'acide citrique du citron donne des H⁺ : (CH₃)₃N + H⁺ ➜ (CH₃)₃NH⁺ (ion inodore et non volatil) !</text>
+    <text x="65" y="88" fill="#CBD5E1" font-size="10.5" font-style="italic">« Citron bi ngay xas ci jën bi, dafay neutraliser amines yi ci réaction acide-base, motax xet bi di dagg ! »</text>
+  </g>
+</svg>

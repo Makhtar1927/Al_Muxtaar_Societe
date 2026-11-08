@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="100%" height="100%" style="background:#0F172A; font-family:system-ui, -apple-system, sans-serif;">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B132B"/>
+      <stop offset="100%" stop-color="#1C2541"/>
+    </linearGradient>
+    <linearGradient id="curveGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="50%" stop-color="#2DD4BF"/>
+      <stop offset="100%" stop-color="#F43F5E"/>
+    </linearGradient>
+    <linearGradient id="tamponGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2DD4BF" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.15"/>
+    </linearGradient>
+    <linearGradient id="phenolGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FB7185" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#E11D48" stop-opacity="0.15"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="520" fill="url(#bgGrad)" rx="20"/>
+  <rect x="2" y="2" width="896" height="516" fill="none" stroke="#334155" stroke-width="1.5" rx="18"/>
+
+  <!-- Title Badge -->
+  <g transform="translate(450, 36)" text-anchor="middle">
+    <rect x="-260" y="-18" width="520" height="36" rx="18" fill="#1E293B" stroke="#0284C7" stroke-width="1.5"/>
+    <text y="5" fill="#38BDF8" font-size="14" font-weight="800" letter-spacing="1">CHIMIE Tle S2 : COURBE DE DOSAGE ACIDE FAIBLE / BASE FORTE</text>
+  </g>
+
+  <!-- Plot Area: x: 120 -> 820 (width 700), y: 80 -> 440 (height 360) -->
+  <!-- pH: 0 to 14 => 360 px / 14 = 25.7 px per pH unit -->
+  <!-- Vb: 0 to 25 mL => 700 px / 25 = 28 px per mL -->
+  <!-- Equivalence at VbE = 16 mL (x = 120 + 16*28 = 568), pHe = 8.8 (y = 440 - 8.8*25.7 = 213.8) -->
+  <!-- Demi-Equivalence at Vb = 8 mL (x = 120 + 8*28 = 344), pKa = 4.8 (y = 440 - 4.8*25.7 = 316.6) -->
+
+  <!-- Grid lines -->
+  <g stroke="#334155" stroke-width="0.8" opacity="0.5">
+    <!-- pH 2, 4, 6, 7, 8, 10, 12, 14 -->
+    <line x1="120" y1="388.6" x2="820" y2="388.6"/>
+    <line x1="120" y1="337.2" x2="820" y2="337.2"/>
+    <line x1="120" y1="285.8" x2="820" y2="285.8"/>
+    <line x1="120" y1="260.1" x2="820" y2="260.1" stroke="#38BDF8" stroke-dasharray="4,4" opacity="0.6"/> <!-- pH 7 -->
+    <line x1="120" y1="234.4" x2="820" y2="234.4"/>
+    <line x1="120" y1="183.0" x2="820" y2="183.0"/>
+    <line x1="120" y1="131.6" x2="820" y2="131.6"/>
+    <line x1="120" y1="80.2" x2="820" y2="80.2"/>
+
+    <!-- Vb 5, 10, 15, 20, 25 mL -->
+    <line x1="260" y1="80" x2="260" y2="440"/>
+    <line x1="400" y1="80" x2="400" y2="440"/>
+    <line x1="540" y1="80" x2="540" y2="440"/>
+    <line x1="680" y1="80" x2="680" y2="440"/>
+    <line x1="820" y1="80" x2="820" y2="440"/>
+  </g>
+
+  <!-- Zone de virage Phénolphtaléine [8.2, 10.0] : y from 440 - 10*25.7 = 183 to 440 - 8.2*25.7 = 229.3 -->
+  <rect x="120" y="183" width="700" height="46.3" fill="url(#phenolGrad)" rx="4"/>
+  <text x="810" y="200" fill="#FB7185" font-size="11" font-weight="700" text-anchor="end">Zone de virage Phénolphtaléine (8,2 - 10,0)</text>
+
+  <!-- Zone Tampon [0.2 VbE = 3.2 mL, 0.8 VbE = 12.8 mL] : x from 209.6 to 478.4 -->
+  <rect x="210" y="280" width="268" height="75" fill="url(#tamponGrad)" rx="8" stroke="#2DD4BF" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="344" y="300" fill="#2DD4BF" font-size="11" font-weight="800" text-anchor="middle">ZONE TAMPON MAXIMALE</text>
+  <text x="344" y="315" fill="#94A3B8" font-size="9" text-anchor="middle">Faible variation du pH : [AH] ≈ [A⁻]</text>
+
+  <!-- Main Axes -->
+  <g stroke="#94A3B8" stroke-width="2">
+    <!-- Y axis: pH -->
+    <line x1="120" y1="440" x2="120" y2="70"/>
+    <polygon points="116,72 120,62 124,72" fill="#94A3B8"/>
+    <!-- X axis: Vb -->
+    <line x1="120" y1="440" x2="830" y2="440"/>
+    <polygon points="828,436 838,440 828,444" fill="#94A3B8"/>
+  </g>
+
+  <!-- Axis Labels -->
+  <text x="105" y="72" fill="#F8FAFC" font-size="13" font-weight="800" text-anchor="end">pH</text>
+  <text x="830" y="465" fill="#F8FAFC" font-size="13" font-weight="800" text-anchor="end">Volume de soude versé V<tspan font-size="10" dy="3">b</tspan><tspan dy="-3"> (mL)</tspan></text>
+
+  <!-- Y ticks and values -->
+  <g fill="#94A3B8" font-size="11" font-weight="600" text-anchor="end">
+    <text x="110" y="444">0</text>
+    <text x="110" y="392">2</text>
+    <text x="110" y="341">4</text>
+    <text x="110" y="320" fill="#2DD4BF" font-weight="800">pK<tspan font-size="9" dy="2">a</tspan><tspan dy="-2">=4,8</tspan></text>
+    <text x="110" y="289">6</text>
+    <text x="110" y="264" fill="#38BDF8">7 (Neutre)</text>
+    <text x="110" y="217" fill="#F43F5E" font-weight="800">pH<tspan font-size="9" dy="2">E</tspan><tspan dy="-2">=8,8</tspan></text>
+    <text x="110" y="187">10</text>
+    <text x="110" y="135">12</text>
+    <text x="110" y="84">14</text>
+  </g>
+
+  <!-- X ticks and values -->
+  <g fill="#94A3B8" font-size="11" font-weight="600" text-anchor="middle">
+    <text x="120" y="460">0</text>
+    <text x="260" y="460">5</text>
+    <text x="344" y="460" fill="#2DD4BF" font-weight="800">V<tspan font-size="9" dy="2">bE</tspan><tspan dy="-2">/2 = 8</tspan></text>
+    <text x="400" y="460">10</text>
+    <text x="540" y="460">15</text>
+    <text x="568" y="460" fill="#F43F5E" font-weight="800">V<tspan font-size="9" dy="2">bE</tspan><tspan dy="-2"> = 16</tspan></text>
+    <text x="680" y="460">20</text>
+    <text x="820" y="460">25</text>
+  </g>
+
+  <!-- Tangentes Parallèles (Méthode des Tangentes) -->
+  <!-- Tangente 1 (inférieure avant saut) : angle ~ 50 deg, passes through (530, 270) -->
+  <line x1="470" y1="360" x2="575" y2="200" stroke="#F59E0B" stroke-width="1.8" stroke-dasharray="6,4" opacity="0.85"/>
+  <!-- Tangente 2 (supérieure après saut) : angle ~ 50 deg, passes through (606, 157) -->
+  <line x1="546" y1="247" x2="651" y2="87" stroke="#F59E0B" stroke-width="1.8" stroke-dasharray="6,4" opacity="0.85"/>
+  <!-- Droite Perpendiculaire commune -->
+  <line x1="510" y1="300" x2="618" y2="138" stroke="#10B981" stroke-width="1.2" stroke-dasharray="2,2"/>
+  <!-- Tangente Médiane (équidistante) : passes through E(568, 213.8) -->
+  <line x1="508" y1="303.8" x2="613" y2="143.8" stroke="#38BDF8" stroke-width="2" opacity="0.9"/>
+
+  <!-- Titration Curve pH = f(Vb) -->
+  <!-- Initial pH ~ 2.9 at Vb=0 (y = 440 - 2.9*25.7 = 365.5) -->
+  <!-- Rapid rise to (176, 335), slow buffer zone around (344, 316.6), inflection at E(568, 213.8), palier at y=135 -->
+  <path d="M 120 365.5 
+           C 160 345, 220 326, 344 316.6
+           C 420 310, 510 290, 545 265
+           C 558 250, 563 230, 568 213.8
+           C 573 195, 578 165, 595 150
+           C 630 135, 720 132, 820 130" 
+        fill="none" stroke="url(#curveGrad)" stroke-width="4.5" stroke-linecap="round" filter="url(#glow)"/>
+
+  <!-- Point Initial (Vb=0) -->
+  <circle cx="120" cy="365.5" r="5" fill="#38BDF8"/>
+  <text x="135" y="370" fill="#38BDF8" font-size="11" font-weight="700">Point initial (acide pur)</text>
+
+  <!-- Point de Demi-Équivalence D(8 mL, pKa=4.8) -->
+  <!-- Projections -->
+  <line x1="344" y1="440" x2="344" y2="316.6" stroke="#2DD4BF" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <line x1="120" y1="316.6" x2="344" y2="316.6" stroke="#2DD4BF" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <circle cx="344" cy="316.6" r="6" fill="#0F172A" stroke="#2DD4BF" stroke-width="3"/>
+  <g transform="translate(344, 275)" text-anchor="middle">
+    <rect x="-85" y="-12" width="170" height="24" rx="12" fill="#134E4A" stroke="#2DD4BF" stroke-width="1"/>
+    <text y="4" fill="#5EEAD4" font-size="10.5" font-weight="800">DEMI-ÉQUIVALENCE : pH = pK<tspan font-size="8.5" dy="1.5">a</tspan></text>
+  </g>
+
+  <!-- Point d'Équivalence E(16 mL, pHe=8.8) -->
+  <!-- Projections -->
+  <line x1="568" y1="440" x2="568" y2="213.8" stroke="#F43F5E" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <line x1="120" y1="213.8" x2="568" y2="213.8" stroke="#F43F5E" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <circle cx="568" cy="213.8" r="7" fill="#0F172A" stroke="#F43F5E" stroke-width="3.5" filter="url(#glow)"/>
+  <g transform="translate(640, 218)">
+    <rect x="0" y="-14" width="220" height="42" rx="8" fill="#4C0519" stroke="#F43F5E" stroke-width="1.2"/>
+    <text x="10" y="3" fill="#FDA4AF" font-size="11" font-weight="800">POINT D'ÉQUIVALENCE E</text>
+    <text x="10" y="19" fill="#FECDD3" font-size="9.5">Milieu BASIQUE : pH<tspan font-size="7.5" dy="1">E</tspan><tspan dy="-1"> = 8,8 &gt; 7 !</tspan></text>
+  </g>
+
+  <!-- Legend Card bottom right -->
+  <g transform="translate(140, 95)">
+    <rect width="210" height="85" rx="10" fill="#1E293B" stroke="#475569" stroke-width="1" opacity="0.95"/>
+    <text x="12" y="20" fill="#F8FAFC" font-size="10.5" font-weight="800">RÉFLEXES DU BAC S2 :</text>
+    <circle cx="20" cy="36" r="4" fill="#2DD4BF"/>
+    <text x="32" y="40" fill="#CBD5E1" font-size="9.5">À V<tspan font-size="7.5">bE</tspan>/2 : [AH] = [A⁻] ⟹ pH = pK<tspan font-size="7.5">a</tspan></text>
+    <circle cx="20" cy="54" r="4" fill="#F43F5E"/>
+    <text x="32" y="58" fill="#CBD5E1" font-size="9.5">À V<tspan font-size="7.5">bE</tspan> : C<tspan font-size="7.5">a</tspan>V<tspan font-size="7.5">a</tspan> = C<tspan font-size="7.5">b</tspan>V<tspan font-size="7.5">bE</tspan> et pH<tspan font-size="7.5">E</tspan> &gt; 7</text>
+    <line x1="16" y1="72" x2="26" y2="72" stroke="#F59E0B" stroke-width="2"/>
+    <text x="32" y="75" fill="#CBD5E1" font-size="9.5">Tangentes parallèles ⟹ Point E</text>
+  </g>
+</svg>
+

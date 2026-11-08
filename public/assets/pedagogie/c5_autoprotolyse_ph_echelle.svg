@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450" width="100%" height="100%" style="background:#0F172A; font-family:system-ui, sans-serif;">
+  <rect width="900" height="450" fill="#0B132B" rx="16"/>
+  <rect x="2" y="2" width="896" height="446" fill="none" stroke="#334155" stroke-width="1.5" rx="14"/>
+  
+  <g transform="translate(450, 32)" text-anchor="middle">
+    <rect x="-260" y="-16" width="520" height="32" rx="16" fill="#1E293B" stroke="#10B981" stroke-width="1.5"/>
+    <text y="5" fill="#34D399" font-size="13" font-weight="800" letter-spacing="1">C5 : AUTOPROTOLYSE DE L'EAU, Ke &amp; ÉCHELLE DE pH</text>
+  </g>
+
+  <!-- pH Scale from 0 to 14 -->
+  <g transform="translate(50, 85)">
+    <defs>
+      <linearGradient id="phScaleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#EF4444"/>
+        <stop offset="25%" stop-color="#F59E0B"/>
+        <stop offset="50%" stop-color="#10B981"/>
+        <stop offset="75%" stop-color="#06B6D4"/>
+        <stop offset="100%" stop-color="#8B5CF6"/>
+      </linearGradient>
+    </defs>
+    <rect width="800" height="45" rx="8" fill="url(#phScaleGrad)"/>
+    <!-- Markers -->
+    <line x1="0" y1="45" x2="0" y2="60" stroke="#EF4444" stroke-width="2"/>
+    <text x="0" y="75" fill="#EF4444" font-size="12" font-weight="800" text-anchor="middle">0</text>
+    
+    <line x1="400" y1="45" x2="400" y2="60" stroke="#10B981" stroke-width="2"/>
+    <text x="400" y="75" fill="#10B981" font-size="12" font-weight="800" text-anchor="middle">pH = 7 (Neutre à 25°C)</text>
+    
+    <line x1="800" y1="45" x2="800" y2="60" stroke="#8B5CF6" stroke-width="2"/>
+    <text x="800" y="75" fill="#8B5CF6" font-size="12" font-weight="800" text-anchor="middle">14</text>
+
+    <!-- Zone Labels -->
+    <text x="200" y="28" fill="#FFFFFF" font-size="13" font-weight="800" text-anchor="middle">MILIEU ACIDE : [H₃O⁺] &gt; [OH⁻]</text>
+    <text x="600" y="28" fill="#FFFFFF" font-size="13" font-weight="800" text-anchor="middle">MILIEU BASIQUE : [OH⁻] &gt; [H₃O⁺]</text>
+  </g>
+
+  <!-- 3 Example Boxes -->
+  <g transform="translate(50, 180)">
+    <rect width="250" height="120" rx="10" fill="#1E293B" stroke="#EF4444" stroke-width="1"/>
+    <text x="125" y="28" fill="#F87171" font-size="12" font-weight="800" text-anchor="middle">ACIDE FORT (HCl)</text>
+    <text x="125" y="55" fill="#F8FAFC" font-size="13" font-weight="700" text-anchor="middle">pH = - log C</text>
+    <text x="125" y="80" fill="#94A3B8" font-size="10.5" text-anchor="middle">Dissociation totale dans l'eau :</text>
+    <text x="125" y="100" fill="#FBBF24" font-size="10.5" text-anchor="middle">HCl + H₂O ➜ H₃O⁺ + Cl⁻</text>
+  </g>
+
+  <g transform="translate(325, 180)">
+    <rect width="250" height="120" rx="10" fill="#1E293B" stroke="#10B981" stroke-width="1"/>
+    <text x="125" y="28" fill="#34D399" font-size="12" font-weight="800" text-anchor="middle">PRODUIT IONIQUE DE L'EAU Ke</text>
+    <text x="125" y="55" fill="#F8FAFC" font-size="13" font-weight="700" text-anchor="middle">Ke = [H₃O⁺][OH⁻] = 10⁻¹⁴</text>
+    <text x="125" y="80" fill="#94A3B8" font-size="10.5" text-anchor="middle">pH + pOH = pKe = 14,00 (25°C)</text>
+    <text x="125" y="100" fill="#34D399" font-size="10.5" text-anchor="middle">Ke augmente avec la température !</text>
+  </g>
+
+  <g transform="translate(600, 180)">
+    <rect width="250" height="120" rx="10" fill="#1E293B" stroke="#8B5CF6" stroke-width="1"/>
+    <text x="125" y="28" fill="#A78BFA" font-size="12" font-weight="800" text-anchor="middle">BASE FORTE (NaOH)</text>
+    <text x="125" y="55" fill="#F8FAFC" font-size="13" font-weight="700" text-anchor="middle">pH = 14 + log C</text>
+    <text x="125" y="80" fill="#94A3B8" font-size="10.5" text-anchor="middle">Dissociation totale dans l'eau :</text>
+    <text x="125" y="100" fill="#FBBF24" font-size="10.5" text-anchor="middle">NaOH ➜ Na⁺ + OH⁻</text>
+  </g>
+
+  <!-- Real life banner Senegal -->
+  <g transform="translate(40, 325)">
+    <rect width="820" height="100" rx="12" fill="#1E293B" stroke="#F59E0B" stroke-width="1"/>
+    <circle cx="35" cy="50" r="18" fill="#F59E0B" opacity="0.2"/>
+    <text x="35" y="55" fill="#FBBF24" font-size="18" text-anchor="middle">🧪</text>
+    <text x="65" y="32" fill="#FBBF24" font-size="12" font-weight="800">LE pH DANS LA VIE QUOTIDIENNE AU SÉNÉGAL :</text>
+    <text x="65" y="52" fill="#E2E8F0" font-size="11">1. <tspan font-weight="700" fill="#EF4444">Jus de Bissap (pH ~ 2,5) :</tspan> Très acide car riche en acide malique et oxalique (dents sensibles).</text>
+    <text x="65" y="70" fill="#E2E8F0" font-size="11">2. <tspan font-weight="700" fill="#38BDF8">Sang humain (pH = 7,40 ± 0,02) :</tspan> Légèrement basique et régulé de manière vitale. Un écart de 0,4 unité est mortel !</text>
+    <text x="65" y="88" fill="#CBD5E1" font-size="10.5" font-style="italic">« Bissap dafa saf acide motax pH bi di tuuti lool (2,5), waaye ndoxum Javel dafa basique (pH 12). Sunu deret moom 7,4 rekk la wara nekk ! »</text>
+  </g>
+</svg>

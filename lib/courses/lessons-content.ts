@@ -26,6 +26,15 @@ Un **alcool** est un composé organique dont la molécule possède un groupement
 
 ---
 
+![Figure 1 : Les 3 classes d'alcools et leurs applications dans la vie réelle](/assets/pedagogie/c1_alcools_classes_vie_reelle.svg)
+
+> [!WOLOF] **Xam-xam ci Wolof — Alcools ci dundin u nit :**
+> - « Alcool bi ñu xam ci hôpitaux yi mooy éthanol 70°. Dafa am ay liaisons hydrogène yu dëgër, motax bumu tàbbee ci bactéries yi dafay fàdd seen membrane ba ñu dee ! »
+> - « Ci wallu fermentation traditionnelle (naka vin de palme wala toupiti ci Casamance), levures yi dañuy jël suukër bi (glucose) diko soppi éthanol ak gaz carbonique : $\text{C}_6\text{H}_{12}\text{O}_6 \longrightarrow 2\,\text{C}_2\text{H}_5\text{OH} + 2\,\text{CO}_2$. »
+> - « Classe 1, 2 ak 3 : Boo bëggee xam classe bi ci 2 secondes, xoolal carbone bi yor $-\text{OH}$ bi rekk ! Su amee 1 seul voisin carbone = 1°, su amee 2 voisins = 2°, su ko 3 voisins wëree = 3°. »
+
+---
+
 ## 2. Les Trois Classes d'Alcools
 
 La **classe** d'un alcool dépend EXCLUSIVEMENT du nombre d'atomes de carbone directement liés au carbone fonctionnel :
@@ -1724,6 +1733,15 @@ $$\\text{C}_n\\text{H}_{2n+3}\\text{N} \\implies M = 14n + 17 \\;\\text{g/mol}$$
 
 ---
 
+![Figure 1 : Classes d'amines, réaction d'Hofmann et applications quotidiennes](/assets/pedagogie/c2_amines_classes_hofmann.svg)
+
+> [!WOLOF] **Xam-xam ci Wolof — Lu tax ñuy xàs citron ci jën bu xeeñ à Kayar wala Mbour ?**
+> - « Jën bu ñu géejjee wala kethiakh dafa am xet wu méti ndax amines volatiles yi (naka triméthylamine $(\text{CH}_3)_3\text{N}$). »
+> - « Citron bi moom dafa am acide citrique bu bare ay protons $\text{H}^+$. Boo xàsee citron ci jën bi, réaction acide-base dafay am sur le coup : $(\text{CH}_3)_3\text{N} + \text{H}^+ \longrightarrow (\text{CH}_3)_3\text{NH}^+$. »
+> - « Ion ammonium bi juddu amul benn xet te du volé ci ngelaw li ! Motax xet bi di dagg instantanément. Chimie pratique 100% sénégalaise la ! »
+
+---
+
 ## 2. Les Trois Classes d'Amines
 
 > [!WARNING] **PIÈGE BAC S2 :** La classe d'une amine = nombre de groupes carbonés sur **l'azote N** (et NON sur le carbone comme pour les alcools !).
@@ -2440,7 +2458,11 @@ Une **solution tampon** est une solution dont le pH varie très peu :
 Elle est constituée d'un mélange équimolaire ou de concentrations très voisines d'un acide faible et de sa base conjuguée :
 $$[\\text{AH}] \\approx [\\text{A}^-]$$
 
-> [!WOLOF] **Xam-xam ci Wolof :** Solution tampon dafa melni nit ku am kersa ak dal : boo ko tënkee tuuti acide walla base, du soppiku dara ! pH bi dafay taxaw temm. Ni la sunu deret dunde : pH 7,4 rekk la wara nekk, tampon bi moo koy samm !
+> [!WOLOF] **Xam-xam ci Wolof — Système Tampon u deret ci wér-gu-yaram :
+> - « Sunu deret dafa am tampon d'or bu tudd **tampon bicarbonate** $(\text{H}_2\text{CO}_3 / \text{HCO}_3^-)$. »
+> - « Sa yaram boo defee sport bu méti (naka navétanes yi), dafay jur acide lactique. Tampon bicarbonate bi day jël acide bi diko soppi $\text{CO}_2$ bi ngay génne ci say loxo ak say poumons ! »
+> - « Motax pH deret bi du soppiku mukk : dafay des ci $7{,}40 \pm 0{,}02$ ! Kuko amul woon, benn match football rekk nit ki dafay coma acidosique. »
+> - « Demi-équivalence : $V_b = \frac{V_{bE}}{2}$ mooy point bi tampon bi gën a dëgëre ci aduna ! »
 
 ### 5.2 Pourquoi le pH d'une solution tampon est-il stable ?
 1. **Lors d'un ajout d'ions $\\text{H}_3\\text{O}^+$ (acide fort) :**
