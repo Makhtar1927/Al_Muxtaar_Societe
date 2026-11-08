@@ -65,13 +65,25 @@ function normalizeMathString(str: string): string {
  */
 function cleanMathFormula(math: string): string {
   if (!math) return '';
-  return math
-    .trim()
-    // Supprime tout dollar parasite accidentellement inséré à l'intérieur d'une formule
-    .replace(/\$/g, '')
-    // Supprime les \left. ou \right. orphelins (ex: "\left. D_f" -> "D_f")
-    .replace(/\\left\.\s*(?=[a-zA-Z0-9\\[])/g, '')
-    .replace(/\\right\.\s*(?=[a-zA-Z0-9\\])/g, '')
+
+  let processed = math.trim().replace(/\$/g, '');
+
+  // Protection ultime contre les \left ou \right orphelins (cause #1 des ParseError KaTeX en rouge)
+  const leftCount = (processed.match(/\\left/g) || []).length;
+  const rightCount = (processed.match(/\\right/g) || []).length;
+  if (leftCount !== rightCount) {
+    // Supprime d'abord les \left. et \right. orphelins
+    processed = processed.replace(/\\left\.\s*/g, '').replace(/\\right\.\s*/g, '');
+    const newL = (processed.match(/\\left/g) || []).length;
+    const newR = (processed.match(/\\right/g) || []).length;
+    if (newL !== newR) {
+      processed = processed
+        .replace(/\\left\s*([(\[{|.\\])?/g, (_m, g) => (g && g !== '.') ? g : '')
+        .replace(/\\right\s*([)\]}|.\\])?/g, (_m, g) => (g && g !== '.') ? g : '');
+    }
+  }
+
+  return processed
     // Répare \f \frac et \df \frac
     .replace(/\\f\s*\\frac/g, '\\frac')
     .replace(/\\df\s*\\frac/g, '\\dfrac')
@@ -95,7 +107,6 @@ function cleanMathFormula(math: string): string {
     .replace(/(?<!\\)\bsin(?=\^|\s|\(|[0-9xX]|$)/g, '\\sin ')
     .replace(/(?<!\\)\bqquad(?=[a-zA-Z\\]|$)/g, '\\qquad ')
     // Répare les sauts de ligne simples dans \begin{aligned} ou \begin{cases}
-    // ex: "&= ... \ \n &=" -> doit être "&= ... \\ \n &="
     .replace(/(?<!\\)\\\s*(?=\n\s*&|\n\s*\\end)/g, '\\\\')
     // Supprime tout caractère de contrôle ASCII invisible résiduel (\b, \0, etc.)
     .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, '')

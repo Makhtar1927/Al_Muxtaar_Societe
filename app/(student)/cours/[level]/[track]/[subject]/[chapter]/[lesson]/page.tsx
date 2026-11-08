@@ -56,6 +56,8 @@ import SimilitudesReflexesCard from '@/components/course/similitudes-reflexes-ca
 import SimilitudesQuizEmbedded from '@/components/course/similitudes-quiz-embedded';
 import IsometriesReflexesCard from '@/components/course/isometries-reflexes-card';
 import IsometriesQuizEmbedded from '@/components/course/isometries-quiz-embedded';
+import DenombrementReflexesCard from '@/components/course/denombrement-reflexes-card';
+import DenombrementQuizEmbedded from '@/components/course/denombrement-quiz-embedded';
 import ProbabilitesReflexesCard from '@/components/course/probabilites-reflexes-card';
 import ProbabilitesInteractiveSimulator from '@/components/course/probabilites-interactive-simulator';
 import ProbabilitesQuizEmbedded from '@/components/course/probabilites-quiz-embedded';
@@ -907,6 +909,49 @@ const SIMILITUDES_AUDIO_CHAPTERS: AudioChapter[] = [
     icon: "cle_solution",
     textScript:
       "La composée de deux similitudes de paramètres a1 et a2 a pour paramètre a1 fois a2 : les rapports se multiplient et les angles s'additionnent. La réciproque de z prime égal az plus b est z égal z prime moins b sur a. Exercice corrigé : pour z prime égal 1 plus i fois z plus 2 moins i, le rapport k vaut racine de 2, l'angle vaut pi sur 4, et le centre Oméga a pour affixe moins 1 moins 2i.",
+  },
+];
+
+const DENOMBREMENT_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Enjeux du Dénombrement au Bac S2 Sénégal",
+    badge: "Introduction",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass de Mathématiques Terminale S2 dédiée au Dénombrement. Ce chapitre ouvre traditionnellement les sujets d'examen du Baccalauréat sénégalais. Maîtriser le choix du bon modèle de tirage dès l'introduction vous garantit la totalité des points de l'exercice.",
+  },
+  {
+    timeSeconds: 50,
+    title: "2. Les 3 Modèles : Combinaisons, Arrangements et p-listes",
+    badge: "Méthode",
+    icon: "theoreme_equerre",
+    textScript:
+      "Posez-vous toujours deux questions fondamentales : l'ordre compte-t-il ? Y a-t-il répétition ? Tirage simultané signifie combinaison C n p sans ordre. Successif sans remise signifie arrangement A n p avec ordre. Successif avec remise signifie puissance n puissance p.",
+  },
+  {
+    timeSeconds: 115,
+    title: "3. Le Réflexe Roi de l'Événement Contraire : « Au moins un »",
+    badge: "Technique",
+    icon: "technique_outils",
+    textScript:
+      "Dès que vous lisez 'obtenir au moins un', passez immédiatement par l'événement contraire : Total moins aucun ! Ne perdez jamais de temps à calculer et additionner plusieurs cas avec des risques d'erreurs de calcul.",
+  },
+  {
+    timeSeconds: 180,
+    title: "4. Tirages Multicolores & Facteur d'Ordre",
+    badge: "Piège Bac",
+    icon: "piege_bac",
+    textScript:
+      "Pour des boules de plusieurs couleurs en tirage simultané, multipliez simplement les combinaisons : C des rouges fois C des vertes. Mais attention au piège capital : en tirage successif, n'oubliez jamais de multiplier par le coefficient d'ordre des couleurs C p k !",
+  },
+  {
+    timeSeconds: 245,
+    title: "5. Triangle de Pascal & Formule du Binôme de Newton",
+    badge: "Formule clé",
+    icon: "cle_solution",
+    textScript:
+      "La formule du binôme permet de développer a plus b puissance n grâce aux combinaisons C n k. Retenez la somme magique des coefficients de chaque ligne : la somme de k égal 0 à n des C n k vaut exactement 2 puissance n !",
   },
 ];
 
