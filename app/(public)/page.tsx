@@ -41,7 +41,7 @@ export default function HomePage() {
           <Link href="/doc">
             <Button variant="outline" size="lg" className="w-full sm:w-auto font-bold border-turquoise text-turquoise hover:bg-turquoise-light/30">
               <Icon name="doc" size={20} className="mr-2" />
-              Espace Éducatif (Al_Muxtaar_Doc)
+              Espace Éducatif
             </Button>
           </Link>
           <Link href="/contact">
