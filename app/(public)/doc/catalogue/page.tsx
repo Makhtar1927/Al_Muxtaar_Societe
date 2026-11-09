@@ -114,7 +114,7 @@ export default function CataloguePage() {
       <div className="text-center max-w-3xl mx-auto space-y-3">
         <div className="inline-flex items-center gap-2 rounded-full bg-turquoise-light px-3.5 py-1 text-xs font-bold text-turquoise">
           <Icon name="cours" size={16} />
-          Référentiel National Officiel du Sénégal (MEN / IGEF)
+          Référentiel National Officiel du Sénégal
         </div>
         <h1 className="text-3xl font-black tracking-tight text-navy sm:text-4xl">
           Catalogue des Programmes &amp; Filières

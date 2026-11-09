@@ -78,26 +78,26 @@ export default function HomePage() {
               </div>
               <CardTitle className="text-xl font-black text-navy">Al_Muxtaar_Doc</CardTitle>
               <CardDescription className="text-xs text-turquoise font-bold">
-                Formation académique &amp; Référentiel National (MEN / IGEF)
+                Formation académique &amp; Référentiel National
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-3">
               <p className="text-xs text-navy-light leading-relaxed">
-                Le portail éducatif interactif conçu pour les élèves du Sénégal (Lycée et Collège). Cours structurés, 
+                Le portail éducatif interactif conçu pour tous les élèves du Sénégal (Collège et Lycée). Cours structurés, 
                 synthèses vectorielles en SVG, fiches réflexes, exercices corrigés et éclairages bilingues en Wolof.
               </p>
               <div className="space-y-1.5 pt-2 border-t border-navy/5 text-xs text-navy">
                 <div className="flex items-center gap-2">
                   <Icon name="check" size={14} className="text-turquoise shrink-0" />
-                  <span><strong>Terminale S2 Maths :</strong> 13 chapitres 100% complets</span>
+                  <span><strong>Collège &amp; Lycée :</strong> De la 6e à la Terminale (BFEM &amp; Bac)</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Icon name="check" size={14} className="text-turquoise shrink-0" />
-                  <span><strong>Référentiel National :</strong> S1, S2, L, G et 3e BFEM</span>
+                  <span><strong>Toutes les filières :</strong> Séries Scientifiques, Littéraires et Tertiaires</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Icon name="check" size={14} className="text-turquoise shrink-0" />
-                  <span><strong>Tarification solidaire :</strong> Dès 700 FCFA / mois (Wave)</span>
+                  <span><strong>Tarification solidaire :</strong> Dès 700 FCFA / mois (Wave &amp; OM)</span>
                 </div>
               </div>
             </CardContent>

@@ -37,7 +37,7 @@ export default function DocLandingPage() {
             </h1>
 
             <p className="mx-auto lg:mx-0 max-w-2xl text-sm sm:text-base text-navy-light leading-relaxed">
-              Conforme aux programmes officiels du <strong>Ministère de l&apos;Éducation Nationale (MEN / IGEF)</strong>. 
+              Conforme aux programmes officiels du <strong>Ministère de l&apos;Éducation Nationale</strong>. 
               De la 3e BFEM à la Terminale (S1, S2, L, G) : cours complets, automatismes du Baccalauréat, 
               analogies de la vie sénégalaise et fiches d&apos;exercices interactifs conçues pour smartphone.
             </p>
