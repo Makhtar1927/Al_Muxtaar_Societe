@@ -94,13 +94,9 @@ export function Header() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isProfileOpen]);
 
-  // Fermer le menu mobile au clic extérieur ou au défilement (scroll)
+  // Fermer le menu mobile au clic/tap extérieur sur l'écran
   React.useEffect(() => {
     if (!isMobileMenuOpen) return;
-
-    function handleScroll() {
-      setIsMobileMenuOpen(false);
-    }
 
     function handleClickOutside(event: MouseEvent | TouchEvent) {
       const target = event.target as Node;
@@ -112,12 +108,10 @@ export function Header() {
       }
     }
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
     document.addEventListener("mousedown", handleClickOutside);
     document.addEventListener("touchstart", handleClickOutside, { passive: true });
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("touchstart", handleClickOutside);
     };
