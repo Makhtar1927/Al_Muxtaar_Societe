@@ -91,6 +91,9 @@ import AcideFaibleBaseFaibleQuizEmbedded from '@/components/course/acide-faible-
 import DosageAcideFaibleBaseForteReflexesCard from '@/components/course/dosage-acide-faible-base-forte-reflexes-card';
 import DosageAcideFaibleBaseForteInteractiveSimulator from '@/components/course/dosage-acide-faible-base-forte-interactive-simulator';
 import DosageAcideFaibleBaseForteQuizEmbedded from '@/components/course/dosage-acide-faible-base-forte-quiz-embedded';
+import AcidesAminesReflexesCard from '@/components/course/acides-amines-reflexes-card';
+import AcidesAminesInteractiveSimulator from '@/components/course/acides-amines-interactive-simulator';
+import AcidesAminesQuizEmbedded from '@/components/course/acides-amines-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
@@ -1618,6 +1621,74 @@ export default async function LessonReaderPage({ params }: PageProps) {
     lessonMeta = createdLesson;
   }
 
+  // Provisioning pour C8 : Dosage acide faible - base forte (Physique-Chimie S2)
+  if (!lessonMeta && (
+    params.lesson === '60000000-0000-0001-0001-000000000020' ||
+    params.lesson === '60000000-0000-0001-0001-000000000021' ||
+    params.lesson === '60000000-0000-0001-0001-000000000022'
+  )) {
+    await admin.from('chapters').upsert({
+      id: '50000000-0000-0001-0001-000000000008',
+      title: "C8 : Réaction acide faible / base forte, effet tampon et dosages",
+      order_index: 8,
+      status: 'published',
+    }, { onConflict: 'id' });
+    const c8Map: Record<string, [string, number]> = {
+      '60000000-0000-0001-0001-000000000020': ['Courbe de dosage acide faible - base forte et méthode des tangentes', 1],
+      '60000000-0000-0001-0001-000000000021': ['La demi-équivalence et détermination graphique du pKa', 2],
+      '60000000-0000-0001-0001-000000000022': ['Propriétés des solutions tampons, préparation et applications', 3],
+    };
+    const [c8Title, c8Order] = c8Map[params.lesson] || ['C8 Dosage acide faible', 1];
+    const { data: createdLesson } = await admin
+      .from('lessons')
+      .upsert({
+        id: params.lesson,
+        chapter_id: '50000000-0000-0001-0001-000000000008',
+        title: c8Title,
+        order_index: c8Order,
+        content_markdown: `# C8 : Dosage Acide Faible — ${c8Title}`,
+        is_free: false,
+        status: 'published',
+      }, { onConflict: 'id' })
+      .select()
+      .single();
+    lessonMeta = createdLesson;
+  }
+
+  // Provisioning pour C9 : Acides aminés & Stéréochimie (Physique-Chimie S2)
+  if (!lessonMeta && (
+    params.lesson === '60000000-0000-0001-0001-000000000023' ||
+    params.lesson === '60000000-0000-0001-0001-000000000024' ||
+    params.lesson === '60000000-0000-0001-0001-000000000025'
+  )) {
+    await admin.from('chapters').upsert({
+      id: '50000000-0000-0001-0001-000000000009',
+      title: "C9 : Acides aminés (éléments de stéréochimie)",
+      order_index: 9,
+      status: 'published',
+    }, { onConflict: 'id' });
+    const c9Map: Record<string, [string, number]> = {
+      '60000000-0000-0001-0001-000000000023': ['Structure des acides alpha-aminés et carbone asymétrique', 1],
+      '60000000-0000-0001-0001-000000000024': ['Chiralité, énantiomères, représentation de Fischer (séries D et L)', 2],
+      '60000000-0000-0001-0001-000000000025': ['Caractère amphotère, amphion (zwitterion) et liaison peptidique', 3],
+    };
+    const [c9Title, c9Order] = c9Map[params.lesson] || ['C9 Acides aminés', 1];
+    const { data: createdLesson } = await admin
+      .from('lessons')
+      .upsert({
+        id: params.lesson,
+        chapter_id: '50000000-0000-0001-0001-000000000009',
+        title: c9Title,
+        order_index: c9Order,
+        content_markdown: `# C9 : Acides Aminés — ${c9Title}`,
+        is_free: false,
+        status: 'published',
+      }, { onConflict: 'id' })
+      .select()
+      .single();
+    lessonMeta = createdLesson;
+  }
+
   // Provisioning pour C1 : Alcools (Physique-Chimie S2)
   if (!lessonMeta && params.lesson === '60000000-0000-0001-0001-000000000001') {
     await admin.from('chapters').upsert({
@@ -2098,14 +2169,44 @@ if (lessonMeta && lessonMeta.status !== 'published') {
       lessonMeta.title.toLowerCase().includes('solution tampon') ||
       lessonMeta.title.toLowerCase().includes('solutions tampons') ||
       (chapter?.title?.toLowerCase() || '').includes('effet tampon') ||
-      (chapter?.title?.toLowerCase() || '').includes('dosage') ||
+      (chapter?.title?.toLowerCase() || '').includes('dosage acide faible') ||
       (chapter?.title?.toLowerCase() || '').includes('c8') ||
       params.lesson === '60000000-0000-0001-0001-000000000020' ||
       params.lesson === '60000000-0000-0001-0001-000000000021' ||
       params.lesson === '60000000-0000-0001-0001-000000000022' ||
       params.chapter === '50000000-0000-0001-0001-000000000008');
 
+  const isAcidesAmines =
+    !isAlcools &&
+    !isAmines &&
+    !isAcidesDerives &&
+    !isCinetique &&
+    !isAutoprotolysePh &&
+    !isAcideFortBaseForte &&
+    !isAcideFaibleBaseFaible &&
+    !isDosageAcideFaibleBaseForte &&
+    (lessonMeta.title.toLowerCase().includes('acide aminé') ||
+      lessonMeta.title.toLowerCase().includes('acides aminés') ||
+      lessonMeta.title.toLowerCase().includes('acide amine') ||
+      lessonMeta.title.toLowerCase().includes('acides amines') ||
+      lessonMeta.title.toLowerCase().includes('stéréochimie') ||
+      lessonMeta.title.toLowerCase().includes('stereochimie') ||
+      lessonMeta.title.toLowerCase().includes('zwitterion') ||
+      lessonMeta.title.toLowerCase().includes('amphion') ||
+      lessonMeta.title.toLowerCase().includes('fischer') ||
+      lessonMeta.title.toLowerCase().includes('peptidique') ||
+      lessonMeta.title.toLowerCase().includes('dipeptide') ||
+      (chapter?.title?.toLowerCase() || '').includes('acide aminé') ||
+      (chapter?.title?.toLowerCase() || '').includes('acides aminés') ||
+      (chapter?.title?.toLowerCase() || '').includes('acide amine') ||
+      (chapter?.title?.toLowerCase() || '').includes('c9') ||
+      params.lesson === '60000000-0000-0001-0001-000000000023' ||
+      params.lesson === '60000000-0000-0001-0001-000000000024' ||
+      params.lesson === '60000000-0000-0001-0001-000000000025' ||
+      params.chapter === '50000000-0000-0001-0001-000000000009');
+
   const isDerivation =
+    !isAcidesAmines &&
     !isDosageAcideFaibleBaseForte &&
     !isAcideFaibleBaseFaible &&
     !isAlcools &&
@@ -2425,6 +2526,11 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                   <DosageAcideFaibleBaseForteReflexesCard />
                   <DosageAcideFaibleBaseForteInteractiveSimulator />
                 </>
+              ) : isAcidesAmines ? (
+                <>
+                  <AcidesAminesReflexesCard />
+                  <AcidesAminesInteractiveSimulator />
+                </>
               ) : isTvi ? (
                 <>
                   <TviReflexesCard />
@@ -2604,6 +2710,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <AcideFaibleBaseFaibleQuizEmbedded />
               ) : isDosageAcideFaibleBaseForte ? (
                 <DosageAcideFaibleBaseForteQuizEmbedded />
+              ) : isAcidesAmines ? (
+                <AcidesAminesQuizEmbedded />
               ) : isTvi ? (
                 <TviQuizEmbedded />
               ) : isAsymptotes ? (

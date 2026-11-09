@@ -3818,6 +3818,290 @@ $$V_b = 100 - 71{,}4 = 28{,}6\\text{ mL}$$
 > - « **Tampon bi :** pH stable la si ñu yokkee ndaw acide walla base. Dafa melni goalkeeper bu dëgër gu du tólliku ! »
 `;
 
+// C9 : ACIDES ALPHA-AMINÉS ET ÉLÉMENTS DE STÉRÉOCHIMIE (Terminale S2 Sénégal)
+RICH_LESSONS_MAP.acides_amines = `# C9 : Acides \\alpha-Aminés & Éléments de Stéréochimie (Terminale S2)
+
+Bienvenue dans le neuvième chapitre de **Chimie Organique et Générale** de **Terminale S2**, rigoureusement conforme au programme officiel sénégalais (MEN / IGEF / Office du Baccalauréat).
+
+---
+
+![Figure 1 : Projection de Fischer de l'alanine, zwitterion et liaison peptidique](/assets/pedagogie/c9_acides_amines_fischer_peptides.svg)
+
+> [!VIE_REELLE] **Les Briques de la Vie au Sénégal :**
+> - **L'arachide et le niébé du bassin arachidier** : nos légumineuses sénégalaises sont des concentrés exceptionnels de protéines végétales. Ces protéines sont de longues chaînes linéaires formées par l'enchaînement précis d'acides $\\alpha$-aminés reliés par des liaisons peptidiques.
+> - **Le lait caillé (Sow)** : la digestion des protéines lactiques (caséines) libère les acides aminés indispensables (valine, leucine, phénylalanine) que notre organisme ne peut synthétiser lui-même.
+> - **La kératine de nos cheveux et de notre peau** : une protéine fibreuse riche en cystéine dont les ponts disulfures assurent la résistance mécanique.
+
+> [!WOLOF] **Xam-xam ci Wolof — Acides Aminés & Stéréochimie :**
+> - « Acides aminés ñoy briques yi tabax suñuy protéines ci biir yaram (gérte, ñebbe, sow, yàpp). Dafa am fonction acide $-\\text{COOH}$ ak fonction amine $-\\text{NH}_2$ ci benn carbone alpha bi ! »
+> - « Carbone asymétrique $C^*$ dafa laaj 4 partenaires yu bokkul benn yoon ! Acides aminés yépp am nañu ko ba mu des **Glycine** rekk ndax moom ñaari hydrogènes $H$ la yor ci carbone alpha bi (achirale la, amul série D walla L) ! »
+> - « Ci projection bu Fischer, bindal $-\\text{COOH}$ ci kaw, $-\\text{R}$ ci suuf. Bu $-\\text{NH}_2$ nekké ci loxo cammooñ (gauche), mooy **série L** ! Suñuy protéines yépp acides aminés série L lañu ! »
+> - « Zwitterion (amphion) mooy molécule bu am à la fois charge positive ci $-\\text{NH}_3^+$ ak charge négative ci $-\\text{COO}^-$. Charge nette bi 0 la, ci $pHi$ du daw jëm fenn ci électrophorèse ! »
+
+---
+
+## Objectifs Pédagogiques Officiels (Baccalauréat S2)
+
+> [!IMPORTANT]
+> 1. Définir un **acide $\\alpha$-aminé** et maîtriser la **nomenclature officielle UICPA** (acide 2-amino...oïque).
+> 2. Identifier un **carbone asymétrique $C^*$** et justifier la **chiralité** et l'**activité optique** (énantiomères, pouvoir rotatoire, racémique).
+> 3. Maîtriser le **cas d'or de la Glycine** : seule molécule achirale de la famille des acides $\\alpha$-aminés.
+> 4. Représenter un acide aminé en **projection de Fischer** et déterminer rigoureusement sa configuration (**série D ou série L**).
+> 5. Écrire la structure du **zwitterion (amphion)** et expliciter son **caractère amphotère** (ampholyte) à travers les deux couples acido-basiques.
+> 6. Calculer le **point isoélectrique $pHi$** et prédire le sens de migration en **électrophorèse** sur bande selon le pH du tampon.
+> 7. Écrire la réaction de **condensation peptidique**, identifier la **liaison amide $-\\text{CO}-\\text{NH}-$**, et dénombrer les **4 dipeptides isomères** obtenus à partir de deux acides aminés distincts.
+> 8. Décrire le protocole de **synthèse dirigée d'un dipeptide** (protection, activation, couplage, déprotection).
+
+---
+
+## 1. Structure et Nomenclature des Acides $\\alpha$-Aminés
+
+### A. Définition et Formule Générale
+Un **acide $\\alpha$-aminé** est un composé organique bifonctionnel comportant sur le **même atome de carbone** (appelé carbone $\\alpha$ ou carbone n°2) :
+- Une fonction acide carboxylique $-\\text{COOH}$
+- Une fonction amine primaire $-\\text{NH}_2$ (ou secondaire dans le cas de la proline)
+- Un atome d'hydrogène $-\\text{H}$
+- Une chaîne latérale appelée radical $-\\text{R}$
+
+Formule générale non ionisée :
+$$\\text{R}-\\text{CH}(\\text{NH}_2)-\\text{COOH}$$
+
+### B. Règles de Nomenclature UICPA
+1. La chaîne carbonée la plus longue contenant le groupe $-\\text{COOH}$ est la chaîne principale.
+2. Le carbone du groupe carboxyle porte obligatoirement le **numéro 1** : $-\\mathbf{C}^1\\text{OOH}$.
+3. Le carbone voisin est le **carbone 2 (ou carbone $\\alpha$)** : il porte le substituant amine.
+4. Le nom officiel est donc obligatoirement de la forme : **acide 2-amino[alcane]oïque**.
+
+### C. Tableau des 5 Acides Aminés Phares du Bac S2
+
+| Nom usuel | Symbole | Radical $-\\text{R}$ | Formule semi-développée | Nom UICPA officiel |
+| :--- | :---: | :---: | :--- | :--- |
+| **Glycine** (Glycocolle) | **Gly** | $-\\text{H}$ | $\\text{H}-\\text{CH}(\\text{NH}_2)-\\text{COOH}$ | Acide 2-aminoéthanoïque |
+| **Alanine** | **Ala** | $-\\text{CH}_3$ | $\\text{CH}_3-\\text{CH}(\\text{NH}_2)-\\text{COOH}$ | Acide 2-aminopropanoïque |
+| **Valine** | **Val** | $-\\text{CH}(\\text{CH}_3)_2$ | $(\\text{CH}_3)_2\\text{CH}-\\text{CH}(\\text{NH}_2)-\\text{COOH}$ | Acide 2-amino-3-méthylbutanoïque |
+| **Acide Aspartique** | **Asp** | $-\\text{CH}_2-\\text{COOH}$ | $\\text{HOOC}-\\text{CH}_2-\\text{CH}(\\text{NH}_2)-\\text{COOH}$ | Acide 2-aminobutanedioïque |
+| **Lysine** | **Lys** | $-(\\text{CH}_2)_4-\\text{NH}_2$ | $\\text{H}_2\\text{N}-(\\text{CH}_2)_4-\\text{CH}(\\text{NH}_2)-\\text{COOH}$ | Acide 2,6-diaminohexanoïque |
+
+---
+
+## 2. Carbone Asymétrique, Chiralité et Activité Optique
+
+### A. Le Carbone Asymétrique ($C^*$)
+Un atome de carbone tétraédrique (hybridation $sp^3$) est dit **asymétrique** (noté $C^*$) lorsqu'il est lié à **quatre substituants différents**.
+
+Dans un acide $\\alpha$-aminé $\\text{R}-\\text{CH}(\\text{NH}_2)-\\text{COOH}$, le carbone $\\alpha$ est lié à :
+1. $-\\text{COOH}$
+2. $-\\text{NH}_2$
+3. $-\\text{H}$
+4. $-\\text{R}$
+
+Si $-\\text{R} \\neq -\\text{H}$, $-\\text{COOH}$, $-\\text{NH}_2$, ces 4 groupes sont distincts : le carbone $\\alpha$ est donc un **carbone asymétrique $C^*$**.
+
+### B. Chiralité et Énantiomères
+- **Objet chiral** : Une molécule est dite **chirale** si elle n'est pas superposable à son image dans un miroir plan (absence de plan ou centre de symétrie).
+- **Énantiomères** : Deux stéréoisomères de configuration qui sont images l'un de l'autre dans un miroir plan et non superposables.
+- Deux énantiomères possèdent des propriétés physiques et chimiques identiques en milieu achiral (même température de fusion, même solubilité, même $pK_a$), mais diffèrent par :
+  1. Leur **activité optique** (pouvoir rotatoire spécifique $[\alpha]$ opposé).
+  2. Leurs **propriétés biologiques** (reconnaissance par les récepteurs enzymatiques).
+
+> [!CAUTION]
+> **Le Piège d'Or N°1 du Baccalauréat Sénégalais — La Glycine :**
+> Pour la **Glycine (Gly)**, le radical est un atome d'hydrogène : $\\text{R} = -\\text{H}$.
+> La molécule s'écrit : $\\text{H}-\\text{CH}(\\text{NH}_2)-\\text{COOH}$.
+> Le carbone central est lié à **deux atomes d'hydrogène identiques**.
+> - La glycine ne possède **AUCUN carbone asymétrique**.
+> - Elle possède un plan de symétrie : elle est donc **ACHIRALE**.
+> - Elle est **optiquement inactive** (pouvoir rotatoire rigoureusement nul).
+> **Question typique du Bac :** *« Tous les acides alpha-aminés sont-ils chiraux ? Justifier. »*
+> **Réponse officielle :** *« Non, la glycine est achirale car son carbone 2 est lié à deux atomes d'hydrogène identiques. »*
+
+---
+
+## 3. Représentation de Fischer : Séries D et L
+
+La projection de Fischer permet de représenter commodément sur une feuille plane la géométrie tridimensionnelle des molécules chirales.
+
+### A. Règles Officielles de Projection de Fischer
+1. **Ligne verticale** : On place la chaîne carbonée la plus longue verticalement, avec le carbone ayant le degré d'oxydation le plus élevé tout en **HAUT** (ici, le carbone du carboxyle $-\\mathbf{C}^1\\text{OOH}$).
+2. **Liaisons verticales** : Elles s'éloignent de l'observateur (en arrière du plan de la feuille).
+3. **Liaisons horizontales** : Elles pointent vers l'observateur (en avant du plan).
+4. Le carbone asymétrique $C^*$ se trouve à l'intersection de la croix.
+
+### B. Définition des Séries D et L
+En observant la projection de Fischer orientée avec $-\\text{COOH}$ en haut et $-\\text{R}$ en bas :
+- **Série L (Laevus)** : Le groupe amine $-\\text{NH}_2$ est situé à **GAUCHE** de la ligne verticale.
+- **Série D (Dexter)** : Le groupe amine $-\\text{NH}_2$ est situé à **DROITE** de la ligne verticale.
+
+$$\\begin{array}{ccc}
+\\text{Série L} & & \\text{Série D} \\\\[6pt]
+\\text{COOH} & & \\text{COOH} \\\\[-2pt]
+\\vert & & \\vert \\\\[-2pt]
+\\text{H}_2\\text{N} - C^* - \\text{H} & \\quad \\xleftrightarrow{\\text{Miroir}} \\quad & \\text{H} - C^* - \\text{NH}_2 \\\\[-2pt]
+\\vert & & \\vert \\\\[-2pt]
+\\text{R} & & \\text{R}
+\\end{array}$$
+
+> [!TIP]
+> **Règle universelle du vivant :**
+> Dans la quasi-totalité des organismes vivants (humains, plantes, animaux), **tous les acides aminés constitutifs des protéines appartiennent exclusivement à la série L**. Les acides aminés de la série D ne se rencontrent que dans certaines parois bactériennes ou antibiotiques spécifiques.
+
+> [!WARNING]
+> **Ne confondez jamais :**
+> - La configuration relative **D / L** (position spatiale du groupe $-\\text{NH}_2$ sur la croix de Fischer).
+> - Le pouvoir rotatoire physique **(+) / (-)** mesuré au polarimètre (dextrogyre ou lévogyre).
+> Un acide aminé de la série **L** peut être dextrogyre $(+)$ ou lévogyre $(-)$. Rien ne permet de déduire le signe du pouvoir rotatoire à partir de la configuration D ou L sans mesure expérimentale !
+
+---
+
+## 4. Structure Zwitterionique (Amphion) & Caractère Amphotère
+
+### A. Le Zwitterion (Amphion)
+Dans une molécule d'acide $\\alpha$-aminé, coexistent un groupe acide carboxylique à caractère acide ($-\\text{COOH}$, donneur de proton) et un groupe amine à caractère basique ($-\\text{NH}_2$, accepteur de proton).
+
+Il se produit un transfert spontané de proton intramoléculaire :
+$$\\text{R}-\\text{CH}(\\text{NH}_2)-\\text{COOH} \\rightleftharpoons \\text{R}-\\text{CH}(\\text{NH}_3^+)-\\text{COO}^-$$
+
+Cette espèce dipolaire est appelée **amphion** ou **zwitterion** (de l'allemand *Zwitter*, hybride).
+- Elle porte simultanément une charge positive sur l'azote ($-\\text{NH}_3^+$) et une charge négative sur l'oxygène ($-\\text{COO}^-$).
+- Sa charge électrique globale est strictement nulle : $(+1) + (-1) = 0$.
+- C'est sous cette forme zwitterionique que les acides aminés existent à l'état solide cristallin (ce qui explique leurs températures de fusion très élevées, supérieures à $200^\\circ\\text{C}$, semblables à des sels ioniques) et dans l'eau pure à pH physiologique.
+
+### B. Caractère Amphotère (Ampholyte Acido-Basique)
+L'amphion $\\text{R}-\\text{CH}(\\text{NH}_3^+)-\\text{COO}^-$ (noté $\\text{HA}^\\pm$) est un **ampholyte** : il peut jouer le rôle d'acide ou de base. Il intervient dans deux couples acide-base distincts :
+
+#### 1. Premier couple : Cation / Amphion ($pK_{a1} \\approx 2{,}0 - 2{,}5$)
+L'amphion se comporte comme une base et capte un proton sur son groupe carboxylate :
+$$\\text{R}-\\text{CH}(\\text{NH}_3^+)-\\text{COOH} + \\text{H}_2\\text{O} \\rightleftharpoons \\text{R}-\\text{CH}(\\text{NH}_3^+)-\\text{COO}^- + \\text{H}_3\\text{O}^+$$
+$$\\text{Couple } \\mathbf{\\text{H}_2\\text{A}^+ / \\text{HA}^\\pm} \\quad ; \\quad K_{a1} = \\frac{[\\text{HA}^\\pm][\\text{H}_3\\text{O}^+]}{[\\text{H}_2\\text{A}^+]}$$
+
+#### 2. Second couple : Amphion / Anion ($pK_{a2} \\approx 9{,}0 - 10{,}0$)
+L'amphion se comporte comme un acide et cède un proton de son groupe ammonium :
+$$\\text{R}-\\text{CH}(\\text{NH}_3^+)-\\text{COO}^- + \\text{H}_2\\text{O} \\rightleftharpoons \\text{R}-\\text{CH}(\\text{NH}_2)-\\text{COO}^- + \\text{H}_3\\text{O}^+$$
+$$\\text{Couple } \\mathbf{\\text{HA}^\\pm / \\text{A}^-} \\quad ; \\quad K_{a2} = \\frac{[\\text{A}^-][\\text{H}_3\\text{O}^+]}{[\\text{HA}^\\pm]}$$
+
+---
+
+## 5. Point Isoélectrique ($pHi$) & Diagramme de Prédominance
+
+### A. Définition et Calcul du Point Isoélectrique $pHi$
+Le **point isoélectrique** (noté $pHi$ ou $pI$) est le pH de la solution aqueuse pour lequel la charge électrique nette de l'acide aminé est **rigoureusement nulle**.
+À ce pH précis, la concentration de l'amphion est maximale, et les concentrations des formes cationique et anionique sont exactement égales :
+$$[\\text{H}_2\\text{A}^+] = [\\text{A}^-]$$
+
+En multipliant membre à membre les deux expressions des constantes d'acidité :
+$$K_{a1} \\times K_{a2} = \\frac{[\\text{HA}^\\pm][\\text{H}_3\\text{O}^+]}{[\\text{H}_2\\text{A}^+]} \\times \\frac{[\\text{A}^-][\\text{H}_3\\text{O}^+]}{[\\text{HA}^\\pm]} = [\\text{H}_3\\text{O}^+]^2$$
+
+Comme $[\\text{H}_3\\text{O}^+] = \\sqrt{K_{a1} \\times K_{a2}}$, en prenant le cologarithme ($-\\log$) :
+$$\\mathbf{pHi = \\frac{pK_{a1} + pK_{a2}}{2}}$$
+
+*Exemple d'or :* Pour l'alanine ($pK_{a1} = 2{,}34$ et $pK_{a2} = 9{,}69$) :
+$$pHi = \\frac{2{,}34 + 9{,}69}{2} = \\frac{12{,}03}{2} = \\mathbf{6{,}02}$$
+
+### B. Diagramme de Prédominance des Espèces
+
+| Domaine de pH | Espèce prédominante | Formule chimique | Charge électrique nette |
+| :--- | :---: | :---: | :---: |
+| $\\mathbf{\\text{pH} < pK_{a1}}$ | **Cation $\\text{H}_2\\text{A}^+$** | $\\text{R}-\\text{CH}(\\text{NH}_3^+)-\\text{COOH}$ | **$+1$** |
+| $\\mathbf{pK_{a1} < \\text{pH} < pK_{a2}}$ | **Amphion $\\text{HA}^\\pm$** | $\\text{R}-\\text{CH}(\\text{NH}_3^+)-\\text{COO}^-$ | **$0$** |
+| $\\mathbf{\\text{pH} > pK_{a2}}$ | **Anion $\\text{A}^-$** | $\\text{R}-\\text{CH}(\\text{NH}_2)-\\text{COO}^-$ | **$-1$** |
+
+### C. Principe de l'Électrophorèse sur Bande
+L'**électrophorèse** est une technique analytique séparant les acides aminés déposés sur une bande de papier ou de gel imbibée d'une solution tampon sous l'action d'un champ électrique uniforme entre deux électrodes : une **Cathode** (pôle négatif $-$) et une **Anode** (pôle positif $+$).
+
+Sous l'effet de la différence de potentiel $U$ :
+1. **Si $\\text{pH} < pHi$** : La forme cationique prédomine (charge positive $+$). L'acide aminé est attiré par la **Cathode ($-$ )**.
+2. **Si $\\text{pH} > pHi$** : La forme anionique prédomine (charge négative $-$). L'acide aminé est attiré par l'**Anode ($+$ )**.
+3. **Si $\\text{pH} = pHi$** : La charge globale est nulle. L'acide aminé **ne migre pas** et reste fixé sur la ligne de dépôt.
+
+> [!NOTE]
+> **Mnémotechnique Bac S2 :**
+> - **C**ation ($+$) migre vers **C**athode ($-$).
+> - **A**nion ($-$) migre vers **A**node ($+$).
+
+---
+
+## 6. La Liaison Peptidique & Isomérie des Dipeptides
+
+### A. Formation de la Liaison Peptidique
+La **liaison peptidique** résulte de la réaction de condensation entre la fonction carboxyle $-\\text{COOH}$ d'un acide aminé $A_1$ et la fonction amine $-\\text{NH}_2$ d'un second acide aminé $A_2$, avec élimination d'une molécule d'eau :
+
+$$\\text{R}_1-\\text{CH}(\\text{NH}_2)-\\text{COOH} + \\text{R}_2-\\text{CH}(\\text{NH}_2)-\\text{COOH} \\longrightarrow \\text{H}_2\\text{N}-\\text{CH}(\\text{R}_1)-\\mathbf{CO-NH}-\\text{CH}(\\text{R}_2)-\\text{COOH} + \\text{H}_2\\text{O}$$
+
+### B. Caractéristiques Structurales de la Liaison Peptidique
+1. C'est chimiquement une fonction **amide monosubstituée**.
+2. **Caractère partiel de double liaison (mésomérie)** : Le doublet non liant de l'azote est délocalisé avec la liaison double $\\text{C}=\\text{O}$ :
+   $$-\\text{C}(=\\text{O})-\\text{NH}- \\longleftrightarrow -\\text{C}(\\text{O}^-)=\\text{NH}^+-$$
+   Par conséquent :
+   - La liaison $\\text{C}-\\text{N}$ est plus courte qu'une liaison simple ordinaire.
+   - La rotation autour de l'axe $\\text{C}-\\text{N}$ est bloquée.
+   - Les 4 atomes du groupement $-\\text{CO}-\\text{NH}-$ sont rigoureusement **copolanaires** (géométrie plane et rigide).
+
+### C. Convention d'Orientation Peptidique
+Par convention internationale :
+- L'acide aminé portant le groupe $-\\text{NH}_2$ libre est placé à **GAUCHE** : c'est l'extrémité **N-terminale**.
+- L'acide aminé portant le groupe $-\\text{COOH}$ libre est placé à **DROITE** : c'est l'extrémité **C-terminale**.
+- On désigne le peptide en écrivant les abréviations de gauche à droite : ex: **Ala-Gly** signifie que l'alanine est N-terminale et la glycine est C-terminale.
+
+### D. Le Problème des 4 Dipeptides Isomères
+Si l'on fait réagir en mélange équimolaire deux acides aminés distincts $A$ et $B$ sans précaution particulière, les molécules peuvent s'associer de 4 manières différentes :
+1. **Deux homodipeptides** :
+   - $A - A$
+   - $B - B$
+2. **Deux hétérodipeptides isomères de constitution** :
+   - $A - B$ (avec $A$ en N-terminal et $B$ en C-terminal)
+   - $B - A$ (avec $B$ en N-terminal et $A$ en C-terminal)
+
+> [!CAUTION]
+> **Attention absolue :** $A-B$ et $B-A$ sont deux composés **complètement différents** !
+> Par exemple, $\\text{Ala}-\\text{Gly}$ et $\\text{Gly}-\\text{Ala}$ ont des formules développées différentes :
+> - $\\text{Ala}-\\text{Gly} : \\text{H}_2\\text{N}-\\text{CH}(\\text{CH}_3)-\\text{CO}-\\text{NH}-\\text{CH}_2-\\text{COOH}$
+> - $\\text{Gly}-\\text{Ala} : \\text{H}_2\\text{N}-\\text{CH}_2-\\text{CO}-\\text{NH}-\\text{CH}(\\text{CH}_3)-\\text{COOH}$
+> Leurs propriétés chimiques, physiques et biologiques sont différentes.
+
+---
+
+## 7. Stratégie de Synthèse Contrôlée d'un Dipeptide Spécifique
+
+Pour obtenir **exclusivement** le dipeptide désiré $A-B$ sans formation des trois sous-produits parasites ($A-A$, $B-B$, $B-A$), le chimiste doit mettre en œuvre une stratégie en 4 étapes codifiée au Baccalauréat :
+
+| Étape du Protocole | Objectif Réactionnel | Réactif / Méthode Officielle |
+| :--- | :--- | :--- |
+| **1. Protection sélective** | Bloquer le groupe -NH₂ de A et le groupe -COOH de B | Chlorure de benzyle (sur A) & Estérification (sur B) |
+| **2. Activation de l'acide** | Rendre le -COOH de A très réactif pour forcer l'attaque | Transformation en chlorure d'acyle -COCl via SOCl₂ |
+| **3. Couplage peptidique** | Former exclusivement la liaison A-B | Réaction sélective : A(protégé-activé) + B(protégé) |
+| **4. Déprotection finale** | Régénérer les fonctions -NH₂ et -COOH terminales libres | Hydrogénation catalytique ménagée sans rompre -CO-NH- |
+
+1. **Protection sélective :**
+   - On bloque la fonction $-\\text{NH}_2$ de l'acide $A$ (par exemple par réaction avec le chlorure de benzyle ou le chloroformiate d'éthyle) pour l'empêcher d'agir comme nucléophile.
+   - On bloque la fonction $-\\text{COOH}$ de l'acide $B$ (par estérification avec un alcool) pour l'empêcher d'agir comme acide.
+2. **Activation du carboxyle :**
+   - La fonction $-\\text{COOH}$ restante de l'acide $A$ est transformée en un dérivé plus réactif, typiquement un **chlorure d'acyle $-\\text{COCl}$** par réaction avec $\\text{SOCl}_2$ ou $\\text{PCl}_5$.
+3. **Condensation (couplage) :**
+   - On mélange l'acide $A$ protégé-activé et l'acide $B$ protégé : la liaison peptidique $-\\text{CO}-\\text{NH}-$ se forme de façon unique et sélective.
+4. **Déprotection :**
+   - Par un traitement chimique doux (hydrogénation catalytique ou hydrolyse ménagée), on régénère les fonctions d'origine sans rompre la liaison peptidique nouvellement formée : on obtient ainsi le dipeptide $A-B$ pur !
+
+---
+
+## 8. Synthèse Finale — Les 7 Réflexes Absolus du Bac S2
+
+> [!IMPORTANT]
+> **Réflexes à maîtriser par cœur pour l'épreuve de Chimie (C9) :**
+> 1. **Nomenclature :** toujours « acide 2-amino...oïque ».
+> 2. **Glycine (R = H) :** achirale, pas de $C^*$, pas d'énantiomère, inactive optiquement !
+> 3. **Projection de Fischer :** $-\\text{COOH}$ en haut, $-\\text{R}$ en bas. $-\\text{NH}_2$ à gauche $\\implies$ Série L (protéines naturelles) ; à droite $\\implies$ Série D.
+> 4. **Zwitterion :** $\\text{R}-\\text{CH}(\\text{NH}_3^+)-\\text{COO}^-$ (charge nette = 0).
+> 5. **Point isoélectrique :** $pHi = \\dfrac{pK_{a1} + pK_{a2}}{2}$.
+> 6. **Électrophorèse :** si $\\text{pH} < pHi \\implies$ Cation $\\to$ Cathode ($-$) ; si $\\text{pH} > pHi \\implies$ Anion $\\to$ Anode ($+$) ; si $\\text{pH} = pHi \\implies$ immobile.
+> 7. **Dipeptides :** 2 acides $A$ et $B$ donnent 4 dipeptides ($A-A$, $B-B$, $A-B$, $B-A$). Pour orienter vers $A-B$, il faut protéger le $-\\text{NH}_2$ de $A$ et le $-\\text{COOH}$ de $B$, et activer le $-\\text{COOH}$ de $A$.
+
+> [!WOLOF]
+> - « **Glycine bi :** Bul fatte mukk ne moom rekk moo amul carbone asymétrique ! »
+> - « **Série L bi :** $-\\text{NH}_2$ bi ci loxo cammooñ la nekk ! »
+> - « **Électrophorèse bi :** Cation $\\to$ Cathode (-), Anion $\\to$ Anode (+), Zwitterion du yëngu ci pHi ! »
+> - « **Dipeptides yi :** A-B ak B-A wuute nañu faww ! »
+`
+
 export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: string, rawContent: string | null): string {
   const titleLower = `${lessonTitle} ${chapterTitle}`.toLowerCase();
 
@@ -3852,6 +4136,25 @@ export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: stri
     titleLower.includes('predominance')
   ) {
     return RICH_LESSONS_MAP.acide_faible_base_faible;
+  }
+
+  if (
+    titleLower.includes('acide aminé') ||
+    titleLower.includes('acides aminés') ||
+    titleLower.includes('acide amine') ||
+    titleLower.includes('acides amines') ||
+    titleLower.includes('stéréochimie') ||
+    titleLower.includes('stereochimie') ||
+    titleLower.includes('zwitterion') ||
+    titleLower.includes('amphion') ||
+    titleLower.includes('fischer') ||
+    titleLower.includes('dipeptide') ||
+    titleLower.includes('peptidique') ||
+    titleLower.includes('chiralité') ||
+    titleLower.includes('chiralite') ||
+    titleLower.includes('c9')
+  ) {
+    return RICH_LESSONS_MAP.acides_amines;
   }
 
   if (
