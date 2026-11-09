@@ -65,10 +65,7 @@ export default function HomePage() {
 
         <div className="grid gap-8 md:grid-cols-3">
           {/* Pôle 1 : Al_Muxtaar_Doc */}
-          <Card variant="elevated" className="flex flex-col justify-between border-2 border-turquoise/50 shadow-card relative">
-            <div className="absolute -top-3 right-6 rounded-full bg-turquoise px-3 py-0.5 text-[10px] font-black uppercase text-white shadow">
-              Module Opérationnel
-            </div>
+          <Card variant="elevated" className="flex flex-col justify-between border-2 border-turquoise/50 shadow-card">
             <CardHeader className="pt-8">
               <div className="flex items-center justify-between mb-3">
                 <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-turquoise-light">
