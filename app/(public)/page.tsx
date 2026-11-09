@@ -42,7 +42,7 @@ export default function HomePage() {
             </Button>
           </Link>
           <Link href="/contact">
-            <Button variant="ghost" size="lg" className="w-full sm:w-auto font-bold text-navy hover:bg-surface">
+            <Button variant="primary" size="lg" className="w-full sm:w-auto font-bold shadow-md">
               Nous contacter / Devis
             </Button>
           </Link>
