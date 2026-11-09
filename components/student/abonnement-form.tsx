@@ -374,7 +374,7 @@ export default function AbonnementForm({
 
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-navy/60">
             <p>
-              Traitement officiel par <strong className="text-navy">Al Muxtaar Société</strong>
+              Traitement officiel par <strong className="text-navy">Patriode&apos;Dev</strong>
             </p>
             <a
               href={`https://wa.me/221772476926?text=${encodeURIComponent(
