@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import StudyIcon, { StudyIconName } from '@/components/ui/study-icon';
+import { cn } from '@/lib/utils';
 
 export interface AudioChapter {
   timeSeconds: number;
@@ -78,9 +79,32 @@ export default function AudioCoachPlayer({
   const [activeChapterIndex, setActiveChapterIndex] = useState(0);
   const [isSynthesizing, setIsSynthesizing] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isPlayerOutOfView, setIsPlayerOutOfView] = useState(false);
+  const [isMiniDismissed, setIsMiniDismissed] = useState(false);
 
+  const playerContainerRef = useRef<HTMLElement | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const synthRef = useRef<SpeechSynthesisUtterance | null>(null);
+
+  // Observer pour détecter quand le lecteur principal sort de l'écran
+  useEffect(() => {
+    const el = playerContainerRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsPlayerOutOfView(!entry.isIntersecting);
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  function scrollToMainPlayer() {
+    playerContainerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
 
   // 1. Initialiser le suivi du temps
   useEffect(() => {
@@ -127,6 +151,7 @@ export default function AudioCoachPlayer({
 
   // 2. Gestion de la lecture (Audio MP3 réel ou Synthèse vocale fluide)
   function togglePlay() {
+    setIsMiniDismissed(false);
     if (audioSrc && audioRef.current) {
       if (isPlaying) {
         audioRef.current.pause();
@@ -266,8 +291,15 @@ export default function AudioCoachPlayer({
     95, 50, 75, 40, 60, 30,
   ];
 
+  const shouldShowMiniPlayer =
+    (isPlaying || currentTime > 0) && isPlayerOutOfView && !isMiniDismissed;
+
   return (
-    <section className="w-full max-w-full rounded-2xl sm:rounded-3xl border border-turquoise/30 bg-gradient-to-b from-[#0B1E2E] via-[#0C1C2B] to-[#081521] text-white p-3.5 sm:p-5 shadow-xl relative overflow-hidden">
+    <>
+      <section
+        ref={playerContainerRef}
+        className="w-full max-w-full rounded-2xl sm:rounded-3xl border border-turquoise/30 bg-gradient-to-b from-[#0B1E2E] via-[#0C1C2B] to-[#081521] text-white p-3.5 sm:p-5 shadow-xl relative overflow-hidden"
+      >
       {/* Halo discret d'arrière-plan */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-turquoise/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
       <div className="absolute bottom-0 left-0 w-48 h-48 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none -ml-12 -mb-12" />
@@ -517,6 +549,128 @@ export default function AudioCoachPlayer({
           </div>
         </div>
       )}
-    </section>
+      </section>
+
+      {/* ── BARRE DE CONTRÔLE AUDIO FLOTTANTE (STICKY MINI-PLAYER RESPONSIVE & 3D) ── */}
+      {shouldShowMiniPlayer && (
+        <aside
+          role="region"
+          aria-label="Contrôle audio flottant"
+          className="fixed z-40 transition-all duration-300 left-3.5 right-3.5 max-w-md mx-auto md:max-w-2xl md:left-1/2 md:-translate-x-1/2 md:right-auto md:w-[calc(100%-2rem)] md:bottom-5 bottom-[calc(4.85rem+env(safe-area-inset-bottom,0px))] animate-in fade-in slide-in-from-bottom-4"
+        >
+          {/* Capsule 3D avec biseau lumineux, ombre multicouche et barre de progression intégrée */}
+          <div
+            className="relative overflow-hidden rounded-2xl md:rounded-full px-3 py-2 sm:px-4 sm:py-2.5 flex items-center justify-between gap-2.5 sm:gap-4 text-white"
+            style={{
+              background:
+                'linear-gradient(180deg, #132a3e 0%, #0c1c2b 55%, #07131d 100%)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              boxShadow:
+                '0 16px 36px -4px rgba(0, 0, 0, 0.45), 0 4px 14px rgba(0, 184, 169, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.25), inset 0 -2px 3px rgba(0, 0, 0, 0.3)',
+              border: '1px solid rgba(0, 184, 169, 0.35)',
+            }}
+          >
+            {/* Ligne de progression 3D en tête de capsule */}
+            <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-white/10 overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-turquoise via-[#00e1cf] to-emerald-400 transition-all duration-300 shadow-[0_0_8px_rgba(0,184,169,0.8)]"
+                style={{ width: `${progressRatio}%` }}
+              />
+            </div>
+
+            {/* Section Gauche : Indicateur d'onde + Titre cliquable (remonte au cours) */}
+            <button
+              type="button"
+              onClick={scrollToMainPlayer}
+              className="flex items-center gap-2.5 min-w-0 flex-1 text-left group hover:opacity-95 transition-opacity"
+              title="Cliquer pour revenir au lecteur audio principal"
+            >
+              {/* Micro-vignette 3D */}
+              <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-tr from-turquoise to-[#05E2B6] p-0.5 shadow-md flex items-center justify-center shrink-0">
+                <div className="w-full h-full bg-[#0C1C2B] rounded-[10px] flex items-center justify-center p-1">
+                  <StudyIcon name="micro_professeur" size={18} />
+                </div>
+                {isPlaying && (
+                  <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-turquoise opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-turquoise"></span>
+                  </span>
+                )}
+              </div>
+
+              {/* Titre et repère */}
+              <div className="min-w-0 flex-1">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[9px] font-black uppercase text-turquoise tracking-wider bg-turquoise/15 px-1.5 py-0.2 rounded border border-turquoise/25">
+                    {currentChapter.badge || 'Audio'}
+                  </span>
+                  <span className="text-[10px] font-mono text-white/50 hidden xs:inline">
+                    {formatTime(currentTime)} / {formatTime(duration)}
+                  </span>
+                </div>
+                <p className="text-xs font-bold text-white truncate group-hover:text-turquoise transition-colors mt-0.5">
+                  {currentChapter.title}
+                </p>
+              </div>
+            </button>
+
+            {/* Section Centrale / Droite : Contrôles audio (-10s, Play/Pause 3D, +10s) */}
+            <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+              {/* Recul 10s */}
+              <button
+                type="button"
+                onClick={() => skipTime(-10)}
+                aria-label="Reculer de 10 secondes"
+                className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/10 hover:bg-white/20 active:scale-90 text-white font-bold transition-all flex items-center justify-center shrink-0 border border-white/10 p-1.5"
+                title="Reculer de 10 secondes"
+              >
+                <StudyIcon name="reculer_10s" size={16} />
+              </button>
+
+              {/* Bouton Play/Pause 3D principal */}
+              <button
+                type="button"
+                onClick={togglePlay}
+                aria-label={isPlaying ? 'Mettre en pause' : 'Reprendre la lecture'}
+                className={cn(
+                  'w-9 h-9 sm:w-10 sm:h-10 rounded-full font-black text-xs flex items-center justify-center transition-all active:scale-90 shadow-md',
+                  isPlaying
+                    ? 'bg-amber-400 hover:bg-amber-300 text-slate-950 shadow-amber-400/30 ring-2 ring-amber-400/40'
+                    : 'bg-gradient-to-r from-turquoise via-[#00B8A9] to-[#05E2B6] text-white hover:brightness-110 shadow-turquoise/40 ring-2 ring-turquoise/40'
+                )}
+                title={isPlaying ? 'Pause' : 'Lecture'}
+              >
+                <StudyIcon name={isPlaying ? 'pause' : 'play'} size={18} className="shrink-0" />
+              </button>
+
+              {/* Avance 10s */}
+              <button
+                type="button"
+                onClick={() => skipTime(10)}
+                aria-label="Avancer de 10 secondes"
+                className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/10 hover:bg-white/20 active:scale-90 text-white font-bold transition-all flex items-center justify-center shrink-0 border border-white/10 p-1.5"
+                title="Avancer de 10 secondes"
+              >
+                <StudyIcon name="avancer_10s" size={16} />
+              </button>
+
+              {/* Bouton fermer/masquer discret */}
+              <button
+                type="button"
+                onClick={() => setIsMiniDismissed(true)}
+                aria-label="Masquer le lecteur flottant"
+                className="w-7 h-7 rounded-full text-white/40 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-center ml-0.5"
+                title="Fermer la barre de contrôle"
+              >
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </aside>
+      )}
+    </>
   );
 }
