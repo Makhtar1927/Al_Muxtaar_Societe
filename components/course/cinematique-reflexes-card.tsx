@@ -24,7 +24,7 @@ export default function CinematiqueReflexesCard() {
     },
     {
       num: 2,
-      title: "Nature du Mouvement : Le Test du Produit Scalaire a⃗ · v⃗",
+      title: "Nature du Mouvement : Le Test du Produit Scalaire $\\vec{a} \\cdot \\vec{v}$",
       badge: "Accéléré ou Retardé",
       formule: "\\vec{a} \\cdot \\vec{v} > 0 \\iff \\text{Accéléré} \\quad ; \\quad \\vec{a} \\cdot \\vec{v} < 0 \\iff \\text{Retardé / Décéléré}",
       regleBac:
@@ -38,7 +38,7 @@ export default function CinematiqueReflexesCard() {
     },
     {
       num: 3,
-      title: "Le Repère de Frenet (M, u⃗_t, u⃗_n) & Rayon de Courbure ρ",
+      title: "Le Repère de Frenet $(M, \\vec{u}_t, \\vec{u}_n)$ & Rayon de Courbure $\\rho$",
       badge: "Base Intrinsèque",
       formule: "\\vec{a} = a_t\\,\\vec{u}_t + a_n\\,\\vec{u}_n \\quad \\text{avec} \\quad a_t = \\frac{dv}{dt} \\quad \\text{et} \\quad a_n = \\frac{v^2}{\\rho}",
       regleBac:
@@ -145,7 +145,9 @@ export default function CinematiqueReflexesCard() {
             <span className="w-7 h-7 rounded-full bg-turquoise text-white flex items-center justify-center font-bold text-xs">
               {current.num}
             </span>
-            <h4 className="font-bold text-navy text-base sm:text-lg">{current.title}</h4>
+            <div className="font-bold text-navy text-base sm:text-lg">
+              <MathRenderer content={current.title} />
+            </div>
           </div>
           <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded-full bg-navy/5 text-navy border border-navy/10">
             {current.badge}

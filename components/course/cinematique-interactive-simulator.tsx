@@ -268,9 +268,9 @@ export default function CinematiqueInteractiveSimulator() {
               </div>
             </div>
 
-            {/* Diagnostic nature du mouvement (a⃗ · v⃗) */}
+            {/* Diagnostic nature du mouvement (vecteur a · vecteur v) */}
             <div
-              className={`p-3 rounded-xl border text-xs space-y-1 ${
+              className={`p-3 rounded-xl border text-xs space-y-1.5 ${
                 Math.abs(prodScal) < 0.1
                   ? 'bg-blue-50 border-blue-200 text-blue-950'
                   : prodScal > 0
@@ -279,18 +279,35 @@ export default function CinematiqueInteractiveSimulator() {
               }`}
             >
               <div className="flex items-center justify-between font-bold">
-                <span>Test du Produit Scalaire a⃗ · v⃗ :</span>
-                <span className="font-mono">
-                  {prodScal > 0 ? `+${prodScal.toFixed(2)}` : prodScal.toFixed(2)} W/kg
+                <div className="flex items-center gap-1.5">
+                  <span>Test du Produit Scalaire</span>
+                  <MathRenderer content="$\\vec{a} \\cdot \\vec{v}$" /> :
+                </div>
+                <span className="font-mono text-xs">
+                  {prodScal > 0 ? `+${prodScal.toFixed(2)}` : prodScal.toFixed(2)} m²·s⁻³
                 </span>
               </div>
-              <p className="text-[11px] leading-tight font-medium">
-                {Math.abs(prodScal) < 0.1
-                  ? '⚡ a⃗ · v⃗ ≈ 0 ⟹ Mouvement uniforme (la norme de la vitesse reste constante).'
-                  : prodScal > 0
-                  ? '✅ a⃗ · v⃗ > 0 ⟹ Mouvement ACCÉLÉRÉ (vitesse en augmentation).'
-                  : '⚠️ a⃗ · v⃗ < 0 ⟹ Mouvement RETARDÉ / DÉCÉLÉRÉ (vitesse en diminution).'}
-              </p>
+              <div className="text-[11px] leading-tight font-medium">
+                {Math.abs(prodScal) < 0.1 ? (
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    <span>⚡</span>
+                    <MathRenderer content="$\\vec{a} \\cdot \\vec{v} \\approx 0 \\implies \\text{Mouvement UNIFORME}$" />
+                    <span className="text-text/70">(la norme de la vitesse reste constante).</span>
+                  </div>
+                ) : prodScal > 0 ? (
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    <span>✅</span>
+                    <MathRenderer content="$\\vec{a} \\cdot \\vec{v} > 0 \\implies \\text{Mouvement ACCÉLÉRÉ}$" />
+                    <span className="text-text/70">(la vitesse augmente).</span>
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    <span>⚠️</span>
+                    <MathRenderer content="$\\vec{a} \\cdot \\vec{v} < 0 \\implies \\text{Mouvement RETARDÉ / DÉCÉLÉRÉ}$" />
+                    <span className="text-text/70">(la vitesse diminue).</span>
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Coordonnées & Grandeurs scalaires */}
@@ -324,10 +341,12 @@ export default function CinematiqueInteractiveSimulator() {
               </span>
               <div className="flex items-center gap-3 text-[11px] font-semibold">
                 <span className="text-turquoise flex items-center gap-1">
-                  <span className="w-2.5 h-2.5 rounded-full bg-turquoise inline-block" /> v⃗ (Vitesse)
+                  <span className="w-2.5 h-2.5 rounded-full bg-turquoise inline-block" />
+                  <MathRenderer content="$\\vec{v}$" /> (Vitesse)
                 </span>
                 <span className="text-rose-500 flex items-center gap-1">
-                  <span className="w-2.5 h-2.5 rounded-full bg-rose-500 inline-block" /> a⃗ (Accélération)
+                  <span className="w-2.5 h-2.5 rounded-full bg-rose-500 inline-block" />
+                  <MathRenderer content="$\\vec{a}$" /> (Accélération)
                 </span>
               </div>
             </div>
@@ -350,7 +369,7 @@ export default function CinematiqueInteractiveSimulator() {
 
                 <line x1="30" y1="180" x2="30" y2="15" stroke="#0F172A" strokeWidth="1.5" />
                 <polygon points="27,15 30,8 33,15" fill="#0F172A" />
-                <text x="18" y="16" fill="#64748B" fontSize="9" fontWeight="bold">y (m)</text>
+                <text x="36" y="16" fill="#64748B" fontSize="9" fontWeight="bold">y (m)</text>
 
                 {/* Trajectoire statique complète en pointillé */}
                 {trajType === 'parabole' && (
@@ -394,7 +413,7 @@ export default function CinematiqueInteractiveSimulator() {
                   M
                 </text>
 
-                {/* Vecteur Vitesse instantané v⃗ (échelle x10 pour visibilité) */}
+                {/* Vecteur Vitesse instantané v (échelle x10 pour visibilité) */}
                 <line
                   x1={toSvgX(posX)}
                   y1={toSvgY(posY)}
@@ -410,7 +429,7 @@ export default function CinematiqueInteractiveSimulator() {
                   fill="#00B8A9"
                 />
 
-                {/* Vecteur Accélération a⃗ (échelle x8) */}
+                {/* Vecteur Accélération a (échelle x8) */}
                 {aNorm > 0.1 && (
                   <line
                     x1={toSvgX(posX)}
@@ -716,9 +735,12 @@ export default function CinematiqueInteractiveSimulator() {
                 {/* Vecteur vitesse v tangentiel */}
                 <line x1="150" y1="50" x2="220" y2="50" stroke="#00B8A9" strokeWidth="3" />
                 <polygon points="220,47 228,50 220,53" fill="#00B8A9" />
-                <text x="215" y="42" fill="#00B8A9" fontSize="10" fontWeight="bold">
-                  v⃗ ({virageSpeedKmH} km/h)
-                </text>
+                <g>
+                  <path d="M 215,33 L 222,33 M 220,31.5 L 222,33 L 220,34.5" stroke="#00B8A9" strokeWidth="1" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                  <text x="215" y="43" fill="#00B8A9" fontSize="10" fontWeight="bold">
+                    v ({virageSpeedKmH} km/h)
+                  </text>
+                </g>
 
                 {/* Vecteur accélération centripète an vers le centre */}
                 <line
@@ -735,9 +757,12 @@ export default function CinematiqueInteractiveSimulator() {
                   } 153,${50 + Math.min(80, accNormale * 8)}`}
                   fill="#EF4444"
                 />
-                <text x="156" y="90" fill="#EF4444" fontSize="10" fontWeight="bold">
-                  a⃗ₙ ({accNormale.toFixed(1)} m·s⁻²)
-                </text>
+                <g>
+                  <path d="M 156,81 L 163,81 M 161,79.5 L 163,81 L 161,82.5" stroke="#EF4444" strokeWidth="1" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                  <text x="156" y="91" fill="#EF4444" fontSize="10" fontWeight="bold">
+                    a<tspan fontSize="7" dy="2">n</tspan><tspan fontSize="10" dy="-2" fontWeight="normal"> ({accNormale.toFixed(1)} m·s⁻²)</tspan>
+                  </text>
+                </g>
               </svg>
             </div>
 
@@ -865,16 +890,20 @@ export default function CinematiqueInteractiveSimulator() {
                 {/* Vecteur vitesse v tangentiel */}
                 <line x1="169.5" y1="50.5" x2="135" y2="16" stroke="#00B8A9" strokeWidth="2.5" />
                 <polygon points="135,13 128,18 138,20" fill="#00B8A9" />
-                <text x="115" y="16" fill="#00B8A9" fontSize="9" fontWeight="bold">
-                  v⃗
-                </text>
+                <g>
+                  <path d="M 115,7 L 122,7 M 120,5.5 L 122,7 L 120,8.5" stroke="#00B8A9" strokeWidth="1" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                  <text x="115" y="17" fill="#00B8A9" fontSize="9" fontWeight="bold">v</text>
+                </g>
 
                 {/* Vecteur accélération an centripète (vers le centre O) */}
                 <line x1="169.5" y1="50.5" x2="135" y2="85" stroke="#F43F5E" strokeWidth="2.5" />
                 <polygon points="138,82 130,90 133,80" fill="#F43F5E" />
-                <text x="145" y="75" fill="#F43F5E" fontSize="9" fontWeight="bold">
-                  a⃗ₙ
-                </text>
+                <g>
+                  <path d="M 145,66 L 152,66 M 150,64.5 L 152,66 L 150,67.5" stroke="#F43F5E" strokeWidth="1" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                  <text x="145" y="76" fill="#F43F5E" fontSize="9" fontWeight="bold">
+                    a<tspan fontSize="7" dy="2">n</tspan>
+                  </text>
+                </g>
               </svg>
             </div>
 

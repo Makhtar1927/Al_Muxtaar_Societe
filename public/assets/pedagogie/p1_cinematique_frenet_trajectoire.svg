@@ -12,7 +12,7 @@
   <g transform="translate(30, 75)">
     <rect width="270" height="375" fill="#1E293B" rx="12" stroke="#334155" stroke-width="1"/>
     <text x="15" y="30" fill="#E2E8F0" font-size="13" font-weight="700">1. Position &amp; Vitesse Tangente</text>
-    <text x="15" y="48" fill="#94A3B8" font-size="10">Repère cartésien (O, i⃗, j⃗) &amp; Trajectoire</text>
+    <text x="15" y="48" fill="#94A3B8" font-size="10">Repère cartésien (O, i, j) &amp; Trajectoire</text>
 
     <!-- Canvas SVG Graph -->
     <g transform="translate(20, 65)">
@@ -40,31 +40,31 @@
       <line x1="35" y1="170" x2="115" y2="72" stroke="#A78BFA" stroke-width="2"/>
       <!-- Arrowhead OM -->
       <polygon points="110,75 115,72 113,80" fill="#A78BFA"/>
-      <text x="65" y="115" fill="#C4B5FD" font-size="10" font-weight="bold">OM⃗</text>
+      <g><path d="M 64,105 L 82,105 M 80,103.5 L 82,105 L 80,106.5" stroke="#C4B5FD" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="65" y="116" fill="#C4B5FD" font-size="10" font-weight="bold">OM</text></g>
 
       <!-- Vecteur Vitesse v tangent à la trajectoire -->
       <line x1="115" y1="72" x2="175" y2="84" stroke="#00B8A9" stroke-width="3"/>
       <polygon points="175,80 183,86 174,89" fill="#00B8A9"/>
-      <text x="175" y="78" fill="#5EEAD4" font-size="11" font-weight="800">v⃗</text>
+      <g><path d="M 175,68 L 183,68 M 181,66.5 L 183,68 L 181,69.5" stroke="#5EEAD4" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="175" y="79" fill="#5EEAD4" font-size="11" font-weight="800">v</text></g>
 
       <!-- Vecteur Accélération a tourné vers la concavité -->
       <line x1="115" y1="72" x2="135" y2="135" stroke="#F43F5E" stroke-width="2.5"/>
       <polygon points="131,133 137,141 138,131" fill="#F43F5E"/>
-      <text x="142" y="132" fill="#FDA4AF" font-size="11" font-weight="800">a⃗</text>
+      <g><path d="M 142,122 L 150,122 M 148,120.5 L 150,122 L 148,123.5" stroke="#FDA4AF" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="142" y="133" fill="#FDA4AF" font-size="11" font-weight="800">a</text></g>
     </g>
 
     <!-- Formulas card -->
     <rect x="12" y="270" width="246" height="90" rx="8" fill="#0F172A" stroke="#334155" stroke-width="1"/>
     <text x="22" y="290" fill="#38BDF8" font-size="10.5" font-weight="bold">Vecteurs Fondamentaux :</text>
-    <text x="22" y="310" fill="#CBD5E1" font-size="9.5">• OM⃗(t) = x(t) i⃗ + y(t) j⃗</text>
-    <text x="22" y="327" fill="#5EEAD4" font-size="9.5" font-weight="bold">• v⃗ = dOM⃗/dt = ẋ i⃗ + ẏ j⃗  (Tangent)</text>
-    <text x="22" y="344" fill="#FDA4AF" font-size="9.5" font-weight="bold">• a⃗ = dv⃗/dt = ẍ i⃗ + ÿ j⃗  (Vers concavité)</text>
+    <text x="22" y="310" fill="#CBD5E1" font-size="9.5">• Position : OM(t) = x(t) i + y(t) j</text>
+    <text x="22" y="327" fill="#5EEAD4" font-size="9.5" font-weight="bold">• Vitesse : v = dOM/dt = ẋ i + ẏ j (Tangent)</text>
+    <text x="22" y="344" fill="#FDA4AF" font-size="9.5" font-weight="bold">• Accélération : a = dv/dt = ẍ i + ÿ j (Concavité)</text>
   </g>
 
   <!-- Middle: Base de Frenet (at, an) & Rayon de Courbure ρ -->
   <g transform="translate(315, 75)">
     <rect width="270" height="375" fill="#1E293B" rx="12" stroke="#334155" stroke-width="1"/>
-    <text x="15" y="30" fill="#E2E8F0" font-size="13" font-weight="700">2. Base de Frenet (M, u⃗ₜ, u⃗ₙ)</text>
+    <text x="15" y="30" fill="#E2E8F0" font-size="13" font-weight="700">2. Base de Frenet (M, u_t, u_n)</text>
     <text x="15" y="48" fill="#94A3B8" font-size="10">Décomposition intrinsèque de l'accélération</text>
 
     <!-- Canvas SVG Frenet schema -->
@@ -90,12 +90,12 @@
       <!-- Vecteur tangentiel ut -->
       <line x1="115" y1="85" x2="175" y2="85" stroke="#38BDF8" stroke-width="2.5"/>
       <polygon points="175,82 183,85 175,88" fill="#38BDF8"/>
-      <text x="185" y="88" fill="#38BDF8" font-size="11" font-weight="bold">u⃗ₜ</text>
+      <g><path d="M 185,77 L 194,77 M 192,75.5 L 194,77 L 192,78.5" stroke="#38BDF8" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="185" y="88" fill="#38BDF8" font-size="11" font-weight="bold">u<tspan font-size="8" dy="2">t</tspan></text></g>
 
       <!-- Vecteur normal un (centripète) -->
       <line x1="115" y1="85" x2="115" y2="135" stroke="#F43F5E" stroke-width="2.5"/>
       <polygon points="112,135 115,143 118,135" fill="#F43F5E"/>
-      <text x="122" y="138" fill="#F43F5E" font-size="11" font-weight="bold">u⃗ₙ</text>
+      <g><path d="M 122,127 L 131,127 M 129,125.5 L 131,127 L 129,128.5" stroke="#F43F5E" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="122" y="138" fill="#F43F5E" font-size="11" font-weight="bold">u<tspan font-size="8" dy="2">n</tspan></text></g>
 
       <!-- Composantes accélération -->
       <!-- at -->
@@ -109,7 +109,7 @@
       <!-- Vecteur total a -->
       <line x1="115" y1="85" x2="155" y2="125" stroke="#A855F7" stroke-width="3"/>
       <polygon points="152,122 159,129 157,119" fill="#A855F7"/>
-      <text x="165" y="132" fill="#D8B4FE" font-size="11" font-weight="bold">a⃗</text>
+      <g><path d="M 165,122 L 173,122 M 171,120.5 L 173,122 L 171,123.5" stroke="#D8B4FE" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="165" y="133" fill="#D8B4FE" font-size="11" font-weight="bold">a</text></g>
     </g>
 
     <!-- Frenet Formulas card -->
@@ -152,9 +152,9 @@
 
     <!-- Nature of Motion criteria -->
     <rect x="15" y="295" width="240" height="65" rx="8" fill="#0F172A" stroke="#334155" stroke-width="1"/>
-    <text x="25" y="312" fill="#F8FAFC" font-size="9.5" font-weight="bold">Critère du Produit Scalaire a⃗ · v⃗ :</text>
-    <text x="25" y="328" fill="#34D399" font-size="9">• a⃗ · v⃗ &gt; 0 ⟹ Mouvement Accéléré</text>
-    <text x="25" y="342" fill="#F87171" font-size="9">• a⃗ · v⃗ &lt; 0 ⟹ Mouvement Retardé / Décéléré</text>
-    <text x="25" y="356" fill="#60A5FA" font-size="9">• a⃗ · v⃗ = 0 ⟹ Mouvement Uniforme (v = cte)</text>
+    <text x="25" y="312" fill="#F8FAFC" font-size="9.5" font-weight="bold">Critère du Produit Scalaire a · v :</text>
+    <text x="25" y="328" fill="#34D399" font-size="9">• a · v &gt; 0 ⟹ Mouvement Accéléré</text>
+    <text x="25" y="342" fill="#F87171" font-size="9">• a · v &lt; 0 ⟹ Mouvement Retardé / Décéléré</text>
+    <text x="25" y="356" fill="#60A5FA" font-size="9">• a · v = 0 ⟹ Mouvement Uniforme (v = cte)</text>
   </g>
 </svg>
