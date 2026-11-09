@@ -203,64 +203,6 @@ export default function DocLandingPage() {
         </div>
       </section>
 
-      {/* Focus : Le Pilote Opérationnel d'Excellence (Terminale S2 Maths) */}
-      <section className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="relative overflow-hidden rounded-3xl border-2 border-turquoise bg-gradient-to-br from-turquoise/5 via-white to-gold/5 p-6 sm:p-10 shadow-lg">
-          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-navy/10 pb-6">
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-turquoise px-3 py-1 text-xs font-bold text-white shadow-sm">
-                <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
-                PILOTE 100% OPÉRATIONNEL & ENRICHI
-              </div>
-              <h3 className="mt-3 text-2xl font-black text-navy sm:text-3xl">
-                Terminale S2 · Mathématiques (13 Chapitres Complets)
-              </h3>
-              <p className="mt-1 text-sm text-navy-light">
-                Le programme complet du Baccalauréat sénégalais prêt à l&apos;emploi avec infographies vectorielles, analogies locales et simulateurs.
-              </p>
-            </div>
-            <Link href="/cours/terminale/s2/mathematiques">
-              <Button variant="primary" size="lg" className="font-black shadow-md">
-                Accéder directement aux cours
-                <Icon name="arrow_right" size={18} className="ml-2" />
-              </Button>
-            </Link>
-          </div>
-
-          <div className="mt-6 grid gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl bg-white p-4 border border-navy/10 shadow-sm">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-turquoise-light">
-                <Icon name="metaphores" size={40} />
-              </div>
-              <h4 className="mt-2 text-sm font-bold text-navy">Métaphores Vivantes</h4>
-              <p className="mt-1 text-xs text-navy-light leading-relaxed">
-                Le TER de Diamniadio pour les limites, le phare des Mamelles pour la dérivation, le marché Sandaga pour les séries statistiques.
-              </p>
-            </div>
-
-            <div className="rounded-2xl bg-white p-4 border border-navy/10 shadow-sm">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold-light">
-                <Icon name="wolof" size={40} />
-              </div>
-              <h4 className="mt-2 text-sm font-bold text-navy">Xam-xam ci Wolof</h4>
-              <p className="mt-1 text-xs text-navy-light leading-relaxed">
-                Des encadrés bilingues Wolof / Français pour débloquer l&apos;intuition profonde sur les théorèmes ardus (TVI, bijection, récurrence).
-              </p>
-            </div>
-
-            <div className="rounded-2xl bg-white p-4 border border-navy/10 shadow-sm">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-coral-light">
-                <Icon name="reflexes" size={40} />
-              </div>
-              <h4 className="mt-2 text-sm font-bold text-navy">Simulateurs &amp; Réflexes</h4>
-              <p className="mt-1 text-xs text-navy-light leading-relaxed">
-                Cartes réflexes du Baccalauréat et simulateurs interactifs pour manipuler les paramètres en direct sur mobile.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Les 4 Piliers Pédagogiques */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="text-center mb-10">

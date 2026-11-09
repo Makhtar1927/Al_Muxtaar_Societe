@@ -523,13 +523,13 @@ export default function CataloguePage() {
           Un accompagnement d&apos;excellence pour toutes les séries sénégalaises
         </h2>
         <p className="text-xs sm:text-sm text-surface-muted max-w-xl mx-auto leading-relaxed">
-          Toutes nos ressources sont rédigées par des professeurs certifiés sénégalais (IGEF, FASTEF, lycées d&apos;excellence).
-          Le module Terminale S2 Mathématiques est actuellement 100% accessible avec KaTeX, simulateurs et fiches réflexes.
+          Toutes nos ressources sont rédigées par des professeurs certifiés sénégalais (FASTEF, lycées d&apos;excellence).
+          Des cours complets avec KaTeX, des simulateurs interactifs et des fiches réflexes pour réussir vos examens.
         </p>
         <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
-          <Link href="/cours/terminale/s2/mathematiques">
+          <Link href="/cours">
             <Button variant="primary" size="lg" className="font-bold">
-              Tester les cours de Terminale S2 Maths
+              Accéder aux cours et révisions
             </Button>
           </Link>
           <Link href="/doc/tarifs">
