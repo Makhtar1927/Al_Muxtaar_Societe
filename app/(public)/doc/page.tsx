@@ -142,19 +142,11 @@ export default function DocLandingPage() {
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {SENEGAL_CURRICULUM.map((level) => {
-            const isTerminale = level.code === 'terminale';
             return (
               <div
                 key={level.code}
-                className={`relative flex flex-col justify-between rounded-2xl border bg-white p-6 shadow-sm transition-all hover:shadow-md ${
-                  isTerminale ? 'border-turquoise ring-2 ring-turquoise/20' : 'border-navy/10'
-                }`}
+                className="relative flex flex-col justify-between rounded-2xl border border-navy/10 hover:border-turquoise/50 bg-white p-6 shadow-sm transition-all hover:shadow-md"
               >
-                {isTerminale && (
-                  <div className="absolute -top-3 right-4 rounded-full bg-turquoise px-3 py-0.5 text-[10px] font-black uppercase text-white shadow">
-                    Module Opérationnel Actif
-                  </div>
-                )}
                 <div>
                   <div className="flex items-center gap-2">
                     <span className="rounded-lg bg-turquoise-light px-2.5 py-1 text-xs font-black text-turquoise">
