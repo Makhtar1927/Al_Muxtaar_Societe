@@ -109,7 +109,7 @@ export default function CataloguePage() {
   };
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 space-y-10">
+    <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-12 space-y-8 sm:space-y-10">
       {/* ── 1. EN-TÊTE PRINCIPAL ── */}
       <div className="text-center max-w-3xl mx-auto space-y-3">
         <div className="inline-flex items-center gap-2 rounded-full bg-turquoise-light px-3.5 py-1 text-xs font-bold text-turquoise">
@@ -124,7 +124,7 @@ export default function CataloguePage() {
         </p>
 
         {/* Métriques globales */}
-        <div className="pt-2 flex flex-wrap items-center justify-center gap-3 text-xs">
+        <div className="pt-2 grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center sm:justify-center gap-2 sm:gap-3 text-xs">
           <span className="rounded-full bg-surface px-3 py-1 font-semibold text-navy border border-surface-muted inline-flex items-center">
             <span>4 Niveaux Scolaires</span>
           </span>
@@ -149,7 +149,7 @@ export default function CataloguePage() {
               <button
                 key={level.code}
                 onClick={() => setSelectedLevelCode(level.code)}
-                className={`flex flex-col items-center justify-center py-2.5 px-3 rounded-xl text-xs font-bold transition-all min-h-[48px] ${
+                className={`flex flex-col items-center justify-center py-2.5 px-3 rounded-xl text-xs font-bold transition-all min-h-[44px] ${
                   isSelected
                     ? "bg-white text-navy shadow-sm border border-navy/10"
                     : "text-navy-light hover:text-navy hover:bg-white/50"
@@ -167,7 +167,7 @@ export default function CataloguePage() {
 
       {/* ── 3. SÉLECTEUR DE SÉRIE / FILIÈRE ── */}
       <div className="space-y-3">
-        <div className="flex items-center justify-between border-b border-surface-muted pb-2">
+        <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between border-b border-surface-muted pb-2">
           <div className="flex items-center gap-2">
             <span className="text-xs font-bold text-navy-light uppercase tracking-wider">
               1. Choisissez la filière ({currentLevel.name}) :
@@ -202,7 +202,7 @@ export default function CataloguePage() {
                       {track.badge}
                     </span>
                   </div>
-                  <p className="text-[11px] text-navy-light/80 truncate max-w-[200px] mt-0.5">
+                  <p className="text-[11px] text-navy-light/80 truncate max-w-[140px] sm:max-w-[200px] mt-0.5">
                     {track.name.split("—")[1]?.trim() ?? track.name}
                   </p>
                 </div>
@@ -215,7 +215,7 @@ export default function CataloguePage() {
       {/* ── 4. SÉLECTEUR DE MATIÈRE DANS LA FILIÈRE ── */}
       {currentTrack && (
         <div className="space-y-3">
-          <div className="flex items-center justify-between border-b border-surface-muted pb-2">
+          <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between border-b border-surface-muted pb-2">
             <span className="text-xs font-bold text-navy-light uppercase tracking-wider">
               2. Matières enseignées en {currentTrack.shortName} :
             </span>
@@ -224,7 +224,7 @@ export default function CataloguePage() {
             </span>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5">
+          <div className="grid grid-cols-1 min-[480px]:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5">
             {currentTrack.subjects.map((sub) => {
               const isSubSelected = sub.code === selectedSubjectCode;
               const isAvailable = sub.status === "active";
@@ -232,13 +232,13 @@ export default function CataloguePage() {
                 <button
                   key={sub.code}
                   onClick={() => setSelectedSubjectCode(sub.code)}
-                  className={`p-3 rounded-xl text-left border transition-all flex flex-col justify-between gap-2 ${
+                  className={`p-3 rounded-xl text-left border transition-all flex flex-row min-[480px]:flex-col gap-3 min-[480px]:gap-2 items-center min-[480px]:items-stretch justify-between ${
                     isSubSelected
                       ? "border-turquoise bg-white shadow-md ring-2 ring-turquoise"
                       : "border-surface-muted bg-white hover:border-turquoise/30"
                   }`}
                 >
-                  <div className="flex items-center justify-between w-full">
+                  <div className="flex min-[480px]:flex-row items-center justify-between w-full flex-col gap-1 min-[480px]:gap-0">
                     <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-navy/5 text-navy">
                       Coeff. {sub.coeffBac}
                     </span>
@@ -521,7 +521,7 @@ export default function CataloguePage() {
           Toutes nos ressources sont rédigées par des professeurs certifiés sénégalais (FASTEF, lycées d&apos;excellence).
           Des cours complets avec KaTeX, des simulateurs interactifs et des fiches réflexes pour réussir vos examens.
         </p>
-        <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
+        <div className="pt-2 flex flex-col sm:flex-row sm:flex-wrap items-center justify-center gap-3">
           <Link href="/cours">
             <Button variant="primary" size="lg" className="font-bold">
               Accéder aux cours et révisions
