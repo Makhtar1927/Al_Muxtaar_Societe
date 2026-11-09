@@ -56,7 +56,12 @@ function normalizeMathString(str: string): string {
     .replace(/0imes\\?infty/g, '0 \\times \\infty')
     .replace(/\+infty\s*-\s*infty/g, '+\\infty - \\infty')
 
-    // 5. Normalisation des macros double-échappées
+    // 5. Flèches d'équilibre chimique (normalisation vers la notation scientifique officielle KaTeX \rightleftharpoons)
+    .replace(/(?<![a-zA-Z\\])(?:leftrightharpoons|leftharpoons|rightleftharpoons)\b/g, '\\rightleftharpoons')
+    .replace(/\\(?:leftrightharpoons|leftharpoons)\b/g, '\\rightleftharpoons')
+    .replace(/⇌/g, '\\rightleftharpoons')
+
+    // 6. Normalisation des macros double-échappées
     .replace(/\\\\([a-zA-Z]+)/g, '\\$1');
 }
 
@@ -69,21 +74,27 @@ function cleanMathFormula(math: string): string {
   let processed = math.trim().replace(/\$/g, '');
 
   // Protection ultime contre les \left ou \right orphelins (cause #1 des ParseError KaTeX en rouge)
-  const leftCount = (processed.match(/\\left/g) || []).length;
-  const rightCount = (processed.match(/\\right/g) || []).length;
+  // Attention: ne cibler QUE les délimiteurs de redimensionnement \left et \right (ex: \left( \right)),
+  // JAMAIS les flèches ou symboles mathématiques (\rightleftharpoons, \rightarrow, \leftarrow, etc.)
+  const leftCount = (processed.match(/\\left(?![a-zA-Z])/g) || []).length;
+  const rightCount = (processed.match(/\\right(?![a-zA-Z])/g) || []).length;
   if (leftCount !== rightCount) {
     // Supprime d'abord les \left. et \right. orphelins
     processed = processed.replace(/\\left\.\s*/g, '').replace(/\\right\.\s*/g, '');
-    const newL = (processed.match(/\\left/g) || []).length;
-    const newR = (processed.match(/\\right/g) || []).length;
+    const newL = (processed.match(/\\left(?![a-zA-Z])/g) || []).length;
+    const newR = (processed.match(/\\right(?![a-zA-Z])/g) || []).length;
     if (newL !== newR) {
       processed = processed
-        .replace(/\\left\s*([(\[{|.\\])?/g, (_m, g) => (g && g !== '.') ? g : '')
-        .replace(/\\right\s*([)\]}|.\\])?/g, (_m, g) => (g && g !== '.') ? g : '');
+        .replace(/\\left\s*(?![a-zA-Z])([(\[{|.\\])?/g, (_m, g) => (g && g !== '.') ? g : '')
+        .replace(/\\right\s*(?![a-zA-Z])([)\]}|.\\])?/g, (_m, g) => (g && g !== '.') ? g : '');
     }
   }
 
   return processed
+    // Répare les flèches d'équilibre chimique vers la notation scientifique officielle KaTeX \rightleftharpoons
+    .replace(/(?<![a-zA-Z\\])(?:leftrightharpoons|leftharpoons|rightleftharpoons)\b/g, '\\rightleftharpoons')
+    .replace(/\\(?:leftrightharpoons|leftharpoons)\b/g, '\\rightleftharpoons')
+    .replace(/⇌/g, '\\rightleftharpoons')
     // Répare \f \frac et \df \frac
     .replace(/\\f\s*\\frac/g, '\\frac')
     .replace(/\\df\s*\\frac/g, '\\dfrac')

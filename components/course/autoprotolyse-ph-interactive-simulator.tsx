@@ -549,6 +549,11 @@ export default function AutoprotolysePhInteractiveSimulator() {
                   </span>
                 </div>
 
+                {/* Équation-bilan officielle avec double flèche d'équilibre scientifique */}
+                <div className="text-center py-0.5 bg-surface rounded-xl border border-navy/10">
+                  <MathRenderer content="$$2\,\text{H}_2\text{O} \rightleftharpoons \text{H}_3\text{O}^+ + \text{OH}^-$$" />
+                </div>
+
                 <div className="text-xs text-navy space-y-2">
                   <div className="grid grid-cols-2 gap-2 text-center">
                     <div className="bg-surface rounded-xl p-2 border border-navy/10">
