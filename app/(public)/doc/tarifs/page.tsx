@@ -3,9 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Check, Wallet, ArrowUpRight } from "lucide-react";
-import { WaveLogo } from "@/components/ui/icons/wave-logo";
-import { WhatsAppLogo } from "@/components/ui/icons/whatsapp-logo";
+import { Check } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Tarifs & Formules d'abonnement | Al_Muxtaar_Doc",
@@ -70,9 +68,6 @@ const PLANS = [
 ];
 
 export default function TarifsPage() {
-  const waveNumber = process.env.NEXT_PUBLIC_WAVE_MERCHANT_NUMBER || "+221 77 247 69 26";
-  const waveBaseLink = process.env.NEXT_PUBLIC_WAVE_LINK || "https://pay.wave.com/m/M_sn_2MOwdjUaQWQJ/c/sn/";
-
   return (
     <div className="space-y-12 pb-16">
       {/* En-tête */}
@@ -149,83 +144,6 @@ export default function TarifsPage() {
               </CardFooter>
             </Card>
           ))}
-        </div>
-      </section>
-
-      {/* Guide en 4 étapes */}
-      <section className="bg-white border-y border-surface-muted py-12 sm:py-16">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6">
-          <h2 className="text-center text-2xl font-black text-navy sm:text-3xl mb-8">
-            Comment activer votre accès en 4 étapes
-          </h2>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 text-center">
-            <div className="rounded-2xl bg-surface p-5 border border-surface-muted">
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-turquoise text-white font-bold mb-3">1</span>
-              <h3 className="font-bold text-navy text-sm">Créez un compte</h3>
-              <p className="mt-1 text-xs text-navy-light">Votre numéro de téléphone (+221) suffit.</p>
-            </div>
-            <div className="rounded-2xl bg-surface p-5 border border-surface-muted">
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-turquoise text-white font-bold mb-3">2</span>
-              <h3 className="font-bold text-navy text-sm">Paiement 1 clic Wave</h3>
-              <p className="mt-1 text-xs text-navy-light">Cliquez sur le lien Wave avec le montant préinscrit.</p>
-            </div>
-            <div className="rounded-2xl bg-surface p-5 border border-surface-muted">
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-turquoise text-white font-bold mb-3">3</span>
-              <h3 className="font-bold text-navy text-sm">Confirmez en un clic</h3>
-              <p className="mt-1 text-xs text-navy-light">Cliquez sur &quot;J&apos;ai effectué mon paiement Wave&quot;.</p>
-            </div>
-            <div className="rounded-2xl bg-surface p-5 border border-surface-muted">
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-turquoise text-white font-bold mb-3">4</span>
-              <h3 className="font-bold text-navy text-sm">Accès ouvert</h3>
-              <p className="mt-1 text-xs text-navy-light">L&apos;admin vérifie votre nom et active vos cours.</p>
-            </div>
-          </div>
-
-          {/* Numéro Marchand Officiel Wave */}
-          <div className="mt-8 rounded-3xl border border-[#1DC3EC]/30 bg-gradient-to-b from-white to-[#1DC3EC]/5 p-6 sm:p-8 text-center max-w-2xl mx-auto shadow-sm">
-            <h4 className="text-sm font-extrabold text-navy uppercase tracking-wider mb-3 flex items-center justify-center gap-2">
-              <WaveLogo size={22} />
-              <span>Canal Officiel Wave Money — Al Muxtaar</span>
-            </h4>
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-3 text-xs sm:text-sm font-mono font-bold text-navy flex-wrap">
-              <a
-                href={`${waveBaseLink}?amount=700`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-xl bg-[#1DC3EC] text-navy px-4 py-2.5 shadow-sm hover:bg-[#00B5E2] transition-colors font-sans text-xs font-black inline-flex items-center gap-2"
-              >
-                <WaveLogo size={16} />
-                <span>Payer Formule 1 Mois (700 F)</span>
-                <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2.5} />
-              </a>
-              <a
-                href={`${waveBaseLink}?amount=2000`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-xl bg-[#1DC3EC] text-navy px-4 py-2.5 shadow-sm hover:bg-[#00B5E2] transition-colors font-sans text-xs font-black inline-flex items-center gap-2"
-              >
-                <WaveLogo size={16} />
-                <span>Payer Formule 3 Mois (2 000 F)</span>
-                <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2.5} />
-              </a>
-              <a
-                href={`${waveBaseLink}?amount=5000`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-xl bg-[#1DC3EC] text-navy px-4 py-2.5 shadow-sm hover:bg-[#00B5E2] transition-colors font-sans text-xs font-black inline-flex items-center gap-2"
-              >
-                <WaveLogo size={16} />
-                <span>Payer Formule 1 An (5 000 F)</span>
-                <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2.5} />
-              </a>
-            </div>
-            <div className="mt-3 inline-flex items-center gap-2 rounded-xl bg-white px-3.5 py-1.5 border border-navy/10 text-xs font-mono text-navy font-bold">
-              <span>Numéro Marchand : {waveNumber}</span>
-            </div>
-            <p className="mt-3 text-[11px] text-navy-light">
-              Bénéficiaire certifié : <strong className="text-navy">Al Muxtaar Société</strong> · Transfert 100% sécurisé sans frais cachés.
-            </p>
-          </div>
         </div>
       </section>
 
