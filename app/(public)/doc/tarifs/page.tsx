@@ -34,7 +34,7 @@ const PLANS = [
     duration: "90 jours d'accès illimité",
     price: "2 000 FCFA",
     priceDaily: "Soit 666 FCFA / mois — Économie immédiate",
-    popular: true,
+    popular: false,
     features: [
       "Accès complet aux cours actifs : Terminale S2 Mathématiques (13 chapitres)",
       "Accès immédiat aux nouveaux cours publiés (S1, L2, PC, SVT…)",
@@ -52,7 +52,7 @@ const PLANS = [
     duration: "365 jours d'accès illimité",
     price: "5 000 FCFA",
     priceDaily: "Soit 416 FCFA / mois — Meilleure économie de l'année",
-    popular: false,
+    popular: true,
     features: [
       "Accès complet aux cours actifs : Terminale S2 Mathématiques (13 chapitres)",
       "Accès immédiat aux nouveaux cours publiés (S1, L2, PC, SVT\u2026)",
