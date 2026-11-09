@@ -216,7 +216,6 @@ export default async function DashboardPage() {
           <Avatar name={avatarName} size="xl" isBordered />
           <div>
             <div className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-turquoise">
-              <Icon name="doc" size={14} />
               {studentTrack.name} ({studentLevel.name})
             </div>
             <h1 className="text-2xl sm:text-3xl font-bold mt-1.5">
