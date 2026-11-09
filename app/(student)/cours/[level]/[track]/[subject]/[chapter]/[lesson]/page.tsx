@@ -97,6 +97,9 @@ import AcidesAminesQuizEmbedded from '@/components/course/acides-amines-quiz-emb
 import CinematiqueReflexesCard from '@/components/course/cinematique-reflexes-card';
 import CinematiqueInteractiveSimulator from '@/components/course/cinematique-interactive-simulator';
 import CinematiqueQuizEmbedded from '@/components/course/cinematique-quiz-embedded';
+import NewtonReflexesCard from '@/components/course/newton-reflexes-card';
+import NewtonInteractiveSimulator from '@/components/course/newton-interactive-simulator';
+import NewtonQuizEmbedded from '@/components/course/newton-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
@@ -1727,6 +1730,41 @@ export default async function LessonReaderPage({ params }: PageProps) {
     lessonMeta = createdLesson;
   }
 
+  // Provisioning pour P2 : Les lois de Newton sur le mouvement (Physique-Chimie S2)
+  if (!lessonMeta && (
+    params.lesson === '60000000-0000-0002-0001-000000000004' ||
+    params.lesson === '60000000-0000-0002-0001-000000000005' ||
+    params.lesson === '60000000-0000-0002-0001-000000000006' ||
+    params.chapter === '50000000-0000-0002-0001-000000000002'
+  )) {
+    await admin.from('chapters').upsert({
+      id: '50000000-0000-0002-0001-000000000002',
+      title: "P2 : Les lois de Newton sur le mouvement",
+      order_index: 11,
+      status: 'published',
+    }, { onConflict: 'id' });
+    const p2Map: Record<string, [string, number]> = {
+      '60000000-0000-0002-0001-000000000004': ['Référentiels galiléens et première loi de Newton (principe d’inertie)', 1],
+      '60000000-0000-0002-0001-000000000005': ['Deuxième loi de Newton : principe fondamental de la dynamique', 2],
+      '60000000-0000-0002-0001-000000000006': ['Troisième loi de Newton : principe des actions réciproques', 3],
+    };
+    const [p2Title, p2Order] = p2Map[params.lesson] || ['P2 Lois de Newton', 1];
+    const { data: createdLesson } = await admin
+      .from('lessons')
+      .upsert({
+        id: params.lesson,
+        chapter_id: '50000000-0000-0002-0001-000000000002',
+        title: p2Title,
+        order_index: p2Order,
+        content_markdown: `# P2 : Les Lois de Newton — ${p2Title}`,
+        is_free: false,
+        status: 'published',
+      }, { onConflict: 'id' })
+      .select()
+      .single();
+    lessonMeta = createdLesson;
+  }
+
   // Provisioning pour C1 : Alcools (Physique-Chimie S2)
   if (!lessonMeta && params.lesson === '60000000-0000-0001-0001-000000000001') {
     await admin.from('chapters').upsert({
@@ -2269,6 +2307,30 @@ if (lessonMeta && lessonMeta.status !== 'published') {
       params.lesson === '60000000-0000-0002-0001-000000000003' ||
       params.chapter === '50000000-0000-0002-0001-000000000001');
 
+  const isNewton =
+    !isAcidesAmines &&
+    !isAlcools &&
+    !isAmines &&
+    !isAcidesDerives &&
+    !isCinetique &&
+    !isAutoprotolysePh &&
+    !isAcideFortBaseForte &&
+    !isAcideFaibleBaseFaible &&
+    !isDosageAcideFaibleBaseForte &&
+    !isCinematique &&
+    (lessonMeta.title.toLowerCase().includes('newton') ||
+      lessonMeta.title.toLowerCase().includes('dynamique') ||
+      lessonMeta.title.toLowerCase().includes('inertie') ||
+      lessonMeta.title.toLowerCase().includes('tci') ||
+      lessonMeta.title.toLowerCase().includes('actions réciproques') ||
+      lessonMeta.title.toLowerCase().includes('actions reciproques') ||
+      (chapter?.title?.toLowerCase() || '').includes('newton') ||
+      (chapter?.title?.toLowerCase() || '').includes('p2') ||
+      params.lesson === '60000000-0000-0002-0001-000000000004' ||
+      params.lesson === '60000000-0000-0002-0001-000000000005' ||
+      params.lesson === '60000000-0000-0002-0001-000000000006' ||
+      params.chapter === '50000000-0000-0002-0001-000000000002');
+
   const isDerivation =
     !isAcidesAmines &&
     !isDosageAcideFaibleBaseForte &&
@@ -2276,6 +2338,7 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     !isAlcools &&
     !isCinetique &&
     !isCinematique &&
+    !isNewton &&
     !isAsymptotes &&
     !isSuites &&
     !isLogarithme &&
@@ -2601,6 +2664,11 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                   <CinematiqueReflexesCard />
                   <CinematiqueInteractiveSimulator />
                 </>
+              ) : isNewton ? (
+                <>
+                  <NewtonReflexesCard />
+                  <NewtonInteractiveSimulator />
+                </>
               ) : isTvi ? (
                 <>
                   <TviReflexesCard />
@@ -2784,6 +2852,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <AcidesAminesQuizEmbedded />
               ) : isCinematique ? (
                 <CinematiqueQuizEmbedded />
+              ) : isNewton ? (
+                <NewtonQuizEmbedded />
               ) : isTvi ? (
                 <TviQuizEmbedded />
               ) : isAsymptotes ? (

@@ -1,0 +1,202 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" width="100%" height="100%">
+  <!-- Background Gradient -->
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B132B"/>
+      <stop offset="50%" stop-color="#1C2541"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+
+    <!-- Marker Arrowheads -->
+    <marker id="arrow-cyan" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#38BDF8"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#00B8A9"/>
+    </marker>
+    <marker id="arrow-rose" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#F43F5E"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#F59E0B"/>
+    </marker>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#A855F7"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="480" fill="url(#bg-grad)"/>
+
+  <!-- Main Title & Badges -->
+  <g transform="translate(30, 20)">
+    <rect width="210" height="26" rx="6" fill="#00B8A9" fill-opacity="0.2" stroke="#00B8A9" stroke-width="1"/>
+    <text x="105" y="17" fill="#5EEAD4" font-size="11" font-weight="bold" text-anchor="middle" letter-spacing="1">
+      PHYSIQUE TERMINALE S2 • P2
+    </text>
+    <text x="230" y="20" fill="#FFFFFF" font-size="18" font-weight="800">
+      Les Trois Lois de Newton sur le Mouvement (Dynamique du Point)
+    </text>
+    <text x="0" y="44" fill="#94A3B8" font-size="12">
+      Référentiels galiléens, Théorème du Centre d'Inertie (TCI), Plan incliné &amp; Applications au Sénégal (TER, Traction)
+    </text>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- PANEL 1: LES 3 LOIS FONDAMENTALES DE NEWTON -->
+  <!-- ========================================== -->
+  <g transform="translate(30, 75)">
+    <rect width="270" height="385" fill="#1E293B" rx="12" stroke="#334155" stroke-width="1"/>
+    <text x="15" y="28" fill="#E2E8F0" font-size="13" font-weight="700">1. Les 3 Principes Fondamentaux</text>
+    <text x="15" y="45" fill="#94A3B8" font-size="10">Fondements de la Mécanique Classique</text>
+
+    <!-- 1ère Loi : Principe d'Inertie -->
+    <g transform="translate(15, 60)">
+      <rect width="240" height="85" rx="8" fill="#0F172A" stroke="#38BDF8" stroke-width="1.5"/>
+      <text x="12" y="20" fill="#38BDF8" font-size="11" font-weight="bold">1ère Loi : Principe d'Inertie</text>
+      <text x="12" y="38" fill="#CBD5E1" font-size="9">Dans un référentiel galiléen :</text>
+      <rect x="10" y="46" width="220" height="30" rx="6" fill="#1E293B" stroke="#38BDF8" stroke-dasharray="3 2"/>
+      <text x="120" y="65" fill="#5EEAD4" font-size="11" font-weight="800" text-anchor="middle">
+        ∑ F_ext = 0  ⟺  v_G = cte  (MRU ou Repos)
+      </text>
+    </g>
+
+    <!-- 2ème Loi : TCI / PFD -->
+    <g transform="translate(15, 155)">
+      <rect width="240" height="100" rx="8" fill="#0F172A" stroke="#00B8A9" stroke-width="1.5"/>
+      <text x="12" y="20" fill="#00B8A9" font-size="11" font-weight="bold">2ème Loi : Théorème du Centre d'Inertie</text>
+      <text x="12" y="38" fill="#CBD5E1" font-size="9">Loi fondamentale de la dynamique (m = cte) :</text>
+      <rect x="10" y="46" width="220" height="34" rx="6" fill="#1E293B" stroke="#00B8A9"/>
+      <text x="120" y="68" fill="#5EEAD4" font-size="13" font-weight="800" text-anchor="middle">
+        ∑ F_ext = m · a_G
+      </text>
+      <text x="12" y="93" fill="#94A3B8" font-size="8.5">• F en Newtons (N)  • m en kg  • a en m·s⁻²</text>
+    </g>
+
+    <!-- 3ème Loi : Actions Réciproques -->
+    <g transform="translate(15, 265)">
+      <rect width="240" height="105" rx="8" fill="#0F172A" stroke="#F43F5E" stroke-width="1.5"/>
+      <text x="12" y="20" fill="#F43F5E" font-size="11" font-weight="bold">3ème Loi : Actions Réciproques</text>
+      <text x="12" y="36" fill="#CBD5E1" font-size="9">Interaction mutuelle entre corps A et B :</text>
+      <rect x="10" y="44" width="220" height="30" rx="6" fill="#1E293B" stroke="#F43F5E"/>
+      <text x="120" y="64" fill="#FDA4AF" font-size="12" font-weight="800" text-anchor="middle">
+        F_A/B = - F_B/A
+      </text>
+      <text x="12" y="87" fill="#F8FAFC" font-size="8.5" font-weight="bold">★ Même intensité, sens opposés</text>
+      <text x="12" y="98" fill="#FCD34D" font-size="8">★ Ne s'annulent JAMAIS (corps différents !)</text>
+    </g>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- PANEL 2: LE PLAN INCLINÉ & DÉCOMPOSITION   -->
+  <!-- ========================================== -->
+  <g transform="translate(315, 75)">
+    <rect width="270" height="385" fill="#1E293B" rx="12" stroke="#334155" stroke-width="1"/>
+    <text x="15" y="28" fill="#E2E8F0" font-size="13" font-weight="700">2. Dynamique du Plan Incliné</text>
+    <text x="15" y="45" fill="#94A3B8" font-size="10">Projection sur repère orthonormé (Gx, Gy)</text>
+
+    <!-- Canvas SVG du plan incliné -->
+    <g transform="translate(15, 60)">
+      <rect width="240" height="205" rx="8" fill="#0F172A" stroke="#00B8A9" stroke-width="1.5"/>
+
+      <!-- Sol horizontal de référence -->
+      <line x1="20" y1="180" x2="220" y2="180" stroke="#475569" stroke-width="2"/>
+
+      <!-- Rampe inclinée angle alpha = 25° -->
+      <polygon points="20,180 200,80 200,180" fill="#1E293B" stroke="#64748B" stroke-width="1.5"/>
+      <path d="M 50,180 A 30,30 0 0,0 47,165" fill="none" stroke="#FBBF24" stroke-width="2"/>
+      <text x="56" y="174" fill="#FBBF24" font-size="10" font-weight="bold">α</text>
+
+      <!-- Solide M sur le plan incliné -->
+      <!-- Coordonnées centre G : (115, 127) -->
+      <g transform="translate(115, 127) rotate(-29)">
+        <!-- Boîte du solide -->
+        <rect x="-22" y="-18" width="44" height="24" rx="4" fill="#00B8A9" stroke="#F8FAFC" stroke-width="1.5"/>
+        <circle cx="0" cy="-6" r="3" fill="#FFFFFF"/>
+        <text x="5" y="-10" fill="#FFFFFF" font-size="9" font-weight="bold">G</text>
+
+        <!-- Axe Gx (parallèle à la pente, vers le bas) -->
+        <line x1="-30" y1="-6" x2="50" y2="-6" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3 2"/>
+        <text x="52" y="-3" fill="#94A3B8" font-size="8" font-weight="bold">x</text>
+
+        <!-- Axe Gy (perpendiculaire à la pente, vers le haut) -->
+        <line x1="0" y1="20" x2="0" y2="-45" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3 2"/>
+        <text x="4" y="-45" fill="#94A3B8" font-size="8" font-weight="bold">y</text>
+
+        <!-- Force de frottement f (opposée au mouvement, vers l'arrière) -->
+        <line x1="0" y1="-6" x2="-35" y2="-6" stroke="#F59E0B" stroke-width="2.5" marker-end="url(#arrow-amber)"/>
+        <!-- Flèche au-dessus de f -->
+        <path d="M -26,-15 L -18,-15 M -20,-16.5 L -18,-15 L -20,-13.5" stroke="#F59E0B" stroke-width="1" fill="none"/>
+        <text x="-26" y="-7" fill="#FBBF24" font-size="9" font-weight="bold">f</text>
+
+        <!-- Réaction normale RN (perpendiculaire vers le haut) -->
+        <line x1="0" y1="-6" x2="0" y2="-42" stroke="#38BDF8" stroke-width="2.5" marker-end="url(#arrow-cyan)"/>
+        <!-- Flèche au-dessus de RN -->
+        <path d="M 6,-38 L 16,-38 M 14,-39.5 L 16,-38 L 14,-36.5" stroke="#38BDF8" stroke-width="1" fill="none"/>
+        <text x="6" y="-28" fill="#38BDF8" font-size="9" font-weight="bold">R<tspan font-size="7" dy="2">N</tspan></text>
+      </g>
+
+      <!-- Poids P (vertical vers le bas depuis G = 115, 127) -->
+      <line x1="115" y1="127" x2="115" y2="185" stroke="#F43F5E" stroke-width="3" marker-end="url(#arrow-rose)"/>
+      <!-- Flèche au-dessus de P -->
+      <path d="M 122,152 L 130,152 M 128,150.5 L 130,152 L 128,153.5" stroke="#F43F5E" stroke-width="1" fill="none"/>
+      <text x="122" y="163" fill="#FDA4AF" font-size="11" font-weight="800">P</text>
+
+      <!-- Composante Px et Py -->
+      <line x1="115" y1="127" x2="140" y2="141" stroke="#F43F5E" stroke-width="1.5" stroke-dasharray="2 2"/>
+      <line x1="115" y1="127" x2="90" y2="171" stroke="#F43F5E" stroke-width="1.5" stroke-dasharray="2 2"/>
+    </g>
+
+    <!-- Formules de projection sur le plan -->
+    <rect x="15" y="275" width="240" height="95" rx="8" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+    <text x="25" y="293" fill="#38BDF8" font-size="10" font-weight="bold">Projections Indispensables au Bac :</text>
+    <text x="25" y="311" fill="#CBD5E1" font-size="9">• Axe Oy : R_N - P·cos(α) = 0 ⟹ <tspan fill="#38BDF8" font-weight="bold">R_N = m·g·cos(α)</tspan></text>
+    <text x="25" y="328" fill="#CBD5E1" font-size="9">• Axe Ox : P·sin(α) - f = m·a ⟹ <tspan fill="#5EEAD4" font-weight="bold">a = g·sin(α) - f/m</tspan></text>
+    <text x="25" y="347" fill="#FCD34D" font-size="8.5">• Sans frottement (f = 0) : <tspan fill="#5EEAD4" font-weight="bold">a = g · sin(α)</tspan> (indépendant de m !)</text>
+    <text x="25" y="360" fill="#FDA4AF" font-size="8.5">• Avec frottement (f = μ·R_N) : <tspan fill="#FDA4AF" font-weight="bold">a = g·(sin α - μ·cos α)</tspan></text>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- PANEL 3: APPLICATIONS AU SÉNÉGAL           -->
+  <!-- ========================================== -->
+  <g transform="translate(600, 75)">
+    <rect width="270" height="385" fill="#1E293B" rx="12" stroke="#334155" stroke-width="1"/>
+    <text x="15" y="28" fill="#E2E8F0" font-size="13" font-weight="700">3. Applications au Sénégal</text>
+    <text x="15" y="45" fill="#94A3B8" font-size="10">Traction TER, Systèmes Liés &amp; Lutte</text>
+
+    <!-- Carte TER : Traction & Freinage -->
+    <g transform="translate(15, 60)">
+      <rect width="240" height="110" rx="8" fill="#0F172A" stroke="#38BDF8" stroke-width="1.5"/>
+      <text x="12" y="20" fill="#38BDF8" font-size="11" font-weight="bold">🚄 TER Dakar : Traction &amp; Freinage</text>
+      <text x="12" y="38" fill="#CBD5E1" font-size="9">• Masse rame : M = 150 tonnes = 1,5·10⁵ kg</text>
+      <text x="12" y="53" fill="#CBD5E1" font-size="9">• En phase d'accélération (Colobane) :</text>
+      <rect x="10" y="60" width="220" height="24" rx="4" fill="#1E293B"/>
+      <text x="120" y="76" fill="#5EEAD4" font-size="9.5" font-weight="bold" text-anchor="middle">
+        F_moteur - f_résistance = M · a
+      </text>
+      <text x="12" y="98" fill="#FDA4AF" font-size="8.5">• Freinage Rufisque : - F_freins = M · a ⟹ a &lt; 0</text>
+    </g>
+
+    <!-- Carte Systèmes Liés / Poulie (Atwood) -->
+    <g transform="translate(15, 180)">
+      <rect width="240" height="95" rx="8" fill="#0F172A" stroke="#A855F7" stroke-width="1.5"/>
+      <text x="12" y="18" fill="#C4B5FD" font-size="10.5" font-weight="bold">⛓️ Systèmes Liés (Poulie &amp; Fil)</text>
+      <text x="12" y="34" fill="#CBD5E1" font-size="8.5">• Fil inextensible de masse négligeable :</text>
+      <text x="20" y="48" fill="#5EEAD4" font-size="8.5">Tension uniforme : T₁ = T₂ = T</text>
+      <text x="20" y="62" fill="#5EEAD4" font-size="8.5">Même accélération : a₁ = a₂ = a</text>
+      <rect x="10" y="68" width="220" height="20" rx="4" fill="#1E293B"/>
+      <text x="120" y="82" fill="#FCD34D" font-size="9" font-weight="bold" text-anchor="middle">
+        a = (m₂ - m₁)·g / (m₁ + m₂)  (Machine d'Atwood)
+      </text>
+    </g>
+
+    <!-- Carte Action-Réaction : Lutte Sénégalaise -->
+    <g transform="translate(15, 285)">
+      <rect width="240" height="85" rx="8" fill="#0F172A" stroke="#F59E0B" stroke-width="1.5"/>
+      <text x="12" y="18" fill="#FBBF24" font-size="10.5" font-weight="bold">🤼 Lamb (Lutte) &amp; Poussée au Sol</text>
+      <text x="12" y="34" fill="#CBD5E1" font-size="8.5">• Le lutteur pousse le sable vers l'arrière : F_pied/sol</text>
+      <text x="12" y="48" fill="#CBD5E1" font-size="8.5">• Le sable propulse le lutteur vers l'avant :</text>
+      <text x="20" y="62" fill="#5EEAD4" font-size="9" font-weight="bold">F_sol/pied = - F_pied/sol  (3ème loi)</text>
+      <text x="12" y="76" fill="#94A3B8" font-size="8">Principe identique à l'hélice de la pirogue à Kayar !</text>
+    </g>
+  </g>
+</svg>

@@ -4489,6 +4489,297 @@ $\rho_S = \frac{v_S^2}{a_n} = \frac{(4{,}0)^2}{10{,}0} = \frac{16{,}0}{10{,}0} =
 > - « **MCU :** $v = R\,\omega$ ak $a_n = R\,\omega^2$ ! »
 `;
 
+// P2 : LES LOIS DE NEWTON SUR LE MOUVEMENT (Terminale S2 Sénégal)
+RICH_LESSONS_MAP.lois_newton = `# P2 : Les Lois de Newton sur le Mouvement (Terminale S2)
+
+Bienvenue dans le deuxième chapitre fondamental de **Mécanique** de **Terminale S2**, rigoureusement conforme au programme officiel sénégalais (MEN / IGEF / Office du Baccalauréat).
+
+---
+
+![Figure 1 : Les trois lois de Newton, dynamique du plan incliné et applications au Sénégal](/assets/pedagogie/p2_lois_newton_dynamique.svg)
+
+> [!VIE_REELLE] **Les Lois de Newton dans la Vie Quotidienne au Sénégal :**
+> - **Le TER Dakar–Diamniadio (TCI)** : à la sortie de la gare de Colobane, les 150 tonnes de la rame accélèrent grâce à la force motrice $\\vec{F}_m$ fournie par l'alimentation électrique via la caténaire. La deuxième loi de Newton ($\\sum \\vec{F}_{\\text{ext}} = M\\,\\vec{a}$) permet aux ingénieurs ferroviaires d'équilibrer la force de traction et les frottements pour respecter les horaires jusqu'à Diamniadio.
+> - **La Manutention au Port Autonome de Dakar (Plan Incliné)** : lors du déchargement des marchandises par les rampes d'accès, le poids des palettes se décompose : une composante perpendiculaire $R_N = m\\,g\\,\\cos\\alpha$ presse la charge contre la rampe, tandis qu'une composante motrice $P_x = m\\,g\\,\\sin\\alpha$ l'entraîne vers le bas. Les ouvriers règlent la rugosité de la surface pour que le frottement $f = \\mu\\,R_N$ garantisse un glissement sécurisé sans chute brutale !
+> - **La Lutte Sénégalaise (Lamb) &amp; la Troisième Loi de Newton** : dans l'Arène Nationale de Pikine, pour propulser son adversaire ou charger, le lutteur prend un appui puissant sur le sable en le poussant violemment vers l'arrière ($\\vec{F}_{\\text{pied}/\\text{sol}}$). Instantanément, le sol réagit et propulse le lutteur vers l'avant avec une force rigoureusement égale en intensité ($\\vec{F}_{\\text{sol}/\\text{pied}} = -\\vec{F}_{\\text{pied}/\\text{sol}}$). C'est la 3ème loi de Newton en action !
+> - **Les Pirogues de Pêche à Kayar / Soumbédioune (Propulsion)** : l'hélice du moteur hors-bord rejette l'eau de mer vers l'arrière ; par réaction immédiate, la masse d'eau propulse la pirogue vers l'avant à travers la houle atlantique.
+
+> [!WOLOF] **Xam-xam ci Wolof — Lois de Newton :**
+> - « **1ère Loi (Principe d'Inertie) :** Bu forces yépp dañoo faye bopp ($\sum \\vec{F} = \\vec{0}$), solide bi dafay taxaw temm walla mu di daw ci yoon bu jub te tegu (MRU, $\\vec{v} = \\vec{\\text{cte}}$) ! »
+> - « **2ème Loi (TCI / PFD) :** Doole ji nga jox solide bi mooy waral accélération bi : $\\sum \\vec{F}_{\\text{ext}} = m\\,\\vec{a}_G$ ! Bu doole yi yokkoo, accélération bi day gën a mag ; bu masse bi yokkoo, dafay gën a diis a yëngal ! »
+> - « **3ème Loi (Action-Réaction) :** Doo mën a daan lenn te moom itam du la daan ak doole ju tolloo : $\\vec{F}_{A/B} = -\\vec{F}_{B/A}$ ! Doole yii duñu faye bopp mukk ndax benn bi dafa nekk ci $A$, baneen bi nekk ci $B$ ! »
+> - « **Plan Incliné :** Angle $\\alpha$ bi ci suuf, $P_x = m\\,g\\,\\sin\\alpha$ mooy doole ji koy rëddal, te $R_N = m\\,g\\,\\cos\\alpha$ mooy doole ji koy tëj ! Bu frottement amul, $a = g\\,\\sin\\alpha$ ! »
+> - « **Frottement $\\vec{f}$ :** Dafay kontar vitesse bi waxtu wu nekk : $f = \\mu\\,R_N = \\mu\\,m\\,g\\,\\cos\\alpha$. Moom mooy wàññi accélération bi ba mu def $a = g\\,(\\sin\\alpha - \\mu\\,\\cos\\alpha)$ ! »
+
+---
+
+## Objectifs Officiels du Baccalauréat Sénégalais (IGEF / MEN)
+À la fin de ce chapitre, tout élève de Terminale S2 doit être capable de :
+1. Définir un **référentiel galiléen** et énoncer la **première loi de Newton (Principe d'inertie)**.
+2. Définir le vecteur quantité de mouvement $\\vec{p} = m\\,\\vec{v}_G$ et énoncer la **deuxième loi de Newton (Principe fondamental de la dynamique)** sous ses formes $\\frac{d\\vec{p}}{dt} = \\sum \\vec{F}_{\\text{ext}}$ et $\\sum \\vec{F}_{\\text{ext}} = m\\,\\vec{a}_G$.
+3. Connaître les unités de base du Système International pour la force ($1\\text{ N} = 1\\text{ kg}\\cdot\\text{m}\\cdot\\text{s}^{-2}$).
+4. Appliquer rigoureusement la **méthodologie en 5 étapes** pour déterminer l'accélération du centre d'inertie d'un solide.
+5. Énoncer la **troisième loi de Newton (Principe des actions réciproques)**, en expliquer les caractéristiques et justifier pourquoi l'action et la réaction ne s'annulent jamais.
+6. Établir l'expression de l'accélération d'un solide sur un **plan incliné**, avec et sans frottements solides (loi de Coulomb $f = \\mu\\,R_N$).
+7. Étudier les **systèmes de solides liés** par un fil inextensible de masse négligeable passant sur une poulie idéale (accélération commune et tension du fil).
+8. Associer la dynamique à la cinématique pour déterminer les lois horaires du mouvement et appliquer la formule de Torricelli ($v_B^2 - v_A^2 = 2\\,a\\,d$).
+
+---
+
+## 1. Référentiels Galiléens & Première Loi de Newton (Principe d'Inertie)
+
+### 1.1 Qu'est-ce qu'un Référentiel Galiléen ?
+Un **référentiel galiléen** (ou inertiel) est un référentiel dans lequel le principe d'inertie est rigoureusement vérifié.
+Tout référentiel en mouvement de translation rectiligne et uniforme par rapport à un référentiel galiléen est lui-même galiléen.
+
+| Référentiel | Solide de Référence & Caractéristiques | Validité Galiléenne au Bac S2 |
+| :--- | :--- | :--- |
+| **Terrestre (du laboratoire)** | Lié au sol terrestre (ex: le quai de Rufisque, une table de laboratoire). | Galiléen en excellente approximation pour des expériences dont la durée est très courte devant 24 heures (rotation de la Terre négligeable). |
+| **Géocentrique** | Centre de la Terre, axes orientés vers 3 étoiles lointaines fixes. | Galiléen pour l'étude des satellites artificiels terrestres et de la Lune. |
+| **Héliocentrique (Copernic)** | Centre du Soleil, axes orientés vers 3 étoiles fixes. | Référentiel galiléen de référence pour le mouvement des planètes du système solaire. |
+
+### 1.2 Énoncé de la Première Loi de Newton
+> [!IMPORTANT]
+> **Énoncé officiel du Bac S2 :**
+> Dans un référentiel galiléen, si la somme vectorielle des forces extérieures appliquées à un solide est nulle, son centre d'inertie $G$ conserve son état de repos ou poursuit un Mouvement Rectiligne Uniforme :
+> $\\sum \\vec{F}_{\\text{ext}} = \\vec{0} \\iff \\vec{v}_G = \\vec{\\text{cte}}$
+> Réciproquement, si le centre d'inertie d'un solide est au repos ou en Mouvement Rectiligne Uniforme dans un référentiel galiléen, alors la somme vectorielle des forces extérieures qui s'exercent sur lui est rigoureusement nulle.
+
+### 1.3 Solide Isolé et Pseudo-Isolé
+- **Solide isolé** : solide soumis à aucune force extérieure (cas théorique idéal dans l'espace lointain).
+- **Solide pseudo-isolé** : solide soumis à des forces extérieures qui se compensent mutuellement à chaque instant ($\\sum \\vec{F}_{\\text{ext}} = \\vec{0}$).
+  *Exemple classique au Sénégal* : un train TER roulant à vitesse constante de $160\\text{ km}\\cdot\\text{h}^{-1}$ sur ligne droite horizontale : la force de traction motrice compense exactement les frottements ($\\vec{F}_m + \\vec{f} = \\vec{0}$), et le poids compense la réaction du rail ($\\vec{P} + \\vec{R}_N = \\vec{0}$).
+
+---
+
+## 2. Deuxième Loi de Newton : Principe Fondamental de la Dynamique (TCI)
+
+### 2.1 Vecteur Quantité de Mouvement
+Le vecteur quantité de mouvement d'un point matériel de masse $m$ animé d'une vitesse $\\vec{v}_G$ est défini par :
+$\\vec{p} = m\\,\\vec{v}_G \\quad (\\text{en kg}\\cdot\\text{m}\\cdot\\text{s}^{-1})$
+
+### 2.2 Énoncé Général de la Deuxième Loi
+Dans un référentiel galiléen, la dérivée par rapport au temps du vecteur quantité de mouvement d'un système est égale à la somme vectorielle des forces extérieures qui s'exercent sur lui :
+$\\frac{d\\vec{p}}{dt} = \\sum \\vec{F}_{\\text{ext}}$
+
+### 2.3 Formulation pour un Système à Masse Constante ($m = \\text{cte}$)
+En classe de Terminale S2, la masse $m$ du solide étudié est constante :
+$\\frac{d\\vec{p}}{dt} = \\frac{d(m\\,\\vec{v}_G)}{dt} = m\\,\\frac{d\\vec{v}_G}{dt} = m\\,\\vec{a}_G$
+
+D'où l'expression universelle du **Théorème du Centre d'Inertie (TCI)** :
+$\\sum \\vec{F}_{\\text{ext}} = m\\,\\vec{a}_G$
+
+- $\\sum \\vec{F}_{\\text{ext}}$ : somme vectorielle des forces extérieures en Newtons ($\\text{N}$).
+- $m$ : masse du solide en kilogrammes ($\\text{kg}$).
+- $\\vec{a}_G$ : accélération du centre d'inertie en mètres par seconde carrée ($\\text{m}\\cdot\\text{s}^{-2}$).
+
+> [!NOTE]
+> **Homogénéité et Dimension :**
+> $[F] = [M]\\,[L]\\,[T]^{-2} \\implies 1\\text{ Newton (N)} = 1\\text{ kg}\\cdot\\text{m}\\cdot\\text{s}^{-2}$
+> Une force de $1\\text{ N}$ communique à un corps de masse $1\\text{ kg}$ une accélération de $1\\text{ m}\\cdot\\text{s}^{-2}$.
+
+---
+
+## 3. Méthodologie Universelle de Résolution en 5 Étapes
+
+Au Baccalauréat sénégalais, les inspecteurs et correcteurs exigent la démarche suivante :
+
+1. **Système étudié** : Définir avec précision le solide ou l'ensemble matériel considéré (ex : {solide $S$ de masse $m$}).
+2. **Référentiel d'étude** : Préciser le référentiel et son caractère galiléen : « Référentiel terrestre supposé galiléen ».
+3. **Bilan des forces extérieures appliquées** : Dresser l'inventaire exhaustif des forces sans en oublier :
+   - Forces à distance : Le poids $\\vec{P} = m\\,\\vec{g}$.
+   - Forces de contact : La réaction normale du support $\\vec{R}_N$, la force de frottement $\\vec{f}$, la tension d'un fil $\\vec{T}$, la force motrice $\\vec{F}$.
+4. **Application du TCI (2ème Loi)** : Écrire la relation vectorielle formelle :
+   $\\sum \\vec{F}_{\\text{ext}} = m\\,\\vec{a}_G \\implies \\vec{P} + \\vec{R}_N + \\vec{f} + \\vec{T} = m\\,\\vec{a}_G$
+5. **Choix du repère et projection scalaire** :
+   Choisir un repère orthonormé $(Ox, Oy)$ adapté à la géométrie de la trajectoire (l'axe $Ox$ étant colinéaire au déplacement) et projeter chaque vecteur force pour obtenir les équations scalaires.
+
+---
+
+## 4. Troisième Loi de Newton : Principe des Actions Réciproques
+
+### 4.1 Énoncé Officiel
+> [!IMPORTANT]
+> **Énoncé de la 3ème loi de Newton :**
+> Lorsque deux corps $A$ et $B$ interagissent, le corps $A$ exerce sur le corps $B$ une force $\\vec{F}_{A/B}$, et simultanément le corps $B$ exerce sur le corps $A$ une force $\\vec{F}_{B/A}$ directement opposée :
+> $\\vec{F}_{A/B} = -\\vec{F}_{B/A}$
+
+### 4.2 Caractéristiques des Forces d'Interaction :
+1. **Même droite d'action** : elles sont portées par la même ligne droite joignant les points matériels.
+2. **Même intensité (norme)** : $\\|\\vec{F}_{A/B}\\| = \\|\\vec{F}_{B/A}\\| = F$.
+3. **Sens opposés** : $\\vec{F}_{A/B}$ et $\\vec{F}_{B/A}$ pointent dans des directions opposées.
+4. **Points d'application DIFFÉRENTS** : $\\vec{F}_{A/B}$ s'exerce sur le corps $B$, tandis que $\\vec{F}_{B/A}$ s'exerce sur le corps $A$.
+
+> [!WARNING]
+> **Pourquoi l'action et la réaction ne s'annulent-elles jamais ?**
+> Deux forces ne peuvent s'annuler ou se compenser que si elles s'appliquent au **même corps matériel** ! Puisque $\\vec{F}_{A/B}$ agit sur $B$ et $\\vec{F}_{B/A}$ agit sur $A$, chacune produit des effets dynamiques distincts sur son propre système.
+
+---
+
+## 5. Étude Approfondie du Plan Incliné
+
+Un solide ponctuel de masse $m$ glisse sur une rampe inclinée d'un angle $\\alpha$ par rapport à l'horizontale.
+
+### 5.1 Choix du Repère de Projection
+- Origine : position initiale du centre d'inertie $G$.
+- Axe $(Gx)$ : parallèle à la ligne de plus grande pente du plan, orienté dans le sens de la descente.
+- Axe $(Gy)$ : perpendiculaire au plan incliné, orienté vers le haut.
+
+### 5.2 Décomposition Vectorielle du Poids $\\vec{P}$
+L'angle $\\alpha$ de la pente se retrouve entre la verticale descendante et l'axe $(Gy)$ :
+$\\vec{P} = P_x\\,\\vec{i} + P_y\\,\\vec{j} = (+m\\,g\\,\\sin\\alpha)\\vec{i} + (-m\\,g\\,\\cos\\alpha)\\vec{j}$
+
+- $P_x = +m\\,g\\,\\sin\\alpha$ : composante tangentielle qui tire le solide vers le bas de la pente.
+- $P_y = -m\\,g\\,\\cos\\alpha$ : composante normale qui plaque le solide contre la surface.
+
+### 5.3 Cas 1 : Plan Incliné SANS Frottement ($\\vec{f} = \\vec{0}$)
+Les seules forces appliquées sont le poids $\\vec{P}$ et la réaction normale $\\vec{R}_N = R_N\\,\\vec{j}$.
+Application du TCI :
+$\\vec{P} + \\vec{R}_N = m\\,\\vec{a}_G$
+
+- **Projection sur l'axe $(Gy)$** (aucun mouvement vertical, $a_y = 0$) :
+  $R_N - m\\,g\\,\\cos\\alpha = 0 \\implies R_N = m\\,g\\,\\cos\\alpha$
+- **Projection sur l'axe $(Gx)$** :
+  $m\\,g\\,\\sin\\alpha = m\\,a_x \\implies a_x = g\\,\\sin\\alpha$
+
+> [!IMPORTANT]
+> **Résultat fondamental :** En l'absence de frottement, l'accélération $a = g\\,\\sin\\alpha$ est **constante** et **rigoureusement indépendante de la masse $m$**. Le mouvement est un Mouvement Rectiligne Uniformément Accéléré (MRUA).
+
+### 5.4 Cas 2 : Plan Incliné AVEC Frottement Solide (Loi de Coulomb)
+Le contact présente des frottements solides caractérisés par le coefficient de frottement dynamique $\\mu$ :
+$\\vec{f} = -f\\,\\vec{i} \\quad \\text{avec} \\quad f = \\mu\\,R_N = \\mu\\,m\\,g\\,\\cos\\alpha$
+
+Application du TCI :
+$\\vec{P} + \\vec{R}_N + \\vec{f} = m\\,\\vec{a}_G$
+
+- **Projection sur l'axe $(Gx)$** :
+  $P_x - f = m\\,a_x \\implies m\\,g\\,\\sin\\alpha - \\mu\\,m\\,g\\,\\cos\\alpha = m\\,a$
+  $a = g\\,(\\sin\\alpha - \\mu\\,\\cos\\alpha)$
+
+### 5.5 Condition de Démarrage et Glissement
+Pour qu'un solide posé sans vitesse initiale se mette spontanément en mouvement vers le bas de la pente :
+$P_x > f_{\\text{max}} \\implies m\\,g\\,\\sin\\alpha > \\mu\\,m\\,g\\,\\cos\\alpha \\implies \\tan\\alpha > \\mu$
+Si $\\tan\\alpha \\le \\mu$, le mobile reste immobile au repos à cause de l'adhérence statique.
+
+---
+
+## 6. Systèmes de Solides Liés (Poulie & Fil Inextensible)
+
+### 6.1 Les Hypothèses Idéales du Baccalauréat Sénégalais
+1. **Fil inextensible** : sa longueur reste constante $\\implies$ les deux solides parcourent les mêmes distances dans les mêmes intervalles de temps, d'où l'égalité des accélérations scalaires :
+   $a_1 = a_2 = a$
+2. **Fil de masse négligeable et poulie idéale** (sans masse ni frottement sur son axe) : la tension est uniforme le long du fil :
+   $T_1 = T_2 = T$
+
+### 6.2 Cas Typique : Machine d'Atwood ($m_2 > m_1$)
+Deux corps $S_1$ (masse $m_1$) et $S_2$ (masse $m_2$) sont suspendus à un fil passant sur une poulie.
+- **Bilan pour $S_1$ (qui monte)** :
+  $T - m_1\\,g = m_1\\,a \\quad (\\text{Équation 1})$
+- **Bilan pour $S_2$ (qui descend)** :
+  $m_2\\,g - T = m_2\\,a \\quad (\\text{Équation 2})$
+
+En sommant membre à membre $(1) + (2)$ pour éliminer la tension $T$ :
+$(m_2 - m_1)\\cdot g = (m_1 + m_2)\\cdot a \\implies a = \\frac{m_2 - m_1}{m_1 + m_2}\\,g$
+
+En réinjectant $a$ dans l'Équation 1, on trouve la tension du fil :
+$T = m_1\\,(g + a) = \\frac{2\\,m_1\\,m_2}{m_1 + m_2}\\,g$
+
+---
+
+## 7. Épreuve Officielle Résolue du Baccalauréat Sénégalais (Sujet Type Office du Bac S2)
+
+### Énoncé Officiel :
+Un solide ponctuel $(S)$ de masse $m = 400\\text{ g}$ est lancé à partir d'un point $A$ situé au sommet d'un plan incliné $AB$ faisant un angle $\\alpha = 30^\\circ$ avec l'horizontale. La longueur du plan est $AB = L = 2{,}5\\text{ m}$.
+Le solide est abandonné en $A$ à $t = 0$ sans vitesse initiale ($v_A = 0$). On prendra $g = 9{,}8\\text{ m}\\cdot\\text{s}^{-2}$.
+
+1. **Première phase : Frottements négligeables**
+   a) Faire le bilan des forces appliquées à $(S)$ et les représenter sur un schéma soigné.
+   b) En appliquant le Théorème du Centre d'Inertie, déterminer l'accélération $a_1$ du solide.
+   c) Calculer la vitesse $v_B$ du solide à son arrivée au bas du plan incliné en $B$.
+   d) Déterminer la durée $t_B$ mise par le solide pour effectuer le trajet $AB$.
+
+2. **Deuxième phase : Frottements non négligeables**
+   En réalité, le solide arrive en $B$ avec une vitesse mesurée expérimentalement $v'_B = 4{,}0\\text{ m}\\cdot\\text{s}^{-1}$.
+   a) Montrer que le contact présente des frottements et calculer l'accélération réelle $a_2$.
+   b) Déterminer l'intensité de la force de frottement $f$.
+   c) En déduire la valeur du coefficient de frottement dynamique $\\mu$.
+
+---
+
+### Solution Détaillée & Rédigée Conforme aux Critères du Bac S2 :
+
+#### 1. Première phase (Frottements négligeables) :
+
+**a) Bilan des forces appliquées à $(S)$ :**
+- Système étudié : {Le solide $(S)$ de masse $m = 0{,}40\\text{ kg}$}.
+- Référentiel : Terrestre, supposé galiléen.
+- Forces extérieures :
+  - Le poids $\\vec{P} = m\\,\\vec{g}$ (vertical descendant, appliqué au centre $G$).
+  - La réaction normale du plan $\\vec{R}_N$ (perpendiculaire à la pente, vers le haut).
+
+**b) Calcul de l'accélération $a_1$ :**
+D'après la 2ème loi de Newton :
+$\\vec{P} + \\vec{R}_N = m\\,\\vec{a}_G$
+On choisit un repère orthonormé $(Ax, Ay)$ où $(Ax)$ est colinéaire à la ligne de plus grande pente et orienté de $A$ vers $B$.
+Projection sur l'axe $(Ax)$ :
+$P_x + R_{Nx} = m\\,a_1 \\implies m\\,g\\,\\sin\\alpha + 0 = m\\,a_1 \\implies a_1 = g\\,\\sin\\alpha$
+Application numérique :
+$a_1 = 9{,}8 \\times \\sin(30^\\circ) = 9{,}8 \\times 0{,}5 = 4{,}90\\text{ m}\\cdot\\text{s}^{-2}$
+
+**c) Vitesse $v_B$ à l'arrivée en $B$ :**
+L'accélération étant constante ($a_1 = \\text{cte}$), le mouvement est rectiligne uniformément varié.
+D'après la formule de Torricelli indépendante du temps :
+$v_B^2 - v_A^2 = 2\\,a_1\\,AB \\implies v_B^2 - 0 = 2\\,a_1\\,L$
+$v_B = \\sqrt{2\\,a_1\\,L} = \\sqrt{2 \\times 4{,}90 \\times 2{,}5} = \\sqrt{24{,}5} \\approx 4{,}95\\text{ m}\\cdot\\text{s}^{-1}$
+
+**d) Durée $t_B$ du parcours $AB$ :**
+$v_B = a_1\\,t_B \\implies t_B = \\frac{v_B}{a_1} = \\frac{4{,}95}{4{,}90} \\approx 1{,}01\\text{ s}$
+
+---
+
+#### 2. Deuxième phase (Frottements non négligeables) :
+
+**a) Mise en évidence des frottements et calcul de $a_2$ :**
+Puisque la vitesse réelle mesurée $v'_B = 4{,}0\\text{ m}\\cdot\\text{s}^{-1}$ est strictement inférieure à la vitesse théorique sans frottement ($v_B = 4{,}95\\text{ m}\\cdot\\text{s}^{-1}$), de l'énergie mécanique a été dissipée sous forme de chaleur : le contact présente des frottements !
+D'après la relation de Torricelli :
+$(v'_B)^2 - v_A^2 = 2\\,a_2\\,L \\implies a_2 = \\frac{(v'_B)^2}{2\\,L} = \\frac{(4{,}0)^2}{2 \\times 2{,}5} = \\frac{16{,}0}{5{,}0} = 3{,}20\\text{ m}\\cdot\\text{s}^{-2}$
+
+**b) Intensité de la force de frottement $f$ :**
+En présence de frottements $\\vec{f}$, le TCI projeté sur l'axe $(Ax)$ donne :
+$P_x - f = m\\,a_2 \\implies m\\,g\\,\\sin\\alpha - f = m\\,a_2$
+$f = m\\,(g\\,\\sin\\alpha - a_2) = m\\,(a_1 - a_2)$
+Application numérique :
+$f = 0{,}40 \\times (4{,}90 - 3{,}20) = 0{,}40 \\times 1{,}70 = 0{,}68\\text{ N}$
+
+**c) Coefficient de frottement dynamique $\\mu$ :**
+La projection sur l'axe $(Ay)$ perpendiculaire à la pente donne :
+$R_N - m\\,g\\,\\cos\\alpha = 0 \\implies R_N = m\\,g\\,\\cos\\alpha$
+$R_N = 0{,}40 \\times 9{,}8 \\times \\cos(30^\\circ) = 3{,}92 \\times \\frac{\\sqrt{3}}{2} \\approx 3{,}395\\text{ N}$
+D'après la loi de Coulomb :
+$f = \\mu\\,R_N \\implies \\mu = \\frac{f}{R_N} = \\frac{0{,}68}{3{,}395} \\approx 0{,}20$
+**Conclusion :** Le coefficient de frottement dynamique vaut $\\mu = 0{,}20$ (grandeur sans unité).
+
+---
+
+## 8. Les 8 Réflexes d'Or du Baccalauréat Sénégalais (P2)
+
+> [!IMPORTANT]
+> 1. **Référentiel galiléen :** Toujours mentionner « Dans le référentiel terrestre supposé galiléen » avant d'écrire $\\sum \\vec{F}_{\\text{ext}} = m\\,\\vec{a}_G$.
+> 2. **Décomposition sur plan incliné :** Retenir $P_x = +m\\,g\\,\\sin\\alpha$ et $R_N = m\\,g\\,\\cos\\alpha$.
+> 3. **Indépendance de la masse :** Sans frottement sur plan incliné, $a = g\\,\\sin\\alpha$. La masse n'intervient jamais dans l'accélération !
+> 4. **Frottements :** Toujours relier la force de frottement à la réaction normale : $f = \\mu\\,R_N = \\mu\\,m\\,g\\,\\cos\\alpha$.
+> 5. **Systèmes liés :** Traiter chaque solide séparément pour faire apparaître la tension $T$, puis additionner les équations pour l'éliminer et trouver $a$.
+> 6. **3ème loi de Newton :** $\\vec{F}_{A/B} = -\\vec{F}_{B/A}$. Mêmes intensités, sens opposés, mais corps d'application différents : elles ne se compensent JAMAIS !
+> 7. **Lien Dynamique $\\to$ Torricelli :** Une fois $a$ calculée, utiliser $v_B^2 - v_A^2 = 2\\,a\\,d$ pour économiser un temps précieux sans calculer $t$.
+> 8. **Vitesse constante :** Si la vitesse est constante, $a = 0$ : les forces motrices compensent exactement les résistances ($\\sum \\vec{F}_{\\text{ext}} = \\vec{0}$).
+
+> [!WOLOF]
+> - « **TCI bi :** Bindal 5 étapes yi : Système, Référentiel, Bilan des forces, $\\sum \\vec{F} = m\\,\\vec{a}$, ak projection ! »
+> - « **Plan incliné :** $a = g\\,\\sin\\alpha$ sans frottement ; $a = g\\,(\\sin\\alpha - \\mu\\,\\cos\\alpha)$ ak frottement ! »
+> - « **Torricelli :** $v_B^2 - v_A^2 = 2\\,a\\,d$ mooy sa arme secrète ci Bac ! »
+> - « **Action-Réaction :** $\\vec{F}_{A/B} = -\\vec{F}_{B/A}$, duñu faye bopp mukk ! »
+`;
+
 export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: string, rawContent: string | null): string {
   const titleLower = `${lessonTitle} ${chapterTitle}`.toLowerCase();
 
