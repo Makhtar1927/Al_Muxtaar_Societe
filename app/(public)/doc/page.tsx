@@ -25,7 +25,6 @@ export default function DocLandingPage() {
           {/* Colonne Gauche : Texte de Présentation, Programmes & Call-To-Action */}
           <div className="text-center lg:col-span-7 lg:text-left space-y-6">
             <div className="inline-flex items-center gap-2 rounded-full bg-turquoise-light px-3.5 py-1.5 text-xs font-black text-turquoise border border-turquoise/30 shadow-xs">
-              <Icon name="doc" size={16} />
               <span>RÉFÉRENTIEL PÉDAGOGIQUE NATIONAL DU SÉNÉGAL</span>
             </div>
 
