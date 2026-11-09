@@ -105,7 +105,7 @@ export const SENEGAL_CURRICULUM: CurriculumLevel[] = [
             status: 'active',
             statusLabel: 'Programme disponible',
             progressPercent: 100,
-            teacherLead: 'M. Makhtar Ndiaye & Équipe IGEF',
+            teacherLead: '',
             description: '12 chapitres officiels articulés en 3 grands domaines : Analyse, Algèbre & Géométrie, Probabilités & Dénombrement.',
             chapters: [
               // ── 1. ANALYSE (7 Chapitres) ──
@@ -268,7 +268,7 @@ export const SENEGAL_CURRICULUM: CurriculumLevel[] = [
             status: 'active',
             statusLabel: 'Programme disponible',
             progressPercent: 95,
-            teacherLead: 'M. Ibrahima Sall (Lycée Lamine Guèye)',
+            teacherLead: '',
             description: 'Programme officiel Terminale S2 — Chimie organique (alcools, amines, acides, cinétique, acides aminés), solutions aqueuses (pH, acides-bases, dosages, tampons), mécanique (cinématique, Newton, projectiles, oscillations), électricité (induction, RLC libre et forcé), physique atomique et nucléaire.',
             chapters: [
               // ── PARTIE CHIMIE ──
@@ -485,7 +485,7 @@ export const SENEGAL_CURRICULUM: CurriculumLevel[] = [
             status: 'in_production',
             statusLabel: 'En Rédaction Avancée (80%)',
             progressPercent: 80,
-            teacherLead: 'Dr. Aminata Touré (FASTEF / UCAD)',
+            teacherLead: '',
             description: 'Génétique formelle et humaine, immunologie, régulation de la glycémie, physiologie nerveuse et géologie.',
             chapters: [
               { id: 1, slug: 'genetique-diploide', title: 'Brassages Génétiques & Diversité des Génomes', lessonsCount: 4, desc: 'Méiose, crossing-over, brassage inter et intra-chromosomique, mono et dihybridisme.', competences: ['Interpréter des croisements F1 et F2', 'Établir une carte factorielle'] },
@@ -504,7 +504,7 @@ export const SENEGAL_CURRICULUM: CurriculumLevel[] = [
             status: 'in_production',
             statusLabel: 'Syllabus Prêt (75%)',
             progressPercent: 75,
-            teacherLead: 'Pr. Ousmane Diop (Lycée Delafosse)',
+            teacherLead: '',
             description: 'Dissertation philosophique, commentaire de texte, grands courants de la pensée africaine et universelle.',
             chapters: [
               { id: 1, slug: 'methode-dissertation', title: 'Méthodologie Complète de la Dissertation Philosophique', lessonsCount: 3, desc: 'Problématisation, plan dialectique, analyse conceptuelle et argumentation.', competences: ['Dégager le problème philosophique', 'Construire une antithèse solide'] },
@@ -521,7 +521,7 @@ export const SENEGAL_CURRICULUM: CurriculumLevel[] = [
             status: 'scheduled',
             statusLabel: 'Planifié T3 2026',
             progressPercent: 40,
-            teacherLead: 'Mme Fatou Bintou Sow',
+            teacherLead: '',
             description: 'Dissertation littéraire, commentaire composé et résumé de texte sur le corpus sénégalais et francophone.',
             chapters: [
               { id: 1, slug: 'roman-africain', title: 'Le Roman Négro-Africain et les Réalités Sociales', lessonsCount: 4, desc: 'Étude d\'œuvres au programme (Sembène Ousmane, Cheikh Hamidou Kane, Mariama Bâ).', competences: ['Commentaire composé', 'Dissertation littéraire'] },
@@ -537,7 +537,7 @@ export const SENEGAL_CURRICULUM: CurriculumLevel[] = [
             status: 'scheduled',
             statusLabel: 'Planifié T3 2026',
             progressPercent: 35,
-            teacherLead: 'M. Babacar Seck',
+            teacherLead: '',
             description: 'Décolonisation, relations internationales, dynamique démographique et développement du Sénégal.',
             chapters: [
               { id: 1, slug: 'guerre-froide', title: 'Les Relations Internationales de 1945 à nos jours', lessonsCount: 4, desc: 'Guerre froide, multipolarité, ONU et crises géopolitiques majeures.', competences: ['Commentaire de document historique', 'Dissertation historique'] },
@@ -565,7 +565,7 @@ export const SENEGAL_CURRICULUM: CurriculumLevel[] = [
             status: 'in_production',
             statusLabel: 'En Rédaction (70%)',
             progressPercent: 70,
-            teacherLead: 'Équipe Concours Général Sénégal',
+            teacherLead: '',
             description: 'Arithmétique (Bézout, Gauss, congruences), structures algébriques, coniques, équations différentielles avancées.',
             chapters: [
               { id: 1, slug: 'arithmetique', title: 'Arithmétique dans Z : Division Euclidienne, Bézout & Nombres Premiers', lessonsCount: 5, desc: 'Congruences, algorithme d\'Euclide étendu, petit théorème de Fermat.', competences: ['Résoudre ax + by = c dans Z²', 'Manipuler les congruences modulo n'] },
@@ -582,7 +582,7 @@ export const SENEGAL_CURRICULUM: CurriculumLevel[] = [
             status: 'in_production',
             statusLabel: 'En Rédaction (65%)',
             progressPercent: 65,
-            teacherLead: 'M. Ibrahima Sall',
+            teacherLead: '',
             description: 'Électromagnétisme, induction de Faraday, thermodynamique et mécanique du solide.',
             chapters: [
               { id: 1, slug: 'induction', title: 'Induction Électromagnétique & Auto-induction', lessonsCount: 4, desc: 'Loi de Lenz, flux magnétique et fem induite.', competences: ['Calculer la force électromotrice induite e = -dPhi/dt'] },
@@ -609,7 +609,7 @@ export const SENEGAL_CURRICULUM: CurriculumLevel[] = [
             status: 'in_production',
             statusLabel: 'En Rédaction (75%)',
             progressPercent: 75,
-            teacherLead: 'Pr. Ousmane Diop',
+            teacherLead: '',
             description: 'Les notions majeures : la conscience, l\'inconscient, l\'État, le droit, la religion, l\'art et le travail.',
             chapters: [
               { id: 1, slug: 'etat-pouvoir', title: 'L\'État, le Pouvoir & la Justice', lessonsCount: 4, desc: 'Machiavel, Rousseau, Hobbes et les traditions politiques africaines.', competences: ['Dissertation sur la légitimité du pouvoir'] },
@@ -625,7 +625,7 @@ export const SENEGAL_CURRICULUM: CurriculumLevel[] = [
             status: 'in_production',
             statusLabel: 'En Rédaction (60%)',
             progressPercent: 60,
-            teacherLead: 'Mme Fatou Bintou Sow',
+            teacherLead: '',
             description: 'Grands mouvements littéraires français et africains, analyse de style et critique littéraire.',
             chapters: [
               { id: 1, slug: 'classicisme-lumieres', title: 'Le Classicisme et les Siècles des Lumières', lessonsCount: 4, desc: 'Molière, Voltaire, Rousseau et l\'émancipation de l\'esprit critique.', competences: ['Commentaire composé littéraire'] },
@@ -640,7 +640,7 @@ export const SENEGAL_CURRICULUM: CurriculumLevel[] = [
             status: 'scheduled',
             statusLabel: 'Planifié',
             progressPercent: 30,
-            teacherLead: 'M. Babacar Seck',
+            teacherLead: '',
             description: 'Histoire africaine, panafricanisme, géopolitique du Sahel et puissances émergentes.',
             chapters: [
               { id: 1, slug: 'panafricanisme', title: 'Le Panafricanisme & les Indépendances Africaines', lessonsCount: 4, desc: 'Cheikh Anta Diop, Kwamé Nkrumah et les défis de l\'unité africaine.', competences: ['Dissertation historique'] },
@@ -655,7 +655,7 @@ export const SENEGAL_CURRICULUM: CurriculumLevel[] = [
             status: 'in_production',
             statusLabel: 'En Rédaction (65%)',
             progressPercent: 65,
-            teacherLead: 'M. Makhtar Ndiaye',
+            teacherLead: '',
             description: 'Statistiques descriptives, pourcentages, suites numériques et probabilités simples adaptées à la série L.',
             chapters: [
               { id: 1, slug: 'statistiques-l', title: 'Statistiques à une Variable & Indices', lessonsCount: 3, desc: 'Moyenne, médiane, quartiles, diagramme en boîte et indices de prix.', competences: ['Calculer la médiane et l\'écart interquartile'] },
@@ -683,7 +683,7 @@ export const SENEGAL_CURRICULUM: CurriculumLevel[] = [
             status: 'scheduled',
             statusLabel: 'Planifié T4 2026',
             progressPercent: 25,
-            teacherLead: 'M. Alioune Badara Diouf (Expert-Comptable)',
+            teacherLead: '',
             description: 'Plan comptable OHADA révisé, bilan, compte de résultat et écritures d\'inventaire.',
             chapters: [
               { id: 1, slug: 'systeme-ohada', title: 'Le Système Comptable OHADA & le Bilan', lessonsCount: 4, desc: 'Principes comptables, journalisation et grand livre.', competences: ['Établir un bilan comptable'] },
@@ -698,7 +698,7 @@ export const SENEGAL_CURRICULUM: CurriculumLevel[] = [
             status: 'scheduled',
             statusLabel: 'Planifié T4 2026',
             progressPercent: 30,
-            teacherLead: 'M. Makhtar Ndiaye',
+            teacherLead: '',
             description: 'Intérêts simples et composés, amortissement des emprunts, annuités et rentabilité des investissements.',
             chapters: [
               { id: 1, slug: 'interets-composes', title: 'Intérêts Composés & Actualisation', lessonsCount: 3, desc: 'Formule de capitalisation et valeur actuelle d\'un capital.', competences: ['Calculer la valeur acquise Cn = C0 (1+i)^n'] },
@@ -736,7 +736,7 @@ export const SENEGAL_CURRICULUM: CurriculumLevel[] = [
             status: 'in_production',
             statusLabel: 'En Rédaction (70%)',
             progressPercent: 70,
-            teacherLead: 'M. Makhtar Ndiaye',
+            teacherLead: '',
             description: 'Polynômes du second degré, dérivation, barycentre, trigonométrie et produit scalaire.',
             chapters: [
               { id: 1, slug: 'polynomes-second-degre', title: 'Polynômes & Trinôme du Second Degré', lessonsCount: 4, desc: 'Discriminant delta, forme canonique, factorisation et signe du trinôme.', competences: ['Résoudre ax² + bx + c = 0', 'Tableau de signe d\'un trinôme'] },
@@ -754,7 +754,7 @@ export const SENEGAL_CURRICULUM: CurriculumLevel[] = [
             status: 'in_production',
             statusLabel: 'En Rédaction (60%)',
             progressPercent: 60,
-            teacherLead: 'M. Ibrahima Sall',
+            teacherLead: '',
             description: 'Travail et puissance d\'une force, énergie cinétique, calorimétrie et oxydoréduction.',
             chapters: [
               { id: 1, slug: 'travail-energie', title: 'Travail Mécanique & Théorème de l\'Énergie Cinétique', lessonsCount: 4, desc: 'Forces conservatives, poids, frottements et théorème TEC.', competences: ['Appliquer Delta Ec = Somme des travaux W(F)'] },
@@ -770,7 +770,7 @@ export const SENEGAL_CURRICULUM: CurriculumLevel[] = [
             status: 'in_production',
             statusLabel: 'En Rédaction (70%)',
             progressPercent: 70,
-            teacherLead: 'Mme Fatou Bintou Sow',
+            teacherLead: '',
             description: 'Préparation spécifique à l\'épreuve anticipée de Français de fin de Première S.',
             chapters: [
               { id: 1, slug: 'resume-texte', title: 'Technique du Résumé de Texte', lessonsCount: 3, desc: 'Sélection des idées maîtresses, respect du quota de mots et reformulation sans copier.', competences: ['Rédiger un résumé conforme au barème'] },
@@ -796,7 +796,7 @@ export const SENEGAL_CURRICULUM: CurriculumLevel[] = [
             status: 'in_production',
             statusLabel: 'En Rédaction (65%)',
             progressPercent: 65,
-            teacherLead: 'Mme Fatou Bintou Sow',
+            teacherLead: '',
             description: 'Analyse stylistique poussée, mouvements littéraires, roman et dramaturgie.',
             chapters: [
               { id: 1, slug: 'theatre-tragique', title: 'Le Théâtre : Tragédie Classique & Théâtre Négro-Africain', lessonsCount: 4, desc: 'Racine, Corneille, Aimé Césaire (La Tragédie du Roi Christophe).', competences: ['Commentaire composé d\'une scène de théâtre'] },
@@ -834,7 +834,7 @@ export const SENEGAL_CURRICULUM: CurriculumLevel[] = [
             status: 'in_production',
             statusLabel: 'En Rédaction (65%)',
             progressPercent: 65,
-            teacherLead: 'M. Makhtar Ndiaye',
+            teacherLead: '',
             description: 'Ensembles de nombres, calcul vectoriel, droites dans le plan, fonctions de référence et trigonométrie de base.',
             chapters: [
               { id: 1, slug: 'ensembles-calculs', title: 'Ensembles de Nombres, Intervalles & Valeur Absolue', lessonsCount: 4, desc: 'N, Z, D, Q, R, résolution d\'équations avec valeur absolue |x - a| < r.', competences: ['Traduire une distance en valeur absolue', 'Intersections et réunions d\'intervalles'] },
@@ -851,7 +851,7 @@ export const SENEGAL_CURRICULUM: CurriculumLevel[] = [
             status: 'scheduled',
             statusLabel: 'Planifié',
             progressPercent: 35,
-            teacherLead: 'M. Ibrahima Sall',
+            teacherLead: '',
             description: 'Atome, classification périodique, mole, concentrations, optique géométrique et forces usuelles.',
             chapters: [
               { id: 1, slug: 'atome-mole', title: 'Structure de l\'Atome & Quantité de Matière (La Mole)', lessonsCount: 3, desc: 'Nombre d\'Avogadro, masse molaire, concentration molaire C = n / V.', competences: ['Calculer une quantité de matière n = m / M'] },
@@ -876,7 +876,7 @@ export const SENEGAL_CURRICULUM: CurriculumLevel[] = [
             status: 'scheduled',
             statusLabel: 'Planifié',
             progressPercent: 30,
-            teacherLead: 'Mme Fatou Bintou Sow',
+            teacherLead: '',
             description: 'Genres littéraires, versification, rhétorique et rédaction de textes argumentatifs.',
             chapters: [
               { id: 1, slug: 'genres-litteraires', title: 'Les Grands Genres Littéraires et Registres de Langue', lessonsCount: 3, desc: 'Roman, théâtre, poésie, registres comique, tragique, lyrique et pathétique.', competences: ['Identifier la visée d\'un texte'] },
@@ -914,7 +914,7 @@ export const SENEGAL_CURRICULUM: CurriculumLevel[] = [
             status: 'in_production',
             statusLabel: 'En Rédaction (70%)',
             progressPercent: 70,
-            teacherLead: 'M. Babacar Diagne (CEM Dakar)',
+            teacherLead: '',
             description: 'Thalès, Pythagore, trigonométrie dans le triangle rectangle, systèmes de 2 équations et statistiques BFEM.',
             chapters: [
               { id: 1, slug: 'thales-pythagore', title: 'Théorèmes de Pythagore & Thalès (Directs et Réciproques)', lessonsCount: 4, desc: 'Calcul de longueurs, preuve de parallélisme et d\'orthogonalité.', competences: ['Rédiger le théorème de Thalès au BFEM', 'Réciproque de Pythagore'] },
@@ -932,7 +932,7 @@ export const SENEGAL_CURRICULUM: CurriculumLevel[] = [
             status: 'scheduled',
             statusLabel: 'Planifié T4 2026',
             progressPercent: 30,
-            teacherLead: 'Mme Aïda Ndao',
+            teacherLead: '',
             description: 'Poids et masse, masse volumique, courant électrique, combustion et chimie des solutions.',
             chapters: [
               { id: 1, slug: 'poids-masse', title: 'Poids, Masse & Équilibre d\'un Solide', lessonsCount: 3, desc: 'P = m x g, dynamomètre et balance.', competences: ['Distinguer le poids (N) et la masse (kg)'] },

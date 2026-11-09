@@ -138,19 +138,6 @@ export default async function SubjectChaptersPage({ params }: PageProps) {
                   {subject.description}
                 </p>
               </div>
-
-              {/* Responsable pédagogique */}
-              <div className="rounded-2xl bg-surface p-4 border border-navy/5 text-right sm:text-left">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-navy/50 block">
-                  Équipe Pédagogique
-                </span>
-                <span className="text-xs font-bold text-navy mt-1 block">
-                  {subject.teacherLead}
-                </span>
-                <span className="text-[11px] text-text/60 block mt-0.5">
-                  Conforme MEN / IGEF Sénégal
-                </span>
-              </div>
             </div>
 
             {/* Barre de progression de numérisation */}

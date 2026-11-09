@@ -181,16 +181,13 @@ export default async function CoursHubPage() {
                       </p>
                     </div>
 
-                    <div className="pt-2 border-t border-navy/5 text-xs text-navy-light flex items-center justify-between">
-                      <span className="truncate max-w-[220px]">
-                        {sub.teacherLead}
-                      </span>
-                      {isActive && !isSubscribed && (
+                    {isActive && !isSubscribed && (
+                      <div className="pt-2 border-t border-navy/5 text-xs text-navy-light flex items-center justify-end">
                         <span className="text-[11px] font-bold text-turquoise">
                           1ère leçon gratuite
                         </span>
-                      )}
-                    </div>
+                      </div>
+                    )}
                   </div>
 
                   <div className="mt-5 pt-4 border-t border-navy/5">

@@ -298,9 +298,6 @@ export default function CataloguePage() {
               <p className="text-xs sm:text-sm text-navy-light max-w-2xl leading-relaxed">
                 {currentSubject.description}
               </p>
-              <p className="text-xs text-navy/60 pt-1">
-                <span className="font-semibold text-navy">Responsable pédagogique :</span> {currentSubject.teacherLead}
-              </p>
             </div>
 
             {/* Statut d'accès ou abonnement */}
