@@ -36,6 +36,8 @@ export function Header() {
   const [profile, setProfile] = React.useState<UserProfile | null>(null);
   const [isAdmin, setIsAdmin] = React.useState(false);
   const dropdownRef = React.useRef<HTMLDivElement>(null);
+  const mobileMenuRef = React.useRef<HTMLDivElement>(null);
+  const mobileToggleRef = React.useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -91,6 +93,35 @@ export function Header() {
     }
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isProfileOpen]);
+
+  // Fermer le menu mobile au clic extérieur ou au défilement (scroll)
+  React.useEffect(() => {
+    if (!isMobileMenuOpen) return;
+
+    function handleScroll() {
+      setIsMobileMenuOpen(false);
+    }
+
+    function handleClickOutside(event: MouseEvent | TouchEvent) {
+      const target = event.target as Node;
+      const isInsideMenu = mobileMenuRef.current?.contains(target);
+      const isInsideToggle = mobileToggleRef.current?.contains(target);
+
+      if (!isInsideMenu && !isInsideToggle) {
+        setIsMobileMenuOpen(false);
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, [isMobileMenuOpen]);
 
   // Fermer les menus lors d'un changement de route ou touche Échap
   React.useEffect(() => {
@@ -347,6 +378,7 @@ export function Header() {
         <div className="flex md:hidden items-center gap-2">
           <NotificationBell />
           <button
+            ref={mobileToggleRef}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="flex h-10 w-10 items-center justify-center rounded-xl border border-navy/10 text-navy hover:bg-surface transition-colors"
             aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
@@ -372,7 +404,10 @@ export function Header() {
 
       {/* ── 6. Tiroir Mobile Responsive ── */}
       {isMobileMenuOpen && (
-        <div className="relative z-40 md:hidden border-b border-surface-muted bg-white px-4 pt-3 pb-6 shadow-2xl animate-in slide-in-from-top-2 duration-200">
+        <div
+          ref={mobileMenuRef}
+          className="relative z-40 md:hidden border-b border-surface-muted bg-white px-4 pt-3 pb-6 shadow-2xl animate-in slide-in-from-top-2 duration-200"
+        >
           {user && (
             <div className="mb-4 p-3.5 bg-surface/80 rounded-2xl border border-navy/5 flex items-center justify-between">
               <div className="flex items-center gap-3">
