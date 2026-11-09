@@ -285,7 +285,7 @@ export default function HomePage() {
             <Link href="/doc" className="w-full sm:w-auto">
               <Button variant="primary" size="lg" className="w-full sm:w-auto font-black shadow-md">
                 <Icon name="cours" size={18} className="mr-2" />
-                Espace Cours &amp; Examens (Doc)
+                Espace Cours &amp; Examens
               </Button>
             </Link>
             <Link href="/contact" className="w-full sm:w-auto">
