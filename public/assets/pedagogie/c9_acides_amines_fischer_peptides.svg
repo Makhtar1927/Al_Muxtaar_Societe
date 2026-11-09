@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" width="100%" height="100%" style="background:#0F172A; font-family:system-ui, -apple-system, sans-serif;">
+  <rect width="900" height="480" fill="#0B132B" rx="16"/>
+  <rect x="2" y="2" width="896" height="476" fill="none" stroke="#334155" stroke-width="1.5" rx="14"/>
+  
+  <!-- Header Title -->
+  <g transform="translate(450, 32)" text-anchor="middle">
+    <rect x="-310" y="-16" width="620" height="32" rx="16" fill="#1E293B" stroke="#00B8A9" stroke-width="1.5"/>
+    <text y="5" fill="#5EEAD4" font-size="13" font-weight="800" letter-spacing="1">C9 : ACIDES α-AMINÉS, PROJECTION DE FISCHER, ZWITTERION &amp; LIAISON PEPTIDIQUE</text>
+  </g>
+
+  <!-- Left: Projection de Fischer (Série L vs Série D) -->
+  <g transform="translate(30, 75)">
+    <rect width="270" height="375" fill="#1E293B" rx="12" stroke="#334155" stroke-width="1"/>
+    <text x="15" y="30" fill="#E2E8F0" font-size="13" font-weight="700">1. Projection de Fischer (D / L)</text>
+    <text x="15" y="48" fill="#94A3B8" font-size="10">Orientation : -COOH en haut, -R en bas</text>
+
+    <!-- L-Alanine Box -->
+    <g transform="translate(20, 65)">
+      <rect width="105" height="175" rx="8" fill="#0F172A" stroke="#00B8A9" stroke-width="1.5"/>
+      <text x="52" y="20" fill="#2DD4BF" font-size="11" font-weight="800" text-anchor="middle">L-Alanine</text>
+      
+      <!-- Fischer Cross -->
+      <line x1="52" y1="35" x2="52" y2="145" stroke="#CBD5E1" stroke-width="2.5"/>
+      <line x1="18" y1="90" x2="88" y2="90" stroke="#00B8A9" stroke-width="3"/>
+      <circle cx="52" cy="90" r="4.5" fill="#EF4444"/>
+
+      <!-- Labels -->
+      <text x="52" y="32" fill="#F8FAFC" font-size="10" font-weight="bold" font-family="monospace" text-anchor="middle">COOH</text>
+      <text x="52" y="162" fill="#F8FAFC" font-size="10" font-weight="bold" font-family="monospace" text-anchor="middle">CH₃</text>
+      <text x="14" y="94" fill="#5EEAD4" font-size="10" font-weight="bold" font-family="monospace" text-anchor="end">H₂N</text>
+      <text x="92" y="94" fill="#94A3B8" font-size="10" font-weight="bold" font-family="monospace">H</text>
+
+      <rect x="10" y="125" width="85" height="16" rx="4" fill="#00B8A9" fill-opacity="0.2"/>
+      <text x="52" y="137" fill="#5EEAD4" font-size="8" font-weight="bold" text-anchor="middle">-NH₂ à GAUCHE</text>
+    </g>
+
+    <!-- Mirror Line -->
+    <line x1="135" y1="120" x2="135" y2="200" stroke="#64748B" stroke-width="1.5" stroke-dasharray="3 3"/>
+    <text x="135" y="110" fill="#64748B" font-size="8" font-weight="bold" text-anchor="middle">Miroir</text>
+
+    <!-- D-Alanine Box -->
+    <g transform="translate(145, 65)">
+      <rect width="105" height="175" rx="8" fill="#0F172A" stroke="#F59E0B" stroke-width="1.5"/>
+      <text x="52" y="20" fill="#FBBF24" font-size="11" font-weight="800" text-anchor="middle">D-Alanine</text>
+      
+      <!-- Fischer Cross -->
+      <line x1="52" y1="35" x2="52" y2="145" stroke="#CBD5E1" stroke-width="2.5"/>
+      <line x1="18" y1="90" x2="88" y2="90" stroke="#F59E0B" stroke-width="3"/>
+      <circle cx="52" cy="90" r="4.5" fill="#EF4444"/>
+
+      <!-- Labels -->
+      <text x="52" y="32" fill="#F8FAFC" font-size="10" font-weight="bold" font-family="monospace" text-anchor="middle">COOH</text>
+      <text x="52" y="162" fill="#F8FAFC" font-size="10" font-weight="bold" font-family="monospace" text-anchor="middle">CH₃</text>
+      <text x="14" y="94" fill="#94A3B8" font-size="10" font-weight="bold" font-family="monospace" text-anchor="end">H</text>
+      <text x="92" y="94" fill="#FCD34D" font-size="10" font-weight="bold" font-family="monospace">NH₂</text>
+
+      <rect x="10" y="125" width="85" height="16" rx="4" fill="#F59E0B" fill-opacity="0.2"/>
+      <text x="52" y="137" fill="#FCD34D" font-size="8" font-weight="bold" text-anchor="middle">-NH₂ à DROITE</text>
+    </g>
+
+    <!-- Warning / Rule card -->
+    <rect x="12" y="260" width="246" height="100" rx="8" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+    <text x="22" y="280" fill="#F87171" font-size="10" font-weight="bold">★ Piège Bac : La Glycine (Gly)</text>
+    <text x="22" y="298" fill="#CBD5E1" font-size="9">• R = H ⟹ 2 hydrogènes sur le Cα</text>
+    <text x="22" y="314" fill="#CBD5E1" font-size="9">• Aucun carbone asymétrique C*</text>
+    <text x="22" y="330" fill="#38BDF8" font-size="9" font-weight="bold">⟹ ACHIRALE, pas de série D / L !</text>
+    <text x="22" y="348" fill="#A78BFA" font-size="9">• Protéines vivantes = Série L exclusively</text>
+  </g>
+
+  <!-- Middle: Zwitterion & Point Isoélectrique (pHi) -->
+  <g transform="translate(315, 75)">
+    <rect width="270" height="375" fill="#1E293B" rx="12" stroke="#334155" stroke-width="1"/>
+    <text x="15" y="30" fill="#E2E8F0" font-size="13" font-weight="700">2. Amphion (Zwitterion) &amp; pHi</text>
+    <text x="15" y="48" fill="#94A3B8" font-size="10">Structure dipolaire globalement neutre</text>
+
+    <!-- Zwitterion structure formula card -->
+    <rect x="15" y="65" width="240" height="90" rx="8" fill="#0F172A" stroke="#8B5CF6" stroke-width="1.5"/>
+    <text x="120" y="88" fill="#C4B5FD" font-size="10" font-weight="bold" text-anchor="middle">Structure Amphionique (Neutre)</text>
+    
+    <!-- Formula Drawing -->
+    <text x="120" y="125" fill="#F8FAFC" font-size="14" font-weight="800" font-family="monospace" text-anchor="middle">
+      R — CH(<tspan fill="#38BDF8">NH₃⁺</tspan>) — <tspan fill="#F87171">COO⁻</tspan>
+    </text>
+    <text x="120" y="145" fill="#A78BFA" font-size="9" font-weight="bold" text-anchor="middle">Charge électrique globale = (+1) + (-1) = 0</text>
+
+    <!-- Predominance zones box -->
+    <rect x="15" y="165" width="240" height="105" rx="8" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+    <text x="25" y="185" fill="#E2E8F0" font-size="10" font-weight="bold">Formes selon le pH :</text>
+    
+    <text x="25" y="206" fill="#F87171" font-size="9.5" font-weight="bold">• pH &lt; pKₐ₁ : Cation H₂A⁺</text>
+    <text x="195" y="206" fill="#FCA5A5" font-size="9" text-anchor="end">Charge (+1) ➔ Cathode (-)</text>
+
+    <text x="25" y="226" fill="#34D399" font-size="9.5" font-weight="bold">• pKₐ₁ &lt; pH &lt; pKₐ₂ : Amphion HA±</text>
+    <text x="195" y="226" fill="#A7F3D0" font-size="9" text-anchor="end">Charge (0) ➔ Immobile</text>
+
+    <text x="25" y="246" fill="#60A5FA" font-size="9.5" font-weight="bold">• pH &gt; pKₐ₂ : Anion A⁻</text>
+    <text x="195" y="246" fill="#BAE6FD" font-size="9" text-anchor="end">Charge (-1) ➔ Anode (+)</text>
+
+    <text x="25" y="262" fill="#64748B" font-size="8.5">• pKₐ₁ (-COOH) ≈ 2,3 • pKₐ₂ (-NH₃⁺) ≈ 9,7</text>
+
+    <!-- pHi formula card -->
+    <rect x="15" y="280" width="240" height="80" rx="8" fill="#00B8A9" fill-opacity="0.1" stroke="#00B8A9" stroke-width="1.5"/>
+    <text x="120" y="302" fill="#5EEAD4" font-size="11" font-weight="bold" text-anchor="middle">Point Isoélectrique (pHi)</text>
+    <text x="120" y="328" fill="#F8FAFC" font-size="15" font-weight="800" text-anchor="middle">pHi = (pKₐ₁ + pKₐ₂) / 2</text>
+    <text x="120" y="348" fill="#94A3B8" font-size="9" text-anchor="middle">À pH = pHi : [H₂A⁺] = [A⁻] et [HA±] est maximal</text>
+  </g>
+
+  <!-- Right: Liaison Peptidique & Dipeptides -->
+  <g transform="translate(600, 75)">
+    <rect width="270" height="375" fill="#1E293B" rx="12" stroke="#334155" stroke-width="1"/>
+    <text x="15" y="30" fill="#E2E8F0" font-size="13" font-weight="700">3. Condensation &amp; Peptides</text>
+    <text x="15" y="48" fill="#94A3B8" font-size="10">Liaison amide -CO-NH- rigide et plane</text>
+
+    <!-- Peptide Bond Diagram -->
+    <rect x="15" y="65" width="240" height="110" rx="8" fill="#0F172A" stroke="#EC4899" stroke-width="1.5"/>
+    <text x="120" y="85" fill="#F472B6" font-size="10" font-weight="bold" text-anchor="middle">Liaison Peptidique (-CO-NH-)</text>
+    
+    <!-- Reaction schema -->
+    <text x="120" y="112" fill="#CBD5E1" font-size="10" font-family="monospace" text-anchor="middle">
+      -COOH + H₂N- ➔ <tspan fill="#F43F5E" font-weight="800">-CO-NH-</tspan> + H₂O
+    </text>
+
+    <!-- Peptide representation with highlights -->
+    <rect x="30" y="125" width="180" height="36" rx="6" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+    <text x="35" y="147" fill="#38BDF8" font-size="9" font-weight="bold">H₂N-</text>
+    <text x="65" y="147" fill="#E2E8F0" font-size="9">CH(R₁)-</text>
+    <rect x="105" y="132" width="45" height="22" rx="4" fill="#F43F5E" fill-opacity="0.3" stroke="#F43F5E" stroke-width="1.5"/>
+    <text x="127" y="147" fill="#FDA4AF" font-size="9" font-weight="800" text-anchor="middle">CO-NH</text>
+    <text x="155" y="147" fill="#E2E8F0" font-size="9">-CH(R₂)</text>
+    <text x="195" y="147" fill="#F87171" font-size="9" font-weight="bold">-COOH</text>
+
+    <!-- N-term and C-term notes -->
+    <text x="40" y="170" fill="#38BDF8" font-size="7.5" font-weight="bold">N-terminal (gauche)</text>
+    <text x="200" y="170" fill="#F87171" font-size="7.5" font-weight="bold" text-anchor="end">C-terminal (droite)</text>
+
+    <!-- 4 Dipeptides Box -->
+    <rect x="15" y="185" width="240" height="85" rx="8" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+    <text x="25" y="205" fill="#FBBF24" font-size="10" font-weight="bold">2 acides A et B ⟹ 4 Dipeptides :</text>
+    <text x="25" y="224" fill="#CBD5E1" font-size="9">• Homodipeptides : <tspan fill="#E2E8F0" font-weight="bold">A-A</tspan> et <tspan fill="#E2E8F0" font-weight="bold">B-B</tspan></text>
+    <text x="25" y="240" fill="#CBD5E1" font-size="9">• Hétérodipeptides : <tspan fill="#5EEAD4" font-weight="bold">A-B</tspan> et <tspan fill="#F472B6" font-weight="bold">B-A</tspan></text>
+    <text x="25" y="258" fill="#F87171" font-size="8.5" font-weight="bold">⚠️ A-B ≠ B-A (extrémités inversées !)</text>
+
+    <!-- Synthesis Steps Card -->
+    <rect x="15" y="280" width="240" height="80" rx="8" fill="#0F172A" stroke="#00B8A9" stroke-width="1"/>
+    <text x="25" y="300" fill="#5EEAD4" font-size="9.5" font-weight="bold">Synthèse Dirigée de A-B (4 étapes) :</text>
+    <text x="25" y="318" fill="#CBD5E1" font-size="8.5">1. Protéger -NH₂ de A &amp; -COOH de B</text>
+    <text x="25" y="332" fill="#CBD5E1" font-size="8.5">2. Activer -COOH de A (-COCl via SOCl₂)</text>
+    <text x="25" y="346" fill="#CBD5E1" font-size="8.5">3. Couplage peptidique puis 4. Déprotection</text>
+  </g>
+</svg>

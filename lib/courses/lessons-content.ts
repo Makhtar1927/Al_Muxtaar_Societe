@@ -3819,7 +3819,7 @@ $$V_b = 100 - 71{,}4 = 28{,}6\\text{ mL}$$
 `;
 
 // C9 : ACIDES ALPHA-AMINÉS ET ÉLÉMENTS DE STÉRÉOCHIMIE (Terminale S2 Sénégal)
-RICH_LESSONS_MAP.acides_amines = `# C9 : Acides \\alpha-Aminés & Éléments de Stéréochimie (Terminale S2)
+RICH_LESSONS_MAP.acides_amines = `# C9 : Acides α-Aminés & Éléments de Stéréochimie (Terminale S2)
 
 Bienvenue dans le neuvième chapitre de **Chimie Organique et Générale** de **Terminale S2**, rigoureusement conforme au programme officiel sénégalais (MEN / IGEF / Office du Baccalauréat).
 
