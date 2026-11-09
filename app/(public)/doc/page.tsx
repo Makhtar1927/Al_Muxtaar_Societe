@@ -110,7 +110,7 @@ export default function DocLandingPage() {
                 </div>
 
                 {/* Cartouche informatif inférieur */}
-                <div className="mt-3 rounded-2xl bg-white border border-navy/10 p-3 shadow-xs flex items-center justify-between gap-3 text-left">
+                <div className="mt-3 rounded-2xl bg-white border border-navy/10 p-3 shadow-xs flex items-center gap-3 text-left">
                   <div className="flex items-center gap-2.5 min-w-0">
                     <div className="w-8 h-8 rounded-xl bg-turquoise-light text-turquoise flex items-center justify-center shrink-0">
                       <BookOpen className="w-4 h-4" />
@@ -120,9 +120,6 @@ export default function DocLandingPage() {
                       <p className="text-[10px] text-navy-light truncate">Fiches de cours légères &amp; quiz instantanés</p>
                     </div>
                   </div>
-                  <span className="text-[10px] font-black text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full shrink-0">
-                    Zéro Bug
-                  </span>
                 </div>
               </div>
             </div>
