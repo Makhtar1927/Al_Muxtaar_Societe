@@ -32,12 +32,12 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/doc/catalogue" className="hover:text-turquoise transition-colors">
-                  Catalogue national (4 Niveaux)
+                  Catalogue national (Collège &amp; Lycée)
                 </Link>
               </li>
               <li>
-                <Link href="/cours/terminale/s2/mathematiques" className="hover:text-turquoise transition-colors">
-                  Tle S2 Maths — Module Actif (13 Chapitres)
+                <Link href="/cours" className="hover:text-turquoise transition-colors">
+                  Cours &amp; Révisions (BFEM &amp; Bac)
                 </Link>
               </li>
               <li>
