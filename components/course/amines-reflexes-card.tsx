@@ -87,7 +87,7 @@ export default function AminesReflexesCard() {
   const current = REFLEXES[activeTab];
 
   return (
-    <section className="bg-white rounded-3xl border border-navy/10 p-5 sm:p-7 shadow-sm space-y-6">
+    <section className="bg-white rounded-3xl border border-navy/10 p-4 sm:p-7 shadow-sm space-y-6 w-full max-w-full overflow-hidden">
       {/* Header */}
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-navy/10 pb-4">
         <div>

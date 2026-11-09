@@ -239,7 +239,7 @@ export default function AminesInteractiveSimulator() {
   };
 
   return (
-    <section className="bg-white rounded-3xl border border-navy/10 p-4 sm:p-7 shadow-sm space-y-6">
+    <section className="bg-white rounded-3xl border border-navy/10 p-4 sm:p-7 shadow-sm space-y-6 w-full max-w-full overflow-hidden">
       {/* ── EN-TÊTE DE LA PAILLASSE RÉELLE ── */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-navy/10 pb-4">
         <div>
@@ -249,7 +249,7 @@ export default function AminesInteractiveSimulator() {
               Laboratoire Virtuel Interactif • Terminale S2 Sénégal
             </span>
           </div>
-          <h2 className="text-lg sm:text-2xl font-black text-navy mt-1 flex items-center gap-2">
+          <h2 className="text-lg sm:text-2xl font-black text-navy mt-1 flex flex-wrap items-center gap-2">
             <span>Paillasse Expérimentale des Amines</span>
             <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-navy/5 text-navy border border-navy/10">
               Verrerie & Réactions Réelles
@@ -258,15 +258,15 @@ export default function AminesInteractiveSimulator() {
         </div>
 
         {/* Badges de la molécule en manipulation */}
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="rounded-full bg-turquoise-light/60 text-turquoise font-mono text-xs px-3 py-1 font-extrabold border border-turquoise/20">
+        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+          <span className="rounded-full bg-turquoise-light/60 text-turquoise font-mono text-xs px-2.5 sm:px-3 py-1 font-extrabold border border-turquoise/20">
             {amine.brute}
           </span>
-          <span className="rounded-full bg-navy/5 text-navy text-xs px-3 py-1 font-bold">
+          <span className="rounded-full bg-navy/5 text-navy text-xs px-2.5 sm:px-3 py-1 font-bold">
             {amine.name}
           </span>
           <span
-            className={`rounded-full text-xs px-3 py-1 font-black ${
+            className={`rounded-full text-xs px-2.5 sm:px-3 py-1 font-black ${
               amine.classe === '1'
                 ? 'bg-emerald-100 text-emerald-800 border border-emerald-300'
                 : amine.classe === '2'
@@ -282,10 +282,10 @@ export default function AminesInteractiveSimulator() {
       </div>
 
       {/* ── BARRE D'ONGLETS DES 5 ATELIERS EXPÉRIMENTAUX ── */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-1.5 p-1.5 bg-surface rounded-2xl border border-navy/10">
+      <div className="flex overflow-x-auto no-scrollbar sm:grid sm:grid-cols-3 lg:grid-cols-5 gap-1.5 p-1.5 bg-surface rounded-2xl border border-navy/10 w-full max-w-full">
         <button
           onClick={() => setActiveWorkshop('indicateurs')}
-          className={`py-2 px-2.5 text-center rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+          className={`shrink-0 whitespace-nowrap sm:whitespace-normal py-2 px-3 text-center rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
             activeWorkshop === 'indicateurs'
               ? 'bg-white text-navy shadow-sm border border-navy/10'
               : 'text-navy/60 hover:text-navy'
@@ -297,7 +297,7 @@ export default function AminesInteractiveSimulator() {
 
         <button
           onClick={() => setActiveWorkshop('acylation')}
-          className={`py-2 px-2.5 text-center rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+          className={`shrink-0 whitespace-nowrap sm:whitespace-normal py-2 px-3 text-center rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
             activeWorkshop === 'acylation'
               ? 'bg-white text-navy shadow-sm border border-navy/10'
               : 'text-navy/60 hover:text-navy'
@@ -309,7 +309,7 @@ export default function AminesInteractiveSimulator() {
 
         <button
           onClick={() => setActiveWorkshop('hofmann')}
-          className={`py-2 px-2.5 text-center rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+          className={`shrink-0 whitespace-nowrap sm:whitespace-normal py-2 px-3 text-center rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
             activeWorkshop === 'hofmann'
               ? 'bg-white text-navy shadow-sm border border-navy/10'
               : 'text-navy/60 hover:text-navy'
@@ -321,14 +321,14 @@ export default function AminesInteractiveSimulator() {
 
         <button
           onClick={() => setActiveWorkshop('bunsen')}
-          className={`py-2 px-2.5 text-center rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+          className={`shrink-0 whitespace-nowrap sm:whitespace-normal py-2 px-3 text-center rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
             activeWorkshop === 'bunsen'
               ? 'bg-white text-navy shadow-sm border border-navy/10'
               : 'text-navy/60 hover:text-navy'
           }`}
         >
           <Flame className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-          <span>4. Bec Bunsen & T_éb</span>
+          <span>4. Bec Bunsen & Ébullition</span>
         </button>
 
         <button
@@ -336,7 +336,7 @@ export default function AminesInteractiveSimulator() {
             setActiveWorkshop('defi');
             handleStartMystery();
           }}
-          className={`col-span-2 sm:col-span-1 py-2 px-2.5 text-center rounded-xl text-xs font-extrabold transition-all flex items-center justify-center gap-1.5 ${
+          className={`shrink-0 whitespace-nowrap sm:whitespace-normal sm:col-span-1 py-2 px-3 text-center rounded-xl text-xs font-extrabold transition-all flex items-center justify-center gap-1.5 ${
             activeWorkshop === 'defi'
               ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-sm'
               : 'bg-amber-100/70 text-amber-900 hover:bg-amber-200'
@@ -349,10 +349,10 @@ export default function AminesInteractiveSimulator() {
 
       {/* ── FLACONS SUR LE PLAN DE TRAVAIL (Pour ateliers 1 à 4) ── */}
       {activeWorkshop !== 'defi' && (
-        <div className="bg-surface/60 p-3 sm:p-4 rounded-2xl border border-navy/5 space-y-2">
-          <div className="flex items-center justify-between text-xs">
+        <div className="bg-surface/60 p-3 sm:p-4 rounded-2xl border border-navy/5 space-y-2.5 w-full max-w-full">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs">
             <span className="font-bold uppercase tracking-wider text-navy/70 flex items-center gap-1.5">
-              <Beaker className="w-3.5 h-3.5 text-turquoise" />
+              <Beaker className="w-3.5 h-3.5 text-turquoise shrink-0" />
               <span>Choisir le flacon d&apos;amine à verser dans le tube à essai :</span>
             </span>
             <span className="text-[11px] text-navy/50 font-medium">4 familles chimiques représentées</span>
@@ -372,18 +372,18 @@ export default function AminesInteractiveSimulator() {
                     setBurnerLit(false);
                     setBurnerTemp(20);
                   }}
-                  className={`p-2.5 rounded-xl border text-left transition-all flex items-center justify-between ${
+                  className={`p-2 sm:p-2.5 rounded-xl border text-left transition-all flex items-center justify-between gap-1.5 min-w-0 ${
                     isSelected
                       ? 'bg-navy text-white border-navy shadow-sm ring-2 ring-turquoise/40'
                       : 'bg-white hover:bg-surface text-navy border-navy/10'
                   }`}
                 >
-                  <div>
-                    <span className="text-xs font-black block">{item.name}</span>
-                    <span className="font-mono text-[10px] opacity-70">{item.brute}</span>
+                  <div className="min-w-0 flex-1">
+                    <span className="text-xs font-black block truncate" title={item.name}>{item.name}</span>
+                    <span className="font-mono text-[10px] opacity-70 block">{item.brute}</span>
                   </div>
                   <span
-                    className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-full ${
+                    className={`text-[9px] font-black uppercase px-1.5 py-0.5 rounded-full shrink-0 ${
                       item.classe === '1'
                         ? isSelected ? 'bg-emerald-500/30 text-emerald-300' : 'bg-emerald-100 text-emerald-800'
                         : item.classe === '2'
@@ -393,7 +393,7 @@ export default function AminesInteractiveSimulator() {
                         : isSelected ? 'bg-purple-500/30 text-purple-300' : 'bg-purple-100 text-purple-800'
                     }`}
                   >
-                    {item.classe === 'aromatique' ? 'Arome 1°' : `${item.classe}°`}
+                    {item.classe === 'aromatique' ? 'Arome' : `${item.classe}°`}
                   </span>
                 </button>
               );
@@ -406,9 +406,9 @@ export default function AminesInteractiveSimulator() {
       {/* ATELIER 1 : TUBE À ESSAI RÉEL — INDICATEURS COLORÉS & DOSAGE HCL */}
       {/* ════════════════════════════════════════════════════════════════ */}
       {activeWorkshop === 'indicateurs' && (
-        <div className="grid gap-6 lg:grid-cols-12 items-center">
+        <div className="grid gap-6 lg:grid-cols-12 items-center w-full min-w-0 max-w-full">
           {/* Banc Visuel avec Tube à essai SVG réaliste */}
-          <div className="lg:col-span-6 bg-gradient-to-b from-slate-50 to-slate-100/70 rounded-2xl border border-navy/10 p-6 flex flex-col items-center justify-center relative shadow-inner min-h-[360px]">
+          <div className="lg:col-span-6 bg-gradient-to-b from-slate-50 to-slate-100/70 rounded-2xl border border-navy/10 p-4 sm:p-6 flex flex-col items-center justify-center relative shadow-inner min-h-[360px] w-full min-w-0 max-w-full overflow-hidden">
             {/* Goutte animée qui tombe */}
             {isPouringDroplet && (
               <div className="absolute top-12 left-1/2 -translate-x-1/2 z-20 animate-bounce">
@@ -463,9 +463,9 @@ export default function AminesInteractiveSimulator() {
             </div>
 
             {/* Statut visuel sous le tube */}
-            <div className="mt-4 text-center space-y-1">
+            <div className="mt-4 text-center space-y-1 px-2">
               <span
-                className="inline-block text-xs font-black px-4 py-1.5 rounded-full shadow-xs border transition-all"
+                className="inline-block text-xs font-black px-4 py-1.5 rounded-full shadow-xs border transition-all max-w-full break-words"
                 style={{
                   backgroundColor: getLiquidColor(),
                   color: chosenIndicator === 'aucun' || getLiquidColor() === '#F8FAFC' || getLiquidColor() === '#FACC15' ? '#0F172A' : '#FFFFFF',
@@ -487,54 +487,54 @@ export default function AminesInteractiveSimulator() {
           </div>
 
           {/* Console de manipulation tactile */}
-          <div className="lg:col-span-6 space-y-4">
-            <div className="bg-surface/50 rounded-2xl border border-navy/10 p-5 space-y-3">
+          <div className="lg:col-span-6 space-y-4 w-full min-w-0 max-w-full">
+            <div className="bg-surface/50 rounded-2xl border border-navy/10 p-4 sm:p-5 space-y-3 w-full min-w-0">
               <span className="text-xs font-bold uppercase tracking-wider text-navy/70 block">
                 Étape 1 : Choisir un indicateur coloré du laboratoire
               </span>
 
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                 <button
                   onClick={() => setChosenIndicator('bbt')}
-                  className={`p-2.5 rounded-xl border text-xs font-bold text-center transition-all ${
+                  className={`p-2.5 rounded-xl border text-xs font-bold text-center transition-all min-w-0 ${
                     chosenIndicator === 'bbt'
                       ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
                       : 'bg-white text-navy border-navy/10 hover:bg-surface'
                   }`}
                 >
                   <span className="block font-black">B.B.T.</span>
-                  <span className="text-[10px] opacity-80">Virage 6.0 - 7.6</span>
+                  <span className="text-[10px] opacity-80 block truncate">Virage 6.0 - 7.6</span>
                 </button>
 
                 <button
                   onClick={() => setChosenIndicator('phenol')}
-                  className={`p-2.5 rounded-xl border text-xs font-bold text-center transition-all ${
+                  className={`p-2.5 rounded-xl border text-xs font-bold text-center transition-all min-w-0 ${
                     chosenIndicator === 'phenol'
                       ? 'bg-pink-600 text-white border-pink-600 shadow-sm'
                       : 'bg-white text-navy border-navy/10 hover:bg-surface'
                   }`}
                 >
-                  <span className="block font-black">Phénolphtaléine</span>
-                  <span className="text-[10px] opacity-80">Virage 8.2 - 10.0</span>
+                  <span className="block font-black truncate">Phénolphtaléine</span>
+                  <span className="text-[10px] opacity-80 block truncate">Virage 8.2 - 10.0</span>
                 </button>
 
                 <button
                   onClick={() => setChosenIndicator('rouge_methyle')}
-                  className={`p-2.5 rounded-xl border text-xs font-bold text-center transition-all ${
+                  className={`p-2.5 rounded-xl border text-xs font-bold text-center transition-all min-w-0 ${
                     chosenIndicator === 'rouge_methyle'
                       ? 'bg-amber-600 text-white border-amber-600 shadow-sm'
                       : 'bg-white text-navy border-navy/10 hover:bg-surface'
                   }`}
                 >
-                  <span className="block font-black">Rouge Méthyle</span>
-                  <span className="text-[10px] opacity-80">Indicateur Bac S2</span>
+                  <span className="block font-black truncate">Rouge Méthyle</span>
+                  <span className="text-[10px] opacity-80 block truncate">Indicateur Bac S2</span>
                 </button>
               </div>
             </div>
 
             {/* Étape 2 : Pipette de HCl */}
-            <div className="bg-white rounded-2xl border border-navy/10 p-5 space-y-3 shadow-sm">
-              <div className="flex items-center justify-between">
+            <div className="bg-white rounded-2xl border border-navy/10 p-4 sm:p-5 space-y-3 shadow-sm w-full min-w-0">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div>
                   <span className="text-xs font-bold uppercase tracking-wider text-navy/70 block">
                     Étape 2 : Neutraliser par HCl (0.01 mol/L)
@@ -543,7 +543,7 @@ export default function AminesInteractiveSimulator() {
                 </div>
                 <button
                   onClick={resetIndicateurs}
-                  className="px-2.5 py-1 text-[11px] font-bold text-navy/60 hover:text-navy border border-navy/10 rounded-lg"
+                  className="self-start sm:self-auto px-2.5 py-1 text-[11px] font-bold text-navy/60 hover:text-navy border border-navy/10 rounded-lg whitespace-nowrap"
                 >
                   Vider & Rincer
                 </button>
@@ -553,10 +553,10 @@ export default function AminesInteractiveSimulator() {
                 <button
                   onClick={handleAddHclDrop}
                   disabled={hclDropsCount >= 10 || isPouringDroplet}
-                  className="flex-1 py-3 bg-navy text-white text-xs font-black rounded-xl shadow-md hover:bg-navy/90 disabled:opacity-40 transition-all flex items-center justify-center gap-2"
+                  className="w-full py-3 px-3 bg-navy text-white text-xs font-black rounded-xl shadow-md hover:bg-navy/90 disabled:opacity-40 transition-all flex items-center justify-center gap-2 text-center"
                 >
-                  <Droplets className="w-4 h-4 text-sky-400" />
-                  <span>Verser 1 goutte d&apos;acide chlorhydrique (HCl)</span>
+                  <Droplets className="w-4 h-4 text-sky-400 shrink-0" />
+                  <span className="truncate">Verser 1 goutte d&apos;acide chlorhydrique (HCl)</span>
                 </button>
               </div>
 
@@ -578,22 +578,22 @@ export default function AminesInteractiveSimulator() {
       {/* ATELIER 2 : RÉACTION AVEC CHLORURE D'ACYLE (FUMÉES & AMIDE)     */}
       {/* ════════════════════════════════════════════════════════════════ */}
       {activeWorkshop === 'acylation' && (
-        <div className="grid gap-6 lg:grid-cols-12 items-center">
+        <div className="grid gap-6 lg:grid-cols-12 items-center w-full min-w-0 max-w-full">
           {/* Tube avec simulation de fumées et exothermie */}
-          <div className="lg:col-span-6 bg-gradient-to-b from-slate-50 to-slate-100/70 rounded-2xl border border-navy/10 p-6 flex flex-col items-center justify-center relative shadow-inner min-h-[360px]">
+          <div className="lg:col-span-6 bg-gradient-to-b from-slate-50 to-slate-100/70 rounded-2xl border border-navy/10 p-4 sm:p-6 flex flex-col items-center justify-center relative shadow-inner min-h-[360px] w-full min-w-0 max-w-full overflow-hidden">
             {/* Fumées blanches animées (HCl + vapeurs amine) */}
             {acylSmokeActive && amine.classe !== '3' && (
-              <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center animate-pulse">
+              <div className="absolute top-3 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center animate-pulse pointer-events-none">
                 <span className="text-3xl filter blur-[1px] opacity-80">💨</span>
-                <span className="text-xs font-black text-slate-800 bg-white/90 px-2 py-0.5 rounded-full border border-slate-300 shadow-sm">
+                <span className="text-[11px] sm:text-xs font-black text-slate-800 bg-white/95 px-2.5 py-0.5 rounded-full border border-slate-300 shadow-sm whitespace-nowrap">
                   Fumées blanches denses (RNH₃⁺Cl⁻)
                 </span>
               </div>
             )}
 
-            {/* Tube à essai avec précipité cristallin */}
-            <div className="relative">
-              <svg width="120" height="260" viewBox="0 0 120 260" className="drop-shadow-lg">
+            {/* Tube à essai centré avec thermomètre digital adjacent */}
+            <div className="flex items-center justify-center gap-3 sm:gap-4 my-2">
+              <svg width="110" height="250" viewBox="0 0 120 260" className="drop-shadow-lg shrink-0">
                 <path
                   d="M35 20 L35 210 Q35 245 60 245 Q85 245 85 210 L85 20"
                   fill="none"
@@ -622,28 +622,28 @@ export default function AminesInteractiveSimulator() {
                 )}
               </svg>
 
-              {/* Thermomètre digital collé au tube */}
-              <div className="absolute right-[-45px] top-1/2 -translate-y-1/2 bg-white px-2.5 py-1.5 rounded-xl border border-navy/20 shadow-md text-center">
+              {/* Thermomètre digital fixé à côté du tube sans dépasser */}
+              <div className="bg-white px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-xl border border-navy/20 shadow-md text-center shrink-0">
                 <span className="text-[9px] font-bold text-navy/50 block">Thermomètre</span>
-                <span className={`font-mono text-sm font-black ${tubeTemperature > 40 ? 'text-rose-600 animate-pulse' : 'text-navy'}`}>
+                <span className={`font-mono text-sm sm:text-base font-black ${tubeTemperature > 40 ? 'text-rose-600 animate-pulse' : 'text-navy'}`}>
                   {tubeTemperature} °C
                 </span>
               </div>
             </div>
 
-            <div className="mt-4 text-center">
+            <div className="mt-3 text-center px-2">
               {acylAdded ? (
                 amine.classe === '3' ? (
-                  <span className="inline-block text-xs font-black px-4 py-1.5 rounded-full bg-rose-100 text-rose-800 border border-rose-300">
+                  <span className="inline-block text-[11px] sm:text-xs font-black px-3.5 py-1.5 rounded-full bg-rose-100 text-rose-800 border border-rose-300">
                     ⚠️ Aucune réaction visible : Amine tertiaire sans H !
                   </span>
                 ) : (
-                  <span className="inline-block text-xs font-black px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300">
+                  <span className="inline-block text-[11px] sm:text-xs font-black px-3.5 py-1.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300">
                     ✓ Réaction Totale : Amide formé + Cristaux blancs solides
                   </span>
                 )
               ) : (
-                <span className="text-xs text-navy/50 font-bold">
+                <span className="text-[11px] sm:text-xs text-navy/50 font-bold">
                   Tube prêt • Prêt à recevoir le chlorure d&apos;éthanoyle CH₃COCl
                 </span>
               )}
@@ -651,8 +651,8 @@ export default function AminesInteractiveSimulator() {
           </div>
 
           {/* Commandes et Explication Réactionnelle */}
-          <div className="lg:col-span-6 space-y-4">
-            <div className="bg-surface/50 rounded-2xl border border-navy/10 p-5 space-y-3">
+          <div className="lg:col-span-6 space-y-4 w-full min-w-0 max-w-full">
+            <div className="bg-surface/50 rounded-2xl border border-navy/10 p-4 sm:p-5 space-y-3 w-full min-w-0">
               <span className="text-xs font-bold uppercase tracking-wider text-navy/70 block">
                 Ajout de Chlorure d&apos;Éthanoyle pur (CH₃COCl)
               </span>
@@ -660,19 +660,19 @@ export default function AminesInteractiveSimulator() {
                 Le chlorure d&apos;acyle est un dérivé d&apos;acide très réactif. Observez l&apos;effet du contact avec l&apos;amine dans le tube à essai.
               </p>
 
-              <div className="flex gap-2">
+              <div className="flex flex-col sm:flex-row gap-2">
                 <button
                   onClick={handleTriggerAcylation}
                   disabled={acylAdded}
-                  className="flex-1 py-3 bg-rose-600 hover:bg-rose-700 text-white text-xs font-black rounded-xl shadow-md disabled:opacity-40 transition-all flex items-center justify-center gap-2"
+                  className="w-full sm:flex-1 py-3 px-3 bg-rose-600 hover:bg-rose-700 text-white text-xs font-black rounded-xl shadow-md disabled:opacity-40 transition-all flex items-center justify-center gap-2"
                 >
-                  <TestTube className="w-4 h-4" />
+                  <TestTube className="w-4 h-4 shrink-0" />
                   <span>Injecter 2 mL de CH₃COCl</span>
                 </button>
 
                 <button
                   onClick={handleResetAcylation}
-                  className="px-4 py-3 bg-white border border-navy/10 text-navy text-xs font-bold rounded-xl hover:bg-surface"
+                  className="w-full sm:w-auto px-4 py-3 bg-white border border-navy/10 text-navy text-xs font-bold rounded-xl hover:bg-surface whitespace-nowrap"
                 >
                   Nettoyer le tube
                 </button>
@@ -680,11 +680,11 @@ export default function AminesInteractiveSimulator() {
             </div>
 
             {/* Équation-bilan et règle du coefficient 2 */}
-            <div className="bg-white rounded-2xl border border-navy/10 p-5 space-y-3 shadow-sm">
+            <div className="bg-white rounded-2xl border border-navy/10 p-4 sm:p-5 space-y-3 shadow-sm w-full min-w-0 max-w-full overflow-hidden">
               <span className="text-[10px] font-bold uppercase tracking-wider text-navy/40 block">
                 Équation-bilan officielle au Baccalauréat :
               </span>
-              <div className="bg-surface p-3 rounded-xl border border-navy/5 font-mono text-xs text-navy font-bold text-center overflow-x-auto">
+              <div className="bg-surface p-3 rounded-xl border border-navy/5 font-mono text-xs text-navy font-bold text-center w-full max-w-full overflow-x-auto">
                 <MathRenderer content="$$CH_3-CO-Cl + \mathbf{2}\,R-NH_2 \longrightarrow CH_3-CO-NH-R + (R-NH_3^+ + Cl^-)$$" />
               </div>
 
@@ -705,10 +705,10 @@ export default function AminesInteractiveSimulator() {
       {/* ATELIER 3 : POLYALKYLATION D'HOFMANN (CRISTAUX QUATERNAIRES)    */}
       {/* ════════════════════════════════════════════════════════════════ */}
       {activeWorkshop === 'hofmann' && (
-        <div className="grid gap-6 lg:grid-cols-12 items-center">
+        <div className="grid gap-6 lg:grid-cols-12 items-center w-full min-w-0 max-w-full">
           {/* Tube avec cristallisation progressive */}
-          <div className="lg:col-span-6 bg-gradient-to-b from-slate-50 to-slate-100/70 rounded-2xl border border-navy/10 p-6 flex flex-col items-center justify-center relative shadow-inner min-h-[360px]">
-            <div className="relative">
+          <div className="lg:col-span-6 bg-gradient-to-b from-slate-50 to-slate-100/70 rounded-2xl border border-navy/10 p-4 sm:p-6 flex flex-col items-center justify-center relative shadow-inner min-h-[360px] w-full min-w-0 max-w-full overflow-hidden">
+            <div className="relative my-2">
               <svg width="120" height="260" viewBox="0 0 120 260" className="drop-shadow-lg">
                 <path
                   d="M35 20 L35 210 Q35 245 60 245 Q85 245 85 210 L85 20"
@@ -751,9 +751,9 @@ export default function AminesInteractiveSimulator() {
               </div>
             </div>
 
-            <div className="mt-4 text-center">
+            <div className="mt-4 text-center px-2">
               <span
-                className={`text-xs font-black px-4 py-1.5 rounded-full border ${
+                className={`inline-block text-xs font-black px-4 py-1.5 rounded-full border max-w-full break-words ${
                   hofmannProductStage === 'quaternaire'
                     ? 'bg-purple-100 text-purple-900 border-purple-300 shadow-sm'
                     : 'bg-amber-100 text-amber-900 border-amber-300'
@@ -767,8 +767,8 @@ export default function AminesInteractiveSimulator() {
           </div>
 
           {/* Console de Polyalkylation */}
-          <div className="lg:col-span-6 space-y-4">
-            <div className="bg-surface/50 rounded-2xl border border-navy/10 p-5 space-y-3">
+          <div className="lg:col-span-6 space-y-4 w-full min-w-0 max-w-full">
+            <div className="bg-surface/50 rounded-2xl border border-navy/10 p-4 sm:p-5 space-y-3 w-full min-w-0">
               <span className="text-xs font-bold uppercase tracking-wider text-navy/70 block">
                 Ajout séquentiel d&apos;iodométhane (CH₃I)
               </span>
@@ -776,19 +776,19 @@ export default function AminesInteractiveSimulator() {
                 Chaque ajout permet à l&apos;azote de réaliser une substitution nucléophile jusqu&apos;à l&apos;arrêt complet au stade quaternaire.
               </p>
 
-              <div className="flex gap-2">
+              <div className="flex flex-col sm:flex-row gap-2">
                 <button
                   onClick={handleAddCh3i}
                   disabled={hofmannProductStage === 'quaternaire'}
-                  className="flex-1 py-3 bg-purple-600 hover:bg-purple-700 text-white text-xs font-black rounded-xl shadow-md disabled:opacity-40 transition-all flex items-center justify-center gap-2"
+                  className="w-full sm:flex-1 py-3 px-3 bg-purple-600 hover:bg-purple-700 text-white text-xs font-black rounded-xl shadow-md disabled:opacity-40 transition-all flex items-center justify-center gap-2"
                 >
-                  <Droplets className="w-4 h-4 text-purple-200" />
+                  <Droplets className="w-4 h-4 text-purple-200 shrink-0" />
                   <span>Ajouter 1 équivalent de CH₃I</span>
                 </button>
 
                 <button
                   onClick={handleResetHofmann}
-                  className="px-4 py-3 bg-white border border-navy/10 text-navy text-xs font-bold rounded-xl hover:bg-surface"
+                  className="w-full sm:w-auto px-4 py-3 bg-white border border-navy/10 text-navy text-xs font-bold rounded-xl hover:bg-surface whitespace-nowrap"
                 >
                   Réinitialiser
                 </button>
@@ -796,7 +796,7 @@ export default function AminesInteractiveSimulator() {
             </div>
 
             {/* Fiche récapitulative Hofmann */}
-            <div className="bg-white rounded-2xl border border-navy/10 p-5 space-y-3 shadow-sm">
+            <div className="bg-white rounded-2xl border border-navy/10 p-4 sm:p-5 space-y-3 shadow-sm w-full min-w-0 max-w-full">
               <span className="text-[10px] font-bold uppercase tracking-wider text-navy/40 block">
                 Bilan stœchiométrique Bac S2 :
               </span>
@@ -813,21 +813,21 @@ export default function AminesInteractiveSimulator() {
       {/* ATELIER 4 : BEC BUNSEN EN DIRECT & ÉBULLITION                   */}
       {/* ════════════════════════════════════════════════════════════════ */}
       {activeWorkshop === 'bunsen' && (
-        <div className="grid gap-6 lg:grid-cols-12 items-center">
+        <div className="grid gap-6 lg:grid-cols-12 items-center w-full min-w-0 max-w-full">
           {/* Banc Bunsen avec flamme animée et tube à essai chauffé */}
-          <div className="lg:col-span-6 bg-gradient-to-b from-slate-900 to-slate-950 rounded-2xl border border-navy/10 p-6 flex flex-col items-center justify-center relative shadow-inner min-h-[360px]">
+          <div className="lg:col-span-6 bg-gradient-to-b from-slate-900 to-slate-950 rounded-2xl border border-navy/10 p-4 sm:p-6 flex flex-col items-center justify-center relative shadow-inner min-h-[360px] w-full min-w-0 max-w-full overflow-hidden">
             {/* Bulles d'ébullition et vapeur */}
             {burnerTemp >= amine.tEb && (
-              <div className="absolute top-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center animate-pulse">
+              <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center animate-pulse pointer-events-none">
                 <span className="text-2xl opacity-70">♨️</span>
-                <span className="text-[10px] font-black text-rose-300 bg-rose-950/80 px-2 py-0.5 rounded-full border border-rose-500/40">
+                <span className="text-[10px] font-black text-rose-300 bg-rose-950/80 px-2 py-0.5 rounded-full border border-rose-500/40 whitespace-nowrap">
                   Ébullition active ({amine.tEb} °C)
                 </span>
               </div>
             )}
 
             {/* Tube chauffé */}
-            <div className="relative">
+            <div className="relative my-2">
               <svg width="120" height="230" viewBox="0 0 120 230" className="drop-shadow-lg">
                 <path
                   d="M35 10 L35 170 Q35 195 60 195 Q85 195 85 170 L85 10"
@@ -876,23 +876,23 @@ export default function AminesInteractiveSimulator() {
           </div>
 
           {/* Commandes du Banc Thermique */}
-          <div className="lg:col-span-6 space-y-4">
-            <div className="bg-surface/50 rounded-2xl border border-navy/10 p-5 space-y-3">
+          <div className="lg:col-span-6 space-y-4 w-full min-w-0 max-w-full">
+            <div className="bg-surface/50 rounded-2xl border border-navy/10 p-4 sm:p-5 space-y-3 w-full min-w-0">
               <span className="text-xs font-bold uppercase tracking-wider text-navy/70 block">
                 Contrôle de la flamme du Bec Bunsen
               </span>
 
-              <div className="flex gap-2">
+              <div className="flex flex-col sm:flex-row gap-2">
                 <button
                   onClick={() => setBurnerLit(!burnerLit)}
-                  className={`flex-1 py-3 text-xs font-black rounded-xl shadow-md transition-all flex items-center justify-center gap-2 ${
+                  className={`w-full sm:flex-1 py-3 px-3 text-xs font-black rounded-xl shadow-md transition-all flex items-center justify-center gap-2 ${
                     burnerLit
                       ? 'bg-rose-600 text-white animate-pulse'
                       : 'bg-navy text-white hover:bg-navy/90'
                   }`}
                 >
-                  <Flame className="w-4 h-4" />
-                  <span>{burnerLit ? 'Éteindre le Bec Bunsen' : 'Allumer la flamme bleue'}</span>
+                  <Flame className="w-4 h-4 shrink-0" />
+                  <span className="truncate">{burnerLit ? 'Éteindre le Bec Bunsen' : 'Allumer la flamme bleue'}</span>
                 </button>
 
                 <button
@@ -900,7 +900,7 @@ export default function AminesInteractiveSimulator() {
                     setBurnerLit(false);
                     setBurnerTemp(20);
                   }}
-                  className="px-4 py-3 bg-white border border-navy/10 text-navy text-xs font-bold rounded-xl hover:bg-surface"
+                  className="w-full sm:w-auto px-4 py-3 bg-white border border-navy/10 text-navy text-xs font-bold rounded-xl hover:bg-surface whitespace-nowrap"
                 >
                   Refroidir (20 °C)
                 </button>
@@ -908,7 +908,7 @@ export default function AminesInteractiveSimulator() {
             </div>
 
             {/* Explication Liaisons H */}
-            <div className="bg-white rounded-2xl border border-navy/10 p-5 space-y-2 shadow-sm text-xs leading-relaxed text-navy-light">
+            <div className="bg-white rounded-2xl border border-navy/10 p-4 sm:p-5 space-y-2 shadow-sm text-xs leading-relaxed text-navy-light w-full min-w-0 max-w-full">
               <span className="text-[10px] font-bold uppercase tracking-wider text-navy/40 block">
                 Interprétation microscopique au Bac :
               </span>
@@ -930,7 +930,7 @@ export default function AminesInteractiveSimulator() {
       {/* ATELIER 5 : DÉFI PRATIQUE DU BACCALAURÉAT (TUBE INCONNU)       */}
       {/* ════════════════════════════════════════════════════════════════ */}
       {activeWorkshop === 'defi' && (
-        <div className="bg-gradient-to-br from-amber-500/10 via-white to-amber-500/5 rounded-2xl border border-amber-300 p-5 sm:p-7 space-y-6">
+        <div className="bg-gradient-to-br from-amber-500/10 via-white to-amber-500/5 rounded-2xl border border-amber-300 p-4 sm:p-7 space-y-6 w-full min-w-0 max-w-full overflow-hidden">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-amber-200/60 pb-4">
             <div>
               <span className="text-[10px] font-black text-amber-800 uppercase tracking-widest block">
@@ -942,16 +942,16 @@ export default function AminesInteractiveSimulator() {
             </div>
             <button
               onClick={handleStartMystery}
-              className="px-3.5 py-2 rounded-xl text-xs font-bold bg-amber-500 text-white hover:bg-amber-600 shadow-sm flex items-center gap-1.5 transition-all"
+              className="self-start sm:self-auto px-3.5 py-2 rounded-xl text-xs font-bold bg-amber-500 text-white hover:bg-amber-600 shadow-sm flex items-center gap-1.5 transition-all whitespace-nowrap"
             >
-              <RotateCcw className="w-3.5 h-3.5" />
+              <RotateCcw className="w-3.5 h-3.5 shrink-0" />
               <span>Changer de Tube Inconnu</span>
             </button>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-12 items-center">
+          <div className="grid gap-6 lg:grid-cols-12 items-center w-full min-w-0 max-w-full">
             {/* Tube Inconnu avec réactifs appliqués */}
-            <div className="lg:col-span-5 bg-white rounded-2xl border border-navy/10 p-6 flex flex-col items-center justify-center shadow-inner">
+            <div className="lg:col-span-5 bg-white rounded-2xl border border-navy/10 p-4 sm:p-6 flex flex-col items-center justify-center shadow-inner w-full min-w-0 max-w-full overflow-hidden">
               <svg width="100" height="220" viewBox="0 0 100 220" className="drop-shadow-md">
                 <path
                   d="M30 15 L30 180 Q30 205 50 205 Q70 205 70 180 L70 15"
@@ -987,7 +987,7 @@ export default function AminesInteractiveSimulator() {
             </div>
 
             {/* Tests à effectuer sur le tube inconnu */}
-            <div className="lg:col-span-7 space-y-4">
+            <div className="lg:col-span-7 space-y-4 w-full min-w-0 max-w-full">
               <span className="text-xs font-bold uppercase tracking-wider text-navy/70 block">
                 1. Effectuer des tests chimiques au choix :
               </span>
@@ -995,32 +995,32 @@ export default function AminesInteractiveSimulator() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                 <button
                   onClick={() => setMysteryActionDone((prev) => ({ ...prev, bbt: true }))}
-                  className={`p-3 rounded-xl border text-xs font-bold text-left transition-all ${
+                  className={`p-3 rounded-xl border text-xs font-bold text-left transition-all min-w-0 ${
                     mysteryActionDone.bbt
                       ? 'bg-blue-50 border-blue-400 text-blue-900 shadow-sm'
                       : 'bg-white border-navy/10 text-navy hover:bg-surface'
                   }`}
                 >
                   <span className="block font-black">Test B.B.T.</span>
-                  <span className="text-[10px] opacity-70">
+                  <span className="text-[10px] opacity-70 block truncate">
                     {mysteryActionDone.bbt
                       ? mysteryAmine.classe === 'aromatique'
-                        ? 'Virage Vert (Base très faible)'
-                        : 'Bleu Intense (Base forte pH > 10)'
+                        ? 'Virage Vert (Base faible)'
+                        : 'Bleu Intense (pH > 10)'
                       : 'Cliquer pour tester'}
                   </span>
                 </button>
 
                 <button
                   onClick={() => setMysteryActionDone((prev) => ({ ...prev, acyl: true }))}
-                  className={`p-3 rounded-xl border text-xs font-bold text-left transition-all ${
+                  className={`p-3 rounded-xl border text-xs font-bold text-left transition-all min-w-0 ${
                     mysteryActionDone.acyl
                       ? 'bg-rose-50 border-rose-400 text-rose-900 shadow-sm'
                       : 'bg-white border-navy/10 text-navy hover:bg-surface'
                   }`}
                 >
                   <span className="block font-black">Test CH₃COCl</span>
-                  <span className="text-[10px] opacity-70">
+                  <span className="text-[10px] opacity-70 block truncate">
                     {mysteryActionDone.acyl
                       ? mysteryAmine.classe === '3'
                         ? 'Aucune réaction !'
@@ -1031,14 +1031,14 @@ export default function AminesInteractiveSimulator() {
 
                 <button
                   onClick={() => setMysteryActionDone((prev) => ({ ...prev, hofmann: true }))}
-                  className={`p-3 rounded-xl border text-xs font-bold text-left transition-all ${
+                  className={`p-3 rounded-xl border text-xs font-bold text-left transition-all min-w-0 ${
                     mysteryActionDone.hofmann
                       ? 'bg-purple-50 border-purple-400 text-purple-900 shadow-sm'
                       : 'bg-white border-navy/10 text-navy hover:bg-surface'
                   }`}
                 >
                   <span className="block font-black">Excès CH₃I</span>
-                  <span className="text-[10px] opacity-70">
+                  <span className="text-[10px] opacity-70 block truncate">
                     {mysteryActionDone.hofmann ? 'Précipité sel quaternaire' : 'Cliquer pour tester'}
                   </span>
                 </button>
@@ -1050,20 +1050,20 @@ export default function AminesInteractiveSimulator() {
                   2. Votre diagnostic : quelle est l&apos;amine dans ce tube ?
                 </span>
 
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {AMINES_LAB.map((item) => (
                     <button
                       key={item.id}
                       disabled={mysteryRevealed}
                       onClick={() => setMysteryAnswer(item.id)}
-                      className={`p-3 rounded-xl border text-xs font-bold text-left transition-all ${
+                      className={`p-2.5 sm:p-3 rounded-xl border text-xs font-bold text-left transition-all min-w-0 ${
                         mysteryAnswer === item.id
                           ? 'bg-navy text-white border-navy shadow-sm ring-2 ring-turquoise/40'
                           : 'bg-white text-navy border-navy/10 hover:bg-surface'
                       }`}
                     >
-                      <span className="block font-black">{item.name}</span>
-                      <span className="text-[10px] opacity-70">{item.classeLabel}</span>
+                      <span className="block font-black truncate">{item.name}</span>
+                      <span className="text-[10px] opacity-70 block truncate">{item.classeLabel}</span>
                     </button>
                   ))}
                 </div>
