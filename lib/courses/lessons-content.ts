@@ -3823,11 +3823,13 @@ export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: stri
 
   if (
     titleLower.includes('dosage acide faible') ||
+    titleLower.includes('solution tampon') ||
     titleLower.includes('effet tampon') ||
-    titleLower.includes('tampon') ||
     titleLower.includes('demi-équivalence') ||
     titleLower.includes('demi-equivalence') ||
-    titleLower.includes('dosage') ||
+    (titleLower.includes('dosage') && titleLower.includes('faible')) ||
+    (titleLower.includes('titrage') && titleLower.includes('faible')) ||
+    titleLower.includes('titrage acide faible') ||
     titleLower.includes('c8')
   ) {
     return RICH_LESSONS_MAP.dosage_acide_faible_base_forte;
