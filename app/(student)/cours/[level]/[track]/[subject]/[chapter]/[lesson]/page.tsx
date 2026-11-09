@@ -94,6 +94,9 @@ import DosageAcideFaibleBaseForteQuizEmbedded from '@/components/course/dosage-a
 import AcidesAminesReflexesCard from '@/components/course/acides-amines-reflexes-card';
 import AcidesAminesInteractiveSimulator from '@/components/course/acides-amines-interactive-simulator';
 import AcidesAminesQuizEmbedded from '@/components/course/acides-amines-quiz-embedded';
+import CinematiqueReflexesCard from '@/components/course/cinematique-reflexes-card';
+import CinematiqueInteractiveSimulator from '@/components/course/cinematique-interactive-simulator';
+import CinematiqueQuizEmbedded from '@/components/course/cinematique-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
@@ -1689,6 +1692,41 @@ export default async function LessonReaderPage({ params }: PageProps) {
     lessonMeta = createdLesson;
   }
 
+  // Provisioning pour P1 : Cinématique du point matériel (Physique-Chimie S2)
+  if (!lessonMeta && (
+    params.lesson === '60000000-0000-0002-0001-000000000001' ||
+    params.lesson === '60000000-0000-0002-0001-000000000002' ||
+    params.lesson === '60000000-0000-0002-0001-000000000003' ||
+    params.chapter === '50000000-0000-0002-0001-000000000001'
+  )) {
+    await admin.from('chapters').upsert({
+      id: '50000000-0000-0002-0001-000000000001',
+      title: "P1 : Cinématique du point matériel (vecteurs position, vitesse, accélération)",
+      order_index: 10,
+      status: 'published',
+    }, { onConflict: 'id' });
+    const p1Map: Record<string, [string, number]> = {
+      '60000000-0000-0002-0001-000000000001': ['Vecteur position et équations horaires d\'une trajectoire', 1],
+      '60000000-0000-0002-0001-000000000002': ['Vecteurs vitesse et accélération dans la base de Frenet', 2],
+      '60000000-0000-0002-0001-000000000003': ['Mouvements rectilignes (MRU, MRUV) et mouvements circulaires', 3],
+    };
+    const [p1Title, p1Order] = p1Map[params.lesson] || ['P1 Cinématique', 1];
+    const { data: createdLesson } = await admin
+      .from('lessons')
+      .upsert({
+        id: params.lesson,
+        chapter_id: '50000000-0000-0002-0001-000000000001',
+        title: p1Title,
+        order_index: p1Order,
+        content_markdown: `# P1 : Cinématique du Point Matériel — ${p1Title}`,
+        is_free: false,
+        status: 'published',
+      }, { onConflict: 'id' })
+      .select()
+      .single();
+    lessonMeta = createdLesson;
+  }
+
   // Provisioning pour C1 : Alcools (Physique-Chimie S2)
   if (!lessonMeta && params.lesson === '60000000-0000-0001-0001-000000000001') {
     await admin.from('chapters').upsert({
@@ -2205,12 +2243,39 @@ if (lessonMeta && lessonMeta.status !== 'published') {
       params.lesson === '60000000-0000-0001-0001-000000000025' ||
       params.chapter === '50000000-0000-0001-0001-000000000009');
 
+  const isCinematique =
+    !isAcidesAmines &&
+    !isAlcools &&
+    !isAmines &&
+    !isAcidesDerives &&
+    !isCinetique &&
+    !isAutoprotolysePh &&
+    !isAcideFortBaseForte &&
+    !isAcideFaibleBaseFaible &&
+    !isDosageAcideFaibleBaseForte &&
+    (lessonMeta.title.toLowerCase().includes('cinématique') ||
+      lessonMeta.title.toLowerCase().includes('cinematique') ||
+      lessonMeta.title.toLowerCase().includes('frenet') ||
+      lessonMeta.title.toLowerCase().includes('torricelli') ||
+      lessonMeta.title.toLowerCase().includes('mruv') ||
+      lessonMeta.title.toLowerCase().includes('circulaire') ||
+      lessonMeta.title.toLowerCase().includes('point matériel') ||
+      lessonMeta.title.toLowerCase().includes('point materiel') ||
+      (chapter?.title?.toLowerCase() || '').includes('cinématique') ||
+      (chapter?.title?.toLowerCase() || '').includes('cinematique') ||
+      (chapter?.title?.toLowerCase() || '').includes('p1') ||
+      params.lesson === '60000000-0000-0002-0001-000000000001' ||
+      params.lesson === '60000000-0000-0002-0001-000000000002' ||
+      params.lesson === '60000000-0000-0002-0001-000000000003' ||
+      params.chapter === '50000000-0000-0002-0001-000000000001');
+
   const isDerivation =
     !isAcidesAmines &&
     !isDosageAcideFaibleBaseForte &&
     !isAcideFaibleBaseFaible &&
     !isAlcools &&
     !isCinetique &&
+    !isCinematique &&
     !isAsymptotes &&
     !isSuites &&
     !isLogarithme &&
@@ -2531,6 +2596,11 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                   <AcidesAminesReflexesCard />
                   <AcidesAminesInteractiveSimulator />
                 </>
+              ) : isCinematique ? (
+                <>
+                  <CinematiqueReflexesCard />
+                  <CinematiqueInteractiveSimulator />
+                </>
               ) : isTvi ? (
                 <>
                   <TviReflexesCard />
@@ -2712,6 +2782,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <DosageAcideFaibleBaseForteQuizEmbedded />
               ) : isAcidesAmines ? (
                 <AcidesAminesQuizEmbedded />
+              ) : isCinematique ? (
+                <CinematiqueQuizEmbedded />
               ) : isTvi ? (
                 <TviQuizEmbedded />
               ) : isAsymptotes ? (
