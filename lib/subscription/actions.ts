@@ -69,25 +69,33 @@ export async function requestSubscriptionAction(
   if (planErr || !plan) return { success: false, error: 'Formule introuvable' };
 
   // Vérifier si une souscription active ou en attente existe déjà
-  const { data: existing } = await supabase
+  const { data: existingActive } = await supabase
+    .from('subscriptions')
+    .select('id, status, end_date')
+    .eq('user_id', user.id)
+    .eq('status', 'active')
+    .order('end_date', { ascending: false })
+    .limit(1)
+    .maybeSingle();
+
+  const { data: existingPending } = await supabase
     .from('subscriptions')
     .select('id, status')
     .eq('user_id', user.id)
-    .in('status', ['active', 'pending'])
+    .eq('status', 'pending')
     .maybeSingle();
 
-  if (existing?.status === 'active') {
+  // Bloquer si une demande de prolongement est déjà en attente
+  if (existingPending) {
     return {
       success: false,
-      error: 'Vous avez déjà un abonnement actif en cours.',
+      error: 'Une demande de prolongement est déjà en attente de validation par l\'administrateur.',
     };
   }
-  if (existing?.status === 'pending') {
-    return {
-      success: false,
-      error: 'Une demande de paiement est déjà en attente de validation.',
-    };
-  }
+
+  // Si un abonnement actif existe : mode prolongement (is_renewal)
+  const isRenewal = Boolean(existingActive);
+  const renewalFromDate = existingActive?.end_date ?? null;
 
   const admin = createAdminClient();
 
@@ -98,6 +106,8 @@ export async function requestSubscriptionAction(
       user_id: user.id,
       plan_id,
       status: 'pending',
+      // Si prolongement : pré-positionner start_date avec la date d'expiration en cours
+      ...(isRenewal && renewalFromDate ? { start_date: renewalFromDate } : {}),
       // Sauvegarder le code promo dès la création de la subscription
       ...(((formData.get('promo_code') as string)?.trim().toUpperCase() || '') ? { promo_code: (formData.get('promo_code') as string).trim().toUpperCase() } : {}),
     })
@@ -115,6 +125,9 @@ export async function requestSubscriptionAction(
 
   const promoCodeRaw = (formData.get('promo_code') as string)?.trim().toUpperCase() || '';
   let finalNotes = notes?.trim() || `Paiement Wave de ${studentFullName} (${senderNumber})`;
+  if (isRenewal && renewalFromDate) {
+    finalNotes += ` [PROLONGEMENT — débute le ${new Date(renewalFromDate).toLocaleDateString('fr-FR')}]`;
+  }
   let matchedInfluencerId: string | null = null;
   if (promoCodeRaw) {
     finalNotes = `${finalNotes} [Code Promo: ${promoCodeRaw}]`;
@@ -160,7 +173,9 @@ export async function requestSubscriptionAction(
   return {
     success: true,
     data: null,
-    message: 'Demande transmise avec succès ! Votre accès sera activé dès constatation du transfert Wave.',
+    message: isRenewal
+      ? `Demande de prolongement transmise ! Votre nouvel accès démarrera automatiquement le ${new Date(renewalFromDate!).toLocaleDateString('fr-FR')} à l'expiration de votre abonnement actuel.`
+      : 'Demande transmise avec succès ! Votre accès sera activé dès constatation du transfert Wave.',
   };
 }
 
@@ -197,7 +212,7 @@ export async function activateSubscriptionAction(
   // Récupérer l'abonnement et les informations du plan
   const { data: sub } = await admin
     .from('subscriptions')
-    .select('id, user_id, plan_id, promo_code, plans(duration_days, price_fcfa, name)')
+    .select('id, user_id, plan_id, start_date, promo_code, plans(duration_days, price_fcfa, name)')
     .eq('id', subscription_id)
     .single();
   if (!sub) return { success: false, error: 'Abonnement introuvable' };
@@ -229,10 +244,33 @@ export async function activateSubscriptionAction(
   };
 
   if (action === 'activate') {
-    const startDate = new Date();
     const durationDays = (sub.plans as { duration_days?: number })?.duration_days || 30;
-    const endDate = new Date(startDate.getTime() + durationDays * 24 * 60 * 60 * 1000);
 
+    // Calcul de la date de démarrage (continuité si abonnement actif)
+    let startDate: Date;
+    if (sub.start_date && new Date(sub.start_date) > new Date()) {
+      startDate = new Date(sub.start_date);
+    } else {
+      // Vérifier si l'élève a un autre abonnement actuellement actif
+      const { data: currentActive } = await admin
+        .from('subscriptions')
+        .select('end_date')
+        .eq('user_id', sub.user_id)
+        .eq('status', 'active')
+        .neq('id', subscription_id)
+        .gt('end_date', new Date().toISOString())
+        .order('end_date', { ascending: false })
+        .limit(1)
+        .maybeSingle();
+
+      if (currentActive?.end_date && new Date(currentActive.end_date) > new Date()) {
+        startDate = new Date(currentActive.end_date);
+      } else {
+        startDate = new Date();
+      }
+    }
+
+    const endDate = new Date(startDate.getTime() + durationDays * 24 * 60 * 60 * 1000);
     updateData.start_date = startDate.toISOString();
     updateData.end_date = endDate.toISOString();
     updateData.activated_by = user.id;

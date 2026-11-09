@@ -32,6 +32,7 @@ type CurrentSub = {
 interface AbonnementFormProps {
   plans: Plan[];
   currentSub: CurrentSub;
+  pendingSub?: CurrentSub;
   userPhone: string;
   userName: string;
 }
@@ -127,13 +128,20 @@ function CurrentSubCard({ currentSub }: { currentSub: NonNullable<CurrentSub> })
 export default function AbonnementForm({
   plans,
   currentSub,
+  pendingSub,
   userPhone,
   userName,
 }: AbonnementFormProps) {
   const { showToast } = useToast();
-  const [selectedPlan, setSelectedPlan] = useState<string>(plans[0]?.id ?? '');
+  // Formule 1 An (5000 FCFA) sélectionnée par défaut si disponible, sinon première formule
+  const defaultPlanId = plans.find((p) => p.duration_days >= 365)?.id ?? plans[0]?.id ?? '';
+  const [selectedPlan, setSelectedPlan] = useState<string>(defaultPlanId);
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+
+  // Détection de l'état de l'abonnement
+  const isCurrentActive = currentSub?.status === 'active';
+  const hasPending = Boolean(pendingSub || currentSub?.status === 'pending');
 
   // Promo code states
   const [promoCode, setPromoCode] = useState('');
@@ -180,9 +188,42 @@ export default function AbonnementForm({
   const cleanBase = WAVE_BASE_URL.endsWith('/') ? WAVE_BASE_URL : `${WAVE_BASE_URL}/`;
   const wavePaymentUrl = `${cleanBase}?amount=${waveAmount}`;
 
-  // Si déjà actif ou en attente → afficher le statut uniquement
-  if (currentSub && (currentSub.status === 'active' || currentSub.status === 'pending')) {
-    return <CurrentSubCard currentSub={currentSub} />;
+  // Si une demande de paiement ou prolongement est déjà en attente
+  if (hasPending) {
+    return (
+      <div className="space-y-6 max-w-xl mx-auto">
+        {isCurrentActive && currentSub && <CurrentSubCard currentSub={currentSub} />}
+
+        <div className="rounded-3xl border border-amber-300 bg-amber-50/70 p-6 text-center space-y-4 shadow-sm">
+          <div className="w-12 h-12 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center mx-auto">
+            <Clock className="w-6 h-6" strokeWidth={2} />
+          </div>
+          <div>
+            <span className="text-xs font-bold uppercase tracking-wider text-amber-800 bg-amber-100 px-3 py-1 rounded-full border border-amber-300">
+              {isCurrentActive ? 'Prolongement en cours de validation' : 'Paiement en cours de validation'}
+            </span>
+            <h2 className="text-lg font-black text-navy mt-2.5">
+              {isCurrentActive
+                ? 'Votre demande de prolongation a été transmise !'
+                : 'Demande de paiement enregistrée !'}
+            </h2>
+            <p className="text-xs sm:text-sm text-navy/70 mt-1.5 max-w-md mx-auto">
+              {isCurrentActive
+                ? "L'administrateur a été notifié de votre paiement Wave. Vos cours restent 100% débloqués, et votre nouvelle période sera automatiquement activée en continuité."
+                : "L'administrateur a été notifié de votre paiement Wave et activera votre accès dès constatation du transfert."}
+            </p>
+          </div>
+          <div className="pt-2">
+            <a
+              href="/dashboard"
+              className="inline-flex items-center justify-center rounded-xl bg-navy text-white text-xs font-bold px-6 py-2.5 hover:bg-navy/90 transition-colors shadow-sm"
+            >
+              Retourner au tableau de bord
+            </a>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   async function handleConfirmPayment() {
@@ -217,11 +258,15 @@ export default function AbonnementForm({
         </div>
         <div>
           <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
-            Demande en attente
+            {isCurrentActive ? 'Prolongement enregistré' : 'Demande en attente'}
           </span>
-          <h2 className="text-xl font-black text-navy mt-3">Demande bien reçue !</h2>
+          <h2 className="text-xl font-black text-navy mt-3">
+            {isCurrentActive ? 'Prolongement bien reçu !' : 'Demande bien reçue !'}
+          </h2>
           <p className="text-sm text-text/70 mt-2">
-            L&apos;administrateur a été notifié de votre paiement Wave et activera votre accès sous peu.
+            {isCurrentActive
+              ? "L'administrateur a été notifié de votre paiement Wave. Votre formule s'ajoutera automatiquement en continuité à la suite de votre période en cours."
+              : "L'administrateur a été notifié de votre paiement Wave et activera votre accès sous peu."}
           </p>
         </div>
         <div className="pt-2">
@@ -238,6 +283,36 @@ export default function AbonnementForm({
 
   return (
     <div className="space-y-6 max-w-xl mx-auto">
+      {/* Si abonnement actif : afficher la carte actuelle + le bandeau de continuité */}
+      {isCurrentActive && currentSub && (
+        <>
+          <CurrentSubCard currentSub={currentSub} />
+          <div className="rounded-2xl border-2 border-turquoise/40 bg-gradient-to-r from-turquoise/10 via-white to-turquoise/5 p-4 sm:p-5 shadow-xs">
+            <div className="flex items-start gap-3">
+              <div className="w-10 h-10 rounded-xl bg-turquoise/20 text-turquoise flex items-center justify-center shrink-0 mt-0.5">
+                <Sparkles className="w-5 h-5 text-turquoise" />
+              </div>
+              <div className="space-y-1">
+                <h3 className="font-bold text-navy text-sm sm:text-base">
+                  Prolongement en continuité directe
+                </h3>
+                <p className="text-xs sm:text-sm text-navy/70 leading-relaxed">
+                  Votre abonnement actuel est actif jusqu&apos;au{' '}
+                  <strong className="text-navy">
+                    {new Date(currentSub.end_date).toLocaleDateString('fr-FR', {
+                      day: 'numeric',
+                      month: 'long',
+                      year: 'numeric',
+                    })}
+                  </strong>
+                  . En souscrivant maintenant, votre nouvelle formule débutera <strong>automatiquement à cette date</strong>. Aucun jour n&apos;est perdu !
+                </p>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+
       {/* Statut expiré si applicable */}
       {currentSub && currentSub.status === 'expired' && (
         <div className="rounded-2xl bg-coral/10 border border-coral/30 p-4 flex items-start gap-2 text-coral text-sm">
@@ -246,14 +321,15 @@ export default function AbonnementForm({
         </div>
       )}
 
-      {/* Choix des formules (700 FCFA et 2000 FCFA) */}
+      {/* Choix des formules */}
       <div className="space-y-3">
         <label className="text-xs font-bold uppercase tracking-wider text-navy/60 block">
-          Sélectionnez votre formule d&apos;abonnement
+          {isCurrentActive ? 'Sélectionnez votre formule de prolongement' : 'Sélectionnez votre formule d\'abonnement'}
         </label>
-        <div className="grid gap-3 sm:grid-cols-2">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {plans.map((plan) => {
             const isSelected = selectedPlan === plan.id;
+            const isAnnual = plan.duration_days >= 365;
             return (
               <button
                 key={plan.id}
@@ -265,6 +341,11 @@ export default function AbonnementForm({
                     : 'border-navy/10 bg-white hover:border-navy/20'
                 }`}
               >
+                {isAnnual && (
+                  <span className="absolute -top-2.5 right-3 bg-gradient-to-r from-turquoise to-[#00A389] text-white text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-xs">
+                    Recommandé
+                  </span>
+                )}
                 <div className="flex items-start justify-between gap-2">
                   <div>
                     <h3 className="font-bold text-navy text-base">{plan.name}</h3>
@@ -366,7 +447,11 @@ export default function AbonnementForm({
             ) : (
               <>
                 <WaveLogo size={28} />
-                <span className="text-white drop-shadow-xs">Payer {formatFCFA(waveAmount)} avec Wave</span>
+                <span className="text-white drop-shadow-xs">
+                  {isCurrentActive
+                    ? `Prolonger avec Wave (${formatFCFA(waveAmount)})`
+                    : `Payer ${formatFCFA(waveAmount)} avec Wave`}
+                </span>
                 <ArrowRight className="w-5 h-5 text-white shrink-0" strokeWidth={2.5} />
               </>
             )}
@@ -378,7 +463,7 @@ export default function AbonnementForm({
             </p>
             <a
               href={`https://wa.me/221772476926?text=${encodeURIComponent(
-                `Bonjour Al Muxtaar, je souhaite activer ma formule ${currentPlan?.name ?? ''} via Wave.`
+                `Bonjour Al Muxtaar, je souhaite ${isCurrentActive ? 'prolonger' : 'activer'} ma formule ${currentPlan?.name ?? ''} via Wave.`
               )}`}
               target="_blank"
               rel="noopener noreferrer"

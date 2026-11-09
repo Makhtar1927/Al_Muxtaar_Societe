@@ -37,8 +37,8 @@ export default async function AbonnementPage() {
   } = await supabase.auth.getUser();
   if (!user) redirect('/connexion');
 
-  // Chargement en parallèle des 3 requêtes (profil, plans, abonnement)
-  const [profileResult, plansResult, currentSubResult] = await Promise.all([
+  // Chargement en parallèle des 3 requêtes (profil, plans, abonnements)
+  const [profileResult, plansResult, subsResult] = await Promise.all([
     supabase
       .from('profiles')
       .select('first_name, last_name, phone')
@@ -53,14 +53,16 @@ export default async function AbonnementPage() {
       .from('subscriptions')
       .select('id, status, start_date, end_date, plans(name, price_fcfa, duration_days)')
       .eq('user_id', user.id)
-      .order('created_at', { ascending: false })
-      .limit(1)
-      .maybeSingle(),
+      .order('created_at', { ascending: false }),
   ]);
 
   const profile = profileResult.data;
   const plans = plansResult.data;
-  const currentSub = currentSubResult.data;
+  const subs = subsResult.data ?? [];
+
+  const activeSub = subs.find((s) => s.status === 'active') ?? null;
+  const pendingSub = subs.find((s) => s.status === 'pending') ?? null;
+  const currentSub = activeSub || subs[0] || null;
 
   return (
     <main className="min-h-screen bg-surface py-8 px-4">
@@ -75,6 +77,7 @@ export default async function AbonnementPage() {
         <AbonnementForm
           plans={plans ?? []}
           currentSub={currentSub}
+          pendingSub={pendingSub}
           userPhone={profile?.phone ?? ''}
           userName={profile ? `${profile.first_name} ${profile.last_name}` : ''}
         />
