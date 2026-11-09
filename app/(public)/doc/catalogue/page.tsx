@@ -113,8 +113,7 @@ export default function CataloguePage() {
       {/* ── 1. EN-TÊTE PRINCIPAL ── */}
       <div className="text-center max-w-3xl mx-auto space-y-3">
         <div className="inline-flex items-center gap-2 rounded-full bg-turquoise-light px-3.5 py-1 text-xs font-bold text-turquoise">
-          <Icon name="cours" size={16} />
-          Référentiel National Officiel du Sénégal
+          <span>Référentiel National Officiel du Sénégal</span>
         </div>
         <h1 className="text-3xl font-black tracking-tight text-navy sm:text-4xl">
           Catalogue des Programmes &amp; Filières
@@ -126,20 +125,16 @@ export default function CataloguePage() {
 
         {/* Métriques globales */}
         <div className="pt-2 flex flex-wrap items-center justify-center gap-3 text-xs">
-          <span className="rounded-full bg-surface px-3 py-1 font-semibold text-navy border border-surface-muted inline-flex items-center gap-1.5">
-            <Icon name="cours" size={16} />
+          <span className="rounded-full bg-surface px-3 py-1 font-semibold text-navy border border-surface-muted inline-flex items-center">
             <span>4 Niveaux Scolaires</span>
           </span>
-          <span className="rounded-full bg-surface px-3 py-1 font-semibold text-navy border border-surface-muted inline-flex items-center gap-1.5">
-            <Icon name="orientation" size={16} />
+          <span className="rounded-full bg-surface px-3 py-1 font-semibold text-navy border border-surface-muted inline-flex items-center">
             <span>{stats.totalTracks} Séries &amp; Filières</span>
           </span>
-          <span className="rounded-full bg-surface px-3 py-1 font-semibold text-navy border border-surface-muted inline-flex items-center gap-1.5">
-            <Icon name="doc" size={16} />
+          <span className="rounded-full bg-surface px-3 py-1 font-semibold text-navy border border-surface-muted inline-flex items-center">
             <span>{stats.totalSubjects} Matières Référencées</span>
           </span>
-          <span className="rounded-full bg-turquoise/15 px-3 py-1 font-bold text-turquoise border border-turquoise/30 inline-flex items-center gap-1.5">
-            <Icon name="reflexes" size={16} />
+          <span className="rounded-full bg-turquoise/15 px-3 py-1 font-bold text-turquoise border border-turquoise/30 inline-flex items-center">
             <span>{stats.activeChapters} Chapitres Interactifs Actifs</span>
           </span>
         </div>
