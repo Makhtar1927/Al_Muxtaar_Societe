@@ -1288,3 +1288,4 @@ export default function P4ParticuleInteractiveSimulator() {
     </div>
   );
 }
+

@@ -5358,8 +5358,157 @@ La distance $\\Delta d$ est directement proportionnelle à l'écart de masse $\\
 > 8. **Piège du diamètre dans le spectrographe :** La particule décrit un demi-cercle : la distance entre le point d'entrée et le point d'impact est le diamètre $2R$ et non le rayon $R$ !
 `;
 
+RICH_LESSONS_MAP.systeme_nerveux_cerebrospinal = `# B1 : Organisation du Système Nerveux Cérébrospinal des Mammifères (Terminale S2)
+
+Bienvenue dans le premier axe fondamental de **Sciences de la Vie et de la Terre (SVT)** de **Terminale S2**, rigoureusement aligné sur les exigences officielles de l'Office du Baccalauréat du Sénégal et de l'Inspection Générale de l'Éducation et de la Formation (IGEF).
+
+Le système nerveux cérébrospinal assure la réception des stimuli environnementaux, l'intégration des signaux bioélectriques et la commande des réponses motrices adaptées. Sa maîtrise est indispensable pour aborder l'électrophysiologie du neurone, les réflexes médullaires et la régulation cardiaque.
+
+---
+
+## 1. Vue d'Ensemble Architecturale : Névraxe (SNC) et Système Périphérique (SNP)
+
+Le système nerveux des mammifères (dont l'être humain) se structure en deux grands compartiments anatomiques et fonctionnels :
+
+### 1.1. Le Système Nerveux Central (SNC) ou Névraxe
+Il constitue le centre décisionnel et intégrateur de l'organisme, logé au cœur des cavités osseuses axiales de protection :
+1. **L'Encéphale** : abrité dans la boîte crânienne. Il comprend trois parties majeures :
+   - Le **cerveau** (télencéphale et diencéphale) : siège des fonctions conscientes, de la motricité volontaire et de la mémoire.
+   - Le **cervelet** : situé sous les lobes occipitaux, responsable de l'équilibre et de la coordination fine des mouvements.
+   - Le **tronc cérébral** (pédoncules, pont de Varole et bulbe rachidien) : zone de passage des voies conductrices et siège des centres vitaux autonomes (respiration, rythme cardiaque, vasomotricité).
+2. **La Moelle Épinière** : cordon blanc cylindrique s'étendant du trou occipital jusqu'aux premières vertèbres lombaires ($L_1-L_2$), logé dans le canal rachidien de la colonne vertébrale. C'est à la fois le centre des réflexes médullaires et une voie conductrice majeure.
+
+### 1.2. Le Système Nerveux Périphérique (SNP)
+Il assure la mise en relation bidirectionnelle entre le névraxe et l'ensemble des organes récepteurs et effecteurs périphériques :
+- **Les Nerfs Crâniens** : au nombre de **12 paires**, rattachés directement à l'encéphale et au tronc cérébral (ex : nerf optique $II$, nerf trijumeau $V$, nerf vague ou pneumogastrique $X$ modérateur cardiaque).
+- **Les Nerfs Rachidiens (ou spinaux)** : au nombre de **31 paires** chez l'Homme, émergeant métamériquement de la moelle épinière par les trous de conjugaison :
+  - 8 paires cervicales ($C_1 - C_8$)
+  - 12 paires thoraciques ou dorsales ($T_1 - T_{12}$)
+  - 5 paires lombaires ($L_1 - L_5$)
+  - 5 paires sacrées ($S_1 - S_5$)
+  - 1 paire coccygienne ($Co_1$)
+- **Les Ganglions Nerveux** : regroupements de corps cellulaires situés hors du névraxe (ganglions spinaux sur les racines dorsales, ganglions sympathiques).
+
+---
+
+> [!WOLOF] **Xam-xam ci Wolof — Névraxe ak Nerfs yi ci yaramu nit :**
+> - « Névraxe bi mooy état-major bu mag bi ci réew mi : cerveau bi ak moelle épinière bi ñoo nekk ci biir armures yu dëgër (crâne ak colonne vertébrale) ngir kumpa ak joxe ndigal. »
+> - « Nerfs yi (12 crâniens ak 31 rachidiens) ñoo melni ay câbles téléphoniques yu yaatu ci tout le pays : dafa am yiy indi xibaar (sensitifs) ak yiy yóbbu ndigal ci muscles yi (moteurs). »
+
+---
+
+## 2. Les Systèmes de Protection du Névraxe
+
+En raison de la fragilité extrême du tissu nerveux et de son incapacité à se régénérer facilement, le névraxe bénéficie d'une triple protection :
+
+### 2.1. La Protection Osseuse Rigide
+- **La boîte crânienne** : formée d'os plats soudés (frontal, pariétaux, occipital, temporaux) protégeant l'encéphale contre les impacts mécaniques directs.
+- **La colonne vertébrale** : empilement de 33 vertèbres articulées percé d'un canal rachidien hébergeant la moelle épinière avec souplesse et amorti.
+
+### 2.2. La Protection Membranaire : Les Trois Méninges (DAP)
+De la paroi osseuse vers le tissu nerveux, on rencontre successivement :
+1. **La Dure-mère (externe)** : membrane conjonctive blanche, épaisse, fibreuse et très résistante, tapissant la face interne des os.
+2. **L'Arachnoïde (médiane)** : membrane avasculaire très fine constituée d'un réseau conjonctif lâche rappelant une toile d'araignée. Elle délimite l'**espace sous-arachnoïdien** où circule le liquide céphalo-rachidien.
+3. **La Pie-mère (interne)** : membrane conjonctive transparente, richement vascularisée, qui adhère intimement à la surface de l'encéphale et de la moelle en épousant tous les sillons et circonvolutions.
+
+### 2.3. La Protection Liquidienne : Le Liquide Céphalo-Rachidien (LCR)
+Liquide limpide stérile (« eau de roche ») sécrété par les plexus choroïdes dans les ventricules cérébraux :
+- Il circule dans les ventricules, le canal de l'épendyme et l'espace sous-arachnoïdien.
+- **Rôle mécanique** : il agit comme un fluide amortisseur hydraulique dissipant l'énergie des chocs et réduisant le poids effectif du cerveau par poussée d'Archimède.
+- **Rôle physiologique** : échanges métaboliques, apport de nutriments et évacuation des déchets du métabolisme neuronal.
+
+---
+
+## 3. Organisation Anatomique et Histologique de la Moelle Épinière
+
+L'observation d'une coupe transversale de la moelle épinière à l'œil nu et au microscope optique révèle une organisation symétrique et bilatérale caractéristique :
+
+### 3.1. Morphologie Externe et Repères d'Orientation
+- **La fissure médiane antérieure (ou sillon ventral)** : fente large, béante et profonde, s'enfonçant jusqu'au tiers antérieur de la moelle. Elle permet d'identifier à coup sûr la **face antérieure (ventrale)**.
+- **Le sillon médian postérieur (ou sillon dorsal)** : dépression étroite et superficielle prolongée par un mince septum conjonctif médian, marquant la **face postérieure (dorsale)**.
+- Deux sillons latéraux antérieurs et deux postérieurs d'où émergent les racines nerveuses.
+
+### 3.2. La Substance Grise (Centrale en forme de Papillon)
+Elle occupe le cœur de la moelle épinière et affecte la forme d'un papillon ou d'un « H » majuscule :
+- **Les cornes antérieures (ventrales)** : volumineuses, larges, courtes et arrondies. Elles contiennent les corps cellulaires multipolaires des **motoneurones** (ou neurones moteurs alpha), dont les axones forment la racine ventrale motrice.
+- **Les cornes postérieures (dorsales)** : longues, étroites et effilées, atteignant presque la périphérie de la moelle. Elles reçoivent les terminaisons des fibres sensitives et hébergent des **interneurones** (d'association).
+- **La commissure grise** : pont transversal unissant les deux moitiés symétriques de la substance grise, percée en son centre par le **canal de l'épendyme**.
+
+### 3.3. La Substance Blanche (Périphérique)
+Elle enveloppe la substance grise et se subdivise en six cordons anatomiques :
+- Deux cordons antérieurs (ventraux), deux latéraux et deux postérieurs (dorsaux).
+- Elle est constituée exclusivement de faisceaux longitudinaux de **fibres nerveuses myélinisées** (axones entourés de myéline lipidique blanchâtre isolante).
+- Elle ne contient **AUCUN corps cellulaire de neurone**.
+
+---
+
+> [!CONSEIL_BAC] **Règle d'or pour le Schéma du Bac S2 :**
+> Lors de l'épreuve de SVT, le schéma d'une coupe transversale de moelle épinière doit toujours comporter :
+> 1. Un titre précis : *« Schéma annoté d'une coupe transversale de la moelle épinière d'un mammifère »*.
+> 2. L'orientation claire : Flèche indiquant *Face Antérieure (Ventrale)* et *Face Postérieure (Dorsale)*.
+> 3. Les 7 légendes obligatoires : Fissure antérieure, Sillon postérieur, Substance grise (en H), Substance blanche, Canal de l'épendyme, Racine dorsale avec ganglion spinal, Racine ventrale motrice.
+
+---
+
+## 4. Organisation Fonctionnelle des Nerfs Rachidiens : Expériences Fondamentales de Bell et Magendie
+
+Chaque nerf rachidien est relié à la moelle épinière par deux racines distinctes. La mise en évidence de leurs fonctions repose sur les célèbres expériences de section et de stimulation de Bell et Magendie, régulièrement posées au Bac S2.
+
+### 4.1. Tableau Récapitulatif des Expériences Fondamentales
+
+| Expérience réalisée | Constat clinique observé | Déduction physiologique immédiate |
+| :--- | :--- | :--- |
+| **Section du nerf rachidien mixte** | Perte totale de motricité et de sensibilité dans le territoire innervé | Le nerf rachidien est un **nerf mixte** (conduit à la fois les influx moteurs et sensitifs). |
+| **Section de la racine antérieure (ventrale)** | Paralysie motrice complète, mais sensibilité **intacte** | La racine ventrale est la **voie motrice efférente (centrifuge)**. |
+| **Stimulation du bout périphérique de la racine ventrale coupée** | Contraction violente des muscles innervés | Confirmation : l'influx moteur se propage vers la périphérie. |
+| **Stimulation du bout central de la racine ventrale coupée** | Aucun effet moteur, aucune sensation | Pas de conduction centripète par la racine ventrale. |
+| **Section de la racine postérieure (dorsale)** | Anesthésie sensorielle totale, mais motricité **normale** | La racine dorsale est la **voie sensitive afférente (centripète)**. |
+| **Stimulation du bout central de la racine dorsale coupée** | Réaction de douleur vive et mouvement réflexe | Confirmation : l'influx sensitif remonte vers les centres nerveux. |
+| **Stimulation du bout périphérique de la racine dorsale coupée** | Aucun effet perceptible | Pas de conduction centrifuge par la racine dorsale. |
+
+---
+
+### 4.2. Dégénérescence Wallérienne et Localisation des Corps Cellulaires
+
+Lorsqu'une fibre nerveuse est coupée, la portion séparée de son noyau (corps cellulaire trophique) dégénère en quelques jours : c'est la **dégénérescence wallérienne**.
+- **Racine ventrale coupée** : seules les fibres du bout périphérique dégénèrent. Le bout central reste intact $\implies$ Les corps cellulaires des motoneurones sont situés dans le centre nerveux, c'est-à-dire dans la **corne ventrale de la substance grise de la moelle**.
+- **Racine dorsale coupée entre le ganglion spinal et la moelle** : les fibres du bout central dégénèrent vers la moelle $\implies$ Les corps cellulaires ne sont pas dans la moelle.
+- **Racine dorsale coupée entre le ganglion spinal et le récepteur** : les fibres périphériques dégénèrent $\implies$ Les corps cellulaires ne sont pas dans les organes périphériques.
+- **Conclusion d'excellence** : Les corps cellulaires des neurones sensitifs (protoneurones pseudo-unipolaires en T) sont situés exclusivement dans le **ganglion spinal de la racine dorsale**.
+
+---
+
+## 5. Synthèse Comparée : Moelle Épinière vs Encéphale
+
+Pour éviter toute confusion lors de l'examen du Baccalauréat, voici le tableau comparatif rigoureux :
+
+| Critère d'Analyse | Moelle Épinière (Rachis) | Cerveau / Encéphale (Crâne) |
+| :--- | :--- | :--- |
+| **Cavité protectrice** | Canal rachidien vertébral | Boîte crânienne rigide |
+| **Disposition Substance Grise** | **Centrale** (forme de papillon / H) | **Périphérique** (cortex cérébral) + quelques noyaux profonds |
+| **Disposition Substance Blanche** | **Périphérique** (cordons antérieurs, latéraux, postérieurs) | **Centrale** (centre ovale, corps calleux) |
+| **Canal / Cavité interne** | Canal central de l'épendyme | Ventricules cérébraux ($V_1, V_2, V_3, V_4$) |
+| **Nerfs rattachés** | 31 paires de nerfs rachidiens mixtes | 12 paires de nerfs crâniens (sensitifs, moteurs ou mixtes) |
+| **Rôle fonctionnel majeur** | Centre réflexe involontaire & voie de conduction | Intégration consciente, motricité volontaire, pensée, mémoire |
+`;
+
 export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: string, rawContent: string | null): string {
   const titleLower = `${lessonTitle} ${chapterTitle}`.toLowerCase();
+
+  // Routage SVT B1 : Organisation du Système Nerveux Cérébrospinal
+  if (
+    titleLower.includes('système nerveux') ||
+    titleLower.includes('systeme nerveux') ||
+    titleLower.includes('cérébrospinal') ||
+    titleLower.includes('cerebrospinal') ||
+    titleLower.includes('moelle épinière') ||
+    titleLower.includes('moelle epiniere') ||
+    titleLower.includes('encéphale') ||
+    titleLower.includes('encephale') ||
+    titleLower.includes('b1')
+  ) {
+    return RICH_LESSONS_MAP.systeme_nerveux_cerebrospinal;
+  }
 
   // Routage Physique P4 : Mouvement d'une Particule Chargée dans E et B
   if (

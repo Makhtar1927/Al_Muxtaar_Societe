@@ -2228,6 +2228,93 @@ $$r = \\sqrt{R^2 - d^2} = \\sqrt{3^2 - (\\sqrt{3})^2} = \\sqrt{9 - 3} = \\sqrt{6
       baremeAstuce: 'Penser à vérifier que $\\vec{n} \\cdot \\vec{AB} = 0$ et $\\vec{n} \\cdot \\vec{AC} = 0$ pour valider le vecteur normal.',
     },
   ],
+
+  // B1. ORGANISATION DU SYSTÈME NERVEUX CÉRÉBROSPINAL (SVT S2 - B1)
+  systeme_nerveux: [
+    {
+      year: 2022,
+      session: 'Session Normale (S2)',
+      points: 'Première Partie — Maîtrise des Connaissances (5 Points)',
+      topic: 'Organisation anatomique du système nerveux cérébrospinal, coupe transversale de la moelle épinière et systèmes de protection',
+      enonce: `Le système nerveux cérébrospinal des mammifères assure la communication rapide et coordonnée entre l'organisme et son environnement.
+
+1. Définir le **névraxe** (ou système nerveux central) et citer ses deux grandes composantes anatomiques chez l'Homme.
+2. Décrire la triple protection mécanique et liquidienne qui enveloppe le névraxe en précisant l'ordre exact des méninges de l'extérieur vers l'intérieur.
+3. À l'aide d'un schéma soigné, annoté et orienté d'une **coupe transversale de moelle épinière** :
+   a) Mettre en évidence la disposition respective de la substance grise et de la substance blanche.
+   b) Indiquer les racines rachidiennes (dorsale et ventrale), le ganglion spinal et le canal de l'épendyme.
+   c) Expliquer brièvement pourquoi le nerf rachidien est qualifié de nerf mixte.`,
+      solution: `### 1. Définition et composantes du Névraxe (1 point)
+Le **névraxe** (ou Système Nerveux Central, SNC) désigne l'ensemble des centres nerveux régulateurs et intégrateurs logés dans les cavités osseuses axiales de l'organisme. Chez l'Homme, il comprend deux grandes parties :
+- **L'Encéphale** : logé dans la boîte crânienne (formé du cerveau, du cervelet et du tronc cérébral dont le bulbe rachidien).
+- **La Moelle Épinière** : cordon cylindrique blanchâtre logé dans le canal rachidien de la colonne vertébrale.
+
+---
+
+### 2. Les systèmes de protection du névraxe (1,5 point)
+Le névraxe, organe particulièrement vulnérable, est protégé par :
+1. **Une protection osseuse rigide** : le squelette crânien pour l'encéphale et la colonne vertébrale (empilement des vertèbres) pour la moelle épinière.
+2. **Une protection membranaire (les trois méninges)**, ordonnées de l'extérieur vers l'intérieur (mnémotechnique **DAP**) :
+   - **La Dure-mère** : membrane conjonctive externe, épaisse, fibreuse et très résistante.
+   - **L'Arachnoïde** : membrane médiane fine et avasculaire, en forme de toile d'araignée, délimitant l'espace sous-arachnoïdien.
+   - **La Pie-mère** : membrane interne très fine, transparente et richement vascularisée, intimement appliquée contre le tissu nerveux.
+3. **Une protection liquidienne** : le **liquide céphalo-rachidien (LCR)** circulant dans l'espace sous-arachnoïdien et dans le canal de l'épendyme, agissant comme un coussin amortisseur hydraulique contre les chocs mécaniques.
+
+---
+
+### 3. Coupe transversale de la moelle épinière & nerf mixte (2,5 points)
+**a) Disposition des substances :**
+- **Substance grise** : strictement **centrale**, ayant la forme caractéristique d'ailes de papillon ou de lettre « H ». Elle présente deux cornes postérieures (dorsales) étroites et deux cornes antérieures (ventrales) larges et massives. Elle renferme les corps cellulaires des neurones.
+- **Substance blanche** : **périphérique**, entourant la substance grise. Elle est divisée en cordons (antérieurs, latéraux, postérieurs) et contient exclusivement des faisceaux de fibres nerveuses myélinisées conductrices.
+
+**b) Éléments de légende du schéma exigé :**
+- Fissure médiane antérieure (fente large et profonde côté ventral).
+- Sillon médian postérieur (étroit côté dorsal).
+- Canal central de l'épendyme (au milieu de la commissure grise).
+- Racine dorsale (postérieure) portant le **ganglion spinal**.
+- Racine ventrale (antérieure) motrice sans ganglion.
+- Tronc du nerf rachidien.
+
+**c) Notion de nerf mixte :**
+Le nerf rachidien résulte de la coalescence de la racine dorsale (purement sensitive / afférente) et de la racine ventrale (purement motrice / efférente). Il contient donc à la fois des fibres conductrices centripètes et centrifuges : c'est un **nerf mixte**.`,
+      baremeAstuce: 'Au Bac S2, l’orientation de la coupe est primordiale : placez impérativement la fissure médiane antérieure en bas (ou indiquez clairement les orientations Dorsal/Ventral) et le ganglion spinal sur la racine dorsale sous peine de perte de points d’exactitude.',
+    },
+    {
+      year: 2018,
+      session: 'Session Normale (S2)',
+      points: 'Deuxième Partie — Raisonnement Scientifique (6 Points)',
+      topic: 'Expériences de section de Bell et Magendie, dégénérescence wallérienne et localisation des corps cellulaires',
+      enonce: `Pour déterminer la fonction des racines du nerf rachidien et la localisation des corps cellulaires des fibres nerveuses, on réalise une série d'expériences chez le chien :
+
+- **Expérience 1** : La section bilatérale d'un nerf rachidien entraîne la perte totale de motricité et de sensibilité du membre correspondant.
+- **Expérience 2** : La section de la racine antérieure (ventrale) d'un nerf rachidien entraîne la paralysie du membre, mais la sensibilité reste intacte. Quelques jours plus tard, les fibres du bout périphérique dégénèrent.
+- **Expérience 3** : La section de la racine postérieure (dorsale) en avant du ganglion spinal entraîne la perte de sensibilité du membre, la motricité restant normale. Quelques jours après, seules les fibres situées du côté central (entre la section et la moelle) dégénèrent.
+- **Expérience 4** : La section de la racine postérieure en arrière du ganglion spinal entraîne également une anesthésie du membre. Les fibres du bout périphérique dégénèrent.
+
+1. Interpréter rigoureusement les résultats des expériences 1, 2 et 3 quant au rôle fonctionnel respectif du nerf rachidien et de ses deux racines.
+2. Rappeler le principe de la dégénérescence wallérienne.
+3. Déduire des résultats des expériences 2, 3 et 4 la localisation précise des corps cellulaires des fibres motrices et des fibres sensitives.`,
+      solution: `### 1. Interprétation fonctionnelle (2,5 points)
+- **Expérience 1** : La perte conjointe de la motricité et de la sensibilité démontre que le tronc du nerf rachidien conduit à la fois les influx moteurs et sensitifs : c'est un **nerf mixte**.
+- **Expérience 2** : La paralysie motrice isolée prouve que la racine antérieure (ventrale) est la **voie motrice efférente (centrifuge)**. Elle achemine les ordres moteurs de la moelle vers les muscles effecteurs.
+- **Expérience 3** : L'anesthésie sensorielle isolée prouve que la racine postérieure (dorsale) est la **voie sensitive afférente (centripète)**. Elle achemine les messages sensoriels des récepteurs vers les centres nerveux.
+
+---
+
+### 2. Principe de la dégénérescence wallérienne (1,5 point)
+Lorsqu'une fibre nerveuse est coupée, la partie séparée du corps cellulaire qui contient le noyau trophique (bout périphérique déconnecté) dégénère en quelques jours et disparaît (dégénérescence wallérienne). En revanche, la partie restant en continuité avec le corps cellulaire (bout central) survit et peut régénérer. La dégénérescence indique donc toujours le côté **opposé** au corps cellulaire.
+
+---
+
+### 3. Déduction de la localisation des corps cellulaires (2 points)
+- **Fibres motrices (Expérience 2)** : Le bout périphérique dégénère tandis que le bout central attaché à la moelle reste intact. Les corps cellulaires des neurones moteurs sont donc situés dans le centre nerveux : dans la **corne antérieure (ventrale) de la substance grise de la moelle épinière**.
+- **Fibres sensitives (Expériences 3 et 4)** :
+  - Dans l'expérience 3 (section entre ganglion et moelle), les fibres du côté de la moelle dégénèrent : le corps cellulaire n'est donc pas dans la moelle.
+  - Dans l'expérience 4 (section entre récepteurs et ganglion), le bout périphérique dégénère : le corps cellulaire n'est pas en périphérie.
+  - Conclusion : Les corps cellulaires des neurones sensitifs (en T) sont situés exclusivement dans le **ganglion spinal de la racine dorsale**.`,
+      baremeAstuce: 'Dans l’épreuve de raisonnement du Bac S2, appliquez toujours la démarche : Constat précis → Déduction physiologique → Conclusion rigoureuse.',
+    },
+  ],
 };
 
 BAC_ANNALES_BY_CHAPTER.cinematique = BAC_ANNALES_BY_CHAPTER.cinematique_point;
@@ -2239,6 +2326,10 @@ BAC_ANNALES_BY_CHAPTER.p3 = BAC_ANNALES_BY_CHAPTER.projectile_champ_pesanteur;
 BAC_ANNALES_BY_CHAPTER.particule = BAC_ANNALES_BY_CHAPTER.particule_champ_e_b;
 BAC_ANNALES_BY_CHAPTER.champ_e_b = BAC_ANNALES_BY_CHAPTER.particule_champ_e_b;
 BAC_ANNALES_BY_CHAPTER.p4 = BAC_ANNALES_BY_CHAPTER.particule_champ_e_b;
+BAC_ANNALES_BY_CHAPTER.b1 = BAC_ANNALES_BY_CHAPTER.systeme_nerveux;
+BAC_ANNALES_BY_CHAPTER['systeme-nerveux'] = BAC_ANNALES_BY_CHAPTER.systeme_nerveux;
+BAC_ANNALES_BY_CHAPTER['systeme_nerveux'] = BAC_ANNALES_BY_CHAPTER.systeme_nerveux;
+BAC_ANNALES_BY_CHAPTER['moelle-epiniere'] = BAC_ANNALES_BY_CHAPTER.systeme_nerveux;
 
 interface BacSenegalAnnalesProps {
   chapter?: string;

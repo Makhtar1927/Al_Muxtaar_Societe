@@ -21,6 +21,11 @@ import {
   MATHEMATIQUES_SUBJECT_ID,
   ensureMathematiquesInDatabase,
 } from '@/lib/curriculum/mathematiques-data';
+import {
+  SVT_CHAPTERS,
+  SVT_SUBJECT_ID,
+  ensureSvtInDatabase,
+} from '@/lib/curriculum/svt-data';
 import InteractiveLimitSimulator from '@/components/course/interactive-limit-simulator';
 import FormesIndetermineesCard from '@/components/course/formes-indeterminees-card';
 import BacSenegalAnnales from '@/components/course/bac-senegal-annales';
@@ -106,6 +111,9 @@ import ProjectileQuizEmbedded from '@/components/course/projectile-quiz-embedded
 import P4ParticuleReflexesCard from '@/components/course/p4-particule-reflexes-card';
 import P4ParticuleInteractiveSimulator from '@/components/course/p4-particule-interactive-simulator';
 import P4ParticuleQuizEmbedded from '@/components/course/p4-particule-quiz-embedded';
+import B1SystemeNerveuxReflexesCard from '@/components/course/b1-systeme-nerveux-reflexes-card';
+import B1SystemeNerveuxInteractiveLab from '@/components/course/b1-systeme-nerveux-interactive-lab';
+import B1SystemeNerveuxQuizEmbedded from '@/components/course/b1-systeme-nerveux-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
@@ -1099,6 +1107,49 @@ const GEOMETRIE_AUDIO_CHAPTERS: AudioChapter[] = [
   },
 ];
 
+const SYSTEME_NERVEUX_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Enjeux du Système Nerveux au Bac S2 Sénégal",
+    badge: "Introduction",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass de SVT Terminale S2. Le système nerveux cérébrospinal est au cœur des épreuves du Baccalauréat sénégalais. Maîtriser l'anatomie du névraxe, la triple protection méningée et la coupe transversale de la moelle épinière vous garantit le maximum de points à la première partie de l'épreuve.",
+  },
+  {
+    timeSeconds: 50,
+    title: "2. Les 3 Méninges et le LCR (Règle DAP)",
+    badge: "Protection",
+    icon: "cle_solution",
+    textScript:
+      "Retenez l'ordre des méninges de l'extérieur vers l'intérieur avec l'acronyme DAP : Dure-mère fibreuse et épaisse contre l'os, Arachnoïde en toile d'araignée avec l'espace sous-arachnoïdien où circule le liquide céphalo-rachidien, et Pie-mère fine, vascularisée, collée au tissu nerveux.",
+  },
+  {
+    timeSeconds: 115,
+    title: "3. La Coupe Transversale : Inversion Moelle / Cerveau",
+    badge: "Anatomie",
+    icon: "theoreme_equerre",
+    textScript:
+      "Dans la moelle épinière, la substance grise est strictement centrale en forme de papillon ou de H, renfermant les corps cellulaires des neurones. La substance blanche est périphérique, formée uniquement d'axones myélinisés. C'est l'inverse du cerveau où la substance grise forme le cortex superficiel.",
+  },
+  {
+    timeSeconds: 180,
+    title: "4. Le Piège d'or : Ganglion Spinal et Racine Dorsale",
+    badge: "Piège Bac",
+    icon: "piege_bac",
+    textScript:
+      "Le ganglion spinal est le renflement caractéristique porté EXCLUSIVEMENT par la racine dorsale. Il contient les corps cellulaires en T des neurones sensitifs. La racine ventrale n'a jamais de ganglion. La racine dorsale est sensitive, la racine ventrale est motrice, et leur réunion forme le nerf rachidien mixte.",
+  },
+  {
+    timeSeconds: 245,
+    title: "5. Bell, Magendie et Dégénérescence Wallérienne",
+    badge: "Expériences",
+    icon: "eclair_reflexe",
+    textScript:
+      "Lorsqu'une racine est sectionnée, seule la portion coupée déconnectée de son corps cellulaire dégénère. La section de la racine ventrale paralyse le membre sans toucher à la sensibilité. La section de la racine dorsale anesthésie le membre sans altérer la motricité. À retenir absolument pour le raisonnement scientifique !",
+  },
+];
+
 interface PageProps {
   params: {
     level: string;
@@ -1282,6 +1333,51 @@ export default async function LessonReaderPage({ params }: PageProps) {
     // Synchronisation Supabase en arrière-plan non bloquante
     ensureMathematiquesInDatabase(admin).catch((e) =>
       console.error('Sync Maths DB background:', e)
+    );
+  }
+
+  // ── Résolution immédiate & infaillible pour la SVT (Programme Officiel S2) ──
+  const svtChapter = SVT_CHAPTERS.find((c) => c.id === params.chapter);
+  const svtLesson = svtChapter?.lessons.find((l) => l.id === params.lesson);
+
+  if (svtChapter) {
+    if (!chapter) {
+      chapter = {
+        id: svtChapter.id,
+        title: svtChapter.title,
+        order_index: svtChapter.order_index,
+        subjects: {
+          id: SVT_SUBJECT_ID,
+          name: 'Sciences de la Vie et de la Terre (SVT)',
+          code: 'svt',
+        },
+      } as any;
+    }
+
+    if (!siblings || siblings.length === 0) {
+      siblings = svtChapter.lessons.map((l) => ({
+        id: l.id,
+        title: l.title,
+        order_index: l.order_index,
+        is_free: l.is_free,
+      }));
+    }
+
+    if (svtLesson && !lessonMeta) {
+      lessonMeta = {
+        id: svtLesson.id,
+        title: svtLesson.title,
+        chapter_id: svtChapter.id,
+        is_free: svtLesson.is_free,
+        status: 'published',
+        content_markdown: `# ${svtChapter.title}\n\n## ${svtLesson.title}`,
+        order_index: svtLesson.order_index,
+      } as any;
+    }
+
+    // Synchronisation Supabase en arrière-plan non bloquante
+    ensureSvtInDatabase(admin).catch((e) =>
+      console.error('Sync SVT DB background:', e)
     );
   }
 
@@ -2406,6 +2502,21 @@ if (lessonMeta && lessonMeta.status !== 'published') {
       params.lesson === '60000000-0000-0002-0001-000000000012' ||
       params.chapter === '50000000-0000-0002-0001-000000000004');
 
+  const isSystemeNerveux =
+    lessonMeta.title.toLowerCase().includes('système nerveux') ||
+    lessonMeta.title.toLowerCase().includes('systeme nerveux') ||
+    lessonMeta.title.toLowerCase().includes('cérébrospinal') ||
+    lessonMeta.title.toLowerCase().includes('cerebrospinal') ||
+    lessonMeta.title.toLowerCase().includes('moelle épinière') ||
+    lessonMeta.title.toLowerCase().includes('moelle epiniere') ||
+    lessonMeta.title.toLowerCase().includes('encéphale') ||
+    lessonMeta.title.toLowerCase().includes('encephale') ||
+    (chapter?.title?.toLowerCase() || '').includes('système nerveux') ||
+    (chapter?.title?.toLowerCase() || '').includes('systeme nerveux') ||
+    (chapter?.title?.toLowerCase() || '').includes('b1') ||
+    params.lesson === '60000000-0000-0003-0001-000000000001' ||
+    params.chapter === '50000000-0000-0003-0001-000000000001';
+
   const isDerivation =
     !isAcidesAmines &&
     !isDosageAcideFaibleBaseForte &&
@@ -2524,7 +2635,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
               {/* Capsule Vocale & Masterclass Audio du Professeur (Al Muxtaar S2) */}
               <AudioCoachPlayer
                 title={
-                  isAlcools
+                  isSystemeNerveux
+                    ? 'Masterclass Audio : Système Nerveux Cérébrospinal & Moelle Épinière'
+                    : isAlcools
                     ? 'Masterclass Audio : Classes d\'Alcools & Nomenclature'
                     : isAmines
                     ? 'Masterclass Audio : Amines, Classes & Réaction d\'Hofmann'
@@ -2573,7 +2686,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     : 'Masterclass Audio : Limites & Continuité'
                 }
                 subtitle={
-                  isAlcools
+                  isSystemeNerveux
+                    ? 'Terminale S2 • SVT : Les 5 réflexes pour maîtriser la coupe transversale et le ganglion au Bac'
+                    : isAlcools
                     ? 'Terminale S2 • Chimie : Les 5 réflexes pour reconnaître la classe et nommer'
                     : isAmines
                     ? 'Terminale S2 • Chimie : Les 5 réflexes pour maîtriser la basicité et Hofmann au Bac'
@@ -2622,7 +2737,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     : 'Terminale S2 • 5 réflexes essentiels pour l\'épreuve'
                 }
                 chapters={
-                  isAlcools
+                  isSystemeNerveux
+                    ? SYSTEME_NERVEUX_AUDIO_CHAPTERS
+                    : isAlcools
                     ? ALCOOLS_AUDIO_CHAPTERS
                     : isAmines
                     ? AMINES_AUDIO_CHAPTERS
@@ -2754,6 +2871,11 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                   <P4ParticuleReflexesCard />
                   <P4ParticuleInteractiveSimulator />
                 </>
+              ) : isSystemeNerveux ? (
+                <>
+                  <B1SystemeNerveuxReflexesCard />
+                  <B1SystemeNerveuxInteractiveLab />
+                </>
               ) : isTvi ? (
                 <>
                   <TviReflexesCard />
@@ -2867,6 +2989,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'projectile_champ_pesanteur'
                     : isParticule
                     ? 'particule_champ_e_b'
+                    : isSystemeNerveux
+                    ? 'systeme_nerveux'
                     : isAlcools
                     ? 'alcools'
                     : isAmines
@@ -2951,6 +3075,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <ProjectileQuizEmbedded />
               ) : isParticule ? (
                 <P4ParticuleQuizEmbedded />
+              ) : isSystemeNerveux ? (
+                <B1SystemeNerveuxQuizEmbedded />
               ) : isTvi ? (
                 <TviQuizEmbedded />
               ) : isAsymptotes ? (
