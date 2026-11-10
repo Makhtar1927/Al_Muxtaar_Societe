@@ -463,6 +463,185 @@ La vitesse minimale requise pour toucher la cible $C$ est de **$14{,}43\\text{ m
 - Détermination de la vitesse minimale v₀,min (parabole de sécurité) : 0,5 pt.
 Astuce correcteur : Cette équation en tan α est le grand classique d'excellence du Bac S2 ! Pensez toujours à poser X = tan α pour obtenir un polynôme classique AX² + BX + C = 0.`,
     },
+    {
+      year: 2020,
+      session: 'Session Normale (S2)',
+      points: 'Exercice 3 — Mécanique (4 Points)',
+      topic: 'Lancement d\'une Balle de Tennis depuis une Hauteur Initiale non nulle y₀ ≠ 0, Service, Franchissement du Filet et Carré de Service',
+      enonce: `Lors d'un match de tennis au stade de Dakar, un joueur effectue un service en frappant la balle en un point $A$ situé à la hauteur $h = 2{,}45\\text{ m}$ au-dessus du sol. Le vecteur vitesse initiale $\\vec{v}_0$ est horizontal ($\\alpha = 0^\\circ$) de norme $v_0 = 30{,}0\\text{ m}\\cdot\\text{s}^{-1}$. Le repère orthonormé $(O, \\vec{i}, \\vec{j})$ est choisi tel que l'origine $O$ est au sol à la verticale de $A$, l'axe $(Ox)$ horizontal orienté vers l'adversaire et l'axe $(Oy)$ vertical ascendant. On prendra $g = 9{,}8\\text{ m}\\cdot\\text{s}^{-2}$ et on néglige toute résistance de l'air.
+Le filet, d'une hauteur $H_{\\text{filet}} = 0{,}90\\text{ m}$, est situé à la distance $d = 12{,}0\\text{ m}$ du point de service. La ligne de fond du carré de service adverse est située à $D = 18{,}4\\text{ m}$ de $O$.
+
+1. Établir les équations horaires du mouvement du centre d'inertie de la balle $x(t)$ et $y(t)$.
+2. En déduire l'équation cartésienne de la trajectoire $y(x)$. Préciser sa nature géométrique.
+3. Le service est-il réussi du point de vue du filet ? C'est-à-dire : la balle franchit-elle le filet ? Justifier par le calcul en précisant la marge de passage.
+4. Pour que le service soit considéré comme valable, la balle doit impérativement rebondir dans le carré de service, c'est-à-dire que le point d'impact au sol $I(x_I, y=0)$ doit vérifier :
+$d < x_I < D$
+a) Déterminer la date d'impact $t_I$ de la balle avec le sol.
+b) Calculer l'abscisse du point d'impact $x_I$. Le service est-il jugé « bon » (in) ou « faute » (long) ?
+5. Déterminer la norme du vecteur vitesse $\\vec{v}_I$ de la balle au moment du premier rebond sur le sol ainsi que l'angle $\\theta$ que fait ce vecteur avec l'horizontale.
+6. Le joueur souhaite que sa balle retombe exactement sur la ligne de fond du carré de service ($x_I = D = 18{,}4\\text{ m}$). En conservant la même hauteur $h = 2{,}45\\text{ m}$ et un tir horizontal, quelle valeur devrait-il donner à sa vitesse initiale $v'_0$ ?`,
+      solution: `### 1. Équations horaires du mouvement
+- **Système** : {Balle de tennis assimilée à un point matériel}.
+- **Référentiel** : Terrestre supposé galiléen, repère $(O, \\vec{i}, \\vec{j})$.
+- **Forces** : Poids seul $\\vec{P} = m\\vec{g}$ (chute libre).
+D'après le TCI : $\\vec{a} = \\vec{g} \\implies \\begin{cases} a_x(t) = 0 \\\\ a_y(t) = -g \\end{cases}$
+- **Conditions initiales** à $t = 0$ :
+$\\vec{OM}_0 \\begin{pmatrix} x_0 = 0 \\\\ y_0 = h = 2{,}45\\text{ m} \\end{pmatrix} \\quad ; \\quad \\vec{v}_0 \\begin{pmatrix} v_{0x} = v_0 \\\\ v_{0y} = 0 \\end{pmatrix}$ (car $\\alpha = 0$)
+- **Vecteur vitesse** :
+$\\vec{v}(t) \\begin{cases} v_x(t) = v_0 \\\\ v_y(t) = -gt \\end{cases}$
+- **Vecteur position** :
+$\\vec{OM}(t) \\begin{cases} x(t) = v_0\\,t \\\\ y(t) = -\\frac{1}{2}gt^2 + h \\end{cases}$
+
+---
+
+### 2. Équation cartésienne de la trajectoire
+De $x(t) = v_0\\,t$, on déduit $t = \\frac{x}{v_0}$. En substituant dans $y(t)$ :
+$y(x) = -\\frac{g}{2v_0^2}\\,x^2 + h$
+Application numérique :
+$y(x) = -\\frac{9{,}8}{2 \\times (30{,}0)^2}\\,x^2 + 2{,}45 = -\\frac{9{,}8}{1800}\\,x^2 + 2{,}45 \\approx -0{,}005444\\,x^2 + 2{,}45$
+La trajectoire est une **branche de parabole** à concavité tournée vers le bas, dont le sommet est le point initial $A(0, h)$.
+
+---
+
+### 3. Franchissement du filet ($x = d = 12{,}0\\text{ m}$)
+Calculons la hauteur de la balle au-dessus du sol à l'abscisse du filet :
+$y(12{,}0) = -0{,}005444 \\times (12{,}0)^2 + 2{,}45 = -0{,}005444 \\times 144 + 2{,}45 = -0{,}784 + 2{,}45 = 1{,}666\\text{ m} \\approx 1{,}67\\text{ m}$
+La hauteur du filet étant $H_{\\text{filet}} = 0{,}90\\text{ m}$ :
+$y(12{,}0) - H_{\\text{filet}} = 1{,}67 - 0{,}90 = +0{,}77\\text{ m} > 0$
+La balle franchit largement le filet avec une marge de sécurité de **$77\\text{ cm}$**.
+
+---
+
+### 4. Étude de l'impact au sol
+a) Date d'impact $t_I$ (ordonnée $y(t_I) = 0$) :
+$-\\frac{1}{2}gt_I^2 + h = 0 \\implies t_I = \\sqrt{\\frac{2h}{g}} = \\sqrt{\\frac{2 \\times 2{,}45}{9{,}8}} = \\sqrt{\\frac{4{,}9}{9{,}8}} = \\sqrt{0{,}5} \\approx 0{,}707\\text{ s}$
+Remarque remarquable : la durée de chute ne dépend que de la hauteur $h$ et de $g$, indépendamment de la vitesse horizontale $v_0$ !
+
+b) Abscisse du point d'impact :
+$x_I = v_0\\,t_I = 30{,}0 \\times 0{,}707 \\approx 21{,}21\\text{ m}$
+Comme $x_I = 21{,}21\\text{ m} > D = 18{,}4\\text{ m}$, la balle retombe au-delà de la ligne de service :
+Le service est donc jugé **« faute » (balle longue de $2{,}81\\text{ m}$)**.
+
+---
+
+### 5. Vitesse d'impact et angle avec le sol
+- Composantes de la vitesse à la date $t_I$ :
+$v_{Ix} = v_0 = 30{,}0\\text{ m}\\cdot\\text{s}^{-1}$
+$v_{Iy} = -g\\,t_I = -9{,}8 \\times 0{,}707 \\approx -6{,}93\\text{ m}\\cdot\\text{s}^{-1}$
+- Norme de la vitesse d'impact :
+$v_I = \\sqrt{v_{Ix}^2 + v_{Iy}^2} = \\sqrt{30{,}0^2 + (-6{,}93)^2} = \\sqrt{900 + 48{,}0} = \\sqrt{948{,}0} \\approx 30{,}79\\text{ m}\\cdot\\text{s}^{-1}$
+Vérification par le Théorème de l'Énergie Cinétique (TEC) :
+$\\frac{1}{2}mv_I^2 - \\frac{1}{2}mv_0^2 = mgh \\implies v_I = \\sqrt{v_0^2 + 2gh} = \\sqrt{900 + 2 \\times 9{,}8 \\times 2{,}45} = \\sqrt{900 + 48{,}02} = 30{,}79\\text{ m}\\cdot\\text{s}^{-1}$ (parfaite cohérence).
+- Angle $\\theta$ avec l'horizontale :
+$\\tan\\theta = \\frac{|v_{Iy}|}{v_{Ix}} = \\frac{6{,}93}{30{,}0} \\approx 0{,}231 \\implies \\theta = \\arctan(0{,}231) \\approx 13{,}0^\\circ$ sous l'horizontale.
+
+---
+
+### 6. Ajustement de la vitesse pour un service parfait ($x_I = D = 18{,}4\\text{ m}$)
+Comme $t_I = \\sqrt{\\frac{2h}{g}} = 0{,}707\\text{ s}$ reste invariant :
+$x_I = v'_0\\,t_I = D \\implies v'_0 = \\frac{D}{t_I} = \\frac{18{,}4}{0{,}707} \\approx 26{,}02\\text{ m}\\cdot\\text{s}^{-1}$
+Vérification du franchissement du filet avec cette nouvelle vitesse :
+$y(12{,}0) = -\\frac{9{,}8 \\times 12{,}0^2}{2 \\times (26{,}02)^2} + 2{,}45 = -\\frac{1411{,}2}{1354} + 2{,}45 = -1{,}04 + 2{,}45 = 1{,}41\\text{ m} > 0{,}90\\text{ m}$
+Le filet est toujours franchi avec succès (marge de $51\\text{ cm}$). Le joueur doit donc réduire sa vitesse de frappe à **$26{,}0\\text{ m}\\cdot\\text{s}^{-1}$** (soit environ $94\\text{ km/h}$).`,
+      baremeAstuce: `Barème officiel Bac S2 :
+- TCI et équations horaires avec conditions initiales (h et v₀ horizontal) : 1 pt
+- Équation de la trajectoire y(x) : 0,5 pt
+- Franchissement du filet avec justification numérique : 0,75 pt
+- Calcul du temps d'impact t_I et décision « faute » : 0,75 pt
+- Norme et angle de la vitesse d'impact (ou TEC) : 0,5 pt
+- Calcul de la nouvelle vitesse v'_0 : 0,5 pt.
+Astuce correcteur : Dans le cas du tir horizontal (α = 0), t_I ne dépend jamais de v₀ mais uniquement de la hauteur de chute h ! C'est le principe même de l'indépendance des mouvements galiléens.`,
+    },
+    {
+      year: 2015,
+      session: 'Session Normale (S2)',
+      points: 'Exercice 3 — Mécanique (4 Points)',
+      topic: 'Saut d\'un Véhicule par-dessus un Ravin, Rampe Inclinée, Portée et Vitesse d\'Atterrissage',
+      enonce: `Pour les besoins d'un spectacle de cascades au Sénégal, un motard aborde un tremplin incliné d'un angle $\\beta = 20^\\circ$ par rapport à l'horizontale. Il quitte le tremplin au point $O$ à la date $t = 0$ avec une vitesse $\\vec{v}_0$ colinéaire au tremplin, de norme $v_0 = 22{,}0\\text{ m}\\cdot\\text{s}^{-1}$.
+Le point $O$ est situé à une hauteur $H_0 = 3{,}50\\text{ m}$ au-dessus du sol horizontal de réception. Un ravin d'une largeur $L = 25{,}0\\text{ m}$ sépare le point de décollage de la plate-forme d'atterrissage. On prendra $g = 9{,}8\\text{ m}\\cdot\\text{s}^{-2}$ et on assimilera l'ensemble {moto + motard} à un solide ponctuel de masse $M = 220\\text{ kg}$.
+
+1. Déterminer dans le repère $(O, \\vec{i}, \\vec{j})$ lié au point $O$ (avec $(Ox)$ horizontal et $(Oy)$ vertical ascendant) :
+a) Les composantes du vecteur accélération $\\vec{a}$.
+b) Les équations horaires $x(t)$ et $y(t)$ de la trajectoire de la moto.
+2. Établir l'équation cartésienne de la trajectoire du motard.
+3. Déterminer la flèche $y_{\\max}$ de la trajectoire par rapport au point $O$, ainsi que l'altitude maximale $H_{\\max}$ atteinte par rapport au sol.
+4. Le sol de la plate-forme d'atterrissage est situé au niveau du sol de référence ($y = -H_0 = -3{,}50\\text{ m}$).
+a) Déterminer la date $t_R$ à laquelle le motard atterrit sur la plate-forme.
+b) Calculer la portée $x_R$ du saut. Le motard franchit-il le ravin de largeur $L = 25{,}0\\text{ m}$ ?
+5. Déterminer la norme du vecteur vitesse $\\vec{v}_R$ au moment du contact avec la plate-forme d'atterrissage en utilisant le Théorème de l'Énergie Cinétique.`,
+      solution: `### 1. Vecteur accélération et équations horaires
+- **Système** : {Moto + motard de masse $M = 220\\text{ kg}$}.
+- **Référentiel** : Terrestre galiléen, repère $(O, \\vec{i}, \\vec{j})$ centré sur le sommet du tremplin.
+- **Forces** : Poids seul $\\vec{P} = M\\vec{g}$ (frottements d'air négligés).
+Par le TCI : $\\vec{a} = \\vec{g} \\implies a_x = 0 \\quad ; \\quad a_y = -g$.
+- **Conditions initiales** en $O$ à $t = 0$ :
+$x_0 = 0 \\quad ; \\quad y_0 = 0$
+$v_{0x} = v_0\\cos\\beta \\quad ; \\quad v_{0y} = v_0\\sin\\beta$
+- **Vecteur vitesse** :
+$v_x(t) = v_0\\cos\\beta$
+$v_y(t) = -gt + v_0\\sin\\beta$
+- **Vecteur position** :
+$x(t) = (v_0\\cos\\beta)\\,t$
+$y(t) = -\\frac{1}{2}gt^2 + (v_0\\sin\\beta)\\,t$
+
+---
+
+### 2. Équation cartésienne de la trajectoire
+On élimine le paramètre temps $t = \\frac{x}{v_0\\cos\\beta}$ :
+$y(x) = -\\frac{g}{2v_0^2\\cos^2\\beta}\\,x^2 + (\\tan\\beta)\\,x$
+Application numérique :
+- $\\beta = 20^\\circ \\implies \\cos(20^\\circ) \\approx 0{,}9397 \\implies \\cos^2(20^\\circ) \\approx 0{,}8830$
+- $2v_0^2\\cos^2\\beta = 2 \\times (22{,}0)^2 \\times 0{,}8830 = 2 \\times 484 \\times 0{,}8830 = 854{,}7\\text{ m}^2\\cdot\\text{s}^{-2}$
+- $-\\frac{9{,}8}{854{,}7} \\approx -0{,}01147\\text{ m}^{-1}$
+- $\\tan(20^\\circ) \\approx 0{,}3640$
+$y(x) = -0{,}01147\\,x^2 + 0{,}3640\\,x$
+
+---
+
+### 3. Flèche et altitude maximale
+Au sommet de la trajectoire, $v_y(t_S) = 0 \\implies t_S = \\frac{v_0\\sin\\beta}{g}$ :
+$t_S = \\frac{22{,}0 \\times \\sin(20^\\circ)}{9{,}8} = \\frac{22{,}0 \\times 0{,}3420}{9{,}8} = \\frac{7{,}524}{9{,}8} \\approx 0{,}768\\text{ s}$
+- Flèche par rapport au point de départ $O$ :
+$y_{\\max} = y(t_S) = \\frac{(v_0\\sin\\beta)^2}{2g} = \\frac{(7{,}524)^2}{2 \\times 9{,}8} = \\frac{56{,}61}{19{,}6} \\approx 2{,}89\\text{ m}$
+- Altitude maximale par rapport au sol :
+$H_{\\max} = H_0 + y_{\\max} = 3{,}50 + 2{,}89 = 6{,}39\\text{ m}$
+
+---
+
+### 4. Atterrissage sur la plate-forme ($y = -H_0 = -3{,}50\\text{ m}$)
+a) Date d'atterrissage $t_R$ :
+$y(t_R) = -\\frac{1}{2}gt_R^2 + (v_0\\sin\\beta)\\,t_R = -3{,}50$
+$-\\frac{1}{2}(9{,}8)t_R^2 + 7{,}524\\,t_R + 3{,}50 = 0 \\implies -4{,}9\\,t_R^2 + 7{,}524\\,t_R + 3{,}50 = 0$
+$4{,}9\\,t_R^2 - 7{,}524\\,t_R - 3{,}50 = 0$
+Discriminant :
+$\\Delta = (-7{,}524)^2 - 4(4{,}9)(-3{,}50) = 56{,}61 + 68{,}60 = 125{,}21 > 0$
+$\\sqrt{\\Delta} = \\sqrt{125{,}21} \\approx 11{,}19$
+La racine positive physiquement admissible est :
+$t_R = \\frac{7{,}524 + 11{,}19}{2 \\times 4{,}9} = \\frac{18{,}714}{9{,}8} \\approx 1{,}910\\text{ s}$
+
+b) Portée horizontale du saut :
+$x_R = x(t_R) = (v_0\\cos\\beta)\\,t_R = (22{,}0 \\times 0{,}9397) \\times 1{,}910 = 20{,}67 \\times 1{,}910 \\approx 39{,}48\\text{ m}$
+Comme $x_R = 39{,}48\\text{ m} > L = 25{,}0\\text{ m}$, le cascadeur franchit très largement le ravin (marge d'atterrissage de $+14{,}48\\text{ m}$).
+
+---
+
+### 5. Vitesse d'atterrissage par le Théorème de l'Énergie Cinétique
+Entre le point de décollage $O$ et le point de réception $R$, seul le poids $\\vec{P}$ travaille :
+$W(\\vec{P}) = Mg(y_O - y_R) = Mg(0 - (-H_0)) = MgH_0$
+D'après le TEC :
+$\\Delta E_c = \\frac{1}{2}M v_R^2 - \\frac{1}{2}M v_0^2 = MgH_0$
+$\\frac{1}{2}v_R^2 = \\frac{1}{2}v_0^2 + gH_0 \\implies v_R = \\sqrt{v_0^2 + 2gH_0}$
+Application numérique :
+$v_R = \\sqrt{(22{,}0)^2 + 2 \\times 9{,}8 \\times 3{,}50} = \\sqrt{484 + 68{,}6} = \\sqrt{552{,}6} \\approx 23{,}51\\text{ m}\\cdot\\text{s}^{-1}$
+Soit une vitesse d'impact de **$23{,}5\\text{ m}\\cdot\\text{s}^{-1}$** (environ $84{,}6\\text{ km/h}$). Le calcul par le TEC est remarquablement simple et évite de dériver les composantes vectorielles !`,
+      baremeAstuce: `Barème officiel Bac S2 :
+- TCI, accélération et équations horaires : 1 pt
+- Équation de la trajectoire y(x) : 0,5 pt
+- Flèche y_max et altitude maximale H_max : 0,75 pt
+- Équation du 2nd degré en temps et portée x_R : 1 pt
+- Vitesse d'impact par le TEC : 0,75 pt.
+Astuce correcteur : Remarquez que la cible d'atterrissage a une ordonnée négative y = -H₀ par rapport à l'origine ! Attention à ne pas confondre le sommet S (où v_y = 0) et le point d'impact P.`,
+    },
   ],
   projectile: [], // alias vers projectile_champ_pesanteur
   pesanteur: [], // alias vers projectile_champ_pesanteur

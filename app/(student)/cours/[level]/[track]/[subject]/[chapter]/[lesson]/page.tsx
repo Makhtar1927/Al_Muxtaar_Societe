@@ -99,6 +99,7 @@ import CinematiqueInteractiveSimulator from '@/components/course/cinematique-int
 import CinematiqueQuizEmbedded from '@/components/course/cinematique-quiz-embedded';
 import NewtonReflexesCard from '@/components/course/newton-reflexes-card';
 import ProjectileReflexesCard from '@/components/course/projectile-reflexes-card';
+import ProjectileInteractiveSimulator from '@/components/course/projectile-interactive-simulator';
 import NewtonInteractiveSimulator from '@/components/course/newton-interactive-simulator';
 import NewtonQuizEmbedded from '@/components/course/newton-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
@@ -2700,6 +2701,7 @@ if (lessonMeta && lessonMeta.status !== 'published') {
               ) : isProjectile ? (
                 <>
                   <ProjectileReflexesCard />
+                  <ProjectileInteractiveSimulator />
                 </>
               ) : isTvi ? (
                 <>
