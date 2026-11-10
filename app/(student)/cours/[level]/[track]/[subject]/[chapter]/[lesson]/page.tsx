@@ -98,6 +98,7 @@ import CinematiqueReflexesCard from '@/components/course/cinematique-reflexes-ca
 import CinematiqueInteractiveSimulator from '@/components/course/cinematique-interactive-simulator';
 import CinematiqueQuizEmbedded from '@/components/course/cinematique-quiz-embedded';
 import NewtonReflexesCard from '@/components/course/newton-reflexes-card';
+import ProjectileReflexesCard from '@/components/course/projectile-reflexes-card';
 import NewtonInteractiveSimulator from '@/components/course/newton-interactive-simulator';
 import NewtonQuizEmbedded from '@/components/course/newton-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
@@ -2331,6 +2332,33 @@ if (lessonMeta && lessonMeta.status !== 'published') {
       params.lesson === '60000000-0000-0002-0001-000000000006' ||
       params.chapter === '50000000-0000-0002-0001-000000000002');
 
+  const isProjectile =
+    !isAcidesAmines &&
+    !isAlcools &&
+    !isAmines &&
+    !isAcidesDerives &&
+    !isCinetique &&
+    !isAutoprotolysePh &&
+    !isAcideFortBaseForte &&
+    !isAcideFaibleBaseFaible &&
+    !isDosageAcideFaibleBaseForte &&
+    !isCinematique &&
+    !isNewton &&
+    (lessonMeta.title.toLowerCase().includes('projectile') ||
+      lessonMeta.title.toLowerCase().includes('pesanteur') ||
+      lessonMeta.title.toLowerCase().includes('parabolique') ||
+      lessonMeta.title.toLowerCase().includes('flèche') ||
+      lessonMeta.title.toLowerCase().includes('fleche') ||
+      lessonMeta.title.toLowerCase().includes('portée') ||
+      lessonMeta.title.toLowerCase().includes('portee') ||
+      (chapter?.title?.toLowerCase() || '').includes('projectile') ||
+      (chapter?.title?.toLowerCase() || '').includes('pesanteur') ||
+      (chapter?.title?.toLowerCase() || '').includes('p3') ||
+      params.lesson === '60000000-0000-0002-0001-000000000007' ||
+      params.lesson === '60000000-0000-0002-0001-000000000008' ||
+      params.lesson === '60000000-0000-0002-0001-000000000009' ||
+      params.chapter === '50000000-0000-0002-0001-000000000003');
+
   const isDerivation =
     !isAcidesAmines &&
     !isDosageAcideFaibleBaseForte &&
@@ -2669,6 +2697,10 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                   <NewtonReflexesCard />
                   <NewtonInteractiveSimulator />
                 </>
+              ) : isProjectile ? (
+                <>
+                  <ProjectileReflexesCard />
+                </>
               ) : isTvi ? (
                 <>
                   <TviReflexesCard />
@@ -2778,6 +2810,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'cinematique_point'
                     : isNewton
                     ? 'lois_newton'
+                    : isProjectile
+                    ? 'projectile_champ_pesanteur'
                     : isAlcools
                     ? 'alcools'
                     : isAmines

@@ -275,6 +275,199 @@ Astuce : N'écrivez jamais T = m₂g ! La tension est strictement inférieure au
     },
   ],
   newton: [], // alias vers lois_newton
+  // P3. MOUVEMENT D'UN PROJECTILE DANS UN CHAMP DE PESANTEUR UNIFORME (PHYSIQUE S2 - P3)
+  projectile_champ_pesanteur: [
+    {
+      year: 2022,
+      session: 'Session Normale (S2)',
+      points: 'Exercice 3 — Mécanique (4 Points)',
+      topic: 'Tir Balistique, Équation de la Trajectoire, Franchissement d\'Obstacle (Mur/Filet), Flèche, Portée et Vitesse d\'Impact',
+      enonce: `Dans un repère orthonormé $(O, \\vec{i}, \\vec{j})$ lié au sol terrestre supposé galiléen, un footballeur frappe un ballon ponctuel de masse $m = 450\\text{ g}$ depuis l'origine $O(0, 0)$ à la date $t = 0$. Le vecteur vitesse initiale $\\vec{v}_0$ est situé dans le plan vertical $(Oxy)$ et fait un angle $\\alpha = 30^\\circ$ avec l'horizontale. Sa norme est $v_0 = 20\\text{ m}\\cdot\\text{s}^{-1}$.
+Le champ de pesanteur local est vertical, descendant, d'intensité $g = 9{,}8\\text{ m}\\cdot\\text{s}^{-2}$. Les forces de frottement dans l'air ainsi que la poussée d'Archimède sont négligées.
+
+1. Appliquer le Théorème du Centre d'Inertie (TCI) pour déterminer les coordonnées du vecteur accélération $\\vec{a}(t)$ du ballon.
+2. Établir les équations horaires de la vitesse $v_x(t)$ et $v_y(t)$, puis celles de la position $x(t)$ et $y(t)$.
+3. Montrer que l'équation cartésienne de la trajectoire s'écrit :
+$y(x) = -\\frac{g}{2\\,v_0^2\\,\\cos^2\\alpha}\\,x^2 + (\\tan\\alpha)\\,x$
+Donner son expression numérique simplifiée et préciser la nature géométrique de la courbe.
+4. Un mur défensif de joueurs, de hauteur $H_{\\text{mur}} = 2{,}20\\text{ m}$, se dresse à la distance $d = 12{,}0\\text{ m}$ du point de tir. Le ballon franchit-il ce mur ? Justifier rigoureusement par le calcul.
+5. Déterminer les coordonnées $(x_S, y_S)$ du sommet $S$ de la trajectoire (la flèche $H$) ainsi que la date $t_S$ à laquelle il est atteint.
+6. Calculer la portée horizontale $x_P$ du tir (point de retombée sur le sol $y = 0$).
+7. Calculer la norme $v_P$ du vecteur vitesse du ballon à l'impact au sol par deux méthodes indépendantes :
+   a) À partir des composantes $v_x(t_P)$ et $v_y(t_P)$.
+   b) En appliquant le Théorème de l'Énergie Cinétique (TEC).`,
+      solution: `### 1. Vecteur accélération (TCI)
+- **Système** : {Ballon de masse $m = 0{,}45\\text{ kg}$}.
+- **Référentiel** : Terrestre supposé galiléen, muni du repère $(O, \\vec{i}, \\vec{j})$.
+- **Forces extérieures** : Seul le poids $\\vec{P} = m\\vec{g}$ s'exerce (chute libre).
+D'après le Théorème du Centre d'Inertie (2ème loi de Newton) :
+$\\sum \\vec{F}_{\\text{ext}} = m\\vec{a} \\implies m\\vec{g} = m\\vec{a} \\implies \\vec{a} = \\vec{g}$
+Dans le repère $(O, \\vec{i}, \\vec{j})$ où $\\vec{j}$ est ascendant :
+$\\vec{a} \\begin{pmatrix} a_x = 0 \\\\ a_y = -g \\end{pmatrix}$
+
+---
+
+### 2. Équations horaires de la vitesse et de la position
+- Conditions initiales à $t = 0$ :
+$\\vec{OM}_0 \\begin{pmatrix} x_0 = 0 \\\\ y_0 = 0 \\end{pmatrix} \\quad ; \\quad \\vec{v}_0 \\begin{pmatrix} v_{0x} = v_0\\cos\\alpha \\\\ v_{0y} = v_0\\sin\\alpha \\end{pmatrix}$
+- **Vecteur vitesse $\\vec{v}(t)$** par intégration de $\\vec{a}(t)$ :
+$\\vec{v}(t) \\begin{pmatrix} v_x(t) = v_0\\cos\\alpha \\\\ v_y(t) = -g\\,t + v_0\\sin\\alpha \\end{pmatrix}$
+- **Vecteur position $\\vec{OM}(t)$** par intégration de $\\vec{v}(t)$ :
+$\\vec{OM}(t) \\begin{pmatrix} x(t) = (v_0\\cos\\alpha)\\,t \\\\ y(t) = -\\frac{1}{2}g\\,t^2 + (v_0\\sin\\alpha)\\,t \\end{pmatrix}$
+
+---
+
+### 3. Équation cartésienne de la trajectoire
+De $x(t) = (v_0\\cos\\alpha)\\,t$, on tire $t = \\frac{x}{v_0\\cos\\alpha}$. En reportant dans $y(t)$ :
+$y(x) = -\\frac{1}{2}g\\left(\\frac{x}{v_0\\cos\\alpha}\\right)^2 + (v_0\\sin\\alpha)\\left(\\frac{x}{v_0\\cos\\alpha}\\right) = -\\frac{g}{2\\,v_0^2\\,\\cos^2\\alpha}\\,x^2 + (\\tan\\alpha)\\,x$
+Application numérique :
+- $\\cos(30^\\circ) = \\frac{\\sqrt{3}}{2} \\implies \\cos^2(30^\\circ) = 0{,}75$
+- $2\\,v_0^2\\,\\cos^2\\alpha = 2 \\times 20^2 \\times 0{,}75 = 600$
+- Coefficient dominant : $-\\frac{9{,}8}{600} \\approx -0{,}01633\\text{ m}^{-1}$
+- $\\tan(30^\\circ) = \\frac{\\sqrt{3}}{3} \\approx 0{,}5774$
+$y(x) = -0{,}01633\\,x^2 + 0{,}5774\\,x$
+La trajectoire est une **parabole** située dans le demi-plan supérieur $y \\ge 0$, à concavité tournée vers le bas.
+
+---
+
+### 4. Franchissement du mur défensif ($x = 12{,}0\\text{ m}$)
+Calculons l'altitude du ballon à l'abscisse $x = 12{,}0\\text{ m}$ :
+$y(12{,}0) = -0{,}01633 \\times (12{,}0)^2 + 0{,}5774 \\times 12{,}0 = -0{,}01633 \\times 144 + 6{,}928 = -2{,}352 + 6{,}928 = 4{,}58\\text{ m}$
+Comme $y(12{,}0) = 4{,}58\\text{ m} > H_{\\text{mur}} = 2{,}20\\text{ m}$, le ballon **franchit largement le mur défensif** avec une marge de sécurité de $4{,}58 - 2{,}20 = 2{,}38\\text{ m}$.
+
+---
+
+### 5. Sommet $S$ de la trajectoire (Flèche $H$)
+Au sommet $S$, la tangente est horizontale $\\implies v_y(t_S) = 0$ :
+$-g\\,t_S + v_0\\sin\\alpha = 0 \\implies t_S = \\frac{v_0\\sin\\alpha}{g} = \\frac{20 \\times \\sin(30^\\circ)}{9{,}8} = \\frac{10}{9{,}8} \\approx 1{,}02\\text{ s}$
+Coordonnées du sommet :
+$x_S = x(t_S) = (v_0\\cos\\alpha)\\,t_S = \\frac{v_0^2\\,\\sin(2\\alpha)}{2\\,g} = \\frac{400 \\times \\sin(60^\\circ)}{2 \\times 9{,}8} = \\frac{400 \\times 0{,}866}{19{,}6} \\approx 17{,}67\\text{ m}$
+$y_S = H = -\\frac{1}{2}g\\,t_S^2 + (v_0\\sin\\alpha)\\,t_S = \\frac{v_0^2\\,\\sin^2\\alpha}{2\\,g} = \\frac{400 \\times (0{,}5)^2}{2 \\times 9{,}8} = \\frac{100}{19{,}6} \\approx 5{,}10\\text{ m}$
+Le sommet est **$S(17{,}67\\text{ m} ; 5{,}10\\text{ m})$**, atteint à $t_S = 1{,}02\\text{ s}$.
+
+---
+
+### 6. Portée horizontale $x_P$
+Le ballon retombe au sol lorsque $y(x_P) = 0$ avec $x_P \\neq 0$ :
+$x_P\\left(-\\frac{g}{2\\,v_0^2\\,\\cos^2\\alpha}\\,x_P + \\tan\\alpha\\right) = 0 \\implies x_P = \\frac{2\\,v_0^2\\,\\sin\\alpha\\,\\cos\\alpha}{g} = \\frac{v_0^2\\,\\sin(2\\alpha)}{g}$
+Remarque fondamentale de symétrie : $x_P = 2\\,x_S = 2 \\times 17{,}67 = 35{,}35\\text{ m}$.
+La portée horizontale vaut **$x_P = 35{,}35\\text{ m}$**.
+
+---
+
+### 7. Vitesse d'impact au sol $v_P$
+- **Méthode a : Par les composantes de la vitesse à $t_P = 2\\,t_S = 2{,}04\\text{ s}$** :
+  - $v_{Px} = v_0\\cos\\alpha = 20 \\times \\frac{\\sqrt{3}}{2} \\approx 17{,}32\\text{ m}\\cdot\\text{s}^{-1}$
+  - $v_{Py} = -g(2\\,t_S) + v_0\\sin\\alpha = -2(v_0\\sin\\alpha) + v_0\\sin\\alpha = -v_0\\sin\\alpha = -10{,}0\\text{ m}\\cdot\\text{s}^{-1}$
+  $v_P = \\sqrt{v_{Px}^2 + v_{Py}^2} = \\sqrt{(v_0\\cos\\alpha)^2 + (-v_0\\sin\\alpha)^2} = \\sqrt{v_0^2(\\cos^2\\alpha + \\sin^2\\alpha)} = v_0 = 20{,}0\\text{ m}\\cdot\\text{s}^{-1}$
+
+- **Méthode b : Par le Théorème de l'Énergie Cinétique entre $O$ et $P$** :
+  $\\Delta E_c = \\frac{1}{2}m v_P^2 - \\frac{1}{2}m v_0^2 = W(\\vec{P}) = m\\,g\\,(y_O - y_P)$
+  Comme $y_O = y_P = 0$ (le sol est horizontal) :
+  $W(\\vec{P}) = 0 \\implies \\frac{1}{2}m v_P^2 = \\frac{1}{2}m v_0^2 \\implies v_P = v_0 = 20{,}0\\text{ m}\\cdot\\text{s}^{-1}$
+  Les deux méthodes concordent rigoureusement !`,
+      baremeAstuce: `Barème officiel Bac S2 :
+- Bilan des forces et accélération a = g : 0,5 pt
+- Équations horaires de v et OM : 0,75 pt
+- Équation cartésienne de la trajectoire : 0,5 pt
+- Calcul y(12 m) et conclusion franchissement mur : 0,5 pt
+- Coordonnées du sommet S et instant tS : 0,75 pt
+- Calcul de la portée xP : 0,5 pt
+- Calcul de vP par les deux méthodes (composantes et TEC) : 0,5 pt.
+Astuce correcteur : Rappelez-vous la symétrie de la parabole quand y₀ = 0 : xP = 2·xS et tP = 2·tS ! De plus, sans frottements, l'énergie mécanique se conserve donc la vitesse d'impact au même niveau est exactement égale à la vitesse initiale : vP = v₀ !`,
+    },
+    {
+      year: 2018,
+      session: 'Session Normale (S2)',
+      points: 'Exercice 3 — Mécanique (4 Points)',
+      topic: 'Conditions de Tir Balistique Optimal, Équation en tan(α), Deux Angles de Tir et Vitesse Minimale',
+      enonce: `Un lanceur placé à l'origine $O$ tire un projectile ponctuel de masse $m = 200\\text{ g}$ avec une vitesse initiale de norme $v_0 = 15{,}0\\text{ m}\\cdot\\text{s}^{-1}$. Le projectile doit atteindre une cible ponctuelle $C$ située en hauteur aux coordonnées $x_C = 18{,}0\\text{ m}$ et $y_C = 3{,}0\\text{ m}$. On prendra $g = 9{,}8\\text{ m}\\cdot\\text{s}^{-2}$.
+
+1. En utilisant la relation trigonométrique $\\frac{1}{\\cos^2\\alpha} = 1 + \\tan^2\\alpha$, montrer que l'équation de la trajectoire du projectile peut s'écrire sous la forme :
+$y(x) = -\\frac{g}{2\\,v_0^2}\\,(1 + \\tan^2\\alpha)\\,x^2 + (\\tan\\alpha)\\,x$
+2. Montrer que la condition pour que le projectile atteigne la cible $C(x_C, y_C)$ conduit à une équation du second degré en $X = \\tan\\alpha$ de la forme :
+$A\\,X^2 + B\\,X + C = 0$
+Calculer les valeurs numériques des coefficients $A$, $B$ et $C$.
+3. Résoudre cette équation et déterminer les deux angles de tir $\\alpha_1$ et $\\alpha_2$ possibles (avec $\\alpha_1 < \\alpha_2$).
+4. Donner le nom physique de ces deux types de tir (tir tendu et tir en cloche).
+5. Calculer la durée du trajet $t_1$ et $t_2$ du projectile pour chacun de ces deux angles.
+6. Déterminer la vitesse initiale minimale $v_{0,\\min}$ en deçà de laquelle il est physiquement impossible d'atteindre la cible $C$, quel que soit l'angle de tir $\\alpha$ choisi.`,
+      solution: `### 1. Forme trigonométrique en $\\tan\\alpha$
+L'équation de la trajectoire d'un projectile lancé depuis l'origine est :
+$y = -\\frac{g}{2\\,v_0^2\\,\\cos^2\\alpha}\\,x^2 + (\\tan\\alpha)\\,x$
+Comme $\\frac{1}{\\cos^2\\alpha} = \\frac{\\cos^2\\alpha + \\sin^2\\alpha}{\\cos^2\\alpha} = 1 + \\tan^2\\alpha$, on obtient immédiatement :
+$y(x) = -\\frac{g\\,x^2}{2\\,v_0^2}\\,(1 + \\tan^2\\alpha) + x\\,\\tan\\alpha$
+
+---
+
+### 2. Équation du second degré en $X = \\tan\\alpha$
+Pour que le projectile passe par la cible $C(x_C, y_C)$, ses coordonnées doivent vérifier l'équation de la trajectoire :
+$y_C = -\\frac{g\\,x_C^2}{2\\,v_0^2}\\,(1 + \\tan^2\\alpha) + x_C\\,\\tan\\alpha$
+En posant $X = \\tan\\alpha$ et en réorganisant tous les termes :
+$\\frac{g\\,x_C^2}{2\\,v_0^2}\\,X^2 - x_C\\,X + \\left(y_C + \\frac{g\\,x_C^2}{2\\,v_0^2}\\right) = 0$
+Calcul des coefficients numériques :
+- Terme $\\frac{g\\,x_C^2}{2\\,v_0^2} = \\frac{9{,}8 \\times (18{,}0)^2}{2 \\times (15{,}0)^2} = \\frac{9{,}8 \\times 324}{2 \\times 225} = \\frac{3175{,}2}{450} = 7{,}056\\text{ m}$
+- $A = 7{,}056$
+- $B = -x_C = -18{,}0$
+- $C = y_C + 7{,}056 = 3{,}0 + 7{,}056 = 10{,}056$
+L'équation s'écrit donc :
+$7{,}056\\,X^2 - 18{,}0\\,X + 10{,}056 = 0$
+
+---
+
+### 3. Résolution et angles de tir $\\alpha_1$ et $\\alpha_2$
+Calcul du discriminant :
+$\\Delta = B^2 - 4AC = (-18{,}0)^2 - 4(7{,}056)(10{,}056) = 324 - 283{,}82 = 40{,}18 > 0$
+$\\sqrt{\\Delta} = \\sqrt{40{,}18} \\approx 6{,}339$
+Les deux racines sont :
+$X_1 = \\tan\\alpha_1 = \\frac{18{,}0 - 6{,}339}{2 \\times 7{,}056} = \\frac{11{,}661}{14{,}112} \\approx 0{,}8263 \\implies \\alpha_1 = \\arctan(0{,}8263) \\approx 39{,}6^\\circ$
+$X_2 = \\tan\\alpha_2 = \\frac{18{,}0 + 6{,}339}{2 \\times 7{,}056} = \\frac{24{,}339}{14{,}112} \\approx 1{,}7247 \\implies \\alpha_2 = \\arctan(1{,}7247) \\approx 59{,}9^\\circ$
+Les deux angles de tir possibles sont **$\\alpha_1 = 39{,}6^\\circ$** et **$\\alpha_2 = 59{,}9^\\circ$** (environ $40^\\circ$ et $60^\\circ$).
+
+---
+
+### 4. Noms physiques des deux tirs
+- **$\\alpha_1 = 39{,}6^\\circ$** correspond au **tir tendu** : trajectoire plus basse, plus directe, flèche réduite, durée de vol minimale.
+- **$\\alpha_2 = 59{,}9^\\circ$** correspond au **tir en cloche** (ou plongeant) : trajectoire haute, flèche élevée, durée de vol plus longue, utile pour franchir des obstacles avant de retomber sur la cible.
+
+---
+
+### 5. Durées de parcours $t_1$ et $t_2$
+Comme $x(t) = (v_0\\cos\\alpha)\\,t$, la durée de vol jusqu'à $x_C$ est :
+$t = \\frac{x_C}{v_0\\cos\\alpha}$
+- **Pour $\\alpha_1 = 39{,}6^\\circ$** :
+  $\\cos(39{,}6^\\circ) \\approx 0{,}7705 \\implies t_1 = \\frac{18{,}0}{15{,}0 \\times 0{,}7705} = \\frac{18{,}0}{11{,}558} \\approx 1{,}56\\text{ s}$
+- **Pour $\\alpha_2 = 59{,}9^\\circ$** :
+  $\\cos(59{,}9^\\circ) \\approx 0{,}5015 \\implies t_2 = \\frac{18{,}0}{15{,}0 \\times 0{,}5015} = \\frac{18{,}0}{7{,}523} \\approx 2{,}39\\text{ s}$
+
+---
+
+### 6. Vitesse initiale minimale $v_{0,\\min}$
+Pour que l'équation du second degré en $X = \\tan\\alpha$ admette au moins une solution réelle, le discriminant $\\Delta$ doit être positif ou nul :
+$\\Delta = x_C^2 - 4\\left(\\frac{g\\,x_C^2}{2\\,v_0^2}\\right)\\left(y_C + \\frac{g\\,x_C^2}{2\\,v_0^2}\\right) \\ge 0$
+En simplifiant par $x_C^2 > 0$ :
+$1 - \\frac{2\\,g}{v_0^2}\\left(y_C + \\frac{g\\,x_C^2}{2\\,v_0^2}\\right) \\ge 0 \\implies v_0^4 - 2\\,g\\,y_C\\,v_0^2 - g^2\\,x_C^2 \\ge 0$
+À la limite d'accessibilité (discriminant nul), la vitesse minimale vérifie :
+$v_{0,\\min}^2 = g\\,y_C + \\sqrt{g^2\\,y_C^2 + g^2\\,x_C^2} = g\\left(y_C + \\sqrt{x_C^2 + y_C^2}\\right) = g(y_C + OC)$
+Application numérique :
+- Distance à la cible : $OC = \\sqrt{18{,}0^2 + 3{,}0^2} = \\sqrt{324 + 9} = \\sqrt{333} \\approx 18{,}25\\text{ m}$
+- $v_{0,\\min}^2 = 9{,}8 \\times (3{,}0 + 18{,}25) = 9{,}8 \\times 21{,}25 = 208{,}25\\text{ m}^2\\cdot\\text{s}^{-2}$
+$v_{0,\\min} = \\sqrt{208{,}25} \\approx 14{,}43\\text{ m}\\cdot\\text{s}^{-1}$
+La vitesse minimale requise pour toucher la cible $C$ est de **$14{,}43\\text{ m}\\cdot\\text{s}^{-1}$**. Avec $v_0 = 15{,}0\\text{ m}\\cdot\\text{s}^{-1} > 14{,}43\\text{ m}\\cdot\\text{s}^{-1}$, la cible est bien à portée !`,
+      baremeAstuce: `Barème officiel Bac S2 :
+- Transformation avec 1/cos²α = 1 + tan²α : 0,5 pt
+- Établissement de l'équation du second degré en tan α et coefficients : 1 pt
+- Calcul du discriminant et des deux angles α₁ et α₂ : 1 pt
+- Définition tir tendu et tir en cloche : 0,5 pt
+- Calcul des durées de vol t₁ et t₂ : 0,5 pt
+- Détermination de la vitesse minimale v₀,min (parabole de sécurité) : 0,5 pt.
+Astuce correcteur : Cette équation en tan α est le grand classique d'excellence du Bac S2 ! Pensez toujours à poser X = tan α pour obtenir un polynôme classique AX² + BX + C = 0.`,
+    },
+  ],
+  projectile: [], // alias vers projectile_champ_pesanteur
+  pesanteur: [], // alias vers projectile_champ_pesanteur
+  champ_pesanteur: [], // alias vers projectile_champ_pesanteur
+  p3: [], // alias vers projectile_champ_pesanteur
   // 0. ALCOOLS (CHIMIE S2 - C1)
   alcools: [
     {
@@ -1677,6 +1870,10 @@ $$r = \\sqrt{R^2 - d^2} = \\sqrt{3^2 - (\\sqrt{3})^2} = \\sqrt{9 - 3} = \\sqrt{6
 
 BAC_ANNALES_BY_CHAPTER.cinematique = BAC_ANNALES_BY_CHAPTER.cinematique_point;
 BAC_ANNALES_BY_CHAPTER.newton = BAC_ANNALES_BY_CHAPTER.lois_newton;
+BAC_ANNALES_BY_CHAPTER.projectile = BAC_ANNALES_BY_CHAPTER.projectile_champ_pesanteur;
+BAC_ANNALES_BY_CHAPTER.pesanteur = BAC_ANNALES_BY_CHAPTER.projectile_champ_pesanteur;
+BAC_ANNALES_BY_CHAPTER.champ_pesanteur = BAC_ANNALES_BY_CHAPTER.projectile_champ_pesanteur;
+BAC_ANNALES_BY_CHAPTER.p3 = BAC_ANNALES_BY_CHAPTER.projectile_champ_pesanteur;
 
 interface BacSenegalAnnalesProps {
   chapter?: string;

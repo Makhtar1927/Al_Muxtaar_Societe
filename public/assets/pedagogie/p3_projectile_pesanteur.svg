@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" width="100%" height="100%">
+  <!-- Définitions et Dégradés -->
+  <defs>
+    <linearGradient id="bg-grad-p3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B132B"/>
+      <stop offset="50%" stop-color="#1C2541"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+
+    <!-- Marqueurs de flèches vectorielles -->
+    <marker id="arrow-cyan" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#38BDF8"/>
+    </marker>
+    <marker id="arrow-turquoise" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#00B8A9"/>
+    </marker>
+    <marker id="arrow-rose" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#F43F5E"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#F59E0B"/>
+    </marker>
+    <marker id="arrow-white" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#FFFFFF"/>
+    </marker>
+  </defs>
+
+  <!-- Fond sombre élégant -->
+  <rect width="900" height="480" fill="url(#bg-grad-p3)"/>
+
+  <!-- Titre Principal et Badges -->
+  <g transform="translate(30, 25)">
+    <rect x="0" y="0" width="135" height="24" rx="12" fill="#00B8A9" fill-opacity="0.2" stroke="#00B8A9" stroke-width="1"/>
+    <text x="67" y="16" fill="#00B8A9" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">BAC S2 • PHYSIQUE P3</text>
+    <text x="145" y="18" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="16" font-weight="bold">Mouvement d'un Projectile dans le Champ de Pesanteur Uniforme g</text>
+  </g>
+
+  <!-- Grille subtile du repère physique -->
+  <g stroke="#334155" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.4">
+    <line x1="80" y1="360" x2="620" y2="360"/>
+    <line x1="80" y1="300" x2="620" y2="300"/>
+    <line x1="80" y1="240" x2="620" y2="240"/>
+    <line x1="80" y1="180" x2="620" y2="180"/>
+    <line x1="80" y1="120" x2="620" y2="120"/>
+    <line x1="200" y1="80" x2="200" y2="380"/>
+    <line x1="335" y1="80" x2="335" y2="380"/>
+    <line x1="470" y1="80" x2="470" y2="380"/>
+  </g>
+
+  <!-- Axes du repère (O, i, j) -->
+  <!-- Axe horizontal Ox -->
+  <line x1="70" y1="380" x2="620" y2="380" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow-white)"/>
+  <text x="625" y="385" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="13" font-weight="bold">x (m)</text>
+  <!-- Axe vertical Oy -->
+  <line x1="80" y1="390" x2="80" y2="70" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow-white)"/>
+  <text x="75" y="62" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="13" font-weight="bold">y (m)</text>
+  <!-- Origine O -->
+  <circle cx="80" cy="380" r="4" fill="#38BDF8"/>
+  <text x="68" y="398" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="13" font-weight="bold">O</text>
+
+  <!-- Vecteurs unitaires i et j -->
+  <line x1="80" y1="380" x2="130" y2="380" stroke="#38BDF8" stroke-width="2.5" marker-end="url(#arrow-cyan)"/>
+  <text x="105" y="396" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="12" font-weight="bold">i</text>
+  <line x1="80" y1="380" x2="80" y2="330" stroke="#38BDF8" stroke-width="2.5" marker-end="url(#arrow-cyan)"/>
+  <text x="65" y="355" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="12" font-weight="bold">j</text>
+
+  <!-- Champ de pesanteur uniforme g (vertical vers le bas partout) -->
+  <g transform="translate(140, 100)">
+    <rect x="-8" y="-12" width="95" height="52" rx="8" fill="#F43F5E" fill-opacity="0.1" stroke="#F43F5E" stroke-width="0.8"/>
+    <text x="28" y="10" fill="#F43F5E" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">g = cte</text>
+    <line x1="12" y1="-2" x2="12" y2="30" stroke="#F43F5E" stroke-width="2.5" marker-end="url(#arrow-rose)"/>
+    <text x="28" y="26" fill="#FDA4AF" font-family="system-ui, sans-serif" font-size="9">Champ uniforme</text>
+  </g>
+
+  <!-- TRAJECTOIRE PARABOLIQUE (Bezier SVG) -->
+  <!-- O = (80, 380), Sommet S = (335, 140), Portée P = (590, 380) -->
+  <path d="M 80 380 Q 335 -100 590 380" fill="none" stroke="#00B8A9" stroke-width="3" stroke-linecap="round"/>
+  <!-- Halo brillant sur la parabole -->
+  <path d="M 80 380 Q 335 -100 590 380" fill="none" stroke="#00B8A9" stroke-width="8" stroke-opacity="0.15" stroke-linecap="round"/>
+
+  <!-- Angle de tir alpha et arc trigonométrique -->
+  <path d="M 125 380 A 45 45 0 0 0 115 348" fill="none" stroke="#F59E0B" stroke-width="1.8"/>
+  <text x="130" y="365" fill="#F59E0B" font-family="system-ui, sans-serif" font-size="13" font-weight="bold">α</text>
+
+  <!-- Vecteur Vitesse initiale v0 -->
+  <line x1="80" y1="380" x2="160" y2="280" stroke="#F59E0B" stroke-width="3" marker-end="url(#arrow-amber)"/>
+  <text x="168" y="278" fill="#F59E0B" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">v₀</text>
+
+  <!-- Projections v0x et v0y -->
+  <line x1="80" y1="280" x2="160" y2="280" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="160" y1="380" x2="160" y2="280" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="80" y1="380" x2="160" y2="380" stroke="#38BDF8" stroke-width="2"/>
+  <text x="95" y="372" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="10" font-weight="bold">v₀x = v₀ cos α</text>
+  <line x1="80" y1="380" x2="80" y2="280" stroke="#F43F5E" stroke-width="2"/>
+  <text x="85" y="315" fill="#F43F5E" font-family="system-ui, sans-serif" font-size="10" font-weight="bold">v₀y = v₀ sin α</text>
+
+  <!-- Point au Sommet S -->
+  <circle cx="335" cy="140" r="5" fill="#38BDF8"/>
+  <text x="325" y="125" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">S (Sommet)</text>
+  
+  <!-- Lignes pointillées pour le Sommet (xS, yS = Flèche H) -->
+  <line x1="335" y1="140" x2="335" y2="380" stroke="#38BDF8" stroke-width="1.2" stroke-dasharray="4,4"/>
+  <line x1="80" y1="140" x2="335" y2="140" stroke="#38BDF8" stroke-width="1.2" stroke-dasharray="4,4"/>
+  <text x="338" y="396" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">xS = xP / 2</text>
+  <text x="25" y="145" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">H = yS</text>
+
+  <!-- Vecteur vitesse au sommet (purement horizontal car vy = 0) -->
+  <line x1="335" y1="140" x2="400" y2="140" stroke="#00B8A9" stroke-width="2.5" marker-end="url(#arrow-turquoise)"/>
+  <text x="408" y="135" fill="#00B8A9" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">vS = v₀x • i (vy = 0)</text>
+
+  <!-- Point de la Portée P -->
+  <circle cx="590" cy="380" r="5" fill="#F43F5E"/>
+  <text x="590" y="402" fill="#F43F5E" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">P (Portée)</text>
+
+  <!-- Vecteur vitesse à l'impact en P -->
+  <line x1="590" y1="380" x2="650" y2="455" stroke="#F43F5E" stroke-width="2.5" marker-end="url(#arrow-rose)"/>
+  <text x="655" y="460" fill="#F43F5E" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">vP (Impact)</text>
+
+  <!-- Flèche double pour la Portée horizontale xP -->
+  <line x1="85" y1="420" x2="585" y2="420" stroke="#94A3B8" stroke-width="1.5"/>
+  <polygon points="85,417 80,420 85,423" fill="#94A3B8"/>
+  <polygon points="585,417 590,420 585,423" fill="#94A3B8"/>
+  <text x="335" y="438" fill="#F1F5F9" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Portée horizontale xP = (v₀² • sin 2α) / g</text>
+
+  <!-- PANNEAU DROIT : FORMULES ET RÉFLEXES CLÉS BAC S2 -->
+  <g transform="translate(640, 65)">
+    <!-- Carte 1 : Équation de la trajectoire -->
+    <rect x="0" y="0" width="240" height="95" rx="10" fill="#1E293B" stroke="#00B8A9" stroke-width="1.2"/>
+    <text x="12" y="20" fill="#00B8A9" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">1. Équation Trajectoire y(x)</text>
+    <text x="12" y="42" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="11">y = - g / (2v₀² cos²α) • x²</text>
+    <text x="30" y="60" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="11">+ (tan α) • x + y₀</text>
+    <text x="12" y="82" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Parabole à concavité vers le bas</text>
+
+    <!-- Carte 2 : Sommet S et Flèche H -->
+    <rect x="0" y="105" width="240" height="90" rx="10" fill="#1E293B" stroke="#38BDF8" stroke-width="1.2"/>
+    <text x="12" y="125" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">2. Sommet &amp; Flèche H</text>
+    <text x="12" y="146" fill="#F1F5F9" font-family="system-ui, sans-serif" font-size="10.5">Condition : vy = 0 ⇒ tS = (v₀ sinα) / g</text>
+    <text x="12" y="166" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">H = yS = (v₀² • sin²α) / (2g)</text>
+    <text x="12" y="184" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">xS = (v₀² • sin 2α) / (2g)</text>
+
+    <!-- Carte 3 : Portée & Portée Maximale -->
+    <rect x="0" y="205" width="240" height="90" rx="10" fill="#1E293B" stroke="#F59E0B" stroke-width="1.2"/>
+    <text x="12" y="225" fill="#F59E0B" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">3. Portée Maximale (y = 0)</text>
+    <text x="12" y="246" fill="#F1F5F9" font-family="system-ui, sans-serif" font-size="11">xP = (v₀² • sin 2α) / g</text>
+    <text x="12" y="266" fill="#F59E0B" font-family="system-ui, sans-serif" font-size="10.5" font-weight="bold">Portée max pour α = 45°</text>
+    <text x="12" y="284" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">car sin(2 × 45°) = sin(90°) = 1</text>
+
+    <!-- Carte 4 : Théorème de l'Énergie Cinétique -->
+    <rect x="0" y="305" width="240" height="85" rx="10" fill="#1E293B" stroke="#F43F5E" stroke-width="1.2"/>
+    <text x="12" y="325" fill="#F43F5E" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">4. Vitesse d'Impact (T.E.C.)</text>
+    <text x="12" y="346" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="10.5">½ m vP² - ½ m v₀² = m g (y₀ - yP)</text>
+    <text x="12" y="366" fill="#F43F5E" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">vP = √(v₀² + 2g • Δy)</text>
+    <text x="12" y="382" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">Indépendant de la masse m !</text>
+  </g>
+</svg>

@@ -4877,6 +4877,297 @@ $f = \\mu\\,R_N \\implies \\mu = \\frac{f}{R_N} = \\frac{0{,}68}{3{,}395} \\appr
 > - « **Action-Réaction :** $\\vec{F}_{A/B} = -\\vec{F}_{B/A}$, duñu faye bopp mukk ! »
 `;
 
+// P3 : MOUVEMENT D'UN PROJECTILE DANS UN CHAMP DE PESANTEUR UNIFORME (Terminale S2 Sénégal)
+RICH_LESSONS_MAP.projectile_champ_pesanteur = `# P3 : Mouvement d'un Projectile dans un Champ de Pesanteur Uniforme (Terminale S2)
+
+Bienvenue dans le troisième chapitre fondamental de **Mécanique** de **Terminale S2**, rigoureusement conforme au programme officiel sénégalais (MEN / IGEF / Office du Baccalauréat).
+
+---
+
+## 📜 Grande Fresque Historique & Épistémologique de la Balistique
+
+> *« Composer deux mouvements orthogonaux entièrement indépendants : un mouvement rectiligne uniforme le long de l'horizontale, et une chute libre uniformément accélérée selon la verticale »* : telle est la magistrale découverte géométrique et physique publiée par **Galilée en 1638** dans ses célèbres *Discours concernant deux sciences nouvelles*.
+> 
+> Jusqu'au XVIe siècle, la balistique était dominée par les spéculations d'Aristote et les théories médiévales de l'« impetus » : on croyait naïvement qu'un boulet de canon avançait en ligne droite sous l'action d'une force motrice interne, puis s'arrêtait brusquement avant de tomber à la verticale. En 1537, l'ingénieur et mathématicien italien **Niccolò Tartaglia** publie *La Nova Scientia* : il réfute cette idée fausse, montre que la trajectoire est courbe en tout point et établit empiriquement pour la première fois que l'angle de tir conférant la portée maximale sur terrain plat est de **45 degrés ($45^\\circ$)**.
+> 
+> Un siècle plus tard, **Galilée** pose les fondements du **principe de superposition des mouvements** : l'accélération de la pesanteur n'agit que verticalement (selon l'axe $Oy$), n'exerçant rigoureusement aucun effet sur la vitesse horizontale (selon l'axe $Ox$). En éliminant le paramètre temps $t$ entre l'abscisse et l'ordonnée, Galilée démontre avec éclat que la trajectoire est une **parabole parfaite**, courbe conique déjà étudiée par Apollonius de Perge dans l'Antiquité grecque !
+> 
+> En 1687, dans ses *Principia Mathematica*, **Isaac Newton** pousse cette intuition jusqu'à l'universalité cosmique à travers sa fameuse expérience de pensée du **canon de Newton** : si l'on augmente suffisamment la vitesse initiale horizontale d'un projectile lancé depuis le sommet d'une montagne imaginaire, la courbure de sa trajectoire épouse exactement la courbure sphérique de la Terre. Le projectile ne touche plus jamais le sol : il « tombe sans cesse » autour de la Terre. Le projectile est devenu un **satellite artificiel**, unifiant d'un seul coup la balistique terrestre et la mécanique céleste !
+> 
+> Au Sénégal, que ce soit pour calculer la trajectoire liftée d'un **coup franc de Sadio Mané au Stade Abdoulaye Wade de Diamniadio**, optimiser le jet d'un athlète au **lancer de javelot ou de poids aux Jeux Olympiques de la Jeunesse de Dakar**, réussir un **service smashé au Stadium Marius Ndiaye**, ou concevoir les fontaines et jets d'eau monumentaux de la **Place de la Nation**, l'étude du projectile dans le champ de pesanteur est le modèle balistique universel de référence.
+
+---
+
+![Figure : Mouvement d'un projectile dans le champ de pesanteur uniforme, équations horaires, flèche et portée](/assets/pedagogie/p3_projectile_pesanteur.svg)
+
+> [!VIE_REELLE] **La Balistique au Cœur du Quotidien Sénégalais :**
+> - **Le Coup Franc Direct au Stade Abdoulaye Wade (Diamniadio)** : placé à $24\\text{ m}$ des cages, le tireur doit communiquer au ballon une vitesse initiale $v_0$ sous un angle $\\alpha$ précis. Le ballon doit s'élever au-dessus du mur défensif adverse ($H_{\\text{mur}} \\approx 2{,}00\\text{ m}$ situé à $9{,}15\\text{ m}$), atteindre sa flèche maximale au-dessus des têtes, puis replonger sous la barre transversale ($2{,}44\\text{ m}$) hors de portée du gardien !
+> - **Le Lancer de Javelot et de Poids (Jeux Olympiques Dakar)** : l'athlète ne lâche pas l'engin au niveau du sol, mais à une hauteur initiale $y_0 \\approx 1{,}80\\text{ m}$ à $2{,}00\\text{ m}$. L'analyse mathématique rigoureuse prouve que pour $y_0 > 0$, l'angle de tir optimal conférant la portée maximale n'est plus exactement $45^\\circ$, mais légèrement inférieur : $\\alpha_{\\text{opt}} \\approx 42^\\circ$ à $43^\\circ$ !
+> - **Le Service Smashé au Stadium Marius Ndiaye** : la volleyeuse saute pour frapper le ballon à une altitude $y_0 = 2{,}80\\text{ m}$. En imprimant une vitesse descendante ($\\alpha < 0$) ou rasante, le ballon franchit le filet ($2{,}24\\text{ m}$) et s'écrase dans le camp adverse avec une vitesse d'impact foudroyante.
+> - **Le Jet d'Eau de la Place de la Nation (Dakar)** : les ingénieurs hydrauliques règlent la pression de la tuyère pour que le jet d'eau parabolique atteigne une hauteur précise $H$ sans déborder hors du bassin circulaire de réception de rayon $R$.
+
+> [!WOLOF] **Xam-xam ci Wolof — Mouvement bu Projectile ci Pesanteur :**
+> - « **Ñaari yoon yu bokkul ci benn (Indépendance des axes) :** Mouvement bu projectile dafa seddaliku ci ñaar :
+>   - Ci wetu suuf $(Ox)$ : amul benn force buy dagg ball bi ! Vitesse bi dafay tegu tégg ($a_x = 0 \\implies v_x = v_0\\cos\\alpha = \\text{cte}$). Mouvement Rectiligne Uniforme (MRU) la !
+>   - Ci kaw ak suuf $(Oy)$ : pesanteur $\\vec{g}$ kese koy ñaññ jëm ci suuf ! Accélération bi mooy $a_y = -g$. Mouvement Rectiligne Uniformément Varié (MRUV) la ! »
+> - « **Équation de la trajectoire :** Génneel waxtu bi $t = \\frac{x}{v_0\\cos\\alpha}$ ci $x$, duggal ko ci $y$. Parabole buy daanu ci suuf ngay am : $y = -\\frac{g}{2v_0^2\\cos^2\\alpha}x^2 + (\\tan\\alpha)x + y_0$ ! »
+> - « **Summit bi $S$ (Flèche $H$) :** Fa summit bi nekk, vitesse verticale bi dafay wàcc ba nekk zéro ($v_y = 0$). Waaye vitesse horizontale bi $v_x$ moom dafay wéy di daw ! »
+> - « **Portée bi $P$ :** Foo koy tàbbi ci suuf, $y = 0$. Boo bëggee mu sori lool ci suuf te $y_0 = 0$, tëjal angle bi ci $45^\\circ$ ndax $\\sin(2 \\times 45^\\circ) = \\sin(90^\\circ) = 1$ ! »
+> - « **Vitesse d'impact :** Ndax amul frottements ci ngelaw li, énergie mécanique dafay gardé boppam : $v_P = \\sqrt{v_0^2 + 2g(y_0 - y_P)}$ ! »
+
+---
+
+## Objectifs Officiels du Baccalauréat Sénégalais (IGEF / MEN)
+À la fin de ce chapitre, tout élève de Terminale S2 doit être capable de :
+1. Définir le champ de pesanteur uniforme $\\vec{g}$ et préciser les conditions de son uniformité.
+2. Établir l'inventaire des forces appliquées à un projectile et justifier l'hypothèse de chute libre.
+3. Appliquer le Théorème du Centre d'Inertie (TCI) pour établir le vecteur accélération $\\vec{a} = \\vec{g}$.
+4. Établir par intégrations successives les équations horaires de la vitesse $\\vec{v}(t)$ et de la position $\\vec{OM}(t)$.
+5. Établir l'équation cartésienne de la trajectoire $y(x)$ par élimination du temps $t$ et justifier sa nature parabolique.
+6. Déterminer les caractéristiques du sommet $S$ de la trajectoire : instant $t_S$, coordonnées $(x_S, y_S)$ et flèche maximale $H$.
+7. Déterminer la portée horizontale $x_P$ et démontrer que la portée maximale correspond à $\\alpha = 45^\\circ$ lorsque $y_0 = 0$.
+8. Calculer la vitesse d'impact au sol $v_P$ à l'aide des composantes vectorielles et par le Théorème de l'Énergie Cinétique (TEC).
+9. Résoudre le problème du franchissement d'obstacle (mur, filet, gardien).
+10. Exploiter la relation trigonométrique $\\frac{1}{\\cos^2\\alpha} = 1 + \\tan^2\\alpha$ pour résoudre l'équation du second degré en $\\tan\\alpha$ afin de déterminer les deux angles de tir (tir tendu et tir en cloche) et la vitesse minimale de tir.
+
+---
+
+## 1. Le Champ de Pesanteur Uniforme & Conditions Initiales
+
+### 1.1 Définition du Champ de Pesanteur Uniforme
+Dans une région de l'espace de dimensions restreintes devant le rayon de la Terre (quelques centaines de mètres à quelques kilomètres) et sur une courte durée :
+- Le champ de pesanteur $\\vec{g}$ est considéré comme **rigoureusement uniforme** : il a en tout point la même direction (verticale), le même sens (vers le bas, vers le centre de la Terre) et la même intensité ($g \\approx 9{,}8\\text{ m}\\cdot\\text{s}^{-2}$ ou $10\\text{ m}\\cdot\\text{s}^{-2}$ au Sénégal).
+
+### 1.2 Le Repère d'Étude & Conditions Initiales
+On choisit un repère orthonormé galiléen $(O, \\vec{i}, \\vec{j})$ lié au sol terrestre, où :
+- L'axe horizontal $(Ox)$ muni du vecteur $\\vec{i}$ est orienté dans le sens du tir.
+- L'axe vertical $(Oy)$ muni du vecteur $\\vec{j}$ est orienté **vers le haut** (ascendant).
+
+À la date initiale $t = 0$, le projectile de masse $m$ est lancé d'un point initial $M_0(x_0, y_0)$ avec un vecteur vitesse initiale $\\vec{v}_0$ faisant un angle $\\alpha$ (angle de tir) avec l'horizontale.
+
+| Grandeur Vectorielle à $t = 0$ | Composante sur $(Ox)$ | Composante sur $(Oy)$ |
+| :--- | :--- | :--- |
+| **Position initiale $\\vec{OM}_0$** | $x_0$ (souvent $0$) | $y_0$ (hauteur de lancement) |
+| **Vitesse initiale $\\vec{v}_0$** | $v_{0x} = v_0\\,\\cos\\alpha$ | $v_{0y} = v_0\\,\\sin\\alpha$ |
+| **Champ de pesanteur $\\vec{g}$** | $g_x = 0$ | $g_y = -g$ |
+
+> [!CAUTION]
+> **Attention au signe de $g_y$ au Baccalauréat :** Comme l'axe vertical $(Oy)$ est orienté vers le haut et que la pesanteur attire vers le bas, on a impérativement :
+> $g_y = -g = -9{,}8\\text{ m}\\cdot\\text{s}^{-2}$
+> Oublier le signe moins est l'erreur la plus sanctionnée au Bac S2 !
+
+---
+
+## 2. Théorème du Centre d'Inertie & Vecteur Accélération
+
+### 2.1 Bilan des Forces et Hypothèse de Chute Libre
+Un corps est en **chute libre** s'il n'est soumis qu'à son propre poids $\\vec{P} = m\\vec{g}$.
+En classe de Terminale S2, sauf mention explicite contraire, les forces de frottement dans l'air (résistance de l'air) et la poussée d'Archimède sont négligées devant le poids du projectile.
+
+### 2.2 Application de la Deuxième Loi de Newton (TCI)
+- **Système** : {Projectile de masse $m$ assimilé à un point matériel}.
+- **Référentiel** : Terrestre, supposé galiléen pendant la durée du vol.
+- **Bilan des forces** : Seul le poids $\\vec{P} = m\\vec{g}$ s'applique.
+
+D'après le Théorème du Centre d'Inertie :
+$\\sum \\vec{F}_{\\text{ext}} = m\\,\\vec{a} \\implies \\vec{P} = m\\,\\vec{a} \\implies m\\,\\vec{g} = m\\,\\vec{a} \\implies \\vec{a} = \\vec{g}$
+
+> [!THEOREME]
+> **Loi Fondamentale de la Chute Libre :**
+> L'accélération d'un projectile dans le champ de pesanteur est **indépendante de sa masse $m$**, de sa forme et de sa vitesse initiale. Tous les corps tombent avec exactement la même accélération vectorielle $\\vec{a} = \\vec{g}$ !
+
+En projetant sur les axes cartésiens :
+$\\vec{a}(t) \\begin{cases} a_x(t) = 0 \\\\ a_y(t) = -g \\end{cases}$
+
+---
+
+## 3. Équations Horaires de la Vitesse & de la Position
+
+### 3.1 Équations Horaires du Vecteur Vitesse $\\vec{v}(t)$
+Puisque $\\vec{a}(t) = \\frac{d\\vec{v}}{dt}$, on intègre les composantes de l'accélération par rapport au temps :
+- $v_x(t) = \\int a_x\\,dt = \\int 0\\,dt = C_1$
+  Or à $t = 0$, $v_x(0) = v_0\\cos\\alpha \\implies C_1 = v_0\\cos\\alpha$.
+- $v_y(t) = \\int a_y\\,dt = \\int (-g)\\,dt = -g\\,t + C_2$
+  Or à $t = 0$, $v_y(0) = v_0\\sin\\alpha \\implies C_2 = v_0\\sin\\alpha$.
+
+D'où le vecteur vitesse instantanée :
+$\\vec{v}(t) \\begin{cases} v_x(t) = v_0\\,\\cos\\alpha = \\text{cte} \\\\ v_y(t) = -g\\,t + v_0\\,\\sin\\alpha \\end{cases}$
+
+La norme de la vitesse scalaire instantanée vaut à chaque instant :
+$v(t) = \\|\\vec{v}(t)\\| = \\sqrt{v_x^2(t) + v_y^2(t)} = \\sqrt{(v_0\\cos\\alpha)^2 + (-g\\,t + v_0\\sin\\alpha)^2}$
+
+### 3.2 Équations Horaires du Vecteur Position $\\vec{OM}(t)$
+Puisque $\\vec{v}(t) = \\frac{d\\vec{OM}}{dt}$, on intègre les composantes de la vitesse par rapport au temps :
+- $x(t) = \\int v_x(t)\\,dt = \\int (v_0\\cos\\alpha)\\,dt = (v_0\\cos\\alpha)\\,t + C_3$
+  Or à $t = 0$, $x(0) = x_0 \\implies C_3 = x_0$.
+- $y(t) = \\int v_y(t)\\,dt = \\int (-g\\,t + v_0\\sin\\alpha)\\,dt = -\\frac{1}{2}g\\,t^2 + (v_0\\sin\\alpha)\\,t + C_4$
+  Or à $t = 0$, $y(0) = y_0 \\implies C_4 = y_0$.
+
+D'où les **équations horaires paramétriques fondamentales** :
+$\\vec{OM}(t) \\begin{cases} x(t) = (v_0\\,\\cos\\alpha)\\,t + x_0 \\\\ y(t) = -\\frac{1}{2}g\\,t^2 + (v_0\\,\\sin\\alpha)\\,t + y_0 \\end{cases}$
+
+> [!NOTE]
+> Dans le cas le plus fréquent au Baccalauréat où le projectile part de l'origine ($x_0 = 0$ et $y_0 = 0$) :
+> $x(t) = (v_0\\cos\\alpha)\\,t \\qquad y(t) = -\\frac{1}{2}g\\,t^2 + (v_0\\sin\\alpha)\\,t$
+
+---
+
+## 4. Équation Cartésienne de la Trajectoire
+
+Pour obtenir la courbe géométrique suivie par le mobile, on élimine la variable temps $t$ entre les équations horaires :
+1. De l'équation horaire $x(t) = (v_0\\cos\\alpha)\\,t$ (en supposant $x_0 = 0$), on tire l'expression du temps :
+   $t = \\frac{x}{v_0\\,\\cos\\alpha}$
+2. On reporte cette expression dans l'équation horaire $y(t)$ :
+   $y(x) = -\\frac{1}{2}g\\left(\\frac{x}{v_0\\cos\\alpha}\\right)^2 + (v_0\\sin\\alpha)\\left(\\frac{x}{v_0\\cos\\alpha}\\right) + y_0$
+
+D'où la relation fondamentale :
+$y(x) = -\\frac{g}{2\\,v_0^2\\,\\cos^2\\alpha}\\,x^2 + (\\tan\\alpha)\\,x + y_0$
+
+### 4.1 Nature Géométrique de la Trajectoire
+L'équation est de la forme polynomiale $y(x) = A\\,x^2 + B\\,x + C$ avec :
+- $A = -\\frac{g}{2\\,v_0^2\\,\\cos^2\\alpha} < 0$
+- $B = \\tan\\alpha$
+- $C = y_0$
+
+Puisque le coefficient dominant $A$ est strictement négatif ($A < 0$), la trajectoire est une **portion de parabole** contenue dans le plan vertical de tir $(Oxy)$, dont la concavité est tournée vers le bas (vers les $y$ négatifs).
+
+---
+
+## 5. Le Sommet de la Trajectoire $S$ (La Flèche $H$)
+
+Le sommet $S$ représente le point le plus élevé atteint par le projectile au cours de son vol.
+
+### 5.1 Condition Physique au Sommet
+Au sommet de la parabole, la tangente à la trajectoire est **strictement horizontale**. Par conséquent, la composante verticale du vecteur vitesse s'annule :
+$v_y(t_S) = 0$
+
+### 5.2 Date $t_S$ du Passage au Sommet
+$-g\\,t_S + v_0\\sin\\alpha = 0 \\implies t_S = \\frac{v_0\\,\\sin\\alpha}{g}$
+
+### 5.3 Abscisse du Sommet $x_S$
+En reportant $t_S$ dans l'équation horaire $x(t)$ (pour $x_0 = 0$) :
+$x_S = (v_0\\cos\\alpha)\\,t_S = (v_0\\cos\\alpha)\\left(\\frac{v_0\\sin\\alpha}{g}\\right) = \\frac{v_0^2\\,\\sin\\alpha\\,\\cos\\alpha}{g}$
+En utilisant la formule trigonométrique $\\sin(2\\alpha) = 2\\sin\\alpha\\cos\\alpha$ :
+$x_S = \\frac{v_0^2\\,\\sin(2\\alpha)}{2\\,g}$
+
+### 5.4 Ordonnée du Sommet $y_S$ (La Flèche $H$)
+La **flèche** $H$ est l'altitude maximale au-dessus du sol atteinte par le projectile :
+$y_S = H = -\\frac{1}{2}g\\,t_S^2 + (v_0\\sin\\alpha)\\,t_S + y_0 = -\\frac{1}{2}g\\left(\\frac{v_0\\sin\\alpha}{g}\\right)^2 + v_0\\sin\\alpha\\left(\\frac{v_0\\sin\\alpha}{g}\\right) + y_0$
+$y_S = H = \\frac{v_0^2\\,\\sin^2\\alpha}{2\\,g} + y_0$
+
+### 5.5 Vecteur Vitesse au Sommet
+Au sommet $S$, la vitesse n'est **JAMAIS NULLE** ! Seule sa composante verticale s'annule :
+$\\vec{v}_S = v_{0x}\\,\\vec{i} = (v_0\\cos\\alpha)\\,\\vec{i} \\implies v_S = \\|\\vec{v}_S\\| = v_0\\cos\\alpha$
+
+> [!WARNING]
+> **Piège très fréquent au Baccalauréat :** Ne confondez pas « le projectile s'arrête de monter » ($v_y = 0$) et « le projectile s'arrête » ($v = 0$). Au sommet, la vitesse est minimale mais non nulle : $v_S = v_0\\cos\\alpha \\neq 0$ !
+
+---
+
+## 6. La Portée Horizontale $P$ & Condition de Portée Maximale
+
+La **portée** $x_P$ est la distance horizontale franchie par le projectile entre son point de tir et son point de retombée sur le plan horizontal ($y = 0$).
+
+### 6.1 Calcul de la Portée pour un Tir depuis le Sol ($y_0 = 0$)
+Le projectile touche le sol au point $P$ lorsque $y(x_P) = 0$ :
+$- \\frac{g}{2\\,v_0^2\\,\\cos^2\\alpha}\\,x_P^2 + (\\tan\\alpha)\\,x_P = 0$
+En factorisant par $x_P$ :
+$x_P\\left(-\\frac{g}{2\\,v_0^2\\,\\cos^2\\alpha}\\,x_P + \\frac{\\sin\\alpha}{\\cos\\alpha}\\right) = 0$
+- La racine $x = 0$ correspond au point de départ $O$.
+- La racine non nulle $x_P$ donne la portée :
+  $x_P = \\frac{2\\,v_0^2\\,\\sin\\alpha\\,\\cos\\alpha}{g} = \\frac{v_0^2\\,\\sin(2\\alpha)}{g}$
+
+> [!TIP]
+> **Propriété de Symétrie Parabolique (quand $y_0 = 0$) :**
+> - L'abscisse du sommet est la moitié exacte de la portée : $x_S = \\frac{x_P}{2}$.
+> - La durée totale de vol est le double de la durée pour atteindre le sommet : $t_P = 2\\,t_S = \\frac{2\\,v_0\\sin\\alpha}{g}$.
+
+### 6.2 Condition de Portée Maximale ($y_0 = 0$)
+Pour une vitesse initiale $v_0$ fixée, la portée $x_P$ dépend uniquement de $\\alpha$ à travers le terme $\\sin(2\\alpha)$ :
+- La fonction sinus atteint son maximum absolu pour $\\sin(2\\alpha) = 1$.
+  $2\\alpha = 90^\\circ \\implies \\alpha_{\\text{max}} = 45^\\circ = \\frac{\\pi}{4}\\text{ rad}$
+- La **portée maximale théorique** vaut alors :
+  $x_{P,\\text{max}} = \\frac{v_0^2}{g}$
+
+---
+
+## 7. Vitesse d'Impact au Sol & Théorème de l'Énergie Cinétique
+
+### 7.1 Calcul Vectoriel de la Vitesse d'Impact
+À la date de retombée $t_P = 2\\,t_S$ (lorsque $y_0 = 0$) :
+- $v_x(t_P) = v_0\\cos\\alpha$
+- $v_y(t_P) = -g(2\\,t_S) + v_0\\sin\\alpha = -2(v_0\\sin\\alpha) + v_0\\sin\\alpha = -v_0\\sin\\alpha$
+
+La norme de la vitesse d'impact vaut :
+$v_P = \\sqrt{v_x^2(t_P) + v_y^2(t_P)} = \\sqrt{(v_0\\cos\\alpha)^2 + (-v_0\\sin\\alpha)^2} = \\sqrt{v_0^2(\\cos^2\\alpha + \\sin^2\\alpha)} = v_0$
+Sans frottements, le projectile touche le sol avec **exactement la même valeur scalaire de vitesse** qu'au départ ($v_P = v_0$), avec un angle symétrique opposé ($-\\alpha$).
+
+### 7.2 Justification Énergétique par le Théorème de l'Énergie Cinétique (TEC)
+Entre la position initiale $M_0(x_0, y_0)$ et le point d'impact $P(x_P, y_P)$ :
+$\\Delta E_c = E_{cP} - E_{c0} = \\sum W(\\vec{F}_{\\text{ext}}) = W(\\vec{P})$
+$\\frac{1}{2}m\\,v_P^2 - \\frac{1}{2}m\\,v_0^2 = m\\,g\\,(y_0 - y_P)$
+En simplifiant par la masse $m$ :
+$v_P^2 = v_0^2 + 2\\,g\\,(y_0 - y_P) \\implies v_P = \\sqrt{v_0^2 + 2\\,g\\,(y_0 - y_P)}$
+
+> [!METHODE]
+> **Avantage majeur du TEC au Bac S2 :**
+> Le Théorème de l'Énergie Cinétique permet de calculer la vitesse en n'importe quel point de la trajectoire connaissant seulement son altitude $y$, sans avoir besoin de calculer la durée $t$ ni l'abscisse $x$ !
+
+---
+
+## 8. Tir sur Cible & Équation du Second Degré en $\\tan\\alpha$
+
+C'est l'exercice d'excellence le plus prestigieux et le plus sélectif des épreuves du Baccalauréat Sénégalais.
+
+### 8.1 Transformation Trigonométrique Fondamentale
+Rappelons l'identité trigonométrique fondamentale :
+$\\frac{1}{\\cos^2\\alpha} = \\frac{\\cos^2\\alpha + \\sin^2\\alpha}{\\cos^2\\alpha} = 1 + \\tan^2\\alpha$
+L'équation cartésienne de la trajectoire devient :
+$y(x) = -\\frac{g\\,x^2}{2\\,v_0^2}\\,(1 + \\tan^2\\alpha) + x\\,\\tan\\alpha + y_0$
+
+### 8.2 Équation aux Angles de Tir pour Atteindre une Cible $C(x_C, y_C)$
+Pour que le projectile touche une cible $C(x_C, y_C)$, on pose $X = \\tan\\alpha$. L'équation devient une équation du second degré en $X$ :
+$\\left(\\frac{g\\,x_C^2}{2\\,v_0^2}\\right)X^2 - x_C\\,X + \\left(y_C - y_0 + \\frac{g\\,x_C^2}{2\\,v_0^2}\\right) = 0$
+Sous la forme canonique $A\\,X^2 + B\\,X + C = 0$ avec :
+- $A = \\frac{g\\,x_C^2}{2\\,v_0^2}$
+- $B = -x_C$
+- $C = y_C - y_0 + \\frac{g\\,x_C^2}{2\\,v_0^2}$
+
+### 8.3 Discussion Physique selon le Discriminant $\\Delta = B^2 - 4AC$ :
+1. **Si $\\Delta > 0$** : il existe **deux angles de tir distincts** $\\alpha_1$ et $\\alpha_2$ pour atteindre la même cible :
+   - $\\alpha_1$ (le plus petit angle) : **tir tendu** (trajectoire basse et rapide).
+   - $\\alpha_2$ (le plus grand angle) : **tir en cloche** (trajectoire haute et plongeante).
+2. **Si $\\Delta = 0$** : il existe un **angle de tir unique** ; la cible est située sur la frontière d'accessibilité.
+3. **Si $\\Delta < 0$** : aucune solution réelle ; la cible est hors de portée pour la vitesse $v_0$ donnée.
+
+### 8.4 Vitesse Initiale Minimale $v_{0,\\min}$ & Parabole de Sécurité
+La condition d'accessibilité $\\Delta \\ge 0$ permet de déduire la vitesse minimale indispensable pour atteindre la cible :
+$v_{0,\\min} = \\sqrt{g\\left(y_C - y_0 + \\sqrt{x_C^2 + (y_C - y_0)^2}\\right)}$
+L'enveloppe de toutes les trajectoires possibles pour une vitesse $v_0$ donnée s'appelle la **parabole de sécurité** d'équation :
+$y_{\\text{sécurité}}(x) = \\frac{v_0^2}{2\\,g} - \\frac{g}{2\\,v_0^2}\\,x^2 + y_0$
+
+---
+
+## 9. Les 8 Réflexes d'Or du Baccalauréat Sénégalais (P3)
+
+> [!IMPORTANT]
+> 1. **Système & Référentiel obligatoires :** Toujours commencer par : « Système : {projectile de masse $m$}, Référentiel terrestre supposé galiléen ».
+> 2. **Chute libre $\\vec{a} = \\vec{g}$ :** Ne pas inventer de force motrice en plein vol ! Dès que le projectile quitte le canon ou le pied, seul son poids agit : $\\vec{a} = \\vec{g}$.
+> 3. **Signe du champ de pesanteur :** Avec l'axe $Oy$ ascendant, $a_x = 0$ et $a_y = -g$ (ne jamais oublier le signe moins !).
+> 4. **Élimination du temps :** Dans l'équation de la trajectoire $y(x)$, le temps $t$ ne doit **JAMAIS** figurer.
+> 5. **Sommet de la trajectoire :** Écrire la condition physique $v_y(t_S) = 0$ pour trouver $t_S$, puis injecter dans $y(t)$ pour obtenir la flèche $H$.
+> 6. **Portée sur sol plat :** Poser $y(x_P) = 0$ et retenir que $x_P = 2\\,x_S$ lorsque $y_0 = 0$.
+> 7. **Calcul rapide de vitesse par le TEC :** Utiliser $\\frac{1}{2}mv^2 - \\frac{1}{2}mv_0^2 = mg(y_0 - y)$ pour trouver une vitesse sans calculer la date $t$.
+> 8. **Forme en $\\tan\\alpha$ :** Penser immédiatement à $\\frac{1}{\\cos^2\\alpha} = 1 + \\tan^2\\alpha$ pour toute question demandant de trouver l'angle de tir ou de toucher une cible.
+
+> [!WOLOF]
+> - « **TCI bi :** $\\vec{P} = m\\,\\vec{a} \\implies \\vec{a} = \\vec{g}$. Axe $Oy$ dafa yéeg, kon $a_y = -g$ ! »
+> - « **MRU ci $Ox$, MRUV ci $Oy$ :** $v_x = v_0\\cos\\alpha$ du soppiku mukk ! $v_y = -gt + v_0\\sin\\alpha$ dafay wàcc ! »
+> - « **Sommet bi :** $v_y = 0 \\implies t_S = \\frac{v_0\\sin\\alpha}{g}$ ak $H = \\frac{v_0^2\\sin^2\\alpha}{2g}$ ! »
+> - « **Portée bi :** $x_P = \\frac{v_0^2\\sin(2\\alpha)}{g}$. Angle optimal bi mooy $45^\\circ$ ! »
+> - « **Cible bi :** Remplacél $\\frac{1}{\\cos^2\\alpha}$ par $1 + \\tan^2\\alpha$ ngir am équation du second degré en $\\tan\\alpha$ ! »
+`;
+
 export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: string, rawContent: string | null): string {
   const titleLower = `${lessonTitle} ${chapterTitle}`.toLowerCase();
 
@@ -4893,6 +5184,22 @@ export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: stri
     titleLower.includes('p1')
   ) {
     return RICH_LESSONS_MAP.cinematique_point;
+  }
+
+    // Routage Physique P3 : Mouvement d'un Projectile dans le Champ de Pesanteur
+  if (
+    titleLower.includes('projectile') ||
+    titleLower.includes('pesanteur') ||
+    titleLower.includes('parabolique') ||
+    titleLower.includes('flèche') ||
+    titleLower.includes('fleche') ||
+    titleLower.includes('portée') ||
+    titleLower.includes('portee') ||
+    titleLower.includes('balistique') ||
+    titleLower.includes('tir') ||
+    titleLower.includes('p3')
+  ) {
+    return RICH_LESSONS_MAP.projectile_champ_pesanteur;
   }
 
   // Routage Physique P2 : Les Lois de Newton sur le Mouvement
