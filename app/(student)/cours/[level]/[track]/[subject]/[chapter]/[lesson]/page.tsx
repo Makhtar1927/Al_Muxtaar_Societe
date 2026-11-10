@@ -102,6 +102,7 @@ import ProjectileReflexesCard from '@/components/course/projectile-reflexes-card
 import ProjectileInteractiveSimulator from '@/components/course/projectile-interactive-simulator';
 import NewtonInteractiveSimulator from '@/components/course/newton-interactive-simulator';
 import NewtonQuizEmbedded from '@/components/course/newton-quiz-embedded';
+import ProjectileQuizEmbedded from '@/components/course/projectile-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
@@ -2054,10 +2055,15 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     lessonMeta.title.toLowerCase().includes("calcul d'aire");
 
   const isEquadiff =
-    lessonMeta.title.toLowerCase().includes('differentiell') ||
-    lessonMeta.title.toLowerCase().includes('différentiell') ||
-    lessonMeta.title.toLowerCase().includes('equadiff') ||
-    lessonMeta.title.toLowerCase().includes('équadiff');
+    !(chapter?.title?.toLowerCase() || '').includes('projectile') &&
+    !(chapter?.title?.toLowerCase() || '').includes('pesanteur') &&
+    !(chapter?.title?.toLowerCase() || '').includes('newton') &&
+    !(chapter?.title?.toLowerCase() || '').includes('cinématique') &&
+    !lessonMeta.title.toLowerCase().includes('mouvement') &&
+    (lessonMeta.title.toLowerCase().includes('differentiell') ||
+      lessonMeta.title.toLowerCase().includes('différentiell') ||
+      lessonMeta.title.toLowerCase().includes('equadiff') ||
+      lessonMeta.title.toLowerCase().includes('équadiff'));
 
   const isIsometries =
     lessonMeta.title.toLowerCase().includes('isom') ||
@@ -2894,6 +2900,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <CinematiqueQuizEmbedded />
               ) : isNewton ? (
                 <NewtonQuizEmbedded />
+              ) : isProjectile ? (
+                <ProjectileQuizEmbedded />
               ) : isTvi ? (
                 <TviQuizEmbedded />
               ) : isAsymptotes ? (

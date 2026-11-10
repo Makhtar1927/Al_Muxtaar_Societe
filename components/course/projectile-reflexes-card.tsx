@@ -180,9 +180,7 @@ export default function ProjectileReflexesCard() {
               <span className="text-base">🇸🇳</span>
               <span>Xam-xam ci Wolof • Décodage Pédagogique</span>
             </div>
-            <p className="text-amber-950/90 leading-relaxed font-medium">
-              {current.wolof}
-            </p>
+            <div className="text-amber-950/90 leading-relaxed font-medium"><MathRenderer content={current.wolof} /></div>
           </div>
 
           {/* Piège classique du Bac */}
@@ -191,9 +189,7 @@ export default function ProjectileReflexesCard() {
               <AlertTriangle className="w-4 h-4 text-rose-600" />
               <span>Piège Éliminatoire au Baccalauréat</span>
             </div>
-            <p className="text-rose-950/90 leading-relaxed">
-              {current.piege}
-            </p>
+            <div className="text-rose-950/90 leading-relaxed"><MathRenderer content={current.piege} /></div>
           </div>
         </div>
       </div>

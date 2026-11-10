@@ -461,7 +461,7 @@ export default function MathRenderer({ content, className = '' }: MathRendererPr
 
   return (
     <div
-      className={`prose prose-slate max-w-none text-text text-sm sm:text-base w-full max-w-full overflow-hidden break-words ${className}`}
+      className={`prose prose-slate dark:prose-invert max-w-none text-text dark:text-slate-100 text-sm sm:text-base w-full max-w-full overflow-hidden break-words [&_.katex]:text-inherit ${className}`}
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );

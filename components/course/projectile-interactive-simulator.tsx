@@ -371,7 +371,7 @@ function AtelierTrajectoire() {
       </div>
 
       {/* Équation de trajectoire */}
-      <div className="bg-sky-50 dark:bg-sky-950 rounded-xl p-4 border border-sky-200 dark:border-sky-800">
+      <div className="bg-white dark:bg-slate-800 text-slate-900 dark:text-white rounded-xl p-4 border border-slate-200 dark:border-slate-700 shadow-sm [&_.katex]:text-slate-900 dark:[&_.katex]:text-white">
         <div className="text-xs text-sky-600 dark:text-sky-400 font-semibold mb-2">Équation de trajectoire y(x)</div>
         <MathRenderer
           content={`$$y(x) = y_0 + x \\tan ${alphaDeg}° - \\frac{g}{2v_0^2 \\cos^2 ${alphaDeg}°}x^2$$`}
@@ -567,7 +567,7 @@ function AtelierObstacle() {
         </div>
 
         {v0Min && (
-          <div className="mt-3 pt-3 border-t border-slate-200 dark:border-slate-700">
+          <div className="mt-3 pt-3 border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/80 rounded-xl p-3 text-slate-900 dark:text-white [&_.katex]:text-slate-900 dark:[&_.katex]:text-white">
             <MathRenderer
           content={`$$y(d) = \\tan\\alpha \\cdot d - \\frac{g \\cdot d^2}{2v_0^2 \\cos^2\\alpha} = ${yBall.toFixed(2)} \\text{ m}$$`}
         />
@@ -751,7 +751,7 @@ function AtelierCible() {
       </div>
 
       {/* Résolution */}
-      <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+      <div className="bg-white dark:bg-slate-800 text-slate-900 dark:text-white rounded-xl p-4 border border-slate-200 dark:border-slate-700 shadow-sm [&_.katex]:text-slate-900 dark:[&_.katex]:text-white">
         <h4 className="font-semibold text-slate-700 dark:text-slate-200 mb-3 flex items-center gap-2">
           <ArrowRight className="w-4 h-4 text-sky-500" /> Résolution (équation en tan α)
         </h4>
@@ -836,7 +836,7 @@ function AtelierPortees() {
       </div>
 
       {/* Formule */}
-      <div className="bg-sky-50 dark:bg-sky-950 rounded-xl p-4 border border-sky-200 dark:border-sky-800">
+      <div className="bg-white dark:bg-slate-800 text-slate-900 dark:text-white rounded-xl p-4 border border-slate-200 dark:border-slate-700 shadow-sm [&_.katex]:text-slate-900 dark:[&_.katex]:text-white">
         <MathRenderer
           content={`$$x_P(\\alpha) = \\frac{v_0^2 \\sin 2\\alpha}{g} = \\frac{${v0}^2 \\sin 2\\alpha}{9{,}8}$$`}
         />
@@ -901,7 +901,7 @@ function AtelierPortees() {
 
       {/* Propriétés complémentaires */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="bg-amber-50 dark:bg-amber-950 rounded-xl p-4 border border-amber-200 dark:border-amber-800">
+        <div className="bg-amber-50 dark:bg-amber-950/70 text-slate-900 dark:text-white rounded-xl p-4 border border-amber-200 dark:border-amber-800 [&_.katex]:text-slate-900 dark:[&_.katex]:text-white">
           <div className="font-semibold text-amber-700 dark:text-amber-300 mb-2 flex items-center gap-2">
             <Zap className="w-4 h-4" /> Propriété clé : portée maximale
           </div>
@@ -912,7 +912,7 @@ function AtelierPortees() {
             Atteinte à α = 45° (sin 2×45° = sin 90° = 1)
           </div>
         </div>
-        <div className="bg-purple-50 dark:bg-purple-950 rounded-xl p-4 border border-purple-200 dark:border-purple-800">
+        <div className="bg-purple-50 dark:bg-purple-950/70 text-slate-900 dark:text-white rounded-xl p-4 border border-purple-200 dark:border-purple-800 [&_.katex]:text-slate-900 dark:[&_.katex]:text-white">
           <div className="font-semibold text-purple-700 dark:text-purple-300 mb-2 flex items-center gap-2">
             <Info className="w-4 h-4" /> Angles complémentaires
           </div>
