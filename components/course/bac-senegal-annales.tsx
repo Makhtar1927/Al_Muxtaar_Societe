@@ -647,6 +647,189 @@ Astuce correcteur : Remarquez que la cible d'atterrissage a une ordonnée négat
   pesanteur: [], // alias vers projectile_champ_pesanteur
   champ_pesanteur: [], // alias vers projectile_champ_pesanteur
   p3: [], // alias vers projectile_champ_pesanteur
+  // P4. MOUVEMENT D'UNE PARTICULE CHARGÉE DANS UN CHAMP ÉLECTRIQUE OU MAGNÉTIQUE UNIFORME (PHYSIQUE S2 - P4)
+  particule_champ_e_b: [
+    {
+      year: 2021,
+      session: 'Session Normale (S2)',
+      points: 'Exercice 3 — Physique (4 Points)',
+      topic: 'Accélération Préalable, Filtre de Vitesses de Wien, Chambre de Déviation Magnétique et Séparation des Isotopes du Magnésium',
+      enonce: `Des ions magnésium $^{24}\\text{Mg}^{2+}$ et $^{26}\\text{Mg}^{2+}$ de masses respectives $m_1$ et $m_2$, de même charge $q = +2e$ ($e = 1{,}6 \\times 10^{-19}\\text{ C}$), sont émis avec une vitesse pratiquement négligeable depuis une fente $O_1$.
+Données :
+- Masse du nucléon : $m_0 = 1{,}66 \\times 10^{-27}\\text{ kg}$ ; $m_1 = 24\\,m_0 \\approx 3{,}984 \\times 10^{-26}\\text{ kg}$ ; $m_2 = 26\\,m_0 \\approx 4{,}316 \\times 10^{-26}\\text{ kg}$.
+- On néglige le poids des ions devant les forces électromagnétiques.
+
+**Partie 1 : Accélération des ions**
+Les ions sont accélérés entre deux plaques parallèles $P_1$ et $P_2$ par une tension $U_0 = V_{P1} - V_{P2} > 0$. Ils franchissent la fente $O_2$ avec une vitesse $\\vec{v}_1$ pour $^{24}\\text{Mg}^{2+}$ et $\\vec{v}_2$ pour $^{26}\\text{Mg}^{2+}$.
+1. Préciser le signe de la tension $U_0$ et justifier la direction et le sens du champ électrostatique $\\vec{E}_0$ entre les plaques.
+2. En appliquant le Théorème de l'Énergie Cinétique, exprimer la vitesse $v$ d'un ion à la sortie $O_2$ en fonction de $q$, $U_0$ et de sa masse $m$.
+3. Calculer la vitesse $v_1$ de l'isotope $^{24}\\text{Mg}^{2+}$ pour $U_0 = 4000\\text{ V}$.
+
+**Partie 2 : Filtre de vitesses de Wien**
+Les ions pénètrent ensuite dans un sélecteur de vitesses constitué de deux plaques séparées d'une distance $d = 5{,}0\\text{ cm}$ soumises à une tension $U$, créant un champ électrique uniforme $\\vec{E}$, et d'un champ magnétique uniforme $\\vec{B}$. Les champs $\\vec{E}$ et $\\vec{B}$ sont perpendiculaires entre eux et perpendiculaires à la trajectoire des ions.
+4. Représenter sur un schéma les forces $\\vec{F}_e$ et $\\vec{F}_m$ agissant sur un ion se déplaçant en ligne droite sans déviation.
+5. Établir la relation entre la vitesse sélectionnée $v_0$, $E$ et $B$. Calculer la valeur de $B$ pour que les ions de vitesse $v_1 = 2{,}54 \\times 10^5\\text{ m}\\cdot\\text{s}^{-1}$ traversent sans déviation sous un champ électrique $E = 5{,}0 \\times 10^4\\text{ V}\\cdot\\text{m}^{-1}$.
+
+**Partie 3 : Déviation magnétique et séparation isotopique**
+À la sortie du filtre en $O_3$, les ions pénètrent dans une chambre où règne un champ magnétique uniforme $\\vec{B}'$ orthogonal au plan de la figure, d'intensité $B' = 0{,}15\\text{ T}$.
+6. Montrer que dans la chambre de déviation, le mouvement de chaque ion est circulaire et uniforme. Donner l'expression littérale du rayon $R$ de sa trajectoire.
+7. Les ions décrivent des demi-cercles et viennent heurter une plaque photographique en deux points $C_1$ et $C_2$.
+   a) Quel isotope frappe le point le plus éloigné de $O_3$ ? Justifier.
+   b) Exprimer la distance $\\Delta d = C_1C_2$ en fonction de $v_0$, $q$, $B'$, $m_1$ et $m_2$. Calculer numériquement $\\Delta d$.`,
+      solution: `### Partie 1 : Accélération des ions
+1. **Signe de la tension et sens du champ $\\vec{E}_0$** :
+- Les ions ont une charge positive $q = +2e > 0$. Pour être accélérés de $P_1$ vers $P_2$, la force électrostatique $\\vec{F}_e = q\\vec{E}_0$ doit être dirigée dans le sens du mouvement (de $P_1$ vers $P_2$).
+- Comme $q > 0$, $\\vec{E}_0$ est dans le même sens que $\\vec{F}_e$, donc dirigé de $P_1$ vers $P_2$.
+- Comme $\\vec{E}_0$ pointe vers les potentiels décroissants : $V_{P1} > V_{P2} \\implies U_0 = V_{P1} - V_{P2} > 0$. La tension accélératrice est strictement positive.
+
+2. **Expression de la vitesse de sortie (T.E.C.)** :
+- Système : {Ion de masse $m$, charge $q = +2e$}.
+- Référentiel : Terrestre galiléen.
+- Force extérieure : Seule la force électrostatique $\\vec{F}_e$ travaille (poids négligé).
+$\\Delta E_c = \\frac{1}{2}m v^2 - \\frac{1}{2}m v_0^2 = W(\\vec{F}_e) = q(V_{P1} - V_{P2}) = q\\,U_0$
+Comme $v_0 \\approx 0$ :
+$\\frac{1}{2}m v^2 = q\\,U_0 \\implies v = \\sqrt{\\frac{2\\,q\\,U_0}{m}}$
+
+3. **Calcul numérique de $v_1$** :
+$v_1 = \\sqrt{\\frac{2 \\times 2 \\times 1{,}6 \\times 10^{-19} \\times 4000}{3{,}984 \\times 10^{-26}}} = \\sqrt{\\frac{2{,}56 \\times 10^{-15}}{3{,}984 \\times 10^{-26}}} \\approx 2{,}535 \\times 10^5\\text{ m}\\cdot\\text{s}^{-1}$
+Soit **$v_1 \\approx 2{,}54 \\times 10^5\\text{ m}\\cdot\\text{s}^{-1}$**.
+
+---
+
+### Partie 2 : Filtre de vitesses de Wien
+4. **Schéma des forces** :
+- L'ion subit $\\vec{F}_e = q\\vec{E}$ et $\\vec{F}_m = q\\vec{v} \\wedge \\vec{B}$.
+- Pour que la trajectoire soit rectiligne uniforme, la résultante des forces doit être nulle :
+$\\vec{F}_e + \\vec{F}_m = \\vec{0} \\implies \\vec{F}_m = -\\vec{F}_e$
+Les deux forces sont colinéaires, de même intensité et de sens directement opposés.
+
+5. **Relation de sélection et calcul de $B$** :
+$\\|\\vec{F}_e\\| = \\|\\vec{F}_m\\| \\iff |q|\\,E = |q|\\,v_0\\,B \\implies v_0 = \\frac{E}{B}$
+On en déduit l'intensité du champ magnétique :
+$B = \\frac{E}{v_0} = \\frac{5{,}0 \\times 10^4}{2{,}535 \\times 10^5} \\approx 0{,}197\\text{ T} \\approx 0{,}20\\text{ T}$
+
+---
+
+### Partie 3 : Séparation des isotopes
+6. **Mouvement circulaire uniforme** :
+- Dans la chambre de déviation, les ions ne subissent que la force magnétique $\\vec{F}_m = q\\vec{v}_0 \\wedge \\vec{B}'$.
+- Puissance instantanée : $\\mathcal{P} = \\vec{F}_m \\cdot \\vec{v} = 0$, donc la vitesse reste constante en norme : $v = v_0 = \\text{cte}$ (mouvement uniforme).
+- D'après le TCI dans le repère de Frenet $(\\vec{u}_t, \\vec{u}_n)$ :
+$m\\vec{a} = \\vec{F}_m \\implies m\\left(a_t\\vec{u}_t + a_n\\vec{u}_n\\right) = |q|v_0 B'\\,\\vec{u}_n$
+Selon $\\vec{u}_t$ : $m\\frac{dv}{dt} = 0 \\implies v = \\text{cte}$.
+Selon $\\vec{u}_n$ : $m\\frac{v_0^2}{R} = |q|v_0 B' \\implies R = \\frac{m\\,v_0}{|q|\\,B'} = \\text{cte}$.
+Le rayon de courbure étant constant et le mouvement plan, la trajectoire est un demi-cercle.
+
+7. **Séparation et écartement $\\Delta d$** :
+a) Comme $R = \\frac{m v_0}{|q| B'}$ et que tous les ions ont la même vitesse $v_0$, la même charge $q = 2e$ et baignent dans le même champ $B'$, le rayon est directement proportionnel à la masse :
+$m_2 > m_1 \\implies R_2 > R_1$
+L'isotope le plus lourd $^{26}\\text{Mg}^{2+}$ décrit le demi-cercle de plus grand rayon et vient donc frapper la plaque au point $C_2$, le plus éloigné de $O_3$.
+
+b) Distance $\\Delta d = C_1C_2$ :
+Comme les ions décrivent des demi-cercles, $O_3C_1 = 2R_1$ et $O_3C_2 = 2R_2$.
+$\\Delta d = 2(R_2 - R_1) = \\frac{2\\,v_0}{|q|\\,B'}\\,(m_2 - m_1)$
+Calcul numérique :
+$m_2 - m_1 = (26 - 24) \\times 1{,}66 \\times 10^{-27} = 3{,}32 \\times 10^{-27}\\text{ kg}$
+$\\Delta d = \\frac{2 \\times 2{,}535 \\times 10^5 \\times 3{,}32 \\times 10^{-27}}{2 \\times 1{,}6 \\times 10^{-19} \\times 0{,}15} = \\frac{1{,}683 \\times 10^{-21}}{4{,}8 \\times 10^{-20}} \\approx 0{,}03506\\text{ m} = 3{,}51\\text{ cm}$
+Les deux isotopes sont séparés par un écart très net de **$3{,}51\\text{ cm}$** sur la plaque photographique.`,
+      baremeAstuce: `Barème officiel Bac S2 :
+- T.E.C. et vitesse v₁ : 1 pt
+- Filtre de Wien (schéma + relation v₀ = E/B) : 1 pt
+- Mouvement circulaire uniforme et rayon R : 1 pt
+- Déduction de l'isotope le plus éloigné et calcul de Δd : 1 pt.
+Astuce correcteur : Attention au piège du diamètre ! La distance entre l'entrée O₃ et le point d'impact est 2R (et non R) car la trajectoire est un demi-cercle complet.`,
+    },
+    {
+      year: 2017,
+      session: 'Session Normale (S2)',
+      points: 'Exercice 3 — Physique (4 Points)',
+      topic: 'Oscilloscope Cathodique, Déviation Électrostatique d\'un Faisceau d\'Électrons, Sensibilité et Tache sur Écran',
+      enonce: `Un faisceau d'électrons de masse $m = 9{,}1 \\times 10^{-31}\\text{ kg}$ et de charge $q = -e = -1{,}6 \\times 10^{-19}\\text{ C}$ est émis avec une vitesse initiale négligeable par une cathode $C$.
+Les électrons sont accélérés par une anode $A$ sous une tension $U_0 = V_A - V_C = 1000\\text{ V}$.
+Ils pénètrent ensuite au point $O$, avec une vitesse horizontale $\\vec{v}_0$, entre les deux armatures horizontales $P_1$ et $P_2$ d'un condensateur plan de longueur $L = 6{,}0\\text{ cm}$, distantes de $d = 2{,}0\\text{ cm}$. Une tension constante $U = V_{P1} - V_{P2} = 120\\text{ V}$ est appliquée entre les armatures.
+Un écran fluorescent est placé perpendiculairement à l'axe initial $(Ox)$ à la distance $D = 30{,}0\\text{ cm}$ du centre $I$ des plaques.
+
+1. Calculer la norme $v_0$ du vecteur vitesse des électrons à leur entrée en $O$.
+2. Comparer le poids d'un électron à la force électrostatique subie dans le condensateur. Conclure.
+3. Établir, dans le repère $(O, \\vec{i}, \\vec{j})$, les équations horaires du mouvement d'un électron entre les plaques.
+4. Montrer que l'équation cartésienne de la trajectoire s'écrit :
+$y(x) = \\frac{e\\,U}{2\\,m\\,d\\,v_0^2}\\,x^2$
+Calculer l'ordonnée $y_S$ de l'électron à la sortie des plaques ($x = L$). Vérifier que l'électron ne heurte pas les armatures.
+5. Déterminer la déviation angulaire $\\alpha$ du faisceau à la sortie du condensateur.
+6. Exprimer la déviation linéaire $Y$ du spot sur l'écran en fonction de $U$, $L$, $D$, $d$ et $U_0$.
+7. Définir la sensibilité de déflexion de cet oscilloscope $s = \\frac{Y}{U}$ et calculer sa valeur en $\\text{mm}\\cdot\\text{V}^{-1}$.`,
+      solution: `### 1. Vitesse initiale $v_0$ (Accélération par $U_0$)
+D'après le Théorème de l'Énergie Cinétique entre la cathode et l'anode :
+$\\frac{1}{2}m v_0^2 - 0 = -e(V_C - V_A) = e\\,U_0 \\implies v_0 = \\sqrt{\\frac{2\\,e\\,U_0}{m}}$
+$v_0 = \\sqrt{\\frac{2 \\times 1{,}6 \\times 10^{-19} \\times 1000}{9{,}1 \\times 10^{-31}}} = \\sqrt{3{,}516 \\times 10^{14}} \\approx 1{,}875 \\times 10^7\\text{ m}\\cdot\\text{s}^{-1}$
+Soit **$v_0 \\approx 1{,}88 \\times 10^7\\text{ m}\\cdot\\text{s}^{-1}$**.
+
+---
+
+### 2. Comparaison du poids $P$ et de la force électrostatique $F_e$
+- Poids : $P = m\\,g = 9{,}1 \\times 10^{-31} \\times 9{,}8 \\approx 8{,}92 \\times 10^{-30}\\text{ N}$.
+- Champ électrique : $E = \\frac{U}{d} = \\frac{120}{0{,}02} = 6000\\text{ V}\\cdot\\text{m}^{-1}$.
+- Force électrostatique : $F_e = e\\,E = 1{,}6 \\times 10^{-19} \\times 6000 = 9{,}6 \\times 10^{-16}\\text{ N}$.
+- Rapport : $\\frac{F_e}{P} = \\frac{9{,}6 \\times 10^{-16}}{8{,}92 \\times 10^{-30}} \\approx 1{,}08 \\times 10^{14} \\gg 1$.
+Le poids est plus de cent mille milliards de fois plus faible que la force électrique : il est rigoureusement négligeable devant $\\vec{F}_e$.
+
+---
+
+### 3. Équations horaires entre les plaques
+- Système : {Électron de masse $m$, charge $q = -e$}.
+- TCI : $m\\vec{a} = \\vec{F}_e = -e\\vec{E}$.
+Comme $V_{P1} > V_{P2}$, $\\vec{E}$ est vertical descendant ($\\vec{E} = -E\\vec{j}$), d'où $\\vec{F}_e = -e(-E\\vec{j}) = e E\\vec{j}$ (force dirigée vers le haut, vers la plaque positive $P_1$).
+- Accélération :
+$\\vec{a} \\begin{pmatrix} a_x = 0 \\\\ a_y = \\frac{e E}{m} = \\frac{e U}{m d} \\end{pmatrix}$
+- Vitesse par intégration avec $\\vec{v}_0(v_0, 0)$ :
+$\\vec{v}(t) \\begin{pmatrix} v_x(t) = v_0 \\\\ v_y(t) = \\frac{e U}{m d}\\,t \\end{pmatrix}$
+- Position par intégration avec $x_0 = 0, y_0 = 0$ :
+$\\vec{OM}(t) \\begin{pmatrix} x(t) = v_0\\,t \\\\ y(t) = \\frac{e U}{2 m d}\\,t^2 \\end{pmatrix}$
+
+---
+
+### 4. Trajectoire et vérification de non-heurt
+En éliminant $t = \\frac{x}{v_0}$ :
+$y(x) = \\frac{e\\,U}{2\\,m\\,d\\,v_0^2}\\,x^2$
+À la sortie ($x = L = 0{,}06\\text{ m}$) :
+$y_S = \\frac{1{,}6 \\times 10^{-19} \\times 120 \\times (0{,}06)^2}{2 \\times 9{,}1 \\times 10^{-31} \\times 0{,}02 \\times (1{,}875 \\times 10^7)^2} \\approx 5{,}40 \\times 10^{-3}\\text{ m} = 0{,}54\\text{ cm}$
+Pour ne pas heurter les plaques, il faut que $|y_S| < \\frac{d}{2} = 1{,}0\\text{ cm}$.
+Puisque $0{,}54\\text{ cm} < 1{,}0\\text{ cm}$, les électrons émergent sans heurter les armatures.
+
+---
+
+### 5. Déviation angulaire $\\alpha$
+$\\tan\\alpha = \\left.\\frac{dy}{dx}\\right|_{x=L} = \\frac{e U L}{m d v_0^2} = \\frac{2\\,y_S}{L} = \\frac{2 \\times 0{,}0054}{0{,}06} = 0{,}18$
+$\\alpha = \\arctan(0{,}18) \\approx 10{,}2^\\circ$
+
+---
+
+### 6. Déviation linéaire $Y$ sur l'écran
+La tangente à la trajectoire en $S$ coupe l'axe $(Ox)$ au milieu du condensateur en $x = \\frac{L}{2}$.
+Comme l'écran est à la distance $D$ du centre des plaques :
+$Y = D\\,\\tan\\alpha = D\\,\\frac{e U L}{m d v_0^2}$
+Or $\\frac{1}{2}m v_0^2 = e U_0 \\implies m v_0^2 = 2 e U_0$. En injectant :
+$Y = \\frac{e U L D}{d \\times 2 e U_0} = \\frac{U\\,L\\,D}{2\\,d\\,U_0}$
+Calcul numérique :
+$Y = \\frac{120 \\times 0{,}06 \\times 0{,}30}{2 \\times 0{,}02 \\times 1000} = \\frac{2{,}16}{40} = 0{,}054\\text{ m} = 5{,}4\\text{ cm}$
+
+---
+
+### 7. Sensibilité de déflexion $s$
+$s = \\frac{Y}{U} = \\frac{L\\,D}{2\\,d\\,U_0} = \\frac{0{,}06 \\times 0{,}30}{2 \\times 0{,}02 \\times 1000} = 4{,}5 \\times 10^{-4}\\text{ m}\\cdot\\text{V}^{-1} = 0{,}45\\text{ mm}\\cdot\\text{V}^{-1}$
+Pour chaque volt supplémentaire appliqué entre les plaques, le spot se déplace de **$0{,}45\\text{ mm}$** sur l'écran.`,
+      baremeAstuce: `Barème officiel Bac S2 :
+- Vitesse initiale v₀ et comparaison P/Fe : 0,75 pt
+- Équations horaires et équation de la trajectoire : 1 pt
+- Calcul de y_S et justification du non-heurt : 0,75 pt
+- Déviation angulaire et relation Y = (U L D)/(2 d U₀) : 1 pt
+- Sensibilité s : 0,5 pt.
+Astuce correcteur : Remarquez la remarquable simplification de e et m dans l'expression de Y en fonction de U₀ ! La déviation Y est totalement indépendante de la nature de la particule chargée (électron ou proton).`,
+    },
+  ],
+  particule: [], // alias vers particule_champ_e_b
+  champ_e_b: [], // alias vers particule_champ_e_b
+  p4: [], // alias vers particule_champ_e_b
   // 0. ALCOOLS (CHIMIE S2 - C1)
   alcools: [
     {
@@ -2053,6 +2236,9 @@ BAC_ANNALES_BY_CHAPTER.projectile = BAC_ANNALES_BY_CHAPTER.projectile_champ_pesa
 BAC_ANNALES_BY_CHAPTER.pesanteur = BAC_ANNALES_BY_CHAPTER.projectile_champ_pesanteur;
 BAC_ANNALES_BY_CHAPTER.champ_pesanteur = BAC_ANNALES_BY_CHAPTER.projectile_champ_pesanteur;
 BAC_ANNALES_BY_CHAPTER.p3 = BAC_ANNALES_BY_CHAPTER.projectile_champ_pesanteur;
+BAC_ANNALES_BY_CHAPTER.particule = BAC_ANNALES_BY_CHAPTER.particule_champ_e_b;
+BAC_ANNALES_BY_CHAPTER.champ_e_b = BAC_ANNALES_BY_CHAPTER.particule_champ_e_b;
+BAC_ANNALES_BY_CHAPTER.p4 = BAC_ANNALES_BY_CHAPTER.particule_champ_e_b;
 
 interface BacSenegalAnnalesProps {
   chapter?: string;

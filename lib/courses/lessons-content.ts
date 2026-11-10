@@ -5168,8 +5168,220 @@ $y_{\\text{sécurité}}(x) = \\frac{v_0^2}{2\\,g} - \\frac{g}{2\\,v_0^2}\\,x^2 +
 > - « **Cible bi :** Remplacél $\\frac{1}{\\cos^2\\alpha}$ par $1 + \\tan^2\\alpha$ ngir am équation du second degré en $\\tan\\alpha$ ! »
 `;
 
+// P4 : MOUVEMENT D'UNE PARTICULE CHARGÉE DANS UN CHAMP ÉLECTRIQUE OU MAGNÉTIQUE UNIFORME (Terminale S2 Sénégal)
+RICH_LESSONS_MAP.particule_champ_e_b = `# P4 : Mouvement d'une Particule Chargée dans un Champ Électrique ou Magnétique Uniforme (Terminale S2)
+
+Bienvenue dans le quatrième grand chapitre fondamental de **Physique** de **Terminale S2**, rigoureusement conforme au programme officiel sénégalais (MEN / IGEF / Office du Baccalauréat).
+
+---
+
+## 📜 Grande Fresque Historique & Épistémologique de l'Électromagnétisme
+
+> *« Rien n'est plus petit que l'électron, et pourtant rien n'a autant bouleversé notre compréhension intime de l'Univers et de la matière »* : c'est ainsi que l'on pourrait résumer la révolution inaugurée par **Joseph John Thomson en 1897**.
+> 
+> À la fin du XIXe siècle, la nature intime de l'électricité demeure une énigme. Dans son laboratoire Cavendish à Cambridge, Thomson utilise un tube à rayons cathodiques sous vide poussé. En appliquant simultanément un champ électrique vertical $\\vec{E}$ et un champ magnétique horizontal $\\vec{B}$, Thomson parvient à courber, puis à rétablir en ligne droite le faisceau mystérieux. En mesurant l'intensité respective des déflexions, il accomplit un tour de force historique : déterminer le **rapport charge sur masse $e/m \\approx 1{,}76 \\times 10^{11}\\text{ C/kg}$** d'un corpuscule universel, plus de mille fois plus léger que l'atome d'hydrogène. L'**électron** venait d'être découvert ! Cette prouesse vaudra à Thomson le Prix Nobel de Physique en 1906.
+> 
+> En 1909, le physicien américain **Robert Millikan** perfectionne cette maîtrise électrostatique dans sa célèbre expérience de la goutte d'huile : en maintenant en lévitation stationnaire de minuscules gouttelettes d'huile chargées entre les armatures d'un condensateur plan, il équilibre rigoureusement le poids par la force électrostatique ($m\\vec{g} + q\\vec{E} = \\vec{0}$). Il démontre que la charge électrique portée par la matière est toujours un multiple entier d'un quantum fondamental : la **charge élémentaire $e = 1{,}602 \\times 10^{-19}\\text{ C}$** (Prix Nobel 1923).
+> 
+> Simultanément, le théoricien néerlandais **Hendrik Lorentz** formule l'expression unifiée de la force électromagnétique agissant sur une charge en mouvement : $\\vec{F} = q(\\vec{E} + \\vec{v} \\wedge \\vec{B})$. En 1932, **Ernest Lawrence** à l'Université de Berkeley exploite la remarquable propriété d'invariance de la période cyclotron pour construire le premier accélérateur circulaire de particules, le **cyclotron** (Prix Nobel 1939), ouvrant l'ère de la physique nucléaire moderne.
+> 
+> Au Sénégal, la maîtrise du mouvement des particules chargées dans les champs $\\vec{E}$ et $\\vec{B}$ se retrouve au cœur des technologies les plus avancées :
+> - En **médecine nucléaire et radiothérapie anticancéreuse**, les accélérateurs linéaires d'électrons du **Centre Hospitalier National Dalal Jamm de Guédiawaye** utilisent des champs électriques haute fréquence pour accélérer des faisceaux d'électrons ou de photons afin de détruire avec une précision millimétrique les tumeurs malignes tout en épargnant les tissus sains.
+> - Dans les **laboratoires d'analyse géologique et environnementale de l'UCAD et de l'École Polytechnique de Thiès**, les spectromètres de masse séparent les isotopes pour dater les nappes phréatiques fossiles du bassin sédimentaire sénégalais, caractériser les minerais d'or de Sabodala ou contrôler la teneur en métaux lourds des sédiments de la Baie de Hann.
+
+---
+
+> [!VIE_REELLE] **L'Électromagnétisme au Cœur du Monde Réel :**
+> - **L'Accélérateur Linéaire de Radiothérapie (Dalal Jamm, Guédiawaye)** : les électrons sont émis par un canon cathodique chauffé, accélérés par une succession de cavités résonantes sous des différences de potentiel de plusieurs millions de volts ($U_0 \\sim 6\\text{ à }18\\text{ MV}$), puis déviés par des aimants de courbure pour frapper une cible en tungstène et générer des rayons X thérapeutiques ultra-énergétiques.
+> - **Le Spectrographe de Masse de Bainbridge** : véritable balance atomique, il permet de peser des atomes individuels à $10^{-27}\\text{ kg}$ près ! Il sépare les isotopes légers et lourds (ex : $^{24}\\text{Mg}$ et $^{26}\\text{Mg}$, $^{6}\\text{Li}$ et $^{7}\\text{Li}$) grâce à la dépendance de leur rayon de courbure en fonction de la masse ($R \\propto m$).
+> - **Le Sélecteur de Vitesses de Wien** : filtre électromagnétique parfait qui n'autorise le passage que des particules animées de la vitesse précise $v_0 = E/B$, quel que soit leur signe, leur charge ou leur masse !
+> - **Les Ceintures de Van Allen et les Aurores Polaires** : le champ magnétique terrestre dévie en permanence les flux de protons et d'électrons hautement énergétiques émis par le Soleil (vent solaire), les piégeant dans des trajectoires hélicoïdales autour des lignes de champ et protégeant ainsi toute forme de vie sur Terre !
+
+> [!WOLOF] **Xam-xam ci Wolof — Particules chargées ci biir Champs $\\vec{E}$ ak $\\vec{B}$ :**
+> - « **Poids particule bi duñu ko compte mukk :** Particule élémentaire dafa woyof lool ($m \\sim 10^{-30}\\text{ à }10^{-26}\\text{ kg}$). Force électrostatique $\\vec{F}_e = q\\vec{E}$ moo ëpp poids bi ba ci $10^{14}$ yoon ! Motax ci calculs Bac S2, poids bi dafay nekk zéro ($P \\ll F_e$) ! »
+> - « **Champ Électrique $\\vec{E}$ dafay accélérer té dévier :** Force $\\vec{F}_e = q\\vec{E}$ mën na liggéey ($W \\ne 0$) ! Day yokk vitesse bi ($v = \\sqrt{\\frac{2qU}{m}}$) té day def trajectoire parabolique ni ballon football ci biir plaques yi ! »
+> - « **Champ Magnétique $\\vec{B}$ mënul accélérer vitesse bi mukk :** Force de Lorentz $\\vec{F}_m = q\\vec{v}\\wedge\\vec{B}$ dafa perpendiculaire ak vitesse $\\vec{v}$ waxtu wu nekk ! Motax travail am zéro la : $W = 0$. Vitesse bi du yokk, du wàññi ($v = \\text{cte}$) ! Day courber rek trajectoire bi mu nekk cercle bu am rayon $R = \\frac{mv}{|q|B}$ ! »
+> - « **Filtre de Wien mooy trieur de vitesse :** Force électrique ak force magnétique dañuy fafanté ($qE = qvB$). Particule bu am vitesse $v_0 = E/B$ mooy génn ci digg fente bi direct ! »
+> - « **Spectrographe de masse mooy séparer isotopes :** Ndax masse yi bokkul, demi-cercles yi bokkul rayons. Distance bi ci digg ñaari impacts yi ci plaque photographique bi mooy $\\Delta d = 2(R_2 - R_1)$ ! »
+
+---
+
+## 🎯 Objectifs Officiels du Baccalauréat Sénégalais (IGEF / MEN)
+
+À l'issue de ce chapitre, tout élève de Terminale S2 doit maîtriser avec une aisance absolue :
+1. **Justifier l'omission rigoureuse du poids** d'une particule chargée devant les forces électriques et magnétiques ($P / F_e \\sim 10^{-14}$).
+2. **Établir les équations horaires et l'équation de la trajectoire parabolique** d'une particule chargée dans un champ électrostatique uniforme $\\vec{E}$ :
+   $$y(x) = \\frac{q\\,U}{2\\,m\\,d\\,v_0^2}\\,x^2$$
+3. **Exprimer la déviation angulaire $\\alpha$ et la déviation linéaire $Y$** sur un écran distant de $D$ :
+   $$\\tan\\alpha = \\frac{|q|\\,U\\,L}{m\\,d\\,v_0^2} \\quad ; \\quad Y = D\\,\\tan\\alpha = \\frac{|q|\\,U\\,L\\,D}{m\\,d\\,v_0^2}$$
+4. **Vérifier la condition de non-heurt** des armatures du condensateur : $|y(L)| < \\frac{d}{2}$.
+5. **Démontrer que la force magnétique de Lorentz ne travaille jamais** ($\\mathcal{P} = 0 \\implies E_c = \\text{cte} \\implies v = \\text{cte}$).
+6. **Établir dans la base de Frenet que le mouvement dans $\\vec{B}$ uniforme ($\\vec{v}_0 \\perp \\vec{B}$) est plan, circulaire et uniforme**, et en déduire l'expression du rayon $R$ et de la période $T$ :
+   $$R = \\frac{m\\,v_0}{|q|\\,B} \\quad ; \\quad T = \\frac{2\\pi\\,m}{|q|\\,B}$$
+7. **Étudier le sélecteur de vitesses de Wien** (condition d'émergence rectiligne $v_0 = E/B$).
+8. **Exploiter le fonctionnement d'un spectrographe de masse de Bainbridge** pour séparer et identifier des isotopes chimiques ($\\Delta d = 2\\,\\Delta R$).
+
+---
+
+## 1. Mouvement d'une Particule Chargée dans un Champ Électrique Uniforme $\\vec{E}$
+
+### 1.1. Champ électrostatique entre deux armatures planes parallèles
+Considérons deux plaques métalliques planes et parallèles séparées d'une distance $d$, soumises à une différence de potentiel $U = V_A - V_B > 0$ (l'armature supérieure $A$ est portée au potentiel le plus élevé).
+- Le champ électrique $\\vec{E}$ régnant entre les armatures est **uniforme** : il a même direction (perpendiculaire aux plaques), même sens (dirigé vers les potentiels décroissants, donc de $A$ vers $B$) et même intensité :
+  $$E = \\frac{U}{d} \\quad (\\text{en V}\\cdot\\text{m}^{-1} \\text{ ou N}\\cdot\\text{C}^{-1})$$
+
+### 1.2. Force électrostatique et négligence légitime du poids
+Une particule de masse $m$ et de charge $q$ (ex : électron $q = -e$, proton $q = +e$, ion $\\alpha$ $q = +2e$) subit la force électrostatique :
+$$\\vec{F}_e = q\\,\\vec{E}$$
+- Si $q > 0$ : $\\vec{F}_e$ est dans le **même sens** que $\\vec{E}$.
+- Si $q < 0$ : $\\vec{F}_e$ est en **sens opposé** à $\\vec{E}$ (l'électron est attiré vers la plaque positive).
+
+> [!THEOREME] **Comparaison Poids vs Force Électrostatique :**
+> Pour un électron ($m = 9{,}1 \\times 10^{-31}\\text{ kg}$, $e = 1{,}6 \\times 10^{-19}\\text{ C}$) dans un champ modeste $E = 10^4\\text{ V/m}$ :
+> - Poids : $P = mg \\approx 9{,}1 \\times 10^{-31} \\times 9{,}8 \\approx 8{,}9 \\times 10^{-30}\\text{ N}$
+> - Force électrique : $F_e = eE = 1{,}6 \\times 10^{-19} \\times 10^4 = 1{,}6 \\times 10^{-15}\\text{ N}$
+> - Rapport : $\\frac{F_e}{P} \\approx 1{,}8 \\times 10^{14}$
+> **Conclusion Bac S2 impérative :** Le poids est plus de cent mille milliards de fois inférieur à la force électrique. Il est rigoureusement négligé dans toute la suite de l'étude mécanique.
+
+### 1.3. Équations horaires du mouvement
+Munissons l'espace d'un repère orthonormé $(O, \\vec{i}, \\vec{j})$ où l'origine $O$ est le point d'injection équidistant des deux armatures, $(Ox)$ est l'axe horizontal parallèle aux plaques et $(Oy)$ est l'axe vertical ascendant.
+- Le champ électrique s'écrit : $\\vec{E} = -E\\,\\vec{j} = -\\frac{U}{d}\\vec{j}$.
+- La force électrostatique s'écrit : $\\vec{F}_e = q\\vec{E} = -q\\frac{U}{d}\\vec{j}$.
+- D'après le Théorème du Centre d'Inertie :
+  $$m\\vec{a} = \\vec{F}_e \\implies \\vec{a} = \\frac{q}{m}\\vec{E} = -\\frac{q\\,U}{m\\,d}\\vec{j}$$
+- Coordonnées du vecteur accélération :
+  $$\\begin{cases} a_x(t) = 0 \\\\ a_y(t) = -\\frac{q\\,U}{m\\,d} \\end{cases}$$
+
+Par intégrations successives avec les conditions initiales à $t = 0$ :
+$$\\vec{OM}_0 \\begin{pmatrix} 0 \\\\ 0 \\end{pmatrix} \\quad ; \\quad \\vec{v}_0 \\begin{pmatrix} v_0 \\\\ 0 \\end{pmatrix}$$
+- **Vecteur vitesse $\\vec{v}(t)$** :
+  $$\\begin{cases} v_x(t) = v_0 = \\text{constante} \\\\ v_y(t) = -\\frac{q\\,U}{m\\,d}\\,t \\end{cases}$$
+- **Vecteur position $\\vec{OM}(t)$** :
+  $$\\begin{cases} x(t) = v_0\\,t \\\\ y(t) = -\\frac{q\\,U}{2\\,m\\,d}\\,t^2 \\end{cases}$$
+
+### 1.4. Équation de la trajectoire parabolique
+En éliminant le temps $t = \\frac{x}{v_0}$ :
+$$y(x) = -\\frac{q\\,U}{2\\,m\\,d\\,v_0^2}\\,x^2$$
+- Pour un électron ($q = -e$) :
+  $$y(x) = +\\frac{e\\,U}{2\\,m\\,d\\,v_0^2}\\,x^2$$
+La courbe est une **parabole** dont la concavité est tournée vers le haut (l'électron est dévié vers l'armature positive).
+
+### 1.5. Sortie du champ et déviation sur écran
+Les armatures ont une longueur $L$. À la sortie en $x = L$ :
+- Ordonnée du point de sortie $S$ :
+  $$y_S = y(L) = \\frac{|q|\\,U}{2\\,m\\,d\\,v_0^2}\\,L^2$$
+- **Condition de non-heurt** des plaques : la particule quitte le champ sans heurter les armatures si et seulement si :
+  $$|y_S| < \\frac{d}{2} \\iff \\frac{|q|\\,U\\,L^2}{2\\,m\\,d\\,v_0^2} < \\frac{d}{2} \\implies U < \\frac{m\\,d^2\\,v_0^2}{|q|\\,L^2}$$
+- Déviation angulaire $\\alpha$ à la sortie :
+  $$\\tan\\alpha = \\left.\\frac{dy}{dx}\\right|_{x=L} = \\frac{|q|\\,U\\,L}{m\\,d\\,v_0^2} = \\frac{2\\,y_S}{L}$$
+- Déviation linéaire $Y$ sur un écran placé à distance $D$ du centre du condensateur :
+  Puisque la tangente en $S$ coupe l'axe $(Ox)$ au milieu des plaques en $x = \\frac{L}{2}$ :
+  $$Y = D\\,\\tan\\alpha = \\frac{|q|\\,U\\,L\\,D}{m\\,d\\,v_0^2}$$
+- Si la particule a été préalablement accélérée par une tension $U_0$ : $\\frac{1}{2}m v_0^2 = |q| U_0 \\implies m v_0^2 = 2|q| U_0$. L'expression de $Y$ se simplifie miraculeusement :
+  $$Y = \\frac{U\\,L\\,D}{2\\,d\\,U_0}$$
+La déviation est **rigoureusement indépendante de la masse et de la charge** de la particule !
+
+---
+
+## 2. Mouvement d'une Particule Chargée dans un Champ Magnétique Uniforme $\\vec{B}$
+
+### 2.1. La Force de Lorentz Magnétique
+Une particule de charge $q$ animée d'une vitesse $\\vec{v}$ dans un champ magnétique $\\vec{B}$ subit la force magnétique :
+$$\\vec{F}_m = q\\,\\vec{v} \\wedge \\vec{B}$$
+- **Direction** : orthogonale au plan défini par $(\\vec{v}, \\vec{B})$.
+- **Sens** : donné par la **règle de la main droite** en utilisant le vecteur $q\\vec{v}$ (pouce : $q\\vec{v}$, index : $\\vec{B}$, majeur : $\\vec{F}_m$).
+- **Intensité** : $F_m = |q|\\,v\\,B\\,\\sin(\\vec{v}, \\vec{B})$. Pour $\\vec{v} \\perp \\vec{B}$, $F_m = |q|\\,v\\,B$.
+
+### 2.2. Propriété énergétique fondamentale : Travail nul
+$$\\mathcal{P} = \\vec{F}_m \\cdot \\vec{v} = (q\\,\\vec{v} \\wedge \\vec{B}) \\cdot \\vec{v} = 0$$
+Puisque la puissance est nulle à chaque instant, le travail accompli par la force magnétique est **rigoureusement nul** :
+$$W(\\vec{F}_m) = \\int \\mathcal{P}\\,dt = 0\\text{ J}$$
+D'après le Théorème de l'Énergie Cinétique :
+$$\\Delta E_c = \\frac{1}{2}m v^2 - \\frac{1}{2}m v_0^2 = 0 \\implies v = v_0 = \\text{constante}$$
+> [!IMPORTANT]
+> Un champ magnétique stationnaire ne peut **JAMAIS** modifier l'énergie cinétique ni la norme de la vitesse d'une particule : **le mouvement est toujours uniforme !**
+
+### 2.3. Démonstration du Mouvement Circulaire Uniforme (Frenet)
+Appliquons le TCI dans le repère de Frenet $(\\vec{u}_t, \\vec{u}_n)$ lié à la particule :
+$$m\\vec{a} = \\vec{F}_m \\iff m\\left(\\frac{dv}{dt}\\vec{u}_t + \\frac{v^2}{R}\\vec{u}_n\\right) = |q|\\,v\\,B\\,\\vec{u}_n$$
+1. **Selon la tangente $\\vec{u}_t$** :
+   $$m\\frac{dv}{dt} = 0 \\implies v = \\text{constante} \\quad (\\text{mouvement uniforme})$$
+2. **Selon la normale $\\vec{u}_n$** :
+   $$m\\frac{v^2}{R} = |q|\\,v\\,B \\implies R = \\frac{m\\,v}{|q|\\,B} = \\text{constante}$$
+Le rayon de courbure étant constant et la trajectoire restant confinée dans le plan orthogonal à $\\vec{B}$, le mouvement est un **mouvement circulaire uniforme**.
+
+### 2.4. Période et Pulsation Cyclotron
+- **Période de révolution $T$** (durée d'un tour complet) :
+  $$T = \\frac{2\\pi\\,R}{v} = \\frac{2\\pi \\left(\\frac{mv}{|q|B}\\right)}{v} = \\frac{2\\pi\\,m}{|q|\\,B}$$
+- **Fréquence cyclotron $f$** et **pulsation $\\omega_c$** :
+  $$f = \\frac{1}{T} = \\frac{|q|\\,B}{2\\pi\\,m} \\quad ; \\quad \\omega_c = 2\\pi f = \\frac{|q|\\,B}{m}$$
+> [!THEOREME] **Théorème d'Invariance Cyclotron :**
+> La période $T$ et la fréquence $f$ sont **strictement indépendantes de la vitesse $v$ et du rayon $R$** de la particule ! Si la particule accélère, le rayon s'agrandit exactement dans la même proportion, maintenant la durée du tour invariante.
+
+---
+
+## 3. Les Applications Majeures du Baccalauréat Sénégalais
+
+### 3.1. Le Sélecteur de Vitesses de Wien (Champs Croisés)
+Dans un filtre de Wien, une région de l'espace est soumise simultanément à un champ électrique $\\vec{E}$ et un champ magnétique $\\vec{B}$ perpendiculaires entre eux et perpendiculaires à la vitesse $\\vec{v}_0$.
+- Les forces électrique et magnétique agissent sur la même droite d'action :
+  $$\\vec{F} = \\vec{F}_e + \\vec{F}_m = q\\vec{E} + q\\vec{v}_0 \\wedge \\vec{B}$$
+- Condition de franchissement rectiligne sans déviation :
+  $$\\vec{F}_e + \\vec{F}_m = \\vec{0} \\iff |q|\\,E = |q|\\,v_0\\,B \\implies v_0 = \\frac{E}{B}$$
+- Si $v > v_0$ : la force magnétique l'emporte, la particule dévie du côté de $\\vec{F}_m$ et percute le diaphragme.
+- Si $v < v_0$ : la force électrique l'emporte, la particule dévie du côté de $\\vec{F}_e$.
+- Seules les particules de vitesse $v_0 = E/B$ franchissent la fente de sortie !
+
+### 3.2. Le Spectrographe de Masse de Bainbridge
+Dispositif d'excellence du Bac S2 permettant de séparer deux isotopes de même charge $q$ et de masses différentes $m_1 < m_2$ (ex : $^{24}\\text{Mg}^{2+}$ et $^{26}\\text{Mg}^{2+}$, ou $^{6}\\text{Li}^+$ et $^{7}\\text{Li}^+$).
+1. Les ions sont filtrés par un sélecteur de Wien de sorte qu'ils pénètrent tous avec la **même vitesse $v_0$** en $O$ dans une chambre où règne un champ magnétique $\\vec{B}'$.
+2. Chaque ion décrit un demi-cercle de rayon :
+   $$R_1 = \\frac{m_1 v_0}{|q| B'} \\quad ; \\quad R_2 = \\frac{m_2 v_0}{|q| B'}$$
+3. Puisque $m_2 > m_1$, $R_2 > R_1$ : les ions les plus lourds décrivent une boucle plus large.
+4. L'impact sur la plaque photographique a lieu à une distance égale au **diamètre** : $d_1 = 2R_1$ et $d_2 = 2R_2$.
+5. L'écartement mesuré entre les deux taches spectrales est :
+   $$\\Delta d = 2(R_2 - R_1) = \\frac{2\\,v_0}{|q|\\,B'}\\,(m_2 - m_1)$$
+La distance $\\Delta d$ est directement proportionnelle à l'écart de masse $\\Delta m$ !
+
+---
+
+## 4. Les 8 Réflexes d'Or du Baccalauréat Sénégalais (P4)
+
+> [!IMPORTANT]
+> 1. **Négligence du poids :** Toujours commencer en écrivant : « Particule élémentaire de masse infime, le poids $m\\vec{g}$ est rigoureusement négligeable devant la force électromagnétique ($P \\ll F$) ».
+> 2. **Signe de la charge $q$ :** Faire une attention chirurgicale au signe ! Pour l'électron, $q = -e < 0$. La force $\\vec{F}_e = -e\\vec{E}$ est de sens opposé à $\\vec{E}$.
+> 3. **Sens du champ $\\vec{E}$ :** $\\vec{E}$ est toujours dirigé de l'armature au potentiel le plus élevé (+) vers l'armature au potentiel le plus bas (-).
+> 4. **Milieu du condensateur :** La tangente à la parabole de déviation coupe l'axe optique $(Ox)$ rigoureusement au milieu des plaques en $x = \\frac{L}{2}$.
+> 5. **Travail magnétique nul :** Ne jamais dire que $\\vec{B}$ accélère une particule ! $\\vec{F}_m \\perp \\vec{v} \\implies W = 0 \\implies v = \\text{constante}$ (mouvement uniforme).
+> 6. **Valeur absolue sur la charge :** Le rayon $R = \\frac{m v}{|q| B}$ et la période $T = \\frac{2\\pi m}{|q| B}$ sont strictement positifs : toujours écrire $|q|$ !
+> 7. **Sélecteur de Wien indépendant de $m$ et $q$ :** Dans le filtre de Wien, la condition $v_0 = E/B$ ne dépend ni de la masse, ni de la charge.
+> 8. **Piège du diamètre dans le spectrographe :** La particule décrit un demi-cercle : la distance entre le point d'entrée et le point d'impact est le diamètre $2R$ et non le rayon $R$ !
+`;
+
 export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: string, rawContent: string | null): string {
   const titleLower = `${lessonTitle} ${chapterTitle}`.toLowerCase();
+
+  // Routage Physique P4 : Mouvement d'une Particule Chargée dans E et B
+  if (
+    titleLower.includes('particule') ||
+    titleLower.includes('particules chargées') ||
+    titleLower.includes('particules chargees') ||
+    titleLower.includes('champ électrique') ||
+    titleLower.includes('champ electrique') ||
+    titleLower.includes('champ magnétique') ||
+    titleLower.includes('champ magnetique') ||
+    titleLower.includes('lorentz') ||
+    titleLower.includes('cyclotron') ||
+    titleLower.includes('spectromètre') ||
+    titleLower.includes('spectrometre') ||
+    titleLower.includes('wien') ||
+    titleLower.includes('bainbridge') ||
+    titleLower.includes('déviation') ||
+    titleLower.includes('deviation') ||
+    titleLower.includes('p4')
+  ) {
+    return RICH_LESSONS_MAP.particule_champ_e_b;
+  }
 
   // Routage Physique P1 : Cinématique du Point Matériel
   if (

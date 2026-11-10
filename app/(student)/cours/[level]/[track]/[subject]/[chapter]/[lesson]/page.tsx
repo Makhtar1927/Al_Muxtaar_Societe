@@ -103,6 +103,9 @@ import ProjectileInteractiveSimulator from '@/components/course/projectile-inter
 import NewtonInteractiveSimulator from '@/components/course/newton-interactive-simulator';
 import NewtonQuizEmbedded from '@/components/course/newton-quiz-embedded';
 import ProjectileQuizEmbedded from '@/components/course/projectile-quiz-embedded';
+import P4ParticuleReflexesCard from '@/components/course/p4-particule-reflexes-card';
+import P4ParticuleInteractiveSimulator from '@/components/course/p4-particule-interactive-simulator';
+import P4ParticuleQuizEmbedded from '@/components/course/p4-particule-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
@@ -2366,6 +2369,43 @@ if (lessonMeta && lessonMeta.status !== 'published') {
       params.lesson === '60000000-0000-0002-0001-000000000009' ||
       params.chapter === '50000000-0000-0002-0001-000000000003');
 
+  const isParticule =
+    !isAcidesAmines &&
+    !isAlcools &&
+    !isAmines &&
+    !isAcidesDerives &&
+    !isCinetique &&
+    !isAutoprotolysePh &&
+    !isAcideFortBaseForte &&
+    !isAcideFaibleBaseFaible &&
+    !isDosageAcideFaibleBaseForte &&
+    !isCinematique &&
+    !isNewton &&
+    !isProjectile &&
+    (lessonMeta.title.toLowerCase().includes('particule') ||
+      lessonMeta.title.toLowerCase().includes('particules chargées') ||
+      lessonMeta.title.toLowerCase().includes('particules chargees') ||
+      lessonMeta.title.toLowerCase().includes('champ électrique') ||
+      lessonMeta.title.toLowerCase().includes('champ electrique') ||
+      lessonMeta.title.toLowerCase().includes('champ magnétique') ||
+      lessonMeta.title.toLowerCase().includes('champ magnetique') ||
+      lessonMeta.title.toLowerCase().includes('lorentz') ||
+      lessonMeta.title.toLowerCase().includes('cyclotron') ||
+      lessonMeta.title.toLowerCase().includes('spectromètre') ||
+      lessonMeta.title.toLowerCase().includes('spectrometre') ||
+      lessonMeta.title.toLowerCase().includes('wien') ||
+      lessonMeta.title.toLowerCase().includes('bainbridge') ||
+      lessonMeta.title.toLowerCase().includes('déviation') ||
+      lessonMeta.title.toLowerCase().includes('deviation') ||
+      (chapter?.title?.toLowerCase() || '').includes('particule') ||
+      (chapter?.title?.toLowerCase() || '').includes('champ électrique') ||
+      (chapter?.title?.toLowerCase() || '').includes('champ magnétique') ||
+      (chapter?.title?.toLowerCase() || '').includes('p4') ||
+      params.lesson === '60000000-0000-0002-0001-000000000010' ||
+      params.lesson === '60000000-0000-0002-0001-000000000011' ||
+      params.lesson === '60000000-0000-0002-0001-000000000012' ||
+      params.chapter === '50000000-0000-0002-0001-000000000004');
+
   const isDerivation =
     !isAcidesAmines &&
     !isDosageAcideFaibleBaseForte &&
@@ -2709,6 +2749,11 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                   <ProjectileReflexesCard />
                   <ProjectileInteractiveSimulator />
                 </>
+              ) : isParticule ? (
+                <>
+                  <P4ParticuleReflexesCard />
+                  <P4ParticuleInteractiveSimulator />
+                </>
               ) : isTvi ? (
                 <>
                   <TviReflexesCard />
@@ -2820,6 +2865,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'lois_newton'
                     : isProjectile
                     ? 'projectile_champ_pesanteur'
+                    : isParticule
+                    ? 'particule_champ_e_b'
                     : isAlcools
                     ? 'alcools'
                     : isAmines
@@ -2902,6 +2949,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <NewtonQuizEmbedded />
               ) : isProjectile ? (
                 <ProjectileQuizEmbedded />
+              ) : isParticule ? (
+                <P4ParticuleQuizEmbedded />
               ) : isTvi ? (
                 <TviQuizEmbedded />
               ) : isAsymptotes ? (
