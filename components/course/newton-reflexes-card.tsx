@@ -109,7 +109,7 @@ export default function NewtonReflexesCard() {
               Fiches Réflexes Bac S2 — P2 : Les Lois de Newton sur le Mouvement
             </h3>
             <p className="text-xs text-text/60">
-              6 réflexes incontournables et rigoureux pour maîtriser le Théorème du Centre d'Inertie, le plan incliné et les actions réciproques au Baccalauréat sénégalais.
+              6 réflexes incontournables et rigoureux pour maîtriser le Théorème du Centre d&apos;Inertie, le plan incliné et les actions réciproques au Baccalauréat sénégalais.
             </p>
           </div>
         </div>
@@ -201,3 +201,4 @@ export default function NewtonReflexesCard() {
     </div>
   );
 }
+

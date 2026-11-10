@@ -2774,7 +2774,11 @@ if (lessonMeta && lessonMeta.status !== 'published') {
               {/* Section Annales Officielles du Baccalauréat Sénégalais (Après les exercices d'application) */}
               <BacSenegalAnnales
                 chapter={
-                  isAlcools
+                  isCinematique
+                    ? 'cinematique_point'
+                    : isNewton
+                    ? 'lois_newton'
+                    : isAlcools
                     ? 'alcools'
                     : isAmines
                     ? 'amines'

@@ -4109,35 +4109,49 @@ Bienvenue dans le premier chapitre fondamental de **Mécanique** de **Terminale 
 
 ---
 
+## 📜 Grande Fresque Historique & Épistémologique de la Cinématique
+
+> *« Donner une description mathématique exacte du mouvement dans l'espace et le temps, sans encore se préoccuper des forces qui le provoquent »* : telle fut la formidable révolution intellectuelle de **Galilée (1564–1642)**.
+> 
+> Pendant deux millénaires, la pensée occidentale et méditerranéenne est restée prisonnière du dogme d'Aristote, qui affirmait que le repos était le seul état « naturel » de la matière et qu'un corps s'arrêtait dès qu'on cessait de le pousser. En observant avec une précision maniaque les oscillations des lustres de la cathédrale de Pise, puis en chronométrant la descente de billes de bronze polies sur des plans inclinés à l'aide d'horloges à eau et des battements de son propre pouls, Galilée démontre que le mouvement est un **état**, gouverné par des lois géométriques universelles : la distance parcourue est proportionnelle au carré du temps écoulé ($d \\propto t^2$).
+> 
+> Un demi-siècle plus tard, **Isaac Newton** et **Gottfried Wilhelm Leibniz** créent le **calcul différentiel et infinitésimal** : la vitesse instantanée n'est plus une simple moyenne empirique, mais la dérivée mathématique rigoureuse du vecteur position au point considéré : $\\vec{v} = \\frac{d\\vec{OM}}{dt} = \\lim_{\\Delta t \\to 0} \\frac{\\Delta \\vec{OM}}{\\Delta t}$.
+> 
+> Enfin, au XIXe siècle, face à l'essor des premiers chemins de fer et à la nécessité impérieuse de calculer le rayon de courbure des rails pour empêcher les trains de dérailler dans les virages, le mathématicien français **Jean Frédéric Frenet (1847)** invente la base mobile intrinsèque $(M, \\vec{u}_t, \\vec{u}_n)$ : il offre à la physique l'outil parfait pour séparer le changement de valeur de la vitesse ($a_t = \\frac{dv}{dt}$) de la courbure de l'espace ($a_n = \\frac{v^2}{\\rho}$).
+> 
+> Au Sénégal, que ce soit pour réguler l'accélération du **TER Dakar–Diamniadio** ($160\\text{ km}\\cdot\\text{h}^{-1}$), synchroniser les feux du **BRT entre Petersen et Guédiawaye**, négocier la courbe serrée de l'**échangeur Aliou Ardo Sow à la Patte d'Oie**, ou comprendre l'oscillation des **pirogues de pêcheurs sur la houle de Kayar et Soumbédioune**, la cinématique est le langage mathématique absolu qui décrit notre univers en mouvement.
+
+---
+
 ![Figure 1 : Cinématique du point matériel, base de Frenet et trajectoire](/assets/pedagogie/p1_cinematique_frenet_trajectoire.svg)
 
 > [!VIE_REELLE] **La Cinématique au Cœur du Quotidien Sénégalais :**
-> - **Le TER Dakar–Diamniadio (MRUV)** : en quittant la gare de Colobane, le train accélère de façon rectiligne et uniforme ($a = 0{,}8\text{ m}\cdot\text{s}^{-2}$) pour atteindre sa vitesse de croisière de $160\text{ km}\cdot\text{h}^{-1}$ ($44{,}4\text{ m}\cdot\text{s}^{-1}$). À l'approche de la gare de Rufisque, il enclenche son système de freinage : la formule de Torricelli ($v_B^2 - v_A^2 = 2\,a\,d$) permet aux ingénieurs de calculer au centimètre près la distance d'arrêt de sécurité !
+> - **Le TER Dakar–Diamniadio (MRUV)** : en quittant la gare de Colobane, le train accélère de façon rectiligne et uniforme ($a = 0{,}8\\text{ m}\\cdot\\text{s}^{-2}$) pour atteindre sa vitesse de croisière de $160\\text{ km}\\cdot\\text{h}^{-1}$ ($44{,}4\\text{ m}\\cdot\\text{s}^{-1}$). À l'approche de la gare de Rufisque, il enclenche son système de freinage : la formule de Torricelli ($v_B^2 - v_A^2 = 2\\,a\\,d$) permet aux ingénieurs de calculer au centimètre près la distance d'arrêt de sécurité !
 > - **Le BRT sur les voies réservées de Dakar** : entre Petersen et Guédiawaye, le bus alterne des phases de Mouvement Rectiligne Uniforme (MRU, vitesse constante sur ligne droite dégagée) et des phases de décélération aux stations.
-> - **Le Virage de l'Échangeur Aliou Ardo Sow / Patte d'Oie (Frenet)** : lorsqu'un véhicule s'engage sur la bretelle courbée à vitesse constante, il ne ressent AUCUNE accélération tangentielle ($a_t = \frac{dv}{dt} = 0$), mais il subit une violente accélération normale centripète ($a_n = \frac{v^2}{R}$) qui pousse les passagers vers l'extérieur du virage. Si $a_n$ dépasse l'adhérence maximale des pneus, c'est le dérapage !
-> - **La Pirogue sur la houle de Soumbédioune / Kayar (Oscillateur Harmonique)** : au mouillage sur l'océan Atlantique, la pirogue monte et descend de façon périodique sous l'action des vagues. Son mouvement vertical d'élongation $y(t) = Y_m\,\cos(\omega_0\,t + \varphi)$ obéit exactement à l'équation différentielle $\ddot{y} + \omega_0^2\,y = 0$ !
+> - **Le Virage de l'Échangeur Aliou Ardo Sow / Patte d'Oie (Frenet)** : lorsqu'un véhicule s'engage sur la bretelle courbée à vitesse constante, il ne ressent AUCUNE accélération tangentielle ($a_t = \\frac{dv}{dt} = 0$), mais il subit une violente accélération normale centripète ($a_n = \\frac{v^2}{R}$) qui pousse les passagers vers l'extérieur du virage. Si $a_n$ dépasse l'adhérence maximale des pneus, c'est le dérapage !
+> - **La Pirogue sur la houle de Soumbédioune / Kayar (Oscillateur Harmonique)** : au mouillage sur l'océan Atlantique, la pirogue monte et descend de façon périodique sous l'action des vagues. Son mouvement vertical d'élongation $y(t) = Y_m\\,\\cos(\\omega_0\\,t + \\varphi)$ obéit exactement à l'équation différentielle $\\ddot{y} + \\omega_0^2\\,y = 0$ !
 
 > [!WOLOF] **Xam-xam ci Wolof — Cinématique du Point Matériel :**
 > - « **Trajectoire bi :** Mooy yoon wi point bi di jaar ci suuf ! Boo amee équations horaires $x(t)$ ak $y(t)$, génneel waxtu bi $t$ ci $x$, duggal ko ci $y$. Équation de la trajectoire du am mukk waxtu bi $t$ ! »
-> - « **Vitesse $\vec{v}$ bi :** Waxtu wu nekk dafa tangent ci yoon bi (trajectoire) te jëm ci kanam ci sens du mouvement ! Dérivée de position la : $\vec{v} = \frac{d\vec{OM}}{dt}$. »
-> - « **Produit scalaire $\vec{a} \cdot \vec{v}$ :** Bul jàpp ne bu $a < 0$ rekk dafay décéléré ! Dafa laaj nga seet $\vec{a} \cdot \vec{v}$ : bu fékkee $> 0$, dafay accélére ; bu fékkee $< 0$, dafay retardé ! »
-> - « **Base bu Frenet $(M, \vec{u}_t, \vec{u}_n)$ :** $a_t = \frac{dv}{dt}$ dafay natt ni valeur vitesse di soppikoo ; $a_n = \frac{v^2}{\rho}$ dafay natt courbure bi ci virage bi ! Rayon de courbure bi mooy $\rho = \frac{v^2}{a_n}$ ! »
-> - « **Torricelli (sans waxtu) :** $v_B^2 - v_A^2 = 2\,a\,d$. Moom lañuy jëfandikoo ci freinage TER ak auto ! »
-> - « **MCU (Mouvement Circulaire Uniforme) :** $v = R\,\omega$. Vitesse en valeur dafay tegu ($a_t = 0$), waaye accélération am na ci biir cercle bi : $a = a_n = R\,\omega^2 = \frac{v^2}{R}$ ! »
+> - « **Vitesse $\\vec{v}$ bi :** Waxtu wu nekk dafa tangent ci yoon bi (trajectoire) te jëm ci kanam ci sens du mouvement ! Dérivée de position la : $\\vec{v} = \\frac{d\\vec{OM}}{dt}$. »
+> - « **Produit scalaire $\\vec{a} \\cdot \\vec{v}$ :** Bul jàpp ne bu $a < 0$ rekk dafay décéléré ! Dafa laaj nga seet $\\vec{a} \\cdot \\vec{v}$ : bu fékkee $> 0$, dafay accélére ; bu fékkee $< 0$, dafay retardé ! »
+> - « **Base bu Frenet $(M, \\vec{u}_t, \\vec{u}_n)$ :** $a_t = \\frac{dv}{dt}$ dafay natt ni valeur vitesse di soppikoo ; $a_n = \\frac{v^2}{\\rho}$ dafay natt courbure bi ci virage bi ! Rayon de courbure bi mooy $\\rho = \\frac{v^2}{a_n}$ ! »
+> - « **Torricelli (sans waxtu) :** $v_B^2 - v_A^2 = 2\\,a\\,d$. Moom lañuy jëfandikoo ci freinage TER ak auto ! »
+> - « **MCU (Mouvement Circulaire Uniforme) :** $v = R\\,\\omega$. Vitesse en valeur dafay tegu ($a_t = 0$), waaye accélération am na ci biir cercle bi : $a = a_n = R\\,\\omega^2 = \\frac{v^2}{R}$ ! »
 
 ---
 
 ## Objectifs Officiels du Baccalauréat Sénégalais (IGEF / MEN)
 À la fin de ce chapitre, tout élève de Terminale S2 doit être capable de :
 1. Définir le point matériel et choisir le référentiel d'étude approprié (Terrestre, Géocentrique, Héliocentrique).
-2. Déterminer le vecteur position $\vec{OM}(t)$ et établir l'équation cartésienne de la trajectoire par élimination de la variable temps $t$.
-3. Définir le vecteur vitesse instantanée $\vec{v}(t) = \frac{d\vec{OM}}{dt}$, en préciser la direction, le sens et calculer sa norme.
-4. Définir le vecteur accélération $\vec{a}(t) = \frac{d\vec{v}}{dt} = \frac{d^2\vec{OM}}{dt^2}$.
-5. Déterminer la nature d'un mouvement (accéléré, retardé ou uniforme) à l'aide du signe du produit scalaire $\vec{a} \cdot \vec{v}$.
-6. Exprimer le vecteur accélération dans la base intrinsèque de Frenet : $\vec{a} = a_t\,\vec{u}_t + a_n\,\vec{u}_n$ avec $a_t = \frac{dv}{dt}$ et $a_n = \frac{v^2}{\rho}$, et calculer le rayon de courbure $\rho$.
+2. Déterminer le vecteur position $\\vec{OM}(t)$ et établir l'équation cartésienne de la trajectoire par élimination de la variable temps $t$.
+3. Définir le vecteur vitesse instantanée $\\vec{v}(t) = \\frac{d\\vec{OM}}{dt}$, en préciser la direction, le sens et calculer sa norme.
+4. Définir le vecteur accélération $\\vec{a}(t) = \\frac{d\\vec{v}}{dt} = \\frac{d^2\\vec{OM}}{dt^2}$.
+5. Déterminer la nature d'un mouvement (accéléré, retardé ou uniforme) à l'aide du signe du produit scalaire $\\vec{a} \\cdot \\vec{v}$.
+6. Exprimer le vecteur accélération dans la base intrinsèque de Frenet : $\\vec{a} = a_t\\,\\vec{u}_t + a_n\\,\\vec{u}_n$ avec $a_t = \\frac{dv}{dt}$ et $a_n = \\frac{v^2}{\\rho}$, et calculer le rayon de courbure $\\rho$.
 7. Établir et exploiter les lois horaires des mouvements rectilignes (MRU, MRUV) et la relation indépendante du temps (Torricelli).
-8. Étudier le Mouvement Circulaire Uniforme (MCU) : vitesse angulaire $\omega$, période $T$, fréquence $N$, et accélération centripète $a_n = \frac{v^2}{R} = R\,\omega^2$.
-9. Résoudre l'équation différentielle du Mouvement Rectiligne Sinusoïdal $\ddot{x} + \omega_0^2\,x = 0$ et déterminer l'amplitude $X_m$, la pulsation propre $\omega_0$ et la phase à l'origine $\varphi$.
+8. Étudier le Mouvement Circulaire Uniforme (MCU) : vitesse angulaire $\\omega$, période $T$, fréquence $N$, et accélération centripète $a_n = \\frac{v^2}{R} = R\\,\\omega^2$.
+9. Résoudre l'équation différentielle du Mouvement Rectiligne Sinusoïdal $\\ddot{x} + \\omega_0^2\\,x = 0$ et déterminer l'amplitude $X_m$, la pulsation propre $\\omega_0$ et la phase à l'origine $\\varphi$.
 
 ---
 
@@ -4149,7 +4163,7 @@ En physique, un solide indéformable est assimilé à un **point matériel** si 
 ### 1.2 Le Référentiel
 Le mouvement est une notion **relative** : la position, la trajectoire et la vitesse d'un objet dépendent du solide de référence choisi par rapport auquel on étudie le mouvement.
 Un référentiel est constitué :
-1. D'un **solide de référence** muni d'un repère d'espace $(O, \vec{i}, \vec{j}, \vec{k})$.
+1. D'un **solide de référence** muni d'un repère d'espace $(O, \\vec{i}, \\vec{j}, \\vec{k})$.
 2. D'une **horloge** pour repérer les dates $t$, munie d'une origine des temps ($t = 0$).
 
 | Référentiel | Définition & Repère | Domaine d'Application au Bac S2 |
@@ -4158,17 +4172,21 @@ Un référentiel est constitué :
 | **Géocentrique** | Centre de la Terre, axes orientés vers 3 étoiles lointaines fixes. | Satellites artificiels en orbite terrestre (ex: satellites météo ou télécoms). |
 | **Héliocentrique** (de Copernic) | Centre du Soleil, axes orientés vers 3 étoiles lointaines fixes. | Mouvement des planètes du système solaire et des sondes interplanétaires. |
 
+> [!WOLOF] **Xam-xam ci Wolof — Référentiel bi ak Point Matériel bi :**
+> - « **Mouvement bi dafa relatif ci ku koy xool :** Mouvement du mbir mu fés ci boppam ! Boo toogee ci biir wagon TER bi di dem Diamniadio, yaak sa moroom ma toog sa wet ci repos ngeen nekk (vitesse bi zéro la entre yéen ñaar). Waaye nit ki taxaw ci quai bi ci gare Rufisque di leen séen, dafay gis train bi di leen dawale $160\\text{ km}\\cdot\\text{h}^{-1}$ ! Kooku mooy maanaam Référentiel : bala ngay wax ndax lenn dafay yëngu walla déet, dafa laaj nga tëj sa baat ci référence bi ! »
+> - « **Point matériel :** Train TER bi am na 150 mètres de longueur, waaye boo koy natt ci 36 kilomètres diggante Dakar ak Diamniadio, mën nga ko jàppe point bu ñu tënk fa centre d'inertie $G$ ! »
+
 ---
 
 ## 2. Vecteur Position & Équation Cartésienne de la Trajectoire
 
 ### 2.1 Vecteur Position
-Dans un repère orthonormé $(O, \vec{i}, \vec{j}, \vec{k})$, la position d'un point mobile $M$ à chaque instant $t$ est repérée par le vecteur position :
-$\vec{OM}(t) = x(t)\,\vec{i} + y(t)\,\vec{j} + z(t)\,\vec{k}$
+Dans un repère orthonormé $(O, \\vec{i}, \\vec{j}, \\vec{k})$, la position d'un point mobile $M$ à chaque instant $t$ est repérée par le vecteur position :
+$\\vec{OM}(t) = x(t)\\,\\vec{i} + y(t)\\,\\vec{j} + z(t)\\,\\vec{k}$
 
 - $x(t)$, $y(t)$, $z(t)$ sont les **équations horaires du mouvement**.
 - La distance du point $M$ à l'origine $O$ est donnée par la norme :
-  $OM = \|\vec{OM}\| = \sqrt{x^2(t) + y^2(t) + z^2(t)}$
+  $OM = \\|\\vec{OM}\\| = \\sqrt{x^2(t) + y^2(t) + z^2(t)}$
 
 ### 2.2 Équation Cartésienne de la Trajectoire
 La **trajectoire** est l'ensemble géométrique continu des positions successives occupées par le mobile $M$ au cours du temps.
@@ -4176,10 +4194,14 @@ Pour obtenir son équation cartésienne au Bac S2 :
 1. On isole la variable temps $t$ dans l'équation horaire $x(t)$ : $t = f(x)$.
 2. On reporte l'expression de $t$ dans l'équation horaire $y(t)$ : $y = g(x)$.
 
+> [!WOLOF] **Xam-xam ci Wolof — Trajectoire bi ci Bac S2 :**
+> - « **Yoon wi nga rëdd ci suuf mooy trajectoire bi :** Boo amee équations horaires $x(t)$ ak $y(t)$, génneel waxtu bi $t = f(x)$ ci biir $x$, duggal ko ci $y$. Équation de la trajectoire du am mukk waxtu bi $t$ ! »
+> - « **Géométrie bu trajectoire bi :** Su fekkee $y = a\\,x + b$ droite la (mouvement rectiligne) ; su fekkee $y = a\\,x^2 + b\\,x + c$ parabole la (naka ballu tir de penalty) ; su fekkee $(x-x_0)^2 + (y-y_0)^2 = R^2$ cercle la (naka carrousel wala rond-point) ! »
+
 > [!IMPORTANT]
 > **Règle absolue du Bac S2 :** Le temps $t$ ne doit **JAMAIS** figurer dans l'équation de la trajectoire !
-> - Si $y(x) = a\,x + b$ : la trajectoire est une **droite** (mouvement rectiligne).
-> - Si $y(x) = a\,x^2 + b\,x + c$ ($a \neq 0$) : la trajectoire est une **parabole** (mouvement parabolique, ex: tir balistique).
+> - Si $y(x) = a\\,x + b$ : la trajectoire est une **droite** (mouvement rectiligne).
+> - Si $y(x) = a\\,x^2 + b\\,x + c$ ($a \\neq 0$) : la trajectoire est une **parabole** (mouvement parabolique, ex: tir balistique).
 > - Si $(x - x_0)^2 + (y - y_0)^2 = R^2$ : la trajectoire est un **cercle** de centre $C(x_0, y_0)$ et de rayon $R$.
 
 ---
@@ -4187,11 +4209,11 @@ Pour obtenir son équation cartésienne au Bac S2 :
 ## 3. Vecteur Vitesse Instantanée
 
 ### 3.1 Définition Vectorielle
-Le vecteur vitesse instantanée $\vec{v}(t)$ est la dérivée première par rapport au temps du vecteur position :
-$\vec{v}(t) = \frac{d\vec{OM}}{dt} = \dot{x}(t)\,\vec{i} + \dot{y}(t)\,\vec{j} + \dot{z}(t)\,\vec{k}$
+Le vecteur vitesse instantanée $\\vec{v}(t)$ est la dérivée première par rapport au temps du vecteur position :
+$\\vec{v}(t) = \\frac{d\\vec{OM}}{dt} = \\dot{x}(t)\\,\\vec{i} + \\dot{y}(t)\\,\\vec{j} + \\dot{z}(t)\\,\\vec{k}$
 
 Ses composantes cartésiennes sont :
-$v_x(t) = \frac{dx}{dt} = \dot{x} \quad ; \quad v_y(t) = \frac{dy}{dt} = \dot{y} \quad ; \quad v_z(t) = \frac{dz}{dt} = \dot{z}$
+$v_x(t) = \\frac{dx}{dt} = \\dot{x} \\quad ; \\quad v_y(t) = \\frac{dy}{dt} = \\dot{y} \\quad ; \\quad v_z(t) = \\frac{dz}{dt} = \\dot{z}$
 
 ### 3.2 Caractéristiques Fondamentales du Vecteur Vitesse
 Au point considéré $M(t)$ :
@@ -4199,135 +4221,153 @@ Au point considéré $M(t)$ :
 2. **Direction** : la **tangente** à la trajectoire au point $M(t)$.
 3. **Sens** : le **sens du mouvement** du mobile.
 4. **Norme (Vitesse scalaire instantanée)** :
-   $v = \|\vec{v}\| = \sqrt{v_x^2 + v_y^2 + v_z^2} = \sqrt{\dot{x}^2 + \dot{y}^2 + \dot{z}^2} \quad (\text{en m}\cdot\text{s}^{-1})$
+   $v = \\|\\vec{v}\\| = \\sqrt{v_x^2 + v_y^2 + v_z^2} = \\sqrt{\\dot{x}^2 + \\dot{y}^2 + \\dot{z}^2} \\quad (\\text{en m}\\cdot\\text{s}^{-1})$
 
 > [!WARNING]
-> Conversion impérative d'unités : Pour convertir une vitesse de $\text{km}\cdot\text{h}^{-1}$ en $\text{m}\cdot\text{s}^{-1}$, on divise TOUJOURS par $3{,}6$ :
-> $160\text{ km}\cdot\text{h}^{-1} = \frac{160}{3{,}6} \approx 44{,}44\text{ m}\cdot\text{s}^{-1} \quad ; \quad 90\text{ km}\cdot\text{h}^{-1} = \frac{90}{3{,}6} = 25\text{ m}\cdot\text{s}^{-1}$
+> Conversion impérative d'unités : Pour convertir une vitesse de $\\text{km}\\cdot\\text{h}^{-1}$ en $\\text{m}\\cdot\\text{s}^{-1}$, on divise TOUJOURS par $3{,}6$ :
+> $160\\text{ km}\\cdot\\text{h}^{-1} = \\frac{160}{3{,}6} \\approx 44{,}44\\text{ m}\\cdot\\text{s}^{-1} \\quad ; \\quad 90\\text{ km}\\cdot\\text{h}^{-1} = \\frac{90}{3{,}6} = 25\\text{ m}\\cdot\\text{s}^{-1}$
+
+> [!WOLOF] **Xam-xam ci Wolof — Vitesse instantanée $\\vec{v}$ :**
+> - « **Vitesse bi dafa tangent ci yoon bi :** Soo daggé corde bu ñu tënke ballon bi nga doon wërale, walla auto bu dacc virage Aliou Ardo Sow ci Patte d'Oie ndax pneus yi dacc nañu suuf si, point bi du wéy di wër virage bi dédéet ! Day daan ci droite tangente bi ci sens du mouvement ! »
+> - « **Dérivée :** $\\vec{v} = \\frac{d\\vec{OM}}{dt} = \\dot{x}\\,\\vec{i} + \\dot{y}\\,\\vec{j}$. Valeur vitesse bi mooy norme bi : $v = \\sqrt{\\dot{x}^2 + \\dot{y}^2}$ ! »
 
 ---
 
 ## 4. Vecteur Accélération & Nature du Mouvement
 
 ### 4.1 Définition Vectorielle
-Le vecteur accélération instantanée $\vec{a}(t)$ est la dérivée première du vecteur vitesse, soit la dérivée seconde du vecteur position :
-$\vec{a}(t) = \frac{d\vec{v}}{dt} = \frac{d^2\vec{OM}}{dt^2} = \ddot{x}(t)\,\vec{i} + \ddot{y}(t)\,\vec{j} + \ddot{z}(t)\,\vec{k}$
+Le vecteur accélération instantanée $\\vec{a}(t)$ est la dérivée première du vecteur vitesse, soit la dérivée seconde du vecteur position :
+$\\vec{a}(t) = \\frac{d\\vec{v}}{dt} = \\frac{d^2\\vec{OM}}{dt^2} = \\ddot{x}(t)\\,\\vec{i} + \\ddot{y}(t)\\,\\vec{j} + \\ddot{z}(t)\\,\\vec{k}$
 
 Ses composantes cartésiennes sont :
-$a_x = \frac{dv_x}{dt} = \frac{d^2x}{dt^2} = \ddot{x} \quad ; \quad a_y = \frac{dv_y}{dt} = \frac{d^2y}{dt^2} = \ddot{y} \quad ; \quad a_z = \frac{dv_z}{dt} = \frac{d^2z}{dt^2} = \ddot{z}$
+$a_x = \\frac{dv_x}{dt} = \\frac{d^2x}{dt^2} = \\ddot{x} \\quad ; \\quad a_y = \\frac{dv_y}{dt} = \\frac{d^2y}{dt^2} = \\ddot{y} \\quad ; \\quad a_z = \\frac{dv_z}{dt} = \\frac{d^2z}{dt^2} = \\ddot{z}$
 
 Sa norme totale vaut :
-$a = \|\vec{a}\| = \sqrt{a_x^2 + a_y^2 + a_z^2} \quad (\text{en m}\cdot\text{s}^{-2})$
+$a = \\|\\vec{a}\\| = \\sqrt{a_x^2 + a_y^2 + a_z^2} \\quad (\\text{en m}\\cdot\\text{s}^{-2})$
 
-### 4.2 Critère du Produit Scalaire $\vec{a} \cdot \vec{v}$ (Nature du Mouvement)
+### 4.2 Critère du Produit Scalaire $\\vec{a} \\cdot \\vec{v}$ (Nature du Mouvement)
 Considérons la dérivée du carré de la norme de la vitesse :
-$\frac{d(v^2)}{dt} = \frac{d(\vec{v}\cdot\vec{v})}{dt} = 2\,\vec{v}\cdot\frac{d\vec{v}}{dt} = 2\,\vec{a}\cdot\vec{v}$
+$\\frac{d(v^2)}{dt} = \\frac{d(\\vec{v}\\cdot\\vec{v})}{dt} = 2\\,\\vec{v}\\cdot\\frac{d\\vec{v}}{dt} = 2\\,\\vec{a}\\cdot\\vec{v}$
 
 D'où la relation fondamentale :
-$\vec{a} \cdot \vec{v} = v\,\frac{dv}{dt}$
+$\\vec{a} \\cdot \\vec{v} = v\\,\\frac{dv}{dt}$
 
-Comme la norme $v = \|\vec{v}\| > 0$ :
-1. **Si $\vec{a} \cdot \vec{v} > 0$** : $\frac{dv}{dt} > 0 \implies$ la valeur de la vitesse augmente, le mouvement est **accéléré**.
-2. **Si $\vec{a} \cdot \vec{v} < 0$** : $\frac{dv}{dt} < 0 \implies$ la valeur de la vitesse diminue, le mouvement est **retardé (ou décéléré)**.
-3. **Si $\vec{a} \cdot \vec{v} = 0$** : $\frac{dv}{dt} = 0 \implies$ la valeur de la vitesse est constante ($v = \text{cte}$), le mouvement est **uniforme** (l'accélération est alors perpendiculaire à la vitesse ou nulle).
+Comme la norme $v = \\|\\vec{v}\\| > 0$ :
+1. **Si $\\vec{a} \\cdot \\vec{v} > 0$** : $\\frac{dv}{dt} > 0 \\implies$ la valeur de la vitesse augmente, le mouvement est **accéléré**.
+2. **Si $\\vec{a} \\cdot \\vec{v} < 0$** : $\\frac{dv}{dt} < 0 \\implies$ la valeur de la vitesse diminue, le mouvement est **retardé (ou décéléré)**.
+3. **Si $\\vec{a} \\cdot \\vec{v} = 0$** : $\\frac{dv}{dt} = 0 \\implies$ la valeur de la vitesse est constante ($v = \\text{cte}$), le mouvement est **uniforme** (l'accélération est alors perpendiculaire à la vitesse ou nulle).
 
 > [!CAUTION]
 > **Piège éliminatoire au Baccalauréat :** Ne déduisez JAMAIS la nature d'un mouvement à partir du signe de l'accélération $a$ seul !
-> - Si un mobile se déplace vers les $x$ négatifs avec $v_x = -4\text{ m}\cdot\text{s}^{-1}$ et subit une accélération $a_x = -2\text{ m}\cdot\text{s}^{-2}$ :
->   $a_x \cdot v_x = (-2) \times (-4) = +8 > 0$
+> - Si un mobile se déplace vers les $x$ négatifs avec $v_x = -4\\text{ m}\\cdot\\text{s}^{-1}$ et subit une accélération $a_x = -2\\text{ m}\\cdot\\text{s}^{-2}$ :
+>   $a_x \\cdot v_x = (-2) \\times (-4) = +8 > 0$
 >   Le mouvement est donc **accéléré**, bien que son accélération soit négative !
+
+> [!WOLOF] **Xam-xam ci Wolof — Produit scalaire $\\vec{a} \\cdot \\vec{v}$ :**
+> - « **Piège numéro 1 au Bac S2 :** Bul wax mukk ne ndax $a < 0$ dafay retardé ! Dafa laaj nga natt produit scalaire $\\vec{a} \\cdot \\vec{v}$ : »
+>   - Su $\\vec{a} \\cdot \\vec{v} > 0$ : $\\vec{a}$ ak $\\vec{v}$ dañoo and ci benn sens $\\implies$ **accéléré** (vitesse bi di yokk) !
+>   - Su $\\vec{a} \\cdot \\vec{v} < 0$ : $\\vec{a}$ dafa kontar $\\vec{v}$ $\\implies$ **retardé / décéléré** (vitesse bi di wàññiku) !
+>   - Su $\\vec{a} \\cdot \\vec{v} = 0$ : $\\vec{a} \\perp \\vec{v}$ $\\implies$ **uniforme** (valeur vitesse bi tegu na) !
 
 ---
 
-## 5. Le Repère de Frenet $(M, \vec{u}_t, \vec{u}_n)$ & Rayon de Courbure $\rho$
+## 5. Le Repère de Frenet $(M, \\vec{u}_t, \\vec{u}_n)$ & Rayon de Courbure $\\rho$
 
-Pour les trajectoires curvilignes (courbes planes ou spatiales), le repère cartésien fixe $(O, \vec{i}, \vec{j})$ n'est pas le plus intuitif. On utilise la **base intrinsèque mobile de Frenet**.
+Pour les trajectoires curvilignes (courbes planes ou spatiales), le repère cartésien fixe $(O, \\vec{i}, \\vec{j})$ n'est pas le plus intuitif. On utilise la **base intrinsèque mobile de Frenet**.
 
 ### 5.1 Définition de la Base de Frenet
 En chaque point $M$ de la trajectoire :
 - **Origine** : le point mobile $M$ lui-même (repère mobile qui voyage avec le corps).
-- **Vecteur unitaire tangent $\vec{u}_t$** : tangent à la trajectoire en $M$, dirigé dans le **sens du mouvement**.
-- **Vecteur unitaire normal $\vec{u}_n$** : orthogonal à $\vec{u}_t$ ($\vec{u}_n \perp \vec{u}_t$), dirigé vers le **centre de courbure $C$** de la trajectoire (vers l'intérieur de la concavité).
+- **Vecteur unitaire tangent $\\vec{u}_t$** : tangent à la trajectoire en $M$, dirigé dans le **sens du mouvement**.
+- **Vecteur unitaire normal $\\vec{u}_n$** : orthogonal à $\\vec{u}_t$ ($\\vec{u}_n \\perp \\vec{u}_t$), dirigé vers le **centre de courbure $C$** de la trajectoire (vers l'intérieur de la concavité).
 
 ### 5.2 Vecteur Vitesse dans Frenet
 Puisque le vecteur vitesse est tangent à la trajectoire et orienté dans le sens du mouvement :
-$\vec{v} = v\,\vec{u}_t \quad \text{avec} \quad v = \frac{ds}{dt}$
+$\\vec{v} = v\\,\\vec{u}_t \\quad \\text{avec} \\quad v = \\frac{ds}{dt}$
 où $s(t)$ est l'abscisse curviligne du point $M$.
 
 ### 5.3 Vecteur Accélération dans Frenet
-En dérivant $\vec{v} = v\,\vec{u}_t$ par rapport au temps :
-$\vec{a} = \frac{d\vec{v}}{dt} = \frac{dv}{dt}\,\vec{u}_t + v\,\frac{d\vec{u}_t}{dt} = a_t\,\vec{u}_t + a_n\,\vec{u}_n$
+En dérivant $\\vec{v} = v\\,\\vec{u}_t$ par rapport au temps :
+$\\vec{a} = \\frac{d\\vec{v}}{dt} = \\frac{dv}{dt}\\,\\vec{u}_t + v\\,\\frac{d\\vec{u}_t}{dt} = a_t\\,\\vec{u}_t + a_n\\,\\vec{u}_n$
 
 avec :
-$a_t = \frac{dv}{dt} \quad \text{(Accélération tangentielle, en m}\cdot\text{s}^{-2}\text{)}$
-$a_n = \frac{v^2}{\rho} \quad \text{(Accélération normale ou centripète, en m}\cdot\text{s}^{-2}\text{)}$
+$a_t = \\frac{dv}{dt} \\quad \\text{(Accélération tangentielle, en m}\\cdot\\text{s}^{-2}\\text{)}$
+$a_n = \\frac{v^2}{\\rho} \\quad \\text{(Accélération normale ou centripète, en m}\\cdot\\text{s}^{-2}\\text{)}$
 
-où $\rho$ représente le **rayon de courbure local** de la trajectoire au point $M$ (en mètres $\text{m}$).
+où $\\rho$ représente le **rayon de courbure local** de la trajectoire au point $M$ (en mètres $\\text{m}$).
 
 ### 5.4 Rôles Physiques Respectifs des Composantes :
-- **L'accélération tangentielle $a_t = \frac{dv}{dt}$** traduit la variation de la **valeur scalaire de la vitesse** :
-  - Si $a_t = 0$ : la valeur de la vitesse ne change pas ($v = \text{cte}$, mouvement uniforme).
+- **L'accélération tangentielle $a_t = \\frac{dv}{dt}$** traduit la variation de la **valeur scalaire de la vitesse** :
+  - Si $a_t = 0$ : la valeur de la vitesse ne change pas ($v = \\text{cte}$, mouvement uniforme).
   - Si $a_t > 0$ : la vitesse scalaire augmente.
   - Si $a_t < 0$ : la vitesse scalaire diminue.
-- **L'accélération normale $a_n = \frac{v^2}{\rho}$** traduit la variation de la **direction du vecteur vitesse** (courbure de la trajectoire) :
-  - Sur une ligne droite, le rayon de courbure est infini ($\rho \to \infty$), donc $a_n = 0$.
-  - Dès que la trajectoire tourne, $\rho$ est fini et $a_n > 0$ : $\vec{a}_n$ est toujours dirigé vers l'intérieur du virage (centripète).
+- **L'accélération normale $a_n = \\frac{v^2}{\\rho}$** traduit la variation de la **direction du vecteur vitesse** (courbure de la trajectoire) :
+  - Sur une ligne droite, le rayon de courbure est infini ($\\rho \\to \\infty$), donc $a_n = 0$.
+  - Dès que la trajectoire tourne, $\\rho$ est fini et $a_n > 0$ : $\\vec{a}_n$ est toujours dirigé vers l'intérieur du virage (centripète).
 
-### 5.5 Calcul du Rayon de Courbure $\rho$ au Bac S2
+### 5.5 Calcul du Rayon de Courbure $\\rho$ au Bac S2
 La norme totale du vecteur accélération vérifie le théorème de Pythagore :
-$a = \|\vec{a}\| = \sqrt{a_t^2 + a_n^2} \implies a^2 = a_t^2 + a_n^2$
+$a = \\|\\vec{a}\\| = \\sqrt{a_t^2 + a_n^2} \\implies a^2 = a_t^2 + a_n^2$
 
-On en déduit l'expression du rayon de courbure $\rho$ :
-$a_n = \sqrt{a^2 - a_t^2} \implies \rho = \frac{v^2}{a_n} = \frac{v^2}{\sqrt{a^2 - a_t^2}}$
+On en déduit l'expression du rayon de courbure $\\rho$ :
+$a_n = \\sqrt{a^2 - a_t^2} \\implies \\rho = \\frac{v^2}{a_n} = \\frac{v^2}{\\sqrt{a^2 - a_t^2}}$
 
 > [!TIP]
 > **Cas d'école au Bac S2 : Le sommet d'une parabole de tir balistique :**
-> Au sommet $S$ d'une trajectoire de projectile soumis à la pesanteur $\vec{g}$ :
-> - La vitesse est strictement horizontale : $\vec{v}_S = v_0\cos(\alpha)\,\vec{i}$.
-> - L'accélération est purement verticale : $\vec{a} = \vec{g}$.
-> - Comme $\vec{g} \perp \vec{v}_S$, l'accélération tangentielle est nulle : $a_t = 0$.
+> Au sommet $S$ d'une trajectoire de projectile soumis à la pesanteur $\\vec{g}$ :
+> - La vitesse est strictement horizontale : $\\vec{v}_S = v_0\\cos(\\alpha)\\,\\vec{i}$.
+> - L'accélération est purement verticale : $\\vec{a} = \\vec{g}$.
+> - Comme $\\vec{g} \\perp \\vec{v}_S$, l'accélération tangentielle est nulle : $a_t = 0$.
 > - L'accélération normale est donc maximale et égale à $g$ : $a_n = g$.
 > - Le rayon de courbure au sommet vaut immédiatement :
->   $\rho_S = \frac{v_S^2}{g} = \frac{v_0^2\,\cos^2(\alpha)}{g}$
+>   $\\rho_S = \\frac{v_S^2}{g} = \\frac{v_0^2\\,\\cos^2(\\alpha)}{g}$
+
+> [!WOLOF] **Xam-xam ci Wolof — Base bu Frenet $(M, \\vec{u}_t, \\vec{u}_n)$ :**
+> - « **Frenet dafa lay natt virage bi :** Repère cartésien $(O, \\vec{i}, \\vec{j})$ dafa taxaw temm ci suuf, waaye Frenet moom dafay voyager ak mobile bi ! »
+> - « **$a_t = \\frac{dv}{dt}$ :** Dafay wax ndax compteur train TER bi dafay yéeg wala mu wàcc. Bu vitesse bi stabilisé ci $160\\text{ km}\\cdot\\text{h}^{-1}$, $a_t = 0$ ! »
+> - « **$a_n = \\frac{v^2}{\\rho}$ :** Moom mooy accélération centripète ji lay bëgga dàllali ci biti virage Aliou Ardo Sow ci Patte d'Oie ! Rayon de courbure $\\rho$ dafay natt yaatuway virage bi : bu virage bi serré ($\\rho$ tuuti), $a_n$ day mag lool ! »
 
 ---
 
 ## 6. Mouvements Rectilignes : MRU, MRUV et Torricelli
 
-La trajectoire est une portion de droite choisie comme axe $(Ox)$ muni du vecteur unitaire $\vec{i}$.
+La trajectoire est une portion de droite choisie comme axe $(Ox)$ muni du vecteur unitaire $\\vec{i}$.
 
 ### 6.1 Mouvement Rectiligne Uniforme (MRU)
 Le vecteur accélération est constamment nul :
-$\vec{a} = \vec{0} \iff a = 0$
+$\\vec{a} = \\vec{0} \\iff a = 0$
 
 - Vitesse : constante dans le temps
-  $v(t) = v_0 = \text{cte}$
+  $v(t) = v_0 = \\text{cte}$
 - Équation horaire : fonction affine du temps
-  $x(t) = v_0\,t + x_0$
+  $x(t) = v_0\\,t + x_0$
 
 ### 6.2 Mouvement Rectiligne Uniformément Varié (MRUV)
 Le vecteur accélération est un vecteur constant non nul :
-$\vec{a} = a\,\vec{i} = \text{cte} \neq \vec{0}$
+$\\vec{a} = a\\,\\vec{i} = \\text{cte} \\neq \\vec{0}$
 
-- Équation de la vitesse (par intégration de $a = \frac{dv}{dt}$) :
-  $v(t) = a\,t + v_0$
-- Équation horaire de position (par intégration de $v = \frac{dx}{dt}$) :
-  $x(t) = \frac{1}{2}\,a\,t^2 + v_0\,t + x_0$
+- Équation de la vitesse (par intégration de $a = \\frac{dv}{dt}$) :
+  $v(t) = a\\,t + v_0$
+- Équation horaire de position (par intégration de $v = \\frac{dx}{dt}$) :
+  $x(t) = \\frac{1}{2}\\,a\\,t^2 + v_0\\,t + x_0$
 
 ### 6.3 Relation Indépendante du Temps (Formule de Torricelli)
 En éliminant le temps $t$ entre l'équation de la vitesse et celle de la position :
-$t = \frac{v_B - v_A}{a}$
-$x_B - x_A = \frac{1}{2}\,a\left(\frac{v_B - v_A}{a}\right)^2 + v_A\left(\frac{v_B - v_A}{a}\right) = \frac{(v_B - v_A)(v_B + v_A)}{2\,a} = \frac{v_B^2 - v_A^2}{2\,a}$
+$t = \\frac{v_B - v_A}{a}$
+$x_B - x_A = \\frac{1}{2}\\,a\\left(\\frac{v_B - v_A}{a}\\right)^2 + v_A\\left(\\frac{v_B - v_A}{a}\\right) = \\frac{(v_B - v_A)(v_B + v_A)}{2\\,a} = \\frac{v_B^2 - v_A^2}{2\\,a}$
 
 On aboutit à la relation magique du Bac S2 :
-$v_B^2 - v_A^2 = 2\,a\,(x_B - x_A) = 2\,a\,d$
+$v_B^2 - v_A^2 = 2\\,a\\,(x_B - x_A) = 2\\,a\\,d$
 
 où $d = x_B - x_A$ est la distance parcourue entre les positions $A$ et $B$.
 
 > [!IMPORTANT]
 > **Cas du freinage d'un véhicule (TER, bus Dakar Dem Dikk, moto) :**
 > À l'arrêt complet du mobile, la vitesse finale est nulle ($v_B = 0$). La distance d'arrêt $d$ s'obtient directement sans calculer la durée de freinage :
-> $0^2 - v_A^2 = 2\,a\,d \implies d = \frac{-v_A^2}{2\,a} = \frac{v_A^2}{2\,|a|}$
+> $0^2 - v_A^2 = 2\\,a\\,d \\implies d = \\frac{-v_A^2}{2\\,a} = \\frac{v_A^2}{2\\,|a|}$
+
+> [!WOLOF] **Xam-xam ci Wolof — Torricelli (Mouvements Rectilignes) :**
+> - « **Formule reine sans temps :** $v_B^2 - v_A^2 = 2\\,a\\,d$. Buñu la joxee exercice de freinage TER Dakar–Diamniadio te joxuñu la waxtu $t$, bul def détour di calculé $t$ ! Jëfandikool Torricelli rekk nga am distance d'arrêt $d = \\frac{v_A^2}{2\\,|a|}$ ! »
 
 ---
 
@@ -4336,35 +4376,39 @@ où $d = x_B - x_A$ est la distance parcourue entre les positions $A$ et $B$.
 La trajectoire est un cercle de centre $O$ et de rayon fixe $R$.
 
 ### 7.1 Grandeurs Angulaires et Linéaires
-La position du point $M$ est repérée par l'abscisse angulaire $\theta(t) = (\vec{Ox}, \vec{OM})$ en radians ($\text{rad}$) ou par l'abscisse curviligne $s(t) = \overset{\frown}{M_0 M}$ en mètres ($\text{m}$).
+La position du point $M$ est repérée par l'abscisse angulaire $\\theta(t) = (\\vec{Ox}, \\vec{OM})$ en radians ($\\text{rad}$) ou par l'abscisse curviligne $s(t) = \\overset{\\frown}{M_0 M}$ en mètres ($\\text{m}$).
 
 - Relation fondamentale entre abscisses :
-  $s(t) = R\,\theta(t)$
-- Vitesse angulaire instantanée $\omega(t)$ (en $\text{rad}\cdot\text{s}^{-1}$) :
-  $\omega(t) = \dot{\theta}(t) = \frac{d\theta}{dt}$
-- Vitesse linéaire instantanée $v(t)$ (en $\text{m}\cdot\text{s}^{-1}$) :
-  $v(t) = \frac{ds}{dt} = R\,\frac{d\theta}{dt} = R\,\omega(t)$
-- Accélération angulaire instantanée $\alpha(t)$ ou $\ddot{\theta}(t)$ (en $\text{rad}\cdot\text{s}^{-2}$) :
-  $\ddot{\theta}(t) = \frac{d\omega}{dt} = \frac{d^2\theta}{dt^2}$
+  $s(t) = R\\,\\theta(t)$
+- Vitesse angulaire instantanée $\\omega(t)$ (en $\\text{rad}\\cdot\\text{s}^{-1}$) :
+  $\\omega(t) = \\dot{\\theta}(t) = \\frac{d\\theta}{dt}$
+- Vitesse linéaire instantanée $v(t)$ (en $\\text{m}\\cdot\\text{s}^{-1}$) :
+  $v(t) = \\frac{ds}{dt} = R\\,\\frac{d\\theta}{dt} = R\\,\\omega(t)$
+- Accélération angulaire instantanée $\\alpha(t)$ ou $\\ddot{\\theta}(t)$ (en $\\text{rad}\\cdot\\text{s}^{-2}$) :
+  $\\ddot{\\theta}(t) = \\frac{d\\omega}{dt} = \\frac{d^2\\theta}{dt^2}$
 
 ### 7.2 Mouvement Circulaire Uniforme (MCU)
 En MCU, le mobile parcourt des arcs égaux pendant des durées égales :
-$\omega = \frac{d\theta}{dt} = \text{cte} \implies \theta(t) = \omega\,t + \theta_0$
-$v = R\,\omega = \text{cte}$
+$\\omega = \\frac{d\\theta}{dt} = \\text{cte} \\implies \\theta(t) = \\omega\\,t + \\theta_0$
+$v = R\\,\\omega = \\text{cte}$
 
-Dans la base de Frenet $(M, \vec{u}_t, \vec{u}_n)$ avec un rayon de courbure constant $\rho = R$ :
+Dans la base de Frenet $(M, \\vec{u}_t, \\vec{u}_n)$ avec un rayon de courbure constant $\\rho = R$ :
 - Accélération tangentielle :
-  $a_t = \frac{dv}{dt} = 0$
+  $a_t = \\frac{dv}{dt} = 0$
 - Accélération normale (centripète) :
-  $a_n = \frac{v^2}{R} = R\,\omega^2 = R\,(2\pi\,N)^2$
+  $a_n = \\frac{v^2}{R} = R\\,\\omega^2 = R\\,(2\\pi\\,N)^2$
 - Vecteur accélération complet :
-  $\vec{a} = a_n\,\vec{u}_n = \frac{v^2}{R}\,\vec{u}_n = R\,\omega^2\,\vec{u}_n$
+  $\\vec{a} = a_n\\,\\vec{u}_n = \\frac{v^2}{R}\\,\\vec{u}_n = R\\,\\omega^2\\,\\vec{u}_n$
 
 ### 7.3 Période $T$ et Fréquence $N$
-- **Période $T$** : durée nécessaire pour accomplir un tour complet ($2\pi$ radians) :
-  $T = \frac{2\pi}{\omega} = \frac{2\pi\,R}{v} \quad (\text{en secondes s})$
+- **Période $T$** : durée nécessaire pour accomplir un tour complet ($2\\pi$ radians) :
+  $T = \\frac{2\\pi}{\\omega} = \\frac{2\\pi\\,R}{v} \\quad (\\text{en secondes s})$
 - **Fréquence $N$ (ou $f$)** : nombre de tours effectués par seconde :
-  $N = \frac{1}{T} = \frac{\omega}{2\pi} \quad (\text{en Hertz Hz ou s}^{-1})$
+  $N = \\frac{1}{T} = \\frac{\\omega}{2\\pi} \\quad (\\text{en Hertz Hz ou s}^{-1})$
+
+> [!WOLOF] **Xam-xam ci Wolof — Mouvement Circulaire Uniforme (MCU) :**
+> - « **MCU am na accélération :** Ci rond-point Camberène, bu chauffeur bi gardé vitesse constante de $40\\text{ km}\\cdot\\text{h}^{-1}$, valeur vitesse bi soppikuwul ($a_t = 0$), waaye vecteur vitesse bi direction wam dafay tourné waxtu wu nekk ! Accélération centripète am na ci biir cercle bi : $a = a_n = R\\,\\omega^2 = \\frac{v^2}{R}$ ! »
+> - « **Période $T$ ak Fréquence $N$ :** $T$ mooy waxtu bi ngay def ngir def 1 tour complet ($T = \\frac{2\\pi}{\\omega}$). $N$ mooy ñaata tours ngay def ci 1 seconde ($N = \\frac{1}{T}$) ! »
 
 ---
 
@@ -4372,100 +4416,104 @@ Dans la base de Frenet $(M, \vec{u}_t, \vec{u}_n)$ avec un rayon de courbure con
 
 ### 8.1 Définition & Équation Différentielle
 Un point mobile $M$ effectue un **Mouvement Rectiligne Sinusoïdal (MRS)** sur l'axe $(Ox)$ si son élongation $x(t)$ vérifie l'équation différentielle linéaire du second ordre :
-$\ddot{x}(t) + \omega_0^2\,x(t) = 0 \iff \frac{d^2x}{dt^2} = -\omega_0^2\,x$
-où $\omega_0$ est la pulsation propre en $\text{rad}\cdot\text{s}^{-1}$.
+$\\ddot{x}(t) + \\omega_0^2\\,x(t) = 0 \\iff \\frac{d^2x}{dt^2} = -\\omega_0^2\\,x$
+où $\\omega_0$ est la pulsation propre en $\\text{rad}\\cdot\\text{s}^{-1}$.
 
 ### 8.2 Loi Horaire du Mouvement
 La solution générale de cette équation différentielle s'écrit :
-$x(t) = X_m\,\cos(\omega_0\,t + \varphi)$
+$x(t) = X_m\\,\\cos(\\omega_0\\,t + \\varphi)$
 
-- **$X_m$ (ou $x_{max}$)** : **Amplitude** du mouvement (élongation maximale), toujours strictement positive ($X_m > 0$), exprimée en mètres ($\text{m}$).
-- **$\omega_0$** : **Pulsation propre** en $\text{rad}\cdot\text{s}^{-1}$.
-- **$\omega_0\,t + \varphi$** : **Phase instantanée** à la date $t$ en radians ($\text{rad}$).
-- **$\varphi$** : **Phase à l'origine des dates ($t = 0$)** en radians ($\text{rad}$).
+- **$X_m$ (ou $x_{max}$)** : **Amplitude** du mouvement (élongation maximale), toujours strictement positive ($X_m > 0$), exprimée en mètres ($\\text{m}$).
+- **$\\omega_0$** : **Pulsation propre** en $\\text{rad}\\cdot\\text{s}^{-1}$.
+- **$\\omega_0\\,t + \\varphi$** : **Phase instantanée** à la date $t$ en radians ($\\text{rad}$).
+- **$\\varphi$** : **Phase à l'origine des dates ($t = 0$)** en radians ($\\text{rad}$).
 - **Période propre $T_0$** :
-  $T_0 = \frac{2\pi}{\omega_0} \quad (\text{en s})$
+  $T_0 = \\frac{2\\pi}{\\omega_0} \\quad (\\text{en s})$
 
 ### 8.3 Vitesse & Accélération Instantanées
 En dérivant successivement :
 - **Vitesse instantanée :**
-  $v(t) = \dot{x}(t) = -X_m\,\omega_0\,\sin(\omega_0\,t + \varphi)$
-  La vitesse est en quadrature avance de phase de $\frac{\pi}{2}$ par rapport à l'élongation.
+  $v(t) = \\dot{x}(t) = -X_m\\,\\omega_0\\,\\sin(\\omega_0\\,t + \\varphi)$
+  La vitesse est en quadrature avance de phase de $\\frac{\\pi}{2}$ par rapport à l'élongation.
   Sa valeur maximale au passage par la position d'équilibre ($x = 0$) est :
-  $V_m = X_m\,\omega_0 \quad (\text{en m}\cdot\text{s}^{-1})$
+  $V_m = X_m\\,\\omega_0 \\quad (\\text{en m}\\cdot\\text{s}^{-1})$
 
 - **Accélération instantanée :**
-  $a(t) = \ddot{x}(t) = -X_m\,\omega_0^2\,\cos(\omega_0\,t + \varphi) = -\omega_0^2\,x(t)$
-  L'accélération est en opposition de phase ($pi$ radians) avec l'élongation.
-  Sa valeur maximale aux positions extrêmes ($x = \pm X_m$) est :
-  $a_m = X_m\,\omega_0^2 \quad (\text{en m}\cdot\text{s}^{-2})$
+  $a(t) = \\ddot{x}(t) = -X_m\\,\\omega_0^2\\,\\cos(\\omega_0\\,t + \\varphi) = -\\omega_0^2\\,x(t)$
+  L'accélération est en opposition de phase ($\\pi$ radians) avec l'élongation.
+  Sa valeur maximale aux positions extrêmes ($x = \\pm X_m$) est :
+  $a_m = X_m\\,\\omega_0^2 \\quad (\\text{en m}\\cdot\\text{s}^{-2})$
+
+> [!WOLOF] **Xam-xam ci Wolof — Oscillateur Harmonique (MRS) :**
+> - « **Pirogue bi ci mbàllu Soumbédioune / Kayar :** Buy yéeg di wàcc ci kaw géej gi, vitesse bi dafay nekk zéro ci bop yi ($x = \\pm X_m$), fa la force de rappel bi gën a for ba accélération bi di $a_m = X_m\\,\\omega_0^2$ ! »
+> - « **Digg bi ($x = 0$) :** Buy romb position d'équilibre bi fa la vitesse bi gën a ràbbaate : $V_m = X_m\\,\\omega_0$ ! Équation différentielle bi mooy $\\ddot{x} + \\omega_0^2\\,x = 0$. »
 
 ---
 
 ## 9. Épreuve Officielle Résolue du Baccalauréat Sénégalais (Sujet Type Office du Bac)
 
 ### Énoncé Officiel :
-Dans le repère orthonormé $(O, \vec{i}, \vec{j})$, un solide ponctuel $M$ de masse $m = 250\text{ g}$ est lancé à l'instant $t = 0$ depuis le point $O(0, 0)$. Les équations horaires de son mouvement sont :
-$\begin{cases} x(t) = 4{,}0\,t \\ y(t) = -5{,}0\,t^2 + 10{,}0\,t \end{cases} \quad (\text{unités SI, pour } t \ge 0)$
+Dans le repère orthonormé $(O, \\vec{i}, \\vec{j})$, un solide ponctuel $M$ de masse $m = 250\\text{ g}$ est lancé à l'instant $t = 0$ depuis le point $O(0, 0)$. Les équations horaires de son mouvement sont :
+$\\begin{cases} x(t) = 4{,}0\\,t \\\\ y(t) = -5{,}0\\,t^2 + 10{,}0\\,t \\end{cases} \\quad (\\text{unités SI, pour } t \\ge 0)$
 
 1. Établir l'équation cartésienne de la trajectoire du mobile $M$. Préciser sa nature géométrique.
 2. Déterminer les coordonnées et la date de passage au sommet $S$ de la trajectoire.
-3. Exprimer le vecteur vitesse $\vec{v}(t)$ et calculer sa norme à $t = 1{,}0\text{ s}$ et à $t = 2{,}0\text{ s}$.
-4. Déterminer le vecteur accélération $\vec{a}(t)$. Montrer qu'il est constant.
-5. Calculer le produit scalaire $\vec{a} \cdot \vec{v}$ à $t = 0{,}5\text{ s}$ et à $t = 1{,}5\text{ s}$. En déduire la nature du mouvement à ces dates.
-6. Dans la base de Frenet, déterminer le rayon de courbure $\rho_S$ de la trajectoire au sommet $S$.
+3. Exprimer le vecteur vitesse $\\vec{v}(t)$ et calculer sa norme à $t = 1{,}0\\text{ s}$ et à $t = 2{,}0\\text{ s}$.
+4. Déterminer le vecteur accélération $\\vec{a}(t)$. Montrer qu'il est constant.
+5. Calculer le produit scalaire $\\vec{a} \\cdot \\vec{v}$ à $t = 0{,}5\\text{ s}$ et à $t = 1{,}5\\text{ s}$. En déduire la nature du mouvement à ces dates.
+6. Dans la base de Frenet, déterminer le rayon de courbure $\\rho_S$ de la trajectoire au sommet $S$.
 
 ---
 
 ### Solution Détaillée & Rédigée Conforme aux Critères du Bac S2 :
 
 #### 1. Équation de la trajectoire :
-À partir de l'équation $x(t) = 4{,}0\,t$, pour $t \ge 0$, on exprime $t$ en fonction de $x$ :
-$t = \frac{x}{4{,}0}$
+À partir de l'équation $x(t) = 4{,}0\\,t$, pour $t \\ge 0$, on exprime $t$ en fonction de $x$ :
+$t = \\frac{x}{4{,}0}$
 On substitue $t$ dans l'équation horaire $y(t)$ :
-$y(x) = -5{,}0\left(\frac{x}{4{,}0}\right)^2 + 10{,}0\left(\frac{x}{4{,}0}\right) = -\frac{5{,}0}{16{,}0}\,x^2 + 2{,}5\,x$
-$y(x) = -0{,}3125\,x^2 + 2{,}5\,x \quad (\text{pour } x \ge 0)$
+$y(x) = -5{,}0\\left(\\frac{x}{4{,}0}\\right)^2 + 10{,}0\\left(\\frac{x}{4{,}0}\\right) = -\\frac{5{,}0}{16{,}0}\\,x^2 + 2{,}5\\,x$
+$y(x) = -0{,}3125\\,x^2 + 2{,}5\\,x \\quad (\\text{pour } x \\ge 0)$
 **Conclusion :** L'équation est du second degré en $x$ avec un coefficient dominant négatif ($-0{,}3125 < 0$). La trajectoire est une **branche de parabole** dont la concavité est tournée vers les $y$ négatifs.
 
 #### 2. Sommet $S$ de la trajectoire :
 Au sommet $S$, la tangente à la trajectoire est horizontale, ce qui signifie que la composante verticale de la vitesse s'annule :
-$v_y(t_S) = \frac{dy}{dt}(t_S) = -10{,}0\,t_S + 10{,}0 = 0 \implies t_S = 1{,}0\text{ s}$
+$v_y(t_S) = \\frac{dy}{dt}(t_S) = -10{,}0\\,t_S + 10{,}0 = 0 \\implies t_S = 1{,}0\\text{ s}$
 Coordonnées du sommet $S$ :
-$x_S = x(1{,}0) = 4{,}0 \times 1{,}0 = 4{,}0\text{ m}$
-$y_S = y(1{,}0) = -5{,}0(1{,}0)^2 + 10{,}0(1{,}0) = 5{,}0\text{ m}$
-Le sommet a pour coordonnées $S(4{,}0\text{ m} ; 5{,}0\text{ m})$ atteint à la date $t_S = 1{,}0\text{ s}$.
+$x_S = x(1{,}0) = 4{,}0 \\times 1{,}0 = 4{,}0\\text{ m}$
+$y_S = y(1{,}0) = -5{,}0(1{,}0)^2 + 10{,}0(1{,}0) = 5{,}0\\text{ m}$
+Le sommet a pour coordonnées $S(4{,}0\\text{ m} ; 5{,}0\\text{ m})$ atteint à la date $t_S = 1{,}0\\text{ s}$.
 
-#### 3. Vecteur vitesse instantanée $\vec{v}(t)$ :
-$\vec{v}(t) = \frac{dx}{dt}\,\vec{i} + \frac{dy}{dt}\,\vec{j} = 4{,}0\,\vec{i} + (-10{,}0\,t + 10{,}0)\,\vec{j}$
-- **À $t = 1{,}0\text{ s}$ (au sommet $S$) :**
-  $v_x(1{,}0) = 4{,}0\text{ m}\cdot\text{s}^{-1} \quad ; \quad v_y(1{,}0) = 0$
-  $v_S = \|\vec{v}(1{,}0)\| = \sqrt{4{,}0^2 + 0^2} = 4{,}0\text{ m}\cdot\text{s}^{-1}$
-- **À $t = 2{,}0\text{ s}$ :**
-  $v_x(2{,}0) = 4{,}0\text{ m}\cdot\text{s}^{-1} \quad ; \quad v_y(2{,}0) = -10{,}0(2{,}0) + 10{,}0 = -10{,}0\text{ m}\cdot\text{s}^{-1}$
-  $v(2{,}0) = \sqrt{4{,}0^2 + (-10{,}0)^2} = \sqrt{16 + 100} = \sqrt{116} \approx 10{,}77\text{ m}\cdot\text{s}^{-1}$
+#### 3. Vecteur vitesse instantanée $\\vec{v}(t)$ :
+$\\vec{v}(t) = \\frac{dx}{dt}\\,\\vec{i} + \\frac{dy}{dt}\\,\\vec{j} = 4{,}0\\,\\vec{i} + (-10{,}0\\,t + 10{,}0)\\,\\vec{j}$
+- **À $t = 1{,}0\\text{ s}$ (au sommet $S$) :**
+  $v_x(1{,}0) = 4{,}0\\text{ m}\\cdot\\text{s}^{-1} \\quad ; \\quad v_y(1{,}0) = 0$
+  $v_S = \\|\\vec{v}(1{,}0)\\| = \\sqrt{4{,}0^2 + 0^2} = 4{,}0\\text{ m}\\cdot\\text{s}^{-1}$
+- **À $t = 2{,}0\\text{ s}$ :**
+  $v_x(2{,}0) = 4{,}0\\text{ m}\\cdot\\text{s}^{-1} \\quad ; \\quad v_y(2{,}0) = -10{,}0(2{,}0) + 10{,}0 = -10{,}0\\text{ m}\\cdot\\text{s}^{-1}$
+  $v(2{,}0) = \\sqrt{4{,}0^2 + (-10{,}0)^2} = \\sqrt{16 + 100} = \\sqrt{116} \\approx 10{,}77\\text{ m}\\cdot\\text{s}^{-1}$
 
-#### 4. Vecteur accélération $\vec{a}(t)$ :
-$\vec{a}(t) = \frac{dv_x}{dt}\,\vec{i} + \frac{dv_y}{dt}\,\vec{j} = 0\,\vec{i} + (-10{,}0)\,\vec{j} = -10{,}0\,\vec{j} \quad (\text{en m}\cdot\text{s}^{-2})$
-Le vecteur accélération est constant en direction (verticale), en sens (vers le bas) et en norme ($a = 10{,}0\text{ m}\cdot\text{s}^{-2}$). Il s'agit du vecteur champ de pesanteur local $\vec{a} = \vec{g}$.
+#### 4. Vecteur accélération $\\vec{a}(t)$ :
+$\\vec{a}(t) = \\frac{dv_x}{dt}\\,\\vec{i} + \\frac{dv_y}{dt}\\,\\vec{j} = 0\\,\\vec{i} + (-10{,}0)\\,\\vec{j} = -10{,}0\\,\\vec{j} \\quad (\\text{en m}\\cdot\\text{s}^{-2})$
+Le vecteur accélération est constant en direction (verticale), en sens (vers le bas) et en norme ($a = 10{,}0\\text{ m}\\cdot\\text{s}^{-2}$). Il s'agit du vecteur champ de pesanteur local $\\vec{a} = \\vec{g}$.
 
-#### 5. Produit scalaire $\vec{a} \cdot \vec{v}$ et nature du mouvement :
-$\vec{a} \cdot \vec{v} = a_x\,v_x + a_y\,v_y = 0 \times 4{,}0 + (-10{,}0) \times (-10{,}0\,t + 10{,}0) = 100{,}0\,t - 100{,}0$
-- **À $t = 0{,}5\text{ s}$ (phase ascendante avant le sommet) :**
-  $\vec{a} \cdot \vec{v} = 100{,}0(0{,}5) - 100{,}0 = -50{,}0 < 0$
-  Comme $\vec{a} \cdot \vec{v} < 0$, la valeur de la vitesse diminue : le mouvement est **retardé (ou décéléré)**.
-- **À $t = 1{,}5\text{ s}$ (phase descendante après le sommet) :**
-  $\vec{a} \cdot \vec{v} = 100{,}0(1{,}5) - 100{,}0 = +50{,}0 > 0$
-  Comme $\vec{a} \cdot \vec{v} > 0$, la valeur de la vitesse augmente : le mouvement est **accéléré**.
+#### 5. Produit scalaire $\\vec{a} \\cdot \\vec{v}$ et nature du mouvement :
+$\\vec{a} \\cdot \\vec{v} = a_x\\,v_x + a_y\\,v_y = 0 \\times 4{,}0 + (-10{,}0) \\times (-10{,}0\\,t + 10{,}0) = 100{,}0\\,t - 100{,}0$
+- **À $t = 0{,}5\\text{ s}$ (phase ascendante avant le sommet) :**
+  $\\vec{a} \\cdot \\vec{v} = 100{,}0(0{,}5) - 100{,}0 = -50{,}0 < 0$
+  Comme $\\vec{a} \\cdot \\vec{v} < 0$, la valeur de la vitesse diminue : le mouvement est **retardé (ou décéléré)**.
+- **À $t = 1{,}5\\text{ s}$ (phase descendante après le sommet) :**
+  $\\vec{a} \\cdot \\vec{v} = 100{,}0(1{,}5) - 100{,}0 = +50{,}0 > 0$
+  Comme $\\vec{a} \\cdot \\vec{v} > 0$, la valeur de la vitesse augmente : le mouvement est **accéléré**.
 
-#### 6. Rayon de courbure $\rho_S$ au sommet dans la base de Frenet :
-Au sommet $S$, le vecteur vitesse est strictement horizontal ($\vec{v}_S = 4{,}0\,\vec{i}$) et le vecteur accélération est vertical descendant ($\vec{a} = -10{,}0\,\vec{j}$).
-Les deux vecteurs sont donc perpendiculaires : $\vec{a} \perp \vec{v}_S$.
+#### 6. Rayon de courbure $\\rho_S$ au sommet dans la base de Frenet :
+Au sommet $S$, le vecteur vitesse est strictement horizontal ($\\vec{v}_S = 4{,}0\\,\\vec{i}$) et le vecteur accélération est vertical descendant ($\\vec{a} = -10{,}0\\,\\vec{j}$).
+Les deux vecteurs sont donc perpendiculaires : $\\vec{a} \\perp \\vec{v}_S$.
 Par projection dans la base de Frenet au sommet :
-- L'accélération tangentielle est nulle : $a_t = \frac{dv}{dt} = 0$.
-- L'accélération normale est égale à l'accélération totale : $a_n = a = 10{,}0\text{ m}\cdot\text{s}^{-2}$.
-Comme $a_n = \frac{v_S^2}{\rho_S}$, on déduit :
-$\rho_S = \frac{v_S^2}{a_n} = \frac{(4{,}0)^2}{10{,}0} = \frac{16{,}0}{10{,}0} = 1{,}60\text{ m}$
-**Conclusion :** Le rayon de courbure au sommet de la trajectoire est de $1{,}60\text{ m}$.
+- L'accélération tangentielle est nulle : $a_t = \\frac{dv}{dt} = 0$.
+- L'accélération normale est égale à l'accélération totale : $a_n = a = 10{,}0\\text{ m}\\cdot\\text{s}^{-2}$.
+Comme $a_n = \\frac{v_S^2}{\\rho_S}$, on déduit :
+$\\rho_S = \\frac{v_S^2}{a_n} = \\frac{(4{,}0)^2}{10{,}0} = \\frac{16{,}0}{10{,}0} = 1{,}60\\text{ m}$
+**Conclusion :** Le rayon de courbure au sommet de la trajectoire est de $1{,}60\\text{ m}$.
 
 ---
 
@@ -4473,26 +4521,45 @@ $\rho_S = \frac{v_S^2}{a_n} = \frac{(4{,}0)^2}{10{,}0} = \frac{16{,}0}{10{,}0} =
 
 > [!IMPORTANT]
 > 1. **Trajectoire :** toujours éliminer $t$ entre $x(t)$ et $y(t)$. Ne jamais laisser $t$ dans l'équation cartésienne.
-> 2. **Vecteur vitesse :** toujours tangent à la trajectoire au point $M$ et dans le sens du mouvement. Sa norme est $v = \sqrt{\dot{x}^2 + \dot{y}^2 + \dot{z}^2}$.
-> 3. **Nature du mouvement :** calculer $\vec{a} \cdot \vec{v}$. Si $>0$, accéléré ; si $<0$, retardé ; si $=0$, uniforme.
-> 4. **Base de Frenet :** $a_t = \frac{dv}{dt}$ (variation de valeur de vitesse) et $a_n = \frac{v^2}{\rho}$ (courbure vers le centre).
-> 5. **Rayon de courbure :** $\rho = \frac{v^2}{a_n} = \frac{v^2}{\sqrt{a^2 - a_t^2}}$.
-> 6. **Torricelli (MRUV) :** $v_B^2 - v_A^2 = 2\,a\,d$. Évite de calculer la durée $t$ dans les exercices de freinage !
-> 7. **MCU :** $a_t = 0$ et $a_n = R\,\omega^2 = \frac{v^2}{R}$. Vitesse scalaire constante mais accélération centripète non nulle !
-> 8. **Oscillateur harmonique :** $\ddot{x} + \omega_0^2\,x = 0$ donne $V_m = X_m\,\omega_0$ et $a_m = X_m\,\omega_0^2$.
+> 2. **Vecteur vitesse :** toujours tangent à la trajectoire au point $M$ et dans le sens du mouvement. Sa norme est $v = \\sqrt{\\dot{x}^2 + \\dot{y}^2 + \\dot{z}^2}$.
+> 3. **Nature du mouvement :** calculer $\\vec{a} \\cdot \\vec{v}$. Si $>0$, accéléré ; si $<0$, retardé ; si $=0$, uniforme.
+> 4. **Base de Frenet :** $a_t = \\frac{dv}{dt}$ (variation de valeur de vitesse) et $a_n = \\frac{v^2}{\\rho}$ (courbure vers le centre).
+> 5. **Rayon de courbure :** $\\rho = \\frac{v^2}{a_n} = \\frac{v^2}{\\sqrt{a^2 - a_t^2}}$.
+> 6. **Torricelli (MRUV) :** $v_B^2 - v_A^2 = 2\\,a\\,d$. Évite de calculer la durée $t$ dans les exercices de freinage !
+> 7. **MCU :** $a_t = 0$ et $a_n = R\\,\\omega^2 = \\frac{v^2}{R}$. Vitesse scalaire constante mais accélération centripète non nulle !
+> 8. **Oscillateur harmonique :** $\\ddot{x} + \\omega_0^2\\,x = 0$ donne $V_m = X_m\\,\\omega_0$ et $a_m = X_m\\,\\omega_0^2$.
 
 > [!WOLOF]
 > - « **Trajectoire :** Élimineel $t$ ci biir $x(t)$ duggal ko ci $y(t)$ ! »
-> - « **Produit scalaire :** Xoolal $\vec{a} \cdot \vec{v}$ waxtu wu nekk ! »
-> - « **Frenet :** $a_t = \frac{dv}{dt}$, $a_n = \frac{v^2}{\rho}$ ! »
-> - « **Torricelli :** $v_B^2 - v_A^2 = 2\,a\,d$ ! »
-> - « **MCU :** $v = R\,\omega$ ak $a_n = R\,\omega^2$ ! »
+> - « **Produit scalaire :** Xoolal $\\vec{a} \\cdot \\vec{v}$ waxtu wu nekk ! »
+> - « **Frenet :** $a_t = \\frac{dv}{dt}$, $a_n = \\frac{v^2}{\\rho}$ ! »
+> - « **Torricelli :** $v_B^2 - v_A^2 = 2\\,a\\,d$ ! »
+> - « **MCU :** $v = R\\,\\omega$ ak $a_n = R\\,\\omega^2$ ! »
 `;
 
 // P2 : LES LOIS DE NEWTON SUR LE MOUVEMENT (Terminale S2 Sénégal)
 RICH_LESSONS_MAP.lois_newton = `# P2 : Les Lois de Newton sur le Mouvement (Terminale S2)
 
 Bienvenue dans le deuxième chapitre fondamental de **Mécanique** de **Terminale S2**, rigoureusement conforme au programme officiel sénégalais (MEN / IGEF / Office du Baccalauréat).
+
+---
+
+## 📜 Grande Fresque Historique & Philosophique de la Dynamique
+
+> *« Si j'ai vu plus loin que les autres hommes, c'est en me tenant sur les épaules de géants. »* — **Sir Isaac Newton (1642–1727)**.
+> 
+> Si la **Cinématique** (chapitre P1) se contentait de décrire géométriquement la trajectoire et l'allure des corps dans l'espace et le temps, la **Dynamique** pénètre au cœur des causes profondes : **qu'est-ce qui produit le mouvement ? Pourquoi la matière accélère-t-elle, ralentit-elle ou bifurque-t-elle ?**
+> 
+> Pendant plus de deux mille ans, la pensée humaine a été entravée par le bon sens trompeur d'**Aristote (384–322 av. J.-C.)**. Pour Aristote, le repos était l'état d'équilibre absolu de la matière terrestre ; tout mouvement exigeait un « moteur » en contact direct avec l'objet ($v \\propto F$). Pour expliquer pourquoi une flèche continuait de voler après avoir quitté la corde de l'arc sans qu'on la pousse, Aristote en était réduit à inventer l'*antiperistasis* : l'air chassé à l'avant contournerait miraculeusement la flèche pour venir la pousser par l'arrière !
+> 
+> En 1632, **Galilée** pulvérise ce mirage grâce à une expérience de pensée géniale : il imagine une sphère de bronze roulant le long d'un plan incliné et remontant une pente opposée. Plus la pente de remontée est douce, plus la bille roule loin. Si la surface opposée devient rigoureusement horizontale et dépourvue de tout frottement, où s'arrêtera la bille ? **Nulle part !** Elle poursuivra éternellement sa course à vitesse constante en ligne droite. Galilée venait de concevoir le **Principe d'Inertie** : le repos n'a rien de supérieur au Mouvement Rectiligne Uniforme !
+> 
+> En **1687**, dans son chef-d'œuvre immortel, les *Philosophiae Naturalis Principia Mathematica*, **Isaac Newton** synthétise ces intuitions et énonce les trois lois fondamentales qui régissent toute la mécanique classique :
+> 1. **La Première Loi (Principe d'Inertie)** : l'état de repos ou de translation rectiligne uniforme persiste tant qu'aucune force nette ne s'exerce sur le corps.
+> 2. **La Deuxième Loi (Théorème du Centre d'Inertie - PFD)** : l'accélération d'un système est proportionnelle à la somme vectorielle des forces extérieures qui s'appliquent à lui et inversement proportionnelle à son inertie de masse ($\\sum \\vec{F}_{\\text{ext}} = m\\,\\vec{a}_G$).
+> 3. **La Troisième Loi (Principe des Actions Réciproques)** : toute force exercée par un corps $A$ sur un corps $B$ engendre instantanément une force égale en intensité et directement opposée exercée par $B$ sur $A$ ($\\vec{F}_{A/B} = -\\vec{F}_{B/A}$).
+> 
+> Complétées au XVIIIe siècle par les lois expérimentales de **Guillaume Amontons** et de **Charles-Augustin de Coulomb (1785)** sur les frottements solides ($f = \\mu\\,R_N$), ces trois lois constituent la clé universelle pour comprendre tout mouvement mécanique au Sénégal : du coup d'accélérateur du **TER à la gare de Colobane**, au duel de force entre deux lutteurs dans le sable de l'**Arène Nationale de Pikine**, jusqu'au déchargement au treuil des cargaisons sur les quais du **Port Autonome de Dakar**.
 
 ---
 
@@ -4505,7 +4572,7 @@ Bienvenue dans le deuxième chapitre fondamental de **Mécanique** de **Terminal
 > - **Les Pirogues de Pêche à Kayar / Soumbédioune (Propulsion)** : l'hélice du moteur hors-bord rejette l'eau de mer vers l'arrière ; par réaction immédiate, la masse d'eau propulse la pirogue vers l'avant à travers la houle atlantique.
 
 > [!WOLOF] **Xam-xam ci Wolof — Lois de Newton :**
-> - « **1ère Loi (Principe d'Inertie) :** Bu forces yépp dañoo faye bopp ($\sum \\vec{F} = \\vec{0}$), solide bi dafay taxaw temm walla mu di daw ci yoon bu jub te tegu (MRU, $\\vec{v} = \\vec{\\text{cte}}$) ! »
+> - « **1ère Loi (Principe d'Inertie) :** Bu forces yépp dañoo faye bopp ($\\sum \\vec{F} = \\vec{0}$), solide bi dafay taxaw temm walla mu di daw ci yoon bu jub te tegu (MRU, $\\vec{v} = \\vec{\\text{cte}}$) ! »
 > - « **2ème Loi (TCI / PFD) :** Doole ji nga jox solide bi mooy waral accélération bi : $\\sum \\vec{F}_{\\text{ext}} = m\\,\\vec{a}_G$ ! Bu doole yi yokkoo, accélération bi day gën a mag ; bu masse bi yokkoo, dafay gën a diis a yëngal ! »
 > - « **3ème Loi (Action-Réaction) :** Doo mën a daan lenn te moom itam du la daan ak doole ju tolloo : $\\vec{F}_{A/B} = -\\vec{F}_{B/A}$ ! Doole yii duñu faye bopp mukk ndax benn bi dafa nekk ci $A$, baneen bi nekk ci $B$ ! »
 > - « **Plan Incliné :** Angle $\\alpha$ bi ci suuf, $P_x = m\\,g\\,\\sin\\alpha$ mooy doole ji koy rëddal, te $R_N = m\\,g\\,\\cos\\alpha$ mooy doole ji koy tëj ! Bu frottement amul, $a = g\\,\\sin\\alpha$ ! »
@@ -4550,6 +4617,10 @@ Tout référentiel en mouvement de translation rectiligne et uniforme par rappor
 - **Solide pseudo-isolé** : solide soumis à des forces extérieures qui se compensent mutuellement à chaque instant ($\\sum \\vec{F}_{\\text{ext}} = \\vec{0}$).
   *Exemple classique au Sénégal* : un train TER roulant à vitesse constante de $160\\text{ km}\\cdot\\text{h}^{-1}$ sur ligne droite horizontale : la force de traction motrice compense exactement les frottements ($\\vec{F}_m + \\vec{f} = \\vec{0}$), et le poids compense la réaction du rail ($\\vec{P} + \\vec{R}_N = \\vec{0}$).
 
+> [!WOLOF] **Xam-xam ci Wolof — 1ère Loi (Principe d'Inertie) :**
+> - « **Lu tëdd te kenn laalu ko du yëngu mukk !** Te lu doon daw ci yoon bu jub te benn doole laalu ko, day wéy di daw te du tàyyi ba fàww ! »
+> - « **Inertie bi ci dundin u nit :** Bu car rapide bi wala bus Tata bi freiné dëggër ci VDN, passagers yépp dañuy daan ci kanam ! Ndax seen yaram dafa bëgg wéy di daw ni mu doon dawe bala chauffeur bi di freiné ! Kooku mooy l'inertie ! »
+
 ---
 
 ## 2. Deuxième Loi de Newton : Principe Fondamental de la Dynamique (TCI)
@@ -4578,6 +4649,10 @@ $\\sum \\vec{F}_{\\text{ext}} = m\\,\\vec{a}_G$
 > $[F] = [M]\\,[L]\\,[T]^{-2} \\implies 1\\text{ Newton (N)} = 1\\text{ kg}\\cdot\\text{m}\\cdot\\text{s}^{-2}$
 > Une force de $1\\text{ N}$ communique à un corps de masse $1\\text{ kg}$ une accélération de $1\\text{ m}\\cdot\\text{s}^{-2}$.
 
+> [!WOLOF] **Xam-xam ci Wolof — 2ème Loi (TCI / PFD) :**
+> - « **Doole mooy sabab accélération :** $\\sum \\vec{F}_{\\text{ext}} = m\\,\\vec{a}_G$. Soo doon yëngal pousse-pousse bu fees ak saaku cèbb ci marché Sandaga, dafay gën a diis a accélérer que pousse-pousse bu vide ndax masse $m$ bi moo mag ! »
+> - « **Homogénéité :** $1\\text{ Newton}$ mooy doole ji ngay jox $1\\text{ kg}$ ngir mu am accélération bu toll ci $1\\text{ m}\\cdot\\text{s}^{-2}$ ! »
+
 ---
 
 ## 3. Méthodologie Universelle de Résolution en 5 Étapes
@@ -4593,6 +4668,14 @@ Au Baccalauréat sénégalais, les inspecteurs et correcteurs exigent la démarc
    $\\sum \\vec{F}_{\\text{ext}} = m\\,\\vec{a}_G \\implies \\vec{P} + \\vec{R}_N + \\vec{f} + \\vec{T} = m\\,\\vec{a}_G$
 5. **Choix du repère et projection scalaire** :
    Choisir un repère orthonormé $(Ox, Oy)$ adapté à la géométrie de la trajectoire (l'axe $Ox$ étant colinéaire au déplacement) et projeter chaque vecteur force pour obtenir les équations scalaires.
+
+> [!WOLOF] **Xam-xam ci Wolof — Les 5 Étapes d'Or au Bac S2 :**
+> - « **Bul sotti sa formules sans yoon wi :** Correcteur bu Bac dafay seet 5 étapes yi : »
+>   1. **Système :** Koor bi ngay étudier {solide $S$}.
+>   2. **Référentiel :** {Terrestre supposé galiléen}.
+>   3. **Bilan des forces :** $\\vec{P}$, $\\vec{R}_N$, $\\vec{f}$, $\\vec{T}$.
+>   4. **Théorème :** $\\sum \\vec{F}_{\\text{ext}} = m\\,\\vec{a}_G$.
+>   5. **Projection :** Projeter ci axes $(Ox)$ ak $(Oy)$ ngir génne équations scalaires !
 
 ---
 
@@ -4613,6 +4696,11 @@ Au Baccalauréat sénégalais, les inspecteurs et correcteurs exigent la démarc
 > [!WARNING]
 > **Pourquoi l'action et la réaction ne s'annulent-elles jamais ?**
 > Deux forces ne peuvent s'annuler ou se compenser que si elles s'appliquent au **même corps matériel** ! Puisque $\\vec{F}_{A/B}$ agit sur $B$ et $\\vec{F}_{B/A}$ agit sur $A$, chacune produit des effets dynamiques distincts sur son propre système.
+
+> [!WOLOF] **Xam-xam ci Wolof — 3ème Loi (Action - Réaction) :**
+> - « **Doo mën a daan lenn te moom itam du la daan ak doole ju tolloo :** $\\vec{F}_{A/B} = -\\vec{F}_{B/A}$ ! »
+> - « **Lamb ji ci Arène Nationale de Pikine :** Mbeur mi buy charger moroom ma, tank bi dafay repousser suuf si ci ginaaw ak doole ju mag. Suuf si dafay réagir diko pousser ci kanam ! »
+> - « **Ndax doole yii dañuy faye bopp ? Mukk dédéet !** Benn bi ci tank mbeur mi la nekk, baneen bi ci suuf si ! Kenn mënut a annuler moroom ma ndax seen points d'application wuute nañu ! »
 
 ---
 
@@ -4661,6 +4749,11 @@ Pour qu'un solide posé sans vitesse initiale se mette spontanément en mouvemen
 $P_x > f_{\\text{max}} \\implies m\\,g\\,\\sin\\alpha > \\mu\\,m\\,g\\,\\cos\\alpha \\implies \\tan\\alpha > \\mu$
 Si $\\tan\\alpha \\le \\mu$, le mobile reste immobile au repos à cause de l'adhérence statique.
 
+> [!WOLOF] **Xam-xam ci Wolof — Plan Incliné ak Frottement Coulomb :**
+> - « **Poids bi dafay xàjj ñaar :** $P_x = m\\,g\\,\\sin\\alpha$ di ko rëddal ci suuf, ak $P_y = -m\\,g\\,\\cos\\alpha$ di ko fatt ci tapette bi ! »
+> - « **Sans frottement :** $a = g\\,\\sin\\alpha$. Masse $m$ bi du ci génn mukk ! Poids bu rëy ak bu ndaw yem nañu accélération ci pente bi ! »
+> - « **Ak frottement :** $f = \\mu\\,R_N = \\mu\\,m\\,g\\,\\cos\\alpha$. Moom mooy wàññi accélération bi ba mu def : $a = g\\,(\\sin\\alpha - \\mu\\,\\cos\\alpha)$ ! »
+
 ---
 
 ## 6. Systèmes de Solides Liés (Poulie & Fil Inextensible)
@@ -4683,6 +4776,10 @@ $(m_2 - m_1)\\cdot g = (m_1 + m_2)\\cdot a \\implies a = \\frac{m_2 - m_1}{m_1 +
 
 En réinjectant $a$ dans l'Équation 1, on trouve la tension du fil :
 $T = m_1\\,(g + a) = \\frac{2\\,m_1\\,m_2}{m_1 + m_2}\\,g$
+
+> [!WOLOF] **Xam-xam ci Wolof — Machine d'Atwood ak Fil Inextensible :**
+> - « **Fil bi dafay lier accélération yi :** $a_1 = a_2 = a$. Poids bi gën a diis ($m_2\,g$) mooy yóbbe kanam, bi gën a woyof ($m_1\,g$) diko tànk ci ginaaw : $a = \\frac{m_2 - m_1}{m_1 + m_2}\\,g$ ! »
+> - « **Tension $T$ bi du faye bopp ci fil bi :** $T = \\frac{2\\,m_1\\,m_2}{m_1 + m_2}\\,g$ ! »
 
 ---
 
@@ -4782,6 +4879,36 @@ $f = \\mu\\,R_N \\implies \\mu = \\frac{f}{R_N} = \\frac{0{,}68}{3{,}395} \\appr
 
 export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: string, rawContent: string | null): string {
   const titleLower = `${lessonTitle} ${chapterTitle}`.toLowerCase();
+
+  // Routage Physique P1 : Cinématique du Point Matériel
+  if (
+    titleLower.includes('cinématique') ||
+    titleLower.includes('cinematique') ||
+    titleLower.includes('frenet') ||
+    titleLower.includes('torricelli') ||
+    titleLower.includes('point matériel') ||
+    titleLower.includes('point materiel') ||
+    titleLower.includes('mruv') ||
+    titleLower.includes('mru') ||
+    titleLower.includes('p1')
+  ) {
+    return RICH_LESSONS_MAP.cinematique_point;
+  }
+
+  // Routage Physique P2 : Les Lois de Newton sur le Mouvement
+  if (
+    titleLower.includes('newton') ||
+    titleLower.includes('dynamique') ||
+    titleLower.includes('tci') ||
+    titleLower.includes('actions réciproques') ||
+    titleLower.includes('actions reciproques') ||
+    titleLower.includes('principe d’inertie') ||
+    titleLower.includes("principe d'inertie") ||
+    titleLower.includes('inertie') ||
+    titleLower.includes('p2')
+  ) {
+    return RICH_LESSONS_MAP.lois_newton;
+  }
 
   if (
     titleLower.includes('dosage acide faible') ||

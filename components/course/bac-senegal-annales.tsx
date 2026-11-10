@@ -17,6 +17,264 @@ export interface BacItem {
 }
 
 export const BAC_ANNALES_BY_CHAPTER: Record<string, BacItem[]> = {
+  // P1. CINÉMATIQUE DU POINT MATÉRIEL (PHYSIQUE S2 - P1)
+  cinematique_point: [
+    {
+      year: 2021,
+      session: 'Session Normale (S2)',
+      points: 'Exercice 3 — Mécanique (4 Points)',
+      topic: 'Trajectoire parabolique, Vecteur vitesse, Produit scalaire a·v, Base de Frenet et Rayon de courbure',
+      enonce: `Dans un repère orthonormé $(O, \\vec{i}, \\vec{j})$, un solide ponctuel $M$ de masse $m = 250\\text{ g}$ est lancé à l'instant $t = 0$ depuis l'origine $O(0, 0)$. Les équations horaires de son mouvement sont données par :
+$$\\begin{cases} x(t) = 4{,}0\\,t \\\\ y(t) = -5{,}0\\,t^2 + 10{,}0\\,t \\end{cases} \\quad (\\text{unités SI, pour } t \\ge 0)$$
+
+1. Établir l'équation cartésienne de la trajectoire $y = f(x)$. Préciser sa nature géométrique.
+2. Déterminer les coordonnées du sommet $S$ de la trajectoire et l'instant $t_S$ auquel il est atteint.
+3. Donner l'expression du vecteur vitesse instantanée $\\vec{v}(t)$. Calculer sa norme à $t = 1{,}0\\text{ s}$ et à $t = 2{,}0\\text{ s}$.
+4. Déterminer le vecteur accélération $\\vec{a}(t)$. Montrer qu'il est constant et préciser ses caractéristiques.
+5. Calculer le produit scalaire $\\vec{a} \\cdot \\vec{v}$ à $t = 0{,}5\\text{ s}$ et à $t = 1{,}5\\text{ s}$. En déduire la nature du mouvement (accéléré ou retardé) à ces deux dates.
+6. Dans la base de Frenet $(S, \\vec{u}_t, \\vec{u}_n)$ au sommet de la trajectoire :
+   a) Préciser la valeur de l'accélération tangentielle $a_t$ et de l'accélération normale $a_n$.
+   b) En déduire la valeur du rayon de courbure $\\rho_S$ de la trajectoire au sommet.`,
+      solution: `### 1. Équation cartésienne de la trajectoire
+Pour $t \\ge 0$, on exprime le temps $t$ à partir de $x(t)$ :
+$$t = \\frac{x}{4{,}0}$$
+En reportant dans $y(t)$ :
+$$y(x) = -5{,}0\\left(\\frac{x}{4{,}0}\\right)^2 + 10{,}0\\left(\\frac{x}{4{,}0}\\right) = -0{,}3125\\,x^2 + 2{,}5\\,x$$
+La trajectoire est une **branche de parabole** dont la concavité est tournée vers les $y$ négatifs (coefficient dominant $-0{,}3125 < 0$).
+
+---
+
+### 2. Coordonnées du sommet $S$
+Au sommet $S$, la tangente est horizontale $\\implies v_y(t_S) = \\frac{dy}{dt}(t_S) = 0$ :
+$$v_y(t) = -10{,}0\\,t + 10{,}0 = 0 \\implies t_S = 1{,}0\\text{ s}$$
+Coordonnées de $S$ :
+$$x_S = x(1{,}0) = 4{,}0 \\times 1{,}0 = 4{,}0\\text{ m}$$
+$$y_S = y(1{,}0) = -5{,}0(1{,}0)^2 + 10{,}0(1{,}0) = 5{,}0\\text{ m}$$
+Le sommet est **$S(4{,}0\\text{ m} ; 5{,}0\\text{ m})$** atteint à $t_S = 1{,}0\\text{ s}$.
+
+---
+
+### 3. Vecteur vitesse instantanée
+$$\\vec{v}(t) = \\frac{dx}{dt}\\,\\vec{i} + \\frac{dy}{dt}\\,\\vec{j} = 4{,}0\\,\\vec{i} + (-10{,}0\\,t + 10{,}0)\\,\\vec{j}$$
+- **À $t = 1{,}0\\text{ s}$** : $\\vec{v}(1{,}0) = 4{,}0\\,\\vec{i} \\implies v_S = 4{,}0\\text{ m}\\cdot\\text{s}^{-1}$.
+- **À $t = 2{,}0\\text{ s}$** : $\\vec{v}(2{,}0) = 4{,}0\\,\\vec{i} - 10{,}0\\,\\vec{j} \\implies v(2{,}0) = \\sqrt{4{,}0^2 + (-10{,}0)^2} = \\sqrt{116} \\approx 10{,}77\\text{ m}\\cdot\\text{s}^{-1}$.
+
+---
+
+### 4. Vecteur accélération
+$$\\vec{a}(t) = \\frac{d\\vec{v}}{dt} = 0\\,\\vec{i} - 10{,}0\\,\\vec{j} = -10{,}0\\,\\vec{j} \\quad (\\text{en m}\\cdot\\text{s}^{-2})$$
+Le vecteur accélération est rigoureusement constant : vertical, dirigé vers le bas, d'intensité $a = 10{,}0\\text{ m}\\cdot\\text{s}^{-2}$ (champ de pesanteur local $\\vec{a} = \\vec{g}$).
+
+---
+
+### 5. Produit scalaire $\\vec{a} \\cdot \\vec{v}$ et nature du mouvement
+$$\\vec{a} \\cdot \\vec{v} = a_x v_x + a_y v_y = 0(4{,}0) + (-10{,}0)(-10{,}0\\,t + 10{,}0) = 100{,}0\\,t - 100{,}0$$
+- **À $t = 0{,}5\\text{ s}$** : $\\vec{a} \\cdot \\vec{v} = 100(0{,}5) - 100 = -50{,}0 < 0 \\implies$ mouvement **retardé (ou décéléré)**.
+- **À $t = 1{,}5\\text{ s}$** : $\\vec{a} \\cdot \\vec{v} = 100(1{,}5) - 100 = +50{,}0 > 0 \\implies$ mouvement **accéléré**.
+
+---
+
+### 6. Rayon de courbure $\\rho_S$ dans Frenet au sommet
+Au sommet $S$, la vitesse est horizontale ($\\vec{v}_S = 4{,}0\\,\\vec{i}$) et l'accélération est verticale ($\\vec{a} = -10{,}0\\,\\vec{j}$).
+Comme $\\vec{a} \\perp \\vec{v}_S$ :
+a) $a_t = 0$ et $a_n = a = 10{,}0\\text{ m}\\cdot\\text{s}^{-2}$.
+b) D'après Frenet : $a_n = \\frac{v_S^2}{\\rho_S} \\implies \\rho_S = \\frac{v_S^2}{a_n} = \\frac{(4{,}0)^2}{10{,}0} = 1{,}60\\text{ m}$.`,
+      baremeAstuce: `Barème officiel Office du Bac :
+- Équation de la trajectoire et nature parabole : 0,75 pt
+- Coordonnées du sommet et instant : 0,75 pt
+- Vitesse instantanée et normes : 0,75 pt
+- Accélération constante et caractéristiques : 0,5 pt
+- Produit scalaire et justification accéléré/retardé : 0,75 pt
+- Base de Frenet et calcul du rayon de courbure : 0,5 pt.
+Astuce correcteur : Ne déduisez jamais la nature d'un mouvement à partir du signe de a seul ; seul le signe du produit scalaire a·v fait foi pour le jury !`,
+    },
+    {
+      year: 2019,
+      session: 'Session Normale (S2)',
+      points: 'Exercice 3 — Mécanique (3,5 Points)',
+      topic: 'Mouvement Rectiligne Sinusoïdal (MRS), Pulsation propre, Amplitude et Phase à l\'origine',
+      enonce: `Un point matériel $M$ effectue un mouvement rectiligne sinusoïdal sur un axe $(Ox)$ d'origine $O$. Son élongation vérifie l'équation différentielle :
+$$\\frac{d^2x}{dt^2} + 100\\pi^2\\,x = 0$$
+
+À la date initiale $t = 0$, le mobile passe par la position $x_0 = +2{,}0\\text{ cm}$ en se déplaçant dans le sens négatif avec une vitesse $v_0 = -20\\pi\\sqrt{3}\\text{ cm}\\cdot\\text{s}^{-1}$.
+
+1. Déterminer la pulsation propre $\\omega_0$, la période propre $T_0$ et la fréquence propre $N$ de ce mouvement.
+2. Établir l'expression générale de l'élongation sous la forme $x(t) = X_m\\cos(\\omega_0 t + \\varphi)$.
+3. Déterminer les valeurs numériques de l'amplitude $X_m$ et de la phase à l'origine $\\varphi$.
+4. Calculer la vitesse maximale $V_m$ du mobile et préciser les positions où elle est atteinte.
+5. Calculer l'accélération maximale $a_m$ et préciser en quelles positions elle est atteinte.`,
+      solution: `### 1. Grandeurs caractéristiques
+L'équation différentielle type est $\\ddot{x} + \\omega_0^2\\,x = 0$.
+Par identification :
+$$\\omega_0^2 = 100\\pi^2 \\implies \\omega_0 = 10\\pi\\text{ rad}\\cdot\\text{s}^{-1} \\approx 31{,}4\\text{ rad}\\cdot\\text{s}^{-1}$$
+- **Période propre** : $T_0 = \\frac{2\\pi}{\\omega_0} = \\frac{2\\pi}{10\\pi} = 0{,}20\\text{ s}$.
+- **Fréquence** : $N = \\frac{1}{T_0} = 5{,}0\\text{ Hz}$.
+
+---
+
+### 2 & 3. Amplitude $X_m$ et phase $\\varphi$
+La loi horaire et sa dérivée sont :
+$$\\begin{cases} x(t) = X_m\\cos(10\\pi t + \\varphi) \\\\ v(t) = -X_m(10\\pi)\\sin(10\\pi t + \\varphi) \\end{cases}$$
+À $t = 0$ :
+$$\\begin{cases} X_m\\cos\\varphi = 2{,}0\\cdot 10^{-2}\\text{ m} \\\\ -X_m(10\\pi)\\sin\\varphi = -20\\pi\\sqrt{3}\\cdot 10^{-2}\\text{ m/s} \\implies X_m\\sin\\varphi = 2\\sqrt{3}\\cdot 10^{-2}\\text{ m} \\end{cases}$$
+
+- **Calcul de l'amplitude $X_m$** :
+$$X_m = \\sqrt{(X_m\\cos\\varphi)^2 + (X_m\\sin\\varphi)^2} = 10^{-2}\\sqrt{2^2 + (2\\sqrt{3})^2} = 10^{-2}\\sqrt{4 + 12} = 4{,}0\\cdot 10^{-2}\\text{ m} = 4{,}0\\text{ cm}$$
+
+- **Calcul de la phase $\\varphi$** :
+$$\\cos\\varphi = \\frac{2{,}0}{4{,}0} = +\\frac{1}{2} \\quad \\text{et} \\quad \\sin\\varphi = \\frac{2\\sqrt{3}}{4{,}0} = +\\frac{\\sqrt{3}}{2} \\implies \\varphi = +\\frac{\\pi}{3}\\text{ rad}$$
+Loi horaire complète :
+$$x(t) = 4{,}0\\cdot 10^{-2}\\cos\\left(10\\pi t + \\frac{\\pi}{3}\\right) \\quad (\\text{en m})$$
+
+---
+
+### 4. Vitesse maximale $V_m$
+$$V_m = X_m\\,\\omega_0 = 4{,}0\\cdot 10^{-2} \\times 10\\pi = 0{,}40\\pi\\text{ m}\\cdot\\text{s}^{-1} \\approx 1{,}26\\text{ m}\\cdot\\text{s}^{-1}$$
+Elle est atteinte lors du passage par la position d'équilibre ($x = 0$).
+
+---
+
+### 5. Accélération maximale $a_m$
+$$a_m = X_m\\,\\omega_0^2 = 4{,}0\\cdot 10^{-2} \\times 100\\pi^2 = 4\\pi^2\\text{ m}\\cdot\\text{s}^{-2} \\approx 39{,}5\\text{ m}\\cdot\\text{s}^{-2}$$
+Elle est atteinte aux élongations extrêmes ($x = \\pm X_m = \\pm 4{,}0\\text{ cm}$).`,
+      baremeAstuce: `Barème officiel Bac S2 :
+- ω₀, T₀ et N : 0,75 pt
+- Système à t = 0 et calcul de Xm : 1 pt
+- Calcul de φ avec signe de sin et cos : 0,75 pt
+- Vitesse maximale et position d'équilibre : 0,5 pt
+- Accélération maximale et positions extrêmes : 0,5 pt.
+Astuce : N'oubliez jamais de vérifier à la fois le cosinus ET le sinus pour lever l'indétermination sur le signe de φ !`,
+    },
+  ],
+  cinematique: [], // alias vers cinematique_point
+
+  // P2. LES LOIS DE NEWTON SUR LE MOUVEMENT (PHYSIQUE S2 - P2)
+  lois_newton: [
+    {
+      year: 2023,
+      session: 'Session Normale (S2)',
+      points: 'Exercice 3 — Mécanique & Dynamique (4 Points)',
+      topic: 'Théorème du Centre d\'Inertie (TCI), Plan incliné avec et sans frottements, Loi de Coulomb',
+      enonce: `Un solide ponctuel $(S)$ de masse $m = 400\\text{ g}$ glisse le long d'une ligne de plus grande pente d'un plan incliné d'un angle $\\alpha = 30^\\circ$ par rapport à l'horizontale. La longueur de la rampe est $AB = L = 2{,}5\\text{ m}$.
+Le solide est lâché en $A$ sans vitesse initiale ($v_A = 0$) à la date $t = 0$. On prendra $g = 9{,}8\\text{ m}\\cdot\\text{s}^{-2}$.
+
+1. **Première phase : Frottements supposés négligeables**
+   a) Faire l'inventaire des forces appliquées à $(S)$ et les représenter sur un schéma clair.
+   b) En appliquant la deuxième loi de Newton (TCI), déterminer l'expression littérale et la valeur numérique de l'accélération $a_1$ du mobile.
+   c) Calculer la vitesse théorique $v_B$ du solide au point $B$ et la durée $t_B$ de la descente.
+
+2. **Deuxième phase : Frottements réels de Coulomb**
+   À l'arrivée en $B$, des capteurs électroniques mesurent une vitesse réelle $v'_B = 4{,}0\\text{ m}\\cdot\\text{s}^{-1}$.
+   a) Justifier l'existence de forces de frottement et calculer l'accélération réelle $a_2$ du solide.
+   b) En appliquant le TCI, établir l'expression de la force de frottement $\\vec{f}$ et calculer son intensité $f$.
+   c) En déduire la valeur du coefficient de frottement dynamique $\\mu$ entre le solide et le plan.`,
+      solution: `### 1. Première phase (sans frottements)
+
+**a) Bilan des forces appliquées** :
+- Système : {Solide $(S)$ de masse $m = 0{,}40\\text{ kg}$}.
+- Référentiel : Terrestre, supposé galiléen.
+- Forces extérieures :
+  - Le poids $\\vec{P} = m\\vec{g}$ (vertical vers le bas).
+  - La réaction normale du support $\\vec{R}_N$ (perpendiculaire au plan incliné vers le haut).
+
+**b) Accélération $a_1$** :
+D'après le Théorème du Centre d'Inertie :
+$$\\vec{P} + \\vec{R}_N = m\\vec{a}_1$$
+En projetant sur l'axe $(Ax)$ parallèle à la pente et orienté vers le bas :
+$$P_x + R_{Nx} = m a_1 \\implies m g\\sin\\alpha + 0 = m a_1 \\implies a_1 = g\\sin\\alpha$$
+Application numérique :
+$$a_1 = 9{,}8 \\times \\sin(30^\\circ) = 9{,}8 \\times 0{,}5 = 4{,}90\\text{ m}\\cdot\\text{s}^{-2}$$
+
+**c) Vitesse $v_B$ et durée $t_B$** :
+D'après la relation de Torricelli :
+$$v_B^2 - v_A^2 = 2 a_1 L \\implies v_B = \\sqrt{2 a_1 L} = \\sqrt{2 \\times 4{,}90 \\times 2{,}5} = \\sqrt{24{,}5} \\approx 4{,}95\\text{ m}\\cdot\\text{s}^{-1}$$
+Durée de la descente :
+$$v_B = a_1 t_B \\implies t_B = \\frac{v_B}{a_1} = \\frac{4{,}95}{4{,}90} \\approx 1{,}01\\text{ s}$$
+
+---
+
+### 2. Deuxième phase (avec frottements)
+
+**a) Mise en évidence des frottements et calcul de $a_2$** :
+Puisque $v'_B = 4{,}0\\text{ m}\\cdot\\text{s}^{-1} < v_B = 4{,}95\\text{ m}\\cdot\\text{s}^{-1}$, une partie de l'énergie mécanique a été dissipée sous forme thermique : le contact présente des frottements !
+D'après Torricelli :
+$$(v'_B)^2 - 0 = 2 a_2 L \\implies a_2 = \\frac{(v'_B)^2}{2 L} = \\frac{4{,}0^2}{2 \\times 2{,}5} = \\frac{16{,}0}{5{,}0} = 3{,}20\\text{ m}\\cdot\\text{s}^{-2}$$
+
+**b) Intensité de la force de frottement $f$** :
+En présence de frottements $\\vec{f} = -f\\vec{i}$, la projection du TCI sur $(Ax)$ donne :
+$$m g\\sin\\alpha - f = m a_2 \\implies f = m(g\\sin\\alpha - a_2) = m(a_1 - a_2)$$
+Application numérique :
+$$f = 0{,}40 \\times (4{,}90 - 3{,}20) = 0{,}40 \\times 1{,}70 = 0{,}68\\text{ N}$$
+
+**c) Coefficient de frottement dynamique $\\mu$** :
+La projection sur l'axe $(Ay)$ perpendiculaire au plan donne :
+$$R_N - m g\\cos\\alpha = 0 \\implies R_N = m g\\cos\\alpha = 0{,}40 \\times 9{,}8 \\times \\cos(30^\\circ) = 3{,}92 \\times \\frac{\\sqrt{3}}{2} \\approx 3{,}395\\text{ N}$$
+D'après la loi de Coulomb ($f = \\mu R_N$) :
+$$\\mu = \\frac{f}{R_N} = \\frac{0{,}68}{3{,}395} \\approx 0{,}20$$`,
+      baremeAstuce: `Barème officiel Bac S2 :
+- Bilan des forces et schéma : 0,5 pt
+- Démonstration a₁ = g·sinα et calcul : 0,75 pt
+- Vitesse vB et durée tB : 0,75 pt
+- Justification frottements et calcul a₂ : 0,75 pt
+- Expression et calcul de f : 0,75 pt
+- Calcul de RN et coefficient μ : 0,5 pt.
+Astuce : N'oubliez jamais de projeter sur l'axe perpendiculaire (Ay) pour calculer RN avant d'appliquer μ = f / RN !`,
+    },
+    {
+      year: 2020,
+      session: 'Session Normale (S2)',
+      points: 'Exercice 3 — Mécanique (3,5 Points)',
+      topic: 'Systèmes de Solides Liés, Machine d\'Atwood, Tension du Fil et Accélération Commune',
+      enonce: `Deux solides $(S_1)$ de masse $m_1 = 300\\text{ g}$ et $(S_2)$ de masse $m_2 = 500\\text{ g}$ sont reliés par un fil inextensible et sans masse passant sur la gorge d'une poulie de masse négligeable.
+Le système est abandonné sans vitesse initiale à $t = 0$. On prendra $g = 9{,}8\\text{ m}\\cdot\\text{s}^{-2}$.
+
+1. Préciser le sens du mouvement du système.
+2. Écrire le bilan des forces appliquées à chaque solide.
+3. En appliquant la 2ème loi de Newton à chaque solide, établir l'expression littérale de l'accélération commune $a$ en fonction de $m_1$, $m_2$ et $g$. Calculer sa valeur.
+4. Déterminer l'expression littérale et la valeur numérique de la tension $T$ du fil pendant le mouvement.
+5. Calculer la distance parcourue par les deux masses après une durée $\\Delta t = 1{,}5\\text{ s}$.`,
+      solution: `### 1. Sens du mouvement
+Puisque $m_2 = 500\\text{ g} > m_1 = 300\\text{ g}$, le solide $(S_2)$ descend et le solide $(S_1)$ monte.
+
+---
+
+### 2 & 3. Application de la 2ème loi de Newton et accélération commune
+- Le fil étant inextensible, les deux solides ont la même accélération scalaire : $a_1 = a_2 = a$.
+- Le fil et la poulie étant idéaux, la tension est uniforme : $T_1 = T_2 = T$.
+
+- **Pour $(S_1)$ qui monte (axe ascendant)** :
+$$T - m_1 g = m_1 a \\quad (1)$$
+- **Pour $(S_2)$ qui descend (axe descendant)** :
+$$m_2 g - T = m_2 a \\quad (2)$$
+
+En additionnant membre à membre $(1) + (2)$ pour éliminer $T$ :
+$$(m_2 - m_1)g = (m_1 + m_2)a \\implies a = \\frac{m_2 - m_1}{m_1 + m_2}\\,g$$
+Application numérique :
+$$a = \\frac{0{,}50 - 0{,}30}{0{,}50 + 0{,}30} \\times 9{,}8 = \\frac{0{,}20}{0{,}80} \\times 9{,}8 = \\frac{1}{4} \\times 9{,}8 = 2{,}45\\text{ m}\\cdot\\text{s}^{-2}$$
+
+---
+
+### 4. Tension du fil $T$
+À partir de l'équation $(1)$ :
+$$T = m_1(g + a) = \\frac{2 m_1 m_2}{m_1 + m_2}\\,g$$
+Application numérique :
+$$T = 0{,}30 \\times (9{,}8 + 2{,}45) = 0{,}30 \\times 12{,}25 = 3{,}675\\text{ N} \\approx 3{,}68\\text{ N}$$
+
+---
+
+### 5. Distance parcourue après $\\Delta t = 1{,}5\\text{ s}$
+Le mouvement est rectiligne uniformément varié sans vitesse initiale :
+$$d = \\frac{1}{2} a (\\Delta t)^2 = \\frac{1}{2} \\times 2{,}45 \\times (1{,}5)^2 = 1{,}225 \\times 2{,}25 \\approx 2{,}76\\text{ m}$$`,
+      baremeAstuce: `Barème officiel Bac S2 :
+- Sens du mouvement et hypothèses fil/poulie : 0,5 pt
+- Équations TCI pour S1 et S2 : 1 pt
+- Élimination de T et expression littérale de a : 0,75 pt
+- Expression et calcul de la tension T : 0,75 pt
+- Calcul de la distance d : 0,5 pt.
+Astuce : N'écrivez jamais T = m₂g ! La tension est strictement inférieure au poids de la masse qui descend pendant l'accélération (T < m₂g).`,
+    },
+  ],
+  newton: [], // alias vers lois_newton
   // 0. ALCOOLS (CHIMIE S2 - C1)
   alcools: [
     {
@@ -1416,6 +1674,9 @@ $$r = \\sqrt{R^2 - d^2} = \\sqrt{3^2 - (\\sqrt{3})^2} = \\sqrt{9 - 3} = \\sqrt{6
     },
   ],
 };
+
+BAC_ANNALES_BY_CHAPTER.cinematique = BAC_ANNALES_BY_CHAPTER.cinematique_point;
+BAC_ANNALES_BY_CHAPTER.newton = BAC_ANNALES_BY_CHAPTER.lois_newton;
 
 interface BacSenegalAnnalesProps {
   chapter?: string;
