@@ -7,7 +7,9 @@ interface ReflexeItem {
   id: number;
   badge: string;
   category: string;
+  shortTag: string;
   title: string;
+  shortTitle: string;
   ruleTitle: string;
   ruleFormula?: string;
   ruleExplanation: string;
@@ -22,7 +24,9 @@ const REFLEXES_MEDULLAIRES_REFLEXES: ReflexeItem[] = [
     id: 1,
     badge: 'Réflexe 1 • Anatomie Fonctionnelle',
     category: 'Arc Réflexe Médullaire',
+    shortTag: 'Arc',
     title: 'Les 5 Maillons Inviolables de l’Arc Réflexe Médullaire',
+    shortTitle: 'Arc Réflexe (5 Maillons)',
     ruleTitle: 'Tout réflexe inné requiert obligatoirement la continuité de 5 éléments anatomiques',
     ruleFormula: '\\text{Récepteur (FNM)} \\xrightarrow{\\text{Fibres Ia (RD)}} \\text{Centre (Moelle)} \\xrightarrow{\\text{Motoneurone } \\alpha \\text{ (RV)}} \\text{Effecteur (Muscle)}',
     ruleExplanation:
@@ -38,7 +42,9 @@ const REFLEXES_MEDULLAIRES_REFLEXES: ReflexeItem[] = [
     id: 2,
     badge: 'Réflexe 2 • Réflexe Myotatique',
     category: 'Proprioception',
+    shortTag: 'Inné',
     title: 'Le Réflexe Myotatique : Monosynaptique & Rôle Postural',
+    shortTitle: 'Réflexe Myotatique',
     ruleTitle: 'Le réflexe myotatique est la contraction réflexe d’un muscle en réponse à son propre étirement',
     ruleFormula: '\\text{Étirement du muscle} \\implies \\text{Contraction du MÊME muscle (Arc Monosynaptique Direct)}',
     ruleExplanation:
@@ -54,7 +60,9 @@ const REFLEXES_MEDULLAIRES_REFLEXES: ReflexeItem[] = [
     id: 3,
     badge: 'Réflexe 3 • Circuit Réciproque',
     category: 'Coordination Motrice',
+    shortTag: 'Relâchement',
     title: 'Innervation Réciproque & Interneurone Inhibiteur',
+    shortTitle: 'Innervation Réciproque',
     ruleTitle: 'La contraction du muscle agoniste s’accompagne obligatoirement du relâchement de l’antagoniste',
     ruleFormula: '\\text{Fibre Ia} \\to \\begin{cases} + \\text{ Motoneurone Agoniste} & \\implies \\text{Contraction} \\\\ + \\text{ Interneurone Inhibiteur} \\to - \\text{ Motoneurone Antagoniste} & \\implies \\text{Relâchement (PPSI)} \\end{cases}',
     ruleExplanation:
@@ -70,7 +78,9 @@ const REFLEXES_MEDULLAIRES_REFLEXES: ReflexeItem[] = [
     id: 4,
     badge: 'Réflexe 4 • Expériences de Magendie',
     category: 'Neuropathologie Expérimentale',
+    shortTag: 'Racines',
     title: 'Les Expériences Fondamentales de Section et Stimulation des Racines',
+    shortTitle: 'Expériences Magendie',
     ruleTitle: 'La racine dorsale est purement sensitive ; la racine ventrale est purement motrice',
     ruleFormula: '\\text{Racine Dorsale} = \\text{Afférente Sensitive (Centripète)} \\qquad \\text{vs} \\qquad \\text{Racine Ventrale} = \\text{Efférente Motrice (Centrifuge)}',
     ruleExplanation:
@@ -86,7 +96,9 @@ const REFLEXES_MEDULLAIRES_REFLEXES: ReflexeItem[] = [
     id: 5,
     badge: 'Réflexe 5 • Réflexes Pavloviens',
     category: 'Conditionnement',
+    shortTag: 'Acquis',
     title: 'Le Réflexe Conditionnel Pavlovien : Protocole & Mécanisme',
+    shortTitle: 'Réflexes Pavloviens',
     ruleTitle: 'Un stimulus initialement neutre acquiert le pouvoir de déclencher un réflexe inné après association',
     ruleFormula: '\\text{SN (Cloche)} + \\text{SI (Viande)} \\xrightarrow{\\text{Répétition & Renforcement}} \\text{SC (Cloche)} \\implies \\text{RC (Salivation)}',
     ruleExplanation:
@@ -102,7 +114,9 @@ const REFLEXES_MEDULLAIRES_REFLEXES: ReflexeItem[] = [
     id: 6,
     badge: 'Réflexe 6 • Inné vs Acquis',
     category: 'Neurophysiologie Comparée',
+    shortTag: 'Bilan',
     title: 'Extinction, Inhibition & Synthèse Comparative Inné vs Acquis',
+    shortTitle: 'Inné vs Acquis (Bilan)',
     ruleTitle: 'Le réflexe conditionnel est temporaire, individuel et sous dépendance absolue du cortex',
     ruleFormula: '\\text{Réflexe Médullaire Inné (Moelle seule, immuable)} \\quad \\neq \\quad \\text{Réflexe Pavlovien Acquis (Cortex cérébral, extinction)}',
     ruleExplanation:
@@ -138,8 +152,8 @@ export default function B1ReflexesConditionnelsCard() {
           Arc réflexe myotatique monosynaptique, innervation réciproque, expériences historiques de section des racines de Magendie, genèse des réflexes conditionnels et inhibition d’extinction étalonnés sur le barème officiel de l’Office du Baccalauréat sénégalais.
         </p>
 
-        {/* Quick Tabs Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mt-6">
+        {/* Quick Tabs Grid - Grille ultra-responsive mobile-first */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mt-5">
           {REFLEXES_MEDULLAIRES_REFLEXES.map((r) => {
             const isCurrent = selectedReflexe.id === r.id;
             return (
@@ -147,22 +161,24 @@ export default function B1ReflexesConditionnelsCard() {
                 key={r.id}
                 type="button"
                 onClick={() => setSelectedReflexe(r)}
-                className={`text-left p-2.5 sm:p-3 rounded-2xl transition-all border touch-manipulation min-h-[64px] flex flex-col justify-between ${
+                className={`text-left p-2.5 sm:p-3 rounded-2xl transition-all border touch-manipulation min-h-[66px] flex flex-col justify-between ${
                   isCurrent
-                    ? 'bg-emerald-600 text-white border-emerald-400 shadow-md shadow-emerald-900/30'
-                    : 'bg-slate-900/80 hover:bg-slate-800 text-slate-300 border-slate-800 hover:border-slate-700'
+                    ? 'bg-emerald-600 text-white border-emerald-400 shadow-md shadow-emerald-950/60 ring-1 ring-emerald-400/50'
+                    : 'bg-slate-900/85 hover:bg-slate-800 text-slate-300 border-slate-800 hover:border-slate-700'
                 }`}
               >
-                <div className="flex items-center justify-between w-full">
-                  <span className={`text-[10px] font-mono font-bold uppercase ${isCurrent ? 'text-white' : 'text-emerald-400'}`}>
+                <div className="flex items-center justify-between w-full gap-1">
+                  <span className={`text-[10px] font-mono font-black uppercase tracking-wider ${isCurrent ? 'text-emerald-100' : 'text-emerald-400'}`}>
                     Réf 0{r.id}
                   </span>
-                  <span className={`text-[9px] px-1.5 py-0.2 rounded font-medium ${isCurrent ? 'bg-emerald-700 text-emerald-100' : 'bg-slate-800 text-slate-400'}`}>
-                    {r.category.split(' ')[0]}
+                  <span className={`text-[9px] font-mono px-1.5 py-0.5 rounded font-bold uppercase tracking-tight shrink-0 ${
+                    isCurrent ? 'bg-emerald-700/80 text-white' : 'bg-slate-800/90 text-slate-400'
+                  }`}>
+                    {r.shortTag}
                   </span>
                 </div>
-                <p className="text-xs font-bold truncate mt-1">
-                  {r.title}
+                <p className={`text-xs font-bold mt-1.5 leading-tight ${isCurrent ? 'text-white' : 'text-slate-200'}`}>
+                  {r.shortTitle}
                 </p>
               </button>
             );

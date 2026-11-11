@@ -2736,7 +2736,7 @@ if (lessonMeta && lessonMeta.status !== 'published') {
         )}
 
       {/* Reader Layout */}
-      <div className="max-w-6xl mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <div className="max-w-6xl mx-auto px-4 py-6 pb-32 sm:pb-12 grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Navigation Sidebar */}
         <aside className="lg:col-span-1 order-2 lg:order-1">
           <div className="sticky top-20 bg-white rounded-2xl border border-navy/10 p-5 shadow-sm space-y-4">

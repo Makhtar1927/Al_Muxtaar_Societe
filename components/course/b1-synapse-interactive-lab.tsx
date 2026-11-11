@@ -139,43 +139,43 @@ export default function B1SynapseInteractiveLab() {
           Manipulez en direct la libération vésiculaire du neurotransmetteur, testez la sommation spatio-temporelle au niveau du cône d’implantation et analysez les effets pharmacologiques du curare, de l’ésérine et du calcium.
         </p>
 
-        {/* Tab Controls - Grille professionnelle 3 colonnes responsive */}
-        <div className="grid grid-cols-3 gap-1 bg-black/40 p-1.5 rounded-2xl border border-white/10 text-xs font-mono w-full mt-5">
+        {/* Tab Controls - Segmented Control Pro Mobile-First */}
+        <div className="grid grid-cols-3 gap-1.5 bg-black/50 p-1.5 rounded-2xl border border-white/10 text-xs font-mono w-full mt-5">
           <button
             type="button"
             onClick={() => setActiveTab('neurotransmission')}
-            className={`py-2 px-1 text-center rounded-xl transition-all touch-manipulation min-h-[46px] flex flex-col items-center justify-center ${
+            className={`py-2.5 px-1 sm:px-3 text-center rounded-xl transition-all touch-manipulation min-h-[46px] flex flex-col items-center justify-center ${
               activeTab === 'neurotransmission'
-                ? 'bg-emerald-500 text-slate-950 font-black shadow-sm'
+                ? 'bg-emerald-500 text-slate-950 font-black shadow-md shadow-emerald-950/60'
                 : 'text-slate-300 hover:text-white hover:bg-slate-900/60 font-semibold'
             }`}
           >
-            <span className="text-[9px] sm:text-[10px] tracking-wider uppercase opacity-75">Onglet 1</span>
-            <span className="text-[11px] sm:text-xs font-bold leading-tight">Transmission</span>
+            <span className="text-[11px] sm:text-xs font-bold leading-tight">1. Transmission</span>
+            <span className="text-[9px] sm:text-[10px] tracking-tight opacity-75 mt-0.5">Vésicules &amp; ROC</span>
           </button>
           <button
             type="button"
             onClick={() => setActiveTab('sommation')}
-            className={`py-2 px-1 text-center rounded-xl transition-all touch-manipulation min-h-[46px] flex flex-col items-center justify-center ${
+            className={`py-2.5 px-1 sm:px-3 text-center rounded-xl transition-all touch-manipulation min-h-[46px] flex flex-col items-center justify-center ${
               activeTab === 'sommation'
-                ? 'bg-emerald-500 text-slate-950 font-black shadow-sm'
+                ? 'bg-emerald-500 text-slate-950 font-black shadow-md shadow-emerald-950/60'
                 : 'text-slate-300 hover:text-white hover:bg-slate-900/60 font-semibold'
             }`}
           >
-            <span className="text-[9px] sm:text-[10px] tracking-wider uppercase opacity-75">Onglet 2</span>
-            <span className="text-[11px] sm:text-xs font-bold leading-tight">Sommation</span>
+            <span className="text-[11px] sm:text-xs font-bold leading-tight">2. Sommation</span>
+            <span className="text-[9px] sm:text-[10px] tracking-tight opacity-75 mt-0.5">Spatio-temporelle</span>
           </button>
           <button
             type="button"
             onClick={() => setActiveTab('pharmacologie')}
-            className={`py-2 px-1 text-center rounded-xl transition-all touch-manipulation min-h-[46px] flex flex-col items-center justify-center ${
+            className={`py-2.5 px-1 sm:px-3 text-center rounded-xl transition-all touch-manipulation min-h-[46px] flex flex-col items-center justify-center ${
               activeTab === 'pharmacologie'
-                ? 'bg-emerald-500 text-slate-950 font-black shadow-sm'
+                ? 'bg-emerald-500 text-slate-950 font-black shadow-md shadow-emerald-950/60'
                 : 'text-slate-300 hover:text-white hover:bg-slate-900/60 font-semibold'
             }`}
           >
-            <span className="text-[9px] sm:text-[10px] tracking-wider uppercase opacity-75">Onglet 3</span>
-            <span className="text-[11px] sm:text-xs font-bold leading-tight">Neurotoxines</span>
+            <span className="text-[11px] sm:text-xs font-bold leading-tight">3. Neurotoxines</span>
+            <span className="text-[9px] sm:text-[10px] tracking-tight opacity-75 mt-0.5">Curare &amp; Éserine</span>
           </button>
         </div>
       </div>

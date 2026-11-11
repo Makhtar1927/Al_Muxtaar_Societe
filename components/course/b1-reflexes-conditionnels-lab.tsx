@@ -129,43 +129,43 @@ export default function B1ReflexesConditionnelsLab() {
           Explorez le mécanisme monosynaptique du réflexe rotulien, disséquez virtuellement les racines de Magendie et reproduisez les 4 phases du conditionnement pavlovien avec mesure de l’inhibition d’extinction.
         </p>
 
-        {/* Tab Controls - Grille professionnelle 3 colonnes responsive */}
-        <div className="grid grid-cols-3 gap-1 bg-black/40 p-1.5 rounded-2xl border border-white/10 text-xs font-mono w-full mt-5">
+        {/* Tab Controls - Segmented Control Pro Mobile-First */}
+        <div className="grid grid-cols-3 gap-1.5 bg-black/50 p-1.5 rounded-2xl border border-white/10 text-xs font-mono w-full mt-5">
           <button
             type="button"
             onClick={() => setActiveTab('myotatique')}
-            className={`py-2 px-1 text-center rounded-xl transition-all touch-manipulation min-h-[46px] flex flex-col items-center justify-center ${
+            className={`py-2.5 px-1 sm:px-3 text-center rounded-xl transition-all touch-manipulation min-h-[46px] flex flex-col items-center justify-center ${
               activeTab === 'myotatique'
-                ? 'bg-emerald-500 text-slate-950 font-black shadow-sm'
+                ? 'bg-emerald-500 text-slate-950 font-black shadow-md shadow-emerald-950/60'
                 : 'text-slate-300 hover:text-white hover:bg-slate-900/60 font-semibold'
             }`}
           >
-            <span className="text-[9px] sm:text-[10px] tracking-wider uppercase opacity-75">Onglet 1</span>
-            <span className="text-[11px] sm:text-xs font-bold leading-tight">Myotatique (Arc)</span>
+            <span className="text-[11px] sm:text-xs font-bold leading-tight">1. Myotatique</span>
+            <span className="text-[9px] sm:text-[10px] tracking-tight opacity-75 mt-0.5">Arc &amp; Fuseau</span>
           </button>
           <button
             type="button"
             onClick={() => setActiveTab('magendie')}
-            className={`py-2 px-1 text-center rounded-xl transition-all touch-manipulation min-h-[46px] flex flex-col items-center justify-center ${
+            className={`py-2.5 px-1 sm:px-3 text-center rounded-xl transition-all touch-manipulation min-h-[46px] flex flex-col items-center justify-center ${
               activeTab === 'magendie'
-                ? 'bg-emerald-500 text-slate-950 font-black shadow-sm'
+                ? 'bg-emerald-500 text-slate-950 font-black shadow-md shadow-emerald-950/60'
                 : 'text-slate-300 hover:text-white hover:bg-slate-900/60 font-semibold'
             }`}
           >
-            <span className="text-[9px] sm:text-[10px] tracking-wider uppercase opacity-75">Onglet 2</span>
-            <span className="text-[11px] sm:text-xs font-bold leading-tight">Magendie (Racines)</span>
+            <span className="text-[11px] sm:text-xs font-bold leading-tight">2. Magendie</span>
+            <span className="text-[9px] sm:text-[10px] tracking-tight opacity-75 mt-0.5">Sections Racines</span>
           </button>
           <button
             type="button"
             onClick={() => setActiveTab('pavlov')}
-            className={`py-2 px-1 text-center rounded-xl transition-all touch-manipulation min-h-[46px] flex flex-col items-center justify-center ${
+            className={`py-2.5 px-1 sm:px-3 text-center rounded-xl transition-all touch-manipulation min-h-[46px] flex flex-col items-center justify-center ${
               activeTab === 'pavlov'
-                ? 'bg-emerald-500 text-slate-950 font-black shadow-sm'
+                ? 'bg-emerald-500 text-slate-950 font-black shadow-md shadow-emerald-950/60'
                 : 'text-slate-300 hover:text-white hover:bg-slate-900/60 font-semibold'
             }`}
           >
-            <span className="text-[9px] sm:text-[10px] tracking-wider uppercase opacity-75">Onglet 3</span>
-            <span className="text-[11px] sm:text-xs font-bold leading-tight">Pavlov (Acquis)</span>
+            <span className="text-[11px] sm:text-xs font-bold leading-tight">3. Pavlov</span>
+            <span className="text-[9px] sm:text-[10px] tracking-tight opacity-75 mt-0.5">Conditionnel</span>
           </button>
         </div>
       </div>
@@ -193,39 +193,42 @@ export default function B1ReflexesConditionnelsLab() {
                 <label className="text-xs font-mono text-slate-300 block">
                   Force du Choc au Marteau de Réflexe :
                 </label>
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid grid-cols-3 gap-1.5 sm:gap-2">
                   <button
                     type="button"
                     onClick={() => setPercussionForce('infraliminaire')}
-                    className={`py-2 px-2 rounded-xl text-xs font-mono font-bold transition-all border text-center ${
+                    className={`py-2 px-1 sm:px-2 rounded-xl text-center transition-all border font-mono ${
                       percussionForce === 'infraliminaire'
-                        ? 'bg-rose-950 text-rose-200 border-rose-500'
-                        : 'bg-slate-950 text-slate-400 border-slate-800'
+                        ? 'bg-rose-950/90 text-rose-200 border-rose-500 shadow-sm shadow-rose-950'
+                        : 'bg-slate-950 text-slate-400 border-slate-800 hover:border-slate-700'
                     }`}
                   >
-                    Infraliminaire
+                    <span className="block text-xs sm:text-sm font-bold">Infra</span>
+                    <span className="block text-[9px] sm:text-[10px] opacity-75 mt-0.5">&lt; Seuil (0)</span>
                   </button>
                   <button
                     type="button"
                     onClick={() => setPercussionForce('liminaire')}
-                    className={`py-2 px-2 rounded-xl text-xs font-mono font-bold transition-all border text-center ${
+                    className={`py-2 px-1 sm:px-2 rounded-xl text-center transition-all border font-mono ${
                       percussionForce === 'liminaire'
-                        ? 'bg-emerald-600 text-white border-emerald-400'
-                        : 'bg-slate-950 text-slate-400 border-slate-800'
+                        ? 'bg-emerald-600 text-white border-emerald-400 shadow-sm shadow-emerald-950'
+                        : 'bg-slate-950 text-slate-400 border-slate-800 hover:border-slate-700'
                     }`}
                   >
-                    Liminaire (Seuil)
+                    <span className="block text-xs sm:text-sm font-bold">Liminaire</span>
+                    <span className="block text-[9px] sm:text-[10px] opacity-80 mt-0.5">= Seuil (1 PA)</span>
                   </button>
                   <button
                     type="button"
                     onClick={() => setPercussionForce('supraliminaire')}
-                    className={`py-2 px-2 rounded-xl text-xs font-mono font-bold transition-all border text-center ${
+                    className={`py-2 px-1 sm:px-2 rounded-xl text-center transition-all border font-mono ${
                       percussionForce === 'supraliminaire'
-                        ? 'bg-teal-600 text-white border-teal-400'
-                        : 'bg-slate-950 text-slate-400 border-slate-800'
+                        ? 'bg-teal-600 text-white border-teal-400 shadow-sm shadow-teal-950'
+                        : 'bg-slate-950 text-slate-400 border-slate-800 hover:border-slate-700'
                     }`}
                   >
-                    Supraliminaire
+                    <span className="block text-xs sm:text-sm font-bold">Supra</span>
+                    <span className="block text-[9px] sm:text-[10px] opacity-80 mt-0.5">&gt; Seuil (Max)</span>
                   </button>
                 </div>
               </div>
@@ -399,10 +402,10 @@ export default function B1ReflexesConditionnelsLab() {
             {/* Section selector buttons */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               {[
-                { id: 'intact', label: '1. Témoin Intact' },
-                { id: 'section_rd', label: '2. Section Racine Dorsale' },
-                { id: 'section_rv', label: '3. Section Racine Ventrale' },
-                { id: 'section_nerf', label: '4. Section Nerf Rachidien' },
+                { id: 'intact', label: '1. Témoin Intact', tag: 'Sain' },
+                { id: 'section_rd', label: '2. Section R. Dorsale', tag: 'Sensitive' },
+                { id: 'section_rv', label: '3. Section R. Ventrale', tag: 'Motrice' },
+                { id: 'section_nerf', label: '4. Section Nerf Rach.', tag: 'Mixte' },
               ].map((s) => (
                 <button
                   key={s.id}
@@ -411,14 +414,14 @@ export default function B1ReflexesConditionnelsLab() {
                     setSelectedSection(s.id as MagendieSection);
                     setSelectedStim('none');
                   }}
-                  className={`p-3 rounded-xl border text-left transition-all touch-manipulation min-h-[58px] flex flex-col justify-between ${
+                  className={`p-2.5 sm:p-3 rounded-xl border text-left transition-all touch-manipulation min-h-[58px] flex flex-col justify-between ${
                     selectedSection === s.id
                       ? 'bg-emerald-600 text-white border-emerald-400 shadow-md shadow-emerald-900/30'
                       : 'bg-slate-900 text-slate-300 border-slate-800 hover:border-slate-700'
                   }`}
                 >
-                  <span className="text-[9px] font-mono font-bold uppercase opacity-80">Protocole</span>
-                  <p className="text-xs font-bold truncate mt-1">{s.label}</p>
+                  <span className="text-[9px] font-mono font-bold uppercase opacity-80">{s.tag}</span>
+                  <p className="text-xs font-bold mt-1 leading-tight">{s.label}</p>
                 </button>
               ))}
             </div>
@@ -429,28 +432,28 @@ export default function B1ReflexesConditionnelsLab() {
                 <span className="text-xs font-mono font-bold text-slate-300">
                   Électrodes de Stimulation Excitatoire :
                 </span>
-                <div className="flex items-center gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full sm:w-auto">
                   <button
                     type="button"
                     onClick={() => setSelectedStim('central')}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all border ${
+                    className={`px-3 py-2 rounded-xl text-xs font-mono font-bold transition-all border text-center ${
                       selectedStim === 'central'
                         ? 'bg-teal-600 text-white border-teal-400'
                         : 'bg-slate-950 text-slate-400 border-slate-800'
                     }`}
                   >
-                    Stimuler Bout Central (Moelle)
+                    Bout Central (Moelle)
                   </button>
                   <button
                     type="button"
                     onClick={() => setSelectedStim('peripherique')}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all border ${
+                    className={`px-3 py-2 rounded-xl text-xs font-mono font-bold transition-all border text-center ${
                       selectedStim === 'peripherique'
                         ? 'bg-teal-600 text-white border-teal-400'
                         : 'bg-slate-950 text-slate-400 border-slate-800'
                     }`}
                   >
-                    Stimuler Bout Périphérique (Organe)
+                    Bout Périphérique (Muscle)
                   </button>
                 </div>
               </div>
@@ -520,11 +523,11 @@ export default function B1ReflexesConditionnelsLab() {
             {/* Stage selection buttons */}
             <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
               {[
-                { id: 'sn', label: '1. Cloche Seule (SN)' },
-                { id: 'si', label: '2. Viande Seule (SI)' },
-                { id: 'conditionnement', label: '3. Cloche + Viande' },
-                { id: 'sc', label: '4. Cloche Seule (SC)' },
-                { id: 'extinction', label: '5. Non Renforcé (Extinction)' },
+                { id: 'sn', label: '1. Cloche (SN)', badge: 'Neutre' },
+                { id: 'si', label: '2. Viande (SI)', badge: 'Absolu' },
+                { id: 'conditionnement', label: '3. Cloche + Viande', badge: 'Association' },
+                { id: 'sc', label: '4. Cloche (SC)', badge: 'Conditionné' },
+                { id: 'extinction', label: '5. Non Renforcé', badge: 'Extinction' },
               ].map((st, idx) => (
                 <button
                   key={st.id}
@@ -538,8 +541,8 @@ export default function B1ReflexesConditionnelsLab() {
                       : 'bg-slate-900 text-slate-300 border-slate-800 hover:border-slate-700'
                   }`}
                 >
-                  <span className="text-[9px] font-mono font-bold uppercase opacity-80">Phase 0{idx + 1}</span>
-                  <p className="text-xs font-bold truncate mt-1">{st.label}</p>
+                  <span className="text-[9px] font-mono font-bold uppercase opacity-80">{st.badge}</span>
+                  <p className="text-xs font-bold mt-1 leading-tight">{st.label}</p>
                 </button>
               ))}
             </div>
