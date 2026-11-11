@@ -5492,8 +5492,341 @@ Pour éviter toute confusion lors de l'examen du Baccalauréat, voici le tableau
 | **Rôle fonctionnel majeur** | Centre réflexe involontaire & voie de conduction | Intégration consciente, motricité volontaire, pensée, mémoire |
 `;
 
+RICH_LESSONS_MAP.tissu_nerveux_potentiel_action = `# B1 - Leçon 2 : Tissu Nerveux : Structure du Neurone, Potentiel de Repos et Potentiel d’Action (Terminale S2)
+
+Bienvenue dans la deuxième grande masterclass de **Sciences de la Vie et de la Terre (SVT)** de **Terminale S2**, rigoureusement alignée sur le programme officiel du Ministère de l'Éducation Nationale du Sénégal et les critères d'évaluation de l'Office du Baccalauréat.
+
+Après avoir exploré l'architecture du système nerveux cérébrospinal dans la leçon 1, nous étudions ici son unité fondamentale de fonctionnement : le **neurone**, et les bases physico-chimiques de l'excitabilité cellulaire : le **Potentiel de Repos ($PR = -70\\text{ mV}$)** et le **Potentiel d'Action ($PA$)**.
+
+---
+
+## 1. Organisation Histologique du Tissu Nerveux & Cytologie du Neurone
+
+Le tissu nerveux est constitué de deux grandes populations cellulaires intriquées :
+- **Les neurones (environ 10 % des cellules)** : cellules hautement différenciées, excitables et conductrices, amitotiques (incapables de se diviser à l'état adulte).
+- **Les cellules gliales ou névroglie (environ 90 %)** : cellules de soutien métabolique, d'isolation électrique (myélinisation par les oligodendrocytes dans le SNC et les cellules de Schwann dans le SNP), de défense immunitaire (microglie) et de nutrition (astrocytes de la barrière hémato-encéphalique).
+
+### 1.1 Structure Cytologique du Neurone Multipolaire (Exemple du Motoneurone)
+
+Un neurone multipolaire comprend trois parties anatomiques et physiologiques indissociables :
+
+1. **Le Corps Cellulaire (Soma ou Péricaryon) :**
+   - **Noyau :** volumineux, sphérique, central et clair, renfermant un nucléole sombre très visible.
+   - **Corps de Nissl (Ergastoplasme) :** amas denses de réticulum endoplasmique granuleux très riches en ribosomes et ARN, colorables au bleu de méthylène. Ils assurent la biosynthèse massive de protéines et neurotransmetteurs.
+   - **Neurofibrilles :** réseau dense de microtubules et neurofilaments assurant la rigidité de la cellule et le transport axoplasmique.
+
+2. **Les Prolongements Cytoplasmiques :**
+   - **Les Dendrites :** prolongements multiples, courts, arborescents et effilés, hérissés d'épines réceptrices. Elles constituent le **pôle récepteur cellulipète** (conduction de la périphérie vers le corps cellulaire).
+   - **L'Axone (ou Cylindraxe) :** prolongement unique, long (jusqu'à $1\\text{ m}$ chez l'Homme), lisse et de calibre rigoureusement constant. Il naît du soma au niveau du **cône d'implantation (zone gâchette)**. Il constitue le **pôle émetteur cellulifuge** (conduction du corps cellulaire vers les effecteurs).
+
+3. **L'Arborisation Terminale & Boutons Synaptiques :**
+   - L'axone se ramifie à son extrémité distale en boutons synaptiques renflés, remplis de vésicules synaptiques contenant les messagers chimiques (acétylcholine, noradrénaline, GABA).
+
+> [!PIEGE] **Piège Éliminatoire de l'Office du Bac :**
+> Les corps de Nissl sont rigoureusement **ABSENTS** de l'axone et du cône d'émergence ! L'axone est totalement dépendant du soma pour son approvisionnement en macromolécules. Une section de l'axone entraîne la mort par dégénérescence wallérienne de la portion séparée du soma.
+
+> [!VIE_REELLE] **L'analogie du réseau de télécommunication Sonatel :**
+> Pensez au réseau de télécommunication reliant Dakar à l'intérieur du pays :
+> - Les **dendrites** sont les antennes réceptrices locales qui captent les signaux dans tout le quartier.
+> - Le **soma (corps cellulaire)** est le central technique avec ses serveurs informatiques (**corps de Nissl**) qui traitent et gèrent les paquets de données.
+> - Le **cône d'implantation** est le routeur principal qui mesure la tension : si le signal est suffisant, il autorise l'émission.
+> - L'**axone** est le grand câble de fibre optique qui achemine l'information sans aucune distorsion jusqu'au terminal distant !
+
+> [!WOLOF] **Xam-xam ci Wolof — Neurone bi ak ay cërëm :**
+> - « Neurone bi dafa melni jëmm bu am ay loxo ak ay tànk : loxo yu gàtt yi ñooy dendrites yi (cellulipète, dañuy nangu xibaar bi di ko duggal ci biir xol bi). »
+> - « Péricaryon (soma) bi mooy kër liggéeyukaay bi : fi la noyau bi nekk ak corps de Nissl yi (ñooy usine yi di liggéey proteins yi). »
+> - « Axone bi mooy yoon wu gudd wi (cellulifuge, buy génne xibaar bi). Bul fàtte mukk ci examen bi : corps de Nissl amuñu mukk ci biir axone bi ! »
+
+---
+
+## 2. Le Potentiel de Repos (PR) : Origine Biophysique & Maintien Actif
+
+### 2.1 Mise en Évidence Expérimentale (Axone Géant de Calmar)
+À l'aide d'une microélectrode de verre intracellulaire reliée à un oscilloscope cathodique :
+- Lorsque les deux électrodes $R_1$ et $R_2$ sont à la surface externe du neurone, la différence de potentiel est nulle ($ddp = 0\\text{ mV}$).
+- Dès que $R_1$ pénètre à l'intérieur de l'axoplasme, le spot cathodique dévie brutalement et se stabilise à **$-70\\text{ mV}$**.
+- La face interne de la membrane plasmique est donc électronégative par rapport à la face externe : c'est le **Potentiel de Repos (PR)**.
+
+### 2.2 Mécanismes Ioniques du Potentiel de Repos
+
+Le potentiel de repos résulte de la combinaison de trois facteurs biophysiques fondamentaux :
+
+1. **Dissymétrie de répartition des ions :**
+   - Le sodium ($Na^+$) est fortement concentré à l'extérieur ($[Na^+]_{ext} \\approx 140\\text{ mmol/L}$ vs $[Na^+]_{int} \\approx 14\\text{ mmol/L}$).
+   - Le potassium ($K^+$) est fortement concentré à l'intérieur ($[K^+]_{int} \\approx 140\\text{ mmol/L}$ vs $[K^+]_{ext} \\approx 4\\text{ mmol/L}$).
+   - De gros anions protéiques non diffusibles ($A^-$) sont piégés à l'intérieur de la cellule.
+
+2. **Perméabilité sélective des canaux de fuite :**
+   - Au repos, la membrane possède des canaux de fuite ouverts en permanence.
+   - La membrane est **50 à 100 fois plus perméable aux ions $K^+$ qu'aux ions $Na^+$**.
+   - Par conséquent, les ions $K^+$ diffusent spontanément vers l'extérieur selon leur fort gradient de concentration. Cette fuite de charges positives charge positivement la face externe et laisse l'intérieur électronégatif.
+
+3. **Maintien actif par la pompe $Na^+/K^+$ ATPase :**
+   - Pour éviter que les gradients ne s'annulent par diffusion passive, la pompe $Na^+/K^+$ ATPase expulse activement $3\\,Na^+$ et fait entrer $2\\,K^+$ en hydrolysant de l'ATP.
+   - En expulsant 3 charges positives pour seulement 2 charges réabsorbées, cette pompe est **électrogène** et maintient durablement le $PR$ à $-70\\text{ mV}$.
+
+> [!THEOREME] **Équilibre Électrogène de la Pompe $Na^+/K^+$ ATPase :**
+> $$3\\,Na^+_{int} + 2\\,K^+_{ext} + \\text{ATP} + \\text{H}_2\\text{O} \\xrightarrow{\\text{ATPase}} 3\\,Na^+_{ext} + 2\\,K^+_{int} + \\text{ADP} + \\text{P}_i$$
+> Le blocage de cette pompe par un inhibiteur métabolique (dinitrophénol DNP ou ouabaïne) entraîne la dégradation progressive du potentiel de repos vers $0\\text{ mV}$.
+
+> [!VIE_REELLE] **L'analogie de la pirogue de Soumbédioune qui prend l'eau :**
+> Imaginez une pirogue de pêcheurs en haute mer au large de Dakar avec une petite fissure dans la coque :
+> - L'eau de mer ($Na^+$) cherche constamment à entrer, et l'eau douce ($K^+$) tend à s'écouler. Ce sont les **canaux de fuite**.
+> - Pour que la pirogue reste à flot à son tirant d'eau stable ($PR = -70\\text{ mV}$), le pêcheur doit écoper sans arrêt avec une calebasse. C'est la **pompe $Na^+/K^+$ ATPase** qui dépense son énergie musculaire (ATP) pour rejeter l'eau hors de l'embarcation !
+> - Si le pêcheur s'évanouit sous l'effet d'un poison (comme l'ouabaïne ou le DNP), il cesse d'écoper : l'eau envahit la pirogue et celle-ci coule lentement jusqu'au niveau zéro ($0\\text{ mV}$).
+
+> [!WOLOF] **Xam-xam ci Wolof — Potentiel de Repos (-70 mV) :**
+> - « Ci repos, biir cell bi dafa am dooley négatif (-70 mV) ndax K+ dafay génn ci canaux de fuite yi. »
+> - « Pompu $Na^+/K^+$ bi mooy écopeur bi : dafay génne 3 $Na^+$ di duggal 2 $K^+$ saa su nekk ak dooley ATP ngir dëgëral balanse bi. »
+> - « Bu ñu defee ouabaïne wala DNP ci axone bi, pompe bi dafay taxaw, gradients yi di soxé ndànk-ndànk ba $PR$ bi soppi doon 0 mV ! »
+
+---
+
+## 3. Le Potentiel d'Action (PA) : Cinétique & Bases Moléculaires
+
+### 3.1 Conditions de Déclenchement & Loi du Tout ou Rien sur Fibre Isolée
+- Une stimulation électrique d'intensité $I$ n'est efficace que si la dépolarisation franchit le **seuil critique** (environ $-55\\text{ mV}$, soit un saut $\\Delta V \\approx +15\\text{ mV}$).
+- Pour $I < I_{seuil}$ (stimulation infraliminaire) : réponse locale décroissante sans propagation (potentiel électrotonique).
+- Dès que $I \\ge I_{seuil}$ (stimulation liminaire ou supraliminaire) : la fibre isolée émet un potentiel d'action d'**amplitude maximale constante ($100\\text{ mV}$, de $-70\\text{ mV}$ à $+30\\text{ mV}$)**. L'amplitude ne varie jamais avec l'intensité : c'est la **Loi du Tout ou Rien**.
+
+### 3.2 Tableau Synoptique des 5 Phases du Potentiel d'Action
+
+| Phase Chronologique | Durée Approximative | État des Canaux Ioniques | Mouvement Ionique Transmembranaire | Variation de Potentiel ($V_m$) |
+| :--- | :--- | :--- | :--- | :--- |
+| **1. Artéfact de stimulation** | Quasi-instantané ($0{,}05\\text{ ms}$) | Canaux au repos | Fuite physique de courant des électrodes $S$ vers $R$ | Pic parasite marquant le début ($t = 0$) |
+| **2. Temps de latence** | $0{,}5$ à $2\\text{ ms}$ ($t = d/v$) | Canaux encore fermés | Aucun mouvement ionique net sous l'électrode | Maintien au repos ($-70\\text{ mV}$) |
+| **3. Dépolarisation active** | $\\approx 0{,}5\\text{ ms}$ | **Ouverture immédiate des CVD-$Na^+$** | **Flux entrant massif et passif d'ions $Na^+$** | Ascension brutale de $-70\\text{ mV}$ à $+30\\text{ mV}$ |
+| **4. Repolarisation** | $\\approx 0{,}7\\text{ ms}$ | Inactivation des CVD-$Na^+$, **ouverture des CVD-$K^+$** | **Flux sortant passif d'ions $K^+$** | Chute de $+30\\text{ mV}$ vers $-70\\text{ mV}$ |
+| **5. Hyperpolarisation** | $1$ à $2\\text{ ms}$ | Fermeture lente et retardée des CVD-$K^+$ | Fuite résiduelle prolongée d'ions $K^+$ | Descente sous le repos ($-80\\text{ mV}$) puis retour via la pompe |
+
+> [!VIE_REELLE] **L'analogie de la porte saloon et de la porte automatique :**
+> - La **dépolarisation**, c'est comme une porte de saloon poussée par une bourrasque : les canaux sodium (CVD-$Na^+$) s'ouvrent en une fraction de milliseconde dès que le seuil est franchi, laissant s'engouffrer les ions $Na^+$.
+> - La **repolarisation**, c'est comme une porte automatique lourde : les canaux potassium (CVD-$K^+$) s'ouvrent plus lentement pour évacuer les ions $K^+$. Comme ils mettent du temps à se refermer, trop de $K^+$ sortent : c'est l'**hyperpolarisation** transitoire !
+
+> [!WOLOF] **Xam-xam ci Wolof — Potentiel d'Action (PA) :**
+> - « Dépolarisation : CVD $Na^+$ yi dañuy ubbeeku foudroyant ! $Na^+$ dafay duggu ci biir bu gaaw, loolu mooy yékkati potentiel bi ba $+30\\text{ mV}$. »
+> - « Repolarisation : CVD $Na^+$ yi dañuy tëju, CVD $K^+$ yi ubbeeku ndànk, $K^+$ génn ci biti ba mu dellu ci négatif. »
+> - « Période réfractaire : dafa melni chasse d'eau bu ñu sanni rek : mënuloo ko sanniwaat ci sàsi te réservoir bi feesul ndox ! »
+
+---
+
+## 4. Période Réfractaire & Action des Neurotoxines Sélectives
+
+### 4.1 Les Deux Périodes Réfractaires
+1. **Période Réfractaire Absolue (PRA, durée $\\approx 1\\text{ ms}$) :** Pendant la dépolarisation et le début de la repolarisation, tous les CVD-$Na^+$ sont inactivés. Aucun second potentiel d'action ne peut être généré, quelle que soit l'intensité du stimulus. Cela impose la propagation **unidirectionnelle** de l'influx.
+2. **Période Réfractaire Relative (PRR, durée $\\approx 2\\text{ ms}$) :** Pendant l'hyperpolarisation, certains CVD-$Na^+$ redeviennent activables. Une stimulation supraliminaire très forte peut déclencher un second PA d'amplitude légèrement diminuée.
+
+### 4.2 Les Neurotoxines Ciblées au Baccalauréat Sénégalais
+
+| Neurotoxine Étudiée | Cible Moléculaire Spécifique | Tracé Oscillographique Obtenu | Déduction Physiologique Bac |
+| :--- | :--- | :--- | :--- |
+| **Tétrodotoxine (TTX)** *(extraite du poisson tétrodon)* | Bloque sélectivement les **CVD-$Na^+$** | **Abolition intégrale du potentiel d'action** | La dépolarisation active dépend exclusivement du flux entrant d'ions $Na^+$. |
+| **Tétraéthylammonium (TEA)** | Bloque sélectivement les **CVD-$K^+$** | Dépolarisation normale jusqu'à $+30\\text{ mV}$, mais **repolarisation extrêmement lente** | La repolarisation rapide dépend directement du flux sortant d'ions $K^+$. |
+
+---
+
+## 5. Propagation de l'Influx Nerveux : Continue vs Saltatoire
+
+### 5.1 Conduction Continue (Fibres Amyéliniques)
+- La membrane est nue sur toute sa longueur.
+- La dépolarisation active au site stimulé crée des **courants locaux de Hermann** avec les zones adjacentes au repos.
+- L'influx avance de proche en proche à vitesse lente ($0{,}5$ à $2\\text{ m/s}$).
+
+### 5.2 Conduction Saltatoire (Fibres Myélinisées)
+- La gaine de myéline (formée par les cellules de Schwann) est un **isolant électrique lipoprotéique exceptionnel**.
+- Les échanges ioniques ne peuvent se produire qu'au niveau des interruptions de la gaine : les **étranglements ou nœuds de Ranvier**, où la concentration en CVD-$Na^+$ est 100 fois plus dense.
+- Les lignes de courant sautent d'un nœud de Ranvier directement au nœud suivant : **conduction saltatoire**.
+- **Avantages majeurs :** vitesse très élevée (jusqu'à $120\\text{ m/s}$, soit plus de $430\\text{ km/h}$) et économie massive d'ATP pour la cellule.
+
+> [!VIE_REELLE] **L'analogie de l'Autoroute à Péage Ila Touba :**
+> - Rouler sur une piste de sable non goudronnée (fibre amyélinique), c'est avancer à 20 km/h en consommant énormément de carburant pour franchir chaque mètre (conduction continue lente).
+> - Rouler sur l'autoroute Ila Touba goudronnée et isolée (fibre myélinisée), c'est filer à toute allure : la voiture ne s'arrête qu'aux gares de péage espacées (les nœuds de Ranvier) ! C'est la **conduction saltatoire** : gain de vitesse foudroyant et économie colossale d'énergie pour l'organisme.
+
+> [!WOLOF] **Xam-xam ci Wolof — Conduction Saltatoire :**
+> - « Myéline bi dafa melni plastique bu ñuy gante fil électrique ngir courant bi bumu sance ci yoon wi. »
+> - « Étranglements de Ranvier yi rekk la courant bi di mëna tëbe ba tëbe ci benen nœud (saltatoire) : loolu mooy tax mu gaaw ba eg $120\\text{ m/s}$ te di denc ATP bu beuri ! »
+
+---
+
+## 6. Synthèse Comparative : Fibre Isolée vs Nerf Entier (Le Piège d'Or du Bac)
+
+| Critère d'Analyse | Fibre Nerveuse Unique (1 axone) | Nerf Sciatique Entier (Organe) |
+| :--- | :--- | :--- |
+| **Nature anatomique** | Prolongement cylindrique d'un seul neurone | Faisceau réunissant des milliers de fibres de calibres différents |
+| **Loi physiologique** | Obéit à la **Loi du Tout ou Rien** | N'obéit **JAMAIS** à la loi du tout ou rien ! |
+| **Seuil d'excitabilité** | Seuil liminaire unique $I_s$ | Seuils étagés (fibres très sensibles à fibres résistantes) |
+| **Variation de l'amplitude** | Constante d'emblée à $100\\text{ mV}$ dès que $I \\ge I_s$ | **Graduable et croissante** avec l'intensité $I$ |
+| **Mécanisme explicatif** | Activation synchronisée de tous les canaux de la fibre | **Recrutement progressif** d'un contingent croissant de fibres nerveuses |
+| **Saturation** | Immédiate dès le seuil | Atteinte à un palier maximal lorsque $100\\,\\%$ des fibres sont excitées |
+| **Codage du message** | En **modulation de fréquence** de PA | En **modulation d'amplitude globale** ET de fréquence |
+
+> [!VIE_REELLE] **L'analogie de l'interrupteur vs l'éclairage du stade Abdoulaye Wade :**
+> - Une **fibre isolée**, c'est l'interrupteur simple d'une ampoule : si vous appuyez trop mollement, rien ne s'allume ; dès que vous poussez assez pour franchir le déclic, l'ampoule brille à 100 % d'emblée (**Loi du Tout ou Rien**).
+> - Le **nerf entier**, c'est l'ensemble des 500 projecteurs du stade Abdoulaye Wade de Diamniadio : avec un faible courant, 10 projecteurs s'allument ; si l'intensité augmente, 100 s'allument, puis 300, puis les 500. L'éclairage global devient de plus en plus puissant (**recrutement progressif**) jusqu'à ce que tous les projecteurs fonctionnent (**saturation**).
+
+> [!CONSEIL_BAC] **Formule officielle pour le calcul de vitesse :**
+> Au Bac S2, lorsqu'on vous donne deux couples d'électrodes réceptrices $R_1$ et $R_2$ distantes de $d$ avec des dates d'arrivée $t_1$ et $t_2$ :
+> $$v = \\frac{d}{\\Delta t} = \\frac{d}{t_2 - t_1}$$
+> Attention capitale aux unités : convertissez toujours $d$ en mètres ($\\text{m}$) et $\\Delta t$ en secondes ($\\text{s}$) pour obtenir $v$ en $\\text{m}\\cdot\\text{s}^{-1}$.
+`;
+
+RICH_LESSONS_MAP.synapse_transmission_chimique = `# B1 - Leçon 3 : Transmission Synaptique Chimique & Intégration Nerveuse
+
+---
+
+## Introduction & Enjeux au Baccalauréat S2 Sénégal
+
+La transmission de l'influx nerveux le long d'un axone est de nature purement électrique (potentiel d'action propagé). Cependant, la communication d'un neurone à un autre (synapse neuro-neuronique) ou d'un neurone à un effecteur musculaire (synapse neuromusculaire ou plaque motrice) se heurte à une discontinuité anatomique infranchissable par le courant électrique : la **fente synaptique** (large de 20 à 50 nm).
+
+Pour franchir cet espace, la nature utilise un mécanisme de **transduction chimio-électrique** : le message électrique présynaptique est converti en un message chimique intermédiaire (libération d'un neurotransmetteur), qui déclenche à son tour une réponse électrique sur la cellule postsynaptique.
+
+> [!THEOREME] **La Règle d'Or de la Synapse au Bac S2 :**
+> - **Polarité fonctionnelle unidirectionnelle :** L'influx ne franchit la synapse QUE dans un seul sens : de l'élément présynaptique vers l'élément postsynaptique, car les vésicules de neurotransmetteur ne se trouvent QUE dans le bouton présynaptique, et les récepteurs récepteurs-canaux ne se trouvent QUE sur la membrane postsynaptique.
+> - **Délai synaptique :** La traversée d'une synapse prend environ $0{,}5\\text{ milliseconde}$. Ce délai correspond au temps nécessaire pour l'entrée du $\\text{Ca}^{2+}$, l'exocytose, la diffusion du médiateur dans la fente et la fixation sur les récepteurs.
+
+> [!WOLOF] **Ndongo S2 Wolof Insight :**
+> Yoonu synapse bi dafa am benn sens rek : dafay joggé ci kow (bouton présynaptique) wàcc ci suuf (membrane postsynaptique). Mënul dellu ginaaw mukk ndax ay vésicules yi am neurotransmetteur ci kow rekk lañu nekk, te récepteurs yi ci suuf rekk lañu nekk ! Dafa melni oto buy dem Ila Touba ci autoroute à sens unique.
+
+---
+
+## 1. Ultrastructure & Anatomie Comparée de la Synapse
+
+L'observation au microscope électronique à transmission (MET) révèle que la synapse comprend trois compartiments fonctionnels distincts :
+
+| Compartiment Anatomique | Structures Ultrastructurales Observées | Rôle Physiologique Spécifique |
+| :--- | :--- | :--- |
+| **Bouton Présynaptique** | - Vésicules synaptiques sphériques ($40\\text{ nm}$ de diamètre) contenant le médiateur<br>- Nombreuses mitochondries énergétiques<br>- Canaux $\\text{Ca}^{2+}$ voltage-dépendants | Synthèse, stockage et libération par exocytose quantale du neurotransmetteur sous l'effet du $\\text{Ca}^{2+}$. |
+| **Fente Synaptique** | - Espace extracellulaire étroit ($20\\text{ à }50\\text{ nm}$)<br>- Matrice glycoprotéique<br>- Enzymes d'inactivation (Acétylcholinestérase) | Espace de diffusion passive rapide du neurotransmetteur et lieu de son hydrolyse ultra-rapide. |
+| **Membrane Postsynaptique** | - Densité postsynaptique visible au MET<br>- Récepteurs-canaux chimiodépendants (ROC)<br>- Pas de vésicules synaptiques | Reconnaissance spécifique du ligand et genèse des potentiels postsynaptiques graduables (PPSE ou PPSI). |
+
+> [!PIEGE] **Le piège classique de la localisation des vésicules :**
+> Si un exercice du Bac vous demande d'orienter une synapse à partir d'un schéma de microscopie électronique, cherchez immédiatement **les vésicules synaptiques** et **les mitochondries** : le côté qui les contient est STRICTEMENT le pôle présynaptique !
+
+---
+
+## 2. Les 6 Étapes Moléculaires de la Transmission Synaptique
+
+Le fonctionnement de la synapse neuro-musculaire (plaque motrice) ou neuro-neuronique s'articule rigoureusement en 6 étapes chronologiques indissociables :
+
+### Étape 1 : Arrivée du Train de Potentiels d'Action
+L'onde de dépolarisation atteint la terminaison axonale présynaptique et dépolarise la membrane du bouton terminal.
+
+### Étape 2 : Entrée Massive d'Ions Calcium ($\\text{Ca}^{2+}$)
+La dépolarisation provoque l'ouverture immédiate des **canaux calcium voltage-dépendants** (CVD-$\\text{Ca}^{2+}$). Comme $[\\text{Ca}^{2+}]_{ext} \\gg [\\text{Ca}^{2+}]_{int}$, les ions $\\text{Ca}^{2+}$ entrent massivement dans le cytoplasme selon leur gradient de concentration.
+
+### Étape 3 : Exocytose Quantale du Neurotransmetteur
+L'élévation du $\\text{Ca}^{2+}$ intracellulaire déclenche la fusion des vésicules synaptiques avec la membrane présynaptique (via le complexe protéique SNARE). Des milliers de molécules d'acétylcholine (ACh) sont déversées dans la fente par exocytose.
+
+### Étape 4 : Diffusion & Fixation sur les Récepteurs-Canaux Chimiodépendants (ROC)
+Les molécules d'ACh diffusent en moins de $0{,}1\\text{ ms}$ à travers la fente et se fixent sur la face externe des **récepteurs nicotiniques** de la membrane postsynaptique. Deux molécules d'ACh sont requises pour ouvrir un canal ROC.
+
+### Étape 5 : Ouverture des Canaux Sodiques & Genèse du PPSE
+L'ouverture du pore central du récepteur-canal permet une entrée brutale d'ions $\\text{Na}^+$ dans la cellule postsynaptique. Cette entrée de charges positives engendre une dépolarisation locale appelée **Potentiel Post-Synaptique Excitateur (PPSE)**.
+
+### Étape 6 : Inactivation Enzymatique & Recapture
+Pour éviter une stimulation continue, l'acétylcholine fixée se détache rapidement et est hydrolysée par l'**acétylcholinestérase** en acétate et choline :
+$$\\text{Acétylcholine} + \\text{H}_2\\text{O} \\xrightarrow{\\text{Acétylcholinestérase}} \\text{Acétate} + \\text{Choline}$$
+La choline est recaptée activement par le bouton présynaptique pour synthétiser de nouvelles molécules d'acétylcholine avec de l'acétyl-CoA.
+
+> [!VIE_REELLE] **L'analogie de la pirogue de Soumbédioune :**
+> Imaginez la traversée entre Dakar et Gorée : les voitures (le courant électrique) ne peuvent pas rouler sur l'océan Atlantique. Elles embarquent donc sur une chaloupe (les vésicules de neurotransmetteurs) qui traverse l'eau (la fente synaptique). Arrivées sur le quai de Gorée (la membrane postsynaptique), les portes s'ouvrent et les voitures recommencent à rouler sur la terre ferme. C'est exactement ce que fait l'acétylcholine !
+
+---
+
+## 3. Typologie des Synapses : PPSE vs PPSI
+
+Selon la nature du neurotransmetteur libéré et du canal postsynaptique activé, la synapse produit deux types d'effets électriques opposés :
+
+| Critère Électrophysiologique | Synapse Excitatrice (PPSE) | Synapse Inhibitrice (PPSI) |
+| :--- | :--- | :--- |
+| **Neurotransmetteur majeur** | Glutamate, Acétylcholine | GABA (acide $\\gamma$-aminobutyrique), Glycine |
+| **Nature du canal ionique activé** | Canal récepteur chimiodépendant (ROC) perméable au $\\text{Na}^+$ (et $\\text{Ca}^{2+}$) | Canal récepteur chimiodépendant perméable au $\\text{Cl}^-$ ou au $\\text{K}^+$ |
+| **Mouvement ionique transmembranaire** | **Entrée nette de cations $\\text{Na}^+$** dans la cellule | **Entrée d'anions $\\text{Cl}^-$** ou **Sortie de cations $\\text{K}^+$** |
+| **Variation du potentiel $V_m$** | **Dépolarisation locale** ($\Delta V_m > 0$), ex. $-70\\text{ mV} \\to -60\\text{ mV}$ | **Hyperpolarisation locale** ($\Delta V_m < 0$), ex. $-70\\text{ mV} \\to -75\\text{ mV}$ |
+| **Effet sur l'excitabilité** | Rapproche le potentiel de membrane du **seuil critique** ($-55\\text{ mV}$) | Éloigne le potentiel de membrane du **seuil critique**, bloquant l'émission de PA |
+
+> [!METHODE] **Comment reconnaître un PPSE et un PPSI sur un graphe d'oscilloscope :**
+> - Si la courbe monte au-dessus de la ligne de base de $-70\\text{ mV}$ (dôme positif), il s'agit d'un **PPSE** (dépolarisation).
+> - Si la courbe descend en dessous de la ligne de base de $-70\\text{ mV}$ (creux négatif), il s'agit d'un **PPSI** (hyperpolarisation).
+> - Ni l'un ni l'autre ne dépasse le zéro : leur amplitude est toujours modeste (de $2\\text{ à }15\\text{ mV}$) et graduable selon la dose de médiateur.
+
+---
+
+## 4. L'Intégration Postsynaptique par le Motoneurone
+
+Un motoneurone de la corne antérieure de la moelle épinière reçoit simultanément des milliers de boutons synaptiques (jusqu'à $10\\,000$ connexions excitatrices et inhibitrices). Le motoneurone agit comme un véritable microprocesseur biologique grâce à l'**intégration nerveuse**.
+
+### 4.1. Sommation Spatiale
+La **sommation spatiale** correspond à l'addition algébrique simultanée des potentiels postsynaptiques générés au même instant par des synapses différentes réparties sur la membrane somato-dendritique.
+
+### 4.2. Sommation Temporelle
+La **sommation temporelle** correspond à l'addition algébrique sur une même synapse de potentiels postsynaptiques successifs rapprochés dans le temps, déclenchés par une salve de potentiels d'action présynaptiques à haute fréquence.
+
+### 4.3. Rôle Décisif du Cône d'Implantation (Zone Gâchette)
+Tous les potentiels postsynaptiques (PPSE positifs et PPSI négatifs) convergent passivement vers le **cône d'implantation** (segment initial de l'axone) :
+$$V_m(\\text{cône}) = V_{\\text{repos}} + \\sum \\Delta V_{\\text{PPSE}} + \\sum \\Delta V_{\\text{PPSI}}$$
+
+Le cône d'implantation possède la plus forte densité de tout le neurone en **canaux $\\text{Na}^+$ voltage-dépendants** : son seuil d'excitabilité est donc le plus bas (environ $-55\\text{ mV}$).
+- **Si $V_m(\\text{cône}) < -55\\text{ mV}$ :** La stimulation est infraliminaire. Aucun potentiel d'action n'est émis.
+- **Si $V_m(\\text{cône}) \\ge -55\\text{ mV}$ :** Le seuil critique est franchi ! Les canaux $\\text{Na}^+$ voltage-dépendants s'ouvrent massivement : **le motoneurone émet un train de potentiels d'action propagés le long de l'axone vers le muscle (Loi du Tout ou Rien)**.
+
+> [!VIE_REELLE] **L'analogie du portique de sécurité de l'Aéroport AIBD :**
+> Le cône d'implantation fonctionne exactement comme le portique de sécurité biométrique de l'aéroport international Blaise Diagne (AIBD) : vous pouvez présenter plusieurs petites cartes d'embarquement (PPSE), mais tant que le lecteur n'a pas validé le total requis (le seuil de $-55\\text{ mV}$), le portillon reste verrouillé. Dès que le score est atteint, le portillon s'ouvre d'un coup sec pour laisser passer les passagers.
+
+---
+
+## 5. Pharmacologie Expérimentale du Bac S2 : Poisons & Neurotoxines
+
+Les épreuves du Baccalauréat sénégalais font fréquemment appel à des agents pharmacologiques pour éprouver la compréhension du mécanisme synaptique par le candidat :
+
+| Agent Pharmacologique | Site & Mode d'Action Cellulaire | Tracé Électrique Postsynaptique | Conséquence Physiologique |
+| :--- | :--- | :--- | :--- |
+| **Curare (D-Tubocurarine)** | Antagoniste compétitif des récepteurs nicotiniques postsynaptiques à l'ACh. | **Tracé plat à $-70\\text{ mV}$** (PPSE totalement aboli). | **Paralysie motrice flasque.** Le muscle ne se contracte plus malgré la stimulation du nerf moteur. |
+| **Éserine (Physostigmine)** | Inhibiteur réversible de l'acétylcholinestérase dans la fente synaptique. | **PPSE géant et anormalement prolongé.** | **Tétanie et spasmes continus.** L'ACh s'accumule dans la fente et stimule les récepteurs sans répit. |
+| **Toxine Botulique (Botox)** | Clivage enzymatique des protéines SNARE présynaptiques. | **Absence de PPSE** (reste au potentiel de repos). | **Paralysie flasque.** Empêche l'exocytose des vésicules d'ACh. L'injection d'ACh directe rétablit la contraction. |
+| **Milieu sans Calcium ($[\\text{Ca}^{2+}] = 0$)** | Absence de gradient de calcium transmembranaire. | **Absence complète de PPSE.** | **Blocage synaptique réversible.** Prouve que l'exocytose dépend obligatoirement de l'entrée de $\\text{Ca}^{2+}$. |
+
+> [!CONSEIL_BAC] **Comment rédiger la question de pharmacologie au Bac :**
+> Si le sujet vous présente une expérience où un produit $X$ bloque la contraction, suivez toujours cette démarche en 3 étapes :
+> 1. **Localiser l'action :** Présynaptique (exocytose/calcium) ou Postsynaptique (récepteurs ROC) ?
+> 2. **Citer le témoin :** Montrer que sous stimulation directe de la fibre musculaire, le muscle se contracte toujours (prouve que la machinerie contractile actinomyosine est intacte).
+> 3. **Conclure sur le mécanisme :** "Le produit $X$ agit spécifiquement au niveau de la synapse neuromusculaire en inhibant [nom du récepteur ou de l'enzyme]."
+`;
+
 export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: string, rawContent: string | null): string {
   const titleLower = `${lessonTitle} ${chapterTitle}`.toLowerCase();
+
+  // Routage SVT B1 Leçon 3 : Transmission Synaptique Chimique & Intégration Nerveuse
+  if (
+    titleLower.includes('transmission synaptique') ||
+    titleLower.includes('synapse') ||
+    titleLower.includes('synaptique') ||
+    titleLower.includes('ppse') ||
+    titleLower.includes('ppsi') ||
+    titleLower.includes('intégration nerveuse') ||
+    titleLower.includes('integration nerveuse') ||
+    titleLower.includes('plaque motrice') ||
+    titleLower.includes('sommation') ||
+    titleLower.includes('arc réflexe') ||
+    titleLower.includes('arc reflexe') ||
+    titleLower.includes('réflexe myotatique') ||
+    titleLower.includes('reflexe myotatique')
+  ) {
+    return RICH_LESSONS_MAP.synapse_transmission_chimique;
+  }
+
+  // Routage SVT B1 Leçon 2 : Tissu Nerveux, Potentiel de Repos & Potentiel d'Action
+  if (
+    titleLower.includes('tissu nerveux') ||
+    titleLower.includes('potentiel de repos') ||
+    titleLower.includes('potentiel d\'action') ||
+    titleLower.includes('potentiel action') ||
+    titleLower.includes('potentiels bioélectriques') ||
+    titleLower.includes('potentiels bioelectriques') ||
+    (titleLower.includes('neurone') && (titleLower.includes('action') || titleLower.includes('repos') || titleLower.includes('structure')))
+  ) {
+    return RICH_LESSONS_MAP.tissu_nerveux_potentiel_action;
+  }
 
   // Routage SVT B1 : Organisation du Système Nerveux Cérébrospinal
   if (

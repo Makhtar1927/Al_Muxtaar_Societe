@@ -114,6 +114,12 @@ import P4ParticuleQuizEmbedded from '@/components/course/p4-particule-quiz-embed
 import B1SystemeNerveuxReflexesCard from '@/components/course/b1-systeme-nerveux-reflexes-card';
 import B1SystemeNerveuxInteractiveLab from '@/components/course/b1-systeme-nerveux-interactive-lab';
 import B1SystemeNerveuxQuizEmbedded from '@/components/course/b1-systeme-nerveux-quiz-embedded';
+import B1TissuNerveuxReflexesCard from '@/components/course/b1-tissu-nerveux-reflexes-card';
+import B1TissuNerveuxInteractiveLab from '@/components/course/b1-tissu-nerveux-interactive-lab';
+import B1TissuNerveuxQuizEmbedded from '@/components/course/b1-tissu-nerveux-quiz-embedded';
+import B1SynapseReflexesCard from '@/components/course/b1-synapse-reflexes-card';
+import B1SynapseInteractiveLab from '@/components/course/b1-synapse-interactive-lab';
+import B1SynapseQuizEmbedded from '@/components/course/b1-synapse-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
@@ -1147,6 +1153,92 @@ const SYSTEME_NERVEUX_AUDIO_CHAPTERS: AudioChapter[] = [
     icon: "eclair_reflexe",
     textScript:
       "Lorsqu'une racine est sectionnée, seule la portion coupée déconnectée de son corps cellulaire dégénère. La section de la racine ventrale paralyse le membre sans toucher à la sensibilité. La section de la racine dorsale anesthésie le membre sans altérer la motricité. À retenir absolument pour le raisonnement scientifique !",
+  },
+];
+
+const TISSU_NERVEUX_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Enjeux du Tissu Nerveux au Bac S2 Sénégal",
+    badge: "Introduction",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass de SVT Terminale S2 dédiée au tissu nerveux et aux potentiels bioélectriques. Cette leçon est un monument des épreuves du Baccalauréat sénégalais. Maîtriser la cytologie du neurone, l'origine du potentiel de repos à moins 70 millivolts et la cinétique du potentiel d'action vous assurera un score parfait.",
+  },
+  {
+    timeSeconds: 50,
+    title: "2. Cytologie : Soma, Corps de Nissl & Cône d'Émergence",
+    badge: "Cytologie",
+    icon: "theoreme_equerre",
+    textScript:
+      "Retenez l'ultrastructure du neurone : le soma contient le noyau et les corps de Nissl, amas d'ergastoplasme riches en ARN pour la synthèse des protéines. Attention au piège classique des correcteurs de l'Office du Bac : les corps de Nissl sont rigoureusement absents de l'axone et du cône d'émergence !",
+  },
+  {
+    timeSeconds: 115,
+    title: "3. Origine Biophysique du Potentiel de Repos (-70 mV)",
+    badge: "Biophysique",
+    icon: "cle_solution",
+    textScript:
+      "Pourquoi la membrane est-elle à moins 70 millivolts au repos ? Deux causes indissociables : premièrement, les canaux de fuite laissent sortir passivement le potassium K plus selon son gradient de concentration. Deuxièmement, la pompe sodium potassium ATPase expulse trois Na plus et fait entrer deux K plus avec consommation d'ATP pour maintenir les gradients.",
+  },
+  {
+    timeSeconds: 180,
+    title: "4. Cinétique du PA & Neurotoxines (TTX et TEA)",
+    badge: "Mécanisme",
+    icon: "piege_bac",
+    textScript:
+      "Dès que le seuil critique de moins 55 millivolts est franchi, les canaux sodium voltage-dépendants s'ouvrent : entrée massive de Na plus, c'est la dépolarisation jusqu'à plus 30 mV, bloquée par la TTX. Puis les canaux potassium voltage-dépendants s'ouvrent : sortie de K plus, c'est la repolarisation, bloquée par le TEA.",
+  },
+  {
+    timeSeconds: 245,
+    title: "5. Fibre Unique (Tout ou Rien) vs Nerf Entier (Recrutement)",
+    badge: "Loi d'or",
+    icon: "eclair_reflexe",
+    textScript:
+      "Voici la règle absolue : la fibre isolée obéit à la loi du Tout ou Rien avec une amplitude constante de 100 mV dès le seuil. En revanche, le nerf entier est un faisceau de milliers de fibres à seuils étagés : son amplitude augmente par recrutement progressif jusqu'au palier de saturation. Ne confondez jamais les deux au Bac !",
+  },
+];
+
+const SYNAPSE_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Enjeux de la Synapse au Bac S2 Sénégal",
+    badge: "Introduction",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass de SVT Terminale S2 sur la transmission synaptique chimique et l'intégration postsynaptique. C'est l'un des chapitres favoris de l'Office du Baccalauréat sénégalais. Maîtriser le rôle du calcium, la différence entre PPSE et PPSI, la sommation spatio-temporelle et les poisons comme le curare vous garantira le plein de points.",
+  },
+  {
+    timeSeconds: 50,
+    title: "2. Les 6 Étapes Moléculaires : Du PA à l'Exocytose",
+    badge: "Mécanisme",
+    icon: "theoreme_equerre",
+    textScript:
+      "Retenez l'enchaînement strict : le potentiel d'action dépolarise le bouton terminal, ouvrant les canaux calcium voltage-dépendants. L'entrée de Ca2+ déclenche l'exocytose de l'acétylcholine dans la fente. Les molécules se fixent sur les récepteurs ROC chimiodépendants postsynaptiques, ouvrant des canaux sodiques pour générer le PPSE, avant l'inactivation enzymatique par l'acétylcholinestérase.",
+  },
+  {
+    timeSeconds: 115,
+    title: "3. PPSE vs PPSI : Canaux ROC et Déplacement Ionique",
+    badge: "Électrophysiologie",
+    icon: "cle_solution",
+    textScript:
+      "La distinction clé au Bac : le PPSE est une dépolarisation causée par l'entrée d'ions Na+, qui rapproche le potentiel du seuil critique. Le PPSI est une hyperpolarisation provoquée par l'entrée de chlore Cl- ou la sortie de potassium K+, qui éloigne le potentiel du seuil et empêche tout déclenchement d'influx.",
+  },
+  {
+    timeSeconds: 180,
+    title: "4. Intégration : Sommation Spatiale, Temporelle & Cône",
+    badge: "Intégration",
+    icon: "eclair_reflexe",
+    textScript:
+      "Le motoneurone effectue la somme algébrique continue de tous les signaux reçus. La sommation spatiale additionne des synapses différentes actives au même instant ; la sommation temporelle additionne des salves rapprochées sur une même synapse. Si la somme au cône d'implantation atteint ou dépasse le seuil critique de moins 55 millivolts, un train de potentiels d'action est émis selon la loi du tout ou rien.",
+  },
+  {
+    timeSeconds: 245,
+    title: "5. Pharmacologie du Bac : Curare, Éserine et Toxines",
+    badge: "Poisons",
+    icon: "piege_bac",
+    textScript:
+      "Attention aux pièges d'expérimentation : le curare se fixe sur les récepteurs nicotiniques sans les ouvrir, provoquant une paralysie flasque sans toucher au muscle directement. L'éserine bloque l'acétylcholinestérase, empêchant la destruction de l'ACh et provoquant des contractions tétaniques prolongées.",
   },
 ];
 
@@ -2502,7 +2594,35 @@ if (lessonMeta && lessonMeta.status !== 'published') {
       params.lesson === '60000000-0000-0002-0001-000000000012' ||
       params.chapter === '50000000-0000-0002-0001-000000000004');
 
+  const isSynapse =
+    params.lesson === '60000000-0000-0003-0001-000000000003' ||
+    lessonMeta.title.toLowerCase().includes('transmission synaptique') ||
+    lessonMeta.title.toLowerCase().includes('synapse') ||
+    lessonMeta.title.toLowerCase().includes('synaptique') ||
+    lessonMeta.title.toLowerCase().includes('ppse') ||
+    lessonMeta.title.toLowerCase().includes('ppsi') ||
+    lessonMeta.title.toLowerCase().includes('intégration nerveuse') ||
+    lessonMeta.title.toLowerCase().includes('integration nerveuse') ||
+    lessonMeta.title.toLowerCase().includes('plaque motrice') ||
+    lessonMeta.title.toLowerCase().includes('sommation') ||
+    lessonMeta.title.toLowerCase().includes('arc réflexe') ||
+    lessonMeta.title.toLowerCase().includes('arc reflexe') ||
+    lessonMeta.title.toLowerCase().includes('réflexe myotatique') ||
+    lessonMeta.title.toLowerCase().includes('reflexe myotatique');
+
+  const isTissuNerveux =
+    !isSynapse && (
+    params.lesson === '60000000-0000-0003-0001-000000000002' ||
+    lessonMeta.title.toLowerCase().includes('tissu nerveux') ||
+    lessonMeta.title.toLowerCase().includes('potentiel de repos') ||
+    lessonMeta.title.toLowerCase().includes('potentiel d\'action') ||
+    lessonMeta.title.toLowerCase().includes('potentiel action') ||
+    lessonMeta.title.toLowerCase().includes('potentiels bioélectriques') ||
+    lessonMeta.title.toLowerCase().includes('potentiels bioelectriques') ||
+    (lessonMeta.title.toLowerCase().includes('neurone') && (lessonMeta.title.toLowerCase().includes('action') || lessonMeta.title.toLowerCase().includes('repos') || lessonMeta.title.toLowerCase().includes('structure'))));
+
   const isSystemeNerveux =
+    !isSynapse && !isTissuNerveux && (
     lessonMeta.title.toLowerCase().includes('système nerveux') ||
     lessonMeta.title.toLowerCase().includes('systeme nerveux') ||
     lessonMeta.title.toLowerCase().includes('cérébrospinal') ||
@@ -2515,7 +2635,7 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     (chapter?.title?.toLowerCase() || '').includes('systeme nerveux') ||
     (chapter?.title?.toLowerCase() || '').includes('b1') ||
     params.lesson === '60000000-0000-0003-0001-000000000001' ||
-    params.chapter === '50000000-0000-0003-0001-000000000001';
+    params.chapter === '50000000-0000-0003-0001-000000000001');
 
   const isDerivation =
     !isAcidesAmines &&
@@ -2635,7 +2755,11 @@ if (lessonMeta && lessonMeta.status !== 'published') {
               {/* Capsule Vocale & Masterclass Audio du Professeur (Al Muxtaar S2) */}
               <AudioCoachPlayer
                 title={
-                  isSystemeNerveux
+                  isSynapse
+                    ? 'Masterclass Audio : Transmission Synaptique & Intégration Postsynaptique'
+                    : isTissuNerveux
+                    ? 'Masterclass Audio : Tissu Nerveux, Potentiel de Repos & Potentiel d\'Action'
+                    : isSystemeNerveux
                     ? 'Masterclass Audio : Système Nerveux Cérébrospinal & Moelle Épinière'
                     : isAlcools
                     ? 'Masterclass Audio : Classes d\'Alcools & Nomenclature'
@@ -2686,7 +2810,11 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     : 'Masterclass Audio : Limites & Continuité'
                 }
                 subtitle={
-                  isSystemeNerveux
+                  isSynapse
+                    ? 'Terminale S2 • SVT : Les 6 réflexes pour maîtriser la synapse, les canaux ROC et les sommations au Bac'
+                    : isTissuNerveux
+                    ? 'Terminale S2 • SVT : Les 5 réflexes pour maîtriser la cytologie du neurone, le PR à -70 mV et le PA au Bac'
+                    : isSystemeNerveux
                     ? 'Terminale S2 • SVT : Les 5 réflexes pour maîtriser la coupe transversale et le ganglion au Bac'
                     : isAlcools
                     ? 'Terminale S2 • Chimie : Les 5 réflexes pour reconnaître la classe et nommer'
@@ -2737,7 +2865,11 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     : 'Terminale S2 • 5 réflexes essentiels pour l\'épreuve'
                 }
                 chapters={
-                  isSystemeNerveux
+                  isSynapse
+                    ? SYNAPSE_AUDIO_CHAPTERS
+                    : isTissuNerveux
+                    ? TISSU_NERVEUX_AUDIO_CHAPTERS
+                    : isSystemeNerveux
                     ? SYSTEME_NERVEUX_AUDIO_CHAPTERS
                     : isAlcools
                     ? ALCOOLS_AUDIO_CHAPTERS
@@ -2871,6 +3003,16 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                   <P4ParticuleReflexesCard />
                   <P4ParticuleInteractiveSimulator />
                 </>
+              ) : isSynapse ? (
+                <>
+                  <B1SynapseReflexesCard />
+                  <B1SynapseInteractiveLab />
+                </>
+              ) : isTissuNerveux ? (
+                <>
+                  <B1TissuNerveuxReflexesCard />
+                  <B1TissuNerveuxInteractiveLab />
+                </>
               ) : isSystemeNerveux ? (
                 <>
                   <B1SystemeNerveuxReflexesCard />
@@ -2981,7 +3123,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
               {/* Section Annales Officielles du Baccalauréat Sénégalais (Après les exercices d'application) */}
               <BacSenegalAnnales
                 chapter={
-                  isCinematique
+                  isSynapse
+                    ? 'synapse'
+                    : isCinematique
                     ? 'cinematique_point'
                     : isNewton
                     ? 'lois_newton'
@@ -2989,6 +3133,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'projectile_champ_pesanteur'
                     : isParticule
                     ? 'particule_champ_e_b'
+                    : isTissuNerveux
+                    ? 'tissu_nerveux'
                     : isSystemeNerveux
                     ? 'systeme_nerveux'
                     : isAlcools
@@ -3075,6 +3221,10 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <ProjectileQuizEmbedded />
               ) : isParticule ? (
                 <P4ParticuleQuizEmbedded />
+              ) : isSynapse ? (
+                <B1SynapseQuizEmbedded />
+              ) : isTissuNerveux ? (
+                <B1TissuNerveuxQuizEmbedded />
               ) : isSystemeNerveux ? (
                 <B1SystemeNerveuxQuizEmbedded />
               ) : isTvi ? (

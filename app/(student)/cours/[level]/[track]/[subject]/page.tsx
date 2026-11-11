@@ -684,6 +684,16 @@ export default async function SubjectChaptersPage({ params }: PageProps) {
                                               Labo Virtuel &amp; Schémas Bac
                                             </span>
                                           )}
+                                          {ch.code === 'B1' && lIdx === 1 && (
+                                            <span className="text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                                              PR, PA &amp; Oscilloscope
+                                            </span>
+                                          )}
+                                          {ch.code === 'B1' && lIdx === 2 && (
+                                            <span className="text-[10px] font-bold text-indigo-800 bg-indigo-50 px-2 py-0.5 rounded-full border border-indigo-200">
+                                              Synapse &amp; Intégration Nerveuse
+                                            </span>
+                                          )}
                                         </div>
                                       </div>
                                     </div>
@@ -824,11 +834,23 @@ export default async function SubjectChaptersPage({ params }: PageProps) {
                                         <p className="text-sm font-semibold text-navy truncate">
                                           {lesson.title}
                                         </p>
-                                        {isFree && (
-                                          <span className="text-[10px] font-bold text-turquoise bg-turquoise-light px-2 py-0.5 rounded-full inline-block mt-0.5">
-                                            Aperçu gratuit
-                                          </span>
-                                        )}
+                                        <div className="flex flex-wrap items-center gap-2 mt-0.5">
+                                          {isFree && (
+                                            <span className="text-[10px] font-bold text-turquoise bg-turquoise-light px-2 py-0.5 rounded-full inline-block">
+                                              Aperçu gratuit
+                                            </span>
+                                          )}
+                                          {ch.code === 'B1' && lIdx === 0 && (
+                                            <span className="text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                                              Labo Anatomique & Schémas Bac
+                                            </span>
+                                          )}
+                                          {ch.code === 'B1' && lIdx === 1 && (
+                                            <span className="text-[10px] font-bold text-teal-800 bg-teal-50 px-2 py-0.5 rounded-full border border-teal-200">
+                                              Labo Électrophysiologie & Oscilloscope
+                                            </span>
+                                          )}
+                                        </div>
                                       </div>
                                     </div>
 

@@ -2315,6 +2315,188 @@ Lorsqu'une fibre nerveuse est coupée, la partie séparée du corps cellulaire q
       baremeAstuce: 'Dans l’épreuve de raisonnement du Bac S2, appliquez toujours la démarche : Constat précis → Déduction physiologique → Conclusion rigoureuse.',
     },
   ],
+
+  // B1. TISSU NERVEUX & POTENTIELS BIOÉLECTRIQUES (SVT S2 - B1 LEÇON 2)
+  tissu_nerveux: [
+    {
+      year: 2021,
+      session: 'Session Normale (S2)',
+      points: 'Deuxième Partie — Raisonnement Scientifique (6 Points)',
+      topic: 'Cinétique du potentiel d’action sur axone géant, rôle des flux ioniques Na+/K+, action sélective de la tétrodotoxine (TTX) et du TEA',
+      enonce: `Sur un axone géant de calmar maintenu en survie dans de l'eau de mer oxygénée, on introduit une microélectrode réceptrice intracellulaire $R_1$, l'électrode de référence $R_2$ étant placée dans le bain externe. Le dispositif est relié à la voie A d'un oscilloscope cathodique.
+
+1. Avant toute stimulation, l'oscilloscope indique une valeur stable de $-70\\text{ mV}$.
+   a) Comment nomme-t-on cette valeur et quelle est son origine ionique au repos ?
+   b) Quel est le rôle exact de la pompe $Na^+/K^+$ ATPase dans ce maintien ?
+
+2. On applique une stimulation électrique efficace en $S_1-S_2$. On enregistre un potentiel d'action diphasique d'amplitude $100\\text{ mV}$ (inversion de polarité jusqu'à $+30\\text{ mV}$ suivie d'un retour au repos après une brève hyperpolarisation à $-80\\text{ mV}$).
+   Expliquer les mécanismes ioniques membranaires précis (états des canaux ioniques voltage-dépendants et flux ioniques) responsables de :
+   - La phase ascendante (dépolarisation).
+   - La phase descendante (repolarisation).
+   - L'hyperpolarisation terminale.
+
+3. Pour préciser les flux ioniques, on renouvelle l'expérience en ajoutant au milieu de perfusion :
+   - Milieu 1 : de la Tétrodotoxine (TTX).
+   - Milieu 2 : du Tétraéthylammonium (TEA).
+   Préciser l'effet de chacune de ces substances sur l'enregistrement oscillographique et déduire le type de canaux bloqués.`,
+      solution: `### 1. Le Potentiel de Repos (PR = -70 mV) (1,5 point)
+**a) Définition et origine ionique :**
+Il s'agit du **Potentiel de Repos** (ou potentiel de membrane). Il s'explique par :
+- Une répartition inégale des ions : forte concentration interne de $K^+$ ($140\\text{ mmol/L}$) et externe de $Na^+$ ($140\\text{ mmol/L}$), et présence de gros anions protéiques intracellulaires non diffusibles $A^-$.
+- Une perméabilité membranaire sélective au repos : la membrane est environ 50 à 100 fois plus perméable aux ions $K^+$ qu'aux ions $Na^+$ (canaux de fuite ouverts). Les ions $K^+$ sortent passivement de la cellule selon leur gradient de concentration, ce qui charge positivement la face externe et laisse l'intérieur électronégatif.
+
+**b) Rôle de la pompe $Na^+/K^+$ ATPase :**
+C'est un transporteur actif électrogène qui expulse $3\\,Na^+$ contre l'entrée de $2\\,K^+$ en hydrolysant une molécule d'ATP. Elle s'oppose à l'épuisement passif des gradients et maintient la stabilité à long terme des concentrations ioniques.
+
+---
+
+### 2. Mécanismes moléculaires du Potentiel d'Action (2,5 points)
+- **Dépolarisation (-70 mV à +30 mV) :** L'atteinte du seuil de dépolarisation critique ($-55\\text{ mV}$) provoque l'ouverture instantanée des **canaux sodium voltage-dépendants (CVD-$Na^+$)**. Il se produit une entrée massive, rapide et passive d'ions $Na^+$ selon leur gradient électrochimique (flux entrant dépolarisant), inversant la polarité membranaire.
+- **Repolarisation (+30 mV à -70 mV) :** Les CVD-$Na^+$ s'inactivent automatiquement tandis que les **canaux potassium voltage-dépendants (CVD-$K^+$)** s'ouvrent avec un léger retard. Les ions $K^+$ sortent massivement et passivement de la cellule selon leur gradient électrochimique (flux sortant repolarisant).
+- **Hyperpolarisation transitoire (-80 mV) :** La fermeture des CVD-$K^+$ est lente et retardée, provoquant une sortie prolongée d'ions $K^+$ au-delà du potentiel de repos avant fermeture complète. La pompe $Na^+/K^+$ rétablit ensuite les stocks ioniques initiaux.
+
+---
+
+### 3. Action des neurotoxines sélectives (2 points)
+- **Milieu 1 (+ TTX) :** La TTX bloque sélectivement les CVD-$Na^+$. Le potentiel d'action est totalement aboli (seul subsiste un potentiel électrotonique infraliminaire ou l'artéfact de choc). Cela confirme que la phase de dépolarisation dépend exclusivement de l'ouverture des canaux sodium voltage-dépendants.
+- **Milieu 2 (+ TEA) :** Le TEA bloque sélectivement les CVD-$K^+$. La dépolarisation a lieu normalement jusqu'à $+30\\text{ mV}$, mais la repolarisation rapide est supprimée ; le retour au repos devient extrêmement lent. Cela confirme que la repolarisation dépend directement du flux sortant de $K^+$ via les canaux potassium voltage-dépendants.`,
+      baremeAstuce: 'Attention : ne confondez jamais canaux de fuite (toujours ouverts, responsables du PR) et canaux voltage-dépendants (fermés au repos, activés par la variation de potentiel lors du PA).',
+    },
+    {
+      year: 2019,
+      session: 'Session Normale (S2)',
+      points: 'Première Partie — Maîtrise des Connaissances (5 Points)',
+      topic: 'Comparaison des réponses d’une fibre nerveuse isolée et d’un nerf sciatique à des stimulations d’intensités croissantes (Loi du tout ou rien vs Recrutement)',
+      enonce: `On dispose de deux préparations neurophysiologiques chez la grenouille :
+- Préparation A : une fibre nerveuse isolée (axone unique).
+- Préparation B : un nerf sciatique entier disséqué.
+
+Chaque préparation est placée sur des électrodes stimulatrices $S_1-S_2$ et réceptrices $R_1-R_2$ connectées à un oscilloscope. On applique une série de stimulations électriques d'intensités croissantes $I_1 < I_2 < I_3 < I_4 < I_5 < I_6$.
+
+1. Décrire et expliquer l'évolution de l'amplitude de la réponse électrique enregistrée sur la **fibre nerveuse isolée** (Préparation A). Énoncer la loi physiologique mise en évidence.
+2. Décrire et expliquer l'évolution de l'amplitude du tracé obtenu sur le **nerf entier** (Préparation B).
+3. Pourquoi le nerf entier ne répond-il pas à la même loi que la fibre isolée ? Définir précisément le phénomène en cause.`,
+      solution: `### 1. Réponse de la fibre nerveuse isolée & Loi du Tout ou Rien (2 points)
+- Pour des intensités faibles $I_1$ et $I_2$ inférieures à l'intensité seuil $I_s$ (stimulations infraliminaires), aucune réponse propagée n'apparaît (l'amplitude est nulle, simple potentiel électrotonique local décrémentiel).
+- Dès que l'intensité atteint la valeur seuil $I_s = I_3$ (stimulation liminaire), la fibre émet d'emblée un potentiel d'action d'**amplitude maximale constante** (environ $100\\text{ mV}$).
+- Pour toutes les intensités supérieures $I_4, I_5, I_6$ (supraliminaires), l'amplitude du potentiel d'action reste rigoureusement identique.
+- **Loi mise en évidence :** La fibre nerveuse isolée obéit strictement à la **Loi du « Tout ou Rien »** : si la stimulation est inférieure au seuil, la fibre ne répond pas (« Rien ») ; dès que le seuil est atteint ou dépassé, la fibre répond avec son amplitude maximale possible qui ne dépend plus de l'intensité (« Tout »).
+
+---
+
+### 2. Réponse du nerf sciatique entier (1,5 point)
+- Pour $I < I_{seuil\\,global}$, la réponse est nulle.
+- À partir du seuil global, l'amplitude du potentiel d'action diphasique augmente progressivement et régulièrement à mesure que l'intensité de stimulation augmente ($I_3 < I_4 < I_5$).
+- À partir d'une certaine intensité $I_5$, l'amplitude atteint un palier maximal et ne progresse plus, même si l'on augmente encore l'intensité jusqu'à $I_6$ (phénomène de saturation).
+
+---
+
+### 3. Explication : Phénomène de Recrutement (1,5 point)
+Le nerf entier n'obéit **pas** à la loi du tout ou rien car ce n'est pas une cellule unique, mais un organe constitué de plusieurs milliers de fibres nerveuses différentes :
+- Ces fibres possèdent des diamètres variés et des **seuils d'excitabilité différents** (étagés du plus faible au plus élevé).
+- Une intensité modérée n'excite que les fibres les plus sensibles (à seuil bas).
+- Une augmentation de l'intensité excite successivement des fibres à seuils plus élevés qui s'ajoutent aux précédentes : c'est le phénomène de **recrutement** (sommation spatiale des réponses des différentes fibres).
+- Le palier de saturation est atteint lorsque $100\\%$ des fibres du nerf sont recrutées.`,
+      baremeAstuce: 'Dans une copie du Bac S2, si un élève écrit que « le nerf obéit à la loi du tout ou rien », l’examinateur retire systématiquement la totalité des points de la question.',
+    },
+  ],
+  synapse: [
+    {
+      year: 2018,
+      session: 'Session Normale (S2)',
+      points: 'Deuxième Partie — Raisonnement Scientifique (6 Points)',
+      topic: 'Transmission Neuromusculaire, Rôle du Calcium et Pharmacologie du Curare et de l’Éserine',
+      enonce: `On étudie le fonctionnement d'une jonction neuromusculaire (plaque motrice) isolée entre un motoneurone rachidien et une fibre musculaire striée squelettique.
+
+### Série d'Expériences Réalisées :
+1. **Expérience 1 (Témoin) :** Une stimulation électrique efficace du motoneurone entraîne une libération d'acétylcholine (ACh) dans la fente synaptique, l'enregistrement d'un potentiel de plaque motrice dépolarisant (PPM ou PPSE) de $+25\\text{ mV}$ et la contraction vigoureuse de la fibre musculaire.
+2. **Expérience 2 (Milieu sans Calcium) :** La même préparation est baignée dans un liquide physiologique dépourvu d'ions calcium ($[\\text{Ca}^{2+}] = 0$). Une stimulation électrique efficace du motoneurone entraîne l'apparition normale d'un potentiel d'action présynaptique, mais aucune molécule d'acétylcholine n'est détectée dans la fente synaptique, aucun PPM n'est enregistré et la fibre ne se contracte pas.
+3. **Expérience 3 (Action du Curare) :** On ajoute du curare dans la fente synaptique en présence de calcium normal. Lors de la stimulation du motoneurone, l'acétylcholine est normalement libérée dans la fente, mais aucun PPM n'est enregistré et le muscle reste inerte. La stimulation électrique directe de la membrane de la fibre musculaire provoque toutefois sa contraction normale.
+4. **Expérience 4 (Action de l'Éserine) :** On injecte de l'éserine dans la fente synaptique normale. Après une stimulation brève du motoneurone, la fibre musculaire subit une contraction prolongée et répétée (secousses tétaniques).
+
+### Consignes Officielles :
+1. Analysez les expériences 1 et 2 pour préciser le rôle exact des ions $\\text{Ca}^{2+}$ dans la transmission synaptique (1,5 point).
+2. À partir de l'expérience 3, déterminez le site et le mode d'action précis du curare à la synapse neuromusculaire (1,5 point).
+3. Expliquez le mécanisme par lequel l'éserine induit des contractions tétaniques durables dans l'expérience 4 (1,5 point).
+4. Résumez sous forme d'un schéma fonctionnel légendé les étapes de la transmission neuromusculaire normale (1,5 point).`,
+      solution: `### 1. Rôle des ions $\\text{Ca}^{2+}$ dans la transmission synaptique (1,5 point)
+- Dans l'expérience 1 (témoin avec $\\text{Ca}^{2+}$), le potentiel d'action présynaptique provoque la libération d'acétylcholine, un PPM et la contraction musculaire.
+- Dans l'expérience 2 (sans $\\text{Ca}^{2+}$), le potentiel d'action présynaptique se propage normalement jusqu'à la terminaison, mais l'acétylcholine n'est pas libérée.
+- **Déduction :** Le potentiel d'action électrique présynaptique est à lui seul incapable de provoquer la libération du neurotransmetteur. L'entrée d'ions $\\text{Ca}^{2+}$ par les canaux voltage-dépendants lors de la dépolarisation présynaptique constitue le **signal intracellulaire obligatoire qui déclenche l'exocytose des vésicules synaptiques**.
+
+---
+
+### 2. Site et mode d'action du Curare (1,5 point)
+- Dans l'expérience 3, sous curare, l'acétylcholine est libérée normalement dans la fente, ce qui prouve que l'élément présynaptique fonctionne parfaitement.
+- De plus, la stimulation électrique directe du muscle provoque sa contraction, ce qui prouve que la machinerie contractile musculaire (actine, myosine, tubules T) est intacte.
+- Le blocage se situe donc exclusivement au niveau de la **membrane postsynaptique** : le curare est un **antagoniste compétitif** des récepteurs nicotiniques chimiodépendants (ROC). Il se fixe sur les récepteurs à la place de l'ACh sans ouvrir le canal sodique, empêchant ainsi la genèse du PPM (PPSE) et paralysant le muscle.
+
+---
+
+### 3. Mécanisme d'action de l'Éserine (1,5 point)
+- L'éserine (physostigmine) est un inhibiteur spécifique de l'**acétylcholinestérase**, enzyme fixée dans la fente chargée d'hydrolyser l'acétylcholine en acétate et choline en une fraction de milliseconde.
+- En bloquant cette enzyme, l'acétylcholine libérée ne peut plus être détruite : elle persiste dans la fente synaptique et stimule continuellement les récepteurs ROC postsynaptiques.
+- Il en résulte un PPM géant prolongé et une salve ininterrompue de potentiels d'action musculaires provoquant des contractions tétaniques continues.
+
+---
+
+### 4. Schéma fonctionnel des étapes de la transmission normale (1,5 point)
+$$\\text{PA présynaptique} \\xrightarrow{\\text{Ouverture CVD-}Ca^{2+}} \\text{Entrée } Ca^{2+} \\xrightarrow{\\text{Exocytose}} \\text{ACh dans la fente}$$
+$$\\xrightarrow{\\text{Fixation Récepteurs ROC}} \\text{Entrée } Na^+ \\to \\text{PPM (PPSE)} \\to \\text{PA musculaire} \\to \\text{Contraction}$$
+$$\\text{Simultanément : } \\text{ACh} \\xrightarrow{\\text{Acétylcholinestérase}} \\text{Acétate} + \\text{Choline (recaptée)}$$`,
+      baremeAstuce: 'Dans la question sur le curare, l’Office du Bac exige impérativement de mentionner que la stimulation directe du muscle fonctionne (prouvant l’intégrité du muscle) pour valider l’action purement synaptique postsynaptique.',
+    },
+    {
+      year: 2020,
+      session: 'Session Normale (S2)',
+      points: 'Deuxième Partie — Raisonnement Scientifique (6 Points)',
+      topic: 'Intégration Postsynaptique par le Motoneurone : Sommation Spatiale, Temporelle et Rôle du Cône d’Implantation',
+      enonce: `On étudie un motoneurone $M$ de la corne antérieure de la moelle épinière chez le mammifère. Ce motoneurone reçoit trois terminaisons axonales synaptiques :
+- La fibre $F_1$ provenant d'un fuseau neuromusculaire (synapse excitatrice $S_1$).
+- La fibre $F_2$ provenant d'une voie cortico-spinale (synapse excitatrice $S_2$).
+- La fibre $F_3$ provenant d'un interneurone de Renshaw (synapse inhibitrice $S_3$).
+
+Une microélectrode réceptrice $R_1$ enregistre le potentiel de membrane au niveau du corps cellulaire (soma, repos $-70\\text{ mV}$), et une microélectrode $R_2$ enregistre au niveau du cône d'implantation (seuil d'excitabilité $-55\\text{ mV}$).
+
+### Résultats Expérimentaux :
+1. **Stimulation isolée de $F_1$ :** $R_1$ enregistre une dépolarisation de $+8\\text{ mV}$. Au niveau de $R_2$, aucun potentiel d'action n'est enregistré.
+2. **Stimulation isolée de $F_2$ :** $R_1$ enregistre une dépolarisation de $+10\\text{ mV}$. Au niveau de $R_2$, aucun potentiel d'action n'est enregistré.
+3. **Stimulation isolée de $F_3$ :** $R_1$ enregistre une hyperpolarisation de $-8\\text{ mV}$.
+4. **Stimulations simultanées de $F_1$ et $F_2$ :** $R_1$ enregistre une dépolarisation de $+18\\text{ mV}$. Au niveau de $R_2$, un train de potentiels d'action propagés de $100\\text{ mV}$ apparaît.
+5. **Stimulations simultanées de $F_1$, $F_2$ et $F_3$ :** $R_1$ enregistre une dépolarisation de $+10\\text{ mV}$. Au niveau de $R_2$, aucun potentiel d'action n'apparaît.
+6. **Deux stimulations successives très rapprochées de $F_1$ (intervalle $1\\text{ ms}$) :** $R_1$ enregistre une dépolarisation globale de $+16\\text{ mV}$, déclenchant un potentiel d'action en $R_2$.
+
+### Consignes Officielles :
+1. Qualifiez la nature des réponses obtenues en $R_1$ lors des stimulations isolées de $F_1$, $F_2$ et $F_3$ (1,5 point).
+2. Interprétez les résultats des expériences 4 et 5 en nommant le phénomène physiologique mis en jeu (1,5 point).
+3. Analysez l'expérience 6 et distinguez-la de l'expérience 4 (1,5 point).
+4. Expliquez le rôle primordial du cône d'implantation dans le déclenchement du potentiel d'action postsynaptique (1,5 point).`,
+      solution: `### 1. Nature des réponses élémentaires en $R_1$ (1,5 point)
+- Les stimulations de $F_1$ et $F_2$ provoquent des dépolarisations locales ($+8\\text{ mV}$ et $+10\\text{ mV}$) : ce sont des **Potentiels Post-Synaptiques Excitateurs (PPSE)** résultant de l'entrée d'ions $\\text{Na}^+$ par des récepteurs-canaux chimiodépendants.
+- La stimulation de $F_3$ provoque une hyperpolarisation ($-8\\text{ mV}$) : c'est un **Potentiel Post-Synaptique Inhibiteur (PPSI)** résultant de l'ouverture de canaux chimiodépendants au $\\text{Cl}^-$ (entrée de $\\text{Cl}^-$) ou au $\\text{K}^+$ (sortie de $\\text{K}^+$), qui éloigne le potentiel du seuil critique.
+
+---
+
+### 2. Interprétation des expériences 4 et 5 : Sommation Spatiale (1,5 point)
+- Dans l'expérience 4, les deux PPSE s'additionnent algébriquement : $+8\\text{ mV} + 10\\text{ mV} = +18\\text{ mV}$. Le potentiel au cône atteint $-70\\text{ mV} + 18\\text{ mV} = -52\\text{ mV}$, ce qui dépasse le seuil critique ($-55\\text{ mV}$). Des potentiels d'action sont donc émis en $R_2$. C'est la **sommation spatiale excitatrice**.
+- Dans l'expérience 5, l'activation conjointe du neurone inhibiteur $F_3$ soustrait son amplitude : $+8\\text{ mV} + 10\\text{ mV} - 8\\text{ mV} = +10\\text{ mV}$. Le potentiel résultant n'est que de $-60\\text{ mV}$, inférieur au seuil de $-55\\text{ mV}$ : la réponse reste infraliminaire et aucun PA n'est émis. Le neurone effectue donc une **sommation algébrique spatiale**.
+
+---
+
+### 3. Distinction entre Expérience 6 (Temporelle) et Expérience 4 (Spatiale) (1,5 point)
+- Dans l'expérience 4, la sommation est **spatiale** car elle résulte de la mise en jeu simultanée de synapses distinctes situées à des endroits différents du soma ($F_1$ et $F_2$).
+- Dans l'expérience 6, la sommation est **temporelle** car elle provient d'une seule et même synapse ($F_1$) recevant deux potentiels d'action très rapprochés dans le temps. Le second PPSE s'ajoute au premier avant que celui-ci ne soit dissipé ($+8\\text{ mV} + 8\\text{ mV} = +16\\text{ mV}$), atteignant $-54\\text{ mV} \\ge -55\\text{ mV}$ pour déclencher un PA.
+
+---
+
+### 4. Rôle du Cône d'Implantation (1,5 point)
+Le cône d'implantation (zone gâchette) est le carrefour intégrateur du neurone :
+- Il possède une concentration en **canaux $\\text{Na}^+$ voltage-dépendants** jusqu'à 100 fois supérieure à celle du corps cellulaire.
+- C'est pourquoi son seuil critique d'excitabilité est le plus bas ($-55\\text{ mV}$).
+- Si et seulement si la somme algébrique des PPSE et PPSI atteint ce seuil au cône, les canaux voltage-dépendants s'ouvrent brutalement et engendrent un potentiel d'action propageable selon la loi du tout ou rien.`,
+      baremeAstuce: 'Pensez à toujours poser la somme algébrique mathématique chiffrée (-70 + PPSE - PPSI) pour obtenir le maximum de points à la question d’intégration au Bac S2.',
+    },
+  ],
 };
 
 BAC_ANNALES_BY_CHAPTER.cinematique = BAC_ANNALES_BY_CHAPTER.cinematique_point;
@@ -2330,6 +2512,20 @@ BAC_ANNALES_BY_CHAPTER.b1 = BAC_ANNALES_BY_CHAPTER.systeme_nerveux;
 BAC_ANNALES_BY_CHAPTER['systeme-nerveux'] = BAC_ANNALES_BY_CHAPTER.systeme_nerveux;
 BAC_ANNALES_BY_CHAPTER['systeme_nerveux'] = BAC_ANNALES_BY_CHAPTER.systeme_nerveux;
 BAC_ANNALES_BY_CHAPTER['moelle-epiniere'] = BAC_ANNALES_BY_CHAPTER.systeme_nerveux;
+BAC_ANNALES_BY_CHAPTER.tissu_nerveux = BAC_ANNALES_BY_CHAPTER.tissu_nerveux;
+BAC_ANNALES_BY_CHAPTER['tissu-nerveux'] = BAC_ANNALES_BY_CHAPTER.tissu_nerveux;
+BAC_ANNALES_BY_CHAPTER['potentiel-action'] = BAC_ANNALES_BY_CHAPTER.tissu_nerveux;
+BAC_ANNALES_BY_CHAPTER['potentiel_action'] = BAC_ANNALES_BY_CHAPTER.tissu_nerveux;
+BAC_ANNALES_BY_CHAPTER['potentiel-repos'] = BAC_ANNALES_BY_CHAPTER.tissu_nerveux;
+BAC_ANNALES_BY_CHAPTER['neurone'] = BAC_ANNALES_BY_CHAPTER.tissu_nerveux;
+BAC_ANNALES_BY_CHAPTER.synapse = BAC_ANNALES_BY_CHAPTER.synapse;
+BAC_ANNALES_BY_CHAPTER['transmission-synaptique'] = BAC_ANNALES_BY_CHAPTER.synapse;
+BAC_ANNALES_BY_CHAPTER['synapses'] = BAC_ANNALES_BY_CHAPTER.synapse;
+BAC_ANNALES_BY_CHAPTER['ppse'] = BAC_ANNALES_BY_CHAPTER.synapse;
+BAC_ANNALES_BY_CHAPTER['ppsi'] = BAC_ANNALES_BY_CHAPTER.synapse;
+BAC_ANNALES_BY_CHAPTER['arc-reflexe'] = BAC_ANNALES_BY_CHAPTER.synapse;
+BAC_ANNALES_BY_CHAPTER['arc_reflexe'] = BAC_ANNALES_BY_CHAPTER.synapse;
+BAC_ANNALES_BY_CHAPTER['b1l3'] = BAC_ANNALES_BY_CHAPTER.synapse;
 
 interface BacSenegalAnnalesProps {
   chapter?: string;
