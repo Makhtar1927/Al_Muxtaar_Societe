@@ -2497,6 +2497,91 @@ Le cône d'implantation (zone gâchette) est le carrefour intégrateur du neuron
       baremeAstuce: 'Pensez à toujours poser la somme algébrique mathématique chiffrée (-70 + PPSE - PPSI) pour obtenir le maximum de points à la question d’intégration au Bac S2.',
     },
   ],
+  reflexes_medullaires: [
+    {
+      year: 2019,
+      session: 'Session Normale (S2)',
+      points: 'Deuxième Partie — Raisonnement Scientifique (6 Points)',
+      topic: 'Expériences de Magendie sur les Racines Rachidiennes & Arc Réflexe Myotatique',
+      enonce: `Pour comprendre l'organisation anatomique et fonctionnelle des voies nerveuses motrices et sensitives, on réalise chez des mammifères de laboratoire une série de sections et de stimulations électriques au niveau de la moelle épinière lombo-sacrée innervant le membre postérieur.
+
+### Série d'Expériences Réalisées :
+1. **Expérience 1 :** On sectionne le nerf sciatique droit d'un cobaye. On observe immédiatement une perte de toute sensibilité au niveau de la patte droite, accompagnée d'une paralysie totale de cette même patte.
+2. **Expérience 2 :** Chez un second cobaye, on réalise la section bilatérale des racines dorsales (avec ganglion spinal) innervant le membre postérieur droit. Après réveil, l'animal marche en utilisant sa patte droite, mais ne réagit à aucune piqûre ou brûlure appliquée sur cette patte. La percussion du tendon rotulien ne déclenche aucun réflexe.
+3. **Expérience 3 :** Sur la racine dorsale coupée de l'expérience 2, on applique une stimulation électrique efficace :
+   - D'abord sur le **bout périphérique** : aucun mouvement, aucune réaction de l'animal.
+   - Ensuite sur le **bout central** : l'animal gémit de douleur et fléchit vivement sa patte controlatérale gauche intacte.
+4. **Expérience 4 :** Chez un troisième cobaye, on sectionne les racines ventrales innervant la patte droite. L'animal ressent la douleur des piqûres sur sa patte droite, mais cette patte pend inerte, incapable d'exécuter le moindre mouvement. La stimulation du bout périphérique de la racine ventrale entraîne une contraction musculaire immédiate.
+
+### Consignes Officielles :
+1. Analysez les résultats des expériences 1, 2 et 4 pour déduire le rôle précis du nerf sciatique, de la racine dorsale et de la racine ventrale (2 points).
+2. Interprétez les résultats de stimulation des bouts central et périphérique de la racine dorsale dans l'expérience 3 en précisant le sens de conduction de l'influx nerveux (1,5 point).
+3. Pourquoi la section de la racine dorsale dans l'expérience 2 abolit-elle le réflexe rotulien alors que la motricité volontaire persiste ? (1,5 point).
+4. Réalisez un schéma légendé de l'arc réflexe myotatique rotulien illustrant la disposition du neurone sensitif et du motoneurone (1 point).`,
+      solution: `### 1. Rôle du nerf sciatique et des racines dorsale et ventrale (2 points)
+- **Expérience 1 (Nerf sciatique coupé) :** L'apparition simultanée d'une anesthésie et d'une paralysie prouve que le nerf sciatique contient à la fois des fibres sensitives et motrices : c'est un **nerf mixte**.
+- **Expérience 2 (Racine dorsale coupée) :** L'insensibilité sans paralysie prouve que la racine dorsale conduit exclusivement les informations sensitives vers les centres : c'est la **voie afférente sensitive**.
+- **Expérience 4 (Racine ventrale coupée) :** La paralysie sans perte de sensibilité prouve que la racine ventrale conduit exclusivement les commandes motrices vers les effecteurs : c'est la **voie efférente motrice**.
+
+---
+
+### 2. Interprétation de l'expérience 3 et sens de conduction (1,5 point)
+- La stimulation du **bout central** (connecté à la moelle épinière) déclenche une douleur consciente et un réflexe de fuite : l'influx a pu remonter vers la moelle puis vers l'encéphale.
+- La stimulation du **bout périphérique** est inefficace car il n'y a pas d'organe récepteur à stimuler dans ce sens et les synapses médullaires imposent une conduction centripète stricte.
+- **Conclusion :** La racine dorsale conduit l'influx nerveux de manière **unidirectionnelle centripète** (de la périphérie vers le centre nerveux intégrateur).
+
+---
+
+### 3. Abolition du réflexe rotulien vs Maintien de la motricité volontaire (1,5 point)
+- Le **réflexe rotulien est un acte réflexe inné** dont le déclenchement dépend obligatoirement du message sensitif proprioceptif né dans les fuseaux neuromusculaires du quadriceps. La coupure de la racine dorsale interrompt ce premier maillon afférent : le réflexe est donc aboli.
+- En revanche, la **motricité volontaire** prend naissance dans le **cortex cérébral moteur**, descend par le faisceau pyramidal à travers la substance blanche médullaire, et rejoint le motoneurone $\\alpha$ de la corne antérieure. Comme la racine ventrale est intacte, les ordres volontaires atteignent normalement le muscle.
+
+---
+
+### 4. Schéma annoté de l'arc réflexe (1 point)
+Le schéma doit comporter impérativement :
+$$\\text{Fuseau Neuromusculaire (FNM)} \\to \\text{Fibre Ia en T (Ganglion spinal, Racine dorsale)}$$
+$$\\to \\text{Synapse excitatrice (Corne ventrale de la moelle)} \\to \\text{Motoneurone } \\alpha \\text{ (Racine ventrale)}$$
+$$\\to \\text{Plaque motrice du muscle quadriceps (Contraction)}$$`,
+      baremeAstuce: 'Dans l’explication de la motricité volontaire conservée, mentionnez impérativement que la commande volontaire descend de l’encéphale vers la racine ventrale sans passer par la racine dorsale.',
+    },
+    {
+      year: 2017,
+      session: 'Session Normale (S2)',
+      points: 'Première Partie — Restitution Organisée des Connaissances (4 Points)',
+      topic: 'Mécanisme d’Établissement, Rôle du Cortex et Extinction du Réflexe Conditionnel Pavlovien',
+      enonce: `Chez les animaux supérieurs et chez l'Homme, le comportement ne se limite pas aux réflexes innés : il s'enrichit continuellement de réflexes acquis au cours de l'existence.
+
+À partir du protocole classique d'Ivan Pavlov (salivation du chien) :
+1. Définissez les notions de stimulus inconditionnel (SI), stimulus neutre (SN) et stimulus conditionnel (SC) (1 point).
+2. Décrivez le protocole expérimental et expliquez le mécanisme neurophysiologique qui permet l'établissement du réflexe conditionnel (1,5 point).
+3. Expliquez le phénomène d'inhibition d'extinction lorsque le stimulus conditionnel est répété sans renforcement (1 point).
+4. Démontrez expérimentalement le rôle indispensable du cortex cérébral dans l'activité conditionnelle (0,5 point).`,
+      solution: `### 1. Définitions des termes clés (1 point)
+- **Stimulus Inconditionnel (SI) :** Stimulus naturel, absolu, capable de déclencher d'emblée une réponse réflexe innée sans apprentissage préalable (ex. la viande déposée dans la gueule).
+- **Stimulus Neutre (SN) :** Stimulus sans lien physiologique initial avec la réponse étudiée, ne provoquant aucune réaction spécifique de l'organe cible (ex. le son d'une cloche ou un éclair lumineux).
+- **Stimulus Conditionnel (SC) :** Stimulus neutre qui, après association temporelle répétée avec le stimulus inconditionnel, acquiert la capacité de déclencher à lui seul la réponse salivaire.
+
+---
+
+### 2. Protocole expérimental et mécanisme neurophysiologique (1,5 point)
+- **Protocole :** On fait retentir le son de cloche (SN), puis quelques secondes après on délivre la viande (SI). Cette association $[\\text{SN} \\to \\text{SI}]$ est répétée de multiples fois consécutives.
+- **Mécanisme :** Au niveau cérébral, l'aire auditive corticale (stimulée par le son) et l'aire gustative corticale (stimulée par la viande) sont activées de façon synchronisée. Par plasticité synaptique, il s'établit une **liaison nerveuse fonctionnelle temporaire** entre ces deux aires corticales. Dès lors, l'excitation de l'aire auditive suffit à activer le centre salivaire bulbaire par voie descendante : le chien salive au seul son de la cloche !
+
+---
+
+### 3. Phénomène d'inhibition d'extinction (1 point)
+- Si le stimulus conditionnel (cloche) est émis de façon répétée sans être jamais suivi de la viande (absence de renforcement), l'intensité de la sécrétion salivaire diminue progressivement pour devenir nulle.
+- C'est l'**inhibition d'extinction** : ce n'est pas une disparition anatomique des neurones, mais une inhibition corticale active temporaire. Preuve : après quelques heures de repos ou après un seul nouveau renforcement, le réflexe réapparaît instantanément.
+
+---
+
+### 4. Rôle indispensable du cortex cérébral (0,5 point)
+- Si l'on pratique l'ablation bilatérale des hémisphères cérébraux (animal décortiqué), le chien conserve intact le réflexe inné de salivation à la vue de la viande (centre bulbaire sous-cortical).
+- En revanche, il devient **totalement incapable d'acquérir le moindre réflexe conditionnel**, et tous les réflexes conditionnels préalablement appris sont définitivement perdus. Cela démontre que le cortex cérébral est le support exclusif de la liaison temporaire.`,
+      baremeAstuce: 'Insistez sur le terme « liaison nerveuse temporaire » et mentionnez que l’animal décortiqué conserve son réflexe inné : cette nuance est notée sur 0,5 pt par les correcteurs de l’Office du Bac.',
+    },
+  ],
 };
 
 BAC_ANNALES_BY_CHAPTER.cinematique = BAC_ANNALES_BY_CHAPTER.cinematique_point;
@@ -2523,8 +2608,14 @@ BAC_ANNALES_BY_CHAPTER['transmission-synaptique'] = BAC_ANNALES_BY_CHAPTER.synap
 BAC_ANNALES_BY_CHAPTER['synapses'] = BAC_ANNALES_BY_CHAPTER.synapse;
 BAC_ANNALES_BY_CHAPTER['ppse'] = BAC_ANNALES_BY_CHAPTER.synapse;
 BAC_ANNALES_BY_CHAPTER['ppsi'] = BAC_ANNALES_BY_CHAPTER.synapse;
-BAC_ANNALES_BY_CHAPTER['arc-reflexe'] = BAC_ANNALES_BY_CHAPTER.synapse;
-BAC_ANNALES_BY_CHAPTER['arc_reflexe'] = BAC_ANNALES_BY_CHAPTER.synapse;
+BAC_ANNALES_BY_CHAPTER['arc-reflexe'] = BAC_ANNALES_BY_CHAPTER.reflexes_medullaires;
+BAC_ANNALES_BY_CHAPTER['arc_reflexe'] = BAC_ANNALES_BY_CHAPTER.reflexes_medullaires;
+BAC_ANNALES_BY_CHAPTER['reflexe-myotatique'] = BAC_ANNALES_BY_CHAPTER.reflexes_medullaires;
+BAC_ANNALES_BY_CHAPTER['reflexe_myotatique'] = BAC_ANNALES_BY_CHAPTER.reflexes_medullaires;
+BAC_ANNALES_BY_CHAPTER['reflexes-medullaires'] = BAC_ANNALES_BY_CHAPTER.reflexes_medullaires;
+BAC_ANNALES_BY_CHAPTER['pavlov'] = BAC_ANNALES_BY_CHAPTER.reflexes_medullaires;
+BAC_ANNALES_BY_CHAPTER['conditionnel'] = BAC_ANNALES_BY_CHAPTER.reflexes_medullaires;
+BAC_ANNALES_BY_CHAPTER['b1l4'] = BAC_ANNALES_BY_CHAPTER.reflexes_medullaires;
 BAC_ANNALES_BY_CHAPTER['b1l3'] = BAC_ANNALES_BY_CHAPTER.synapse;
 
 interface BacSenegalAnnalesProps {

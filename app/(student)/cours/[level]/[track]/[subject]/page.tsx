@@ -694,6 +694,11 @@ export default async function SubjectChaptersPage({ params }: PageProps) {
                                               Synapse &amp; Intégration Nerveuse
                                             </span>
                                           )}
+                                          {ch.code === 'B1' && lIdx === 3 && (
+                                            <span className="text-[10px] font-bold text-violet-800 bg-violet-50 px-2 py-0.5 rounded-full border border-violet-200">
+                                              Réflexes Médullaires &amp; Pavlov
+                                            </span>
+                                          )}
                                         </div>
                                       </div>
                                     </div>

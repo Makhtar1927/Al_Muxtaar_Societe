@@ -266,7 +266,7 @@ export default function B1TissuNerveuxQuizEmbedded() {
                     <span className="font-bold text-emerald-800 dark:text-emerald-400 uppercase tracking-wider text-[10px] block mb-1">
                       Xam-xam Wolof :
                     </span>
-                    <p className="italic">"{q.wolofTip}"</p>
+                    <p className="italic">&ldquo;{q.wolofTip}&rdquo;</p>
                   </div>
                 </div>
               )}

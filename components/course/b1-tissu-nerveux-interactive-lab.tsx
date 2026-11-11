@@ -849,8 +849,8 @@ export default function B1TissuNerveuxInteractiveLab() {
                   </tr>
                   <tr>
                     <td className="p-3 font-bold bg-slate-50">Loi biologique obéie</td>
-                    <td className="p-3 font-bold text-emerald-800">Loi du "Tout ou Rien"</td>
-                    <td className="p-3 font-bold text-rose-700">N'obéit PAS au tout ou rien !</td>
+                    <td className="p-3 font-bold text-emerald-800">Loi du &ldquo;Tout ou Rien&rdquo;</td>
+                    <td className="p-3 font-bold text-rose-700">N&apos;obéit PAS au tout ou rien !</td>
                   </tr>
                   <tr>
                     <td className="p-3 font-bold bg-slate-50">Stimulation I &lt; Seuil</td>

@@ -5793,8 +5793,151 @@ Les épreuves du Baccalauréat sénégalais font fréquemment appel à des agent
 > 3. **Conclure sur le mécanisme :** "Le produit $X$ agit spécifiquement au niveau de la synapse neuromusculaire en inhibant [nom du récepteur ou de l'enzyme]."
 `;
 
+RICH_LESSONS_MAP.reflexes_medullaires_conditionnels = `# B1 - Leçon 4 : Activité Réflexe Médullaire (Réflexe Myotatique) & Réflexes Conditionnels Pavloviens
+
+---
+
+## Introduction & Définition de l'Acte Réflexe au Bac S2
+
+Un **acte réflexe** est une réponse motrice ou sécrétoire involontaire, rapide, stéréotypée et inéluctable de l'organisme consécutive à la stimulation efficace d'un récepteur sensoriel précis.
+
+Au Baccalauréat sénégalais, le programme distingue rigoureusement deux grandes catégories de réflexes :
+1. **Les réflexes innés (ou absolus) :** Présents dès la naissance, universels pour tous les individus d'une même espèce, immuables et centrés sur la moelle épinière ou le tronc cérébral (ex. réflexe myotatique rotulien, réflexe de retrait nociceptif, clignement palpébral).
+2. **Les réflexes acquis (ou conditionnels pavloviens) :** Individuels, temporaires, résultant d'un apprentissage par association répétée et nécessitant obligatoirement l'intégrité du **cortex cérébral** (ex. réflexe salivaire au son d'une cloche).
+
+> [!THEOREME] **La Loi de Continuité de l'Arc Réflexe Médullaire :**
+> L'accomplissement d'un réflexe inné exige la continuité anatomique parfaite de **5 maillons fonctionnels en série** :
+> 1. **Récepteur sensoriel :** Capte le stimulus mécanique et le convertit en influx nerveux (ex. Fuseau Neuromusculaire, FNM).
+> 2. **Conducteur afférent :** Fibre sensitive (Ia) dont le corps cellulaire loge dans le **ganglion spinal** de la racine dorsale.
+> 3. **Centre nerveux intégrateur :** Substance grise de la moelle épinière (traitement et transmission synaptique).
+> 4. **Conducteur efférent :** Fibre motrice (axone du motoneurone $\\alpha$) émergeant par la **racine ventrale**.
+> 5. **Organe effecteur :** Muscle strié squelettique qui exécute la contraction mécanique.
+
+> [!WOLOF] **Ndongo S2 Wolof Insight :**
+> Réflexe inné bi dafa melni commande automatique bu Yàlla bind ci sa yaram : bo jotee stimulus bi rekk, dafay déclenché boppam sans nga ciy xalaat ! Moelle épinière bi mooy géré dossier bi ci 25 millisecondes rekk bala xel mi sax di yég dara.
+
+---
+
+## 1. Le Réflexe Myotatique : Modèle Monosynaptique & Maintien de la Posture
+
+### 1.1. Définition Officielle
+Le **réflexe myotatique** est la contraction réflexe d'un muscle en réponse à son **propre étirement**.
+- **Exemple classique au Bac :** Le **réflexe rotulien** (la percussion du tendon rotulien sous la rotule étire brusquement le muscle quadriceps de la cuisse, provoquant instantanément sa contraction et l'extension de la jambe) ou le **réflexe achilléen** (percussion du tendon d'Achille $\\to$ extension du pied).
+- **Rôle biologique majeur :** Le maintien du tonus musculaire, l'équilibre postural et la lutte permanente contre la pesanteur.
+
+### 1.2. Mécanisme Moléculaire & Caractère Monosynaptique
+Le réflexe myotatique est le **seul réflexe monosynaptique** de l'organisme :
+1. L'étirement mécanique distend les **fuseaux neuromusculaires (FNM)** disposés en parallèle avec les fibres musculaires.
+2. Les terminaisons annulo-spiralées des fibres sensitives Ia sont dépolarisées (potentiel récepteur générateur).
+3. Des trains de potentiels d'action cheminent de manière centripète le long du nerf sciatique, franchissent le ganglion spinal de la racine dorsale et pénètrent dans la corne postérieure de la moelle épinière.
+4. Dans la corne antérieure, la fibre Ia s'articule **directement par une seule synapse excitatrice chimique** (médiateur : glutamate) avec le soma du motoneurone $\\alpha$.
+5. Le motoneurone $\\alpha$ émet une salve de PA le long de la racine ventrale qui déclenche la libération d'acétylcholine à la jonction neuromusculaire et la contraction du quadriceps.
+
+> [!VIE_REELLE] **L'analogie de la visite médicale militaire au Camp Gallieni :**
+> Lors de la visite d'incorporation au service militaire ou lors d'une consultation au CHU Fann, le médecin frappe sous la rotule avec un petit marteau en caoutchouc. Si la jambe se détend d'un coup sec, cela prouve d'un coup que le nerf fémoral, les racines $L_3-L_4$ et la moelle épinière lombaire fonctionnent parfaitement sans lésion.
+
+---
+
+## 2. Le Circuit Réciproque & l'Interneurone Inhibiteur
+
+Pour que la jambe puisse s'étendre sans déchirer les muscles de la face postérieure de la cuisse, la contraction du muscle agoniste (quadriceps) doit impérativement s'accompagner du **relâchement coordonné du muscle antagoniste (ischio-jambiers)**.
+
+C'est le principe de l'**innervation réciproque** :
+- La fibre sensitive Ia se divise dans la moelle en deux collatérales :
+  1. Une collatérale directe excitatrice qui active le **motoneurone $\\alpha$ du quadriceps** (voie monosynaptique $\\to$ contraction).
+  2. Une collatérale qui fait synapse avec un **interneurone inhibiteur** dans la substance grise. Cet interneurone libère un neurotransmetteur inhibiteur (GABA ou glycine) qui ouvre des canaux $\\text{Cl}^-$ et engendre un **PPSI hyperpolarisant** sur le motoneurone de l'ischio-jambier (voie polysynaptique $\\to$ inhibition du muscle antagoniste).
+
+| Muscle Analysé | Fonction Mécanique | Circuit Synaptique | État Postsynaptique | Conséquence Motrice |
+| :--- | :--- | :--- | :--- | :--- |
+| **Quadriceps (Agoniste)** | Extenseur de la jambe | Monosynaptique direct (Fibre Ia $\\to$ Motoneurone) | **PPSE supraliminaire** $\\implies$ Salve de PA | **Contraction vigoureuse** |
+| **Ischio-Jambier (Antagoniste)** | Fléchisseur de la jambe | Polysynaptique (Ia $\\to$ Interneurone $(-)$ $\\to$ Moto.) | **PPSI hyperpolarisant** ($-75\\text{ mV}$) | **Relâchement complet** |
+
+> [!PIEGE] **Attention au piège de l'interneurone au Bac :**
+> L'interneurone inhibiteur se trouve **exclusivement dans la moelle épinière** ! Il n'agit pas directement sur le muscle, mais inhibe le motoneurone antagoniste au niveau de son corps cellulaire dans la corne antérieure.
+
+---
+
+## 3. Les Expériences Fondamentales de Section et Stimulation de Magendie
+
+Au 19ème siècle, le physiologiste François Magendie a élucidé le rôle respectif des deux racines du nerf rachidien par une série d'expériences devenues la base de l'évaluation au Bac S2 :
+
+| Expérience Neurochirurgicale | Observation Clinique Spontanée | Effet de la Stimulation Électrique du Bout Central | Effet de la Stimulation Électrique du Bout Périphérique | Déduction Physiologique Officielle |
+| :--- | :--- | :--- | :--- | :--- |
+| **1. Section du Nerf Rachidien Mixte** | **Paralysie motrice flasque ET Anesthésie totale** du territoire innervé. | Douleur consciente (si centres encéphaliques intacts). | Contraction musculaire des faisceaux moteurs périphériques. | Le nerf rachidien est un **nerf mixte** conduisant à la fois des fibres sensitives et motrices. |
+| **2. Section de la Racine Dorsale (Postérieure)** | **Anesthésie totale** du territoire innervé.<br>La motricité reste normale ! | **Douleur vive** et mouvement réflexe controlatéral. | **Aucun effet** (pas de sensation, pas de mouvement). | La racine dorsale est purement **sensitive afférente** (conduction centripète vers les centres). |
+| **3. Section de la Racine Ventrale (Antérieure)** | **Paralysie motrice complète**.<br>La sensibilité reste normale ! | **Aucun effet** (l'influx moteur ne remonte pas dans la moelle). | **Contraction musculaire vive** du territoire effecteur. | La racine ventrale est purement **motrice efférente** (conduction centrifuge vers les effecteurs). |
+
+> [!METHODE] **La règle d'or pour orienter les stimulations :**
+> - **Bout central :** Reste rattaché à l'axe cérébrospinal (moelle épinière). Sa stimulation ne peut agir que si les voies conduisent **vers le centre** (voie centripète / sensitive).
+> - **Bout périphérique :** Reste rattaché aux organes (muscles / peau). Sa stimulation ne peut agir que si les voies conduisent **vers la périphérie** (voie centrifuge / motrice).
+
+---
+
+## 4. Les Réflexes Conditionnels Pavloviens (Réflexes Acquis)
+
+Mise en évidence par le physiologiste russe Ivan Pavlov chez le chien, cette découverte fondamentale démontre la capacité du système nerveux central à créer des connexions nouvelles par apprentissage.
+
+### 4.1. Le Protocole Expérimental en 4 Temps
+1. **Temps 1 (Avant conditionnement) :**
+   - Présentation de viande dans la gueule = **Stimulus Inconditionnel (SI)** $\\to$ Sécrétion de salive = **Réponse Inconditionnelle (RI)** (réflexe inné salivaire).
+   - Son d'une cloche ou lumière = **Stimulus Neutre (SN)** $\\to$ Aucune salivation.
+2. **Temps 2 (Pendant le conditionnement) :**
+   - On fait retentir la cloche (SN), puis quelques secondes après on donne la viande (SI).
+   - Cette séquence $[\\text{SN} \\to \\text{SI}]$ est répétée des dizaines de fois quotidiennement : c'est le **renforcement**.
+3. **Temps 3 (Après conditionnement) :**
+   - On fait retentir la cloche seule sans donner de viande.
+   - Le stimulus neutre est devenu un **Stimulus Conditionnel (SC)** capable de déclencher à lui seul une **Réponse Conditionnelle (RC)** : le chien salive abondamment !
+4. **Temps 4 (Inhibition d'Extinction) :**
+   - Si la cloche (SC) retentit de multiples fois de suite sans jamais être suivie de viande, la salivation diminue progressivement puis disparaît. Le réflexe est **éteint par inhibition corticale interne**.
+
+### 4.2. Mécanisme Neurologique : La Liaison Synaptique Temporaire
+Chez l'animal décortiqué (ablation chirurgicale des hémisphères cérébraux), le réflexe inné de salivation à la viande persiste, mais **aucun réflexe conditionnel ne peut être établi**.
+- Le conditionnement repose sur la **plasticité synaptique corticale** : la répétition simultanée de l'excitation de l'aire auditive et de l'aire gustative crée une **liaison nerveuse fonctionnelle temporaire** au sein du cortex cérébral.
+
+> [!VIE_REELLE] **L'analogie du mouton de Tabaski à Dakar :**
+> Pendant le mois précédant la fête de la Tabaski, à chaque fois que l'éleveur verse des graines dans la bassine en fer, la bassine émet un son métallique particulier (stimulus neutre). Au début, le mouton ne réagit qu'en voyant les graines. Après une semaine, dès que le mouton entend le tintement de la bassine au fond de la cour, il accourt et bêle instantanément : il a développé un réflexe conditionnel pavlovien !
+
+---
+
+## 5. Synthèse Comparative Officielle du Bac S2 : Réflexe Inné vs Réflexe Acquis
+
+| Critère de Comparaison | Réflexe Inné (Médullaire / Myotatique) | Réflexe Acquis (Conditionnel Pavlovien) |
+| :--- | :--- | :--- |
+| **Origine** | Présent dès la naissance (inscrit dans le génome). | Acquis par apprentissage et association au cours de la vie. |
+| **Spécificité** | Universel et identique chez tous les membres de l'espèce. | Individuel (varie d'un individu à un autre selon son vécu). |
+| **Centre nerveux obligatoire** | **Moelle épinière** ou tronc cérébral (persiste sans cortex). | **Cortex cérébral obligatoire** (disparaît chez l'animal décortiqué). |
+| **Stabilité dans le temps** | Définitif, permanent et immuable. | **Temporaire et réversible** (s'éteint sans renforcement). |
+| **Circuits neuronaux** | Voies anatomiques préétablies, innées et fixes. | **Liaisons synaptiques temporaires** créées par plasticité. |
+| **Rôle biologique** | Survie immédiate, posture et réflexes de défense. | Adaptation dynamique et fine de l'individu à son environnement. |
+
+> [!CONSEIL_BAC] **Ce que l'examinateur de l'Office du Bac attend :**
+> Dans une épreuve de synthèse (Partie 1), si le sujet oppose réflexe myotatique et conditionnel, organisez toujours votre plan en 3 axes :
+> 1. Définition et mise en évidence expérimentale (Percussion vs Pavlov).
+> 2. Comparaison des centres et des circuits (Moelle/Monosynaptique vs Cortex/Liaison temporaire).
+> 3. Tableau comparatif final récapitulant les 6 critères clés.
+`;
+
 export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: string, rawContent: string | null): string {
   const titleLower = `${lessonTitle} ${chapterTitle}`.toLowerCase();
+
+  // Routage SVT B1 Leçon 4 : Activité Réflexe Médullaire & Réflexes Conditionnels Pavloviens
+  if (
+    titleLower.includes('pavlov') ||
+    titleLower.includes('conditionnel') ||
+    titleLower.includes('conditionné') ||
+    titleLower.includes('conditionne') ||
+    titleLower.includes('réflexe myotatique') ||
+    titleLower.includes('reflexe myotatique') ||
+    titleLower.includes('réflexe médullaire') ||
+    titleLower.includes('reflexe medullaire') ||
+    titleLower.includes('activité réflexe') ||
+    titleLower.includes('activite reflexe') ||
+    titleLower.includes('arc réflexe') ||
+    titleLower.includes('arc reflexe') ||
+    titleLower.includes('magendie')
+  ) {
+    return RICH_LESSONS_MAP.reflexes_medullaires_conditionnels;
+  }
 
   // Routage SVT B1 Leçon 3 : Transmission Synaptique Chimique & Intégration Nerveuse
   if (
@@ -5806,11 +5949,7 @@ export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: stri
     titleLower.includes('intégration nerveuse') ||
     titleLower.includes('integration nerveuse') ||
     titleLower.includes('plaque motrice') ||
-    titleLower.includes('sommation') ||
-    titleLower.includes('arc réflexe') ||
-    titleLower.includes('arc reflexe') ||
-    titleLower.includes('réflexe myotatique') ||
-    titleLower.includes('reflexe myotatique')
+    titleLower.includes('sommation')
   ) {
     return RICH_LESSONS_MAP.synapse_transmission_chimique;
   }

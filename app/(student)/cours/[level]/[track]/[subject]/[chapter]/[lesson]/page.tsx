@@ -120,6 +120,9 @@ import B1TissuNerveuxQuizEmbedded from '@/components/course/b1-tissu-nerveux-qui
 import B1SynapseReflexesCard from '@/components/course/b1-synapse-reflexes-card';
 import B1SynapseInteractiveLab from '@/components/course/b1-synapse-interactive-lab';
 import B1SynapseQuizEmbedded from '@/components/course/b1-synapse-quiz-embedded';
+import B1ReflexesConditionnelsCard from '@/components/course/b1-reflexes-conditionnels-card';
+import B1ReflexesConditionnelsLab from '@/components/course/b1-reflexes-conditionnels-lab';
+import B1ReflexesConditionnelsQuizEmbedded from '@/components/course/b1-reflexes-conditionnels-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
@@ -1239,6 +1242,49 @@ const SYNAPSE_AUDIO_CHAPTERS: AudioChapter[] = [
     icon: "piege_bac",
     textScript:
       "Attention aux pièges d'expérimentation : le curare se fixe sur les récepteurs nicotiniques sans les ouvrir, provoquant une paralysie flasque sans toucher au muscle directement. L'éserine bloque l'acétylcholinestérase, empêchant la destruction de l'ACh et provoquant des contractions tétaniques prolongées.",
+  },
+];
+
+const REFLEXES_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Enjeux des Réflexes au Bac S2 Sénégal",
+    badge: "Introduction",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass de SVT Terminale S2 dédiée à l'activité réflexe médullaire et aux réflexes conditionnels pavloviens. C'est l'un des piliers des épreuves du Baccalauréat sénégalais. Vous devez maîtriser l'arc réflexe myotatique monosynaptique, les expériences de section des racines de Magendie et le protocole de conditionnement de Pavlov.",
+  },
+  {
+    timeSeconds: 50,
+    title: "2. Les 5 Maillons de l'Arc Réflexe Médullaire",
+    badge: "Anatomie",
+    icon: "theoreme_equerre",
+    textScript:
+      "Retenez les 5 maillons obligatoires : le récepteur sensoriel ou fuseau neuromusculaire, la fibre sensitive Ia traversant le ganglion spinal de la racine dorsale, le centre intégrateur de la moelle épinière, la voie efférente motrice via la racine ventrale, et enfin le muscle effecteur. La coupure d'un seul maillon abolit immédiatement le réflexe.",
+  },
+  {
+    timeSeconds: 115,
+    title: "3. Réflexe Myotatique & Innervation Réciproque",
+    badge: "Mécanisme",
+    icon: "cle_solution",
+    textScript:
+      "Le réflexe myotatique est la contraction réflexe d'un muscle en réponse à son propre étirement. C'est le seul réflexe monosynaptique direct du corps humain. Pour que l'extension soit possible, la fibre Ia excite simultanément un interneurone inhibiteur médullaire qui relâche le muscle antagoniste par un PPSI hyperpolarisant.",
+  },
+  {
+    timeSeconds: 180,
+    title: "4. Expériences de Magendie : Racines Dorsale et Ventrale",
+    badge: "Magendie",
+    icon: "eclair_reflexe",
+    textScript:
+      "À retenir absolument pour les sujets d'analyse : la section de la racine dorsale entraîne une anesthésie pure sans paralysie. La section de la racine ventrale entraîne une paralysie motrice pure sans perte de sensibilité. La stimulation du bout central de la racine dorsale provoque la douleur, alors que celle du bout périphérique de la racine ventrale provoque la contraction.",
+  },
+  {
+    timeSeconds: 245,
+    title: "5. Réflexes Conditionnels Pavloviens & Cortex",
+    badge: "Pavlov",
+    icon: "piege_bac",
+    textScript:
+      "Le conditionnement pavlovien associe un stimulus neutre préalable à un stimulus inconditionnel. Il crée une liaison synaptique temporaire dans le cortex cérébral. Contrairement au réflexe inné purement médullaire, le réflexe conditionnel est temporaire, individuel et s'éteint par inhibition interne s'il n'est plus renforcé.",
   },
 ];
 
@@ -2594,7 +2640,23 @@ if (lessonMeta && lessonMeta.status !== 'published') {
       params.lesson === '60000000-0000-0002-0001-000000000012' ||
       params.chapter === '50000000-0000-0002-0001-000000000004');
 
+  const isReflexesConditionnels =
+    params.lesson === '60000000-0000-0003-0001-000000000004' ||
+    lessonMeta.title.toLowerCase().includes('pavlov') ||
+    lessonMeta.title.toLowerCase().includes('conditionnel') ||
+    lessonMeta.title.toLowerCase().includes('conditionné') ||
+    lessonMeta.title.toLowerCase().includes('conditionne') ||
+    lessonMeta.title.toLowerCase().includes('réflexe myotatique') ||
+    lessonMeta.title.toLowerCase().includes('reflexe myotatique') ||
+    lessonMeta.title.toLowerCase().includes('réflexe médullaire') ||
+    lessonMeta.title.toLowerCase().includes('reflexe medullaire') ||
+    lessonMeta.title.toLowerCase().includes('activité réflexe') ||
+    lessonMeta.title.toLowerCase().includes('activite reflexe') ||
+    lessonMeta.title.toLowerCase().includes('magendie') ||
+    (lessonMeta.title.toLowerCase().includes('réflexe') && !lessonMeta.title.toLowerCase().includes('synapse'));
+
   const isSynapse =
+    !isReflexesConditionnels && (
     params.lesson === '60000000-0000-0003-0001-000000000003' ||
     lessonMeta.title.toLowerCase().includes('transmission synaptique') ||
     lessonMeta.title.toLowerCase().includes('synapse') ||
@@ -2604,13 +2666,10 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     lessonMeta.title.toLowerCase().includes('intégration nerveuse') ||
     lessonMeta.title.toLowerCase().includes('integration nerveuse') ||
     lessonMeta.title.toLowerCase().includes('plaque motrice') ||
-    lessonMeta.title.toLowerCase().includes('sommation') ||
-    lessonMeta.title.toLowerCase().includes('arc réflexe') ||
-    lessonMeta.title.toLowerCase().includes('arc reflexe') ||
-    lessonMeta.title.toLowerCase().includes('réflexe myotatique') ||
-    lessonMeta.title.toLowerCase().includes('reflexe myotatique');
+    lessonMeta.title.toLowerCase().includes('sommation'));
 
   const isTissuNerveux =
+    !isReflexesConditionnels &&
     !isSynapse && (
     params.lesson === '60000000-0000-0003-0001-000000000002' ||
     lessonMeta.title.toLowerCase().includes('tissu nerveux') ||
@@ -2622,6 +2681,7 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     (lessonMeta.title.toLowerCase().includes('neurone') && (lessonMeta.title.toLowerCase().includes('action') || lessonMeta.title.toLowerCase().includes('repos') || lessonMeta.title.toLowerCase().includes('structure'))));
 
   const isSystemeNerveux =
+    !isReflexesConditionnels &&
     !isSynapse && !isTissuNerveux && (
     lessonMeta.title.toLowerCase().includes('système nerveux') ||
     lessonMeta.title.toLowerCase().includes('systeme nerveux') ||
@@ -2755,7 +2815,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
               {/* Capsule Vocale & Masterclass Audio du Professeur (Al Muxtaar S2) */}
               <AudioCoachPlayer
                 title={
-                  isSynapse
+                  isReflexesConditionnels
+                    ? 'Masterclass Audio : Réflexes Médullaires & Réflexes Conditionnels Pavloviens'
+                    : isSynapse
                     ? 'Masterclass Audio : Transmission Synaptique & Intégration Postsynaptique'
                     : isTissuNerveux
                     ? 'Masterclass Audio : Tissu Nerveux, Potentiel de Repos & Potentiel d\'Action'
@@ -2810,7 +2872,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     : 'Masterclass Audio : Limites & Continuité'
                 }
                 subtitle={
-                  isSynapse
+                  isReflexesConditionnels
+                    ? 'Terminale S2 • SVT : Les 6 réflexes pour maîtriser l\'arc réflexe, Magendie et Pavlov au Bac'
+                    : isSynapse
                     ? 'Terminale S2 • SVT : Les 6 réflexes pour maîtriser la synapse, les canaux ROC et les sommations au Bac'
                     : isTissuNerveux
                     ? 'Terminale S2 • SVT : Les 5 réflexes pour maîtriser la cytologie du neurone, le PR à -70 mV et le PA au Bac'
@@ -2865,7 +2929,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     : 'Terminale S2 • 5 réflexes essentiels pour l\'épreuve'
                 }
                 chapters={
-                  isSynapse
+                  isReflexesConditionnels
+                    ? REFLEXES_AUDIO_CHAPTERS
+                    : isSynapse
                     ? SYNAPSE_AUDIO_CHAPTERS
                     : isTissuNerveux
                     ? TISSU_NERVEUX_AUDIO_CHAPTERS
@@ -3003,6 +3069,11 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                   <P4ParticuleReflexesCard />
                   <P4ParticuleInteractiveSimulator />
                 </>
+              ) : isReflexesConditionnels ? (
+                <>
+                  <B1ReflexesConditionnelsCard />
+                  <B1ReflexesConditionnelsLab />
+                </>
               ) : isSynapse ? (
                 <>
                   <B1SynapseReflexesCard />
@@ -3123,7 +3194,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
               {/* Section Annales Officielles du Baccalauréat Sénégalais (Après les exercices d'application) */}
               <BacSenegalAnnales
                 chapter={
-                  isSynapse
+                  isReflexesConditionnels
+                    ? 'reflexes_medullaires'
+                    : isSynapse
                     ? 'synapse'
                     : isCinematique
                     ? 'cinematique_point'
@@ -3221,6 +3294,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <ProjectileQuizEmbedded />
               ) : isParticule ? (
                 <P4ParticuleQuizEmbedded />
+              ) : isReflexesConditionnels ? (
+                <B1ReflexesConditionnelsQuizEmbedded />
               ) : isSynapse ? (
                 <B1SynapseQuizEmbedded />
               ) : isTissuNerveux ? (
