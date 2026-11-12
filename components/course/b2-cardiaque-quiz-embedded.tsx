@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import MathRenderer from '@/components/course/math-renderer';
 
 interface Question {
   id: number;
@@ -150,22 +149,22 @@ export default function B2CardiaqueQuizEmbedded() {
   const score = calculateScore();
 
   return (
-    <div className="w-full bg-slate-950 border border-slate-800 rounded-3xl p-4 sm:p-7 text-slate-100 shadow-2xl space-y-6">
+    <div className="w-full bg-white border border-slate-200 rounded-3xl p-5 sm:p-7 text-slate-800 shadow-sm space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-5">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-5">
         <div>
-          <div className="flex items-center gap-2 mb-1">
-            <span className="text-[10px] font-black uppercase tracking-widest bg-rose-500/20 text-rose-400 px-2.5 py-0.5 rounded-full border border-rose-500/30">
+          <div className="flex items-center gap-2 mb-1.5">
+            <span className="text-[10px] font-black uppercase tracking-widest bg-rose-50 text-rose-700 px-2.5 py-0.5 rounded-full border border-rose-200">
               Évaluation Bac S2
             </span>
-            <span className="text-xs text-slate-400 font-medium">Physiologie Cardiovasculaire • B2.1</span>
+            <span className="text-xs text-slate-500 font-medium">Physiologie Cardiovasculaire • B2.1</span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+          <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
             QCM d&apos;Entraînement : Automatisme & Activité Cardiaque
-          </h2>
+          </h3>
         </div>
-        <div className="text-xs font-bold text-slate-400 bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-xl self-start sm:self-auto">
-          Progression : <span className="text-rose-400">{answeredCount}</span> / {CARDIAQUE_QUIZ_QUESTIONS.length}
+        <div className="text-xs font-bold text-slate-700 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-xl self-start sm:self-auto">
+          Progression : <span className="text-rose-600 font-black">{answeredCount}</span> / {CARDIAQUE_QUIZ_QUESTIONS.length}
         </div>
       </div>
 
@@ -181,23 +180,23 @@ export default function B2CardiaqueQuizEmbedded() {
               className={`p-4 sm:p-5 rounded-2xl border transition-all ${
                 showResults
                   ? isCorrect
-                    ? 'border-emerald-500/50 bg-emerald-950/20'
-                    : 'border-rose-500/50 bg-rose-950/20'
+                    ? 'border-emerald-300 bg-emerald-50/50'
+                    : 'border-rose-300 bg-rose-50/50'
                   : userChoice
-                  ? 'border-slate-700 bg-slate-900/60'
-                  : 'border-slate-800/80 bg-slate-900/30'
+                  ? 'border-rose-400 bg-rose-50/30'
+                  : 'border-slate-200 bg-slate-50/60'
               }`}
             >
               <div className="flex items-start justify-between gap-2 mb-2">
-                <span className="text-xs font-black text-rose-400 uppercase tracking-wider">
+                <span className="text-xs font-black text-rose-700 uppercase tracking-wider">
                   Question {idx + 1}
                 </span>
-                <span className="text-[10px] text-slate-400 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">
+                <span className="text-[10px] text-slate-600 bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold shadow-sm">
                   {q.sourceBac}
                 </span>
               </div>
 
-              <p className="text-sm sm:text-base font-bold text-white mb-4 leading-snug">
+              <p className="text-sm sm:text-base font-bold text-slate-900 mb-4 leading-snug">
                 {q.question}
               </p>
 
@@ -205,16 +204,16 @@ export default function B2CardiaqueQuizEmbedded() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-3">
                 {q.options.map((opt) => {
                   const isSelected = userChoice === opt.id;
-                  let optStyle = 'border-slate-800 bg-slate-950/60 text-slate-300 hover:border-slate-700';
+                  let optStyle = 'border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50 shadow-sm';
 
                   if (showResults) {
                     if (opt.id === q.correctAnswer) {
-                      optStyle = 'border-emerald-500 bg-emerald-950/50 text-emerald-200 font-bold';
+                      optStyle = 'border-emerald-500 bg-emerald-50 text-emerald-950 font-bold ring-1 ring-emerald-500/30';
                     } else if (isSelected) {
-                      optStyle = 'border-rose-500 bg-rose-950/50 text-rose-300 line-through';
+                      optStyle = 'border-rose-400 bg-rose-50 text-rose-900 line-through';
                     }
                   } else if (isSelected) {
-                    optStyle = 'border-rose-500 bg-rose-950/40 text-white font-bold ring-1 ring-rose-500/50';
+                    optStyle = 'border-rose-500 bg-rose-50/80 text-rose-950 font-bold ring-2 ring-rose-500/20';
                   }
 
                   return (
@@ -224,7 +223,7 @@ export default function B2CardiaqueQuizEmbedded() {
                       disabled={showResults}
                       className={`text-left p-3 rounded-xl border text-xs sm:text-sm transition-all flex items-start gap-2.5 ${optStyle}`}
                     >
-                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-slate-800 text-slate-300 flex items-center justify-center text-[10px] font-black">
+                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center text-[10px] font-black border border-slate-200">
                         {opt.id}
                       </span>
                       <span className="leading-tight">{opt.text}</span>
@@ -235,13 +234,13 @@ export default function B2CardiaqueQuizEmbedded() {
 
               {/* Correction & Wolof Tip */}
               {showResults && (
-                <div className="mt-3 pt-3 border-t border-slate-800 space-y-2">
-                  <div className="text-xs text-slate-300 leading-relaxed bg-slate-950/80 p-3 rounded-xl border border-slate-800/80">
-                    <span className="font-bold text-rose-400 block mb-1">Correction détaillée :</span>
+                <div className="mt-3 pt-3 border-t border-slate-200 space-y-2">
+                  <div className="text-xs text-slate-800 leading-relaxed bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
+                    <span className="font-bold text-rose-700 block mb-1">Correction détaillée :</span>
                     {q.explanation}
                   </div>
-                  <div className="text-xs text-amber-300/90 italic bg-amber-950/30 p-2.5 rounded-xl border border-amber-900/40 flex items-start gap-2">
-                    <span className="font-black text-amber-400 uppercase text-[10px] not-italic px-1.5 py-0.5 bg-amber-900/60 rounded">
+                  <div className="text-xs text-amber-950 italic bg-amber-50 p-3 rounded-xl border border-amber-200 flex items-start gap-2">
+                    <span className="font-black text-amber-800 uppercase text-[10px] not-italic px-1.5 py-0.5 bg-amber-200/70 rounded">
                       Astuce Wolof
                     </span>
                     <span>&ldquo;{q.wolofTip}&rdquo;</span>
@@ -254,39 +253,39 @@ export default function B2CardiaqueQuizEmbedded() {
       </div>
 
       {/* Footer & Submit */}
-      <div className="pt-4 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
         {!showResults ? (
           <>
-            <div className="text-xs text-slate-400 text-center sm:text-left">
+            <div className="text-xs text-slate-500 text-center sm:text-left font-medium">
               Répondez à toutes les questions pour valider votre fiche réflexe d&apos;activité cardiaque.
             </div>
             <button
               onClick={() => setShowResults(true)}
               disabled={!isComplete}
-              className={`w-full sm:w-auto px-7 py-3 rounded-2xl text-xs sm:text-sm font-black uppercase tracking-wider transition-all shadow-lg ${
+              className={`w-full sm:w-auto px-7 py-3 rounded-2xl text-xs sm:text-sm font-black uppercase tracking-wider transition-all shadow-md ${
                 isComplete
-                  ? 'bg-rose-600 hover:bg-rose-500 text-white shadow-rose-600/40 hover:scale-[1.02]'
-                  : 'bg-slate-800 text-slate-500 cursor-not-allowed'
+                  ? 'bg-rose-600 hover:bg-rose-500 text-white shadow-rose-600/30 hover:scale-[1.02]'
+                  : 'bg-slate-200 text-slate-400 cursor-not-allowed'
               }`}
             >
               Valider mes réponses ({answeredCount}/{CARDIAQUE_QUIZ_QUESTIONS.length})
             </button>
           </>
         ) : (
-          <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4 bg-slate-900/80 p-4 rounded-2xl border border-slate-800">
+          <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-200">
             <div>
-              <div className="text-xs uppercase font-bold text-slate-400">Votre score officiel :</div>
-              <div className="text-2xl font-black text-white">
-                <span className={score >= 4 ? 'text-emerald-400' : 'text-rose-400'}>{score}</span> /{' '}
+              <div className="text-xs uppercase font-bold text-slate-500">Votre score officiel :</div>
+              <div className="text-2xl font-black text-slate-900">
+                <span className={score >= 4 ? 'text-emerald-600' : 'text-rose-600'}>{score}</span> /{' '}
                 {CARDIAQUE_QUIZ_QUESTIONS.length}{' '}
-                <span className="text-xs font-normal text-slate-400">
+                <span className="text-xs font-normal text-slate-500">
                   ({Math.round((score / CARDIAQUE_QUIZ_QUESTIONS.length) * 100)} %)
                 </span>
               </div>
             </div>
             <button
               onClick={resetQuiz}
-              className="w-full sm:w-auto px-6 py-2.5 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs font-bold transition-all border border-slate-700"
+              className="w-full sm:w-auto px-6 py-2.5 bg-white hover:bg-slate-50 text-slate-800 rounded-xl text-xs font-bold transition-all border border-slate-300 shadow-sm"
             >
               Recommencer l&apos;Épreuve
             </button>

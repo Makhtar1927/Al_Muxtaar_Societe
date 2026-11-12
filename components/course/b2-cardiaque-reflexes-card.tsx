@@ -27,38 +27,81 @@ const CARDIAC_FICHES: CardiacFiche[] = [
     bacPoints: '3 pts',
     content: (
       <div className="space-y-4">
-        <div className="bg-rose-900/30 border border-rose-500/40 rounded-xl p-4">
-          <p className="text-xs font-bold text-rose-300 uppercase tracking-wide mb-2">LOI BIOLOGIQUE</p>
-          <p className="text-sm text-slate-200 leading-relaxed">
-            Le cœur possède un <span className="text-rose-300 font-semibold">automatisme intrinsèque</span> : il se
-            contracte spontanément grâce au tissu nodal, indépendamment de toute commande nerveuse.
+        <div className="bg-rose-50 border border-rose-200 rounded-2xl p-4 sm:p-5">
+          <p className="text-xs font-black text-rose-700 uppercase tracking-wider mb-1.5">LOI BIOLOGIQUE BAC S2</p>
+          <p className="text-sm text-slate-800 leading-relaxed font-medium">
+            Le cœur possède un <span className="text-rose-700 font-bold">automatisme intrinsèque</span> : il se
+            contracte spontanément et rythmiquement grâce à son tissu nodal spécialisé,
+            indépendamment de toute commande nerveuse du système nerveux central.
           </p>
         </div>
+
         <div>
-          <p className="text-xs font-bold text-rose-400 uppercase tracking-wide mb-3">VOIES DE CONDUCTION</p>
-          <div className="space-y-2">
+          <p className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2.5">
+            CHRONOLOGIE DE PROPAGATION DU POTENTIEL D&apos;ACTION CARDIAQUE
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
             {[
-              { n: '① Nœud sinusal (Keith-Flack)', d: 'Pace-maker principal — oreillette droite — 60-80 batt/min — génère le PA initial', c: 'bg-rose-500' },
-              { n: '② Nœud auriculo-ventriculaire (Aschoff-Tawara)', d: 'Filtre le signal — délai 0,1 s — seule voie A→V — oreillette/ventricule', c: 'bg-orange-500' },
-              { n: '③ Faisceau de His', d: 'Traverse le septum — se divise en branches droite/gauche', c: 'bg-amber-500' },
-              { n: '④ Fibres de Purkinje', d: 'Se ramifient dans les ventricules — contraction synchrone et rapide', c: 'bg-yellow-500' },
+              {
+                n: '① Nœud sinusal (Keith & Flack)',
+                d: 'Pace-maker naturel dans l’oreillette droite. Fréquence : 70-80 batt/min. Impose son rythme à tout le cœur.',
+                badge: '75 bpm',
+                badgeBg: 'bg-rose-100 text-rose-800 border-rose-300',
+              },
+              {
+                n: '② Nœud auriculo-ventriculaire (Aschoff-Tawara)',
+                d: 'Dans le septum interauriculaire. Filtre et ralentit le signal de 0,1 s (permet la vidange des oreillettes).',
+                badge: 'Délai 0,1s',
+                badgeBg: 'bg-amber-100 text-amber-800 border-amber-300',
+              },
+              {
+                n: '③ Faisceau de His',
+                d: 'Traverse le septum interventriculaire et se sépare en branches droite et gauche.',
+                badge: 'Septum',
+                badgeBg: 'bg-sky-100 text-sky-800 border-sky-300',
+              },
+              {
+                n: '④ Fibres de Purkinje',
+                d: 'Réseau sous-endocardique très rapide (2 à 4 m/s). Contraction synchrone des ventricules de l’apex vers la base.',
+                badge: 'Vitesse max',
+                badgeBg: 'bg-emerald-100 text-emerald-800 border-emerald-300',
+              },
             ].map((step) => (
-              <div key={step.n} className="flex gap-3 items-start">
-                <span className={`flex-shrink-0 w-2 h-2 rounded-full mt-1.5 ${step.c}`}></span>
+              <div key={step.n} className="bg-slate-50 border border-slate-200/80 rounded-xl p-3.5 flex flex-col justify-between">
                 <div>
-                  <p className="text-xs font-bold text-slate-200">{step.n}</p>
-                  <p className="text-xs text-slate-400">{step.d}</p>
+                  <div className="flex items-center justify-between gap-1 mb-1">
+                    <p className="text-xs font-bold text-slate-900">{step.n}</p>
+                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${step.badgeBg}`}>
+                      {step.badge}
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed">{step.d}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
-        <div className="bg-slate-800/60 rounded-xl p-3">
-          <p className="text-xs font-bold text-rose-300 mb-1">Fréquences intrinsèques</p>
-          <div className="grid grid-cols-3 gap-2 text-center text-xs">
-            <div className="bg-slate-900/60 rounded-lg p-2"><p className="font-bold text-rose-400">60-80</p><p className="text-slate-400">Nœud sinusal</p></div>
-            <div className="bg-slate-900/60 rounded-lg p-2"><p className="font-bold text-orange-400">40-60</p><p className="text-slate-400">Nœud AV</p></div>
-            <div className="bg-slate-900/60 rounded-lg p-2"><p className="font-bold text-amber-400">20-40</p><p className="text-slate-400">Purkinje</p></div>
+
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
+          <p className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 text-center">
+            GRADIENT D&apos;AUTOMATISME DÉCROISSANT (HIÉRARCHIE NODALE)
+          </p>
+          <div className="grid grid-cols-3 gap-3 text-center">
+            <div className="bg-white border border-rose-200 rounded-xl p-2.5 shadow-sm">
+              <p className="text-base font-black text-rose-600">70-80</p>
+              <p className="text-[11px] font-bold text-slate-800">Nœud Sinusal</p>
+              <p className="text-[10px] text-slate-500">Pace-maker maître</p>
+            </div>
+            <div className="bg-white border border-amber-200 rounded-xl p-2.5 shadow-sm">
+              <p className="text-base font-black text-amber-600">40-50</p>
+              <p className="text-[11px] font-bold text-slate-800">Nœud AV</p>
+              <p className="text-[10px] text-slate-500">Relais secondaire</p>
+            </div>
+            <div className="bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm">
+              <p className="text-base font-black text-slate-700">20-35</p>
+              <p className="text-[11px] font-bold text-slate-800">Purkinje / His</p>
+              <p className="text-[10px] text-slate-500">Rythme idioventriculaire</p>
+            </div>
           </div>
         </div>
       </div>
@@ -75,35 +118,63 @@ const CARDIAC_FICHES: CardiacFiche[] = [
     bacPoints: '2 pts',
     content: (
       <div className="space-y-4">
-        <div className="bg-pink-900/30 border border-pink-500/40 rounded-xl p-4">
-          <p className="text-xs font-bold text-pink-300 uppercase tracking-wide mb-2">DÉFINITION BAC</p>
-          <p className="text-sm text-slate-200 leading-relaxed">
-            La <span className="text-pink-300 font-semibold">révolution cardiaque</span> est l&apos;ensemble des événements
-            mécaniques et électriques d&apos;un cycle cardiaque complet (≈ 0,8 s à 75 bpm).
+        <div className="bg-pink-50 border border-pink-200 rounded-2xl p-4 sm:p-5">
+          <p className="text-xs font-black text-pink-700 uppercase tracking-wider mb-1.5">DÉFINITION & DURÉE</p>
+          <p className="text-sm text-slate-800 leading-relaxed font-medium">
+            La <span className="text-pink-700 font-bold">révolution cardiaque</span> est la séquence complète des
+            événements mécaniques et hémodynamiques au cours d&apos;un battement. À 75 bpm,
+            elle dure exactement <span className="text-slate-900 font-bold">0,8 seconde</span> et se décompose en 3 phases indissociables.
           </p>
         </div>
+
         <div>
-          <p className="text-xs font-bold text-pink-400 uppercase tracking-wide mb-3">LES 3 PHASES (0,8 s)</p>
-          <div className="space-y-2">
+          <p className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2.5">
+            LES 3 PHASES DU CYCLE CARDIAQUE (TOTAL = 0,8 s)
+          </p>
+          <div className="space-y-2.5">
             {[
-              { phase: '① Systole auriculaire (0,1 s)', detail: 'Contraction des oreillettes → sang vers ventricules (valves AV ouvertes)', bar: 'w-1/4', c: 'bg-pink-500' },
-              { phase: '② Systole ventriculaire (0,3 s)', detail: 'Contraction ventricules → éjection dans aorte/artère pulmonaire (valvules sigmoïdes ouvertes)', bar: 'w-2/4', c: 'bg-rose-500' },
-              { phase: '③ Diastole générale (0,4 s)', detail: 'Relâchement cœur entier → remplissage passif → phase la plus longue', bar: 'w-3/4', c: 'bg-slate-500' },
+              {
+                phase: '① Systole auriculaire (0,10 s)',
+                detail: 'Contraction des oreillettes → éjection du sang résiduel (20%) vers les ventricules. Valves auriculo-ventriculaires ouvertes.',
+                valves: 'Valves AV ouvertes | Sigmoïdes fermées',
+                c: 'border-l-4 border-l-pink-500 bg-pink-50/40 border-pink-200',
+              },
+              {
+                phase: '② Systole ventriculaire (0,30 s)',
+                detail: 'Phase isovolumétrique puis éjection dans l’aorte et l’artère pulmonaire. Fermeture brutale des valves AV = 1er Bruit B1 ("TOUM").',
+                valves: 'Bruit B1 | Sigmoïdes ouvertes en éjection',
+                c: 'border-l-4 border-l-rose-600 bg-rose-50/40 border-rose-200',
+              },
+              {
+                phase: '③ Diastole générale (0,40 s)',
+                detail: 'Relâchement général du myocarde. Fermeture des valvules sigmoïdes = 2ème Bruit B2 ("TA"). Remplissage passif des cavités (80%).',
+                valves: 'Bruit B2 | Phase de repos et remplissage',
+                c: 'border-l-4 border-l-emerald-600 bg-emerald-50/40 border-emerald-200',
+              },
             ].map((p) => (
-              <div key={p.phase} className="bg-slate-800/60 rounded-lg p-3">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className={`flex-shrink-0 w-2 h-2 rounded-full ${p.c}`}></span>
-                  <p className="text-xs font-bold text-slate-200">{p.phase}</p>
+              <div key={p.phase} className={`rounded-xl p-3.5 border ${p.c}`}>
+                <div className="flex flex-wrap items-center justify-between gap-1 mb-1">
+                  <p className="text-xs font-bold text-slate-900">{p.phase}</p>
+                  <span className="text-[10px] font-semibold text-slate-600 bg-white px-2 py-0.5 rounded border border-slate-200">
+                    {p.valves}
+                  </span>
                 </div>
-                <p className="text-xs text-slate-400 pl-4">{p.detail}</p>
+                <p className="text-xs text-slate-700 leading-relaxed">{p.detail}</p>
               </div>
             ))}
           </div>
         </div>
-        <div className="bg-slate-800/60 rounded-xl p-3 text-center">
-          <p className="text-xs text-slate-400 mb-1">Volume Systolique (VS)</p>
-          <MathRenderer content="$$VS = VTD - VTS \approx 70 \text{ mL}$$" />
-          <p className="text-xs text-slate-400 mt-1">VTD = volume télédiastolique ; VTS = volume télésystolique</p>
+
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-center">
+          <p className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+            VOLUME D&apos;ÉJECTION SYSTOLIQUE (VES)
+          </p>
+          <div className="bg-white border border-slate-200 rounded-xl p-3 inline-block shadow-sm">
+            <MathRenderer content="$$VES = VTD - VTS \approx 120\text{ mL} - 50\text{ mL} = 70\text{ mL}$$" />
+          </div>
+          <p className="text-xs text-slate-500 mt-2">
+            VTD = volume télédiastolique (fin de remplissage) • VTS = volume télésystolique (résidu post-éjection)
+          </p>
         </div>
       </div>
     ),
@@ -119,35 +190,62 @@ const CARDIAC_FICHES: CardiacFiche[] = [
     bacPoints: '4 pts',
     content: (
       <div className="space-y-4">
-        <div className="bg-emerald-900/30 border border-emerald-500/40 rounded-xl p-4">
-          <p className="text-xs font-bold text-emerald-300 uppercase tracking-wide mb-2">DÉFINITION</p>
-          <p className="text-sm text-slate-200 leading-relaxed">
-            L&apos;<span className="text-emerald-300 font-semibold">ECG</span> enregistre l&apos;activité électrique du cœur.
-            Chaque onde correspond à la dépolarisation ou repolarisation d&apos;une chambre cardiaque.
+        <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 sm:p-5">
+          <p className="text-xs font-black text-emerald-800 uppercase tracking-wider mb-1.5">DÉFINITION ÉLECTROPHYSIOLOGIQUE</p>
+          <p className="text-sm text-slate-800 leading-relaxed font-medium">
+            L&apos;<span className="text-emerald-800 font-bold">ECG</span> est l&apos;enregistrement graphique des courants électriques
+            extracellulaires engendrés par l&apos;activation et la repolarisation successives des différentes parties du cœur.
           </p>
         </div>
+
         <div>
-          <p className="text-xs font-bold text-emerald-400 uppercase tracking-wide mb-3">LES 3 ONDES CLÉS</p>
-          <div className="space-y-2">
+          <p className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2.5">
+            LES ONDES CLÉS DE L&apos;ÉLECTROCARDIOGRAMME NORMAL
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
             {[
-              { onde: 'Onde P', role: 'Dépolarisation des OREILLETTES (nœud sinusal → nœud AV)', duree: '< 0,12 s', c: 'text-emerald-400 bg-emerald-900/40' },
-              { onde: 'Complexe QRS', role: 'Dépolarisation des VENTRICULES (faisceau His + Purkinje)', duree: '< 0,10 s', c: 'text-rose-400 bg-rose-900/40' },
-              { onde: 'Onde T', role: 'Repolarisation des VENTRICULES (retour au repos)', duree: '0,15-0,25 s', c: 'text-amber-400 bg-amber-900/40' },
+              {
+                onde: 'Onde P',
+                role: 'Dépolarisation des OREILLETTES (générée par le nœud sinusal)',
+                duree: '0,08 - 0,10 s',
+                box: 'bg-emerald-50 border-emerald-200 text-emerald-900',
+              },
+              {
+                onde: 'Complexe QRS',
+                role: 'Dépolarisation des VENTRICULES (faisceau de His & Purkinje)',
+                duree: '0,06 - 0,10 s',
+                box: 'bg-rose-50 border-rose-200 text-rose-900',
+              },
+              {
+                onde: 'Onde T',
+                role: 'Repolarisation des VENTRICULES (fin de systole mécanique)',
+                duree: '0,16 - 0,25 s',
+                box: 'bg-amber-50 border-amber-200 text-amber-900',
+              },
             ].map((o) => (
-              <div key={o.onde} className={`rounded-lg p-3 ${o.c.split(' ')[1]}`}>
-                <div className="flex justify-between items-center mb-1">
-                  <p className={`text-xs font-bold ${o.c.split(' ')[0]}`}>{o.onde}</p>
-                  <span className={`text-[10px] ${o.c.split(' ')[0]} bg-slate-900/40 px-2 py-0.5 rounded`}>{o.duree}</span>
+              <div key={o.onde} className={`rounded-xl p-3.5 border ${o.box}`}>
+                <div className="flex justify-between items-center mb-1.5">
+                  <span className="text-sm font-black">{o.onde}</span>
+                  <span className="text-[10px] bg-white font-bold px-2 py-0.5 rounded border border-slate-200">
+                    {o.duree}
+                  </span>
                 </div>
-                <p className="text-xs text-slate-300">{o.role}</p>
+                <p className="text-xs leading-relaxed text-slate-700">{o.role}</p>
               </div>
             ))}
           </div>
         </div>
-        <div className="bg-slate-800/60 rounded-xl p-3">
-          <p className="text-xs font-bold text-emerald-300 mb-2">Calcul FC à partir de l&apos;ECG</p>
-          <MathRenderer content="$$FC = \frac{60}{R-R \text{ (s)}} \quad \text{bpm}$$" />
-          <p className="text-xs text-slate-400 mt-1 text-center">Intervalle R-R = espace entre deux complexes QRS</p>
+
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-center">
+          <p className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+            CALCUL DE LA FRÉQUENCE CARDIAQUE DEPUIS L&apos;INTERVALLE R-R
+          </p>
+          <div className="bg-white border border-slate-200 rounded-xl p-3 inline-block shadow-sm">
+            <MathRenderer content="$$FC = \frac{60}{\text{Intervalle } R-R \text{ (en secondes)}} \quad (\text{battements/min})$$" />
+          </div>
+          <p className="text-xs text-slate-500 mt-2">
+            Sur papier millimétré à vitesse 25 mm/s : chaque petit carré (1 mm) = 0,04 s • 1 grand carré (5 mm) = 0,20 s.
+          </p>
         </div>
       </div>
     ),
@@ -157,39 +255,51 @@ const CARDIAC_FICHES: CardiacFiche[] = [
     code: 'RÉF 04',
     shortTag: 'Stannius',
     shortTitle: 'Expériences de Stannius',
-    fullTitle: 'Ligatures de Stannius : Preuve de l\'Automatisme',
+    fullTitle: 'Ligatures de Stannius : Preuve de la Hiérarchie Nodale',
     domain: 'Expérimental',
     color: 'violet',
     bacPoints: '3 pts',
     content: (
       <div className="space-y-4">
-        <div className="bg-violet-900/30 border border-violet-500/40 rounded-xl p-4">
-          <p className="text-xs font-bold text-violet-300 uppercase tracking-wide mb-2">PRINCIPE EXPÉRIMENTAL</p>
-          <p className="text-sm text-slate-200 leading-relaxed">
-            Stannius a réalisé des ligatures sur cœur de grenouille pour localiser
-            les <span className="text-violet-300 font-semibold">centres automatiques</span> et prouver leur hiérarchie.
+        <div className="bg-violet-50 border border-violet-200 rounded-2xl p-4 sm:p-5">
+          <p className="text-xs font-black text-violet-800 uppercase tracking-wider mb-1.5">PROTOCOLE EXPÉRIMENTAL HISTORIQUE</p>
+          <p className="text-sm text-slate-800 leading-relaxed font-medium">
+            Sur le cœur isolé de grenouille perfusé au liquide de Ringer, Hermann Stannius a posé
+            des ligatures pour isoler les territoires anatomiques et mettre en évidence les centres automatiques.
           </p>
         </div>
-        <div>
-          <p className="text-xs font-bold text-violet-400 uppercase tracking-wide mb-3">LES 3 LIGATURES</p>
-          <div className="space-y-2">
-            {[
-              { l: '1ère ligature (sinus→oreillette)', r: 'Arrêt des oreillettes et ventricules → puis reprise lente (automatisme AV à 40-60/min)', imp: 'Sinus = pace-maker dominant' },
-              { l: '2ème ligature (oreillette→ventricule)', r: 'Ventricule s\'arrête → puis reprise très lente (Purkinje à 20-40/min)', imp: 'Hiérarchie : sinus > AV > Purkinje' },
-              { l: '3ème ligature (apex)', r: 'L\'apex est isolé et reste immobile', imp: 'Pas d\'automatisme propre à l\'apex' },
-            ].map((lg, i) => (
-              <div key={i} className="bg-slate-800/60 rounded-lg p-3">
-                <p className="text-xs font-bold text-violet-300 mb-1">{lg.l}</p>
-                <p className="text-xs text-slate-300 mb-1">Résultat : {lg.r}</p>
-                <p className="text-xs text-violet-400 italic">→ {lg.imp}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="bg-violet-900/20 border border-violet-500/30 rounded-xl p-3 text-center">
-          <p className="text-xs font-bold text-violet-300">CONCLUSION BAC</p>
-          <p className="text-xs text-slate-300 mt-1">Le cœur possède plusieurs foyers automatiques organisés hiérarchiquement.
-          Le nœud sinusal (pace-maker principal) impose son rythme aux autres.</p>
+
+        <div className="space-y-2.5">
+          {[
+            {
+              titre: '1ère Ligature (Sillon Sinuso-Auriculaire)',
+              res: 'Le sinus veineux bat à son rythme rapide (60 bpm). Les oreillettes et le ventricule s’arrêtent temporairement puis reprennent un rythme ralenti (30-40 bpm).',
+              concl: 'Le sinus veineux est le centre automatique maître (rythme le plus élevé). Le nœud AV est un centre secondaire subordonné.',
+              c: 'border-l-4 border-l-violet-600 bg-violet-50/40 border-violet-200',
+            },
+            {
+              titre: '2ème Ligature (Sillon Auriculo-Ventriculaire)',
+              res: 'Les oreillettes continuent à 30-40 bpm. Le ventricule s’arrête longtemps puis bat à fréquence très lente (15-20 bpm).',
+              concl: 'Le ventricule renferme un centre automatique idioventriculaire résiduel (réseau de Purkinje). Gradient d’automatisme décroissant.',
+              c: 'border-l-4 border-l-indigo-600 bg-indigo-50/40 border-indigo-200',
+            },
+            {
+              titre: '3ème Ligature (Pointe / Apex du Ventricule)',
+              res: 'La base du ventricule continue de battre. La pointe isolée reste définitivement immobile, mais réagit si on la stimule.',
+              concl: 'La pointe du cœur ne possède aucun tissu nodal. Elle est excitable et contractile mais NON automatique.',
+              c: 'border-l-4 border-l-slate-600 bg-slate-100 border-slate-300',
+            },
+          ].map((l, i) => (
+            <div key={i} className={`rounded-xl p-3.5 border ${l.c}`}>
+              <p className="text-xs font-black text-slate-900 mb-1">{l.titre}</p>
+              <p className="text-xs text-slate-700 mb-1.5 leading-relaxed">
+                <span className="font-bold text-slate-900">Observation :</span> {l.res}
+              </p>
+              <p className="text-xs font-semibold text-violet-900 bg-white p-2 rounded-lg border border-violet-100">
+                → Déduction Bac S2 : {l.concl}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     ),
@@ -205,31 +315,45 @@ const CARDIAC_FICHES: CardiacFiche[] = [
     bacPoints: '2 pts',
     content: (
       <div className="space-y-4">
-        <div className="bg-cyan-900/30 border border-cyan-500/40 rounded-xl p-4">
-          <p className="text-xs font-bold text-cyan-300 uppercase tracking-wide mb-2">FORMULE FONDAMENTALE</p>
-          <MathRenderer content="$$DC = FC \times VS \quad \text{(L/min)}$$" />
-          <p className="text-xs text-slate-400 text-center mt-1">FC = fréquence cardiaque (bpm) | VS = volume systolique (mL)</p>
+        <div className="bg-sky-50 border border-sky-200 rounded-2xl p-4 sm:p-5 text-center">
+          <p className="text-xs font-black text-sky-800 uppercase tracking-wider mb-2">FORMULE FONDAMENTALE DU DÉBIT CARDIAQUE</p>
+          <div className="bg-white border border-sky-200 rounded-xl p-3.5 inline-block shadow-sm">
+            <MathRenderer content="$$DC = FC \times VES \quad (\text{en Litres/minute})$$" />
+          </div>
+          <p className="text-xs text-slate-600 mt-2 font-medium">
+            FC = Fréquence Cardiaque (batt/min) • VES = Volume d&apos;Éjection Systolique (L/battement)
+          </p>
         </div>
+
         <div>
-          <p className="text-xs font-bold text-cyan-400 uppercase tracking-wide mb-3">VALEURS DE RÉFÉRENCE</p>
-          <div className="grid grid-cols-2 gap-2">
+          <p className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2.5">
+            VALEURS PHYSIOLOGIQUES DE RÉFÉRENCE AU REPOS VS À L&apos;EFFORT
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
             {[
-              { label: 'FC repos', val: '70 bpm', c: 'text-cyan-400' },
-              { label: 'VS repos', val: '70 mL', c: 'text-cyan-400' },
-              { label: 'DC repos', val: '≈ 5 L/min', c: 'text-emerald-400' },
-              { label: 'DC effort max', val: '20-25 L/min', c: 'text-rose-400' },
+              { label: 'FC repos', val: '70-75 bpm', c: 'text-slate-900 bg-slate-50 border-slate-200' },
+              { label: 'VES repos', val: '70 mL', c: 'text-slate-900 bg-slate-50 border-slate-200' },
+              { label: 'DC repos', val: '≈ 5,0 L/min', c: 'text-emerald-700 bg-emerald-50 border-emerald-200 font-black' },
+              { label: 'DC effort max', val: '20-25 L/min', c: 'text-rose-700 bg-rose-50 border-rose-200 font-black' },
             ].map((v) => (
-              <div key={v.label} className="bg-slate-800/60 rounded-lg p-3 text-center">
-                <p className={`text-sm font-bold ${v.c}`}>{v.val}</p>
-                <p className="text-xs text-slate-400">{v.label}</p>
+              <div key={v.label} className={`border rounded-xl p-3 text-center ${v.c}`}>
+                <p className="text-sm font-black">{v.val}</p>
+                <p className="text-[11px] text-slate-500 font-medium">{v.label}</p>
               </div>
             ))}
           </div>
         </div>
-        <div className="bg-slate-800/60 rounded-xl p-3">
-          <p className="text-xs font-bold text-cyan-300 mb-2">Lien avec la Pression Artérielle</p>
-          <MathRenderer content="$$PA = DC \times RPT$$" />
-          <p className="text-xs text-slate-400 text-center mt-1">RPT = résistances périphériques totales</p>
+
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-center">
+          <p className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+            RELATION AVEC LA PRESSION ARTÉRIELLE (PA)
+          </p>
+          <div className="bg-white border border-slate-200 rounded-xl p-3 inline-block shadow-sm">
+            <MathRenderer content="$$PA = DC \times RPT = (FC \times VES) \times RPT$$" />
+          </div>
+          <p className="text-xs text-slate-500 mt-2">
+            RPT = Résistances Périphériques Totales (tonus vasculaire des artérioles)
+          </p>
         </div>
       </div>
     ),
@@ -239,37 +363,53 @@ const CARDIAC_FICHES: CardiacFiche[] = [
     code: 'RÉF 06',
     shortTag: 'Réfractaire',
     shortTitle: 'Période Réfractaire',
-    fullTitle: 'Inexcitabilité Cardiaque : Loi du Tout ou Rien & Réfractaire',
+    fullTitle: 'Inexcitabilité Cardiaque : Loi de Marey & Intétanisation',
     domain: 'Propriétés du Myocarde',
     color: 'orange',
     bacPoints: '2 pts',
     content: (
       <div className="space-y-4">
-        <div className="bg-orange-900/30 border border-orange-500/40 rounded-xl p-4">
-          <p className="text-xs font-bold text-orange-300 uppercase tracking-wide mb-2">LOI DU TOUT OU RIEN</p>
-          <p className="text-sm text-slate-200 leading-relaxed">
-            Le muscle cardiaque répond <span className="text-orange-300 font-semibold">maximalement ou pas du tout</span> à
-            toute stimulation supraliminaire. Pas de réponse graduée (contrairement au muscle strié squelettique).
+        <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 sm:p-5">
+          <p className="text-xs font-black text-amber-800 uppercase tracking-wider mb-1.5">LOI DE MAREY & PÉRIODE RÉFRACTAIRE ABSOLUE</p>
+          <p className="text-sm text-slate-800 leading-relaxed font-medium">
+            Pendant toute la durée de la systole ventriculaire (environ 0,30 s), le muscle cardiaque est{' '}
+            <span className="text-amber-800 font-bold">totalement inexcitable</span>.
+            Aucun stimulus, quelle que soit son intensité, ne peut déclencher une deuxième contraction.
           </p>
         </div>
-        <div>
-          <p className="text-xs font-bold text-orange-400 uppercase tracking-wide mb-3">PÉRIODE RÉFRACTAIRE ABSOLUE</p>
-          <div className="bg-slate-800/60 rounded-lg p-3">
-            <p className="text-xs text-slate-300 leading-relaxed">
-              Pendant la systole (contraction), le myocarde est <span className="text-orange-300 font-semibold">totalement inexcitable</span>.
-              Aucune stimulation, même maximale, ne peut déclencher une 2ème contraction.
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5">
+            <p className="text-xs font-bold text-slate-900 mb-1">Période Réfractaire Absolue (PRA)</p>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Couvre la systole. Assure l&apos;impossibilité de sommation temporelle. Le cœur ne peut jamais être tétanisé.
             </p>
-            <div className="mt-2 p-2 bg-orange-900/20 rounded-lg text-center">
-              <p className="text-xs font-bold text-orange-300">Durée ≈ 0,3 s (= durée systole ventriculaire)</p>
-            </div>
+            <span className="inline-block mt-2 text-[10px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded border border-amber-300">
+              Durée ≈ 0,30 s
+            </span>
+          </div>
+
+          <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5">
+            <p className="text-xs font-bold text-slate-900 mb-1">Période Réfractaire Relative (PRR)</p>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Pendant la diastole. Une excitation supraliminaire déclenche une <span className="font-bold text-slate-900">extrasystole</span> suivie
+              obligatoirement d&apos;un <span className="font-bold text-slate-900">repos compensateur</span>.
+            </p>
+            <span className="inline-block mt-2 text-[10px] font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded border border-emerald-300">
+              Durant la diastole
+            </span>
           </div>
         </div>
-        <div className="bg-orange-900/20 border border-orange-500/30 rounded-xl p-3">
-          <p className="text-xs font-bold text-orange-300 mb-1">Conséquence physiologique majeure</p>
-          <p className="text-xs text-slate-300">
-            Le cœur ne peut PAS entrer en <span className="text-orange-400 font-semibold">tétanos</span> (contraction permanente).
-            La période réfractaire garantit le relâchement et le remplissage ventriculaire entre chaque battement.
-            C&apos;est une propriété de <span className="text-orange-400 font-semibold">protection vitale</span>.
+
+        <div className="bg-emerald-50/70 border border-emerald-200 rounded-xl p-4">
+          <p className="text-xs font-black text-emerald-800 uppercase tracking-wider mb-1">
+            CONSÉQUENCE PHYSIOLOGIQUE MAJEURE POUR LE BACCALAURÉAT
+          </p>
+          <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+            Le cœur est <span className="font-bold text-slate-900">infatigable et intétanisable</span>.
+            La longue période réfractaire absolue garantit un relâchement obligatoire entre chaque battement,
+            rendant possible le remplissage ventriculaire. Si le cœur pouvait se tétaniser comme un biceps,
+            la circulation s&apos;arrêterait immédiatement, entraînant la mort instantanée de l&apos;organisme.
           </p>
         </div>
       </div>
@@ -277,65 +417,55 @@ const CARDIAC_FICHES: CardiacFiche[] = [
   },
 ];
 
-const colorMap: Record<string, { border: string; bg: string; text: string; badge: string; badgeBg: string }> = {
-  rose:    { border: 'border-rose-500/50',    bg: 'bg-rose-900/20',    text: 'text-rose-300',    badge: 'text-rose-700',    badgeBg: 'bg-rose-100' },
-  pink:    { border: 'border-pink-500/50',    bg: 'bg-pink-900/20',    text: 'text-pink-300',    badge: 'text-pink-700',    badgeBg: 'bg-pink-100' },
-  emerald: { border: 'border-emerald-500/50', bg: 'bg-emerald-900/20', text: 'text-emerald-300', badge: 'text-emerald-700', badgeBg: 'bg-emerald-100' },
-  violet:  { border: 'border-violet-500/50',  bg: 'bg-violet-900/20',  text: 'text-violet-300',  badge: 'text-violet-700',  badgeBg: 'bg-violet-100' },
-  cyan:    { border: 'border-cyan-500/50',     bg: 'bg-cyan-900/20',    text: 'text-cyan-300',    badge: 'text-cyan-700',    badgeBg: 'bg-cyan-100' },
-  orange:  { border: 'border-orange-500/50',  bg: 'bg-orange-900/20',  text: 'text-orange-300',  badge: 'text-orange-700',  badgeBg: 'bg-orange-100' },
-};
-
 export default function B2CardiaqueReflexesCard() {
   const [activeId, setActiveId] = useState<string>('tissu-nodal');
 
   const active = CARDIAC_FICHES.find((f) => f.id === activeId) ?? CARDIAC_FICHES[0];
-  const c = colorMap[active.color];
 
   return (
-    <section className="bg-slate-950 min-h-screen py-8 px-4">
+    <section className="bg-white border border-slate-200 rounded-3xl p-5 sm:p-8 shadow-sm space-y-6">
       {/* Header */}
-      <div className="max-w-4xl mx-auto mb-8">
-        <div className="flex flex-wrap items-center gap-2 mb-3">
-          <span className="text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/40 px-3 py-1 rounded-full uppercase tracking-wider">
-            Programme Officiel SVT
+      <div className="border-b border-slate-100 pb-5">
+        <div className="flex flex-wrap items-center gap-2 mb-2.5">
+          <span className="text-[11px] font-bold bg-rose-50 text-rose-700 border border-rose-200 px-3 py-1 rounded-full uppercase tracking-wider">
+            Programme Officiel SVT S2
           </span>
-          <span className="text-xs font-bold bg-pink-500/20 text-pink-300 border border-pink-500/40 px-3 py-1 rounded-full">
-            Physiologie Cardiovasculaire
+          <span className="text-[11px] font-bold bg-pink-50 text-pink-700 border border-pink-200 px-3 py-1 rounded-full">
+            Physiologie Cardiovasculaire • B2.1
           </span>
         </div>
-        <h1 className="text-2xl sm:text-3xl font-black text-white leading-tight mb-3">
-          Les 6 Références Clés :{' '}
-          <span className="text-rose-400">Activité Cardiaque</span>
-        </h1>
-        <p className="text-sm text-slate-400 leading-relaxed max-w-2xl">
-          Automatisme intrinsèque (tissu nodal), révolution cardiaque, ECG, ligatures de Stannius,
-          débit cardiaque et inexcitabilité — maîtrisez les fondamentaux cardiovasculaires du Baccalauréat sénégalais.
+        <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mb-2">
+          Les 6 Références Clés : <span className="text-rose-600">Activité & Automatisme Cardiaque</span>
+        </h2>
+        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-3xl">
+          Tissu nodal, révolution cardiaque (0,8 s), analyse d&apos;ECG, expériences de Stannius,
+          débit cardiaque et loi de Marey — les fiches réflexes étalonnées sur le barème officiel du Baccalauréat sénégalais.
         </p>
       </div>
 
-      {/* Grid des fiches */}
-      <div className="max-w-4xl mx-auto mb-6 grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
+      {/* Grid des fiches (Sélecteur 2x3) */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
         {CARDIAC_FICHES.map((fiche) => {
-          const fc = colorMap[fiche.color];
           const isActive = fiche.id === activeId;
           return (
             <button
               key={fiche.id}
               onClick={() => setActiveId(fiche.id)}
-              className={`text-left p-3 rounded-xl border transition-all duration-200 ${
+              className={`text-left p-3.5 rounded-2xl border transition-all duration-200 ${
                 isActive
-                  ? `${fc.border} ${fc.bg} ring-1 ${fc.border}`
-                  : 'border-slate-700/50 bg-slate-900/40 hover:border-slate-600'
+                  ? 'border-rose-500 bg-rose-50/70 shadow-sm ring-2 ring-rose-500/20'
+                  : 'border-slate-200 bg-slate-50/70 text-slate-700 hover:bg-slate-100 hover:border-slate-300'
               }`}
             >
               <div className="flex items-center justify-between mb-1 gap-1">
-                <span className={`text-[10px] font-bold ${isActive ? fc.text : 'text-slate-500'}`}>
+                <span className={`text-[10px] font-black tracking-wider ${isActive ? 'text-rose-700' : 'text-slate-500'}`}>
                   {fiche.code}
                 </span>
-                <span className="text-[9px] text-slate-500 truncate max-w-[70px] sm:max-w-none">{fiche.shortTag}</span>
+                <span className="text-[9px] font-semibold text-slate-400 truncate max-w-[70px] sm:max-w-none">
+                  {fiche.shortTag}
+                </span>
               </div>
-              <p className={`text-xs font-semibold leading-snug line-clamp-2 ${isActive ? 'text-white' : 'text-slate-400'}`}>
+              <p className={`text-xs font-bold leading-snug line-clamp-2 ${isActive ? 'text-rose-950 font-black' : 'text-slate-800'}`}>
                 {fiche.shortTitle}
               </p>
             </button>
@@ -344,47 +474,47 @@ export default function B2CardiaqueReflexesCard() {
       </div>
 
       {/* Fiche détaillée */}
-      <div className="max-w-4xl mx-auto">
-        <div className={`rounded-2xl border ${c.border} bg-slate-900/60 overflow-hidden`}>
-          {/* Fiche Header */}
-          <div className={`${c.bg} border-b ${c.border} px-5 py-4`}>
-            <div className="flex flex-wrap items-start justify-between gap-2">
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <span className={`text-xs font-black ${c.text} uppercase tracking-widest`}>{active.code}</span>
-                  <span className={`text-[10px] ${c.text} bg-slate-900/40 px-2 py-0.5 rounded`}>{active.domain}</span>
-                </div>
-                <h2 className="text-base sm:text-lg font-black text-white leading-tight">{active.fullTitle}</h2>
-              </div>
-              <div className="text-right flex-shrink-0">
-                <span className={`text-xs font-bold ${c.badgeBg} ${c.badge} px-3 py-1 rounded-full`}>
-                  Pondération Bac : {active.bacPoints}
+      <div className="rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+        {/* Fiche Header */}
+        <div className="bg-gradient-to-r from-rose-50 via-pink-50 to-rose-50 border-b border-rose-100 px-5 py-4">
+          <div className="flex flex-wrap items-start justify-between gap-2">
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-xs font-black text-rose-700 uppercase tracking-widest">{active.code}</span>
+                <span className="text-[10px] font-bold text-slate-600 bg-white/80 px-2 py-0.5 rounded border border-rose-200/60">
+                  {active.domain}
                 </span>
               </div>
+              <h3 className="text-base sm:text-lg font-black text-slate-900 leading-tight">{active.fullTitle}</h3>
+            </div>
+            <div className="text-right flex-shrink-0">
+              <span className="text-xs font-bold bg-white text-rose-700 border border-rose-200 px-3 py-1 rounded-full shadow-sm">
+                Pondération Bac : {active.bacPoints}
+              </span>
             </div>
           </div>
-          {/* Fiche Content */}
-          <div className="px-5 py-5">
-            {active.content}
-          </div>
+        </div>
+
+        {/* Fiche Content */}
+        <div className="p-5 sm:p-6 bg-white">
+          {active.content}
         </div>
       </div>
 
-      {/* Bilan KaTeX */}
-      <div className="max-w-4xl mx-auto mt-8">
-        <div className="bg-gradient-to-r from-rose-900/30 to-pink-900/30 border border-rose-500/30 rounded-2xl p-5">
-          <p className="text-xs font-black text-rose-300 uppercase tracking-widest mb-3">
-            FORMULE MAÎTRESSE — BACCALAURÉAT
-          </p>
+      {/* Bilan KaTeX Footer */}
+      <div className="bg-gradient-to-r from-rose-50 via-pink-50 to-rose-50 border border-rose-200 rounded-2xl p-5 text-center">
+        <p className="text-xs font-black text-rose-800 uppercase tracking-widest mb-2.5">
+          FORMULE MAÎTRESSE OFFICIELLE DU BACCALAURÉAT S2
+        </p>
+        <div className="bg-white border border-rose-200 rounded-xl p-3.5 inline-block shadow-sm">
           <MathRenderer
-            content="$$PA = DC \times RPT \qquad DC = FC \times VS \qquad \Delta PA \to \text{Barorécepteurs} \to \text{Centre bulbaire}$$"
+            content="$$PA = DC \times RPT \qquad DC = FC \times VES \qquad \Delta PA \xrightarrow{\text{Boucle réflexe}} \text{Barorécepteurs} \to \text{Centre bulbaire}$$"
           />
-          <p className="text-xs text-slate-400 text-center mt-2">
-            PA = Pression Artérielle | DC = Débit Cardiaque | RPT = Résistances Périphériques Totales
-          </p>
         </div>
+        <p className="text-xs text-slate-600 font-medium mt-2.5">
+          PA = Pression Artérielle • DC = Débit Cardiaque • RPT = Résistances Périphériques Totales • FC = Fréquence • VES = Volume d&apos;Éjection
+        </p>
       </div>
     </section>
   );
 }
-
