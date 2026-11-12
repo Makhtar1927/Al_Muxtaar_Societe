@@ -2882,7 +2882,7 @@ if (lessonMeta && lessonMeta.status !== 'published') {
         </aside>
 
         {/* Main Content Area */}
-        <main className="lg:col-span-3 order-1 lg:order-2 space-y-8 w-full max-w-full overflow-hidden">
+        <main className="lg:col-span-3 order-1 lg:order-2 space-y-8 w-full max-w-full overflow-hidden pb-32 sm:pb-20">
           {/* Top Breadcrumb & Actions Bar */}
           <div className="bg-white rounded-2xl border border-navy/10 p-4 sm:p-5 shadow-sm flex flex-wrap items-center justify-between gap-4">
             <div className="space-y-1">

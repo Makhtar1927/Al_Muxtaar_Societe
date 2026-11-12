@@ -6117,34 +6117,21 @@ Cette modulation permanente est assurée par une **double régulation** :
 
 Le cœur est relié aux centres nerveux par deux contingents antagonistes du **système nerveux végétatif (autonome)** :
 
-\`\`\`
-                                  ┌────────────────────────┐
-                                  │      CENTRES NERVEUX   │
-                                  └───────────┬────────────┘
-                         ┌────────────────────┴────────────────────┐
-                         ▼                                         ▼
-            ┌─────────────────────────┐               ┌─────────────────────────┐
-            │     BULBE RACHIDIEN     │               │     MOELLE ÉPINIÈRE     │
-            │ (Centre cardiomodérateur│               │ (Centres médullaires    │
-            │       dorsal du X)      │               │   thoraciques D1 - D5)  │
-            └────────────┬────────────┘               └────────────┬────────────┘
-                         │                                         │
-                         │ Nerf vague (X)                          │ Neurone préganglionnaire
-                         │ (Pneumogastrique)                       │
-                         ▼                                         ▼
-            ┌─────────────────────────┐               ┌─────────────────────────┐
-            │  GANGLION INTRAMURAL    │               │  CHAÎNE GANGLIONNAIRE   │
-            │  (dans la paroi atriale)│               │  LATÉRO-VERTÉBRALE      │
-            └────────────┬────────────┘               │  (Ganglion stellaire)   │
-                         │                                         └────────────┬────────────┘
-                         │ Fibre post-ganglionnaire                             │ Nerf sympathique cardiaque
-                         │ très courte (Acétylcholine)                          │ post-ganglionnaire
-                         ▼                                                      ▼ (Noradrénaline)
-            ┌────────────────────────────────────────────────────────────────────────┐
-            │                             MYOCARDE                                   │
-            │         Nœud Sinusal (FC)  ───  Nœud AV  ───  Myocytes atriaux/ventr. │
-            └────────────────────────────────────────────────────────────────────────┘
-\`\`\`
+> [!SYNTHESE_INNERVATION] **Schéma Fonctionnel : La Double Innervation Cardiaque Antagoniste**
+>
+> 🔹 **Voie Parasympathique (Frein cardiomodérateur) :**
+> - **Centre bulbaire :** Noyau moteur dorsal du nerf vague (dans le bulbe rachidien).
+> - **Nerf conducteur :** **Nerfs vagues (X)** ou pneumogastriques.
+> - **Relais synaptique :** Micro-ganglions intramuraux situés directement dans la paroi des oreillettes.
+> - **Neurotransmetteur :** **Acétylcholine (ACh)** se fixant sur les récepteurs **muscariniques $M_2$** du tissu nodal.
+> - **Effet physiologique :** Ralentissement du rythme (**bradycardie**) et diminution de la vitesse de conduction. Arrêt réversible en **diastole** (relâchement).
+>
+> 🔸 **Voie Orthosympathique (Accélérateur cardiaque) :**
+> - **Centres médullaires :** Cornes latérales de la moelle épinière thoracique ($D_1$ à $D_5$).
+> - **Relais synaptique :** Chaîne ganglionnaire latéro-vertébrale (notamment le **ganglion stellaire**).
+> - **Nerfs conducteurs :** Nerfs cardiaques sympathiques postganglionnaires.
+> - **Neurotransmetteur :** **Noradrénaline (NA)** se fixant sur les récepteurs **$\beta_1$-adrénergiques** du tissu nodal ET du myocarde ventriculaire.
+> - **Effet physiologique :** Accélération du rythme (**tachycardie**) et renforcement puissant de la force contractile ventriculaire (**effet inotrope positif**).
 
 ### 2.1. Le Système Parasympathique (Cardiomodérateur)
 - **Centre nerveux d'origine** : Situé dans le **bulbe rachidien** (noyau moteur dorsal du nerf vague, ou centre cardiomodérateur bulbaire).
@@ -6193,26 +6180,17 @@ Les sujets du Baccalauréat S2 s'appuient systématiquement sur des séries exp�
 
 Cette expérience historique, récompensée par le Prix Nobel de Médecine en 1936, est l'un des classiques absolus du Baccalauréat sénégalais.
 
-\`\`\`
-       CŒUR 1 (Donneur)                               CŒUR 2 (Receveur)
-   Avec Nerf Vague intact                           Dénervé (sans nerf)
-  ┌───────────────────────┐                       ┌───────────────────────┐
-  │         /\_/\         │                       │         /\_/\         │
-  │        ( o.o )        │                       │        ( o.o )        │
-  │        [CŒUR 1]       │                       │        [CŒUR 2]       │
-  └───────────┬───────────┘                       └───────────┬───────────┘
-              │ Perfusion de liquide                          ▲
-              │ de Ringer enrichi                             │
-              ▼                                               │
-  ┌───────────────────────────────────────────────────────────┴───────────┐
-  │ Tubulure de communication liquide : transfert de la solution de perfusion │
-  └───────────────────────────────────────────────────────────────────────┘
-
-  1. On stimule électriquement le nerf vague du CŒUR 1 :
-     ==> Le CŒUR 1 ralentit puis s'arrête en diastole.
-  2. Le liquide de perfusion baignant le Cœur 1 est transféré au CŒUR 2 :
-     ==> Après un court délai de diffusion, le CŒUR 2 ralentit et s'arrête également !
-\`\`\`
+> [!DISPOSITIF_LOEWI] **Protocole Expérimental des Deux Cœurs de Grenouille en Série :**
+>
+> - **Cœur 1 (Donneur) :** Cœur de grenouille perfusé par du liquide de Ringer, avec son **nerf vague intact**.
+> - **Cœur 2 (Receveur) :** Cœur de grenouille perfusé, **totalement dénervé** (aucun contact nerveux ni électrique avec le cœur 1).
+> - **Canule de communication :** Le liquide de Ringer baignant le cœur 1 s'écoule directement vers le cœur 2.
+>
+> **Chronologie des observations expérimentales :**
+> 1. **Stimulation électrique du nerf vague du Cœur 1 :** Le cœur 1 ralentit immédiatement puis s'arrête en diastole.
+> 2. **Transfert du liquide de perfusion :** Le liquide physiologique ayant baigné le cœur 1 parvient au cœur 2 après un court délai de transit.
+> 3. **Réaction différée du Cœur 2 dénervé :** Sans aucune stimulation électrique directe, le cœur 2 **ralentit et s'arrête à son tour en diastole** !
+> 4. **Lavage au Ringer neuf :** Dès que le liquide est renouvelé, les deux cœurs reprennent spontanément leurs contractions rythmiques.
 
 **Raisonnement scientifique exigé au Bac :**
 1. **Constat** : Le cœur 2 ne reçoit aucune stimulation nerveuse électrique directe, et pourtant il réagit exactement comme le cœur 1 avec un temps de latence.

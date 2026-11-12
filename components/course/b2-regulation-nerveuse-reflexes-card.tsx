@@ -49,7 +49,7 @@ const REGULATION_FICHES: RegulationFiche[] = [
               <ul className="text-xs text-slate-700 space-y-1.5 leading-relaxed">
                 <li><strong className="text-slate-900">Centre d&apos;origine :</strong> Bulbe rachidien (noyau moteur dorsal du X).</li>
                 <li><strong className="text-slate-900">Médiateur chimique :</strong> <span className="font-bold text-sky-700">Acétylcholine (ACh)</span>.</li>
-                <li><strong className="text-slate-900">Récepteurs cibles :</strong> Muscariniques membranaires ($M_2$).</li>
+                <li><strong className="text-slate-900">Récepteurs cibles :</strong> Muscariniques membranaires (M₂).</li>
                 <li><strong className="text-slate-900">Effet sur le cœur :</strong> Cardiomodérateur permanent (Bradycardie, baisse de conduction).</li>
                 <li><strong className="text-slate-900">Arrêt extrême :</strong> Arrêt cardiaque toujours en <strong className="text-sky-800">diastole</strong> (relâchement).</li>
               </ul>
@@ -70,16 +70,16 @@ const REGULATION_FICHES: RegulationFiche[] = [
                 </span>
               </div>
               <ul className="text-xs text-slate-700 space-y-1.5 leading-relaxed">
-                <li><strong className="text-slate-900">Centre d&apos;origine :</strong> Moelle épinière thoracique (métamères $D_1 - D_5$).</li>
+                <li><strong className="text-slate-900">Centre d&apos;origine :</strong> Moelle épinière thoracique (métamères D₁ à D₅).</li>
                 <li><strong className="text-slate-900">Relais :</strong> Chaîne ganglionnaire (ganglion stellaire).</li>
                 <li><strong className="text-slate-900">Médiateur chimique :</strong> <span className="font-bold text-rose-700">Noradrénaline (NA)</span>.</li>
-                <li><strong className="text-slate-900">Récepteurs cibles :</strong> $\beta_1$-adrénergiques myocardiques.</li>
+                <li><strong className="text-slate-900">Récepteurs cibles :</strong> β₁-adrénergiques myocardiques.</li>
                 <li><strong className="text-slate-900">Effet sur le cœur :</strong> Cardioaccélérateur (Tachycardie, hausse d&apos;amplitude systolique).</li>
               </ul>
             </div>
             <div className="mt-3 pt-2 border-t border-rose-100 bg-white rounded-lg p-2 text-center">
               <p className="text-[11px] font-bold text-rose-800">En effort ou stress : Activation sympathique</p>
-              <p className="text-[10px] text-slate-500">Augmente le débit cardiaque : $DC \uparrow = FC \uparrow \times VES \uparrow$</p>
+              <p className="text-[10px] text-slate-500">Augmente le débit cardiaque : DC &uarr; = FC &uarr; &times; VES &uarr;</p>
             </div>
           </div>
         </div>
@@ -169,7 +169,7 @@ const REGULATION_FICHES: RegulationFiche[] = [
             <tbody className="divide-y divide-slate-200 text-slate-700">
               <tr className="bg-white">
                 <td className="p-2.5 font-bold text-slate-900">Section des 2 Nerfs Vagues (X)</td>
-                <td className="p-2.5 text-rose-600 font-semibold">Tachycardie immédiate (70 $\to$ 110 bpm)</td>
+                <td className="p-2.5 text-rose-600 font-semibold">Tachycardie immédiate (70 &rarr; 110 bpm)</td>
                 <td className="p-2.5">Prouve le <strong>tonus cardiomodérateur vagal permanent</strong> au repos (couper le frein accélère le rythme).</td>
               </tr>
               <tr className="bg-slate-50">
@@ -237,11 +237,11 @@ const REGULATION_FICHES: RegulationFiche[] = [
             <div className="flex items-center justify-between gap-1 mb-1.5">
               <p className="text-xs font-black text-rose-900">Propranolol (Bêtabloquant)</p>
               <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-100 text-rose-800 border border-rose-200">
-                Antagoniste $\beta_1$
+                Antagoniste &beta;₁
               </span>
             </div>
             <p className="text-xs text-slate-600 leading-relaxed mb-1">
-              Bloque les récepteurs adrénergiques $\beta_1$.
+              Bloque les récepteurs adrénergiques &beta;₁.
             </p>
             <p className="text-xs font-semibold text-sky-700">
               Effet : Baisse de la FC de repos et empêche toute tachycardie à l&apos;effort ou au stress.
@@ -366,16 +366,16 @@ const REGULATION_FICHES: RegulationFiche[] = [
               Libérée dans le sang lors d&apos;un stress aigu, d&apos;un froid intense ou d&apos;un effort musculaire sous contrôle sympathique.
             </p>
             <div className="bg-rose-50 rounded-lg p-2.5 text-xs text-rose-900 font-semibold space-y-1">
-              <p>&bull; Tachycardie brutale ($FC \uparrow$)</p>
-              <p>&bull; Augmentation de la force systolique ($VES \uparrow$)</p>
-              <p>&bull; Débit cardiaque doublé ou triplé ($DC \uparrow$)</p>
+              <p>&bull; Tachycardie brutale (FC &uarr;)</p>
+              <p>&bull; Augmentation de la force systolique (VES &uarr;)</p>
+              <p>&bull; Débit cardiaque doublé ou triplé (DC &uarr;)</p>
             </div>
           </div>
 
           <div className="bg-white border border-amber-200 rounded-xl p-4 shadow-sm">
-            <p className="text-xs font-black text-amber-900 mb-1">Hormones Thyroïdiennes ($T_3, T_4$)</p>
+            <p className="text-xs font-black text-amber-900 mb-1">Hormones Thyroïdiennes (T₃, T₄)</p>
             <p className="text-xs text-slate-600 leading-relaxed mb-2">
-              Action à long terme : augmentent la synthèse et la sensibilité des récepteurs $\beta_1$-adrénergiques du myocarde.
+              Action à long terme : augmentent la synthèse et la sensibilité des récepteurs &beta;₁-adrénergiques du myocarde.
             </p>
             <div className="bg-amber-50 rounded-lg p-2.5 text-xs text-amber-900 font-semibold space-y-1">
               <p>&bull; Hyperthyroïdie &rarr; Tachycardie permanente (&gt; 100 bpm)</p>

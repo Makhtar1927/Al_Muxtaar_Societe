@@ -190,17 +190,17 @@ export default function B2RegulationNerveuseInteractiveLab() {
           Expérimentez en direct la stimulation des nerfs vagues et sympathiques, revivez l&apos;expérience historique d&apos;Otto Loewi (1921) et testez l&apos;effet des drogues pharmacologiques sur le myocarde.
         </p>
 
-        {/* Navigation des 3 Onglets */}
-        <div className="flex flex-wrap gap-2 mt-5">
+        {/* Navigation des 3 Onglets Responsive */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-5">
           {[
-            { id: 'innervation', label: '1. Double Innervation & Cardiogramme' },
-            { id: 'loewi', label: '2. Expérience d\'Otto Loewi (1921)' },
-            { id: 'pharmaco', label: '3. Banc Pharmacologique & Hormonal' },
+            { id: 'innervation', label: '1. Double Innervation & Tracé' },
+            { id: 'loewi', label: '2. Expérience Loewi (1921)' },
+            { id: 'pharmaco', label: '3. Banc Pharmacologique' },
           ].map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as LabTab)}
-              className={`px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all border ${
+              className={`px-3 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all text-center border ${
                 activeTab === tab.id
                   ? 'bg-sky-600 text-white border-sky-600 shadow-sm'
                   : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
@@ -444,9 +444,14 @@ export default function B2RegulationNerveuseInteractiveLab() {
                 </div>
               </div>
 
-              {/* Tubulure de communication */}
+              {/* Tubulure de communication Desktop */}
               <div className="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 bg-white border border-slate-300 px-3 py-1.5 rounded-full shadow-sm text-[11px] font-bold text-slate-700">
                 {loewiStep >= 3 ? '🟢 Transfert Acétylcholine...' : '💧 Perfusion Ringer'}
+              </div>
+
+              {/* Connecteur Mobile */}
+              <div className="flex md:hidden justify-center items-center py-2 px-3 text-xs font-bold text-emerald-800 bg-emerald-50 rounded-xl border border-emerald-200 text-center">
+                {loewiStep >= 3 ? '🟢 Canule : Transfert du liquide enrichi en Acétylcholine &darr;' : '💧 Canule : Perfusion de liquide de Ringer neutre &darr;'}
               </div>
 
               {/* Cœur 2 (Receveur dénervé) */}
