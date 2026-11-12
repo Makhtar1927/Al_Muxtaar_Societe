@@ -6549,19 +6549,14 @@ Attirés par le gradient de cytokines chimiotactiques, les leucocytes circulants
 
 Une fois dans le foyer inflammatoire, les leucocytes (polynucléaires neutrophiles et macrophages issus de la différenciation des monocytes) assurent l'élimination des microbes par **phagocytose** :
 
-```
-          1. ADHÉSION / FIXATION
-  (Reconnaissance PAMP-PRR ou Opsonines)
-                    ↓
-          2. INGESTION / ENGLEBEMENT
-  (Émission de pseudopodes → Phagosome)
-                    ↓
-          3. DIGESTION ENZYMATIQUE
-  (Fusion lysosomiale → Phagolysosome)
-                    ↓
-       4. REJET DES DÉCHETS & PRÉSENTATION
-  (Exocytose des débris + Exposition sur CMH II)
-```
+> [!CALLOUT] **Chronologie en 4 temps :**
+> **1. ADHÉSION / FIXATION** (Reconnaissance PAMP-PRR ou Opsonines)
+> $\\downarrow$
+> **2. INGESTION / ENGLEBEMENT** (Émission de pseudopodes $\\to$ Phagosome)
+> $\\downarrow$
+> **3. DIGESTION ENZYMATIQUE** (Fusion lysosomiale $\\to$ Phagolysosome)
+> $\\downarrow$
+> **4. REJET DES DÉCHETS & PRÉSENTATION** (Exocytose des débris + Exposition sur CMH II)
 
 ### Détail des 4 Étapes
 1. **Étape 1 : Adhésion (Fixation) :**

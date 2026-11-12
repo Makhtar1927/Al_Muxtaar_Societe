@@ -329,3 +329,4 @@ export default function B3ImmuniteInneeInteractiveLab() {
     </div>
   );
 }
+

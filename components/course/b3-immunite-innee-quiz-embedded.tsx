@@ -236,3 +236,4 @@ export default function B3ImmuniteInneeQuizEmbedded() {
     </div>
   );
 }
+
