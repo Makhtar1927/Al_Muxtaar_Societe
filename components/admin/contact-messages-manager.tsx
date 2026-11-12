@@ -234,6 +234,11 @@ export default function ContactMessagesManager({
                               Nouveau
                             </Badge>
                           )}
+                          {item.message.includes('[REMARQUE ÉLÈVE SUR COURS]') && (
+                            <Badge variant="outline" className="text-[10px] py-0 px-2 font-bold bg-teal-50 text-teal-700 border-teal-200">
+                              📚 Avis Cours
+                            </Badge>
+                          )}
                           {item.status === 'replied' && (
                             <Badge variant="success" className="text-[10px] py-0 px-2 font-bold">
                               Répondu
@@ -246,10 +251,14 @@ export default function ContactMessagesManager({
                           )}
                         </div>
                         <div className="flex items-center gap-2 text-xs text-navy-light mt-0.5 flex-wrap">
-                          <span className="flex items-center gap-1 font-mono font-medium text-navy bg-navy/5 px-1.5 py-0.5 rounded">
-                            <Phone size={11} className="text-navy-light" />
-                            {item.phone}
-                          </span>
+                          {item.phone ? (
+                            <span className="flex items-center gap-1 font-mono font-medium text-navy bg-navy/5 px-1.5 py-0.5 rounded">
+                              <Phone size={11} className="text-navy-light" />
+                              {item.phone}
+                            </span>
+                          ) : (
+                            <span className="italic text-navy-light/75">Sans téléphone</span>
+                          )}
                           <span>•</span>
                           <span className="text-[11px] text-navy-light/90">{dateStr}</span>
                         </div>
@@ -258,20 +267,22 @@ export default function ContactMessagesManager({
 
                     {/* Actions : WhatsApp & Statuts */}
                     <div className="flex items-center gap-1.5 self-start sm:self-auto flex-wrap">
-                      <a
-                        href={formatWhatsAppLink(item.phone, item.name)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() => {
-                          if (item.status === 'unread') {
-                            handleStatusChange(item.id, 'replied');
-                          }
-                        }}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#25D366] text-white hover:bg-[#1EBE5D] text-xs font-bold transition-all shadow-xs"
-                      >
-                        <MessageCircle size={14} />
-                        <span>Répondre sur WhatsApp</span>
-                      </a>
+                      {item.phone && item.phone.replace(/\D/g, '').length >= 7 && (
+                        <a
+                          href={formatWhatsAppLink(item.phone, item.name)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => {
+                            if (item.status === 'unread') {
+                              handleStatusChange(item.id, 'replied');
+                            }
+                          }}
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#25D366] text-white hover:bg-[#1EBE5D] text-xs font-bold transition-all shadow-xs"
+                        >
+                          <MessageCircle size={14} />
+                          <span>Répondre sur WhatsApp</span>
+                        </a>
+                      )}
 
                       {isUnread ? (
                         <Button

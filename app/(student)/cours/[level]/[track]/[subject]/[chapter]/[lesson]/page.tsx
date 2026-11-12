@@ -147,6 +147,7 @@ import B3DysfonctionnementsQuizEmbedded from '@/components/course/b3-dysfonction
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
+import LessonFeedbackForm from '@/components/course/lesson-feedback-form';
 
 const ALCOOLS_AUDIO_CHAPTERS: AudioChapter[] = [
   {
@@ -3753,6 +3754,14 @@ if (lessonMeta && lessonMeta.status !== 'published') {
               ) : (
                 <LimitesQuizEmbedded />
               )}
+
+              {/* Rubrique Remarques sur la leçon — Juste avant la fin / footer */}
+              <LessonFeedbackForm
+                lessonTitle={lessonMeta.title}
+                chapterTitle={chapter?.title ?? undefined}
+                studentName={studentFullName !== 'Élève Al Muxtaar' ? studentFullName : undefined}
+                studentPhone={studentPhone !== '+221' ? studentPhone : undefined}
+              />
 
               {/* Next / Prev Navigation Controls */}
               <div className="bg-white rounded-2xl border border-navy/10 p-5 shadow-sm flex flex-wrap items-center justify-between gap-4">
