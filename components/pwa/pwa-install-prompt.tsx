@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { X, Download, Share, PlusSquare, CheckCircle2, Zap, WifiOff, Bell, Smartphone, ArrowRight, ShieldCheck } from 'lucide-react';
 
 interface BeforeInstallPromptEvent extends Event {
   readonly platforms: string[];
@@ -28,7 +27,7 @@ export default function PwaInstallPrompt() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    // 1. Check if already running in standalone mode (already installed PWA)
+    // 1. Vérifier si l'application est déjà exécutée en mode PWA autonome
     const isStandaloneMode =
       window.matchMedia('(display-mode: standalone)').matches ||
       (window.navigator as unknown as { standalone?: boolean }).standalone === true ||
@@ -39,13 +38,13 @@ export default function PwaInstallPrompt() {
       return;
     }
 
-    // 2. Check dismissal cooldown
+    // 2. Vérifier la temporisation de refus
     const dismissedUntil = localStorage.getItem(DISMISS_KEY);
     if (dismissedUntil && Date.now() < parseInt(dismissedUntil, 10)) {
       return;
     }
 
-    // 3. Detect iOS (iPhone, iPad, iPod)
+    // 3. Détection Apple iOS (iPhone, iPad, iPod)
     const userAgent = window.navigator.userAgent.toLowerCase();
     const isIosDevice =
       /iphone|ipad|ipod/.test(userAgent) ||
@@ -58,7 +57,7 @@ export default function PwaInstallPrompt() {
       setActiveTab('android');
     }
 
-    // 4. Listen for Chromium beforeinstallprompt event
+    // 4. Écouteur avant installation Chrome / Chromium
     const handleBeforeInstallPrompt = (e: Event) => {
       e.preventDefault();
       setDeferredPrompt(e as BeforeInstallPromptEvent);
@@ -66,7 +65,7 @@ export default function PwaInstallPrompt() {
 
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
 
-    // 5. Listen for successful install
+    // 5. Confirmation d'installation réussie
     const handleAppInstalled = () => {
       setInstallSuccess(true);
       setTimeout(() => {
@@ -76,7 +75,7 @@ export default function PwaInstallPrompt() {
 
     window.addEventListener('appinstalled', handleAppInstalled);
 
-    // 6. Smooth delay before presenting (3 seconds after initial page load)
+    // 6. Délai d'apparition doux (3 secondes après chargement de la page)
     const timer = setTimeout(() => {
       setIsOpen(true);
     }, 3000);
@@ -115,68 +114,55 @@ export default function PwaInstallPrompt() {
         setShowAndroidManualHelp(true);
       }
     } else {
-      // If deferredPrompt is not available (e.g. Firefox Android or prompt already triggered)
       setShowAndroidManualHelp(true);
     }
   };
 
-  // If already installed or closed, do not render
   if (isStandalone || !isOpen) {
     return null;
   }
 
   return (
     <div
-      className="fixed inset-0 z-[9999] flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/65 backdrop-blur-md animate-fadeIn"
+      className="fixed inset-0 z-[9999] flex items-end sm:items-center justify-center p-0 sm:p-4 bg-slate-900/40 backdrop-blur-sm animate-fadeIn"
       role="dialog"
       aria-modal="true"
       aria-labelledby="pwa-install-title"
     >
-      {/* Container with responsive bottom-sheet on mobile, centered modal on desktop */}
-      <div className="relative w-full max-w-lg bg-gradient-to-b from-[#0A1628] via-[#0E1F38] to-[#071120] text-white rounded-t-[28px] sm:rounded-[28px] border border-turquoise/35 shadow-[0_-12px_45px_rgba(0,184,169,0.22)] overflow-hidden max-h-[92vh] flex flex-col transition-all duration-300 animate-slideUp">
+      {/* Conteneur principal en mode clair */}
+      <div className="relative w-full max-w-lg bg-white text-slate-900 rounded-t-[28px] sm:rounded-3xl border border-slate-200/90 shadow-2xl overflow-hidden max-h-[92vh] flex flex-col transition-all duration-300 animate-slideUp">
         
-        {/* Subtle top grab handle for mobile feel */}
+        {/* Poignée mobile */}
         <div className="pt-3 pb-1 flex justify-center sm:hidden">
-          <div className="w-12 h-1.5 bg-slate-600/70 rounded-full" />
+          <div className="w-12 h-1 bg-slate-200 rounded-full" />
         </div>
 
-        {/* Decorative background glow accents */}
-        <div className="pointer-events-none absolute -top-24 -left-24 w-60 h-60 bg-turquoise/15 rounded-full blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-24 -right-24 w-60 h-60 bg-gold/15 rounded-full blur-3xl" />
-
-        {/* Top bar with Close button */}
-        <div className="relative px-5 pt-3 sm:pt-5 pb-3 flex items-start justify-between border-b border-white/10">
+        {/* Barre d'en-tête */}
+        <div className="px-5 pt-3 sm:pt-5 pb-4 flex items-start justify-between border-b border-slate-100">
           <div className="flex items-center gap-3.5">
-            {/* 3D App Icon Badge */}
-            <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl p-1 bg-gradient-to-tr from-turquoise via-white/40 to-gold shadow-lg shadow-turquoise/25 flex-shrink-0 group">
-              <div className="w-full h-full rounded-xl bg-[#091526] overflow-hidden flex items-center justify-center relative">
-                <Image
-                  src="/assets/logo/logo.png"
-                  alt="Al Muxtaar Logo"
-                  width={56}
-                  height={56}
-                  className="object-contain p-1 transform group-hover:scale-105 transition-transform duration-300"
-                  priority
-                />
-              </div>
-              {/* Pulsing micro-badge */}
-              <span className="absolute -top-1 -right-1 flex h-4 w-4">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-turquoise opacity-75" />
-                <span className="relative inline-flex rounded-full h-4 w-4 bg-turquoise border-2 border-[#0A1628]" />
-              </span>
+            {/* Logo SVG officiel Al Muxtaar sans texte */}
+            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-teal-50/70 border border-teal-200/60 p-2.5 flex items-center justify-center shrink-0 shadow-sm">
+              <Image
+                src="/assets/logo/al_muxtaar_symbole.svg"
+                alt="Logo Al Muxtaar"
+                width={56}
+                height={48}
+                className="w-auto h-10 sm:h-11 object-contain"
+                priority
+              />
             </div>
 
             <div>
               <div className="flex items-center gap-2">
-                <h3 id="pwa-install-title" className="text-base sm:text-lg font-bold text-white tracking-tight">
+                <h3 id="pwa-install-title" className="text-base sm:text-lg font-black text-slate-900 tracking-tight">
                   Al Muxtaar Société
                 </h3>
-                <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-turquoise/20 text-turquoise border border-turquoise/40">
-                  App 3.0
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-teal-50 text-teal-800 border border-teal-200">
+                  Web App
                 </span>
               </div>
-              <p className="text-xs sm:text-sm text-slate-300 mt-0.5">
-                Installe l&apos;application sur ton téléphone
+              <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
+                Installer sur votre écran d&apos;accueil
               </p>
             </div>
           </div>
@@ -184,198 +170,169 @@ export default function PwaInstallPrompt() {
           <button
             onClick={handleDismiss}
             aria-label="Fermer la boîte d'installation"
-            className="p-1.5 rounded-full text-slate-400 hover:text-white hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-turquoise"
+            className="px-3 py-1.5 text-xs font-semibold text-slate-400 hover:text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors cursor-pointer"
           >
-            <X className="w-5 h-5" />
+            Fermer
           </button>
         </div>
 
-        {/* Scrollable content body */}
+        {/* Corps défilable */}
         <div className="px-5 py-4 overflow-y-auto space-y-4">
-          {/* Success screen state */}
           {installSuccess ? (
             <div className="text-center py-8 space-y-3">
-              <div className="w-16 h-16 mx-auto rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-500/40 animate-bounce">
-                <CheckCircle2 className="w-10 h-10" />
-              </div>
-              <h4 className="text-lg font-bold text-white">Application installée avec succès !</h4>
-              <p className="text-xs text-slate-300 max-w-sm mx-auto">
-                Retrouve désormais l&apos;icône <strong>Al Muxtaar</strong> directement sur ton écran d&apos;accueil pour réviser à tout moment.
+              <span className="inline-block px-3 py-1 text-xs font-mono font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300 rounded-full">
+                Installation Confirmée
+              </span>
+              <h4 className="text-lg font-black text-slate-900">Application installée avec succès !</h4>
+              <p className="text-xs sm:text-sm text-slate-600 max-w-sm mx-auto leading-relaxed">
+                Retrouvez désormais le symbole <strong>Al Muxtaar</strong> directement sur votre écran d&apos;accueil pour réviser à tout moment.
               </p>
             </div>
           ) : (
             <>
-              {/* Feature Highlights with 3D feel */}
-              <div className="grid grid-cols-3 gap-2 py-1">
-                <div className="flex flex-col items-center text-center p-2.5 rounded-xl bg-white/5 border border-white/5 hover:border-turquoise/30 transition-colors">
-                  <div className="w-8 h-8 rounded-lg bg-turquoise/15 flex items-center justify-center mb-1.5 text-turquoise shadow-inner">
-                    <Zap className="w-4 h-4 fill-turquoise" />
-                  </div>
-                  <span className="text-[11px] font-bold text-white">Ultra Rapide</span>
-                  <span className="text-[9px] text-slate-400 leading-tight mt-0.5">0 téléchargement lourd</span>
+              {/* 3 Avantages clés en typographie pure sans icône */}
+              <div className="grid grid-cols-3 gap-2.5 py-1">
+                <div className="flex flex-col items-center text-center p-3 rounded-2xl bg-slate-50 border border-slate-200/80">
+                  <span className="text-[10px] font-mono font-black text-teal-700 uppercase tracking-wider bg-teal-100/60 px-2 py-0.5 rounded-md mb-1.5">
+                    0 Mo
+                  </span>
+                  <span className="text-xs font-bold text-slate-900">Ultra Léger</span>
+                  <span className="text-[10px] text-slate-500 leading-tight mt-0.5">Sans store lourd</span>
                 </div>
 
-                <div className="flex flex-col items-center text-center p-2.5 rounded-xl bg-white/5 border border-white/5 hover:border-turquoise/30 transition-colors">
-                  <div className="w-8 h-8 rounded-lg bg-gold/15 flex items-center justify-center mb-1.5 text-gold shadow-inner">
-                    <WifiOff className="w-4 h-4" />
-                  </div>
-                  <span className="text-[11px] font-bold text-white">Hors-Ligne</span>
-                  <span className="text-[9px] text-slate-400 leading-tight mt-0.5">Révise même sans wifi</span>
+                <div className="flex flex-col items-center text-center p-3 rounded-2xl bg-slate-50 border border-slate-200/80">
+                  <span className="text-[10px] font-mono font-black text-amber-700 uppercase tracking-wider bg-amber-100/60 px-2 py-0.5 rounded-md mb-1.5">
+                    Hors-Ligne
+                  </span>
+                  <span className="text-xs font-bold text-slate-900">Autonome</span>
+                  <span className="text-[10px] text-slate-500 leading-tight mt-0.5">Révisez sans wifi</span>
                 </div>
 
-                <div className="flex flex-col items-center text-center p-2.5 rounded-xl bg-white/5 border border-white/5 hover:border-turquoise/30 transition-colors">
-                  <div className="w-8 h-8 rounded-lg bg-emerald-400/15 flex items-center justify-center mb-1.5 text-emerald-400 shadow-inner">
-                    <Bell className="w-4 h-4" />
-                  </div>
-                  <span className="text-[11px] font-bold text-white">Alertes Bac</span>
-                  <span className="text-[9px] text-slate-400 leading-tight mt-0.5">Nouveaux corrigés</span>
+                <div className="flex flex-col items-center text-center p-3 rounded-2xl bg-slate-50 border border-slate-200/80">
+                  <span className="text-[10px] font-mono font-black text-indigo-700 uppercase tracking-wider bg-indigo-100/60 px-2 py-0.5 rounded-md mb-1.5">
+                    1 Clic
+                  </span>
+                  <span className="text-xs font-bold text-slate-900">Accès Direct</span>
+                  <span className="text-[10px] text-slate-500 leading-tight mt-0.5">Écran d&apos;accueil</span>
                 </div>
               </div>
 
-              {/* OS Selector Tabs (Android vs iOS) */}
-              <div className="flex items-center p-1 rounded-xl bg-black/40 border border-white/10 text-xs">
+              {/* Sélecteur de plateforme (Android vs iOS) */}
+              <div className="grid grid-cols-2 gap-1.5 p-1 rounded-2xl bg-slate-100 border border-slate-200 text-xs font-mono">
                 <button
                   type="button"
                   onClick={() => setActiveTab('android')}
-                  className={`flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg font-semibold transition-all ${
+                  className={`py-2 px-3 text-center rounded-xl font-bold transition-all cursor-pointer ${
                     activeTab === 'android'
-                      ? 'bg-gradient-to-r from-turquoise to-[#009E91] text-navy-dark shadow-md shadow-turquoise/25'
-                      : 'text-slate-400 hover:text-white'
+                      ? 'bg-white text-slate-900 shadow-sm'
+                      : 'text-slate-500 hover:text-slate-800'
                   }`}
                 >
-                  <Smartphone className="w-3.5 h-3.5" />
-                  <span>Android & Chrome</span>
-                  {!isIOS && (
-                    <span className="w-1.5 h-1.5 rounded-full bg-navy-dark" />
-                  )}
+                  Android &amp; Chrome
                 </button>
 
                 <button
                   type="button"
                   onClick={() => setActiveTab('ios')}
-                  className={`flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg font-semibold transition-all ${
+                  className={`py-2 px-3 text-center rounded-xl font-bold transition-all cursor-pointer ${
                     activeTab === 'ios'
-                      ? 'bg-gradient-to-r from-turquoise to-[#009E91] text-navy-dark shadow-md shadow-turquoise/25'
-                      : 'text-slate-400 hover:text-white'
+                      ? 'bg-white text-slate-900 shadow-sm'
+                      : 'text-slate-500 hover:text-slate-800'
                   }`}
                 >
-                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.37c.62-.75 1.04-1.8 0.93-2.85-.9.04-1.98.6-2.61 1.34-.56.64-1.05 1.69-.92 2.71 1 .08 2-.45 2.6-1.2" />
-                  </svg>
-                  <span>iPhone / iPad (iOS)</span>
-                  {isIOS && (
-                    <span className="w-1.5 h-1.5 rounded-full bg-navy-dark" />
-                  )}
+                  iPhone &amp; iPad (iOS)
                 </button>
               </div>
 
-              {/* Tab 1: Android & Chromium Desktop */}
+              {/* Onglet Android & Chrome */}
               {activeTab === 'android' && (
                 <div className="space-y-3 pt-1">
-                  <div className="p-3.5 rounded-xl bg-gradient-to-br from-turquoise/10 via-white/5 to-transparent border border-turquoise/20">
-                    <div className="flex items-start gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-turquoise/20 text-turquoise flex items-center justify-center flex-shrink-0">
-                        <Download className="w-5 h-5 animate-pulse" />
-                      </div>
-                      <div>
-                        <h4 className="text-sm font-bold text-white">
-                          Installation directe en 1 Clic
-                        </h4>
-                        <p className="text-xs text-slate-300 mt-0.5 leading-relaxed">
-                          L&apos;application s&apos;ajoute à ton écran d&apos;accueil sans passer par le Play Store. Elle prend moins de 3 Mo d&apos;espace !
-                        </p>
-                      </div>
+                  <div className="p-4 sm:p-5 rounded-2xl bg-teal-50/60 border border-teal-200/80 space-y-3">
+                    <div>
+                      <span className="text-[10px] font-mono font-black uppercase tracking-wider text-teal-800 block">
+                        Installation Directe
+                      </span>
+                      <h4 className="text-sm font-bold text-slate-900 mt-0.5">
+                        Ajoutez l&apos;application en une seconde
+                      </h4>
+                      <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                        L&apos;application s&apos;intègre à votre téléphone sans passer par le Play Store. Elle préserve votre espace de stockage et se met à jour automatiquement.
+                      </p>
                     </div>
 
                     <button
                       type="button"
                       onClick={handleInstallClick}
-                      className="mt-3.5 w-full py-3 px-4 rounded-xl bg-gradient-to-r from-turquoise via-[#00c9b8] to-emerald-400 text-navy-dark font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-lg shadow-turquoise/30 hover:shadow-turquoise/50 hover:brightness-105 active:scale-[0.98] transition-all cursor-pointer"
+                      className="w-full py-3.5 px-4 rounded-xl bg-teal-600 hover:bg-teal-700 active:scale-[0.99] text-white font-bold text-xs sm:text-sm tracking-wide transition-all shadow-sm cursor-pointer text-center"
                     >
-                      <Download className="w-5 h-5" />
-                      <span>Installer l&apos;application Al Muxtaar</span>
+                      Installer l&apos;application Al Muxtaar
                     </button>
                   </div>
 
-                  {/* Manual guide for Android if prompt doesn't trigger automatically */}
+                  {/* Guide manuel si la boîte système ne s'ouvre pas */}
                   {showAndroidManualHelp && (
-                    <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-xs text-slate-300 space-y-2 animate-fadeIn">
-                      <p className="font-semibold text-white flex items-center gap-1.5">
-                        <span>ℹ️</span> Si la boîte de dialogue ne s&apos;ouvre pas :
+                    <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-600 space-y-2">
+                      <p className="font-bold text-slate-900">
+                        Procédure manuelle sur Chrome :
                       </p>
-                      <ol className="list-decimal list-inside space-y-1 text-slate-300">
-                        <li>
-                          Appuie sur les <strong>3 points verticaux (⋮)</strong> en haut à droite de Chrome.
-                        </li>
-                        <li>
-                          Choisis <strong>« Installer l&apos;application »</strong> ou <strong>« Ajouter à l&apos;écran d&apos;accueil »</strong>.
-                        </li>
-                        <li>Valide avec <strong>« Installer »</strong>.</li>
+                      <ol className="list-decimal list-inside space-y-1.5 leading-relaxed">
+                        <li>Appuyez sur le menu de Chrome (trois points en haut à droite).</li>
+                        <li>Sélectionnez <strong>« Ajouter à l&apos;écran d&apos;accueil »</strong> ou <strong>« Installer l&apos;application »</strong>.</li>
+                        <li>Confirmez en appuyant sur <strong>« Installer »</strong>.</li>
                       </ol>
                     </div>
                   )}
                 </div>
               )}
 
-              {/* Tab 2: iOS (iPhone & iPad - Safari) */}
+              {/* Onglet iOS (Safari) */}
               {activeTab === 'ios' && (
                 <div className="space-y-3 pt-1">
-                  <div className="p-3.5 rounded-xl bg-gradient-to-br from-gold/10 via-white/5 to-transparent border border-gold/30">
-                    <p className="text-xs font-semibold text-gold-light mb-2.5 flex items-center gap-1.5">
-                      <span className="inline-block w-2 h-2 rounded-full bg-gold animate-ping" />
-                      Sur iPhone & iPad (Safari), suis ces 3 étapes faciles :
-                    </p>
+                  <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+                    <div>
+                      <span className="text-[10px] font-mono font-black uppercase tracking-wider text-slate-600 block">
+                        Procédure Safari (iPhone &amp; iPad)
+                      </span>
+                      <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                        Suivez ces 3 étapes simples depuis votre navigateur Safari :
+                      </p>
+                    </div>
 
                     <div className="space-y-2.5">
-                      {/* Step 1 */}
-                      <div className="flex items-center gap-3 p-2.5 rounded-lg bg-black/30 border border-white/5">
-                        <div className="w-8 h-8 rounded-lg bg-white/10 text-white flex items-center justify-center font-bold text-xs flex-shrink-0">
+                      {/* Étape 1 */}
+                      <div className="flex items-center gap-3 p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
+                        <span className="w-7 h-7 rounded-lg bg-teal-100 text-teal-800 text-xs font-mono font-black flex items-center justify-center shrink-0">
                           1
-                        </div>
-                        <div className="flex-1 text-xs">
-                          <p className="text-white font-medium">
-                            Touche le bouton <strong className="text-turquoise">Partager</strong> en bas de Safari :
-                          </p>
-                        </div>
-                        <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center border border-blue-500/30">
-                          <Share className="w-4 h-4 animate-bounce" />
+                        </span>
+                        <div className="flex-1 text-xs text-slate-700 leading-snug">
+                          Appuyez sur le bouton <strong>Partager</strong> situé dans la barre inférieure de Safari.
                         </div>
                       </div>
 
-                      {/* Step 2 */}
-                      <div className="flex items-center gap-3 p-2.5 rounded-lg bg-black/30 border border-white/5">
-                        <div className="w-8 h-8 rounded-lg bg-white/10 text-white flex items-center justify-center font-bold text-xs flex-shrink-0">
+                      {/* Étape 2 */}
+                      <div className="flex items-center gap-3 p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
+                        <span className="w-7 h-7 rounded-lg bg-teal-100 text-teal-800 text-xs font-mono font-black flex items-center justify-center shrink-0">
                           2
-                        </div>
-                        <div className="flex-1 text-xs">
-                          <p className="text-white font-medium">
-                            Défile vers le bas et choisis <strong className="text-turquoise">« Sur l&apos;écran d&apos;accueil »</strong>
-                          </p>
-                        </div>
-                        <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-white/10 text-slate-200 flex items-center justify-center border border-white/15">
-                          <PlusSquare className="w-4 h-4" />
+                        </span>
+                        <div className="flex-1 text-xs text-slate-700 leading-snug">
+                          Faites défiler les options et sélectionnez <strong>« Sur l&apos;écran d&apos;accueil »</strong>.
                         </div>
                       </div>
 
-                      {/* Step 3 */}
-                      <div className="flex items-center gap-3 p-2.5 rounded-lg bg-black/30 border border-white/5">
-                        <div className="w-8 h-8 rounded-lg bg-white/10 text-white flex items-center justify-center font-bold text-xs flex-shrink-0">
+                      {/* Étape 3 */}
+                      <div className="flex items-center gap-3 p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
+                        <span className="w-7 h-7 rounded-lg bg-teal-100 text-teal-800 text-xs font-mono font-black flex items-center justify-center shrink-0">
                           3
-                        </div>
-                        <div className="flex-1 text-xs">
-                          <p className="text-white font-medium">
-                            En haut à droite, appuie sur <strong className="text-turquoise">« Ajouter »</strong>
-                          </p>
-                        </div>
-                        <div className="flex-shrink-0 px-2 py-1 rounded bg-turquoise text-navy-dark font-bold text-[10px]">
-                          Ajouter
+                        </span>
+                        <div className="flex-1 text-xs text-slate-700 leading-snug">
+                          En haut à droite de l&apos;écran, appuyez sur <strong>« Ajouter »</strong> pour finaliser.
                         </div>
                       </div>
                     </div>
 
-                    <div className="mt-3 text-[11px] text-slate-300 bg-white/5 p-2 rounded-lg text-center">
-                      ✨ L&apos;icône <strong>Al Muxtaar</strong> s&apos;affichera sur votre écran comme une vraie application de l&apos;App Store !
-                    </div>
+                    <p className="text-[11px] text-slate-500 text-center pt-1 leading-relaxed">
+                      Le symbole Al Muxtaar s&apos;affichera sur votre écran comme une application native.
+                    </p>
                   </div>
                 </div>
               )}
@@ -383,23 +340,21 @@ export default function PwaInstallPrompt() {
           )}
         </div>
 
-        {/* Footer controls: dismiss and security reassurance */}
-        <div className="px-5 py-3 border-t border-white/10 bg-black/30 flex flex-col sm:flex-row items-center justify-between gap-2.5">
-          <div className="flex items-center gap-1.5 text-[11px] text-slate-400">
-            <ShieldCheck className="w-3.5 h-3.5 text-turquoise" />
-            <span>Application certifiée, légère & sans publicité</span>
-          </div>
+        {/* Pied de carte avec réassurance et option de report */}
+        <div className="px-5 py-3.5 border-t border-slate-100 bg-slate-50/80 flex flex-col sm:flex-row items-center justify-between gap-2.5">
+          <span className="text-[11px] font-medium text-slate-500 text-center sm:text-left">
+            Application certifiée • Rapide &amp; sans publicité
+          </span>
 
           <button
             type="button"
             onClick={handleDismiss}
-            className="text-xs text-slate-400 hover:text-white underline underline-offset-4 transition-colors"
+            className="text-xs font-medium text-slate-500 hover:text-slate-800 underline underline-offset-4 transition-colors cursor-pointer"
           >
-            Plus tard (continuer sur le web)
+            Plus tard (continuer dans le navigateur)
           </button>
         </div>
       </div>
     </div>
   );
 }
-
