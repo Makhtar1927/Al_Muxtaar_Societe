@@ -7,8 +7,9 @@ export default function B2CardiaqueInteractiveLab() {
 
   // --- TAB 1: AUTOMATISME & CYCLE CARDIAQUE ---
   const [isPlayingCycle, setIsPlayingCycle] = useState<boolean>(true);
-  const [cycleStep, setCycleStep] = useState<number>(0); // 0: Diastole, 1: Onde P (Systole A), 2: QRS (Systole V), 3: Onde T (Repol)
+  const [cycleStep, setCycleStep] = useState<number>(0); // 0: Diastole générale, 1: Onde P (Systole A), 2: Complexe QRS (Systole V), 3: Onde T (Repolarisation)
   const [heartRate, setHeartRate] = useState<number>(75); // bpm
+  const [hoveredNode, setHoveredNode] = useState<string | null>(null);
 
   useEffect(() => {
     if (!isPlayingCycle) return;
@@ -36,7 +37,7 @@ export default function B2CardiaqueInteractiveLab() {
   > = {
     temoin: {
       title: 'Cœur de grenouille intact (Témoin)',
-      manipulation: 'Aucune ligature. Cœur perfusé au liquide de Ringer.',
+      manipulation: 'Aucune ligature. Cœur perfusé au liquide de Ringer oxygéné.',
       sinusRythme: '60 batt/min (Pace-maker actif)',
       oreilletteRythme: '60 batt/min (Synchrone)',
       ventriculeRythme: '60 batt/min (Synchrone)',
@@ -75,7 +76,7 @@ export default function B2CardiaqueInteractiveLab() {
   // --- TAB 3: INEXCITABILITÉ & EXTRASYSTOLE ---
   const [stimTiming, setStimTiming] = useState<'systole' | 'diastole'>('diastole');
   const [stimActive, setStimActive] = useState<boolean>(false);
-  const [curveTrace, setCurveTrace] = useState<string>('normal'); // 'normal', 'refractaire', 'extrasystole'
+  const [curveTrace, setCurveTrace] = useState<string>('normal');
 
   const handleStimulation = () => {
     setStimActive(true);
@@ -91,7 +92,7 @@ export default function B2CardiaqueInteractiveLab() {
   };
 
   return (
-    <div className="w-full bg-white border border-slate-200 rounded-3xl p-5 sm:p-7 text-slate-800 shadow-sm space-y-6">
+    <div className="w-full bg-white border border-slate-200 rounded-3xl p-4 sm:p-7 text-slate-800 shadow-sm space-y-6">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-5">
         <div>
@@ -107,7 +108,7 @@ export default function B2CardiaqueInteractiveLab() {
         </div>
         <div className="flex items-center gap-2 text-xs text-slate-600 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-xl self-start sm:self-auto font-medium">
           <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
-          <span>Simulateur Interactif Bac S2</span>
+          <span>Simulateur Médical Réaliste Bac S2</span>
         </div>
       </div>
 
@@ -121,8 +122,8 @@ export default function B2CardiaqueInteractiveLab() {
               : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
           }`}
         >
-          <div className="truncate">Révolution & ECG</div>
-          <div className="text-[9px] font-normal opacity-75 hidden sm:block">Propagation & Ondes</div>
+          <div className="truncate">Cœur & Conduction 3D</div>
+          <div className="text-[9px] font-normal opacity-75 hidden sm:block">Propagation & ECG</div>
         </button>
 
         <button
@@ -154,112 +155,393 @@ export default function B2CardiaqueInteractiveLab() {
       {activeTab === 'automatisme' && (
         <div className="space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            {/* Visualisation SVG Cœur & Conduction */}
+            {/* Visualisation SVG Cœur Médical Réaliste */}
             <div className="lg:col-span-7 bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-5 flex flex-col justify-between">
-              <div className="flex items-center justify-between mb-3">
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                 <span className="text-xs font-bold text-rose-700 uppercase tracking-wider">
-                  Coupe Schématique de la Conduction Cardiaque
+                  Coupe Frontale Anatomique & Système de Conduction
                 </span>
                 <span className="text-[10px] bg-white border border-slate-200 text-slate-700 px-2.5 py-0.5 rounded-full font-bold shadow-sm">
-                  Cycle : {(60 / heartRate).toFixed(2)} s
+                  Période : {(60 / heartRate).toFixed(2)} s
                 </span>
               </div>
 
-              {/* Heart SVG */}
-              <div className="relative w-full aspect-[4/3] bg-white rounded-xl border border-slate-200 flex items-center justify-center p-3 shadow-sm overflow-hidden">
-                <svg viewBox="0 0 400 300" className="w-full h-full max-h-[260px]">
-                  {/* Silhouette du cœur */}
+              {/* Heart Realistic Medical SVG */}
+              <div className="relative w-full aspect-[4/3] bg-gradient-to-b from-white via-slate-50/50 to-rose-50/20 rounded-2xl border border-slate-200/90 flex items-center justify-center p-2 shadow-sm overflow-hidden">
+                <svg
+                  viewBox="0 0 540 440"
+                  className="w-full h-full max-h-[340px] drop-shadow-md select-none transition-transform duration-300"
+                  style={{
+                    transform:
+                      cycleStep === 2
+                        ? 'scale(0.97)'
+                        : cycleStep === 1
+                        ? 'scale(0.99)'
+                        : 'scale(1)',
+                  }}
+                >
+                  <defs>
+                    {/* Dégradés anatomiques réalistes */}
+                    <linearGradient id="aortaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#ef4444" />
+                      <stop offset="50%" stopColor="#dc2626" />
+                      <stop offset="100%" stopColor="#991b1b" />
+                    </linearGradient>
+
+                    <linearGradient id="pulmonaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#3b82f6" />
+                      <stop offset="50%" stopColor="#2563eb" />
+                      <stop offset="100%" stopColor="#1e40af" />
+                    </linearGradient>
+
+                    <linearGradient id="venaCavaGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#60a5fa" />
+                      <stop offset="60%" stopColor="#3b82f6" />
+                      <stop offset="100%" stopColor="#1d4ed8" />
+                    </linearGradient>
+
+                    <linearGradient id="myoOuterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#fda4af" />
+                      <stop offset="40%" stopColor="#f43f5e" />
+                      <stop offset="80%" stopColor="#be123c" />
+                      <stop offset="100%" stopColor="#881337" />
+                    </linearGradient>
+
+                    <radialGradient id="cavityGrad" cx="50%" cy="50%" r="60%">
+                      <stop offset="0%" stopColor="#9f1239" />
+                      <stop offset="70%" stopColor="#881337" />
+                      <stop offset="100%" stopColor="#4c0519" />
+                    </radialGradient>
+
+                    <linearGradient id="electricalGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#fef08a" />
+                      <stop offset="50%" stopColor="#f59e0b" />
+                      <stop offset="100%" stopColor="#d97706" />
+                    </linearGradient>
+
+                    {/* Effet néon pour conduction */}
+                    <filter id="neonPulse" x="-30%" y="-30%" width="160%" height="160%">
+                      <feGaussianBlur stdDeviation="3" result="blur" />
+                      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                    </filter>
+                  </defs>
+
+                  {/* ── 1. GROS VAISSEAUX POSTÉRIEURS (Veines Caves) ── */}
+                  {/* Veine cave supérieure */}
                   <path
-                    d="M 200 70 C 130 10, 50 70, 70 160 C 90 230, 200 280, 200 280 C 200 280, 310 230, 330 160 C 350 70, 270 10, 200 70 Z"
-                    fill={cycleStep === 1 ? '#ffe4e6' : cycleStep === 2 ? '#fecdd3' : '#f8fafc'}
-                    stroke={cycleStep === 1 ? '#f43f5e' : cycleStep === 2 ? '#e11d48' : '#94a3b8'}
-                    strokeWidth="3"
-                    className="transition-colors duration-300"
+                    d="M 175 40 C 175 40, 180 85, 185 125 L 215 125 C 215 85, 210 40, 210 40 Z"
+                    fill="url(#venaCavaGrad)"
+                    stroke="#1e3a8a"
+                    strokeWidth="1.5"
+                  />
+                  {/* Veine cave inférieure */}
+                  <path
+                    d="M 185 300 C 185 340, 190 380, 190 380 L 220 380 C 220 340, 215 300, 215 300 Z"
+                    fill="url(#venaCavaGrad)"
+                    stroke="#1e3a8a"
+                    strokeWidth="1.5"
                   />
 
-                  {/* Septum interventriculaire */}
-                  <line x1="200" y1="120" x2="200" y2="270" stroke="#64748b" strokeWidth="4" />
-                  <line x1="120" y1="120" x2="280" y2="120" stroke="#94a3b8" strokeWidth="2.5" strokeDasharray="4 4" />
+                  {/* ── 2. CROSSE DE L'AORTE (Arc Aortique + 3 branches) ── */}
+                  {/* Troncs artériels au sommet de l'aorte */}
+                  <path d="M 270 50 L 270 20 L 285 20 L 285 55" fill="url(#aortaGrad)" stroke="#7f1d1d" strokeWidth="1.5" />
+                  <path d="M 295 55 L 298 15 L 312 15 L 310 58" fill="url(#aortaGrad)" stroke="#7f1d1d" strokeWidth="1.5" />
+                  <path d="M 320 60 L 328 20 L 342 20 L 334 68" fill="url(#aortaGrad)" stroke="#7f1d1d" strokeWidth="1.5" />
 
-                  {/* Cavités annotations */}
-                  <text x="140" y="95" fill="#475569" fontSize="11" fontWeight="600" textAnchor="middle">Oreillette D</text>
-                  <text x="260" y="95" fill="#475569" fontSize="11" fontWeight="600" textAnchor="middle">Oreillette G</text>
-                  <text x="145" y="190" fill="#475569" fontSize="11" fontWeight="600" textAnchor="middle">Ventricule D</text>
-                  <text x="255" y="190" fill="#475569" fontSize="11" fontWeight="600" textAnchor="middle">Ventricule G</text>
-
-                  {/* Nœud Sinusal (Keith-Flack) */}
-                  <circle
-                    cx="120"
-                    cy="70"
-                    r={cycleStep === 1 ? "11" : "8"}
-                    fill={cycleStep === 1 ? "#e11d48" : "#fb7185"}
-                    stroke="#fff"
-                    strokeWidth="2.5"
-                    className="transition-all duration-200"
-                  />
-                  <text x="75" y="60" fill="#be123c" fontSize="10" fontWeight="bold">Nœud Sinusal</text>
-
-                  {/* Nœud Auriculo-Ventriculaire (Aschoff-Tawara) */}
-                  <circle
-                    cx="195"
-                    cy="125"
-                    r={cycleStep === 1 || cycleStep === 2 ? "9" : "7"}
-                    fill={cycleStep === 2 ? "#d97706" : "#fbbf24"}
-                    stroke="#fff"
+                  {/* Arc Aortique */}
+                  <path
+                    d="M 255 120 C 255 45, 360 40, 365 120 C 370 160, 360 190, 355 210 L 330 200 C 335 180, 340 150, 335 120 C 330 80, 275 80, 275 120 Z"
+                    fill="url(#aortaGrad)"
+                    stroke="#7f1d1d"
                     strokeWidth="2"
                   />
-                  <text x="135" y="130" fill="#b45309" fontSize="9" fontWeight="bold">Nœud AV</text>
 
-                  {/* Faisceau de His */}
+                  {/* ── 3. TRONC PULMONAIRE (Croisant en avant de l'aorte) ── */}
                   <path
-                    d="M 195 130 L 200 160 L 175 220 M 200 160 L 225 220"
+                    d="M 250 170 C 260 120, 290 90, 320 85 L 335 110 C 310 115, 290 135, 280 175 Z"
+                    fill="url(#pulmonaryGrad)"
+                    stroke="#1e3a8a"
+                    strokeWidth="2"
+                  />
+
+                  {/* ── 4. MYOCARDE ET CONTOUR EXTERNE DU CŒUR ── */}
+                  <path
+                    d="M 190 120
+                       C 140 125, 140 180, 160 210
+                       C 140 230, 160 300, 240 375
+                       C 270 405, 300 415, 315 415
+                       C 335 415, 365 375, 410 300
+                       C 455 220, 440 150, 385 125
+                       C 365 115, 340 120, 320 130
+                       C 300 120, 240 115, 190 120 Z"
+                    fill="url(#myoOuterGrad)"
+                    stroke="#4c0519"
+                    strokeWidth="3.5"
+                  />
+
+                  {/* ── 5. CAVITÉS CARDIAQUES INTERNES EN COUPE ── */}
+                  {/* Oreillette Droite (Cavité) */}
+                  <path
+                    d="M 175 140 C 155 160, 165 200, 185 210 C 205 210, 235 200, 235 155 C 235 140, 205 135, 175 140 Z"
+                    fill="url(#cavityGrad)"
+                    stroke="#4c0519"
+                    strokeWidth="1.5"
+                  />
+
+                  {/* Oreillette Gauche (Cavité) */}
+                  <path
+                    d="M 315 145 C 315 185, 345 205, 375 200 C 400 195, 410 160, 395 140 C 375 125, 335 130, 315 145 Z"
+                    fill="url(#cavityGrad)"
+                    stroke="#4c0519"
+                    strokeWidth="1.5"
+                  />
+
+                  {/* Ventricule Droit (Cavité - Paroi modérément épaisse 4-5mm) */}
+                  <path
+                    d="M 190 235 C 175 270, 195 330, 260 365 C 265 330, 260 270, 250 235 Z"
+                    fill="url(#cavityGrad)"
+                    stroke="#4c0519"
+                    strokeWidth="2"
+                  />
+
+                  {/* Ventricule Gauche (Cavité - Entouré d'une paroi très épaisse 12-15mm) */}
+                  <path
+                    d="M 285 235 C 285 275, 290 340, 315 375 C 360 330, 385 270, 375 235 C 345 230, 315 230, 285 235 Z"
+                    fill="url(#cavityGrad)"
+                    stroke="#4c0519"
+                    strokeWidth="2"
+                  />
+
+                  {/* Septum Interventriculaire (Cloison épaisse centrale) */}
+                  <path
+                    d="M 250 230 L 285 230 L 290 375 L 260 365 Z"
+                    fill="#be123c"
+                    stroke="#881337"
+                    strokeWidth="1"
+                    opacity="0.85"
+                  />
+
+                  {/* Valvule Tricuspide (AV droite) & Cordages tendineux */}
+                  <line x1="185" y1="215" x2="200" y2="245" stroke="#fecdd3" strokeWidth="2.5" />
+                  <line x1="225" y1="215" x2="210" y2="245" stroke="#fecdd3" strokeWidth="2.5" />
+                  <line x1="200" y1="245" x2="205" y2="275" stroke="#fecdd3" strokeWidth="1" strokeDasharray="2 1" />
+                  <line x1="210" y1="245" x2="215" y2="275" stroke="#fecdd3" strokeWidth="1" strokeDasharray="2 1" />
+
+                  {/* Valvule Mitrale (AV gauche) & Cordages tendineux */}
+                  <line x1="325" y1="215" x2="335" y2="245" stroke="#fecdd3" strokeWidth="2.5" />
+                  <line x1="365" y1="215" x2="355" y2="245" stroke="#fecdd3" strokeWidth="2.5" />
+                  <line x1="335" y1="245" x2="335" y2="280" stroke="#fecdd3" strokeWidth="1" strokeDasharray="2 1" />
+                  <line x1="355" y1="245" x2="350" y2="280" stroke="#fecdd3" strokeWidth="1" strokeDasharray="2 1" />
+
+                  {/* ── 6. SYSTÈME DE CONDUCTION NODAL DYNAMIQUE & ANIME ── */}
+
+                  {/* Voies internodales (3 faisceaux) et faisceau de Bachmann vers l'OG */}
+                  <path
+                    d="M 180 150 Q 210 160 235 195"
                     fill="none"
-                    stroke={cycleStep === 2 ? "#0284c7" : "#38bdf8"}
-                    strokeWidth={cycleStep === 2 ? "4" : "2.5"}
+                    stroke={cycleStep === 1 ? '#f59e0b' : '#fbbf24'}
+                    strokeWidth={cycleStep === 1 ? '3' : '1.5'}
+                    strokeDasharray={cycleStep === 1 ? '4 2' : 'none'}
+                    className="transition-all"
+                  />
+                  <path
+                    d="M 180 150 Q 200 175 235 195"
+                    fill="none"
+                    stroke={cycleStep === 1 ? '#f59e0b' : '#fbbf24'}
+                    strokeWidth={cycleStep === 1 ? '3' : '1.5'}
+                  />
+                  {/* Faisceau de Bachmann vers OG */}
+                  <path
+                    d="M 180 148 Q 250 120 330 145"
+                    fill="none"
+                    stroke={cycleStep === 1 ? '#f59e0b' : '#fcd34d'}
+                    strokeWidth={cycleStep === 1 ? '2.5' : '1.2'}
+                    strokeDasharray="3 2"
+                  />
+
+                  {/* Flèches de dépolarisation auriculaire pendant Onde P */}
+                  {cycleStep === 1 && (
+                    <g filter="url(#neonPulse)">
+                      <path d="M 195 155 L 210 168" stroke="#fef08a" strokeWidth="2" markerEnd="url(#arrow)" />
+                      <path d="M 240 135 L 265 140" stroke="#fef08a" strokeWidth="2" />
+                    </g>
+                  )}
+
+                  {/* NŒUD SINUSAL (Keith & Flack) */}
+                  <g
+                    className="cursor-pointer transition-transform hover:scale-125"
+                    onMouseEnter={() => setHoveredNode('sinusal')}
+                    onMouseLeave={() => setHoveredNode(null)}
+                  >
+                    {cycleStep === 1 && (
+                      <circle cx="178" cy="148" r="15" fill="#f59e0b" opacity="0.35" className="animate-ping" />
+                    )}
+                    <ellipse
+                      cx="178"
+                      cy="148"
+                      rx="9"
+                      ry="6"
+                      fill={cycleStep === 1 ? '#fef08a' : '#f59e0b'}
+                      stroke="#b45309"
+                      strokeWidth="2"
+                      filter={cycleStep === 1 ? 'url(#neonPulse)' : 'none'}
+                    />
+                  </g>
+
+                  {/* NŒUD AURICULO-VENTRICULAIRE (Aschoff-Tawara) */}
+                  <g
+                    className="cursor-pointer transition-transform hover:scale-125"
+                    onMouseEnter={() => setHoveredNode('av')}
+                    onMouseLeave={() => setHoveredNode(null)}
+                  >
+                    {(cycleStep === 1 || cycleStep === 2) && (
+                      <circle cx="238" cy="198" r="12" fill="#eab308" opacity="0.3" className="animate-pulse" />
+                    )}
+                    <ellipse
+                      cx="238"
+                      cy="198"
+                      rx="8"
+                      ry="6"
+                      fill={cycleStep === 2 ? '#fef08a' : '#eab308'}
+                      stroke="#854d0e"
+                      strokeWidth="2"
+                      filter={cycleStep === 2 ? 'url(#neonPulse)' : 'none'}
+                    />
+                  </g>
+
+                  {/* TRONC COMMUN DU FAISCEAU DE HIS */}
+                  <path
+                    d="M 242 203 L 268 235"
+                    fill="none"
+                    stroke={cycleStep === 2 ? '#38bdf8' : '#0284c7'}
+                    strokeWidth={cycleStep === 2 ? '4.5' : '3'}
+                    strokeLinecap="round"
+                    filter={cycleStep === 2 ? 'url(#neonPulse)' : 'none'}
+                  />
+
+                  {/* BRANCHE DROITE DU FAISCEAU DE HIS */}
+                  <path
+                    d="M 268 235 C 265 270, 260 310, 245 345"
+                    fill="none"
+                    stroke={cycleStep === 2 ? '#38bdf8' : '#0284c7'}
+                    strokeWidth={cycleStep === 2 ? '3.5' : '2.5'}
                     strokeLinecap="round"
                   />
 
-                  {/* Réseau de Purkinje */}
+                  {/* BRANCHE GAUCHE DU FAISCEAU DE HIS */}
                   <path
-                    d="M 175 220 L 150 240 M 175 220 L 140 200 M 225 220 L 250 240 M 225 220 L 260 200"
+                    d="M 268 235 C 275 275, 285 315, 305 355"
                     fill="none"
-                    stroke={cycleStep === 2 ? "#15803d" : "#4ade80"}
-                    strokeWidth={cycleStep === 2 ? "3.5" : "2"}
+                    stroke={cycleStep === 2 ? '#38bdf8' : '#0284c7'}
+                    strokeWidth={cycleStep === 2 ? '3.5' : '2.5'}
+                    strokeLinecap="round"
                   />
-                  <text x="285" y="240" fill="#15803d" fontSize="9" fontWeight="bold">Purkinje</text>
+
+                  {/* RÉSEAU DE PURKINJE (Fibres arborescentes remontant dans les ventricules) */}
+                  <g
+                    stroke={cycleStep === 2 ? '#22c55e' : '#15803d'}
+                    strokeWidth={cycleStep === 2 ? '2.5' : '1.5'}
+                    strokeLinecap="round"
+                    fill="none"
+                    filter={cycleStep === 2 ? 'url(#neonPulse)' : 'none'}
+                  >
+                    {/* Purkinje Ventricule Droit */}
+                    <path d="M 245 345 C 220 330, 195 300, 185 265" />
+                    <path d="M 230 335 C 205 315, 185 285, 180 250" />
+                    <path d="M 240 348 C 215 350, 190 325, 178 280" />
+
+                    {/* Purkinje Ventricule Gauche */}
+                    <path d="M 305 355 C 335 345, 365 315, 380 265" />
+                    <path d="M 315 345 C 345 325, 375 290, 385 250" />
+                    <path d="M 300 365 C 330 365, 360 335, 375 285" />
+                  </g>
+
+                  {/* Flèches de contraction systolique ventriculaire (QRS) */}
+                  {cycleStep === 2 && (
+                    <g fill="#22c55e" stroke="#15803d" strokeWidth="1">
+                      {/* Remontée de l'apex vers la base */}
+                      <path d="M 200 300 L 200 270 L 195 275 M 200 270 L 205 275" stroke="#facc15" strokeWidth="2.5" />
+                      <path d="M 360 300 L 360 270 L 355 275 M 360 270 L 365 275" stroke="#facc15" strokeWidth="2.5" />
+                    </g>
+                  )}
+
+                  {/* ── 7. LÉGENDES ANATOMIQUES CLAIRES & INTÉRACTIVES ── */}
+                  {/* Nœud Sinusal Label */}
+                  <line x1="178" y1="148" x2="105" y2="120" stroke="#94a3b8" strokeWidth="1" strokeDasharray="2 2" />
+                  <rect x="25" y="105" width="85" height="26" rx="6" fill="#fff" stroke="#f59e0b" strokeWidth="1.5" />
+                  <text x="67" y="122" fill="#b45309" fontSize="10" fontWeight="bold" textAnchor="middle">
+                    Nœud Sinusal
+                  </text>
+
+                  {/* Nœud AV Label */}
+                  <line x1="238" y1="198" x2="135" y2="215" stroke="#94a3b8" strokeWidth="1" strokeDasharray="2 2" />
+                  <rect x="55" y="202" width="75" height="26" rx="6" fill="#fff" stroke="#eab308" strokeWidth="1.5" />
+                  <text x="92" y="219" fill="#854d0e" fontSize="10" fontWeight="bold" textAnchor="middle">
+                    Nœud AV
+                  </text>
+
+                  {/* Faisceau de His Label */}
+                  <line x1="270" y1="240" x2="415" y2="190" stroke="#94a3b8" strokeWidth="1" strokeDasharray="2 2" />
+                  <rect x="415" y="177" width="95" height="26" rx="6" fill="#fff" stroke="#0284c7" strokeWidth="1.5" />
+                  <text x="462" y="194" fill="#0369a1" fontSize="10" fontWeight="bold" textAnchor="middle">
+                    Faisceau de His
+                  </text>
+
+                  {/* Fibres de Purkinje Label */}
+                  <line x1="375" y1="285" x2="425" y2="330" stroke="#94a3b8" strokeWidth="1" strokeDasharray="2 2" />
+                  <rect x="420" y="318" width="105" height="26" rx="6" fill="#fff" stroke="#16a34a" strokeWidth="1.5" />
+                  <text x="472" y="335" fill="#15803d" fontSize="10" fontWeight="bold" textAnchor="middle">
+                    Fibres de Purkinje
+                  </text>
                 </svg>
               </div>
 
-              {/* Statut de l'étape courante */}
+              {/* Statut de l'étape courante (Feedback dynamique) */}
               <div className="mt-3 bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between text-xs gap-1 font-bold">
-                  <span className="text-slate-500 uppercase tracking-wider text-[11px]">Étape en cours :</span>
+                  <span className="text-slate-500 uppercase tracking-wider text-[11px]">Étape active :</span>
                   <span className="text-rose-700">
-                    {cycleStep === 0 && 'Diastole Générale (Remplissage passif 80%)'}
-                    {cycleStep === 1 && 'Systole Auriculaire (Onde P - Dépolarisation des oreillettes)'}
-                    {cycleStep === 2 && 'Systole Ventriculaire (Complexe QRS - Éjection artérielle)'}
-                    {cycleStep === 3 && 'Repolarisation Ventriculaire (Onde T - Relâchement)'}
+                    {cycleStep === 0 && '① Diastole Générale (Remplissage passif des cavités • 0,40 s)'}
+                    {cycleStep === 1 && '② Systole Auriculaire (Onde P • Contraction des oreillettes • 0,10 s)'}
+                    {cycleStep === 2 && '③ Systole Ventriculaire (Complexe QRS • Éjection puissante • 0,30 s)'}
+                    {cycleStep === 3 && '④ Repolarisation Ventriculaire (Onde T • Relâchement du myocarde)'}
                   </span>
                 </div>
               </div>
+
+              {/* Info bulle au survol d'un nœud */}
+              {hoveredNode && (
+                <div className="mt-2 p-2.5 bg-rose-50 border border-rose-200 rounded-xl text-xs text-rose-950 font-medium animate-fadeIn">
+                  {hoveredNode === 'sinusal' &&
+                    'Nœud Sinusal (Keith-Flack) : Pace-maker principal à 70-80 dépolarisations/min. Impose son rythme à tout le myocarde.'}
+                  {hoveredNode === 'av' &&
+                    'Nœud Auriculo-Ventriculaire (Aschoff-Tawara) : Ralentit l’influx de 0,1 s pour laisser aux oreillettes le temps de se vider.'}
+                </div>
+              )}
             </div>
 
             {/* Tracé ECG & Contrôles */}
             <div className="lg:col-span-5 flex flex-col justify-between space-y-4">
               {/* Tracé ECG interactif */}
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4">
-                <span className="text-xs font-bold text-rose-700 uppercase tracking-wider block mb-2">
-                  Tracé ECG Synchronisé (Dérivation DII)
-                </span>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-bold text-rose-700 uppercase tracking-wider">
+                    Tracé ECG Synchronisé (Dérivation DII)
+                  </span>
+                  <span className="text-[10px] bg-white border border-slate-200 text-slate-700 font-bold px-2 py-0.5 rounded shadow-sm">
+                    {heartRate} bpm
+                  </span>
+                </div>
+
                 <div className="relative w-full h-36 bg-white rounded-xl border border-slate-200 p-2 overflow-hidden flex items-center justify-center shadow-inner">
                   <svg viewBox="0 0 300 100" className="w-full h-full">
                     {/* Grille millimétrée claire */}
                     <defs>
-                      <pattern id="gridLight" width="10" height="10" patternUnits="userSpaceOnUse">
+                      <pattern id="gridLight2" width="10" height="10" patternUnits="userSpaceOnUse">
                         <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#f1f5f9" strokeWidth="1" />
                       </pattern>
                     </defs>
-                    <rect width="300" height="100" fill="url(#gridLight)" />
+                    <rect width="300" height="100" fill="url(#gridLight2)" />
 
                     {/* Ligne isoélectrique et onde P-QRS-T */}
                     <path
@@ -269,15 +551,24 @@ export default function B2CardiaqueInteractiveLab() {
                       strokeWidth="2.5"
                     />
 
-                    {/* Curseur temporel */}
+                    {/* Curseur temporel dynamique */}
                     <line
                       x1={cycleStep === 0 ? 30 : cycleStep === 1 ? 70 : cycleStep === 2 ? 115 : 185}
                       y1="5"
                       x2={cycleStep === 0 ? 30 : cycleStep === 1 ? 70 : cycleStep === 2 ? 115 : 185}
                       y2="95"
                       stroke="#e11d48"
-                      strokeWidth="2"
+                      strokeWidth="2.5"
                       strokeDasharray="2 2"
+                    />
+
+                    {/* Point lumineux sur la courbe */}
+                    <circle
+                      cx={cycleStep === 0 ? 30 : cycleStep === 1 ? 70 : cycleStep === 2 ? 115 : 185}
+                      cy={cycleStep === 0 ? 50 : cycleStep === 1 ? 40 : cycleStep === 2 ? 10 : 42}
+                      r="4"
+                      fill="#e11d48"
+                      className="animate-ping"
                     />
 
                     {/* Labels des ondes */}
@@ -290,14 +581,32 @@ export default function B2CardiaqueInteractiveLab() {
                 </div>
 
                 <div className="grid grid-cols-3 gap-1.5 mt-2.5 text-[10px] text-center font-medium">
-                  <div className="bg-white p-2 rounded-lg border border-slate-200 shadow-sm">
-                    <span className="font-bold text-rose-700">Onde P</span><br />Oreillettes (0,08 s)
+                  <div
+                    className={`p-2 rounded-lg border transition-all ${
+                      cycleStep === 1
+                        ? 'bg-rose-50 border-rose-300 ring-1 ring-rose-400 font-bold'
+                        : 'bg-white border-slate-200'
+                    }`}
+                  >
+                    <span className="text-rose-700">Onde P</span><br />Oreillettes (0,08s)
                   </div>
-                  <div className="bg-white p-2 rounded-lg border border-slate-200 shadow-sm">
-                    <span className="font-bold text-sky-700">QRS</span><br />Ventricules (0,08 s)
+                  <div
+                    className={`p-2 rounded-lg border transition-all ${
+                      cycleStep === 2
+                        ? 'bg-sky-50 border-sky-300 ring-1 ring-sky-400 font-bold'
+                        : 'bg-white border-slate-200'
+                    }`}
+                  >
+                    <span className="text-sky-700">QRS</span><br />Ventricules (0,08s)
                   </div>
-                  <div className="bg-white p-2 rounded-lg border border-slate-200 shadow-sm">
-                    <span className="font-bold text-amber-700">Onde T</span><br />Repolarisation (0,16 s)
+                  <div
+                    className={`p-2 rounded-lg border transition-all ${
+                      cycleStep === 3
+                        ? 'bg-amber-50 border-amber-300 ring-1 ring-amber-400 font-bold'
+                        : 'bg-white border-slate-200'
+                    }`}
+                  >
+                    <span className="text-amber-700">Onde T</span><br />Repolarisation
                   </div>
                 </div>
               </div>
