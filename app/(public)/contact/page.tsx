@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Icon } from "@/components/ui/icon";
 import { WhatsAppLogo } from "@/components/ui/icons/whatsapp-logo";
+import ContactFormClient from "@/components/contact/contact-form-client";
 
 export const metadata: Metadata = {
   title: "Contact & Assistance WhatsApp | Al Muxtaar Société",
@@ -63,36 +62,8 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* Formulaire de contact web */}
-        <div className="rounded-2xl border border-surface-muted bg-white p-6 sm:p-8 shadow-card">
-          <h3 className="text-lg font-bold text-navy mb-4">Envoyez-nous un message</h3>
-          <form className="space-y-4">
-            <Input
-              label="Votre Prénom et Nom"
-              placeholder="Ex: Babacar Diop"
-              required
-            />
-            <Input
-              label="Numéro de téléphone (+221)"
-              placeholder="Ex: 77 123 45 67"
-              required
-            />
-            <div className="space-y-1.5 text-left">
-              <label className="block text-xs font-bold text-navy uppercase tracking-wider">
-                Votre Message
-              </label>
-              <textarea
-                rows={4}
-                placeholder="Décrivez votre demande en quelques mots..."
-                className="w-full rounded-2xl border border-surface-muted bg-white p-3 text-sm text-navy transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-turquoise focus-visible:border-turquoise"
-                required
-              />
-            </div>
-            <Button variant="primary" size="lg" className="w-full">
-              Envoyer le message
-            </Button>
-          </form>
-        </div>
+        {/* Formulaire de contact web fonctionnel */}
+        <ContactFormClient />
       </div>
     </div>
   );

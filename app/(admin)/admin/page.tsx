@@ -7,8 +7,9 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, MessageSquare } from 'lucide-react';
 import { getAllInfluencers } from '@/lib/influencers/service';
+import { getAllContactMessages } from '@/lib/contact/service';
 
 export const metadata: Metadata = {
   title: 'Administration | Al Muxtaar Société',
@@ -76,6 +77,9 @@ export default async function AdminPage() {
     getAllInfluencers(),
   ]);
 
+  const contactMessagesList = getAllContactMessages();
+  const unreadContactMessagesCount = contactMessagesList.filter((m) => m.status === 'unread').length;
+
   const activeInfluencersCount = (influencersList ?? []).filter((inf) => inf.is_active).length;
 
   const pendingPaymentsCount = pendingPaymentsResult.count;
@@ -124,7 +128,7 @@ export default async function AdminPage() {
       </div>
 
       {/* Quick Navigation Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
         <Link href="/admin/abonnements" className="block group">
           <Card className="hover:border-turquoise transition-all cursor-pointer h-full p-4 sm:p-5 flex flex-col justify-between bg-white shadow-sm hover:shadow-md">
             <div className="flex items-center justify-between">
@@ -140,6 +144,29 @@ export default async function AdminPage() {
             <div className="mt-4">
               <p className="font-extrabold text-navy text-sm group-hover:text-turquoise transition-colors">Abonnements</p>
               <p className="text-xs text-text/60 mt-0.5">Validation Wave &amp; prolongations</p>
+            </div>
+          </Card>
+        </Link>
+
+        <Link href="/admin/messages" className="block group">
+          <Card className="hover:border-turquoise transition-all cursor-pointer h-full p-4 sm:p-5 flex flex-col justify-between bg-white shadow-sm hover:shadow-md border-rose-200/50 bg-gradient-to-b from-rose-50/20 to-white">
+            <div className="flex items-center justify-between">
+              <div className="w-11 h-11 rounded-2xl bg-rose-500/10 flex items-center justify-center text-rose-600">
+                <MessageSquare className="w-6 h-6" />
+              </div>
+              {unreadContactMessagesCount > 0 ? (
+                <span className="text-[10px] font-black uppercase tracking-wider bg-rose-100 text-rose-900 border border-rose-300 px-2 py-0.5 rounded-full animate-pulse">
+                  {unreadContactMessagesCount} non lus
+                </span>
+              ) : (
+                <span className="text-[10px] font-black uppercase tracking-wider bg-surface text-navy/70 border border-navy/10 px-2 py-0.5 rounded-full">
+                  {contactMessagesList.length} reçus
+                </span>
+              )}
+            </div>
+            <div className="mt-4">
+              <p className="font-extrabold text-navy text-sm group-hover:text-rose-600 transition-colors">Messages Visiteurs</p>
+              <p className="text-xs text-text/60 mt-0.5">Boîte de réception &amp; WhatsApp</p>
             </div>
           </Card>
         </Link>
