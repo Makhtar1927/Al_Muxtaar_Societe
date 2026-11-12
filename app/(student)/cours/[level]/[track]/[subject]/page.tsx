@@ -674,26 +674,6 @@ export default async function SubjectChaptersPage({ params }: PageProps) {
                                               Aperçu gratuit
                                             </span>
                                           )}
-                                          {ch.code === 'B1' && lIdx === 0 && (
-                                            <span className="text-[10px] font-bold text-teal-800 bg-teal-50 px-2 py-0.5 rounded-full border border-teal-200">
-                                              Labo Virtuel &amp; Schémas Bac
-                                            </span>
-                                          )}
-                                          {ch.code === 'B1' && lIdx === 1 && (
-                                            <span className="text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
-                                              PR, PA &amp; Oscilloscope
-                                            </span>
-                                          )}
-                                          {ch.code === 'B1' && lIdx === 2 && (
-                                            <span className="text-[10px] font-bold text-indigo-800 bg-indigo-50 px-2 py-0.5 rounded-full border border-indigo-200">
-                                              Synapse &amp; Intégration Nerveuse
-                                            </span>
-                                          )}
-                                          {ch.code === 'B1' && lIdx === 3 && (
-                                            <span className="text-[10px] font-bold text-violet-800 bg-violet-50 px-2 py-0.5 rounded-full border border-violet-200">
-                                              Réflexes Médullaires &amp; Pavlov
-                                            </span>
-                                          )}
                                         </div>
                                       </div>
                                     </div>
