@@ -527,11 +527,6 @@ export default async function SubjectChaptersPage({ params }: PageProps) {
                             Aperçu gratuit
                           </span>
                         )}
-                        {(ch.code === 'C1' || ch.code === 'C4') && (
-                          <span className="text-[10px] bg-amber-100 text-amber-800 font-bold rounded-full px-2 py-0.5 border border-amber-200">
-                            Labo Virtuel Actif
-                          </span>
-                        )}
                       </div>
                       <h2 className="font-bold text-navy text-base sm:text-lg mt-0.5">
                         {ch.title}
