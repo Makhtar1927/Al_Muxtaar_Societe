@@ -123,6 +123,9 @@ import B1SynapseQuizEmbedded from '@/components/course/b1-synapse-quiz-embedded'
 import B1ReflexesConditionnelsCard from '@/components/course/b1-reflexes-conditionnels-card';
 import B1ReflexesConditionnelsLab from '@/components/course/b1-reflexes-conditionnels-lab';
 import B1ReflexesConditionnelsQuizEmbedded from '@/components/course/b1-reflexes-conditionnels-quiz-embedded';
+import B2CardiaqueReflexesCard from '@/components/course/b2-cardiaque-reflexes-card';
+import B2CardiaqueInteractiveLab from '@/components/course/b2-cardiaque-interactive-lab';
+import B2CardiaqueQuizEmbedded from '@/components/course/b2-cardiaque-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
@@ -1285,6 +1288,33 @@ const REFLEXES_AUDIO_CHAPTERS: AudioChapter[] = [
     icon: "piege_bac",
     textScript:
       "Le conditionnement pavlovien associe un stimulus neutre préalable à un stimulus inconditionnel. Il crée une liaison synaptique temporaire dans le cortex cérébral. Contrairement au réflexe inné purement médullaire, le réflexe conditionnel est temporaire, individuel et s'éteint par inhibition interne s'il n'est plus renforcé.",
+  },
+];
+
+const CARDIAQUE_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Le Tissu Nodal & Automatisme Cardiaque au Bac S2",
+    badge: "Automatisme",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass de SVT Terminale S2 dédiée à l'activité cardiaque et à l'automatisme. Le cœur possède une propriété remarquable : l'automatisme intrinsèque. Même déconnecté de tout nerf ou isolé de l'organisme, le myocarde continue de battre de manière rythmique grâce à son tissu nodal.",
+  },
+  {
+    timeSeconds: 55,
+    title: "2. Les Ligatures de Stannius et la Hiérarchie Nodale",
+    badge: "Expériences Bac",
+    icon: "theoreme_equerre",
+    textScript:
+      "Les ligatures historiques de Stannius sur le cœur de grenouille démontrent la hiérarchie du tissu nodal : le nœud sinusal ou sinus veineux a la fréquence la plus élevée (60 à 80 battements par minute) et impose son rythme comme pace-maker. Les relais d'Aschoff-Tawara et du réseau de Purkinje prennent le relais à des rythmes décroissants en cas d'isolement.",
+  },
+  {
+    timeSeconds: 120,
+    title: "3. Révolution Cardiaque, ECG et Période Réfractaire",
+    badge: "Tracé & Mécanique",
+    icon: "theoreme_equerre",
+    textScript:
+      "Maîtrisez la chronologie : la systole auriculaire (onde P), la systole ventriculaire (complexe QRS) et la diastole générale (onde T). Retenez la loi de Marey : le cœur a une longue période réfractaire absolue pendant la systole, le rendant totalement inexcitable et donc intétanisable, garantissant sa fonction de pompe permanente.",
   },
 ];
 
@@ -2640,7 +2670,21 @@ if (lessonMeta && lessonMeta.status !== 'published') {
       params.lesson === '60000000-0000-0002-0001-000000000012' ||
       params.chapter === '50000000-0000-0002-0001-000000000004');
 
+  const isCardiaqueB2 =
+    params.lesson === '60000000-0000-0003-0002-000000000001' ||
+    lessonMeta.title.toLowerCase().includes('révolution cardiaque') ||
+    lessonMeta.title.toLowerCase().includes('revolution cardiaque') ||
+    lessonMeta.title.toLowerCase().includes('automatisme cardiaque') ||
+    lessonMeta.title.toLowerCase().includes('tissu nodal') ||
+    lessonMeta.title.toLowerCase().includes('stannius') ||
+    (lessonMeta.title.toLowerCase().includes('cardiaque') &&
+      (lessonMeta.title.toLowerCase().includes('anatomie') ||
+        lessonMeta.title.toLowerCase().includes('mécanisme') ||
+        lessonMeta.title.toLowerCase().includes('mecanisme') ||
+        lessonMeta.title.toLowerCase().includes('nodal')));
+
   const isReflexesConditionnels =
+    !isCardiaqueB2 && (
     params.lesson === '60000000-0000-0003-0001-000000000004' ||
     lessonMeta.title.toLowerCase().includes('pavlov') ||
     lessonMeta.title.toLowerCase().includes('conditionnel') ||
@@ -2653,7 +2697,7 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     lessonMeta.title.toLowerCase().includes('activité réflexe') ||
     lessonMeta.title.toLowerCase().includes('activite reflexe') ||
     lessonMeta.title.toLowerCase().includes('magendie') ||
-    (lessonMeta.title.toLowerCase().includes('réflexe') && !lessonMeta.title.toLowerCase().includes('synapse'));
+    (lessonMeta.title.toLowerCase().includes('réflexe') && !lessonMeta.title.toLowerCase().includes('synapse')));
 
   const isSynapse =
     !isReflexesConditionnels && (
@@ -2815,7 +2859,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
               {/* Capsule Vocale & Masterclass Audio du Professeur (Al Muxtaar S2) */}
               <AudioCoachPlayer
                 title={
-                  isReflexesConditionnels
+                  isCardiaqueB2
+                    ? 'Masterclass Audio : Automatisme Cardiaque, Tissu Nodal & Révolution'
+                    : isReflexesConditionnels
                     ? 'Masterclass Audio : Réflexes Médullaires & Réflexes Conditionnels Pavloviens'
                     : isSynapse
                     ? 'Masterclass Audio : Transmission Synaptique & Intégration Postsynaptique'
@@ -2872,7 +2918,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     : 'Masterclass Audio : Limites & Continuité'
                 }
                 subtitle={
-                  isReflexesConditionnels
+                  isCardiaqueB2
+                    ? 'Terminale S2 • SVT : Les 6 réflexes pour le tissu nodal, Stannius, ECG et la période réfractaire'
+                    : isReflexesConditionnels
                     ? 'Terminale S2 • SVT : Les 6 réflexes pour maîtriser l\'arc réflexe, Magendie et Pavlov au Bac'
                     : isSynapse
                     ? 'Terminale S2 • SVT : Les 6 réflexes pour maîtriser la synapse, les canaux ROC et les sommations au Bac'
@@ -2929,7 +2977,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     : 'Terminale S2 • 5 réflexes essentiels pour l\'épreuve'
                 }
                 chapters={
-                  isReflexesConditionnels
+                  isCardiaqueB2
+                    ? CARDIAQUE_AUDIO_CHAPTERS
+                    : isReflexesConditionnels
                     ? REFLEXES_AUDIO_CHAPTERS
                     : isSynapse
                     ? SYNAPSE_AUDIO_CHAPTERS
@@ -3068,6 +3118,11 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <>
                   <P4ParticuleReflexesCard />
                   <P4ParticuleInteractiveSimulator />
+                </>
+              ) : isCardiaqueB2 ? (
+                <>
+                  <B2CardiaqueReflexesCard />
+                  <B2CardiaqueInteractiveLab />
                 </>
               ) : isReflexesConditionnels ? (
                 <>
@@ -3294,6 +3349,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <ProjectileQuizEmbedded />
               ) : isParticule ? (
                 <P4ParticuleQuizEmbedded />
+              ) : isCardiaqueB2 ? (
+                <B2CardiaqueQuizEmbedded />
               ) : isReflexesConditionnels ? (
                 <B1ReflexesConditionnelsQuizEmbedded />
               ) : isSynapse ? (

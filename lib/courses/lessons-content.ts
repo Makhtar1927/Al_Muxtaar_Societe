@@ -5917,8 +5917,189 @@ Chez l'animal décortiqué (ablation chirurgicale des hémisphères cérébraux)
 > 3. Tableau comparatif final récapitulant les 6 critères clés.
 `;
 
+RICH_LESSONS_MAP.activite_cardiaque_automatisme = `# B2 - Leçon 1 : Anatomie, Révolution Cardiaque & Mécanisme de l'Automatisme Cardiaque (Tissu Nodal)
+
+---
+
+## Introduction : La Pompe Cardiovasculaire au Baccalauréat S2
+
+Le **cœur** est l'organe moteur central de l'appareil cardiovasculaire. Fonctionnant comme une pompe aspirante et foulante infatigable, il assure la propulsion ininterrompue du sang à travers la double circulation (grande circulation systémique et petite circulation pulmonaire).
+
+L'étude de l'activité cardiaque au Baccalauréat sénégalais repose sur trois piliers fondamentaux :
+1. **L'organisation anatomique et fonctionnelle** du cœur et des valvules.
+2. **L'automatisme cardiaque intrinsèque** gouverné par le tissu nodal, avec l'analyse des ligatures historiques de Stannius.
+3. **La mécanique cardiaque** (révolution cardiaque en trois phases, électrocardiogramme et hémodynamique quantitative).
+
+> [!THEOREME] **La Loi Fondamentale de l'Automatisme Intrinsèque :**
+> Le cœur d'un vertébré possède la propriété remarquable de continuer à battre de manière rythmique et autonome **même après section de toutes ses connexions nerveuses ou isolement complet hors de l'organisme** (dans un liquide de perfusion oxygéné comme le liquide de Ringer à $37^\\circ\\text{C}$). Cet automatisme trouve son origine dans un tissu musculaire spécialisé embryonnaire : le **tissu nodal**.
+
+> [!WOLOF] **Ndongo S2 Wolof Insight :**
+> Xol bi mooy pompe bu mag bi ci yaram bi : amul dara luy tëj bamu taxaw ! Amna benn moteur boppam (tissu nodal) buy générer courant électrique bumu soxla ngir battre sans cerveau bi di ko wax dara. Cerveau bi moom day intervenir rekk ngir accélérer (sport, tiit) walla freené (nopalu).
+
+---
+
+## 1. Organisation Anatomique et Fonctionnelle du Cœur
+
+Le cœur des mammifères est un muscle creux (le **myocarde**) divisé en deux parties indépendantes sans communication directe chez l'adulte (cœur droit et cœur gauche), séparées par le septum interauriculaire et le septum interventriculaire.
+
+| Cavité Cardiaque | Épaisseur de la Paroi | Vaisseau Sanguin Rattaché | Type de Sang Transporté | Pression Développée |
+| :--- | :--- | :--- | :--- | :--- |
+| **Oreillette Droite (OD)** | Mince (2 mm) | Veines caves supérieure et inférieure | Sang désoxygéné (veineux) | Faible ($0\\text{ à }4\\text{ mmHg}$) |
+| **Ventricule Droit (VD)** | Moyenne (4 à 5 mm) | Artère pulmonaire (vers les poumons) | Sang désoxygéné | Modérée ($25\\text{ mmHg}$) |
+| **Oreillette Gauche (OG)** | Mince (2 mm) | 4 Veines pulmonaires | Sang oxygéné (artériel) | Faible ($4\\text{ à }8\\text{ mmHg}$) |
+| **Ventricule Gauche (VG)** | **Très épaisse (10 à 15 mm)** | **Artère aorte (vers tout le corps)** | **Sang oxygéné** | **Élevée ($120\\text{ mmHg}$)** |
+
+### Le Système Valvulaire : Garant du Sens Unique de la Circulation
+L'écoulement unidirectionnel du sang est strictement imposé par quatre valvules passives actionnées par les gradients de pression :
+- **Valvules auriculo-ventriculaires (AV) :**
+  - Valvule **tricuspide** (à 3 cuspides) entre OD et VD.
+  - Valvule **mitrale** ou bicuspide (à 2 cuspides) entre OG et VG.
+  - *Rôle :* Empêchent le reflux du sang des ventricules vers les oreillettes pendant la systole ventriculaire.
+- **Valvules sigmoïdes (ou artérielles) :**
+  - Valvule sigmoïde aortique et valvule sigmoïde pulmonaire.
+  - *Rôle :* Empêchent le reflux du sang des gros troncs artériels vers les ventricules pendant la diastole générale.
+
+---
+
+## 2. Le Tissu Nodal : Siège de l'Automatisme Cardiaque
+
+Le tissu nodal est constitué de cellules musculaires embryonnaires peu différenciées, pauvres en myofibrilles contractiles mais riches en glycogène et dotées d'une **instabilité membranaire permanente**.
+
+### 2.1. Les Quatre Formations Nodales en Série
+
+1. **Le Nœud Sinusal (Nœud de Keith et Flack) :**
+   - Situé dans la paroi postéro-supérieure de l'oreillette droite.
+   - Fréquence propre spontanée : **$70\\text{ à }80\\text{ dépolarisations/minute}$**.
+   - C'est le **pace-maker physiologique (entraîneur de rythme)** qui dicte sa fréquence à l'ensemble du myocarde.
+2. **Le Nœud Auriculo-Ventriculaire (Nœud d'Aschoff-Tawara) :**
+   - Situé dans la partie inférieure du septum interauriculaire.
+   - Fréquence propre spontanée : **$40\\text{ à }50\\text{ batt/min}$**.
+   - Il impose un **léger ralentissement du signal ($0,1\\text{ s}$)**, permettant aux oreillettes de vider totalement leur sang avant que les ventricules ne commencent à se contracter.
+3. **Le Faisceau de His :**
+   - Naît du nœud AV et descend le long du septum interventriculaire.
+   - Il se divise en deux branches droite et gauche.
+   - Fréquence propre : **$30\\text{ à }40\\text{ batt/min}$**.
+4. **Le Réseau Sous-Endocardique de Purkinje :**
+   - Ramifications terminales diffuses tapissant la paroi interne des deux ventricules.
+   - Vitesse de conduction très rapide ($2\\text{ à }4\\text{ m/s}$), assurant une contraction ventriculaire synchrone et explosive de la pointe vers la base.
+
+> [!METHODE] **L'Origine Ionique du Potentiel Pace-Maker :**
+> Contrairement aux cellules nerveuses dont le potentiel de repos est stable à $-70\\text{ mV}$, les cellules nodales sinusales présentent une **dépolarisation diastolique lente et spontanée** (courant $I_f$ d'entrée d'ions $\\text{Na}^+$ et ouverture précoce de canaux $\\text{Ca}^{2+}$). Dès que cette dépolarisation lente atteint le potentiel seuil (environ $-40\\text{ mV}$), un potentiel d'action calcique d'emblée maximal se déclenche : c'est le signal électrique d'un nouveau battement.
+
+---
+
+## 3. Les Expériences Fondamentales de Stannius sur le Cœur de Grenouille
+
+Chez la grenouille (amphibien), le cœur comprend un **sinus veineux** (équivalent fonctionnel du nœud sinusal), deux oreillettes et un ventricule unique à apex musculaire. En 1852, Hermann Stannius a posé trois ligatures historiques qui démontrent la hiérarchie nodale :
+
+| Manipulation de Stannius | Localisation Précise du Fil | Résultat Immédiat Observé | Évolution Tardive & Explication Physiologique | Conclusion Officielle Bac S2 |
+| :--- | :--- | :--- | :--- | :--- |
+| **1ère Ligature** | Sillon **sinuso-auriculaire** (entre le sinus veineux et les oreillettes). | - Le sinus veineux continue de battre à son rythme propre ($60\\text{ bpm}$).<br>- Les oreillettes et le ventricule **s'arrêtent net en diastole**. | Après quelques minutes, oreillettes et ventricule reprennent des contractions synchrones mais **plus lentes ($30\\text{ à }40\\text{ bpm}$)** sous l'impulsion du nœud d'Aschoff-Tawara. | Le sinus veineux est le **centre automatique dominant**. Il existe un relais auriculo-ventriculaire automatique de secours à fréquence plus basse. |
+| **2ème Ligature** | Sillon **auriculo-ventriculaire** (sur un cœur ayant déjà subi la 1ère ligature). | - Les oreillettes continuent de battre à leur rythme modéré ($30\\text{ bpm}$).<br>- Le ventricule **s'arrête à nouveau**. | Après un délai prolongé, le ventricule reprend un rythme autonome extrêmement lent (**$15\\text{ à }20\\text{ bpm}$**) : rythme idioventriculaire. | Le ventricule possède un troisième centre d'automatisme résiduel (faisceau de His/Purkinje) à fréquence très basse. |
+| **3ème Ligature** | **Pointe du cœur (Apex ventriculaire)**. | La base du ventricule continue de battre. La pointe isolée reste **définitivement immobile**. | Si l'on stimule la pointe par un choc électrique, elle fournit une contraction mécanique vigoureuse. | La pointe du cœur **ne possède aucun tissu nodal** : elle est excitable et contractile mais dépourvue d'automatisme propre. |
+
+> [!CONSEIL_BAC] **Gradient d'Automatisme Décroissant :**
+> Retenez la formule consacrée au Baccalauréat : *« Le tissu nodal présente un gradient d'automatisme décroissant depuis le pôle veineux vers le pôle artériel : Nœud Sinusal ($75\\text{ bpm}$) $>$ Nœud AV ($45\\text{ bpm}$) $>$ Faisceau de His & Purkinje ($25\\text{ bpm}$). Le centre le plus rapide impose son rythme aux relais sous-jacents. »*
+
+---
+
+## 4. La Révolution Cardiaque et l'Électrocardiogramme (ECG)
+
+La **révolution cardiaque** désigne la succession ordonnée des phénomènes électriques, mécaniques et hémodynamiques au cours d'un cycle cardiaque complet. Chez l'homme au repos ($75\\text{ batt/min}$), elle dure exactement **$0,8\\text{ seconde}$**.
+
+### 4.1. Les Trois Temps de la Révolution Cardiaque
+
+1. **Systole Auriculaire ($0,1\\text{ s}$) :**
+   - Dépolarisation des oreillettes (Onde P de l'ECG).
+   - Contraction du myocarde auriculaire $\\to$ augmentation de pression dans les oreillettes.
+   - Les valvules auriculo-ventriculaires s'ouvrent, propulsant le sang restant dans les ventricules (remplissage actif, 20% du volume total).
+2. **Systole Ventriculaire ($0,3\\text{ s}$) :**
+   - **Phase de contraction isovolumétrique ($0,05\\text{ s}$) :** Les ventricules commencent à se contracter. La pression ventriculaire dépasse la pression auriculaire $\\implies$ **fermeture brutale des valvules AV (génère le 1er bruit du cœur B1, "TOUM")**. Toutes les valvules sont fermées, le volume de sang ne varie pas.
+   - **Phase d'éjection ventriculaire ($0,25\\text{ s}$) :** La pression ventriculaire dépasse celle des artères $\\implies$ ouverture des valvules sigmoïdes. Le sang est éjecté vigoureusement dans l'aorte ($120\\text{ mmHg}$) et l'artère pulmonaire.
+3. **Diastole Générale ($0,4\\text{ s}$) :**
+   - Relâchement complet du myocarde.
+   - La pression dans les ventricules chute sous la pression artérielle $\\implies$ **fermeture brutale des valvules sigmoïdes (génère le 2ème bruit du cœur B2, "TA")**.
+   - Lorsque la pression ventriculaire tombe sous la pression auriculaire, les valvules AV s'ouvrent : le sang remplit passivement les cavités (80% du remplissage).
+
+### 4.2. Correspondance avec l'Électrocardiogramme (ECG)
+
+L'ECG enregistre les variations globales des potentiels d'action extracellulaires du myocarde captées par des électrodes cutanées.
+
+| Onde / Complexe | Phénomène Électrophysiologique | Événement Mécanique Immédiat | Durée Normale |
+| :--- | :--- | :--- | :--- |
+| **Onde P** | Dépolarisation des oreillettes (propagation depuis le nœud sinusal). | Systole auriculaire. | $0,08\\text{ à }0,10\\text{ s}$ |
+| **Espace P-R** | Temps de conduction auriculo-ventriculaire (passage et délai dans le nœud AV). | Remplissage des ventricules. | $0,12\\text{ à }0,20\\text{ s}$ |
+| **Complexe QRS** | Dépolarisation massive et rapide des ventricules (faisceau de His et Purkinje). | Début de la systole ventriculaire (B1). | $0,06\\text{ à }0,10\\text{ s}$ |
+| **Segment ST** | Période de dépolarisation totale des ventricules (plateau calcique). | Phase d'éjection systolique maximale. | Isoélectrique |
+| **Onde T** | Repolarisation des ventricules (retour au potentiel de repos). | Fin de l'éjection et début de la diastole (B2). | $0,16\\text{ à }0,25\\text{ s}$ |
+
+---
+
+## 5. Propriétés Fondamentales du Myocarde : L'Inexcitabilité Périodique
+
+Le muscle cardiaque possède des propriétés physiologiques originales qui le distinguent radicalement du muscle strié squelettique :
+
+### 5.1. La Loi du Tout ou Rien
+À l'échelon de l'organe, toute stimulation égale ou supérieure au seuil liminaire d'excitation déclenche une contraction d'**amplitude maximale d'emblée**. Il n'y a pas de recrutement progressif d'unités motrices car les cardiomyocytes sont tous interconnectés par des disques intercalaires munis de jonctions communicantes (*gap junctions*), formant un **syncytium fonctionnel**.
+
+### 5.2. Période Réfractaire et Impossibilité de Tétanisation (Loi de Marey)
+Le potentiel d'action du cardiomyocyte ventriculaire est exceptionnellement long ($250\\text{ à }300\\text{ ms}$) en raison d'une phase de plateau calcique prolongée (entrée d'ions $\\text{Ca}^{2+}$ par des canaux de type L).
+- **Période Réfractaire Absolue (PRA) :** Couvre toute la durée de la systole ventriculaire. Le myocarde est **totalement inexcitable**, quelle que soit l'intensité du choc appliqué.
+- **Période Réfractaire Relative (PRR) :** Débute au cours de la diastole. Une stimulation supraliminaire peut exciter le myocarde.
+
+> [!THEOREME] **Pourquoi le cœur ne se tétanise jamais :**
+> Dans un muscle squelettique, des stimulations répétitives à haute fréquence fusionnent en une contraction tétanique permanente car la période réfractaire est très brève ($2\\text{ ms}$). Chez le myocarde, la période réfractaire absolue dure aussi longtemps que la contraction mécanique elle-même ($300\\text{ ms}$) : **aucune sommation temporelle n'est possible**. Le cœur est donc **infatigable et intétanisable**, garantissant la relaxation diastolique indispensable au remplissage sanguin.
+
+### 5.3. Extrasystole et Repos Compensateur
+Si une stimulation électrique supraliminaire est appliquée pendant la diastole (en PRR) :
+1. Le ventricule répond par une contraction anticipée : l'**extrasystole**.
+2. Cette extrasystole est obligatoirement suivie d'un **repos compensateur** (pause prolongée avant le battement suivant).
+3. *Explication :* L'impulsion physiologique naturelle issue du nœud sinusal arrive alors que le myocarde est en période réfractaire consécutive à l'extrasystole : cette impulsion est donc neutralisée sans effet mécanique. Le cœur doit attendre l'émission de la bouffée sinusale suivante pour battre à nouveau.
+
+---
+
+## 6. Hémodynamique Quantitative & Formules Maîtresses du Bac S2
+
+Pour les exercices de raisonnement scientifique et de calculs hémodynamiques au Baccalauréat sénégalais, trois relations doivent être maîtrisées avec rigueur :
+
+### 6.1. Le Volume d'Éjection Systolique (VES)
+C'est le volume de sang expulsé par chaque ventricule à chaque battement cardiaque :
+$$VES = VTD - VTS \\approx 120\\text{ mL} - 50\\text{ mL} = 70\\text{ mL}$$
+*(où $VTD$ est le volume télédiastolique de fin de remplissage et $VTS$ le volume télésystolique résiduel).*
+
+### 6.2. Le Débit Cardiaque (DC)
+C'est le volume total de sang propulsé par unité de temps (en litres par minute) :
+$$DC = FC \\times VES$$
+*Exemple type Bac au repos :* $DC = 72\\text{ batt/min} \\times 0,070\\text{ L} \\approx 5,04\\text{ L/min}$.
+Lors d'un exercice physique intense, le débit cardiaque peut grimper jusqu'à $20\\text{ à }25\\text{ L/min}$ chez l'athlète grâce à l'augmentation conjointe de la fréquence cardiaque et de la contractilité ventriculaire.
+
+### 6.3. La Pression Artérielle (PA)
+La pression artérielle moyenne est directement tributaire du débit cardiaque et de la résistance opposée par les artérioles périphériques :
+$$PA = DC \\times RPT = (FC \\times VES) \\times RPT$$
+*(où $RPT$ représente les Résistances Périphériques Totales de la circulation).*
+
+> [!CONSEIL_BAC] **Synthèse pour la copie de Baccalauréat S2 :**
+> Si le sujet porte sur l'activité cardiaque :
+> 1. Définissez toujours l'automatisme intrinsèque et citez le tissu nodal.
+> 2. Détaillez les 4 étapes de propagation : Keith-Flack $\\to$ Aschoff-Tawara $\\to$ His $\\to$ Purkinje.
+> 3. En cas d'analyse de graphiques (cardiogrammes ou ECG), repérez l'onde P, le QRS et l'onde T, et n'oubliez jamais de justifier l'inexcitabilité périodique par la longue période réfractaire absolue !
+`;
+
 export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: string, rawContent: string | null): string {
   const titleLower = `${lessonTitle} ${chapterTitle}`.toLowerCase();
+
+  // Routage SVT B2 Leçon 1 : Activité Cardiaque, Tissu Nodal & Automatisme Cardiaque
+  if (
+    titleLower.includes('révolution cardiaque') ||
+    titleLower.includes('revolution cardiaque') ||
+    titleLower.includes('automatisme cardiaque') ||
+    titleLower.includes('tissu nodal') ||
+    titleLower.includes('stannius') ||
+    titleLower.includes('ligature') ||
+    (titleLower.includes('cardiaque') && (titleLower.includes('anatomie') || titleLower.includes('mécanisme') || titleLower.includes('mecanisme') || titleLower.includes('b2')))
+  ) {
+    return RICH_LESSONS_MAP.activite_cardiaque_automatisme;
+  }
 
   // Routage SVT B1 Leçon 4 : Activité Réflexe Médullaire & Réflexes Conditionnels Pavloviens
   if (
