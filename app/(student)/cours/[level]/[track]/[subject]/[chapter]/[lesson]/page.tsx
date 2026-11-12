@@ -3249,7 +3249,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
               {/* Section Annales Officielles du Baccalauréat Sénégalais (Après les exercices d'application) */}
               <BacSenegalAnnales
                 chapter={
-                  isReflexesConditionnels
+                  isCardiaqueB2
+                    ? 'activite_cardiaque'
+                    : isReflexesConditionnels
                     ? 'reflexes_medullaires'
                     : isSynapse
                     ? 'synapse'

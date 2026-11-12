@@ -2582,6 +2582,138 @@ $$\\to \\text{Plaque motrice du muscle quadriceps (Contraction)}$$`,
       baremeAstuce: 'Insistez sur le terme « liaison nerveuse temporaire » et mentionnez que l’animal décortiqué conserve son réflexe inné : cette nuance est notée sur 0,5 pt par les correcteurs de l’Office du Bac.',
     },
   ],
+
+  // =========================================================================
+  // B2.1 ACTIVITÉ CARDIAQUE & AUTOMATISME CARDIAQUE (SVT S2 - B2)
+  // =========================================================================
+  activite_cardiaque: [
+    {
+      year: 2022,
+      session: 'Session Normale (S2)',
+      points: 'Première Partie — Restitution Organisée des Connaissances (4 Points)',
+      topic: 'Automatisme Cardiaque, Tissu Nodal, Ligatures de Stannius et Inexcitabilité Périodique (Loi de Marey)',
+      enonce: `Le myocarde des vertébrés possède un ensemble de propriétés électrophysiologiques originales qui assurent sa fonction vitale de pompe hémodynamique permanente.
+
+1. **Origine de l'automatisme cardiaque :**
+   a) Définissez la notion d'automatisme cardiaque intrinsèque (0,5 point).
+   b) Citez, dans l'ordre chronologique de propagation de l'onde de dépolarisation, les quatre formations anatomiques qui constituent le tissu nodal (1 point).
+
+2. **Expérimentation historique de Stannius :**
+   Sur un cœur de grenouille isolé et perfusé :
+   - On pose une première ligature dans le sillon sinuso-auriculaire : décrivez les résultats observés et déduisez-en le rôle physiologique du sinus veineux (1 point).
+   - On pose une seconde ligature dans le sillon auriculo-ventriculaire : quel résultat obtient-on au niveau du ventricule ? Que met en évidence cette expérience (0,5 point) ?
+
+3. **Propriétés physiologiques du myocarde :**
+   a) Pourquoi le cœur est-il physiologiquement incapable d'entrer en tétanos ? Justifiez votre réponse en précisant la durée de la période réfractaire absolue (0,5 point).
+   b) Que se passe-t-il si l'on applique une excitation électrique efficace au cours de la diastole ventriculaire ? Nommez les deux manifestations graphiques consécutives (0,5 point).`,
+      solution: `### 1. Origine de l'automatisme cardiaque (1,5 point)
+a) **Définition de l'automatisme intrinsèque (0,5 pt) :**
+L'automatisme cardiaque est la propriété que possède le cœur de se contracter spontanément et de façon rythmique sans aucune intervention ou commande du système nerveux central, même lorsqu'il est complètement isolé de l'organisme et perfusé dans un liquide physiologique approprié (liquide de Ringer oxygéné à $37^\\circ\\text{C}$).
+
+b) **Les 4 formations du tissu nodal dans l'ordre chronologique (1 pt, soit 0,25 pt par structure) :**
+1. **Nœud sinusal (de Keith et Flack) :** Situé dans l'oreillette droite, c'est le pace-maker physiologique (fréquence spontanée maximale : $70\\text{ à }80\\text{ batt/min}$).
+2. **Nœud auriculo-ventriculaire (d'Aschoff-Tawara) :** Situé dans le septum interauriculaire, il ralentit la conduction ($0,1\\text{ s}$) pour permettre la vidange complète des oreillettes ($40\\text{ à }50\\text{ batt/min}$).
+3. **Faisceau de His :** Faisceau traversant le septum interventriculaire, se divisant en deux branches droite et gauche ($30\\text{ à }40\\text{ batt/min}$).
+4. **Réseau sous-endocardique de Purkinje :** Ramifications terminales diffuses dans la paroi des deux ventricules à conduction très rapide ($2\\text{ à }4\\text{ m/s}$), assurant la contraction ventriculaire synchrone de la pointe vers la base.
+
+---
+
+### 2. Expériences historiques de Stannius (1,5 point)
+- **1ère Ligature sinuso-auriculaire (1 pt) :**
+  - *Observation (0,5 pt) :* Le sinus veineux continue de battre à son rythme rapide propre ($60\\text{ bpm}$). Les oreillettes et le ventricule s'arrêtent net en diastole, puis reprennent après quelques minutes des battements synchrones mais nettement ralentis ($30\\text{ à }40\\text{ bpm}$).
+  - *Déduction (0,5 pt) :* Le sinus veineux est le **centre automatique dominant (pace-maker maître)** dont la fréquence impose le rythme à l'ensemble du cœur. Il existe un centre secondaire subordonné à fréquence inférieure (le nœud AV).
+- **2ème Ligature auriculo-ventriculaire (0,5 pt) :**
+  - *Observation :* Les oreillettes continuent à battre à $30-40\\text{ bpm}$. Le ventricule s'arrête longuement puis reprend des battements autonomes très lents ($15\\text{ à }20\\text{ bpm}$).
+  - *Conclusion :* Cette expérience prouve que le ventricule possède un troisième centre d'automatisme idioventriculaire (réseau de Purkinje). L'ensemble démontre le **gradient d'automatisme décroissant** du tissu nodal : Sinus veineux ($60\\text{ bpm}$) $>$ Nœud AV ($30-40\\text{ bpm}$) $>$ Ventricule/Purkinje ($15-20\\text{ bpm}$).
+
+---
+
+### 3. Propriétés physiologiques du myocarde (1 point)
+a) **Impossibilité de tétanisation (0,5 pt) :**
+Le cœur ne peut jamais être tétanisé (contraction continue fusionnée) car le potentiel d'action des cellules myocardiques présente une phase de plateau calcique très longue, conférant une **période réfractaire absolue (PRA) d'environ $0,30\\text{ s}$**, qui recouvre pratiquement toute la durée de la systole ventriculaire. Pendant cette phase, le myocarde est totalement inexcitable, rendant toute sommation temporelle impossible. Cette propriété vitale garantit le relâchement diastolique indispensable au remplissage des cavités.
+
+b) **Excitation en diastole (0,5 pt) :**
+En diastole, le myocarde est en période réfractaire relative et redevient excitable :
+1. Une stimulation efficace déclenche une contraction prématurée anticipée appelée **extrasystole ventriculaire** (0,25 pt).
+2. Cette extrasystole est obligatoirement suivie d'un temps de repos prolongé appelé **repos compensateur** (0,25 pt), car l'onde physiologique sinusale suivante arrive pendant la période réfractaire de l'extrasystole et reste inefficace.`,
+      baremeAstuce: 'Au Bac S2, ne confondez jamais « période réfractaire absolue » (systole = inexcitable = intétanisable) et « période réfractaire relative » (diastole = extrasystole + repos compensateur). Cette distinction rapporte 1 point plein.',
+    },
+    {
+      year: 2019,
+      session: 'Session Normale (S2)',
+      points: 'Deuxième Partie — Raisonnement Scientifique & Analyse de Données (4 Points)',
+      topic: 'Révolution Cardiaque, Électrocardiogramme (ECG) et Hémodynamique Quantitative (Débit & Pression Artérielle)',
+      enonce: `Chez un jeune adulte athlète en bonne santé, un enregistrement électrocardiographique (dérivation DII sur papier millimétré déroulé à la vitesse de $25\\text{ mm/s}$) et des mesures hémodynamiques par échographie Doppler ont été réalisés au repos puis au cours d'un test d'effort maximal sur bicyclette ergométrique.
+
+Les données recueillies sont les suivantes :
+- **Au repos :**
+  - La distance entre deux sommets $R$ consécutifs de l'ECG est de $20\\text{ mm}$.
+  - Volume télédiastolique ventriculaire : $VTD = 130\\text{ mL}$.
+  - Volume télésystolique résiduel : $VTS = 50\\text{ mL}$.
+  - Résistances périphériques totales : $RPT = 18\\text{ mmHg}\\cdot\\text{min}\\cdot\\text{L}^{-1}$.
+- **À l'effort maximal :**
+  - La distance entre deux ondes $R$ consécutives n'est plus que de $7{,}5\\text{ mm}$.
+  - Le volume d'éjection systolique augmente de $50\\%$ par rapport au repos sous l'effet de la stimulation sympathique.
+  - Les artérioles musculaires se dilatent, abaissant les résistances périphériques à $RPT' = 6\\text{ mmHg}\\cdot\\text{min}\\cdot\\text{L}^{-1}$.
+
+1. **Interprétation de l'ECG au repos :**
+   a) Rappelez la signification physiologique des trois accidents graphiques majeurs de l'ECG : onde P, complexe QRS et onde T (0,75 point).
+   b) Calculez la durée d'une révolution cardiaque au repos en secondes, puis déterminez la fréquence cardiaque $FC$ en battements par minute (0,75 point).
+
+2. **Calculs hémodynamiques au repos :**
+   a) Calculez le volume d'éjection systolique $VES$ au repos en mL puis en Litres (0,5 point).
+   b) Déterminez le débit cardiaque $DC$ du sujet au repos en $\\text{L/min}$ (0,5 point).
+   c) Calculez la pression artérielle moyenne $PA$ au repos en $\\text{mmHg}$ (0,5 point).
+
+3. **Adaptation hémodynamique à l'effort :**
+   a) Calculez la nouvelle fréquence cardiaque $FC'$ et le nouveau débit cardiaque $DC'$ à l'effort maximal (0,5 point).
+   b) En déduire la nouvelle valeur de la pression artérielle moyenne $PA'$. Expliquez comment l'organisme parvient à multiplier considérablement son débit sanguin tout en maintenant une élévation modérée de sa pression artérielle (0,5 point).`,
+      solution: `### 1. Interprétation de l'ECG au repos (1,5 point)
+a) **Signification des ondes (0,75 pt, soit 0,25 pt par onde) :**
+- **Onde P :** Dépolarisation des oreillettes (générée par l'influx du nœud sinusal), précédant immédiatement la systole auriculaire.
+- **Complexe QRS :** Dépolarisation rapide et synchrone des ventricules (via le faisceau de His et le réseau de Purkinje), marquant le début de la systole ventriculaire.
+- **Onde T :** Repolarisation des ventricules, correspondant à la phase de relaxation préalable à la diastole générale.
+
+b) **Calcul de la durée de révolution et de la fréquence cardiaque (0,75 pt) :**
+- Vitesse de défilement : $v = 25\\text{ mm/s} \\implies 1\\text{ mm} = \\frac{1}{25}\\text{ s} = 0{,}04\\text{ s}$.
+- La distance $R-R = 20\\text{ mm}$.
+- Durée d'un cycle cardiaque (révolution) :
+  $$\\Delta t = 20 \\times 0{,}04\\text{ s} = 0{,}80\\text{ s}$$
+- Fréquence cardiaque $FC$ :
+  $$FC = \\frac{60}{\\Delta t} = \\frac{60}{0{,}80} = 75\\text{ battements/minute}$$
+
+---
+
+### 2. Calculs hémodynamiques au repos (1,5 point)
+a) **Volume d'éjection systolique (0,5 pt) :**
+$$VES = VTD - VTS = 130\\text{ mL} - 50\\text{ mL} = 80\\text{ mL} = 0{,}080\\text{ L}$$
+
+b) **Débit cardiaque au repos (0,5 pt) :**
+$$DC = FC \\times VES = 75\\text{ batt/min} \\times 0{,}080\\text{ L} = 6{,}0\\text{ L/min}$$
+
+c) **Pression artérielle moyenne au repos (0,5 pt) :**
+$$PA = DC \\times RPT = 6{,}0\\text{ L/min} \\times 18\\text{ mmHg}\\cdot\\text{min}\\cdot\\text{L}^{-1} = 108\\text{ mmHg}$$
+
+---
+
+### 3. Adaptation hémodynamique à l'effort maximal (1 point)
+a) **Fréquence cardiaque et Débit cardiaque à l'effort (0,5 pt) :**
+- Nouvelle durée de cycle à l'effort : $\\Delta t' = 7{,}5 \\times 0{,}04\\text{ s} = 0{,}30\\text{ s}$.
+- Nouvelle fréquence : $FC' = \\frac{60}{0{,}30} = 200\\text{ battements/minute}$.
+- Nouveau volume d'éjection systolique ($+50\\%$) :
+  $$VES' = 80\\text{ mL} \\times 1{,}50 = 120\\text{ mL} = 0{,}120\\text{ L}$$
+- Nouveau débit cardiaque :
+  $$DC' = FC' \\times VES' = 200\\text{ batt/min} \\times 0{,}120\\text{ L} = 24{,}0\\text{ L/min}$$
+  *(Le débit cardiaque a été multiplié par 4 !)*
+
+b) **Nouvelle pression artérielle et explication physiologique (0,5 pt) :**
+- Nouvelle pression artérielle :
+  $$PA' = DC' \\times RPT' = 24{,}0\\text{ L/min} \\times 6\\text{ mmHg}\\cdot\\text{min}\\cdot\\text{L}^{-1} = 144\\text{ mmHg}$$
+- **Explication physiologique :**
+  Bien que le débit cardiaque soit multiplié par $4$ (passage de $6$ à $24\\text{ L/min}$), la pression artérielle moyenne n'augmente que très modérément (de $108$ à $144\\text{ mmHg}$). Cette prouesse physiologique résulte de la **vasodilatation massive des artérioles musculaires** actives (sous l'effet de métabolites locaux et de récepteurs $\\beta_2$), qui fait chuter les résistances périphériques totales ($RPT$ passe de $18$ à $6$). Cela protège le système cardiovasculaire contre des hypertensions destructrices tout en garantissant une oxygénation maximale des muscles squelettiques.`,
+      baremeAstuce: 'Dans les calculs de débit cardiaque, convertissez TOUJOURS le VES en Litres ($1\\text{ mL} = 10^{-3}\\text{ L}$) avant de multiplier par FC, pour obtenir un débit directement en L/min sans erreur d’unité.',
+    },
+  ],
 };
 
 BAC_ANNALES_BY_CHAPTER.cinematique = BAC_ANNALES_BY_CHAPTER.cinematique_point;
@@ -2617,6 +2749,14 @@ BAC_ANNALES_BY_CHAPTER['pavlov'] = BAC_ANNALES_BY_CHAPTER.reflexes_medullaires;
 BAC_ANNALES_BY_CHAPTER['conditionnel'] = BAC_ANNALES_BY_CHAPTER.reflexes_medullaires;
 BAC_ANNALES_BY_CHAPTER['b1l4'] = BAC_ANNALES_BY_CHAPTER.reflexes_medullaires;
 BAC_ANNALES_BY_CHAPTER['b1l3'] = BAC_ANNALES_BY_CHAPTER.synapse;
+BAC_ANNALES_BY_CHAPTER['activite-cardiaque'] = BAC_ANNALES_BY_CHAPTER.activite_cardiaque;
+BAC_ANNALES_BY_CHAPTER['cardiaque'] = BAC_ANNALES_BY_CHAPTER.activite_cardiaque;
+BAC_ANNALES_BY_CHAPTER['b2'] = BAC_ANNALES_BY_CHAPTER.activite_cardiaque;
+BAC_ANNALES_BY_CHAPTER['b2l1'] = BAC_ANNALES_BY_CHAPTER.activite_cardiaque;
+BAC_ANNALES_BY_CHAPTER['automatisme_cardiaque'] = BAC_ANNALES_BY_CHAPTER.activite_cardiaque;
+BAC_ANNALES_BY_CHAPTER['automatisme-cardiaque'] = BAC_ANNALES_BY_CHAPTER.activite_cardiaque;
+BAC_ANNALES_BY_CHAPTER['tissu-nodal'] = BAC_ANNALES_BY_CHAPTER.activite_cardiaque;
+BAC_ANNALES_BY_CHAPTER['tissu_nodal'] = BAC_ANNALES_BY_CHAPTER.activite_cardiaque;
 
 interface BacSenegalAnnalesProps {
   chapter?: string;
