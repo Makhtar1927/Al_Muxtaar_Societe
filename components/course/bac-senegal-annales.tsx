@@ -2714,6 +2714,103 @@ b) **Nouvelle pression artérielle et explication physiologique (0,5 pt) :**
       baremeAstuce: 'Dans les calculs de débit cardiaque, convertissez TOUJOURS le VES en Litres ($1\\text{ mL} = 10^{-3}\\text{ L}$) avant de multiplier par FC, pour obtenir un débit directement en L/min sans erreur d’unité.',
     },
   ],
+  // B2.2. INNERVATION ET RÉGULATION NERVEUSE ET HORMONALE DU CŒUR (SVT S2 - B2 LEÇON 2)
+  regulation_nerveuse: [
+    {
+      year: 2021,
+      session: 'Session Normale (S2)',
+      points: 'Exercice 2 — Neurophysiologie Cardiovasculaire (4 Points)',
+      topic: 'Expérience d’Otto Loewi (1921), Transmission chimique de l’influx vagal et Spécificité des récepteurs (Atropine, Curare)',
+      enonce: `Afin d'élucider le mécanisme par lequel les nerfs vagues (pneumogastriques X) modulent l'activité cardiaque, on réalise une série d'expériences sur des cœurs isolés de grenouilles perfusés avec du liquide de Ringer oxygéné.
+
+**Document 1 : L'expérience historique d'Otto Loewi**
+Deux cœurs de grenouille $C_1$ et $C_2$ sont montés en série. Le cœur $C_1$ conserve son innervation vagale intacte. Le cœur $C_2$ est totalement dénervé. Le liquide physiologique baignant $C_1$ est acheminé par une canule vers $C_2$.
+- À l'instant $t_1$, on stimule électriquement le nerf pneumogastrique de $C_1$ pendant 10 secondes : on observe un ralentissement immédiat de $C_1$, suivi de son arrêt en diastole.
+- Quelques secondes plus tard ($t_2$), alors que le cœur $C_2$ n'a reçu aucune stimulation électrique, on observe également un ralentissement de $C_2$ puis son arrêt en diastole.
+- Après lavage des deux préparations par du liquide de Ringer neuf, les deux cœurs reprennent leurs battements spontanés.
+
+**Document 2 : Tests pharmacologiques**
+1. Sur une préparation de cœur isolé normal, l'adjonction dans le liquide de Ringer d'une goutte d'atropine à $10^{-5}\\text{ mol/L}$ entraîne une légère tachycardie. La stimulation électrique ultérieure du nerf vague reste alors totalement sans effet.
+2. Si on perfuse le cœur avec du curare à concentration efficace, les battements cardiaques et l'effet freinateur de la stimulation du nerf vague ne subissent aucune modification, alors que le muscle squelettique gastrocnémien de la même grenouille est totalement paralysé.
+
+**Questions :**
+1. Analysez les résultats du Document 1. Quelle conclusion fondamentale relative à la transmission du message vagal dégagez-vous de l'expérience d'Otto Loewi ? *(1,5 point)*
+2. Précisez la nature de la substance chimique libérée lors de la stimulation vagale et le type de récepteurs membranaires sur lesquels elle se fixe au niveau du tissu nodal. *(1 point)*
+3. À partir du Document 2 :
+   a) Expliquez le mécanisme d'action de l'atropine sur le rythme cardiaque. *(0,75 point)*
+   b) Justifiez pourquoi le curare paralyse le muscle squelettique sans affecter l'activité cardiaque. *(0,75 point)*`,
+      solution: `### 1. Analyse de l'expérience d'Otto Loewi et Conclusion fondamentale (1,5 pt)
+- **Analyse des observations :**
+  - La stimulation électrique du nerf vague du cœur donneur $C_1$ provoque une bradycardie immédiate puis un arrêt du cœur en diastole (relâchement musculaire).
+  - Après un court temps de latence correspondant au temps de transit du liquide de perfusion, le cœur receveur $C_2$ (pourtant dénervé et sans contact électrique avec $C_1$) ralentit et s'arrête également en diastole.
+  - Le lavage au Ringer neuf restaure l'automatisme des deux cœurs, montrant la réversibilité du phénomène.
+- **Déduction & Conclusion :**
+  Le cœur $C_2$ n'ayant reçu aucune décharge électrique, son arrêt ne peut s'expliquer que par la présence d'une **substance chimique soluble** libérée par les terminaisons du nerf pneumogastrique de $C_1$ dans le liquide de Ringer. Cette substance a été transportée par le liquide vers $C_2$ où elle a exercé le même effet freinateur.
+  **Conclusion fondamentale :** La commande nerveuse exercée par le nerf vague n'est pas électrique directe, elle s'effectue par l'intermédiaire d'un **médiateur chimique neuro-humoral (neurotransmetteur)**.
+
+---
+
+### 2. Nature du neurotransmetteur et récepteurs nodaux (1 pt)
+- **Nature de la substance :** C'est **l'Acétylcholine (ACh)** (nommée initialement *Vagusstoff* par Loewi).
+- **Type de récepteurs :** Récepteurs **cholinergiques muscariniques (de type $M_2$)**, situés sur les membranes des cellules cardionectrices du nœud sinusal et du nœud auriculo-ventriculaire.
+
+---
+
+### 3. Exploitation des tests pharmacologiques (1,5 pt)
+a) **Mécanisme d'action de l'atropine (0,75 pt) :**
+- L'atropine est un **antagoniste compétitif** spécifique des récepteurs muscariniques : elle se fixe sur les récepteurs à l'acétylcholine sans déclencher de transduction, empêchant ainsi l'acétylcholine endogène de s'y lier.
+- En bloquant les récepteurs, elle lève le frein vagal permanent au repos $\\implies$ tachycardie.
+- La stimulation du nerf vague devient inopérante car l'ACh libérée ne peut plus interagir avec ses récepteurs masqués par l'atropine.
+
+b) **Spécificité d'action Atropine vs Curare (0,75 pt) :**
+- Les synapses neuromusculaires des muscles squelettiques possèdent des **récepteurs nicotiniques**, bloqués sélectivement par le curare $\\implies$ paralysie du gastrocnémien.
+- Le myocarde possède quant à lui des **récepteurs muscariniques**, sensibles à l'atropine mais insensibles au curare. Cela démontre **l'hétérogénéité et la stéréospécificité des récepteurs membranaires** à l'acétylcholine dans l'organisme.`,
+      baremeAstuce: 'Au Bac S2, ne confondez jamais récepteurs nicotiniques (curare / muscle strié) et récepteurs muscariniques (atropine / cœur). C’est la distinction clé qui rapporte l’intégralité des points de pharmacodynamie.',
+    },
+    {
+      year: 2017,
+      session: 'Session Normale (S2)',
+      points: 'Exercice 2 — Physiologie Cardiovasculaire (4 Points)',
+      topic: 'Innervation antagoniste, Sections nerveuses bilatérales, Notion de Tonus vagal et Propriétés myocardiques',
+      enonce: `Chez un chien anesthésié, on enregistre la pression artérielle et le cardiogramme ventriculaire. La fréquence cardiaque de repos est de $72\\text{ battements par minute}$.
+
+On pratique successivement les interventions expérimentales suivantes :
+1. **Expérience 1 :** On sectionne les deux nerfs vagues (pneumogastriques X) au niveau du cou (vagotomie bilatérale). La fréquence cardiaque s'élève instantanément à $115\\text{ batt/min}$.
+2. **Expérience 2 :** Sur l'animal vagotomisé, on stimule le bout périphérique d'un nerf vague sectionné : la fréquence cardiaque s'effondre à $35\\text{ batt/min}$. La stimulation du bout central du même nerf ne produit aucun effet sur le cœur.
+3. **Expérience 3 :** On sectionne ensuite les nerfs cardiaques sympathiques : la fréquence cardiaque s'abaisse légèrement pour se stabiliser à $100\\text{ batt/min}$.
+4. **Expérience 4 :** On stimule le bout périphérique des nerfs sympathiques : la fréquence cardiaque passe à $150\\text{ batt/min}$, avec un accroissement net de l'amplitude de chaque systole ventriculaire.
+
+**Consignes :**
+1. Interprétez les résultats de l'Expérience 1. Définissez la notion physiologique mise en évidence. *(1 point)*
+2. Que déduisez-vous de la stimulation différentielle bout périphérique vs bout central dans l'Expérience 2 ? *(1 point)*
+3. Comparez les rôles physiologiques respectifs du système parasympathique et du système orthosympathique sur le myocarde en complétant un tableau précisant : centres d'origine, neurotransmetteur terminal, récepteurs, et les 4 effets myocardiques cardinaux (chronotrope, inotrope, dromotrope, bathmotrope). *(2 points)*`,
+      solution: `### 1. Interprétation de l'Expérience 1 & Tonus vagal (1 pt)
+- **Constat :** La section des deux nerfs vagues entraîne une augmentation immédiate de la fréquence cardiaque (tachycardie de $72$ à $115\\text{ batt/min}$).
+- **Déduction :** Comme la suppression de la liaison nerveuse accélère le rythme, cela prouve que les nerfs vagues exerçaient en permanence une action freinatrice sur le cœur au repos.
+- **Définition du Tonus Vagal :** C'est l'activité inhibitrice modératrice continue exercée par le centre bulbaire parasympathique sur le nœud sinusal, maintenant la fréquence cardiaque physiologique à un niveau inférieur à sa fréquence intrinsèque spontanée ($115\\text{ bpm}$).
+
+---
+
+### 2. Voie motrice centrifuge du nerf vague (1 pt)
+- La stimulation du **bout périphérique** (relié au cœur) reproduit la bradycardie, montrant que l'influx nerveux circule des centres bulbaires vers le myocarde de manière **centrifuge (voie motrice efférente)**.
+- L'absence d'effet lors de la stimulation du **bout central** (relié à l'encéphale) confirme que les fibres motrices cardiomodératrices n'ont pas d'action directe descendante à partir de cette extrémité sectionnée.
+
+---
+
+### 3. Tableau comparatif complet de la double innervation cardiaque (2 pts)
+
+| Paramètre physiologique | Système Parasympathique (Nerf Vague X) | Système Orthosympathique (Nerfs Sympathiques) |
+| :--- | :--- | :--- |
+| **Centre nerveux d'origine** | Bulbe rachidien (noyau dorsal du X) | Moelle épinière thoracique ($D_1$ à $D_5$) |
+| **Neurotransmetteur terminal** | Acétylcholine (ACh) | Noradrénaline (NA) |
+| **Type de récepteurs** | Muscariniques ($M_2$) | $\\beta_1$-adrénergiques |
+| **Effet Chronotrope** | **Négatif** (ralentit la FC = Bradycardie) | **Positif** (accélère la FC = Tachycardie) |
+| **Effet Inotrope** | **Négatif modéré** (surtout atriale) | **Positif puissant** (augmente la force systolique) |
+| **Effet Dromotrope** | **Négatif** (ralentit la conduction nodale) | **Positif** (accélère la conduction nodale) |
+| **Effet Bathmotrope** | **Négatif** (abaisse l'excitabilité) | **Positif** (augmente l'excitabilité) |`,
+      baremeAstuce: 'Dans l’épreuve de SVT du Bac S2, associez TOUJOURS chaque nerf à son effet précis : Vague = Chronotrope négatif (Acétylcholine) ; Sympathique = Chronotrope et Inotrope positifs (Noradrénaline).',
+    },
+  ],
 };
 
 BAC_ANNALES_BY_CHAPTER.cinematique = BAC_ANNALES_BY_CHAPTER.cinematique_point;
@@ -2757,6 +2854,14 @@ BAC_ANNALES_BY_CHAPTER['automatisme_cardiaque'] = BAC_ANNALES_BY_CHAPTER.activit
 BAC_ANNALES_BY_CHAPTER['automatisme-cardiaque'] = BAC_ANNALES_BY_CHAPTER.activite_cardiaque;
 BAC_ANNALES_BY_CHAPTER['tissu-nodal'] = BAC_ANNALES_BY_CHAPTER.activite_cardiaque;
 BAC_ANNALES_BY_CHAPTER['tissu_nodal'] = BAC_ANNALES_BY_CHAPTER.activite_cardiaque;
+BAC_ANNALES_BY_CHAPTER['regulation_nerveuse'] = BAC_ANNALES_BY_CHAPTER.regulation_nerveuse;
+BAC_ANNALES_BY_CHAPTER['regulation-nerveuse'] = BAC_ANNALES_BY_CHAPTER.regulation_nerveuse;
+BAC_ANNALES_BY_CHAPTER['b2l2'] = BAC_ANNALES_BY_CHAPTER.regulation_nerveuse;
+BAC_ANNALES_BY_CHAPTER['innervation_cardiaque'] = BAC_ANNALES_BY_CHAPTER.regulation_nerveuse;
+BAC_ANNALES_BY_CHAPTER['innervation-cardiaque'] = BAC_ANNALES_BY_CHAPTER.regulation_nerveuse;
+BAC_ANNALES_BY_CHAPTER['loewi'] = BAC_ANNALES_BY_CHAPTER.regulation_nerveuse;
+BAC_ANNALES_BY_CHAPTER['nerf-vague'] = BAC_ANNALES_BY_CHAPTER.regulation_nerveuse;
+BAC_ANNALES_BY_CHAPTER['sympathique'] = BAC_ANNALES_BY_CHAPTER.regulation_nerveuse;
 
 interface BacSenegalAnnalesProps {
   chapter?: string;

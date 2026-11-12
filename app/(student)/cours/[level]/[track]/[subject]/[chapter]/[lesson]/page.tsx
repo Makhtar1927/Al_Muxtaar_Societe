@@ -126,6 +126,9 @@ import B1ReflexesConditionnelsQuizEmbedded from '@/components/course/b1-reflexes
 import B2CardiaqueReflexesCard from '@/components/course/b2-cardiaque-reflexes-card';
 import B2CardiaqueInteractiveLab from '@/components/course/b2-cardiaque-interactive-lab';
 import B2CardiaqueQuizEmbedded from '@/components/course/b2-cardiaque-quiz-embedded';
+import B2RegulationNerveuseReflexesCard from '@/components/course/b2-regulation-nerveuse-reflexes-card';
+import B2RegulationNerveuseInteractiveLab from '@/components/course/b2-regulation-nerveuse-interactive-lab';
+import B2RegulationNerveuseQuizEmbedded from '@/components/course/b2-regulation-nerveuse-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
@@ -1315,6 +1318,33 @@ const CARDIAQUE_AUDIO_CHAPTERS: AudioChapter[] = [
     icon: "theoreme_equerre",
     textScript:
       "Maîtrisez la chronologie : la systole auriculaire (onde P), la systole ventriculaire (complexe QRS) et la diastole générale (onde T). Retenez la loi de Marey : le cœur a une longue période réfractaire absolue pendant la systole, le rendant totalement inexcitable et donc intétanisable, garantissant sa fonction de pompe permanente.",
+  },
+];
+
+const REGULATION_NERVEUSE_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Dualisme Nerveux : Parasympathique vs Orthosympathique",
+    badge: "Dualisme",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass de SVT Terminale S2 sur la régulation cardiaque. Retenez la dualité fondamentale : le système parasympathique via le nerf vague X et l'acétylcholine est le frein cardiomodérateur permanent. Le système orthosympathique via la noradrénaline et les récepteurs bêta-1 est l'accélérateur qui booste la fréquence et la contractilité.",
+  },
+  {
+    timeSeconds: 50,
+    title: "2. L'Expérience d'Otto Loewi (1921) & Transmission Chimique",
+    badge: "Prix Nobel",
+    icon: "theoreme_equerre",
+    textScript:
+      "L'expérience historique d'Otto Loewi sur les deux cœurs de grenouille reliés par un liquide de Ringer prouve la neurotransmission chimique. En stimulant le nerf vague du cœur 1, une substance hydrosoluble, la Vagusstoff ou acétylcholine, diffuse dans la solution et arrête à son tour le cœur 2 dénervé, sans aucun contact électrique direct !",
+  },
+  {
+    timeSeconds: 110,
+    title: "3. Pièges du Bac : Vagotomie, Atropine et Curare",
+    badge: "Piège Bac",
+    icon: "cle_solution",
+    textScript:
+      "Ne tombez jamais dans les pièges classiques de l'épreuve : sectionner les deux nerfs vagues ne provoque pas l'arrêt mais une tachycardie immédiate par levée du frein ! L'atropine bloque les récepteurs muscariniques du cœur et entraîne une tachycardie. En revanche, le curare n'a aucun effet sur le cœur car il cible exclusivement les récepteurs nicotiniques des muscles squelettiques.",
   },
 ];
 
@@ -2683,8 +2713,28 @@ if (lessonMeta && lessonMeta.status !== 'published') {
         lessonMeta.title.toLowerCase().includes('mecanisme') ||
         lessonMeta.title.toLowerCase().includes('nodal')));
 
+  const isRegulationNerveuseB2 =
+    params.lesson === '60000000-0000-0003-0002-000000000002' ||
+    lessonMeta.title.toLowerCase().includes('innervation') ||
+    lessonMeta.title.toLowerCase().includes('loewi') ||
+    lessonMeta.title.toLowerCase().includes('nerf vague') ||
+    lessonMeta.title.toLowerCase().includes('pneumogastrique') ||
+    lessonMeta.title.toLowerCase().includes('orthosympathique') ||
+    lessonMeta.title.toLowerCase().includes('parasympathique') ||
+    lessonMeta.title.toLowerCase().includes('cardiomodérateur') ||
+    lessonMeta.title.toLowerCase().includes('cardiomoderateur') ||
+    lessonMeta.title.toLowerCase().includes('cardioaccélérateur') ||
+    lessonMeta.title.toLowerCase().includes('cardioaccelerateur') ||
+    (lessonMeta.title.toLowerCase().includes('régulation') &&
+      lessonMeta.title.toLowerCase().includes('cardiaque') &&
+      !lessonMeta.title.toLowerCase().includes('pression')) ||
+    (lessonMeta.title.toLowerCase().includes('regulation') &&
+      lessonMeta.title.toLowerCase().includes('cardiaque') &&
+      !lessonMeta.title.toLowerCase().includes('pression'));
+
   const isReflexesConditionnels =
-    !isCardiaqueB2 && (
+    !isCardiaqueB2 &&
+    !isRegulationNerveuseB2 && (
     params.lesson === '60000000-0000-0003-0001-000000000004' ||
     lessonMeta.title.toLowerCase().includes('pavlov') ||
     lessonMeta.title.toLowerCase().includes('conditionnel') ||
@@ -2859,7 +2909,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
               {/* Capsule Vocale & Masterclass Audio du Professeur (Al Muxtaar S2) */}
               <AudioCoachPlayer
                 title={
-                  isCardiaqueB2
+                  isRegulationNerveuseB2
+                    ? 'Masterclass Audio : Innervation & Régulation Nerveuse et Hormonale du Cœur'
+                    : isCardiaqueB2
                     ? 'Masterclass Audio : Automatisme Cardiaque, Tissu Nodal & Révolution'
                     : isReflexesConditionnels
                     ? 'Masterclass Audio : Réflexes Médullaires & Réflexes Conditionnels Pavloviens'
@@ -2918,7 +2970,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     : 'Masterclass Audio : Limites & Continuité'
                 }
                 subtitle={
-                  isCardiaqueB2
+                  isRegulationNerveuseB2
+                    ? 'Terminale S2 • SVT : Les 6 réflexes pour le vague, sympathique, Otto Loewi et la pharmacologie'
+                    : isCardiaqueB2
                     ? 'Terminale S2 • SVT : Les 6 réflexes pour le tissu nodal, Stannius, ECG et la période réfractaire'
                     : isReflexesConditionnels
                     ? 'Terminale S2 • SVT : Les 6 réflexes pour maîtriser l\'arc réflexe, Magendie et Pavlov au Bac'
@@ -2977,7 +3031,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     : 'Terminale S2 • 5 réflexes essentiels pour l\'épreuve'
                 }
                 chapters={
-                  isCardiaqueB2
+                  isRegulationNerveuseB2
+                    ? REGULATION_NERVEUSE_AUDIO_CHAPTERS
+                    : isCardiaqueB2
                     ? CARDIAQUE_AUDIO_CHAPTERS
                     : isReflexesConditionnels
                     ? REFLEXES_AUDIO_CHAPTERS
@@ -3119,6 +3175,11 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                   <P4ParticuleReflexesCard />
                   <P4ParticuleInteractiveSimulator />
                 </>
+              ) : isRegulationNerveuseB2 ? (
+                <>
+                  <B2RegulationNerveuseReflexesCard />
+                  <B2RegulationNerveuseInteractiveLab />
+                </>
               ) : isCardiaqueB2 ? (
                 <>
                   <B2CardiaqueReflexesCard />
@@ -3249,7 +3310,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
               {/* Section Annales Officielles du Baccalauréat Sénégalais (Après les exercices d'application) */}
               <BacSenegalAnnales
                 chapter={
-                  isCardiaqueB2
+                  isRegulationNerveuseB2
+                    ? 'regulation_nerveuse'
+                    : isCardiaqueB2
                     ? 'activite_cardiaque'
                     : isReflexesConditionnels
                     ? 'reflexes_medullaires'
@@ -3351,6 +3414,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <ProjectileQuizEmbedded />
               ) : isParticule ? (
                 <P4ParticuleQuizEmbedded />
+              ) : isRegulationNerveuseB2 ? (
+                <B2RegulationNerveuseQuizEmbedded />
               ) : isCardiaqueB2 ? (
                 <B2CardiaqueQuizEmbedded />
               ) : isReflexesConditionnels ? (

@@ -6085,8 +6085,239 @@ $$PA = DC \\times RPT = (FC \\times VES) \\times RPT$$
 > 3. En cas d'analyse de graphiques (cardiogrammes ou ECG), repérez l'onde P, le QRS et l'onde T, et n'oubliez jamais de justifier l'inexcitabilité périodique par la longue période réfractaire absolue !
 `;
 
+RICH_LESSONS_MAP.regulation_nerveuse_cardiaque = `# B2 - Leçon 2 : Innervation et Régulation Nerveuse et Hormonale de l'Activité Cardiaque
+
+---
+
+## Objectifs d'Apprentissage (Programme Officiel SVT Terminale S2 - Sénégal)
+À l'issue de cette leçon, tout élève de Terminale S2 doit être capable de :
+1. **Identifier l'anatomie de l'innervation extrinsèque** du cœur : système parasympathique (nerfs vagues / pneumogastriques X) et système orthosympathique (nerfs cardiaques sympathiques).
+2. **Analyser et interpréter les expériences de section et de stimulation** nerveuse (bouts périphériques vs bouts centraux, ligatures, double vagotomie).
+3. **Expliquer l'expérience historique d'Otto Loewi (1921)** et démontrer la nature chimique (neurotransmission) de la médiation nerveuse.
+4. **Distinguer les neuromédiateurs et leurs récepteurs membranaires** : Acétylcholine (récepteurs muscariniques) vs Noradrénaline (récepteurs $\\beta_1$ adrénergiques).
+5. **Prévoir les effets des substances pharmacologiques** : Atropine, Bêtabloquants (Propranolol), Pilocarpine, Curare.
+6. **Expliquer la régulation hormonale** à court terme (Adrénaline médullosurrénalienne) et à long terme (Hormones thyroïdiennes T3/T4).
+7. **Caractériser les 4 effets myocardiques cardinaux** : chronotrope, inotrope, dromotrope, bathmotrope.
+
+---
+
+## 1. Introduction : L'adaptation permanente du rythme cardiaque
+
+Le cœur isolé continue de battre de manière autonome grâce à son **tissu nodal** (automatisme intrinsèque étudié en Leçon 1). Cependant, dans l'organisme vivant, le débit cardiaque ($DC = FC \\times VES$) doit s'ajuster en temps réel pour répondre aux variations des besoins métaboliques des tissus en oxygène et en nutriments :
+- **Au repos ou pendant le sommeil** : la fréquence cardiaque s'abaisse à environ 60 - 70 battements par minute (bradycardie physiologique).
+- **Lors d'un effort physique ou d'un stress émotionnel** : la fréquence cardiaque peut dépasser 160 à 180 battements par minute (tachycardie d'adaptation).
+
+Cette modulation permanente est assurée par une **double régulation** :
+1. Une **régulation nerveuse extrinsèque** (rapide, réflexe, via le système nerveux autonome végétatif).
+2. Une **régulation hormonale** (action humorale par voie sanguine, plus lente et durable).
+
+---
+
+## 2. Anatomie de l'Innervation Extrinsèque du Cœur
+
+Le cœur est relié aux centres nerveux par deux contingents antagonistes du **système nerveux végétatif (autonome)** :
+
+\`\`\`
+                                  ┌────────────────────────┐
+                                  │      CENTRES NERVEUX   │
+                                  └───────────┬────────────┘
+                         ┌────────────────────┴────────────────────┐
+                         ▼                                         ▼
+            ┌─────────────────────────┐               ┌─────────────────────────┐
+            │     BULBE RACHIDIEN     │               │     MOELLE ÉPINIÈRE     │
+            │ (Centre cardiomodérateur│               │ (Centres médullaires    │
+            │       dorsal du X)      │               │   thoraciques D1 - D5)  │
+            └────────────┬────────────┘               └────────────┬────────────┘
+                         │                                         │
+                         │ Nerf vague (X)                          │ Neurone préganglionnaire
+                         │ (Pneumogastrique)                       │
+                         ▼                                         ▼
+            ┌─────────────────────────┐               ┌─────────────────────────┐
+            │  GANGLION INTRAMURAL    │               │  CHAÎNE GANGLIONNAIRE   │
+            │  (dans la paroi atriale)│               │  LATÉRO-VERTÉBRALE      │
+            └────────────┬────────────┘               │  (Ganglion stellaire)   │
+                         │                                         └────────────┬────────────┘
+                         │ Fibre post-ganglionnaire                             │ Nerf sympathique cardiaque
+                         │ très courte (Acétylcholine)                          │ post-ganglionnaire
+                         ▼                                                      ▼ (Noradrénaline)
+            ┌────────────────────────────────────────────────────────────────────────┐
+            │                             MYOCARDE                                   │
+            │         Nœud Sinusal (FC)  ───  Nœud AV  ───  Myocytes atriaux/ventr. │
+            └────────────────────────────────────────────────────────────────────────┘
+\`\`\`
+
+### 2.1. Le Système Parasympathique (Cardiomodérateur)
+- **Centre nerveux d'origine** : Situé dans le **bulbe rachidien** (noyau moteur dorsal du nerf vague, ou centre cardiomodérateur bulbaire).
+- **Voie nerveuse** : Les deux **nerfs pneumogastriques (ou nerfs vagues, Xème paire de nerfs crâniens)**.
+  - Le nerf vague droit innerve préférentiellement le **nœud sinusal**.
+  - Le nerf vague gauche innerve principalement le **nœud auriculo-ventriculaire (septal)**.
+- **Relais synaptique** : Fibres préganglionnaires longues qui font synapse dans des microganglions situés directement dans la paroi des oreillettes (ganglions intramuraux).
+- **Neurotransmetteur** : **Acétylcholine (ACh)**, libérée au niveau des terminaisons postganglionnaires.
+- **Récepteurs membranaires** : Récepteurs **muscariniques de type $M_2$**, couplés à des protéines G qui provoquent l'ouverture des canaux potassiques $K^+$ (hyperpolarisation membranaire) et inhibent l'entrée de calcium $Ca^{2+}$.
+- **Rôle physiologique** : **Cardiomodérateur** permanent.
+
+### 2.2. Le Système Orthosympathique (Cardioaccélérateur)
+- **Centres nerveux d'origine** : Situés dans les cornes latérales de la **moelle épinière thoracique** (métamères $D_1$ à $D_5$).
+- **Voie nerveuse** :
+  - Fibres préganglionnaires courtes myélinisées rejoignant la **chaîne ganglionnaire latéro-vertébrale**, notamment le **ganglion stellaire** (fusion des ganglions cervicaux inférieurs et thoraciques supérieurs).
+  - Relais synaptique dans le ganglion stellaire (libération d'acétylcholine sur récepteurs nicotiniques).
+  - Fibres post-ganglionnaires sympathiques longues formant les **nerfs cardiaques sympathiques**.
+- **Territoire d'innervation** : Le sympathique innerve non seulement le tissu nodal (nœuds sinusal et septal), mais également **l'ensemble du myocarde contractile ventriculaire**.
+- **Neurotransmetteur terminal** : **Noradrénaline (NA)**.
+- **Récepteurs membranaires** : Récepteurs **$\\beta_1$-adrénergiques** couplés à l'adénylate cyclase, augmentant l'AMP cyclique intracellulaire ($AMPc$) et favorisant l'entrée massive d'ions $Ca^{2+}$.
+- **Rôle physiologique** : **Cardioaccélérateur** et **inodore positif** puissant.
+
+---
+
+## 3. Les Expériences Fondamentales du Baccalauréat Sénégalais
+
+Les sujets du Baccalauréat S2 s'appuient systématiquement sur des séries expérimentales historiques (sections, stimulations électriques, ligatures, greffes et perfusions).
+
+### 3.1. Expériences de Section et de Stimulation des Nerfs Cardiaques
+
+| Expérience réalisée | Observation sur le cardiogramme | Interprétation & Déduction Bac S2 |
+| :--- | :--- | :--- |
+| **Section des deux nerfs vagues (X)** | La fréquence cardiaque augmente immédiatement (ex: de 70 à 110 bpm). | Il existe un **tonus cardiomodérateur vagal permanent** au repos : le nerf vague freine constamment le nœud sinusal. |
+| **Stimulation électrique du nerf vague intact** | Ralentissement marqué du rythme (bradycardie) ; si la stimulation est forte, arrêt complet du cœur en **diastole** (relâchement). | Le nerf vague est un **nerf cardiomodérateur**. L'arrêt se fait toujours en diastole (relâchement musculaire). |
+| **Section du nerf vague + stimulation du bout périphérique** (relié au cœur) | Ralentissement ou arrêt en diastole du cœur. | Le nerf vague conduit l'influx nerveux de manière **centrifuge (motrice)** vers le myocarde. C'est une voie efférente. |
+| **Section du nerf vague + stimulation du bout central** (relié à l'encéphale) | Aucun effet direct sur le cœur isolé (ou légère modification réflexe si l'autre nerf vague est intact). | Le contingent cardiaque du vague ne conduit pas d'influx direct vers le cœur en sens centripète. |
+| **Section des nerfs sympathiques** | Légère diminution de la fréquence cardiaque (bradycardie modérée). | Il existe un faible tonus cardioaccélérateur sympathique de repos. |
+| **Stimulation du bout périphérique du sympathique** | Tachycardie nette (hausse de FC) et augmentation considérable de la force de contraction (hausse de l'amplitude systolique). | Le sympathique est **cardioaccélérateur** (effet chronotrope positif) et **inodore positif** (augmente la contractilité). |
+
+> [!PIEGE_BAC] **Attention au piège de la double vagotomie :**
+> Beaucoup d'élèves écrivent par erreur que *"sectionner le nerf vague arrête le cœur"*. C'est faux ! Comme le nerf vague est le frein, couper le frein libère le moteur nodal intrinsèque : le cœur **s'accélère** immédiatement !
+
+---
+
+### 3.2. L'Expérience Historique d'Otto Loewi (1921) : Découverte de la Neurotransmission Chimique
+
+Cette expérience historique, récompensée par le Prix Nobel de Médecine en 1936, est l'un des classiques absolus du Baccalauréat sénégalais.
+
+\`\`\`
+       CŒUR 1 (Donneur)                               CŒUR 2 (Receveur)
+   Avec Nerf Vague intact                           Dénervé (sans nerf)
+  ┌───────────────────────┐                       ┌───────────────────────┐
+  │         /\_/\         │                       │         /\_/\         │
+  │        ( o.o )        │                       │        ( o.o )        │
+  │        [CŒUR 1]       │                       │        [CŒUR 2]       │
+  └───────────┬───────────┘                       └───────────┬───────────┘
+              │ Perfusion de liquide                          ▲
+              │ de Ringer enrichi                             │
+              ▼                                               │
+  ┌───────────────────────────────────────────────────────────┴───────────┐
+  │ Tubulure de communication liquide : transfert de la solution de perfusion │
+  └───────────────────────────────────────────────────────────────────────┘
+
+  1. On stimule électriquement le nerf vague du CŒUR 1 :
+     ==> Le CŒUR 1 ralentit puis s'arrête en diastole.
+  2. Le liquide de perfusion baignant le Cœur 1 est transféré au CŒUR 2 :
+     ==> Après un court délai de diffusion, le CŒUR 2 ralentit et s'arrête également !
+\`\`\`
+
+**Raisonnement scientifique exigé au Bac :**
+1. **Constat** : Le cœur 2 ne reçoit aucune stimulation nerveuse électrique directe, et pourtant il réagit exactement comme le cœur 1 avec un temps de latence.
+2. **Déduction** : La stimulation du nerf vague a provoqué la libération d'une **substance chimique soluble** dans le liquide de perfusion baignant le cœur 1.
+3. **Conclusion** : La commande nerveuse ne se transmet pas par contact électrique continu, mais par un médiateur chimique neuro-humoral.
+   - Otto Loewi nomma cette substance la *Vagusstoff* (substance vagale), identifiée plus tard comme étant **l'acétylcholine**.
+   - Répétée avec la stimulation du nerf sympathique, l'expérience libère la *Sympathicusstoff*, qui est la **noradrénaline**.
+
+---
+
+## 4. Pharmacologie de la Régulation Cardiaque
+
+L'analyse de l'effet des drogues et poisons sur les préparations cardiaques permet de préciser la nature des récepteurs membranaires :
+
+| Substance testée | Mécanisme d'action moléculaire | Effet observé sur le cœur | Application médicale / Intérêt Bac |
+| :--- | :--- | :--- | :--- |
+| **Acétylcholine ($10^{-6}\\text{ M}$)** | Agoniste direct des récepteurs muscariniques $M_2$. | Bradycardie immédiate, baisse de force contractile, arrêt en diastole. | Reproduit fidèlement la stimulation vagale. |
+| **Atropine** | **Antagoniste compétitif** des récepteurs muscariniques : se fixe sur le récepteur sans l'activer et empêche l'ACh de s'y lier. | Tachycardie (lève le tonus vagal) ; rend la stimulation du nerf vague totalement inefficace. | Utilisée en urgence pour traiter les bradycardies sévères et les intoxications aux organophosphorés. |
+| **Noradrénaline / Adrénaline** | Agonistes des récepteurs $\\beta_1$-adrénergiques du myocarde. | Tachycardie puissante, hausse de la force de contraction (amplitude accrue). | Traitement des arrêts cardiaques et des chocs anaphylactiques. |
+| **Propranolol (Bêtabloquant)** | **Antagoniste compétitif** des récepteurs $\\beta_1$-adrénergiques. | Diminution de la FC de repos et d'effort, empêche la tachycardie induite par le sympathique. | Traitement de l'hypertension artérielle et des arythmies cardiaques. |
+| **Pilocarpine** | Agoniste muscarinique (parasympathicomimétique). | Bradycardie identique à l'ACh, mais dégradation plus lente. | Utilisée en pharmacodynamie expérimentale. |
+| **Curare** | Bloquant spécifique des récepteurs **nicotiniques** de la plaque motrice musculaire. | **AUCUN EFFET** sur la régulation de la fréquence cardiaque. | Démontre que les récepteurs cardiaques vagaux sont muscariniques et non nicotiniques. |
+
+---
+
+## 5. La Régulation Hormonale de l'Activité Cardiaque
+
+En complément du système nerveux, plusieurs hormones circulantes agissent sur le myocarde par voie hématogène :
+
+### 5.1. Les Catécholamines Médullo-surrénaliennes (Adrénaline & Noradrénaline)
+- Sécrétées par les cellules chromaffines de la **médullo-surrénale** lors d'une activation du système nerveux sympathique (stress, froid, effort musculaire intense, émotion, hypotension aiguë).
+- **Mode d'action** : L'adrénaline sanguine se fixe sur les récepteurs $\\beta_1$ du nœud sinusal et des ventricules.
+- **Effets** :
+  - Augmentation brutale de la fréquence cardiaque (tachycardie).
+  - Augmentation considérable de la contractilité ventriculaire ($VES \\uparrow$).
+  - Hausse consécutive du débit cardiaque : $DC \\uparrow = FC \\uparrow \\times VES \\uparrow$.
+
+### 5.2. Les Hormones Thyroïdiennes ($T_3$ et $T_4$)
+- Sécrétées par la glande thyroïde, elles stimulent le métabolisme cellulaire basal de tous les tissus.
+- **Effet sur le cœur** :
+  - Elles augmentent la synthèse des récepteurs $\\beta_1$-adrénergiques au niveau de la membrane des cardiomyocytes.
+  - Elles potentialisent l'action des catécholamines :
+    - En cas **d'hyperthyroïdie** (maladie de Basedow) : tachycardie permanente de repos ($> 100\\text{ bpm}$), palpitations.
+    - En cas **d'hypothyroïdie** : bradycardie marquée ($< 50\\text{ bpm}$), fatigabilité.
+
+---
+
+## 6. Synthèse des 4 Propriétés Fondamentales du Myocarde
+
+Dans le vocabulaire médical et au Baccalauréat S2, les effets des systèmes régulateurs sont définis par quatre adjectifs précis :
+
+| Propriété physiologique | Définition précise | Effet du Parasympathique (ACh / Nerf X) | Effet de l'Orthosympathique (NA / Adrénaline) |
+| :--- | :--- | :--- | :--- |
+| **Effet Chronotrope** | Action sur la **fréquence cardiaque** (rythme d'émission du nœud sinusal). | **Chronotrope Négatif** (ralentit la FC = Bradycardie) | **Chronotrope Positif** (accélère la FC = Tachycardie) |
+| **Effet Inotrope** | Action sur la **force de contraction** (contractilité ventriculaire). | **Inotrope Négatif** modéré (surtout atriale) | **Inotrope Positif** puissant (hausse d'amplitude systolique) |
+| **Effet Dromotrope** | Action sur la **vitesse de conduction** de l'onde de dépolarisation (nœud AV et His). | **Dromotrope Négatif** (ralentit la conduction auriculo-ventriculaire) | **Dromotrope Positif** (accélère la conduction auriculo-ventriculaire) |
+| **Effet Bathmotrope** | Action sur le seuil **d'excitabilité** du myocarde. | **Bathmotrope Négatif** (diminue l'excitabilité) | **Bathmotrope Positif** (augmente l'excitabilité) |
+
+---
+
+## 7. Ndongo S2 Wolof Insight : La métaphore de la calèche et du taxi-clando
+
+> [!WOLOF_INSIGHT] **Ndongo S2 Wolof Insight : Xol bi, Frein bi ak Accélérateur bi !**
+> Ngir nga comprendre innervation bi bu baax ci exam bi :
+> - **Moteur bi ci boppam (tissu nodal)** : Dafa melni moteur bu doon tourner à 100 km/h ci boppam ndax automatisme bi.
+> - **Nerf Vague (Parasympathique / Acétylcholine)** : Mooy **frein** bi ! Saa su nekk ci repos, chauffeur bi dafay appuyer ci frein bi ndax xol bi baña daw lu ëpp, mu téye ko ci 70 battements par minute (**tonus vagal cardiomodérateur**). Soo ko daggé (section), auto bi dafay accélérer immédiatement (tachycardie) !
+> - **Nerf Sympathique (Noradrénaline) ak Adrénaline** : Mooy **accélérateur** bi ! Bu amee coono, tiitange, wala effort (course, football, Bac), cerveau bi dafay appuyer ci accélérateur bi ngir xol bi door vite té door fort (**chronotrope et inotrope positifs**) !
+> - **Atropine** : Dafa melni ku dagg câble frein bi ; auto bi dafay accélérer ndax frein bi amatul doole !
+
+---
+
+## 8. Conseils Clés pour la Copie du Bac S2 Sénégal
+
+1. **Raisonnement d'analyse expérimentale** :
+   - Structurez toujours vos réponses en 3 temps : **Je vois** (données chiffrées précises du tracé cardiographique), **Or je sais** (mécanisme physiologique), **Donc je conclus** (fonction ou rôle du nerf/de la substance).
+2. **Toujours préciser l'effet sur le tracé** :
+   - Quand le nerf vague agit : mentionnez *"diminution de la fréquence et arrêt réversible en diastole"*.
+   - Quand le sympathique agit : mentionnez *"augmentation de la fréquence et augmentation de l'amplitude des contractions systoliques"*.
+3. **Otto Loewi** :
+   - Insistez sur le fait que le cœur 2 n'a pas de contact électrique avec le cœur 1. Le médiateur est **chimique et hydrosoluble**, transporté par le liquide physiologique.
+4. **Distinction Atropine vs Curare** :
+   - C'est la question piège par excellence du jury du Bac : l'atropine agit sur le cœur car les récepteurs y sont **muscariniques**, tandis que le curare n'a aucun effet sur le cœur car il cible uniquement les récepteurs **nicotiniques** des muscles squelettiques.
+`;
+
 export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: string, rawContent: string | null): string {
   const titleLower = `${lessonTitle} ${chapterTitle}`.toLowerCase();
+
+  // Routage SVT B2 Leçon 2 : Innervation & Régulation Nerveuse et Hormonale de l'Activité Cardiaque
+  if (
+    titleLower.includes('innervation') ||
+    titleLower.includes('loewi') ||
+    titleLower.includes('nerf vague') ||
+    titleLower.includes('pneumogastrique') ||
+    titleLower.includes('orthosympathique') ||
+    titleLower.includes('parasympathique') ||
+    titleLower.includes('cardiomodérateur') ||
+    titleLower.includes('cardiomoderateur') ||
+    titleLower.includes('cardioaccélérateur') ||
+    titleLower.includes('cardioaccelerateur') ||
+    (titleLower.includes('régulation') && titleLower.includes('cardiaque') && !titleLower.includes('pression')) ||
+    (titleLower.includes('regulation') && titleLower.includes('cardiaque') && !titleLower.includes('pression')) ||
+    titleLower.includes('60000000-0000-0003-0002-000000000002')
+  ) {
+    return RICH_LESSONS_MAP.regulation_nerveuse_cardiaque;
+  }
 
   // Routage SVT B2 Leçon 1 : Activité Cardiaque, Tissu Nodal & Automatisme Cardiaque
   if (
