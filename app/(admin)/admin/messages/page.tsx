@@ -35,7 +35,7 @@ export default async function AdminMessagesPage() {
   const messages = getAllContactMessages();
 
   return (
-    <div className="space-y-6">
+    <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8 space-y-6">
       <div>
         <div className="flex items-center gap-2 mb-1">
           <span className="text-xs font-bold uppercase tracking-wider text-turquoise bg-turquoise-light px-2.5 py-0.5 rounded-full">
