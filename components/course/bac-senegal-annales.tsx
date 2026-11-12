@@ -2918,6 +2918,170 @@ Face à une baisse de pression de perfusion rénale (hypotension, hémorragie, d
     },
   ],
 
+  // B3. LEÇON 3 - IMMUNITÉ ADAPTATIVE CELLULAIRE : LTC & RÔLE CENTRAL PIVOT DES LT4 (SVT S2)
+  immunite_cellulaire: [
+    {
+      year: 2022,
+      session: 'Session Normale (SVT Série S2)',
+      points: 'Exercice 2 — Raisonnement Scientifique (8 Points)',
+      topic: 'Double reconnaissance du TCR, Rôle pivot du LT4, Cytotoxicité par perforines/granzymes, Expérience de Zinkernagel',
+      enonce: `On étudie les mécanismes de l'immunité à médiation cellulaire développée par l'organisme contre les cellules infectées par des virus ou les cellules cancéreuses.
+
+**Document 1 :** On prélève des lymphocytes T d'une souris de souche A (ayant pour molécules du CMH l'allèle H-2k) ayant guéri d'une infection par le virus de la chorioméningite lymphocytaire (LCM). Ces lymphocytes sont mis en culture in vitro avec différents types de fibroblastes marqués au chrome radioactif (^51Cr) qui est libéré dans le milieu surnageant en cas de destruction de la membrane cellulaire :
+- **Culture 1 :** Fibroblastes de souche A (H-2k) infectés par le virus LCM + LT de la souris A.
+- **Culture 2 :** Fibroblastes de souche A (H-2k) sains non infectés + LT de la souris A.
+- **Culture 3 :** Fibroblastes d'une souris de souche B (H-2d) infectés par le virus LCM + LT de la souris A.
+- **Culture 4 :** Fibroblastes de souche A (H-2k) infectés par le virus de la vaccine + LT de la souris A.
+
+*Résultats :* Une libération massive de ^51Cr est observée uniquement dans la culture 1. Dans les cultures 2, 3 et 4, aucune libération de chrome n'est détectée.
+
+**Document 2 :** Des souris normales ou génétiquement modifiées sont infectées par une dose létale de virus LCM.
+- **Lot 1 (Souris témoins saines) :** Développent une forte population de LT cytotoxiques (LTC) et survivent.
+- **Lot 2 (Souris dépourvues de LT4 par déplétion par anticorps anti-CD4) :** Ne développent pratiquement aucun LTC fonctionnel contre le virus LCM et meurent de l'infection virale.
+- **Lot 3 (Souris du lot 2 recevant des injections quotidiennes d'Interleukine-2 purifiée) :** Développent une population normale de LTC et guérissent de l'infection.
+
+**Document 3 :** Micrographie électronique montrant un LTC au contact étroit d'une cellule cible :
+- Polarisation du centrosome (MTOC) et des granules denses vers la zone de contact (synapse immunologique).
+- Exocytose de perforine créant des canaux transmembranaires.
+- Entrée de protéases (granzymes) induisant la fragmentation de l'ADN nucléaire en fragments oligonucléosomiques sans éclatement osmotique immédiat.
+
+**Questions :**
+1. À partir de l'analyse méthodique des résultats du Document 1, dégagez les deux conditions indispensables à la destruction des cellules cibles par les lymphocytes T cytotoxiques. Nommez ce phénomène biologique fondamental. *(2,5 pts)*
+2. En exploitant les données du Document 2, déterminez le rôle précis joué par les lymphocytes T4 dans la réponse immunitaire à médiation cellulaire et identifiez le médiateur chimique en cause. Pourquoi qualifie-t-on les LT4 de « pivot central » de l'immunité adaptative ? *(2,5 pts)*
+3. En vous appuyant sur le Document 3 et vos connaissances, décrivez chronologiquement les étapes de la cytolyse par le LTC depuis la formation de la synapse immunologique jusqu'à la mort de la cellule cible par apoptose. Précisez le devenir du lymphocyte cytotoxique à la fin du processus. *(3 pts)*`,
+      solution: `### 1. Analyse du Document 1 & Double Reconnaissance (2,5 pts)
+
+**Analyse des 4 cultures in vitro :**
+- **Culture 1 (Témoin positif) :** La présence de fibroblastes de souche A (H-2k) infectés par le virus LCM en présence de LT de souris A (H-2k) immunisée contre LCM entraîne une libération massive de ^51Cr. Cela prouve que les cellules cibles ont été détruites par cytolyse.
+- **Culture 2 :** Les fibroblastes sont de souche A (H-2k) mais non infectés. Aucune libération de chrome n'a lieu : les LT n'attaquent pas les cellules saines du Soi normal (tolérance naturelle au Soi).
+- **Culture 3 :** Les fibroblastes sont infectés par le bon virus (LCM) mais proviennent d'une souche B allogénique exprimant un CMH différent (H-2d). Aucune lyse n'est observée : les LT de la souche A ne peuvent pas agir en présence d'un CMH non reconnu, bien que l'antigène viral soit présent.
+- **Culture 4 :** Les fibroblastes sont de souche A (H-2k) mais infectés par un autre virus (vaccine). Aucune lyse n'est constatée : les LT sont strictement spécifiques du virus LCM et ne reconnaissent pas d'autres peptides viraux.
+
+**Conclusion & Conditions indispensables :**
+Pour que les lymphocytes T effectuent la lyse de la cellule cible, deux conditions cumulatives sont obligatoires :
+1. **La reconnaissance de l'antigène viral spécifique** (spécificité antigénique vis-à-vis du peptide étranger).
+2. **La reconnaissance du CMH du Soi** (histocompatibilité entre le LT et la cellule cible).
+
+Ce phénomène s'appelle la **double reconnaissance** ou **restriction au CMH du Soi** (expériences fondamentales de Zinkernagel et Doherty). Le récepteur TCR ne reconnaît pas l'antigène seul, mais le complexe *[CMH I + peptide antigénique]*.
+
+---
+
+### 2. Rôle Pivot des Lymphocytes T4 & Interleukine-2 (2,5 pts)
+
+**Exploitation des lots du Document 2 :**
+- Chez les souris normales (Lot 1), la réponse cytotoxique est vigoureuse et élimine le virus.
+- En l'absence de LT4 (Lot 2, déplétion anti-CD4), les LT8 sont pourtant présents, mais ils sont incapables de se différencier en LTC effecteurs, entraînant la mort de l'animal. Les LT8 ont donc besoin de l'aide des LT4 pour devenir cytotoxiques.
+- L'administration d'**Interleukine-2 (IL-2)** exogène aux souris privées de LT4 (Lot 3) rétablit complètement la différenciation des LTC et assure la guérison.
+
+**Rôle biologique des LT4 :**
+Les lymphocytes T4 (auxiliaires ou Th) activés par une CPA présentant l'antigène sur son CMH II synthétisent et sécrètent de l'**Interleukine-2 (IL-2)**. Cette cytokine agit de deux manières :
+- **Action autocrine :** L'IL-2 stimule la prolifération clonale du clone de LT4 lui-même.
+- **Action paracrine :** L'IL-2 fournit le signal de prolifération et de différenciation indispensable aux clones de **LT8** activés pour qu'ils deviennent des LTC effecteurs armés.
+
+**Concept de « pivot central » :**
+Le LT4 est qualifié de pivot central (ou chef d'orchestre) car ses cytokines sont indispensables à TOUTES les branches de l'immunité adaptative :
+- Il active l'**immunité cellulaire** via l'IL-2 (prolifération des LT8 en LTC).
+- Il active l'**immunité humorale** via l'IL-4, IL-5 et IL-6 (prolifération des LB et différenciation en plasmocytes sécréteurs d'anticorps).
+- Il stimule également les macrophages par l'interféron gamma (IFN-γ).
+Sa destruction (notamment par le VIH) anéantit l'ensemble des défenses spécifiques de l'organisme.
+
+---
+
+### 3. Chronologie de la Cytolyse & Apoptose (3 pts)
+
+La destruction de la cellule cible par le LTC effecteur se déroule en 4 étapes ordonnées :
+
+1. **Formation de la synapse immunologique :**
+   Le LTC s'amarre étroitement à la cellule cible grâce à la liaison de son récepteur **TCR** au complexe CMH I-peptide, stabilisée par l'interaction du corécepteur **CD8** avec le domaine α3 invariant du CMH I, ainsi que par des intégrines d'adhésion (LFA-1/ICAM-1).
+2. **Polarisation du cytosquelette :**
+   Le centrosome (MTOC) et le réseau de microtubules du LTC s'orientent vers la membrane de contact. Les granules lytiques préformés sont acheminés le long des microtubules vers la synapse immunologique.
+3. **Exocytose polarisée des molécules cytotoxiques :**
+   - **Perforines :** Libérées dans la fente synaptique étroite, elles se polymérisent en présence d'ions Ca²⁺ pour forer des canaux transmembranaires cylindriques (pores) dans la membrane plasmique de la cellule cible.
+   - **Granzymes (Granzyme B) :** Protéases à sérine qui pénètrent dans la cellule cible à travers les pores de perforine ou par endocytose.
+4. **Induction de l'Apoptose (suicide cellulaire programmé) :**
+   À l'intérieur de la cellule cible, les granzymes clivent et activent la procaspase 3 et la protéine Bid, déclenchant la cascade des **caspases**. Il en résulte une condensation de la chromatine, une fragmentation ordonnée de l'ADN en fragments internucléosomiques et la formation de corps apoptotiques.
+   *(Voie alternative : interaction FasL du LTC avec le récepteur Fas de la cible).*
+
+**Devenir du LTC :**
+Le LTC n'est **pas détruit** lors de l'attaque. Sa propre membrane est protégée de l'action de la perforine par des protéines inhibitrices (cathepsine B). Le LTC se détache de la cible agonisante et peut aller détruire successivement plusieurs autres cellules infectées présentant le même antigène. Les débris apoptotiques sont ensuite éliminés proprement par les macrophages sans réaction inflammatoire tissulaire néfaste.`,
+      baremeAstuce: 'Dans l\'expérience de Zinkernagel, ne manquez pas de formuler clairement : [Même antigène] ET [Même CMH] = Double reconnaissance. Pour la mort cellulaire, insistez sur le mot APOPTOSE (mort cellulaire programmée) et non nécrose. N\'oubliez pas de préciser que le LTC survit.',
+    },
+    {
+      year: 2018,
+      session: 'Session de Remplacement (SVT Série S2)',
+      points: 'Exercice 1 — Restitution Organisée des Connaissances (5 Points)',
+      topic: 'Comparaison des réponses immunitaires spécifiques (Humorale vs Cellulaire) et rôle régulateur des LT4',
+      enonce: `Le maintien de l'intégrité de l'organisme fait intervenir deux types de réponses immunitaires adaptatives spécifiques complémentaires : l'immunité à médiation humorale et l'immunité à médiation cellulaire.
+
+Dans un exposé structuré comprenant une introduction, un développement argumenté et une conclusion :
+1. Comparez les deux voies de la réponse adaptative sous forme d'un tableau synthétique en précisant : les cellules immunocompétentes impliquées, les récepteurs membranaires de reconnaissance, la nature de l'antigène reconnu, la nature des effecteurs moléculaires et le mode d'élimination de l'antigène. *(2,5 pts)*
+2. Expliquez le rôle indispensable des lymphocytes T4 dans la coordination et le déclenchement efficace de ces deux voies effectrices. *(2 pts)*
+3. Illustrez la coopération cellulaire entre LT4, LT8 et CPA à l'aide d'un schéma fonctionnel légendé et soigné. *(0,5 pt)*`,
+      solution: `### 1. Tableau Comparatif des Deux Voies Adaptatives (2,5 pts)
+
+| Critère de comparaison | Immunité à médiation humorale | Immunité à médiation cellulaire |
+|-------------------------|------------------------------|--------------------------------|
+| **Cellules souches & Maturation** | Moelle osseuse rouge (LB) | Moelle osseuse ──> Thymus (LT8 et LT4) |
+| **Récepteur membranaire** | BCR (IgM / IgD membranaires) | TCR associé au complexe CD3 (+ corécepteurs CD4 ou CD8) |
+| **Nature de l'antigène reconnu** | Antigène **natif** soluble (protéine, polyoside, toxine) ou particulaire | Court peptide antigénique (8 à 11 AA) présenté par le **CMH du Soi** |
+| **Cellule effectrice terminale** | **Plasmocyte** (issu de la différenciation des LB) | **LTC** (Lymphocyte T Cytotoxique, issu de la différenciation des LT8) |
+| **Effecteurs moléculaires** | **Anticorps circulants** (IgG, IgM, IgA, IgE) | **Perforines, Granzymes, FasL** |
+| **Cibles pathologiques** | Pathogènes extracellulaires (bactéries circulantes, virus libres, toxines) | Cellules infectées par virus/bactéries intracellulaires, cellules tumorales, greffons allogéniques |
+| **Mode d'élimination** | Neutralisation, opsonisation, agglutination et activation du complément ──> phagocytose | **Apoptose** par perforation membranaire et activation des caspases |
+| **Mémoire immunologique** | Lymphocytes B mémoires | Lymphocytes T8 et T4 mémoires |
+
+---
+
+### 2. Rôle Régulateur Coordonnateur des LT4 (2 pts)
+
+Les lymphocytes T4 représentent la clé de voûte de l'immunité adaptative pour les raisons suivantes :
+
+1. **Activation initiale par les CPA :**
+   Une cellule présentatrice d'antigène professionnelle (dendritique ou macrophage) phagocyte le pathogène et apprête ses peptides sur ses molécules du **CMH II**. Le LT4 naïf reconnaît ce complexe via son TCR et son corécepteur CD4.
+2. **Double signal d'activation :**
+   La liaison TCR-CMH II (signal 1) renforcée par les molécules de costimulation CD80/86 - CD28 (signal 2) active le LT4 qui sécrète de l'**Interleukine-2 (IL-2)** et exprime son récepteur à haute affinité (CD25).
+3. **Action sur la voie humorale :**
+   Le LT4 activé coopère avec les lymphocytes B ayant internalisé le même antigène. Par contact direct (CD40L - CD40) et par sécrétion d'interleukines (IL-4, IL-5, IL-6), le LT4 stimule l'expansion clonale des LB, la commutation de classe (switch isotypique vers IgG, IgA, IgE) et la différenciation en plasmocytes et LB mémoires.
+4. **Action sur la voie cellulaire :**
+   Le LT4 fournit l'IL-2 paracrine nécessaire à la prolifération des LT8 et à l'acquisition de leurs granules lytiques pour devenir des LTC effecteurs matures.
+
+---
+
+### 3. Schéma Fonctionnel de la Coopération Cellulaire (0,5 pt)
+
+\`\`\`
+                     [ AGENT PATHOGÈNE ]
+                              │
+                              ▼
+                      ┌───────────────┐
+                      │ CPA (CMH II)  │
+                      └───────┬───────┘
+                              │ Présentation Ag + IL-1
+                              ▼
+                      ┌───────────────┐
+                      │      LT4      │◄── (Boucle autocrine IL-2)
+                      └───────┬───────┘
+                              │
+             ┌────────────────┴────────────────┐
+             │ Cytokines (IL-2)                │ Interleukines (IL-4, IL-5)
+             ▼                                 ▼
+      ┌─────────────┐                   ┌─────────────┐
+      │     LT8     │                   │     LB      │
+      └──────┬──────┘                   └──────┬──────┘
+             │ Expansion & Différenciation     │ Expansion & Commutation
+             ▼                                 ▼
+      ┌─────────────┐                   ┌─────────────┐
+      │     LTC     │                   │ Plasmocyte  │
+      └──────┬──────┘                   └──────┬──────┘
+             │ Perforines/Granzymes            │ Anticorps spécifiques
+             ▼                                 ▼
+    [ Cellules infectées ]             [ Neutralisation / Opsonisation ]
+         (Apoptose)                           (Phagocytose)
+\`\`\``,
+      baremeAstuce: 'Au Bac S2, l\'introduction doit définir l\'immunité adaptative (spécifique, clonale, mémorisée). Le tableau comparatif doit être soigné. Dans le schéma fonctionnel, matérialisez bien les deux branches issues du LT4 avec les médiateurs moléculaires (IL-2 vers LT8 et IL-4/5 vers LB).',
+    },
+  ],
+
   // B3. LEÇON 2 - IMMUNITÉ ADAPTATIVE HUMORALE : ANTICORPS & SÉLECTION CLONALE (SVT S2)
   immunite_humorale: [
     {
@@ -3234,6 +3398,17 @@ BAC_ANNALES_BY_CHAPTER['immunoglobuline'] = BAC_ANNALES_BY_CHAPTER.immunite_humo
 BAC_ANNALES_BY_CHAPTER['selection_clonale'] = BAC_ANNALES_BY_CHAPTER.immunite_humorale;
 BAC_ANNALES_BY_CHAPTER['lymphocyte_b'] = BAC_ANNALES_BY_CHAPTER.immunite_humorale;
 BAC_ANNALES_BY_CHAPTER['plasmocyte'] = BAC_ANNALES_BY_CHAPTER.immunite_humorale;
+
+// ─── B3 LEÇON 3 — IMMUNITÉ ADAPTATIVE CELLULAIRE (LT8, LTC & LT4 PIVOT) ───────
+BAC_ANNALES_BY_CHAPTER['immunite_cellulaire'] = BAC_ANNALES_BY_CHAPTER.immunite_cellulaire;
+BAC_ANNALES_BY_CHAPTER['immunite-cellulaire'] = BAC_ANNALES_BY_CHAPTER.immunite_cellulaire;
+BAC_ANNALES_BY_CHAPTER['b3l3'] = BAC_ANNALES_BY_CHAPTER.immunite_cellulaire;
+BAC_ANNALES_BY_CHAPTER['ltc'] = BAC_ANNALES_BY_CHAPTER.immunite_cellulaire;
+BAC_ANNALES_BY_CHAPTER['lt8'] = BAC_ANNALES_BY_CHAPTER.immunite_cellulaire;
+BAC_ANNALES_BY_CHAPTER['lt4'] = BAC_ANNALES_BY_CHAPTER.immunite_cellulaire;
+BAC_ANNALES_BY_CHAPTER['perforine'] = BAC_ANNALES_BY_CHAPTER.immunite_cellulaire;
+BAC_ANNALES_BY_CHAPTER['cytotoxicite'] = BAC_ANNALES_BY_CHAPTER.immunite_cellulaire;
+BAC_ANNALES_BY_CHAPTER['zinkernagel'] = BAC_ANNALES_BY_CHAPTER.immunite_cellulaire;
 
 interface BacSenegalAnnalesProps {
   chapter?: string;

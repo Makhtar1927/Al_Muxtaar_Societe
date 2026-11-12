@@ -138,6 +138,9 @@ import B3ImmuniteInneeQuizEmbedded from '@/components/course/b3-immunite-innee-q
 import B3ImmuniteHumoraleReflexesCard from '@/components/course/b3-immunite-humorale-reflexes-card';
 import B3ImmuniteHumoraleInteractiveLab from '@/components/course/b3-immunite-humorale-interactive-lab';
 import B3ImmuniteHumoraleQuizEmbedded from '@/components/course/b3-immunite-humorale-quiz-embedded';
+import B3ImmuniteCellulaireReflexesCard from '@/components/course/b3-immunite-cellulaire-reflexes-card';
+import B3ImmuniteCellulaireInteractiveLab from '@/components/course/b3-immunite-cellulaire-interactive-lab';
+import B3ImmuniteCellulaireQuizEmbedded from '@/components/course/b3-immunite-cellulaire-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
@@ -1435,6 +1438,33 @@ const IMMUNITE_HUMORALE_AUDIO_CHAPTERS: AudioChapter[] = [
     icon: "cle_solution",
     textScript:
       "Lors d'un second contact avec le même antigène, les lymphocytes B mémoires réagissent avec un délai très court, un titre d'anticorps beaucoup plus élevé et une prédominance d'IgG à haute affinité : c'est le principe même de la vaccination. Enfin, sur le plan expérimental au Bac, l'arc de précipitation d'Ouchterlony traduit la formation d'un réseau insoluble d'immunocomplexes à la zone d'équivalence stœchiométrique.",
+  },
+];
+
+const IMMUNITE_CELLULAIRE_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Double Reconnaissance TCR, CD8 & Restriction au CMH I",
+    badge: "Mécanisme",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette leçon consacrée à l'immunité à médiation cellulaire. Retenez la règle cardinale : le récepteur TCR des lymphocytes T8 ne fixe jamais un antigène libre. Il exige une double reconnaissance simultanée du peptide étranger et d'une molécule du CMH de classe I exprimée par la cellule cible. C'est l'essence même de l'expérience de Zinkernagel et Doherty : pour qu'il y ait lyse, il faut à la fois le bon antigène viral et le même allèle du CMH du Soi.",
+  },
+  {
+    timeSeconds: 58,
+    title: "2. Le Rôle Pivot Central des LT4 & l'Interleukine-2",
+    badge: "Régulation",
+    icon: "theoreme_equerre",
+    textScript:
+      "Le lymphocyte T4 est le véritable chef d'orchestre de l'immunité adaptative. Après avoir été activé par une CPA présentant l'antigène sur son CMH II, le LT4 sécrète de l'Interleukine-2. Cette cytokine agit en boucle autocrine pour amplifier le clone de LT4, et en boucle paracrine pour déclencher l'expansion clonale et la différenciation des LT8 en cellules tueuses LTC. Comprenez bien pourquoi le virus du VIH, en détruisant les LT4, paralyse l'ensemble des défenses spécifiques de l'organisme.",
+  },
+  {
+    timeSeconds: 118,
+    title: "3. Le Baiser de la Mort : Perforines, Granzymes & Apoptose",
+    badge: "Cytolyse",
+    icon: "cle_solution",
+    textScript:
+      "Lorsque le LTC effecteur s'amarre à sa cellule cible pour former la synapse immunologique, son cytosquelette se polarise. Il libère par exocytose de la perforine qui fore des canaux transmembranaires dans la membrane de la cible, permettant l'entrée des granzymes. Ces protéases activent la cascade des caspases et déclenchent l'apoptose, c'est-à-dire un suicide cellulaire propre où l'ADN est fragmenté et les corps apoptotiques phagocytés, sans dissémination de virus ni inflammation collatérale. Et le LTC s'en va intact pour éliminer d'autres cibles.",
   },
 ];
 
@@ -2812,8 +2842,21 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     lessonMeta.title.toLowerCase().includes('plasmocyte') ||
     (lessonMeta.title.toLowerCase().includes('lymphocyte') && lessonMeta.title.toLowerCase().includes('b')));
 
+  const isImmuniteCellulaireB3 =
+    !isImmuniteInneeB3 &&
+    !isImmuniteHumoraleB3 && (
+    params.lesson === '60000000-0000-0003-0003-000000000003' ||
+    lessonMeta.title.toLowerCase().includes('cellulaire') ||
+    lessonMeta.title.toLowerCase().includes('cytotoxique') ||
+    lessonMeta.title.toLowerCase().includes('ltc') ||
+    lessonMeta.title.toLowerCase().includes('lt8') ||
+    lessonMeta.title.toLowerCase().includes('perforine') ||
+    lessonMeta.title.toLowerCase().includes('granzyme') ||
+    lessonMeta.title.toLowerCase().includes('zinkernagel') ||
+    (lessonMeta.title.toLowerCase().includes('lymphocyte') && lessonMeta.title.toLowerCase().includes('t')));
+
   const isRegulationPaB2 =
-    !isImmuniteInneeB3 && !isImmuniteHumoraleB3 && (
+    !isImmuniteInneeB3 && !isImmuniteHumoraleB3 && !isImmuniteCellulaireB3 && (
     params.lesson === '60000000-0000-0003-0002-000000000003' ||
     lessonMeta.title.toLowerCase().includes('barorécepteur') ||
     lessonMeta.title.toLowerCase().includes('barorecepteur') ||
@@ -3042,6 +3085,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'Masterclass Audio : Soi, Non-Soi, CMH/HLA & Immunité Innée'
                     : isImmuniteHumoraleB3
                     ? 'Masterclass Audio : Immunité Humorale — Anticorps, Sélection Clonale & Réponse B'
+                    : isImmuniteCellulaireB3
+                    ? 'Masterclass Audio : Immunité Cellulaire — LT8 Cytotoxiques, Rôle Pivot des LT4 & Apoptose'
                     : isRegulationPaB2
                     ? 'Masterclass Audio : Régulation Réflexe de la Pression Artérielle'
                     : isRegulationNerveuseB2
@@ -3109,6 +3154,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'Terminale S2 • SVT : Les 6 réflexes pour le CMH I et II, ABO, la réaction inflammatoire et la phagocytose'
                     : isImmuniteHumoraleB3
                     ? 'Terminale S2 • SVT : Les 6 réflexes pour la structure IgG, les classes Ig, la sélection clonale et l\'Ouchterlony'
+                    : isImmuniteCellulaireB3
+                    ? 'Terminale S2 • SVT : Les 6 réflexes pour le TCR, la restriction au CMH (Zinkernagel), l\'IL-2 et les perforines'
                     : isRegulationPaB2
                     ? 'Terminale S2 • SVT : Les 6 réflexes pour PA = DC x RPT, sinus carotidiens, Hering, Cyon et bulbe'
                     : isRegulationNerveuseB2
@@ -3176,6 +3223,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? IMMUNITE_INNEE_AUDIO_CHAPTERS
                     : isImmuniteHumoraleB3
                     ? IMMUNITE_HUMORALE_AUDIO_CHAPTERS
+                    : isImmuniteCellulaireB3
+                    ? IMMUNITE_CELLULAIRE_AUDIO_CHAPTERS
                     : isRegulationPaB2
                     ? REGULATION_PA_AUDIO_CHAPTERS
                     : isRegulationNerveuseB2
@@ -3332,6 +3381,11 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                   <B3ImmuniteHumoraleReflexesCard />
                   <B3ImmuniteHumoraleInteractiveLab />
                 </>
+              ) : isImmuniteCellulaireB3 ? (
+                <>
+                  <B3ImmuniteCellulaireReflexesCard />
+                  <B3ImmuniteCellulaireInteractiveLab />
+                </>
               ) : isRegulationPaB2 ? (
                 <>
                   <B2RegulationPaReflexesCard />
@@ -3476,6 +3530,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'immunite_innee'
                     : isImmuniteHumoraleB3
                     ? 'immunite_humorale'
+                    : isImmuniteCellulaireB3
+                    ? 'immunite_cellulaire'
                     : isRegulationPaB2
                     ? 'regulation_pression'
                     : isRegulationNerveuseB2
@@ -3586,6 +3642,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <B3ImmuniteInneeQuizEmbedded />
               ) : isImmuniteHumoraleB3 ? (
                 <B3ImmuniteHumoraleQuizEmbedded />
+              ) : isImmuniteCellulaireB3 ? (
+                <B3ImmuniteCellulaireQuizEmbedded />
               ) : isRegulationPaB2 ? (
                 <B2RegulationPaQuizEmbedded />
               ) : isRegulationNerveuseB2 ? (

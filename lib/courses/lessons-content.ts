@@ -6813,8 +6813,186 @@ Le test d'Ouchterlony (double immunodiffusion radiale en gel d'agarose) est une 
 > 5. Dans un test d'Ouchterlony, l'ARC se forme à la zone d'EQUIVALENCE — pas n'importe où dans le gel.
 `;
 
+RICH_LESSONS_MAP.immunite_cellulaire = `
+# Immunité Adaptative Cellulaire : Lymphocytes T Cytotoxiques (LT8) et Rôle Central Pivot des LT4
+
+## Introduction : La Surveillance et l'Élimination du Soi Altéré
+
+Alors que l'immunité adaptative humorale (anticorps) neutralise les pathogènes circulant librement dans les liquides extracellulaires, de nombreux agents infectieux (virus, certaines bactéries comme *Mycobacterium tuberculosis* ou *Listeria*) se réfugient à l'intérieur des cellules hôtes, hors de portée des immunoglobulines. De même, les cellules cancéreuses ou les cellules d'un greffon étranger constituent des cibles cellulaires anormales.
+
+L'**immunité adaptative à médiation cellulaire** est le système spécialisé dans l'identification et la destruction ciblée de ces cellules anormales par contact direct (« baiser de la mort »). Elle est mise en œuvre par les **lymphocytes T cytotoxiques (LTC ou CTL)** issus de la différenciation des lymphocytes T8, sous le contrôle absolu et coordonnateur des **lymphocytes T4 auxiliaires (LTh)**.
+
+> [!IMPORTANT]
+> **Propriétés cardinales au Baccalauréat :**
+> 1. **Double reconnaissance obligatoire :** Le récepteur T (TCR) ne reconnaît jamais un antigène libre ; il exige la reconnaissance simultanée du peptide antigénique ET d'une molécule du CMH du Soi (restriction allogénique).
+> 2. **Rôle central pivot du LT4 :** Par sa sécrétion d'Interleukine-2 (IL-2), le LT4 commande l'expansion clonale et la différenciation des LT8 en LTC, ainsi que celle des LB en plasmocytes.
+> 3. **Destruction par apoptose :** Le LTC induit la mort cellulaire programmée de la cible par perforation (perforine) et activation enzymatique (granzymes / caspases).
+
+---
+
+## 1. Ontogenèse et Éducation des Lymphocytes T dans le Thymus
+
+### 1.1 Naissance et Migration Thymique
+Les lymphocytes T dérivent de cellules souches hématopoïétiques pluripotentes de la **moelle osseuse rouge**. Les précurseurs immatures (pro-T) migrent par voie sanguine vers le **thymus**, organe lymphoïde primaire où se déroule leur maturation et leur acquisition de l'immunocompétence.
+
+### 1.2 Structure du Récepteur T (TCR) et Corécepteurs
+Chaque lymphocyte T exprime à sa surface environ 30 000 à 40 000 molécules de **TCR** (T Cell Receptor) :
+- **Hétérodimère αβ :** Composé de deux chaînes polypeptidiques transmembranaires (chaîne α et chaîne β) reliées par un pont disulfure.
+- **Régions variables (Vα et Vβ) :** Situées à l'extrémité N-terminale, elles forment la poche de reconnaissance spécifique (paratope du TCR) générée par recombinaison somatique aléatoire des segments de gènes V(D)J.
+- **Complexe invariant CD3 :** Associé au TCR, il ne fixe pas l'antigène mais assure la transduction du signal biochimique intracellulaire grâce à ses motifs ITAM.
+- **Corécepteurs CD4 et CD8 :** Molécules d'adhésion stabilisatrices qui se fixent sur les domaines constants non polymorphes des molécules du CMH.
+
+### 1.3 La Double Sélection Thymique
+Pour éviter les réactions auto-immunes dévastatrices et s'assurer que les LT seront capables d'interagir avec les molécules du CMH de l'individu, les thymocytes subissent une double sélection rigoureuse :
+
+1. **Sélection Positive (dans le cortex thymique) :**
+   - Les cellules épithéliales corticales présentent des molécules du CMH I et CMH II associées à des peptides du soi.
+   - Si le TCR reconnaît le CMH avec une affinité convenable : la cellule reçoit un signal de survie (**restriction au CMH du soi**).
+   - Si le TCR est incapable de reconnaître le CMH : la cellule meurt par négligence/apoptose.
+   - Les cellules reconnaissant le CMH I conservent le corécepteur **CD8** (deviennent LT8) ; celles reconnaissant le CMH II conservent le **CD4** (deviennent LT4).
+
+2. **Sélection Négative (dans la médullaire thymique) :**
+   - Les cellules dendritiques et macrophages médullaires présentent l'ensemble des peptides du Soi sur le CMH.
+   - Si un thymocyte se lie avec une **forte affinité** aux peptides du Soi, il est éliminé par apoptose (**délétion clonale**).
+   - Ce tri élimine les clones potentiellement autoréactifs et garantit la **tolérance centrale au Soi**.
+
+> [!NOTE]
+> Plus de 95% des thymocytes meurent par apoptose dans le thymus lors de ces épreuves sélectives. Seuls les lymphocytes T à la fois capables de reconnaître le CMH du soi et tolérants aux peptides du soi sortent dans la circulation générale comme **lymphocytes T naïfs immunocompétents**.
+
+---
+
+## 2. La Double Reconnaissance du Complexe CMH-Peptide
+
+### 2.1 Différence Fondamentale entre BCR et TCR
+- **Le BCR (Lymphocyte B) :** Reconnaît des antigènes **natifs**, tridimensionnels, solubles ou particulaires, sans apprêtement préalable.
+- **Le TCR (Lymphocyte T) :** Incapable de reconnaître un antigène natif. L'antigène doit obligatoirement être découpé en courts fragments peptidiques (8 à 11 acides aminés pour le CMH I, 12 à 25 pour le CMH II) et logé dans le sillon d'une molécule du CMH.
+
+### 2.2 Règle d'Or des Corécepteurs au Bac
+Pour retenir sans hésiter les associations entre corécepteurs et molécules du CMH, appliquez la **règle du produit égal à 8** :
+- **LT8 (CD8) :** 8 × 1 = 8 ──> Le CD8 se lie au domaine **α3** non polymorphe du **CMH de classe I** (présent sur toutes les cellules nucléées de l'organisme).
+- **LT4 (CD4) :** 4 × 2 = 8 ──> Le CD4 se lie au domaine **β2** non polymorphe du **CMH de classe II** (présent uniquement sur les CPA professionnelles : cellules dendritiques, macrophages, LB).
+
+---
+
+## 3. Rôle Central et Pivot des Lymphocytes T4
+
+Les lymphocytes T4 auxiliaires (ou helpers LTh) ne sont pas des cellules destructrices directes : ils sont les **régulateurs indispensables** de toute la réponse adaptative.
+
+### 3.1 Déroulement de l'Activation du LT4
+1. Une **CPA professionnelle** (cellule dendritique ou macrophage) phagocyte un pathogène, découpe ses protéines et présente les peptides sur ses molécules du **CMH II**.
+2. Dans un ganglion lymphatique, le TCR d'un LT4 naïf reconnaît le complexe CMH II-peptide (**Signal 1**).
+3. Les molécules membranaires de costimulation (B7/CD80-86 sur la CPA et CD28 sur le LT4) consolident l'arrimage (**Signal 2**).
+4. La CPA libère l'**Interleukine-1 (IL-1)** qui stimule le LT4.
+5. Le LT4 activé exprime le gène de l'**Interleukine-2 (IL-2)** ainsi que son récepteur membranaire de haute affinité (CD25).
+
+### 3.2 Les Deux Boucles d'Action de l'Interleukine-2
+- **Boucle Autocrine (sur le LT4 lui-même) :** L'IL-2 se fixe sur les propres récepteurs du LT4 activé et déclenche sa multiplication intensive par mitoses successives (**expansion clonale** du clone spécifique).
+- **Boucle Paracrine (sur les autres lymphocytes) :**
+  - **Sur les LT8 :** L'IL-2 fournit le signal de prolifération et commande leur différenciation en **LTC effecteurs** armés de granules lytiques et en LT8 mémoires.
+  - **Sur les LB :** En conjonction avec l'IL-4, IL-5 et IL-6, elle stimule la multiplication des LB et leur différenciation en **plasmocytes** sécréteurs d'anticorps.
+  - **Sur les macrophages :** Sécrétion d'Interféron-gamma (IFN-γ) qui décuple leur pouvoir de phagocytose et de bactéricidie.
+
+> [!CAUTION]
+> **Conséquence clinique majeure (VIH/SIDA) :**
+> Le virus du VIH infecte sélectivement les cellules exprimant le corécepteur CD4 (principalement les LT4). Lors de la phase de SIDA déclaré, l'effondrement du taux de LT4 (< 200 cellules/mm³) prive l'organisme d'IL-2. En conséquence, **l'immunité cellulaire ET l'immunité humorale sont simultanément paralysées**, laissant le patient sans défense contre les infections opportunistes et les cancers viro-induits.
+
+---
+
+## 4. Activation, Différenciation et Mécanismes de la Cytotoxicité (LTC)
+
+### 4.1 Devenir du Lymphocyte T8 Naïf
+Dans les organes lymphoïdes secondaires, le LT8 naïf rencontre une CPA ou une cellule infectée présentant son peptide antigénique sur le CMH I. Stimulé par ce signal antigénique et baigné par l'**IL-2** sécrétée par le LT4 coopérant, le clone de LT8 subit :
+1. Une **expansion clonale** majeure (nombreux cycles de divisions mitotiques).
+2. Une **différenciation fonctionnelle** :
+   - Une fraction devient des **LT8 mémoires** à longue durée de vie.
+   - La majorité devient des **Lymphocytes T Cytotoxiques effecteurs (LTC)** caractérisés par un cytoplasme abondant enrichi en granules lytiques préformés.
+
+### 4.2 Le « Baiser de la Mort » et la Cytolyse Ciblée
+La destruction d'une cellule cible par le LTC comprend quatre étapes successives :
+
+1. **Reconnaissance et Adhésion Étroite (Synapse Immunologique) :**
+   Le LTC se déplace dans les tissus et sonde les cellules. Lorsqu'il rencontre une cellule infectée ou tumorale présentant le peptide spécifique sur son CMH I, le TCR et le corécepteur CD8 s'amarrent solidement. Des intégrines membranaires (LFA-1 sur le LTC et ICAM-1 sur la cible) stabilisent la liaison, formant une fente synaptique étanche de 15 à 20 nanomètres.
+
+2. **Polarisation du Cytosquelette et des Granules :**
+   Le centrosome (MTOC) du LTC se réoriente vers la zone de contact. Les granules lytiques contenant perforine et granzymes cheminent le long des microtubules vers la membrane synaptique.
+
+3. **Exocytose Polarisée des Molécules Effectrices :**
+   - **Perforines :** Monomères protéiques libérés dans la fente synaptique qui, en présence d'ions calcium (Ca²⁺), s'insèrent dans la bicouche lipidique de la cellule cible et se polymérisent pour former des **pores cylindriques transmembranaires** de 10 à 20 nm de diamètre.
+   - **Granzymes (Granzyme B) :** Protéases à sérine qui pénètrent dans le cytosol de la cible soit directement à travers les pores de perforine, soit par endocytose suivie de libération endosomiale.
+
+4. **Déclenchement de l'Apoptose (Mort Cellulaire Programmée) :**
+   À l'intérieur de la cellule cible, le granzyme B active directement la **procaspase 3** et clive la protéine **Bid**, déclenchant la cascade mitochondriale des **caspases** (endonucléases et protéases intracellulaires).
+   - Fragmentation ordonnée de l'ADN génomique en fragments nucléosomiques de 180 à 200 paires de bases.
+   - Condensation du noyau et de la chromatine.
+   - Bourgeonnement de la membrane plasmique formant des **corps apoptotiques**.
+
+> [!NOTE]
+> **Pourquoi l'Apoptose est-elle supérieure à la Nécrose ?**
+> La mort par apoptose ne rompt pas violemment la membrane cellulaire externe. Les particules virales intracellulaires restent séquestrées dans les corps apoptotiques qui sont immédiatement et proprement phagocytés par les macrophages tissulaires. Cela empêche la libération de virions infectieux dans le milieu interstitiel et évite une réaction inflammatoire nécrotique destructive pour les tissus sains.
+
+### 4.3 Voie Alternative : Le Système Fas / Fas-Ligand (FasL)
+Certains LTC expriment à leur surface le **Fas-Ligand (FasL ou CD95L)**. Lorsqu'il se lie au récepteur de mort **Fas (CD95)** présent sur la membrane de certaines cellules cibles, il provoque le recrutement de la protéine adaptatrice FADD et l'activation directe de la caspase 8, conduisant également à l'apoptose indépendamment de la perforine.
+
+### 4.4 Survie et Recyclage du LTC
+Le LTC n'est pas endommagé lors de la réaction de lyse :
+- Sa propre membrane est protégée par la **cathepsine B**, une protéase membranaire qui dégrade immédiatement toute molécule de perforine résiduelle égarée du côté du LTC.
+- Le LTC se détache de la cellule agonisante et peut détruire successivement plusieurs dizaines d'autres cellules cibles infectées.
+
+---
+
+## 5. Expérience Historique Fondamentale : Zinkernagel et Doherty (1974)
+
+Cette expérience (couronnée par le Prix Nobel de Physiologie ou Médecine en 1996) constitue la démonstration expérimentale de référence posée régulièrement aux épreuves du Baccalauréat sénégalais.
+
+### 5.1 Protocole Expérimental
+Des souris de lignée consanguine **Souche A** (caractérisées par les molécules de CMH de type **H-2k**) sont infectées par le virus de la chorioméningite lymphocytaire (LCM). Après guérison, on prélève leurs lymphocytes T cytotoxiques (LTC) dans la rate. Ces LTC sont mis en incubation in vitro avec différents types de cellules cibles (fibroblastes) préalablement chargées en chrome radioactif (^51Cr). Si la membrane d'une cellule cible est lysée, le ^51Cr est libéré dans le surnageant de culture et quantifié.
+
+### 5.2 Tableau des Résultats et Interprétations
+| Lot de culture in vitro | Cellules cibles testées | Libération de ^51Cr (Lyse) | Interprétation biologique rigoureuse |
+|-------------------------|-------------------------|----------------------------|--------------------------------------|
+| **Culture 1** | Fibroblastes Souche A (H-2k) + Virus LCM | **Forte libération (Lyse +)** | Les LTC reconnaissent le CMH H-2k (soi) ET le peptide LCM (non-soi). Les 2 conditions sont remplies. |
+| **Culture 2** | Fibroblastes Souche A (H-2k) sains (non infectés) | **Aucune libération (Lyse -)** | Le CMH du soi est présent mais aucun peptide viral n'est exprimé. Pas d'attaque du soi sain (tolérance). |
+| **Culture 3** | Fibroblastes Souche B (H-2d) + Virus LCM | **Aucune libération (Lyse -)** | Le virus est bien présent, mais le CMH est étranger (H-2d). Le TCR du LTC A ne peut pas s'arrimer au CMH B. |
+| **Culture 4** | Fibroblastes Souche A (H-2k) + Virus Variole | **Aucune libération (Lyse -)** | Le CMH est correct, mais le peptide viral est différent. Le paratope du TCR est rigoureusement spécifique de LCM. |
+
+### 5.3 Déduction Formelle pour le Bac
+Pour qu'un lymphocyte T cytotoxique détruise une cellule cible, il faut impérativement la réunion de deux conditions simultanées :
+1. **Identité de l'antigène viral** (spécificité antigénique).
+2. **Identité des molécules du CMH de classe I** (histocompatibilité ou restriction au CMH du Soi).
+
+---
+
+## 6. Synthèse Comparée des Réponses Immunitaires Spécifiques
+
+| Caractéristique | Voie Humorale (Lymphocytes B) | Voie Cellulaire (Lymphocytes T8 / LTC) |
+|-----------------|-------------------------------|----------------------------------------|
+| **Lieu de Maturation** | Moelle osseuse rouge | Thymus |
+| **Récepteur Spécifique** | BCR (IgM / IgD membranaires) | TCR (Hétérodimère αβ) + CD8 |
+| **Forme de l'Antigène Reconnu** | Antigène natif soluble, libre ou particulaire | Court peptide apprêté fixé dans le CMH I |
+| **Cellule Effectrice Finale** | Plasmocyte | Lymphocyte T Cytotoxique (LTC) |
+| **Médiateurs Moléculaires** | Anticorps solubles (IgG, IgM, IgA...) | Perforines, Granzymes, FasL |
+| **Cibles Principales** | Bactéries extracellulaires, virus circulants, toxines | Cellules infectées (virus/bactéries intracellulaires), tumeurs, greffons |
+| **Mécanisme d'Élimination** | Neutralisation, opsonisation, agglutination | Apoptose cellulaire par perforation et caspases |
+| **Dépendance envers LT4** | Absolue (IL-4, IL-5 pour switch et plasmocytes) | Absolue (IL-2 pour expansion et différenciation) |
+`;
+
 export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: string, rawContent: string | null): string {
   const titleLower = `${lessonTitle} ${chapterTitle}`.toLowerCase();
+
+  // Routage SVT B3 Leçon 3 : Immunité Adaptative Cellulaire — LT8, LTC & LT4 Pivot
+  if (
+    titleLower.includes('cellulaire') ||
+    titleLower.includes('cytotoxique') ||
+    titleLower.includes('ltc') ||
+    titleLower.includes('lt8') ||
+    titleLower.includes('perforine') ||
+    titleLower.includes('granzyme') ||
+    titleLower.includes('zinkernagel') ||
+    titleLower.includes('lymphocyte t') ||
+    titleLower.includes('60000000-0000-0003-0003-000000000003')
+  ) {
+    return RICH_LESSONS_MAP.immunite_cellulaire;
+  }
 
   // Routage SVT B3 Leçon 2 : Immunité Adaptative Humorale — Anticorps & Sélection Clonale
   if (
