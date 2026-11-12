@@ -2918,6 +2918,174 @@ Face à une baisse de pression de perfusion rénale (hypotension, hémorragie, d
     },
   ],
 
+  // B3. LEÇON 4 - DYSFONCTIONNEMENTS IMMUNITAIRES : ALLERGIES, AUTO-IMMUNITÉ & VIH/SIDA (SVT S2)
+  dysfonctionnements_immunitaires: [
+    {
+      year: 2023,
+      session: 'Session de Remplacement (SVT Série S2)',
+      points: 'Exercice 2 — Raisonnement Scientifique (8 Points)',
+      topic: 'Mécanisme de l\'allergie immédiate aux pollens (IgE, mastocytes, histamine), Choc anaphylactique et désensibilisation',
+      enonce: `M. Diallo présente, chaque année au printemps, des crises répétées caractérisées par des éternuements en salves, une rhinorrhée aqueuse abondante, un larmoiement intense et parfois des accès de suffocation (gêne respiratoire sifflante). Un bilan allergologique confirme une hypersensibilité immédiate au pollen de graminées.
+
+**Document 1 : Événements cellulaires observés lors du premier contact avec le pollen (au repos)**
+Un prélèvement sanguin montre l'activation de lymphocytes T4 orientés vers la voie Th2 qui sécrètent des interleukines (IL-4). Ces cytokines incitent des lymphocytes B spécifiques à se différencier en plasmocytes produisant une classe particulière d'anticorps, les IgE. Les dosages montrent que les molécules d'IgE ainsi formées quittent rapidement le plasma pour aller se fixer à la membrane des mastocytes tissulaires et des polynucléaires basophiles. Aucun symptôme clinique n'est ressenti par le patient à ce stade.
+
+**Document 2 : Événements cellulaires observés lors d'une inhalation printanière ultérieure**
+En microscopie électronique, dès l'inhalation de grains de pollen par M. Diallo :
+- Les molécules de pollen se lient simultanément à plusieurs molécules d'IgE ancrées sur la membrane des mastocytes.
+- Dans les secondes qui suivent, on observe un afflux massif d'ions calcium (Ca²⁺) dans le cytosol des mastocytes, immédiatement suivi par la fusion des granules cytoplasmiques avec la membrane plasmique (exocytose) et la libération explosive d'un médiateur chimique préformé, l'histamine, ainsi que de leucotriènes.
+- Chez M. Diallo, cette inhalation déclenche en moins de dix minutes les signes inflammatoires et la crise d'asthme bronchique.
+
+**Document 3 : Données hémodynamiques lors d'une injection expérimentale d'histamine**
+Chez un animal de laboratoire, l'injection intraveineuse d'une dose importante d'histamine provoque :
+- Une dilatation immédiate et marquée de l'ensemble des artérioles musculaires et cutanées (chute des résistances périphériques totales RPT de 60 %).
+- Un élargissement des jonctions inter-endothéliales capillaires avec fuite d'eau et de protéines plasmatiques vers les espaces interstitiels (baisse de 30 % du volume plasmatique circulant).
+- Une chute de la pression artérielle de 130 mmHg à 65 mmHg (état de collapsus cardiovasculaire).
+
+**Questions :**
+1. À partir de l'analyse conjointe des Documents 1 et 2, expliquez pourquoi la réaction allergique nécessite obligatoirement deux temps distincts. Nommez précisément ces deux phases et décrivez les mécanismes moléculaires et cellulaires de chacune d'elles. *(3 pts)*
+2. En vous appuyant sur le Document 3 et vos connaissances hémodynamiques (rappel : formule fondamentale de la pression artérielle PA), expliquez le mécanisme d'apparition d'un choc anaphylactique suite à une piqûre de guêpe ou à l'ingestion d'un allergène sévère. *(2,5 pts)*
+3. Précisez le traitement pharmacologique d'extrême urgence à injecter sans délai en cas de choc anaphylactique, et expliquez son mode d'action antagoniste sur les récepteurs cardiovasculaires et bronchiques. *(1,5 pt)*
+4. Définissez brièvement le principe de la « désensibilisation » en allergologie. *(1 pt)*`,
+      solution: `### 1. Les Deux Phases de l'Hypersensibilité Immédiate (3 pts)
+
+L'hypersensibilité immédiate (type I de Gell et Coombs) exige obligatoirement deux temps chronologiques :
+
+**A. Phase 1 : Phase de Sensibilisation (Document 1, premier contact - 1,5 pt)**
+- **Événements :** L'allergène (pollen) pénètre pour la première fois à travers la muqueuse respiratoire. Il est capté et apprêté par une CPA qui le présente aux **lymphocytes T4 naïfs**.
+- Ces LT4 se différencient en sous-population **Th2** et sécrètent des cytokines clés, principalement l'**IL-4** et l'**IL-13**.
+- Sous l'effet de ces cytokines, les **lymphocytes B** spécifiques commutent de classe isotypique et se différencient en **plasmocytes sécréteurs d'IgE**.
+- Les anticorps **IgE** diffusent et viennent se fixer par leur **fragment Fc** sur les récepteurs membranaires à très haute affinité (**FcεRI**) présents à la surface des **mastocytes** tissulaires et des polynucléaires basophiles.
+- **Caractéristique fondamentale :** Cette phase est **totalement silencieuse et asymptomatique**. L'organisme n'exprime aucun trouble, mais les mastocytes sont désormais « armés » d'IgE spécifiques.
+
+**B. Phase 2 : Phase de Déclenchement ou Réaction Immédiate (Document 2, contacts ultérieurs - 1,5 pt)**
+- **Événements :** Lors d'une nouvelle inhalation de pollen, l'allergène multivalent rencontre les mastocytes armés.
+- L'allergène se lie simultanément à au moins deux molécules d'IgE adjacentes : c'est le **pontage des IgE**.
+- Ce pontage membranaire induit un signal de transduction avec entrée massive d'ions **Ca²⁺** dans le mastocyte.
+- L'afflux de calcium provoque l'exocytose ultra-rapide des granules cytoplasmiques : c'est la **dégranulation mastocytaire**.
+- Les médiateurs préformés sont libérés dans le tissu : principalement l'**histamine**, complétée par la synthèse néoformée de leucotriènes et prostaglandines.
+- Les symptômes apparaissent en quelques minutes : vasodilatation locale (rougeur), œdème (gonflement), prurit (démangeaison par stimulation des terminaisons nerveuses sensitives) et contraction des muscles lisses bronchiques (asthme).
+
+---
+
+### 2. Mécanisme Physiopathologique du Choc Anaphylactique (2,5 pts)
+
+Le choc anaphylactique est la forme systémique la plus grave de l'hypersensibilité immédiate, mettant en jeu le pronostic vital immédiat.
+
+**Rappel hémodynamique fondamental :**
+$$PA = DC \\times RPT$$
+où $PA$ est la pression artérielle moyenne, $DC$ le débit cardiaque (produit du volume d'éjection systolique VES par la fréquence cardiaque FC), et $RPT$ la résistance périphérique totale opposée par le calibre artériolaire.
+
+**Action de l'histamine libérée massivement dans la circulation générale (Doc. 3) :**
+1. **Effondrement des résistances périphériques ($RPT \\searrow\\searrow$) :**
+   L'histamine se fixe sur les récepteurs H1 des cellules musculaires lisses vasculaires et provoque une **vasodilatation artériolaire généralisée intense**. Les résistances périphériques chutent de plus de 60 %.
+2. **Effondrement du débit cardiaque par hypovolémie ($DC \\searrow\\searrow$) :**
+   L'histamine disloque les jonctions des cellules endothéliales des capillaires sanguins, entraînant une **hyperperméabilité capillaire majeure**. L'eau et les protéines plasmatiques fuient massivement vers les espaces interstitiels (extravasation plasmatique, formant un œdème généralisé dont le redoutable œdème de Quincke). Cette fuite liquide entraîne une **hypovolémie vraie** : le retour veineux vers le cœur s'effondre, provoquant une chute drastique du volume d'éjection systolique ($VES$) et donc du débit cardiaque ($DC$).
+3. **Résultat :** Les deux composantes ($DC$ et $RPT$) diminuant simultanément de façon spectaculaire, la pression artérielle s'effondre brutalement ($PA \\ll 70\\text{ mmHg}$). C'est le **collapsus cardiovasculaire** : les organes nobles (cerveau, myocarde, reins) ne sont plus perfusés, conduisant à l'arrêt cardiaque sans réanimation immédiate.
+
+---
+
+### 3. Traitement d'Urgence : L'Adrénaline (Épinéphrine) (1,5 pt)
+
+- **Médicament d'extrême urgence :** L'**Adrénaline** (ou Épinéphrine) administrée sans délai par voie **intramusculaire (I.M.)** dans la face antérolatérale de la cuisse (stylo auto-injecteur).
+- **Mode d'action antagoniste physiologique :**
+  - **Sur les récepteurs α1-adrénergiques vasculaires :** Provoque une **vasoconstriction artériolaire puissante**, rétablissant instantanément les résistances périphériques ($RPT \\nearrow$) et réduisant la fuite capillaire.
+  - **Sur les récepteurs β1-adrénergiques cardiaques :** Augmente la contractilité myocardique (inotropisme $+$) et la fréquence cardiaque (chronotropisme $+$), restaurant le débit cardiaque ($DC \\nearrow$).
+  - **Sur les récepteurs β2-adrénergiques bronchiques :** Déclenche une **bronchodilatation puissante**, levant le bronchospasme asphyxique.
+  - **Sur les mastocytes :** Inhibe la poursuite de la dégranulation mastocytaire.
+
+---
+
+### 4. Principe de la Désensibilisation (1 pt)
+
+La désensibilisation (ou immunothérapie spécifique sous-cutanée/sublinguale) consiste à administrer au patient des **doses régulières, très progressives et croissantes de l'allergène purifié** pendant plusieurs années.
+- Ce traitement vise à modifier la réponse immunitaire : il oriente les lymphocytes T auxiliaires vers une réponse **Th1/Treg** au détriment des Th2.
+- Il induit la production d'anticorps protecteurs de classe **IgG (notamment IgG4)** dits « anticorps bloquants ».
+- Lors d'une exposition naturelle future, ces IgG captent et neutralisent l'allergène avant qu'il ne puisse atteindre et ponter les IgE fixées sur les mastocytes, empêchant ainsi la dégranulation.`,
+      baremeAstuce: 'Structurez bien : Phase 1 (Sensibilisation, asymptomatique, IgE fixées sur mastocytes) vs Phase 2 (Déclenchement, pontage des IgE par l\'Ag, dégranulation d\'histamine). Pour le choc anaphylactique, utilisez impérativement la formule PA = DC x RPT en montrant la baisse combinée des 2 termes. Retenez l\'Adrénaline IM comme médicament salvateur.',
+    },
+    {
+      year: 2020,
+      session: 'Session Normale (SVT Série S2)',
+      points: 'Exercice 2 — Raisonnement Scientifique (8 Points)',
+      topic: 'Cycle infectieux du VIH dans le lymphocyte T4, Évolution clinique (courbes LT4, charge virale, anticorps) et SIDA',
+      enonce: `Le Syndrome d'Immunodéficience Acquise (SIDA) est provoqué par le Virus de l'Immunodéficience Humaine (VIH), un rétrovirus qui désorganise profondément le système de défense de l'organisme.
+
+**Document 1 : Ultrastructure et génome du virion du VIH**
+Le VIH se présente sous la forme d'une particule sphérique enveloppée de 100 à 120 nm :
+- L'enveloppe est hérissée de glycoprotéines composées d'une sous-unité de surface, la **gp120**, associée à une sous-unité transmembranaire, la **gp41**.
+- Sous la membrane se trouve la capside interne formée de protéines **p24**, protégeant **deux molécules identiques d'ARN monocaténaire** associées à des molécules de **transcriptase inverse**, d'**intégrase** et de **protéase**.
+
+**Document 2 : Suivi cinétique d'un patient contaminé par le VIH sur 10 ans**
+On dose à intervalles réguliers :
+1. Le nombre de lymphocytes T4 sanguins (cellules/mm³ de sang, valeur normale : 800 à 1 200).
+2. La charge virale plasmatique (quantité de copies d'ARN viral/mL de plasma).
+3. La concentration sérique en anticorps anti-VIH (anti-gp120 et anti-p24).
+
+*Résultats chronologiques :*
+- **De 0 à 6 semaines :** La charge virale augmente de façon exponentielle jusqu'à un pic très élevé à 6 semaines, s'accompagnant d'une chute brutale des LT4 (qui passent de 1 000 à 500/mm³). Aucun anticorps anti-VIH n'est détecté.
+- **De 6 à 12 semaines :** On observe l'apparition rapide et massive des anticorps anti-VIH dans le sang (séroconversion). Simultanément, la charge virale s'effondre et les LT4 remontent partiellement (vers 800/mm³).
+- **De 3 mois à 8 ans :** Le taux d'anticorps reste élevé et stable. La charge virale se maintient à un niveau faible. Cependant, le taux de LT4 diminue lentement, régulièrement et inexorablement d'environ 50 à 80 cellules/mm³ par an. Le patient ne présente aucun symptôme grave.
+- **Au-delà de 8-9 ans :** Le taux de LT4 franchit à la baisse la barre critique des 200 cellules/mm³. La charge virale réaugmente de façon explosive, tandis que le taux d'anticorps s'effondre. Le patient développe une candidose buccale, une pneumocystose et un sarcome de Kaposi.
+
+**Questions :**
+1. À partir du Document 1, justifiez l'appellation de « rétrovirus » attribuée au VIH. Expliquez le rôle clé joué par le complexe glycoprotéique gp120/gp41 dans le tropisme cellulaire du virus envers les lymphocytes T4. *(2 pts)*
+2. En exploitant méthodiquement le Document 2, décomposez l'histoire naturelle de l'infection par le VIH en trois phases successives que vous nommerez et caractériserez précisément (cinétique des LT4, de la charge virale et des anticorps). *(3 pts)*
+3. Définissez la notion de « séropositivité » pour le VIH. À quelle période du Document 2 le patient devient-il séropositif ? Expliquez pourquoi la présence d'anticorps anti-VIH ne permet pas à l'organisme d'éradiquer définitivement l'infection. *(1,5 pt)*
+4. Pourquoi la chute des lymphocytes T4 en dessous de 200/mm³ marque-t-elle l'entrée dans la phase de SIDA déclaré avec apparition d'infections opportunistes ? *(1,5 pt)*`,
+      solution: `### 1. Justification du Terme « Rétrovirus » & Tropisme gp120 (2 pts)
+
+- **Justification de « Rétrovirus » :**
+  Le VIH est qualifié de rétrovirus car son matériel génétique est constitué d'**ARN monocaténaire** (2 molécules identiques). Pour se multiplier dans la cellule hôte, il doit inverser le flux classique de l'information génétique ($ADN \\rightarrow ARN$) en synthétisant un ADN double brin proviral à partir de son ARN, grâce à une enzyme virale spécifique : la **transcriptase inverse** (ou rétrotranscriptase).
+- **Rôle du complexe gp120/gp41 et tropisme :**
+  - La **gp120** est la clé d'entrée moléculaire du virus : elle présente une complémentarité stérique et une très haute affinité pour le domaine extracellulaire de la molécule **CD4**, présente principalement à la surface des **lymphocytes T4** (et des macrophages/cellules dendritiques).
+  - La **gp41** est la protéine de fusion transmembranaire : après arrimage de la gp120 au CD4 et aux corécepteurs membranaires (CCR5 ou CXCR4), la gp41 subit un changement de conformation qui ancre et fusionne l'enveloppe virale avec la membrane plasmique de la cellule hôte, permettant l'injection de la capside et des enzymes dans le cytoplasme.
+
+---
+
+### 2. Analyse Chronologique des 3 Phases de l'Infection (3 pts)
+
+L'analyse méthodique du Document 2 permet d'identifier trois phases distinctes :
+
+**A. Phase 1 : La Primo-Infection (Semaines 0 à 12 - 1 pt)**
+- **Cinétique :** Multiplication virale intense et précoce marquée par un pic spectaculaire de la charge virale vers la 6e semaine. Le taux de LT4 chute brusquement (de 1 000 à 500/mm³).
+- **Événement biologique majeur :** Vers la 4e-6e semaine, l'organisme réagit en produisant des anticorps spécifiques anti-VIH (anti-gp120 et anti-p24). C'est la **séroconversion**.
+- **Conséquence :** Les anticorps neutralisants et les LTC entraînent une chute rapide de la charge virale et une remontée partielle des LT4. Les symptômes sont pseudo-grippaux ou absents.
+
+**B. Phase 2 : La Phase Asymptomatique ou de Latence Clinique (3 mois à 8-10 ans - 1 pt)**
+- **Cinétique :** Équilibre dynamique apparent entre réplication virale et défenses immunitaires. La charge virale reste basse et stabilisée. Le taux d'anticorps anti-VIH reste élevé et stable.
+- **Cependant :** Le virus détruit en permanence de nouveaux LT4 dans les organes lymphoïdes. Le stock de LT4 subit une **diminution lente, régulière et irréversible** (chute d'environ 60/mm³ par an).
+- **Clinique :** Le patient ne présente aucun symptôme invalidant (« porteur sain » apparent).
+
+**C. Phase 3 : La Phase de SIDA Déclaré (Au-delà de 8-10 ans - 1 pt)**
+- **Cinétique :** Le taux de LT4 franchit le **seuil critique de 200 cellules/mm³**.
+- L'épuisement du système immunitaire est total : le titre d'anticorps s'effondre et la charge virale remonte en flèche de manière exponentielle et incontrôlable.
+- **Conséquence :** Effondrement de toutes les réponses immunitaires spécifiques, ouvrant la voie aux **infections opportunistes** et aux cancers viro-induits qui conduisent au décès sans trithérapie.
+
+---
+
+### 3. Séropositivité & Incapacité d'Éradication (1,5 pt)
+
+- **Définition :** La séropositivité désigne la **présence d'anticorps anti-VIH détectables dans le sérum** d'un individu par des tests de laboratoire (test immuno-enzymatique ELISA confirmé par Western Blot).
+- **Moment d'apparition :** Le patient devient séropositif entre la **4e et la 8e semaine** suivant la contamination (lors de la primo-infection).
+- **Pourquoi ces anticorps ne protègent-ils pas le patient ?**
+  1. **Mutations perpétuelles de la gp120 :** La transcriptase inverse est dépourvue de mécanisme de correction des erreurs d'appariement. Le VIH mute constamment ses épitopes de surface, rendant les anticorps rapidement inefficaces face aux nouveaux variants viraux.
+  2. **Intégration provirale silencieuse :** L'ADN proviral intégré dans le génome des LT4 mémoires et des macrophages échappe totalement à la reconnaissance par les anticorps circulants.
+  3. **Inaccessibilité stérique :** Les zones conservées de la gp120 sont masquées par des boucles variables et un épais bouclier de glucides (glycolysation).
+
+---
+
+### 4. Franchissement du Seuil de 200 LT4/mm³ & Infections Opportunistes (1,5 pt)
+
+- **Pourquoi 200 LT4/mm³ ?**
+  Le lymphocyte T4 est le **pivot central** indispensable à toute l'immunité adaptative. C'est lui qui, par la sécrétion d'**IL-2**, stimule l'expansion des **LT8 en LTC** (immunité cellulaire) et la différenciation des **LB en plasmocytes** (immunité humorale).
+- Lorsque le taux de LT4 s'effondre en dessous de 200/mm³, la quantité d'IL-2 disponible devient quasi-nulle. L'organisme ne peut plus mobiliser ni anticorps ni cellules tueuses.
+- **Infections opportunistes :**
+  Des micro-organismes habituels de l'environnement ou de la flore commensale (champignons comme *Candida albicans*, parasites comme *Pneumocystis jirovecii*, virus herpétiques HHV-8 induisant le sarcome de Kaposi, ou bacille de Koch de la tuberculose), habituellement neutralisés sans difficulté par une personne saine, profitent de cette absence totale de surveillance pour proliférer et provoquer des atteintes viscérales disséminées mortelles.`,
+      baremeAstuce: 'Maîtrisez impérativement les 3 phases de la courbe : Primo-infection (pic viral + séroconversion 4-6 sem), Phase asymptomatique (chute lente des LT4, charge virale basse), SIDA déclaré (< 200 LT4/mm³ = explosion virale et infections opportunistes). Définissez clairement la séropositivité comme la présence d\'anticorps anti-VIH (ELISA/Western Blot).',
+    },
+  ],
+
   // B3. LEÇON 3 - IMMUNITÉ ADAPTATIVE CELLULAIRE : LTC & RÔLE CENTRAL PIVOT DES LT4 (SVT S2)
   immunite_cellulaire: [
     {
@@ -3409,6 +3577,19 @@ BAC_ANNALES_BY_CHAPTER['lt4'] = BAC_ANNALES_BY_CHAPTER.immunite_cellulaire;
 BAC_ANNALES_BY_CHAPTER['perforine'] = BAC_ANNALES_BY_CHAPTER.immunite_cellulaire;
 BAC_ANNALES_BY_CHAPTER['cytotoxicite'] = BAC_ANNALES_BY_CHAPTER.immunite_cellulaire;
 BAC_ANNALES_BY_CHAPTER['zinkernagel'] = BAC_ANNALES_BY_CHAPTER.immunite_cellulaire;
+
+// ─── B3 LEÇON 4 — DYSFONCTIONNEMENTS : ALLERGIES, AUTO-IMMUNITÉ & VIH/SIDA ────
+BAC_ANNALES_BY_CHAPTER['dysfonctionnements_immunitaires'] = BAC_ANNALES_BY_CHAPTER.dysfonctionnements_immunitaires;
+BAC_ANNALES_BY_CHAPTER['dysfonctionnements-immunitaires'] = BAC_ANNALES_BY_CHAPTER.dysfonctionnements_immunitaires;
+BAC_ANNALES_BY_CHAPTER['b3l4'] = BAC_ANNALES_BY_CHAPTER.dysfonctionnements_immunitaires;
+BAC_ANNALES_BY_CHAPTER['allergie'] = BAC_ANNALES_BY_CHAPTER.dysfonctionnements_immunitaires;
+BAC_ANNALES_BY_CHAPTER['hypersensibilite'] = BAC_ANNALES_BY_CHAPTER.dysfonctionnements_immunitaires;
+BAC_ANNALES_BY_CHAPTER['vih'] = BAC_ANNALES_BY_CHAPTER.dysfonctionnements_immunitaires;
+BAC_ANNALES_BY_CHAPTER['sida'] = BAC_ANNALES_BY_CHAPTER.dysfonctionnements_immunitaires;
+BAC_ANNALES_BY_CHAPTER['auto-immunite'] = BAC_ANNALES_BY_CHAPTER.dysfonctionnements_immunitaires;
+BAC_ANNALES_BY_CHAPTER['auto_immunite'] = BAC_ANNALES_BY_CHAPTER.dysfonctionnements_immunitaires;
+BAC_ANNALES_BY_CHAPTER['mastocyte'] = BAC_ANNALES_BY_CHAPTER.dysfonctionnements_immunitaires;
+BAC_ANNALES_BY_CHAPTER['histamine'] = BAC_ANNALES_BY_CHAPTER.dysfonctionnements_immunitaires;
 
 interface BacSenegalAnnalesProps {
   chapter?: string;

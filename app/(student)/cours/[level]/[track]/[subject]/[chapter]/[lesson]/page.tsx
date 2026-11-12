@@ -141,6 +141,9 @@ import B3ImmuniteHumoraleQuizEmbedded from '@/components/course/b3-immunite-humo
 import B3ImmuniteCellulaireReflexesCard from '@/components/course/b3-immunite-cellulaire-reflexes-card';
 import B3ImmuniteCellulaireInteractiveLab from '@/components/course/b3-immunite-cellulaire-interactive-lab';
 import B3ImmuniteCellulaireQuizEmbedded from '@/components/course/b3-immunite-cellulaire-quiz-embedded';
+import B3DysfonctionnementsReflexesCard from '@/components/course/b3-dysfonctionnements-reflexes-card';
+import B3DysfonctionnementsInteractiveLab from '@/components/course/b3-dysfonctionnements-interactive-lab';
+import B3DysfonctionnementsQuizEmbedded from '@/components/course/b3-dysfonctionnements-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
@@ -1465,6 +1468,33 @@ const IMMUNITE_CELLULAIRE_AUDIO_CHAPTERS: AudioChapter[] = [
     icon: "cle_solution",
     textScript:
       "Lorsque le LTC effecteur s'amarre à sa cellule cible pour former la synapse immunologique, son cytosquelette se polarise. Il libère par exocytose de la perforine qui fore des canaux transmembranaires dans la membrane de la cible, permettant l'entrée des granzymes. Ces protéases activent la cascade des caspases et déclenchent l'apoptose, c'est-à-dire un suicide cellulaire propre où l'ADN est fragmenté et les corps apoptotiques phagocytés, sans dissémination de virus ni inflammation collatérale. Et le LTC s'en va intact pour éliminer d'autres cibles.",
+  },
+];
+
+const DYSFONCTIONNEMENTS_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Allergies de Type I : Sensibilisation vs Déclenchement",
+    badge: "Allergie",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette leçon consacrée aux dysfonctionnements immunitaires. Retenez la distinction absolue entre les deux phases de l'allergie : le premier contact est silencieux, c'est la sensibilisation où les plasmocytes synthétisent des IgE qui s'ancrent par leur fragment Fc sur les mastocytes. Ce n'est qu'aux contacts ultérieurs que l'allergène ponte ces IgE, déclenchant l'exocytose explosive d'histamine.",
+  },
+  {
+    timeSeconds: 62,
+    title: "2. Choc Anaphylactique & Urgence Adrénaline",
+    badge: "Urgence",
+    icon: "theoreme_equerre",
+    textScript:
+      "D'après la formule fondamentale PA égale DC fois RPT, l'histamine libérée massivement effondre les résistances périphériques par vasodilatation artériolaire, et fait chuter le débit cardiaque par fuite plasmatique capillaire créant une hypovolémie. C'est le choc anaphylactique. Le seul traitement salvateur immédiat est l'injection intramusculaire d'adrénaline, qui restaure la pression par vasoconstriction alpha-1 et lève le spasme bronchique par les récepteurs bêta-2.",
+  },
+  {
+    timeSeconds: 124,
+    title: "3. Le VIH, la Séropositivité & le Seuil Critique du SIDA",
+    badge: "Virologie Bac",
+    icon: "cle_solution",
+    textScript:
+      "Le VIH est un rétrovirus dont la gp120 cible le récepteur CD4 des LT4. La transcriptase inverse recopie son ARN en ADN proviral qui s'intègre au génome de la cellule hôte. Au Bac, sachez analyser la courbe en trois phases : la primo-infection avec son pic viral et la séroconversion vers la sixième semaine, la phase asymptomatique de latence, et enfin le SIDA déclaré dès que les LT4 chutent sous le seuil critique des 200 par millimètre cube, ouvrant la porte aux infections opportunistes.",
   },
 ];
 
@@ -2855,8 +2885,25 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     lessonMeta.title.toLowerCase().includes('zinkernagel') ||
     (lessonMeta.title.toLowerCase().includes('lymphocyte') && lessonMeta.title.toLowerCase().includes('t')));
 
+  const isDysfonctionnementsB3 =
+    !isImmuniteInneeB3 &&
+    !isImmuniteHumoraleB3 &&
+    !isImmuniteCellulaireB3 && (
+    params.lesson === '60000000-0000-0003-0003-000000000004' ||
+    lessonMeta.title.toLowerCase().includes('dysfonctionnement') ||
+    lessonMeta.title.toLowerCase().includes('allergie') ||
+    lessonMeta.title.toLowerCase().includes('hypersensibilité') ||
+    lessonMeta.title.toLowerCase().includes('hypersensibilite') ||
+    lessonMeta.title.toLowerCase().includes('vih') ||
+    lessonMeta.title.toLowerCase().includes('sida') ||
+    lessonMeta.title.toLowerCase().includes('auto-immune') ||
+    lessonMeta.title.toLowerCase().includes('auto-immunite') ||
+    lessonMeta.title.toLowerCase().includes('autoimmunite') ||
+    lessonMeta.title.toLowerCase().includes('mastocyte') ||
+    lessonMeta.title.toLowerCase().includes('histamine'));
+
   const isRegulationPaB2 =
-    !isImmuniteInneeB3 && !isImmuniteHumoraleB3 && !isImmuniteCellulaireB3 && (
+    !isImmuniteInneeB3 && !isImmuniteHumoraleB3 && !isImmuniteCellulaireB3 && !isDysfonctionnementsB3 && (
     params.lesson === '60000000-0000-0003-0002-000000000003' ||
     lessonMeta.title.toLowerCase().includes('barorécepteur') ||
     lessonMeta.title.toLowerCase().includes('barorecepteur') ||
@@ -3087,6 +3134,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'Masterclass Audio : Immunité Humorale — Anticorps, Sélection Clonale & Réponse B'
                     : isImmuniteCellulaireB3
                     ? 'Masterclass Audio : Immunité Cellulaire — LT8 Cytotoxiques, Rôle Pivot des LT4 & Apoptose'
+                    : isDysfonctionnementsB3
+                    ? 'Masterclass Audio : Allergies à IgE, Maladies Auto-Immunes & Infection par le VIH/SIDA'
                     : isRegulationPaB2
                     ? 'Masterclass Audio : Régulation Réflexe de la Pression Artérielle'
                     : isRegulationNerveuseB2
@@ -3156,6 +3205,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'Terminale S2 • SVT : Les 6 réflexes pour la structure IgG, les classes Ig, la sélection clonale et l\'Ouchterlony'
                     : isImmuniteCellulaireB3
                     ? 'Terminale S2 • SVT : Les 6 réflexes pour le TCR, la restriction au CMH (Zinkernagel), l\'IL-2 et les perforines'
+                    : isDysfonctionnementsB3
+                    ? 'Terminale S2 • SVT : Les 6 réflexes pour les IgE, l\'histamine, le choc anaphylactique et les 3 phases du SIDA'
                     : isRegulationPaB2
                     ? 'Terminale S2 • SVT : Les 6 réflexes pour PA = DC x RPT, sinus carotidiens, Hering, Cyon et bulbe'
                     : isRegulationNerveuseB2
@@ -3225,6 +3276,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? IMMUNITE_HUMORALE_AUDIO_CHAPTERS
                     : isImmuniteCellulaireB3
                     ? IMMUNITE_CELLULAIRE_AUDIO_CHAPTERS
+                    : isDysfonctionnementsB3
+                    ? DYSFONCTIONNEMENTS_AUDIO_CHAPTERS
                     : isRegulationPaB2
                     ? REGULATION_PA_AUDIO_CHAPTERS
                     : isRegulationNerveuseB2
@@ -3386,6 +3439,11 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                   <B3ImmuniteCellulaireReflexesCard />
                   <B3ImmuniteCellulaireInteractiveLab />
                 </>
+              ) : isDysfonctionnementsB3 ? (
+                <>
+                  <B3DysfonctionnementsReflexesCard />
+                  <B3DysfonctionnementsInteractiveLab />
+                </>
               ) : isRegulationPaB2 ? (
                 <>
                   <B2RegulationPaReflexesCard />
@@ -3532,6 +3590,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'immunite_humorale'
                     : isImmuniteCellulaireB3
                     ? 'immunite_cellulaire'
+                    : isDysfonctionnementsB3
+                    ? 'dysfonctionnements_immunitaires'
                     : isRegulationPaB2
                     ? 'regulation_pression'
                     : isRegulationNerveuseB2
@@ -3644,6 +3704,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <B3ImmuniteHumoraleQuizEmbedded />
               ) : isImmuniteCellulaireB3 ? (
                 <B3ImmuniteCellulaireQuizEmbedded />
+              ) : isDysfonctionnementsB3 ? (
+                <B3DysfonctionnementsQuizEmbedded />
               ) : isRegulationPaB2 ? (
                 <B2RegulationPaQuizEmbedded />
               ) : isRegulationNerveuseB2 ? (

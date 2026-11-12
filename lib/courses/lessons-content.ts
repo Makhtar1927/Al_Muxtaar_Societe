@@ -6976,8 +6976,198 @@ Pour qu'un lymphocyte T cytotoxique détruise une cellule cible, il faut impéra
 | **Dépendance envers LT4** | Absolue (IL-4, IL-5 pour switch et plasmocytes) | Absolue (IL-2 pour expansion et différenciation) |
 `;
 
+RICH_LESSONS_MAP.dysfonctionnements_immunitaires = `
+# Dysfonctionnements du Système Immunitaire : Allergies, Maladies Auto-Immunes et Infection par le VIH/SIDA
+
+## Introduction : Les Dérives et Failles du Système Immunitaire
+
+Le système immunitaire est un dispositif biologique d'une précision remarquable, voué à la défense de l'intégrité de l'organisme. Cependant, ses mécanismes de régulation peuvent faillir, conduisant à trois grands types de dysfonctionnements pathologiques majeurs au programme du Baccalauréat sénégalais :
+1. **L'Hypersensibilité Immédiate (Allergie de Type I) :** Réaction de défense disproportionnée et violente dirigée contre des substances étrangères inoffensives de l'environnement (allergènes).
+2. **Les Maladies Auto-Immunes :** Rupture pathologique de la tolérance naturelle au Soi, conduisant le système immunitaire à s'attaquer aux constituants de ses propres tissus.
+3. **Le Syndrome d'Immunodéficience Acquise (SIDA) :** Destruction ciblée et progressive du système immunitaire provoquée par un rétrovirus, le Virus de l'Immunodéficience Humaine (VIH), paralysant à la fois l'immunité cellulaire et l'immunité humorale.
+
+---
+
+## 1. L'Hypersensibilité Immédiate (Allergie de Type I)
+
+### 1.1 Définitions Cardinales
+- **Allergène :** Antigène intrinsèquement dépourvu de toxicité ou de pouvoir pathogène propre (pollens, acariens, déjections de blattes, protéines de l'arachide, venins d'hyménoptères, poils d'animaux, certains médicaments comme la pénicilline), mais capable de déclencher chez des individus génétiquement prédisposés (sujets atopiques) une réponse immunitaire inappropriée à IgE.
+- **Atopie :** Prédisposition héréditaire à synthétiser des taux élevés d'anticorps de classe IgE en réponse à de faibles doses d'antigènes environnementaux courants.
+
+### 1.2 Le Déroulement en Deux Phases Obligatoires
+
+> [!IMPORTANT]
+> **Règle d'or au Bac S2 :** Une réaction allergique de type I ne se déclare JAMAIS lors du premier contact avec l'allergène. Elle exige impérativement deux phases chronologiques distinctes.
+
+#### Phase 1 : La Phase de Sensibilisation (Premier Contact, Silencieux)
+1. **Pénétration et présentation :** L'allergène traverse une barrière muqueuse (respiratoire, digestive) ou cutanée. Il est capté par une Cellule Présentatrice d'Antigène (CPA dendritique) qui le dégrade et présente ses peptides sur son **CMH II**.
+2. **Orientation Th2 :** La CPA active des lymphocytes T4 naïfs qui se différencient préférentiellement en sous-population **Th2**.
+3. **Sécrétion de cytokines :** Les lymphocytes Th2 sécrètent des interleukines clés, en particulier l'**IL-4** et l'**IL-13**.
+4. **Commutation vers les IgE :** Sous le signal de l'IL-4 et par contact direct via CD40-CD40L, les lymphocytes B spécifiques de l'allergène subissent une commutation isotypique de classe (switch) et se différencient en plasmocytes qui synthétisent et sécrètent des anticorps de classe **IgE**.
+5. **Fixation aux mastocytes :** Les molécules d'IgE circulent dans le sang et viennent se fixer avec une très forte affinité par leur **fragment Fc** sur les récepteurs **FcεRI** de la membrane des **mastocytes** tissulaires (et des basophiles circulants).
+6. **Bilan de la phase 1 :** Cette étape est **totalement asymptomatique**. L'organisme ne ressent aucun signe clinique, mais les mastocytes sont désormais « armés » et le sujet est dit « sensibilisé ».
+
+#### Phase 2 : La Phase de Déclenchement ou Réaction Allergique Immédiate (Contacts Ultérieurs)
+1. **Réintroduction de l'allergène :** Lors d'un contact subséquent avec le même allergène, celui-ci diffuse rapidement dans les tissus où résident les mastocytes sensibilisés.
+2. **Le Pontage des IgE :** L'allergène, qui possède au moins deux épitopes identiques ou voisins (molécule bivalente ou multivalente), se lie simultanément aux fragments Fab de deux molécules d'IgE adjacentes ancrées sur le mastocyte.
+3. **Signal calcique intracellulaire :** Ce pontage physique induit une modification conformationnelle des récepteurs FcεRI, activant des protéines kinases membranaires et provoquant un influx brutal d'ions calcium (**Ca²⁺**) dans le cytosol mastocytaire.
+4. **Dégranulation mastocytaire explosive :** En moins de quelques minutes, les granules cytoplasmiques fusionnent avec la membrane plasmique par exocytose, déversant dans le milieu interstitiel des médiateurs chimiques préformés :
+   - **Histamine :** Médiateur prédominant responsable des manifestations immédiates.
+   - **Facteurs chimiotactiques :** ECF-A (attirant les éosinophiles) et NCF (attirant les neutrophiles).
+5. **Synthèse de novo de médiateurs lipidiques :** Dans les heures suivantes, le métabolisme de l'acide arachidonique génère des **leucotriènes (LTC4, LTD4, LTE4)** et des prostaglandines, entretenant la réaction de phase tardive (inflammation allergique chronique).
+
+---
+
+## 2. Physiopathologie de l'Histamine et Choc Anaphylactique
+
+### 2.1 Les Trois Actions Majeures de l'Histamine
+L'histamine libérée agit principalement sur les **récepteurs H1** tissulaires :
+1. **Vasodilatation artériolaire intense :** Provoque un afflux sanguin local (érythème, rougeur cutanée, chaleur).
+2. **Augmentation massive de la perméabilité capillaire :** Dislocation des jonctions endothéliales laissant fuir de l'eau, des ions et des macromolécules plasmatiques vers les espaces interstitiels, formant l'**œdème** (papule d'urticaire, rhinorrhée liquide, gonflement des paupières).
+3. **Contraction des muscles lisses bronchiques :** Provoque un bronchospasme aigu (rétrécissement du diamètre des bronchioles), responsable de la dyspnée sifflante caractéristique de la **crise d'asthme**.
+4. **Stimulation des fibres nerveuses sensitives :** Déclenche un prurit intense (démangeaisons) et des éternuements réflexes en salves.
+
+### 2.2 Le Choc Anaphylactique : Urgence Vitale Absolue
+Le choc anaphylactique est la défaillance hémodynamique aiguë résultant de la dégranulation systémique brutale des mastocytes dans tout l'organisme (piqûre de guêpe, injection intraveineuse d'un médicament, ingestion d'arachide).
+
+**Mécanisme hémodynamique rigoureux (Formule Bac) :**
+$$\text{Pression Artérielle (PA)} = \text{Débit Cardiaque (DC)} \times \text{Résistances Périphériques Totales (RPT)}$$
+
+1. **Chute vertigineuse des résistances ($RPT \searrow\searrow$) :** La vasodilatation de tous les lits vasculaires périphériques effondre la résistance opposée à l'écoulement sanguin.
+2. **Chute drastique du débit cardiaque par hypovolémie ($DC \searrow\searrow$) :** La fuite liquidienne hors des vaisseaux vers les tissus réduit de 30 à 40 % le volume plasmatique circulant (hypovolémie vraie). Le retour veineux au cœur chute, le volume d'éjection systolique s'effondre.
+3. **Conséquence :** Effondrement brutal de la pression artérielle (collapsus), pouls filant, perte de connaissance, cyanose et arrêt cardio-respiratoire.
+4. **Complication obstructive :** L'**œdème de Quincke** (infiltration œdémateuse de la glotte et du larynx) peut provoquer l'asphyxie mécanique immédiate.
+
+> [!CAUTION]
+> **Traitement salvateur :** L'**Adrénaline (Épinéphrine)** par injection intramusculaire immédiate. Elle拮agisse physiologiquement l'histamine en provoquant une vasoconstriction artériolaire immédiate (récepteurs α1 : remonte la PA), une stimulation cardiaque (récepteurs β1 : remonte le débit) et une bronchodilatation puissante (récepteurs β2 : rouvre les voies aériennes).
+
+### 2.3 Principe de la Désensibilisation (Immunothérapie Spécifique)
+Elle consiste à injecter sous la peau ou sous la langue des doses minimes mais régulièrement croissantes de l'allergène purifié pendant 3 à 5 ans. Ce protocole vise à reprogrammer le système immunitaire :
+- Inhibition de la voie Th2 au profit des lymphocytes Th1 et Treg.
+- Baisse de la production d'IgE.
+- Synthèse accrue d'anticorps protecteurs de classe **IgG4 (anticorps bloquants)** qui captent l'allergène avant qu'il n'atteigne les mastocytes.
+
+---
+
+## 3. Les Maladies Auto-Immunes : Rupture de la Tolérance au Soi
+
+Une maladie auto-immune correspond à l'agression des cellules et tissus normaux d'un individu par son propre système immunitaire.
+
+### 3.1 Mécanismes de la Tolérance Normale
+- **Tolérance centrale :** Élimination par apoptose des thymocytes autoréactifs dans le thymus (sélection négative pour les LT) et dans la moelle osseuse (pour les LB).
+- **Tolérance périphérique :** Maintien sous silence des rares clones autoréactifs ayant échappé aux filtres primaires grâce à l'anergie clonale (absence de costimulation) et à l'action suppressive des **lymphocytes T régulateurs (Treg CD4+CD25+FoxP3+)**.
+
+### 3.2 Causes de Rupture de la Tolérance
+1. **Mimétisme moléculaire :** Homologie de séquence peptidique entre un antigène microbien et une protéine de l'hôte. Exemple : après une angine à streptocoque β-hémolytique, les anticorps anti-streptocoque attaquent par réaction croisée les protéines de la membrane synoviale articulaire et les valves cardiaques (**Rhumatisme Articulaire Aigu**).
+2. **Altération d'antigènes du Soi :** Modification conformationnelle d'une protéine du soi par un médicament, une infection virale ou un rayonnement, qui apparaît dès lors comme étrangère.
+3. **Libération d'antigènes séquestrés :** Certains organes protégés par des barrières hémato-tissulaires étanches (cristallin de l'œil, spermatozoïdes dans les tubes séminifères, cerveau) n'ont jamais été présentés aux cellules immunocompétentes lors de l'éducation thymique. En cas de traumatisme ou brèche physique, leur déversement dans la circulation sanguine déclenche une attaque auto-immune (ex : ophtalmie sympathique).
+4. **Déficience des lymphocytes Treg :** Faillite des freins immunitaires naturels.
+
+### 3.3 Deux Exemples Types au Bac S2
+- **Diabète de type 1 (insulinodépendant) :** Maladie auto-immune à médiation cellulaire où des **lymphocytes T cytotoxiques (LTC)** infiltrent les îlots de Langerhans du pancréas (insulite) et détruisent sélectivement les cellules β sécrétrices d'insuline.
+- **Myasthénie grave :** Maladie auto-immune à médiation humorale où des **auto-anticorps** se fixent sur les récepteurs nicotiniques de l'acétylcholine à la jonction neuromusculaire, bloquant la transmission nerveuse et provoquant une paralysie musculaire progressive.
+
+---
+
+## 4. Virologie du Rétrovirus VIH
+
+### 4.1 Ultrastructure du Virion
+Le VIH (Virus de l'Immunodéficience Humaine) est un rétrovirus sphérique enveloppé d'environ 100 à 120 nm :
+- **Enveloppe lipidique :** Bicouche phospholipidique issue de la membrane plasmique de la cellule hôte bourgeonnée.
+- **Spicules membranaires trimériques :**
+  - **gp120 :** Glycoprotéine de surface externe (tête), clé d'arrimage au récepteur cellulaire **CD4**.
+  - **gp41 :** Glycoprotéine transmembranaire (tige), responsable de la fusion des membranes virale et cellulaire.
+- **Matrice protéique :** Tapissée intérieurement par la protéine **p17**.
+- **Capside interne conique :** Constituée par l'assemblage de protéines **p24** (cible majeure des tests de dépistage précoce).
+- **Génome viral :** **Deux molécules identiques d'ARN monocaténaire** (ARN simple brin de polarité positive).
+- **Machinerie enzymatique virale interne :**
+  - **Transcriptase Inverse (Rétrotranscriptase) :** Enzyme ADN polymérase ARN-dépendante qui recopie l'ARN viral en ADN double brin. Dépourvue d'activité de relecture-correction 3'-5' exonucléasique, elle commet environ une erreur par cycle de réplication, conférant au VIH une variabilité génétique exceptionnelle.
+  - **Intégrase :** Permet l'insertion covalente de l'ADN proviral dans le chromosome de la cellule hôte.
+  - **Protéase :** Clive les polyprotéines virales précurseurs en protéines fonctionnelles lors de la maturation du virion.
+
+---
+
+## 5. Le Cycle de Multiplication Intracellulaire du VIH (7 Étapes)
+
+1. **Fixation (Attachement) :**
+   La gp120 du virion se lie spécifiquement à la molécule **CD4** exprimée à la surface du lymphocyte T4 (ou du macrophage). Cette liaison induit un changement conformationnel démasquant un site de liaison pour un **corécepteur chimiokinique** membranaire (**CCR5** pour les souches macrophagotropes initiales, **CXCR4** pour les souches lymphotropes tardives).
+2. **Fusion membranaire et Décapsidation (Pénétration) :**
+   La gp41 se déploie et s'insère dans la membrane du LT4, provoquant la fusion des deux bicouches lipidiques. La capside pénètre dans le cytoplasme où elle se désagrège, libérant les deux brins d'ARN et les enzymes virales.
+3. **Transcription Inverse (Rétrotranscription) :**
+   Dans le cytosol, la **transcriptase inverse** utilise l'ARN viral comme matrice pour synthétiser un premier brin d'ADN complémentaire (ADNc), détruit l'ARN matriciel via son activité RNase H, puis synthétise le second brin d'ADN pour former un **ADN proviral double brin**.
+4. **Intégration du Provirus dans le Noyau :**
+   L'ADN proviral est acheminé dans le noyau à travers les pores nucléaires. L'**intégrase** virale coupe l'ADN cellulaire de l'hôte et y insère définitivement l'ADN proviral. Le génome viral fait désormais partie intégrante du patrimoine génétique du LT4 (phase de latence provirale possible pendant plusieurs mois ou années).
+5. **Transcription et Traduction :**
+   Lors de l'activation du LT4 par un stimulus immunitaire, l'ARN polymérase II de la cellule hôte transcrit l'ADN proviral en molécules d'ARN viral génomique et en ARNm viraux. Ces ARNm sont exportés dans le cytoplasme et traduits par les ribosomes cellulaires en longues chaînes de polyprotéines inactives (Gag, Pol, Env).
+6. **Maturation et Clivage Protéolytique :**
+   La **protéase** virale découpe ces polyprotéines géantes en protéines virales individuelles fonctionnelles (capside p24, matrice p17, enzymes).
+7. **Assemblage et Bourgeonnement :**
+   Les composants viraux s'assemblent sous la membrane plasmique du LT4 enrichie en gp120/gp41. Le virion bourgeonne en emportant un morceau de membrane de la cellule hôte. L'accumulation de bourgeonnements et la toxicité des protéines virales finissent par détruire la membrane du LT4 (effet cytopathogène) et libèrent des milliers de virions infectieux dans le sang.
+
+---
+
+## 6. Évolution Clinique de l'Infection par le VIH : Les 3 Phases au Bac S2
+
+L'histoire naturelle de l'infection chez un patient non traité s'étale sur environ 8 à 12 ans et comprend trois phases chronologiques fondamentales :
+
+> [!NOTE]
+> **Profil cinétique des marqueurs sanguins du VIH au cours du temps :**
+> - **Taux de LT4 :** 1 000/mm³ au départ ──> chute temporaire lors de la primo-infection (500) ──> remontée partielle puis déclin lent et continu (chute de 60/mm³ par an) ──> effondrement sous 200/mm³ au stade SIDA.
+> - **Charge virale (ARN plasmatique) :** Pic précoce et spectaculaire (semaines 4-6) ──> chute drastique dès l'apparition des anticorps ──> niveau bas et stable pendant la phase asymptomatique ──> réascension explosive au stade SIDA.
+> - **Titre d'anticorps anti-VIH :** Nul pendant la phase initiale (fenêtre sérologique) ──> séroconversion rapide vers la 4e-6e semaine ──> taux élevé et constant pendant la phase de latence ──> déclin terminal au stade SIDA par épuisement du système immunitaire.
+
+### 6.1 Phase 1 : La Primo-Infection (Semaines 0 à 12)
+- **Multiplication virale explosive :** Pic très précoce et massif de la charge virale plasmatique vers la 4e-6e semaine.
+- **Chute transitoire des LT4 :** Les LT4 s'effondrent temporairement de 1 000 à 400-500/mm³.
+- **La Séroconversion (Semaines 4 à 8) :** L'organisme réagit en produisant des **anticorps anti-VIH** dirigés contre la gp120 et la p24. L'individu devient séropositif.
+- **Amélioration temporaire :** L'action des anticorps et des premiers LTC permet de freiner la réplication virale : la charge virale chute et le taux de LT4 remonte partiellement.
+
+### 6.2 Phase 2 : La Phase Asymptomatique ou de Latence Clinique (2 à 8-10 ans)
+- **Équilibre dynamique précaire :** Le système immunitaire contient la réplication virale sans parvenir à l'éliminer. La charge virale reste basse et stable.
+- **Destruction insidieuse :** Bien que le patient ne présente aucun symptôme clinique (« porteur sain » apparent), le virus continue à se répliquer activement dans les ganglions lymphatiques. Le taux de LT4 diminue lentement et inexorablement d'environ **50 à 80 cellules/mm³ par an**.
+
+### 6.3 Phase 3 : La Phase de SIDA Déclaré (Stade Terminal)
+- **Définition :** Elle est atteinte dès que le taux de lymphocytes T4 sanguins **chute en dessous du seuil critique de 200 cellules/mm³**.
+- **Effondrement des défenses :** Privé d'IL-2, le système immunitaire s'effondre totalement. Le titre d'anticorps s'éteint et la charge virale remonte de manière exponentielle et incontrôlable.
+- **Infections opportunistes fatales :** Des micro-organismes normalement inoffensifs prolifèrent et provoquent la mort de l'individu :
+  - Parasitaires : *Toxoplasma gondii* (toxoplasmose cérébrale), *Pneumocystis jirovecii* (pneumonie sévère).
+  - Fongiques : *Candida albicans* (candidose œsophagienne invasive).
+  - Bactériennes : *Mycobacterium tuberculosis* (tuberculose disséminée).
+  - Virales / Tumorales : Sarcome de Kaposi (lié au virus HHV-8), lymphomes non hodgkiniens.
+
+---
+
+## 7. Tableau Récapitulatif : Les 3 Grands Dysfonctionnements Immunitaires
+
+| Caractéristique | Hypersensibilité Immédiate | Maladies Auto-Immunes | Infection par le VIH / SIDA |
+|-----------------|---------------------------|-----------------------|-----------------------------|
+| **Nature du Déclencheur** | Allergène environnemental inoffensif (Non-Soi) | Antigène normal du Soi propre de l'hôte | Rétrovirus pathogène (VIH-1 / VIH-2) |
+| **Mécanisme Fondamental** | Pontage des IgE sur mastocytes ──> Histamine | Rupture de tolérance (auto-anticorps / LTC) | Tropisme gp120 pour CD4 ──> Destruction des LT4 |
+| **Effecteurs Clés** | Plasmocytes (IgE), Mastocytes, Histamine | Auto-anticorps, Lymphocytes T autoréactifs | Transcriptase inverse, Intégrase, Effondrement IL-2 |
+| **Traitement d'Urgence / Médical** | Adrénaline IM (choc), Antihistaminiques, Corticoïdes | Immunosuppresseurs, Corticoïdes, Anti-inflammatoires | Trithérapie antirétrovirale (TAR / ARV) |
+| **Exemple Typique Bac S2** | Asthme bronchique, Choc anaphylactique | Diabète type 1, Myasthénie, RAA | SIDA & Tuberculose / Pneumocystose opportuniste |
+`;
+
 export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: string, rawContent: string | null): string {
   const titleLower = `${lessonTitle} ${chapterTitle}`.toLowerCase();
+
+  // Routage SVT B3 Leçon 4 : Dysfonctionnements Immunitaires — Allergies, Auto-immunité & VIH/SIDA
+  if (
+    titleLower.includes('dysfonctionnement') ||
+    titleLower.includes('allergie') ||
+    titleLower.includes('hypersensibilité') ||
+    titleLower.includes('hypersensibilite') ||
+    titleLower.includes('vih') ||
+    titleLower.includes('sida') ||
+    titleLower.includes('auto-immune') ||
+    titleLower.includes('auto-immunite') ||
+    titleLower.includes('autoimmunite') ||
+    titleLower.includes('mastocyte') ||
+    titleLower.includes('histamine') ||
+    titleLower.includes('60000000-0000-0003-0003-000000000004')
+  ) {
+    return RICH_LESSONS_MAP.dysfonctionnements_immunitaires;
+  }
 
   // Routage SVT B3 Leçon 3 : Immunité Adaptative Cellulaire — LT8, LTC & LT4 Pivot
   if (
