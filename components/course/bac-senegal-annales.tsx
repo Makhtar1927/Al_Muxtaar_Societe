@@ -2918,6 +2918,165 @@ Face à une baisse de pression de perfusion rénale (hypotension, hémorragie, d
     },
   ],
 
+  // B3. LEÇON 2 - IMMUNITÉ ADAPTATIVE HUMORALE : ANTICORPS & SÉLECTION CLONALE (SVT S2)
+  immunite_humorale: [
+    {
+      year: 2021,
+      session: 'Session Normale (SVT Série S2)',
+      points: 'Exercice 2 — Raisonnement Scientifique (8 Points)',
+      topic: 'Structure des immunoglobulines, Sélection clonale, Test d\'Ouchterlony, Réponse primaire et secondaire',
+      enonce: `L'immunité humorale est assurée par des protéines plasmatiques spécifiques appelées anticorps ou immunoglobulines, produites par les plasmocytes issus de la différenciation des lymphocytes B.
+
+**Document 1 :** Schéma de la structure d'une immunoglobuline G (IgG) montrant 4 chaînes polypeptidiques reliées par des ponts disulfure (-S-S-), deux régions Fab et une région Fc, ainsi que des régions variables (V) et constantes (C).
+
+**Document 2 :** Résultats d'un test d'Ouchterlony (double immunodiffusion en gel d'agarose) réalisé avec :
+- Puits central : sérum d'un lapin immunisé contre l'albumine humaine (contient des anticorps anti-albumine)
+- Puits périphériques A, B, C : respectivement albumine humaine pure, albumine bovine, hémoglobine humaine
+- Résultat observé : arc de précipitation entre le centre et A uniquement
+
+**Document 3 :** Courbe du titre en anticorps anti-albumine dosé dans le sérum du lapin lors d'une 1ère injection (J0) puis d'une 2ème injection du même antigène (J60) :
+- 1ère réponse : latence 10 jours, pic à 100 unités arbitraires (U.A.) majoritairement IgM puis IgG
+- 2ème réponse : latence 3 jours, pic à 1 000 U.A. majoritairement IgG à haute affinité
+
+**Questions :**
+1. En vous appuyant sur le Document 1, décrivez la structure moléculaire d'une IgG en précisant : le nombre et le type de chaînes, les fragments Fab et Fc, et la localisation des sites de fixation à l'antigène. *(2 pts)*
+2. Interprétez les résultats du test d'Ouchterlony (Doc. 2) : expliquez pourquoi un arc de précipitation se forme uniquement entre le puits central et le puits A, et pas avec B ni C. Quelle propriété fondamentale des anticorps illustre ce résultat ? *(2 pts)*
+3. Comparez la réponse primaire et la réponse secondaire en vous appuyant sur le Document 3 (délai, intensité, classe d'Ig dominante). Expliquez, au niveau cellulaire, ce qui justifie les différences observées entre les deux réponses. *(2 pts)*
+4. Expliquez, à l'aide de la théorie de la sélection clonale de Burnet, comment un lymphocyte B spécifique de l'albumine humaine est sélectionné et se différencie lors de la réponse immunitaire. Précisez le rôle du lymphocyte T4 auxiliaire dans ce processus. *(2 pts)*`,
+      solution: `### 1. Structure de l'IgG (2 pts)
+
+L'IgG est une glycoprotéine de type monomère constituée de **4 chaînes polypeptidiques** :
+- **2 chaînes lourdes H (Heavy)** de poids moléculaire élevé (~50 kDa chacune)
+- **2 chaînes légères L (Light)** de poids moléculaire plus faible (~25 kDa chacune)
+
+Les 4 chaînes sont reliées entre elles par des **ponts disulfure intercaténaires (-S-S-)**, conférant la forme caractéristique en Y.
+
+Chaque chaîne comporte :
+- Une **région variable (V)** à l'extrémité N-terminale, hypervariable, spécifique de l'antigène
+- Une **région constante (C)** à l'extrémité C-terminale, identique pour tous les anticorps de même classe
+
+Fragments fonctionnels :
+- **Fragments Fab (x2)** = 1 chaîne L + moitié N-terminale d'une chaîne H : portent chacun 1 **paratope** (site de fixation à l'antigène), formé par VH + VL
+- **Fragment Fc (x1)** = moitiés C-terminales des 2 chaînes H : région effectrice (activation du complément, opsonisation, fixation aux récepteurs des macrophages)
+
+Les **2 paratopes** de l'IgG sont situés à l'extrémité des 2 fragments Fab, dans les régions VH+VL.
+
+---
+
+### 2. Interprétation du test d'Ouchterlony (2 pts)
+
+L'arc de précipitation se forme **uniquement entre le puits central et le puits A** (albumine humaine) car :
+
+- Les anticorps du sérum de lapin sont **spécifiques de l'albumine humaine** (c'est l'antigène ayant servi à l'immunisation).
+- En diffusant dans le gel, anticorps et albumine humaine se rencontrent à une **concentration équivalente** (zone d'équivalence) et forment un **réseau de complexes immuns insolubles** qui précipitent, donnant l'arc visible.
+- Avec le puits B (albumine bovine) : même si l'albumine bovine ressemble à l'albumine humaine, les épitopes sont suffisamment différents pour qu'il n'y ait **pas de reconnaissance** → pas de précipité.
+- Avec le puits C (hémoglobine) : antigène totalement différent → **aucune liaison** possible → pas de précipité.
+
+**Propriété illustrée : la SPÉCIFICITÉ des anticorps.** Chaque anticorps ne reconnaît qu'un seul et même épitope de manière complémentaire (relation paratope-épitope = clé-serrure).
+
+---
+
+### 3. Comparaison des réponses primaire et secondaire (2 pts)
+
+| Critère | Réponse primaire (après J0) | Réponse secondaire (après J60) |
+|---------|---------------------------|-------------------------------|
+| Délai (latence) | ~10 jours | ~3 jours (plus rapide) |
+| Pic du titre en Ac | ~100 U.A. | ~1 000 U.A. (10x plus élevé) |
+| Classe d'Ig dominante | IgM puis IgG | IgG à haute affinité |
+| Durée | Quelques semaines | Plusieurs mois |
+
+**Explication cellulaire :**
+- Lors de la réponse primaire, les LB naïfs spécifiques (rares dans l'organisme) doivent être activés, proliférer et se différencier en plasmocytes : processus lent.
+- Lors de cette 1ère réponse, une partie des LB activés se différencie en **lymphocytes B mémoire** : cellules à longue durée de vie, plus nombreuses, avec un BCR de haute affinité.
+- Lors du 2ème contact (réponse secondaire), les LB mémoires répondent **plus vite** (sans latence d'activation), **plus fort** (clone plus nombreux) et produisent des **IgG à haute affinité** (après maturation d'affinité). C'est le principe biologique de la **vaccination**.
+
+---
+
+### 4. Sélection clonale et rôle du LT4 (2 pts)
+
+**Théorie de la sélection clonale (Burnet, 1957) :**
+
+Avant tout contact antigénique, l'organisme possède un **répertoire lymphocytaire B** : des millions de clones de LB, chacun portant à sa surface un **BCR (récepteur B pour l'antigène)** de spécificité unique, généré par recombinaison somatique des gènes V(D)J.
+
+Lors de la pénétration de l'albumine humaine :
+1. L'antigène **sélectionne** le clone de LB dont le BCR est complémentaire de son épitope (liaison spécifique).
+2. Cette liaison active le LB (signal 1) et induit son endocytose de l'Ag, sa dégradation, puis la présentation des peptides antigéniques sur le **CMH II** à sa surface.
+3. Le **LT4 auxiliaire** (activé par la CPA qui lui a présenté le même épitope) reconnaît le complexe CMH II-peptide du LB et lui fournit un **signal 2 de costimulation** (CD40L-CD40) et des **cytokines** (IL-4, IL-5, IL-6).
+4. Ces deux signaux déclenchent la **prolifération clonale** (expansion) puis la **différenciation** en :
+   - **Plasmocytes** : cellules effectrices sécrétant massivement des anticorps anti-albumine
+   - **LB mémoires** : cellules à longue durée de vie assurant la mémoire immunologique`,
+      baremeAstuce: 'Le mot-clé "sélection clonale" implique toujours : répertoire pré-existant → sélection par l\'Ag → expansion clonale → différenciation plasmocyte + mémoire. Retenez la coopération LB-LT4 indispensable (double signal). Pour l\'Ouchterlony : arc = zone d\'équivalence = spécificité.',
+    },
+    {
+      year: 2019,
+      session: 'Session de Remplacement (SVT Série S2)',
+      points: 'Exercice 1 — Maîtrise des Connaissances (5 Points)',
+      topic: 'Classes d\'immunoglobulines, Mécanismes effecteurs des anticorps (neutralisation, opsonisation, agglutination), Vaccin et mémoire',
+      enonce: `Les anticorps constituent les effecteurs humoraux de l'immunité adaptative. Leur diversité structurale se traduit par des fonctions effectrices variées.
+
+**Partie A — Connaissances (3 pts) :**
+
+1. Réalisez un tableau comparatif des 5 classes d'immunoglobulines humaines (IgG, IgM, IgA, IgE, IgD) en précisant pour chacune : la structure (monomère/dimère/pentamère), la localisation principale dans l'organisme, et une fonction majeure. *(1,5 pt)*
+
+2. Définissez et distinguez les trois mécanismes effecteurs suivants des anticorps :
+   - La **neutralisation**
+   - L'**opsonisation**
+   - L'**agglutination**
+   
+   Précisez dans chaque cas les acteurs cellulaires impliqués. *(1,5 pt)*
+
+**Partie B — Application (2 pts) :**
+
+Un enfant reçoit à l'âge de 2 mois sa première injection du vaccin DTP (Diphtérie-Tétanos-Poliomyélite). À l'âge de 4 mois, il reçoit le rappel (2ème injection).
+
+3. Expliquez pourquoi le titre en anticorps est beaucoup plus élevé et apparaît plus rapidement après le rappel de 4 mois par rapport à la primovaccination de 2 mois. Quel principe immunologique le vaccin exploite-t-il ? *(2 pts)*`,
+      solution: `### Partie A — Question 1 : Tableau comparatif des classes d'Ig (1,5 pt)
+
+| Classe | Structure | Localisation principale | Fonction majeure |
+|--------|-----------|------------------------|-----------------|
+| **IgG** | Monomère (4 chaînes) | Sérum (75% des Ig sériques), liquide interstitiel | Neutralisation des toxines et virus, opsonisation, passage transplacentaire (immunité néonatale) |
+| **IgM** | Pentamère (5 unités + chaîne J) | Sérum (1ère Ig produite lors de la réponse primaire) | Agglutination puissante, activation de la voie classique du complément |
+| **IgA** | Dimère (en sécrétions) ou monomère (sérum) | Sécrétions (salive, larmes, lait maternel, mucus bronchique et intestinal) | Protection des muqueuses, neutralisation des pathogènes à l'entrée de l'organisme |
+| **IgE** | Monomère | Très faible concentration sérique ; fixée sur les mastocytes et basophiles via leur récepteur Fc | Hypersensibilité immédiate (allergies, anaphylaxie) ; rôle antiparasitaire (helminthes) |
+| **IgD** | Monomère | Membrane des LB naïfs (co-récepteur avec IgM) | Activation du LB naïf (rôle de BCR membranaire) ; fonction sérique mal connue |
+
+---
+
+### Partie A — Question 2 : Mécanismes effecteurs (1,5 pt)
+
+**1. Neutralisation :**
+Les anticorps (surtout IgG et IgA) se fixent sur les **sites actifs fonctionnels** d'une toxine bactérienne ou sur les protéines de surface d'un virus (ex : hémagglutinine du virus influenza). Cette fixation **bloque stériquement** l'interaction toxine-récepteur ou virus-cellule hôte. La toxine ou le virus neutralisé ne peut plus exercer son effet pathogène ni infecter de nouvelles cellules. Les complexes immuns formés sont ensuite éliminés par phagocytose.
+Acteurs : Anticorps + toxines/virus (pas de cellule directement impliquée dans la neutralisation elle-même).
+
+**2. Opsonisation :**
+Les anticorps (surtout IgG) se fixent par leur **fragment Fab** à l'épitope de l'antigène microbien, exposant leur **fragment Fc** vers l'extérieur. Les **macrophages et polynucléaires neutrophiles** possèdent des **récepteurs Fc (FcγR)** qui reconnaissent ce fragment Fc. La fixation du récepteur Fc au fragment Fc de l'anticorps "marque" le pathogène et stimule fortement la **phagocytose** (ingestion et destruction intracellulaire). L'anticorps joue ainsi le rôle d'**opsonine**.
+Acteurs : Anticorps IgG + macrophages/polynucléaires (via récepteurs Fc).
+
+**3. Agglutination :**
+Les anticorps (IgM et IgG) sont **bivalents** (IgG, 2 paratopes) ou **multivalents** (IgM pentamère, 10 paratopes). Chaque anticorps peut simultanément lier plusieurs antigènes portant le même épitope sur différentes cellules ou particules. Ce pontage forme des **réseaux tridimensionnels** de complexes antigène-anticorps insolubles, visibles à l'oeil nu sous forme d'agglutinats. Ces agglutinats sont ensuite plus facilement phagocytés et/ou activent le complément.
+Acteurs : Anticorps + bactéries/hématies/particules antigéniques.
+
+---
+
+### Partie B — Question 3 : Mémoire vaccinale et rappel (2 pts)
+
+**Mécanisme biologique :**
+
+Lors de la **primovaccination** (1ère injection, 2 mois) :
+- Le vaccin (antigène atténué ou toxoïde) est un premier contact antigénique : il déclenche une **réponse immunitaire primaire**.
+- Après un délai de 10-14 jours, le titre en anticorps monte modestement.
+- Surtout, une partie des LB activés se différencie en **lymphocytes B mémoire** spécifiques de l'antigène vaccinal. Ces LB mémoires persistent dans l'organisme (rate, ganglions) pendant des années.
+
+Lors du **rappel** (2ème injection, 4 mois) :
+- Le même antigène vaccinal rencontre les **LB mémoires** générés lors de la primovaccination.
+- Ces cellules mémoires sont **plus nombreuses** (clone amplifié), **plus sensibles** (seuil d'activation plus bas, BCR de haute affinité) et **prêtes à répondre immédiatement**.
+- Résultat : réponse **plus rapide** (2-3 jours vs 10-14 jours), **plus intense** (titre en anticorps 10 à 100 fois plus élevé), **plus durable**, avec production majoritaire d'**IgG à haute affinité**.
+
+**Principe immunologique exploité : la MÉMOIRE IMMUNOLOGIQUE** (ou immunité adaptative de mémoire). C'est le fondement biologique de la vaccination : induire une mémoire immunologique protectrice sans provoquer la maladie, de sorte que lors d'un contact ultérieur avec le pathogène réel, la réponse secondaire soit assez rapide et puissante pour éliminer l'agent infectieux avant l'apparition des symptômes.`,
+      baremeAstuce: 'Pour le tableau des Ig : retenez IgG (sérum, défense générale), IgM (1ère réponse, pentamère), IgA (muqueuses, dimère), IgE (allergies, mastocytes), IgD (BCR des LB naïfs). Pour les mécanismes effecteurs : neutralisation = blocage site actif (pas de cellule) ; opsonisation = Fc + récepteur Fc macrophage ; agglutination = réseaux multichaînes. La mémoire vaccinale = LB mémoire + réponse secondaire ampliée.',
+    },
+  ],
+
   // B3. LEÇON 1 - RECONNAISSANCE DU SOI ET DU NON-SOI (CMH/HLA) & IMMUNITÉ INNÉE (SVT S2)
   immunite_innee: [
     {
@@ -3065,6 +3224,16 @@ BAC_ANNALES_BY_CHAPTER['inflammation'] = BAC_ANNALES_BY_CHAPTER.immunite_innee;
 BAC_ANNALES_BY_CHAPTER['soi-non-soi'] = BAC_ANNALES_BY_CHAPTER.immunite_innee;
 BAC_ANNALES_BY_CHAPTER['soi_non_soi'] = BAC_ANNALES_BY_CHAPTER.immunite_innee;
 BAC_ANNALES_BY_CHAPTER['groupes-sanguins'] = BAC_ANNALES_BY_CHAPTER.immunite_innee;
+
+// ─── B3 LEÇON 2 — IMMUNITÉ ADAPTATIVE HUMORALE ───────────────────────────────
+BAC_ANNALES_BY_CHAPTER['immunite_humorale'] = BAC_ANNALES_BY_CHAPTER.immunite_humorale;
+BAC_ANNALES_BY_CHAPTER['immunite-humorale'] = BAC_ANNALES_BY_CHAPTER.immunite_humorale;
+BAC_ANNALES_BY_CHAPTER['b3l2'] = BAC_ANNALES_BY_CHAPTER.immunite_humorale;
+BAC_ANNALES_BY_CHAPTER['anticorps'] = BAC_ANNALES_BY_CHAPTER.immunite_humorale;
+BAC_ANNALES_BY_CHAPTER['immunoglobuline'] = BAC_ANNALES_BY_CHAPTER.immunite_humorale;
+BAC_ANNALES_BY_CHAPTER['selection_clonale'] = BAC_ANNALES_BY_CHAPTER.immunite_humorale;
+BAC_ANNALES_BY_CHAPTER['lymphocyte_b'] = BAC_ANNALES_BY_CHAPTER.immunite_humorale;
+BAC_ANNALES_BY_CHAPTER['plasmocyte'] = BAC_ANNALES_BY_CHAPTER.immunite_humorale;
 
 interface BacSenegalAnnalesProps {
   chapter?: string;

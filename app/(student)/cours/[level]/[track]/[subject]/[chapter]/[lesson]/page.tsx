@@ -135,6 +135,9 @@ import B2RegulationPaQuizEmbedded from '@/components/course/b2-regulation-pa-qui
 import B3ImmuniteInneeReflexesCard from '@/components/course/b3-immunite-innee-reflexes-card';
 import B3ImmuniteInneeInteractiveLab from '@/components/course/b3-immunite-innee-interactive-lab';
 import B3ImmuniteInneeQuizEmbedded from '@/components/course/b3-immunite-innee-quiz-embedded';
+import B3ImmuniteHumoraleReflexesCard from '@/components/course/b3-immunite-humorale-reflexes-card';
+import B3ImmuniteHumoraleInteractiveLab from '@/components/course/b3-immunite-humorale-interactive-lab';
+import B3ImmuniteHumoraleQuizEmbedded from '@/components/course/b3-immunite-humorale-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
@@ -1405,6 +1408,33 @@ const IMMUNITE_INNEE_AUDIO_CHAPTERS: AudioChapter[] = [
     icon: "cle_solution",
     textScript:
       "Retenez l'ordre strict des 4 étapes de la phagocytose : adhésion, ingestion avec formation du phagosome, digestion par fusion lysosomiale, puis rejet des débris et présentation sur CMH II. Pour les transfusions sanguines, la règle d'or est de ne jamais injecter un globule rouge portant un antigène contre lequel le receveur possède déjà l'anticorps plasmatique.",
+  },
+];
+
+const IMMUNITE_HUMORALE_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Structure des Immunoglobulines (IgG, Fab, Fc)",
+    badge: "Structure",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette leçon consacrée à l'immunité adaptative humorale. Retenez la structure modèle en Y d'une molécule d'IgG : deux chaînes lourdes H et deux chaînes légères L identiques deux à deux, associées par des ponts disulfure. Les fragments Fab portent les paratopes complémentaires des épitopes antigéniques, alors que le fragment Fc assure les fonctions effectrices comme la fixation aux récepteurs des phagocytes.",
+  },
+  {
+    timeSeconds: 58,
+    title: "2. Sélection Clonale, Coopération LB-LT4 & Différenciation",
+    badge: "Mécanisme",
+    icon: "theoreme_equerre",
+    textScript:
+      "Chaque lymphocyte B possède un récepteur membranaire BCR unique. Lorsque l'antigène sélectionne le clone complémentaire, le LB l'internalise et présente ses peptides sur son CMH II. Le lymphocyte T4 auxiliaire reconnaît ce complexe et libère des interleukines qui stimulent la prolifération clonale et la différenciation en plasmocytes sécréteurs d'anticorps et en lymphocytes B mémoires.",
+  },
+  {
+    timeSeconds: 115,
+    title: "3. Réponse Secondaire, Mémoire & Test d'Ouchterlony",
+    badge: "Bac & Clinique",
+    icon: "cle_solution",
+    textScript:
+      "Lors d'un second contact avec le même antigène, les lymphocytes B mémoires réagissent avec un délai très court, un titre d'anticorps beaucoup plus élevé et une prédominance d'IgG à haute affinité : c'est le principe même de la vaccination. Enfin, sur le plan expérimental au Bac, l'arc de précipitation d'Ouchterlony traduit la formation d'un réseau insoluble d'immunocomplexes à la zone d'équivalence stœchiométrique.",
   },
 ];
 
@@ -2771,8 +2801,19 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     (lessonMeta.title.toLowerCase().includes('soi') && lessonMeta.title.toLowerCase().includes('non-soi')) ||
     (lessonMeta.title.toLowerCase().includes('soi') && lessonMeta.title.toLowerCase().includes('non soi'));
 
-  const isRegulationPaB2 =
+  const isImmuniteHumoraleB3 =
     !isImmuniteInneeB3 && (
+    params.lesson === '60000000-0000-0003-0003-000000000002' ||
+    lessonMeta.title.toLowerCase().includes('humorale') ||
+    lessonMeta.title.toLowerCase().includes('anticorps') ||
+    lessonMeta.title.toLowerCase().includes('immunoglobuline') ||
+    lessonMeta.title.toLowerCase().includes('sélection clonale') ||
+    lessonMeta.title.toLowerCase().includes('selection clonale') ||
+    lessonMeta.title.toLowerCase().includes('plasmocyte') ||
+    (lessonMeta.title.toLowerCase().includes('lymphocyte') && lessonMeta.title.toLowerCase().includes('b')));
+
+  const isRegulationPaB2 =
+    !isImmuniteInneeB3 && !isImmuniteHumoraleB3 && (
     params.lesson === '60000000-0000-0003-0002-000000000003' ||
     lessonMeta.title.toLowerCase().includes('barorécepteur') ||
     lessonMeta.title.toLowerCase().includes('barorecepteur') ||
@@ -2999,6 +3040,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 title={
                   isImmuniteInneeB3
                     ? 'Masterclass Audio : Soi, Non-Soi, CMH/HLA & Immunité Innée'
+                    : isImmuniteHumoraleB3
+                    ? 'Masterclass Audio : Immunité Humorale — Anticorps, Sélection Clonale & Réponse B'
                     : isRegulationPaB2
                     ? 'Masterclass Audio : Régulation Réflexe de la Pression Artérielle'
                     : isRegulationNerveuseB2
@@ -3064,6 +3107,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 subtitle={
                   isImmuniteInneeB3
                     ? 'Terminale S2 • SVT : Les 6 réflexes pour le CMH I et II, ABO, la réaction inflammatoire et la phagocytose'
+                    : isImmuniteHumoraleB3
+                    ? 'Terminale S2 • SVT : Les 6 réflexes pour la structure IgG, les classes Ig, la sélection clonale et l\'Ouchterlony'
                     : isRegulationPaB2
                     ? 'Terminale S2 • SVT : Les 6 réflexes pour PA = DC x RPT, sinus carotidiens, Hering, Cyon et bulbe'
                     : isRegulationNerveuseB2
@@ -3129,6 +3174,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 chapters={
                   isImmuniteInneeB3
                     ? IMMUNITE_INNEE_AUDIO_CHAPTERS
+                    : isImmuniteHumoraleB3
+                    ? IMMUNITE_HUMORALE_AUDIO_CHAPTERS
                     : isRegulationPaB2
                     ? REGULATION_PA_AUDIO_CHAPTERS
                     : isRegulationNerveuseB2
@@ -3280,6 +3327,11 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                   <B3ImmuniteInneeReflexesCard />
                   <B3ImmuniteInneeInteractiveLab />
                 </>
+              ) : isImmuniteHumoraleB3 ? (
+                <>
+                  <B3ImmuniteHumoraleReflexesCard />
+                  <B3ImmuniteHumoraleInteractiveLab />
+                </>
               ) : isRegulationPaB2 ? (
                 <>
                   <B2RegulationPaReflexesCard />
@@ -3422,6 +3474,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 chapter={
                   isImmuniteInneeB3
                     ? 'immunite_innee'
+                    : isImmuniteHumoraleB3
+                    ? 'immunite_humorale'
                     : isRegulationPaB2
                     ? 'regulation_pression'
                     : isRegulationNerveuseB2
@@ -3530,6 +3584,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <P4ParticuleQuizEmbedded />
               ) : isImmuniteInneeB3 ? (
                 <B3ImmuniteInneeQuizEmbedded />
+              ) : isImmuniteHumoraleB3 ? (
+                <B3ImmuniteHumoraleQuizEmbedded />
               ) : isRegulationPaB2 ? (
                 <B2RegulationPaQuizEmbedded />
               ) : isRegulationNerveuseB2 ? (

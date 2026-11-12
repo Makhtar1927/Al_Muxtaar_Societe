@@ -6596,8 +6596,239 @@ Une fois dans le foyer inflammatoire, les leucocytes (polynucléaires neutrophil
 4. **Pour les groupes sanguins :** Formulez toujours rigoureusement : *"L'individu du groupe A possède l'antigène A sur ses hématies et des anticorps naturels anti-B dans son sérum"*.
 `;
 
+RICH_LESSONS_MAP.immunite_humorale = `
+# Immunité Adaptative Humorale : Anticorps, Sélection Clonale et Réponse B
+
+## Introduction : La Défense Spécifique à Médiation Humorale
+
+L'immunité adaptative humorale constitue le deuxième bras de la réponse immunitaire spécifique. Elle est assurée par les **lymphocytes B (LB)** et leurs produits de sécrétion, les **anticorps** (ou immunoglobulines). Contrairement à l'immunité cellulaire (LT cytotoxiques), la défense humorale agit à distance, dans les liquides biologiques (sang, lymphe, sécrétions), en neutralisant les pathogènes extracellulaires, les toxines bactériennes et les virus libres.
+
+> [!IMPORTANT]
+> L'immunité humorale est **spécifique** (un anticorps reconnaît un seul épitope), **clonale** (un LB ne produit qu'un seul type d'anticorps), et **mémorisée** (réponse secondaire amplifiée grâce aux LB mémoires). Ces trois propriétés fondamentales définissent tout le système.
+
+---
+
+## 1. Structure Moléculaire des Immunoglobulines (Anticorps)
+
+### 1.1 Architecture Générale : La Structure en Y
+
+Toutes les immunoglobulines partagent une structure de base commune :
+
+**Composition de l'IgG (monomère, classe majoritaire) :**
+- **2 chaînes lourdes H (Heavy)** : ~450 acides aminés, ~50 kDa chacune
+- **2 chaînes légères L (Light)** : ~214 acides aminés, ~25 kDa chacune
+- Les 4 chaînes sont associées par des **ponts disulfure intercaténaires (-S-S-)** et des interactions non covalentes
+
+**Organisation des domaines :**
+- Chaque chaîne lourde comprend : 1 domaine variable (VH) + 3 domaines constants (CH1, CH2, CH3)
+- Chaque chaîne légère comprend : 1 domaine variable (VL) + 1 domaine constant (CL)
+
+### 1.2 Fragments Fonctionnels
+
+Le clivage enzymatique révèle deux types de fragments fonctionnels :
+
+**Fragment Fab (Fragment antigen-binding) :**
+- Composé de : chaîne L entière + domaines VH et CH1 de la chaîne H
+- Chaque IgG possède **2 fragments Fab** (bivalence)
+- Porte le **paratope** = site de fixation à l'antigène
+- Formé par la combinaison des **régions hypervariables** (CDR : Complementarity Determining Regions) de VH et VL
+
+**Fragment Fc (Fragment cristallisable) :**
+- Composé des domaines CH2 + CH3 des 2 chaînes lourdes
+- **Effector function** : liaison aux récepteurs Fc des phagocytes (opsonisation), activation du complément, passage transplacentaire (IgG uniquement), demi-vie sérique
+
+**Zone charnière (Hinge region) :**
+- Région flexible entre CH1 et CH2 des chaînes lourdes
+- Permet la rotation des 2 bras Fab pour s'adapter à l'espacement des épitopes sur un antigène multivalent
+
+> [!NOTE]
+> Paratope vs Épitope : Le **paratope** est le site de l'anticorps qui reconnaît l'antigène. L'**épitope** (ou déterminant antigénique) est la région de l'antigène reconnue par le paratope. Leur complémentarité stérique est totale — c'est la reconnaissance clé-serrure.
+
+### 1.3 Les 5 Classes d'Immunoglobulines
+
+**IgG (70-75% des Ig sériques) :**
+- Structure : monomère
+- 4 sous-classes : IgG1, IgG2, IgG3, IgG4
+- Fonctions : neutralisation, opsonisation, activation du complément, **seule Ig à traverser le placenta** (immunité néonatale)
+- Produite majoritairement lors de la réponse secondaire
+
+**IgM (5-10% des Ig sériques) :**
+- Structure : **pentamère** (5 monomères reliés par une chaîne J)
+- 10 paratopes → très efficace pour l'agglutination
+- **Première Ig produite** lors d'une réponse primaire (avant commutation de classe)
+- Puissant activateur de la voie classique du complément
+
+**IgA (10-15% des Ig sériques) :**
+- Structure : **dimère** dans les sécrétions (+ pièce sécrétoire) ; monomère dans le sang
+- Localisation : sécrétions muqueuses (salive, larmes, lait maternel, mucus intestinal et bronchique)
+- Fonction : protection des muqueuses contre les pathogènes
+
+**IgE (< 0,01% des Ig sériques) :**
+- Structure : monomère
+- Fixée en permanence sur les **mastocytes** et **basophiles** via récepteurs Fc-epsilon
+- Rôle : hypersensibilité immédiate (allergies, anaphylaxie) et défense anti-parasitaire (helminthes)
+
+**IgD (< 1% des Ig sériques) :**
+- Structure : monomère
+- Rôle principal : co-récepteur de surface des **LB naïfs** (avec IgM membranaire = BCR)
+
+---
+
+## 2. La Réponse Immunitaire Humorale : Étapes Clés
+
+### 2.1 Reconnaissance Antigénique — Le BCR
+
+Chaque lymphocyte B porte à sa surface environ **100 000 BCR** (B Cell Receptor). Le BCR est composé de :
+- Une **IgM ou IgD membranaire** (spécifique d'un épitope unique) = unité de reconnaissance
+- Un **hétérodimère Igα/Igβ** = unité de transduction du signal (CD79a/CD79b)
+
+> [!IMPORTANT]
+> Un LB = un BCR de spécificité unique = un seul type d'anticorps pouvant être sécrété. Cette règle s'appelle le **dogme de la monospécificité clonale**.
+
+### 2.2 Coopération LB — LT4 Auxiliaire (Thymo-dépendante)
+
+Pour la grande majorité des antigènes (thymo-dépendants = protéiques), l'activation complète du LB nécessite **deux signaux** :
+
+**Signal 1 (antigénique) :**
+- L'antigène se fixe au BCR → endocytose du complexe Ag-BCR → dégradation lysosomale → présentation des peptides sur **CMH II** à la surface du LB
+
+**Signal 2 (costimulation du LT4) :**
+- Le LT4 auxiliaire (activé par la CPA dendritique) reconnaît le CMH II-peptide du LB via son TCR
+- Interaction **CD40 (LB) — CD40L (LT4)** = signal de costimulation
+- Sécrétion de cytokines par le LT4 : **IL-4** (différenciation plasmocytes + commutation vers IgE), **IL-5** (différenciation plasmocytes + IgA), **IL-6** (prolifération des plasmocytes), **IL-13** (commutation IgE)
+
+> [!TIP]
+> Mnémotechnique : **LT4 = chef d'orchestre**. Sans lui, le LB ne peut pas se différencier en plasmocyte. Il fournit deux signaux indispensables : costimulation CD40-CD40L + cytokines activatrices.
+
+### 2.3 Prolifération Clonale et Différenciation
+
+Après activation (double signal) :
+1. **Prolifération clonale** : le LB activé se divise de nombreuses fois → expansion du clone spécifique
+2. **Différenciation** vers deux populations :
+   - **Plasmocytes** : cellules effectrices à vie courte (quelques jours-semaines), machines à fabriquer des anticorps (jusqu'à 2 000 Ig/seconde par cellule), localisées dans les ganglions lymphatiques et la moelle osseuse
+   - **Lymphocytes B mémoire** : cellules à longue durée de vie (années à décennies), réservoir de la mémoire immunologique, répondent plus vite et plus fort lors d'un 2ème contact
+
+### 2.4 Commutation de Classe (Class Switching)
+
+Sous l'influence des cytokines du LT4, les plasmocytes peuvent modifier la région constante de leur chaîne lourde (**commutation isotypique**) tout en conservant leur spécificité antigénique (région variable inchangée) :
+- Réponse primaire : IgM dominante (par défaut, avant commutation)
+- Sous IL-4/IL-13 : commutation vers IgE ou IgG4
+- Sous TGF-beta + IL-5 : commutation vers IgA
+- En l'absence de stimulus : IgG1 et IgG3 (sous-classes antiinfectieuses majeures)
+
+---
+
+## 3. Mécanismes Effecteurs des Anticorps
+
+### 3.1 Neutralisation
+
+Les anticorps (IgG, IgA) **bloquent stériquement** les sites actifs fonctionnels des toxines bactériennes ou des protéines de surface virales, **empêchant leur liaison** aux récepteurs cellulaires.
+
+Exemples :
+- IgG anti-tétanique → neutralise la tétanospasmina (toxine de Clostridium tetani)
+- IgA sécrétoire → neutralise les virus à l'entrée des muqueuses respiratoires et digestives
+
+### 3.2 Opsonisation
+
+Les anticorps (surtout IgG) se fixent par leur **Fab** à la surface bactérienne, exposant leur **Fc** vers l'extérieur. Les **macrophages et polynucléaires neutrophiles** reconnaissent le Fc via leurs **récepteurs FcγR** → phagocytose renforcée.
+
+L'anticorps joue le rôle d'**opsonine** : il augmente de 1 000 à 10 000 fois l'efficacité de la phagocytose.
+
+### 3.3 Agglutination
+
+Les IgM (10 paratopes) et IgG (2 paratopes) peuvent relier plusieurs antigènes entre eux, formant des **réseaux moléculaires insolubles** (agglutinats). Ces agrégats :
+- Sont plus facilement phagocytés (taille augmentée)
+- Activent le complément (voie classique via C1q fixé sur le Fc)
+
+### 3.4 Activation du Complément (voie classique)
+
+La fixation de **C1q** (protéine du complément) sur le fragment Fc des IgG ou IgM complexés à un antigène déclenche la **voie classique** du complément, conduisant à la formation du **Complexe d'Attaque Membranaire (CAM)** qui perfore la membrane bactérienne → lyse osmotique.
+
+---
+
+## 4. Cinétique de la Réponse Anticorps
+
+### 4.1 Réponse Primaire (1er contact antigénique)
+
+- **Délai (phase de latence) :** 10 à 14 jours
+- **Raison :** LB naïfs peu nombreux → activation lente → prolifération → différenciation en plasmocytes
+- **Pic du titre :** modéré
+- **Ig dominante :** IgM en premier, puis IgG après commutation de classe
+- **Afffinité :** relativement faible (maturation d'affinité encore limitée)
+
+### 4.2 Réponse Secondaire (2ème contact — même antigène)
+
+- **Délai :** 2 à 4 jours seulement
+- **Raison :** LB mémoires = plus nombreux, seuil d'activation plus bas, BCR de haute affinité
+- **Pic du titre :** 10 à 100 fois supérieur à la réponse primaire
+- **Ig dominante :** IgG à haute affinité (après maturation d'affinité dans les centres germinatifs)
+- **Durée :** beaucoup plus longue
+
+> [!IMPORTANT]
+> La réponse secondaire est le fondement de la **vaccination** : on induit une réponse primaire avec un vaccin (antigène atténué ou toxoïde) pour créer des LB mémoires. Lors d'un rappel ou d'une infection réelle, la réponse secondaire est si rapide et puissante qu'elle élimine le pathogène avant l'apparition des symptômes.
+
+---
+
+## 5. Test d'Ouchterlony — Diagnostic par Immunodiffusion
+
+Le test d'Ouchterlony (double immunodiffusion radiale en gel d'agarose) est une technique de mise en évidence de la **spécificité antigène-anticorps**.
+
+**Principe :**
+1. Dans un gel d'agarose, creuser des puits : un puits central (anticorps/sérum immun) et des puits périphériques (antigènes à tester)
+2. Laisser diffuser pendant 24-48h à température ambiante
+3. Les protéines diffusent radialement dans toutes les directions
+
+**Lecture :**
+- **Arc de précipitation** : là où les concentrations en Ag et en Ac se rencontrent dans des proportions équimolaires (zone d'équivalence), il se forme un **réseau de complexes immuns insolubles** → ligne de précipitation visible
+- **Pas d'arc** : Ag et Ac non complémentaires → pas de complexe → pas de précipité
+
+**Interprétations classiques :**
+- **Identité complète** (arcs qui se rejoignent en une courbe lisse) : les deux Ag sont identiques (mêmes épitopes)
+- **Non-identité** (arcs qui se croisent) : les deux Ag sont totalement différents
+- **Identité partielle** (arc + éperon) : les Ag partagent certains épitopes mais pas tous
+
+---
+
+## 6. Tableau de Synthèse — Immunité Humorale vs Cellulaire
+
+| Critère | Immunité Humorale | Immunité Cellulaire |
+|---------|------------------|---------------------|
+| Cellule effectrice | Lymphocyte B → Plasmocyte | Lymphocyte T8 cytotoxique (LTC) |
+| Médiateur | Anticorps (Ig solubles) | Perforines, Granzymes, Fas/FasL |
+| Cibles | Pathogènes extracellulaires, toxines, virus libres | Cellules infectées, cancéreuses, greffons |
+| Localisation | Sang, lymphe, sécrétions muqueuses | Contact cellule-à-cellule (synapse immunologique) |
+| Mémoire | LB mémoires | LT8 mémoires |
+| Mise en route | 10-14 jours (primaire) | 7-14 jours (primaire) |
+
+---
+
+## 7. Points Clés pour le Baccalauréat S2
+
+> [!CAUTION]
+> **Pièges fréquents au Bac :**
+> 1. Ne pas confondre **plasmocyte** (cellule effectrice qui SECRETE les anticorps) et **lymphocyte B mémoire** (cellule de mémoire qui ne secrète pas d'anticorps au repos).
+> 2. Ne pas confondre **paratope** (sur l'anticorps) et **épitope** (sur l'antigène).
+> 3. L'IgM est PENTAMERE (5 unités) et première produite — l'IgG est MONOMERE et majoritaire dans la réponse secondaire.
+> 4. La commutation de classe ne modifie PAS la spécificité de l'anticorps (région variable conservée) — seule la région constante (classe) change.
+> 5. Dans un test d'Ouchterlony, l'ARC se forme à la zone d'EQUIVALENCE — pas n'importe où dans le gel.
+`;
+
 export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: string, rawContent: string | null): string {
   const titleLower = `${lessonTitle} ${chapterTitle}`.toLowerCase();
+
+  // Routage SVT B3 Leçon 2 : Immunité Adaptative Humorale — Anticorps & Sélection Clonale
+  if (
+    titleLower.includes('humorale') ||
+    titleLower.includes('anticorps') ||
+    titleLower.includes('immunoglobuline') ||
+    titleLower.includes('sélection clonale') ||
+    titleLower.includes('selection clonale') ||
+    titleLower.includes('lymphocyte b') ||
+    titleLower.includes('plasmocyte') ||
+    titleLower.includes('60000000-0000-0003-0003-000000000002')
+  ) {
+    return RICH_LESSONS_MAP.immunite_humorale;
+  }
 
   // Routage SVT B3 Leçon 1 : Reconnaissance du Soi et du Non-Soi (CMH/HLA) & Immunité Innée
   if (

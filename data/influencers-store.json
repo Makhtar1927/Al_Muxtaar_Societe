@@ -1,0 +1,81 @@
+{
+  "influencers": [
+    {
+      "id": "inf_ambassadeur_01",
+      "full_name": "Cheikh Tidiane Sy (Major S2)",
+      "phone": "+221 77 123 45 67",
+      "promo_code": "MAJOR_S2",
+      "commission_per_subscription": 150,
+      "access_key": "inf_key_major_s2_771234",
+      "is_active": true,
+      "notes": "Influenceur éducatif TikTok & YouTube Bac S2 Sénégal",
+      "created_at": "2026-11-12T17:22:10.675Z",
+      "updated_at": "2026-11-12T17:22:10.675Z"
+    },
+    {
+      "id": "inf_ambassadeur_02",
+      "full_name": "Aminata Diallo (Excellence Maths)",
+      "phone": "+221 78 987 65 43",
+      "promo_code": "EXCELLENCE",
+      "commission_per_subscription": 150,
+      "access_key": "inf_key_excellence_789876",
+      "is_active": true,
+      "notes": "Animatrice groupe WhatsApp révisions Sénégal",
+      "created_at": "2026-11-12T17:22:10.675Z",
+      "updated_at": "2026-11-12T17:22:10.675Z"
+    }
+  ],
+  "payouts": [
+    {
+      "id": "payout_oct_01",
+      "influencer_id": "inf_ambassadeur_01",
+      "period_month": "2026-10",
+      "validated_subscriptions_count": 42,
+      "total_commission_fcfa": 6300,
+      "status": "paid",
+      "paid_at": "2026-11-01T10:00:00.000Z",
+      "payment_reference": "TR-WAVE-OCT-88291",
+      "notes": "Virement Wave mensuel effectué",
+      "created_at": "2026-10-01T00:00:00.000Z",
+      "updated_at": "2026-11-01T10:00:00.000Z"
+    },
+    {
+      "id": "payout_nov_01",
+      "influencer_id": "inf_ambassadeur_01",
+      "period_month": "2026-11",
+      "validated_subscriptions_count": 8,
+      "total_commission_fcfa": 1700,
+      "status": "in_progress",
+      "created_at": "2026-11-12T17:22:10.675Z",
+      "updated_at": "2026-11-12T17:22:10.675Z"
+    }
+  ],
+  "affiliations": [
+    {
+      "id": "aff_demo_01",
+      "influencer_id": "inf_ambassadeur_01",
+      "promo_code": "MAJOR_S2",
+      "subscription_id": "sub_demo_01",
+      "student_name": "Moussa Diop (Terminale S2)",
+      "student_phone": "+221 77 345 67 89",
+      "plan_name": "Abonnement Trimestriel (2 000 FCFA)",
+      "plan_amount": 2000,
+      "commission_fcfa": 400,
+      "period_month": "2026-11",
+      "validated_at": "2026-11-12T17:22:10.675Z"
+    },
+    {
+      "id": "aff_demo_02",
+      "influencer_id": "inf_ambassadeur_01",
+      "promo_code": "MAJOR_S2",
+      "subscription_id": "sub_demo_02",
+      "student_name": "Fatou Ndiaye (Terminale S2)",
+      "student_phone": "+221 78 123 99 88",
+      "plan_name": "Abonnement Mensuel (700 FCFA)",
+      "plan_amount": 700,
+      "commission_fcfa": 150,
+      "period_month": "2026-11",
+      "validated_at": "2026-11-12T17:22:10.675Z"
+    }
+  ]
+}
