@@ -2811,6 +2811,112 @@ On pratique successivement les interventions expérimentales suivantes :
       baremeAstuce: 'Dans l’épreuve de SVT du Bac S2, associez TOUJOURS chaque nerf à son effet précis : Vague = Chronotrope négatif (Acétylcholine) ; Sympathique = Chronotrope et Inotrope positifs (Noradrénaline).',
     },
   ],
+
+  // B2. LEÇON 3 - RÉGULATION RÉFLEXE DE LA PRESSION ARTÉRIELLE (SVT TERMINALE S2)
+  regulation_pression: [
+    {
+      year: 2022,
+      session: 'Session Normale (SVT Série S2)',
+      points: 'Exercice 2 — Raisonnement Scientifique & Communication (6 Points)',
+      topic: 'Boucle réflexe de régulation de la pression artérielle, Sinus carotidiens, Nerfs de Hering et de Cyon, centres bulbaires',
+      enonce: `Afin d'étudier les mécanismes régulateurs de la pression artérielle chez un chien anesthésié, on réalise la série d'expériences suivantes :
+
+**1. Expérience 1 :** On enregistre l'activité électrique d'une fibre isolée du nerf de Hering pour différentes valeurs de pression imposées dans le sinus carotidien isolé :
+- Pour une pression de $80\\text{ mmHg}$ : 10 potentiels d'action par seconde.
+- Pour une pression de $120\\text{ mmHg}$ : 45 potentiels d'action par seconde.
+- Pour une pression de $160\\text{ mmHg}$ : 90 potentiels d'action par seconde.
+
+**2. Expérience 2 :** On pose une ligature sur les deux carotides primitives en dessous (en amont) des sinus carotidiens. On constate immédiatement :
+- Une chute de la fréquence des potentiels d'action sur les nerfs de Hering.
+- Une élévation très nette de la pression artérielle générale qui passe de $120\\text{ mmHg}$ à $175\\text{ mmHg}$, accompagnée d'une accélération du rythme cardiaque (tachycardie).
+
+**3. Expérience 3 :** Sur un autre animal, on sectionne les deux nerfs de Hering et les deux nerfs de Cyon-Ludwig. La pression artérielle passe instantanément de $120\\text{ mmHg}$ à $190\\text{ mmHg}$ et y demeure durablement. On stimule ensuite le bout central d'un nerf de Hering : la pression artérielle chute brutalement à $80\\text{ mmHg}$ et le cœur ralentit.
+
+**Questions :**
+1. Analysez les résultats de l'Expérience 1. Précisez la nature et le rôle du récepteur situé dans le sinus carotidien. *(1,5 point)*
+2. Expliquez le mécanisme ayant provoqué l'hypertension artérielle générale lors de l'Expérience 2. *(1,5 point)*
+3. À partir de l'Expérience 3, déterminez le rôle physiologique normal des nerfs de Hering et de Cyon, ainsi que le sens de propagation de l'influx nerveux. *(1 point)*
+4. Sous la forme d'un schéma fonctionnel fléché et soigné, représentez la boucle réflexe correctrice déclenchée lors d'une élévation accidentelle de la pression artérielle (hypertension). *(2 points)*`,
+      solution: `### 1. Analyse de l'Expérience 1 & Rôle des barorécepteurs (1,5 pt)
+- **Analyse des données :** Lorsque la pression dans le sinus carotidien passe de $80$ à $160\\text{ mmHg}$, la fréquence des potentiels d'action sur la fibre du nerf de Hering augmente fortement de $10$ à $90\\text{ PA/s}$.
+- **Déduction :** La fréquence des influx nerveux afférents est directement proportionnelle à l'intensité de la pression artérielle (codage en fréquence d'impulsions).
+- **Nature et Rôle :** Les sinus carotidiens abritent des **barorécepteurs (ou mécanorécepteurs d'étirement)**. Ils convertissent une déformation mécanique de la paroi artérielle en un message nerveux sensitif afférent : c'est la **transduction sensorielle**.
+
+---
+
+### 2. Mécanisme de l'hypertension réactionnelle (Expérience 2) (1,5 pt)
+- La ligature posée en amont (sous les sinus) empêche le flux sanguin normal d'atteindre les sinus carotidiens : la pression sanguine **chute localement au niveau des barorécepteurs**.
+- Les barorécepteurs, sous-stimulés, diminuent drastiquement leur émission d'influx sur les nerfs de Hering vers le bulbe rachidien.
+- Le centre bulbaire interprète ce silence comme une **hypotension générale** :
+  1. Le **centre cardiomodérateur (nerf vague X) est inhibé**.
+  2. Le **centre vasomoteur orthosympathique est activé**, envoyant des influx moteurs vers le cœur (tachycardie, hausse du débit cardiaque $DC$) et vers les artérioles (vasoconstriction, hausse des résistances périphériques $RPT$).
+- Comme $PA = DC \\times RPT$, la résultante est une **hypertension artérielle générale réflexe**.
+
+---
+
+### 3. Rôle normal des nerfs de Hering et Cyon (1 pt)
+- **Nerfs freinateurs cardiomodérateurs :** Leur section bilatérale entraîne une hypertension permanente ($190\\text{ mmHg}$), ce qui prouve qu'en temps normal, ces nerfs transmettent un frein permanent régulateur.
+- **Sens de propagation centripète (voie afférente) :** La stimulation du bout **central** (relié au bulbe) provoque la chute tensionnelle et la bradycardie, alors que la stimulation du bout périphérique n'a aucun effet. L'influx chemine donc des récepteurs vers les centres nerveux (voie sensitive afférente).
+
+---
+
+### 4. Schéma fonctionnel de la boucle baroréflexe en cas d'hypertension (2 pts)
+$$\\begin{matrix}
+\\boxed{\\text{Hypertension accidentelle (PA } \\uparrow\\text{)}} \\\\
+\\downarrow \\\\
+\\boxed{\\text{Étirement des Barorécepteurs (Sinus carotidien + Crosse aortique)}} \\\\
+\\downarrow \\\\
+\\boxed{\\text{Voie Afférente : Nerfs de Hering (IX) et de Cyon (X) [Fréquence PA } \\uparrow\\text{]}} \\\\
+\\downarrow \\\\
+\\boxed{\\text{Centre Intégrateur Bulbaire : Activation du CCM (X) } + \\text{ Inhibition du CVM}} \\\\
+\\swarrow \\quad \\quad \\searrow \\\\
+\\boxed{\\text{Voie Parasympathique (Nerf X)}} \\quad \\quad \\boxed{\\text{Inhibition Sympathique}} \\\\
+\\downarrow \\quad \\quad \\quad \\quad \\downarrow \\\\
+\\boxed{\\text{Cœur (Bradycardie } \\implies DC \\downarrow\\text{)}} \\quad \\boxed{\\text{Artérioles (Vasodilatation } \\implies RPT \\downarrow\\text{)}} \\\\
+\\searrow \\quad \\quad \\swarrow \\\\
+\\boxed{\\mathbf{Retour\\ à\\ la\\ Normotension\\ (PA = DC \\times RPT } \\downarrow\\mathbf{)}}
+\\end{matrix}$$`,
+      baremeAstuce: 'Au Bac S2, ne confondez jamais bout central (relié au bulbe) et bout périphérique (relié à l\'organe). Pour les nerfs sensitifs comme Hering et Cyon, seule la stimulation du BOUT CENTRAL déclenche une réponse réflexe !',
+    },
+    {
+      year: 2018,
+      session: 'Session de Remplacement (SVT Série S2)',
+      points: 'Exercice 1 — Maîtrise des Connaissances (4 Points)',
+      topic: 'Contrôle neuro-hormonal de la volémie et de la pression artérielle à moyen et long terme',
+      enonce: `La constance de la pression artérielle est une nécessité vitale assurée par des mécanismes réflexes nerveux rapides, mais également par des systèmes de régulation hormonale à moyen et long terme (angiotensine, aldostérone, facteur natriurétique auriculaire).
+
+1. Rappelez la définition de la pression artérielle et donnez ses composantes ($PA = DC \\times RPT$). *(1 point)*
+2. Décrivez le rôle du système Rénine-Angiotensine-Aldostérone (SRAA) en réponse à une hypotension prolongée consécutive à une déshydratation ou une hémorragie. *(2 points)*
+3. Indiquez le rôle antagoniste joué par le Facteur Natriurétique Auriculaire (FNA ou ANP) sécrété par les oreillettes lors d'une hypervolémie. *(1 point)*`,
+      solution: `### 1. Définition et équation de la PA (1 pt)
+- La **pression artérielle** est la force hydrostatique exercée par la colonne sanguine sur l'unité de surface de la paroi des artères principales.
+- Elle dépend de deux grandeurs :
+  $$PA = DC \\times RPT$$
+  - $DC$ : Débit cardiaque ($L\\cdot\\min^{-1}$), produit de la fréquence cardiaque ($FC$) par le volume d'éjection systolique ($VES$).
+  - $RPT$ : Résistances périphériques totales, dépendantes du rayon des artérioles (loi de Poiseuille).
+
+---
+
+### 2. Le système Rénine-Angiotensine-Aldostérone (SRAA) (2 pts)
+Face à une baisse de pression de perfusion rénale (hypotension, hémorragie, déshydratation) :
+1. **Sécrétion de Rénine :** Les cellules de l'appareil juxtaglomérulaire rénal libèrent la rénine dans le sang.
+2. **Cascade enzymatique :** La rénine convertit l'angiotensinogène hépatique en **Angiotensine I**, transformée en **Angiotensine II** par l'enzyme de conversion pulmonaire (ECA).
+3. **Actions de l'Angiotensine II :**
+   - Puissant vasoconstricteur artériel direct ($RPT \\uparrow$).
+   - Stimulation de la sécrétion d'**Aldostérone** par la corticosurrénale.
+4. **Action de l'Aldostérone :** Augmente la réabsorption tubulaire rénale de sodium ($Na^+$) et d'eau vers le sang $\\implies$ augmentation de la volémie $\\implies$ rétablissement durable de la pression artérielle.
+
+---
+
+### 3. Rôle du Facteur Natriurétique Auriculaire (FNA) (1 pt)
+- Lors d'une hypervolémie (hausse excessive du volume sanguin), la paroi des oreillettes cardiaques est anormalement distendue.
+- Les myocytes auriculaires libèrent le **FNA (ou ANP)** qui agit comme antagoniste direct du SRAA :
+  - Il stimule l'élimination urinaire d'eau et de sodium (natriurèse et diurèse accrues).
+  - Il provoque une vasodilatation et freine la rénine et l'aldostérone.
+  - Résultat : baisse de la volémie et réduction de la pression artérielle.`,
+      baremeAstuce: 'Retenez bien l\'opposition : Aldostérone = rétention hydrosodée (augmente la PA) ; FNA (auriculaire) = élimination hydrosodée (baisse la PA).',
+    },
+  ],
 };
 
 BAC_ANNALES_BY_CHAPTER.cinematique = BAC_ANNALES_BY_CHAPTER.cinematique_point;
@@ -2862,6 +2968,16 @@ BAC_ANNALES_BY_CHAPTER['innervation-cardiaque'] = BAC_ANNALES_BY_CHAPTER.regulat
 BAC_ANNALES_BY_CHAPTER['loewi'] = BAC_ANNALES_BY_CHAPTER.regulation_nerveuse;
 BAC_ANNALES_BY_CHAPTER['nerf-vague'] = BAC_ANNALES_BY_CHAPTER.regulation_nerveuse;
 BAC_ANNALES_BY_CHAPTER['sympathique'] = BAC_ANNALES_BY_CHAPTER.regulation_nerveuse;
+BAC_ANNALES_BY_CHAPTER['regulation_pression'] = BAC_ANNALES_BY_CHAPTER.regulation_pression;
+BAC_ANNALES_BY_CHAPTER['regulation-pression'] = BAC_ANNALES_BY_CHAPTER.regulation_pression;
+BAC_ANNALES_BY_CHAPTER['regulation_pression_arterielle'] = BAC_ANNALES_BY_CHAPTER.regulation_pression;
+BAC_ANNALES_BY_CHAPTER['b2l3'] = BAC_ANNALES_BY_CHAPTER.regulation_pression;
+BAC_ANNALES_BY_CHAPTER['barocepteur'] = BAC_ANNALES_BY_CHAPTER.regulation_pression;
+BAC_ANNALES_BY_CHAPTER['barorecepteur'] = BAC_ANNALES_BY_CHAPTER.regulation_pression;
+BAC_ANNALES_BY_CHAPTER['barorécepteur'] = BAC_ANNALES_BY_CHAPTER.regulation_pression;
+BAC_ANNALES_BY_CHAPTER['pression-arterielle'] = BAC_ANNALES_BY_CHAPTER.regulation_pression;
+BAC_ANNALES_BY_CHAPTER['pression_arterielle'] = BAC_ANNALES_BY_CHAPTER.regulation_pression;
+BAC_ANNALES_BY_CHAPTER['hering'] = BAC_ANNALES_BY_CHAPTER.regulation_pression;
 
 interface BacSenegalAnnalesProps {
   chapter?: string;

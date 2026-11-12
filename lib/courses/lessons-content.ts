@@ -6275,8 +6275,203 @@ Dans le vocabulaire médical et au Baccalauréat S2, les effets des systèmes r�
    - C'est la question piège par excellence du jury du Bac : l'atropine agit sur le cœur car les récepteurs y sont **muscariniques**, tandis que le curare n'a aucun effet sur le cœur car il cible uniquement les récepteurs **nicotiniques** des muscles squelettiques.
 `;
 
+// ============================================================================
+// B2. LEÇON 3 : RÉGULATION RÉFLEXE DE LA PRESSION ARTÉRIELLE
+// ============================================================================
+RICH_LESSONS_MAP.regulation_pression_arterielle = `
+# B2 Leçon 3 — Régulation Réflexe de la Pression Artérielle : Barorécepteurs, Centres Bulbaires et Effecteurs
+
+> [!CONSEIL_BAC] **Importance Stratégique au Baccalauréat Sénégalais (Série S2) :**
+> La régulation réflexe de la pression artérielle est l'un des exercices les plus fréquents et discriminants des épreuves de SVT. Il combine la compréhension biophysique de l'hémodynamique ($PA = DC \\times RPT$), l'analyse d'expériences historiques fondamentales (sections et stimulations des nerfs de Hering et Cyon, ligatures des carotides) et la maîtrise d'un schéma fonctionnel de boucle homéostasique en rétroaction négative.
+
+---
+
+## 1. Définition et Grandeurs Fondamentales de la Pression Artérielle
+
+La **pression artérielle (PA)**, couramment appelée tension artérielle, représente la force mécanique exercée par la colonne sanguine par unité de surface de la paroi des grosses artères de la circulation systémique.
+
+Elle oscille continuellement au cours du cycle cardiaque entre deux valeurs physiologiques repères :
+1. **Pression Artérielle Systolique (PAS)** : Correspond au pic de pression atteint lors de l'éjection ventriculaire systolique (normale : $120\\text{ mmHg}$ ou $12\\text{ cmHg}$).
+2. **Pression Artérielle Diastolique (PAD)** : Correspond à la pression minimale résiduelle maintenue dans l'arbre artériel pendant la diastole générale ventriculaire grâce à l'élasticité de l'aorte (normale : $80\\text{ mmHg}$ ou $8\\text{ cmHg}$).
+
+### L'Équation Fondamentale de l'Hémodynamique
+$$PA = DC \\times RPT$$
+
+Où :
+- **$DC$ est le Débit Cardiaque** (en $\\text{L}\\cdot\\min^{-1}$) :
+  $$DC = FC \\times VES$$
+  - $FC$ = Fréquence cardiaque (en $\\text{batt}\\cdot\\min^{-1}$, physiologique $\\approx 70-75\\text{ bpm}$).
+  - $VES$ = Volume d'Éjection Systolique (volume de sang expulsé par chaque ventricule à chaque battement, $\\approx 70-80\\text{ mL}$).
+  - Ainsi, $DC \\approx 75 \\times 0{,}075 \\approx 5$ à $5{,}5\\text{ L}\\cdot\\min^{-1}$ au repos.
+- **$RPT$ représente les Résistances Périphériques Totales** :
+  - Elles traduisent la résistance physique opposée à l'écoulement du sang par l'ensemble du lit artériolaire de l'organisme.
+  - Selon la **loi de Poiseuille**, la résistance vasculaire varie de façon inversement proportionnelle à la puissance 4 du rayon du vaisseau :
+    $$RPT \\propto \\frac{1}{r^4}$$
+  - Une infime variation de diamètre de l'artériole (vasoconstriction ou vasodilatation) modifie donc considérablement les résistances périphériques et la pression artérielle !
+
+---
+
+## 2. Les Structures Réceptrices : Les Barorécepteurs Artériels
+
+Les **barorécepteurs** (ou pressiorécepteurs) sont des terminaisons nerveuses libres sensibles aux variations de déformation mécanique (étirement) de la paroi artérielle induite par la pression sanguine. Ce sont des **mécanorécepteurs**.
+
+### Localisation Anatomique Stratégique
+On distingue deux zones barosensibles majeures placées au carrefour de la circulation céphalique et générale :
+1. **Les Sinus Carotidiens** : Renflements situés à la bifurcation de chaque artère carotide primitive (en carotide interne et externe).
+   - Ils surveillent en permanence la pression de perfusion sanguine irriguant directement le **cerveau**.
+   - Leurs fibres sensitives cheminent dans le **Nerf de Hering**, branche collatérale du **nerf glossopharyngien (IX)**.
+2. **La Crosse Aortique** : Courbure supérieure de l'aorte à la sortie immédiate du ventricule gauche.
+   - Elle surveille la pression de sortie générale du sang pour l'ensemble de l'organisme.
+   - Ses fibres sensitives cheminent dans le **Nerf de Cyon-Ludwig**, rameau sensitif afférent du **nerf vague ou pneumogastrique (X)**.
+
+### Mécanisme de Transduction & Codage de l'Information
+- Au repos ($PA = 120/80\\text{ mmHg}$), la paroi artérielle subit un étirement modéré : les barorécepteurs déchargent de façon continue à une **fréquence basale tonique**.
+- Si la pression artérielle augmente (hypertension accidentelle) :
+  - L'étirement pariétal s'amplifie.
+  - L'ouverture mécanique de canaux cationiques membranaires génère un potentiel de récepteur dépolarisant plus ample.
+  - Le nerf afférent émet une **fréquence de potentiels d'action considérablement accrue** vers le bulbe rachidien (**codage en fréquence d'impulsions**).
+- Si la pression artérielle baisse (hypotension, hémorragie) :
+  - L'étirement faiblit ou cesse.
+  - La fréquence des potentiels d'action sur les nerfs de Hering et Cyon s'effondre.
+
+---
+
+## 3. Les Centres Nerveux Régulateurs Bulbaires
+
+Les influx afférents véhiculés par les nerfs de Hering et de Cyon atteignent le **bulbe rachidien** (partie inférieure du tronc cérébral), qui constitue le centre intégrateur de la boucle réflexe.
+
+Le bulbe renferme deux centres fonctionnels majeurs interconnectés :
+
+### 1. Le Centre Cardiomodérateur (CCM)
+- Situé au niveau du noyau moteur dorsal du nerf pneumogastrique (nerf X).
+- Lorsqu'il est stimulé par les influx de Hering et Cyon, il déclenche une réponse parasympathique :
+  - Influx moteurs centrifuges descendant par les **nerfs vagues (X)**.
+  - Libération d'**Acétylcholine** sur les récepteurs muscariniques $M_2$ du tissu nodal (nœud sinusal et auriculoventriculaire).
+  - **Effet chronotrope négatif** (bradycardie) et diminution du débit cardiaque ($DC \\downarrow$).
+
+### 2. Le Centre Vasomoteur (CVM)
+- Situé dans la zone réticulée ventrolatérale du bulbe.
+- C'est un centre **tonique vasoconstricteur** : spontanément actif, il envoie en continu des influx moteurs activateurs le long de la moelle épinière thoracique jusqu'aux fibres sympathiques innervant les artérioles.
+- **Règle capitale du Bac S2 :** Les afférences sensitives des nerfs de Hering et Cyon exercent une **inhibition constante** sur le centre vasomoteur !
+  - Lors d'une hypertension : le CVM est fortement inhibé $\\implies$ baisse du tonus sympathique $\\implies$ **vasodilatation artériolaire** ($RPT \\downarrow$).
+  - Lors d'une hypotension : la levée d'inhibition libère le CVM $\\implies$ décharge sympathique massive $\\implies$ **vasoconstriction artériolaire** ($RPT \\uparrow$).
+
+---
+
+## 4. Analyse des Expériences Fondamentales du Bac S2
+
+### A. Expériences de Section des Nerfs Sensitifs (Hering et Cyon)
+- **Protocole :** Section bilatérale des 2 nerfs de Hering et des 2 nerfs de Cyon chez un mammifère anesthésié.
+- **Observation :**
+  - Tachycardie immédiate ($FC$ passe de $70$ à plus de $140\\text{ bpm}$).
+  - Hypertension artérielle sévère et persistante ($PA$ monte à plus de $180-200\\text{ mmHg}$).
+- **Interprétation Bac :**
+  - En conditions physiologiques de repos, les nerfs de Hering et Cyon envoient un message freinateur continu aux centres.
+  - Leur section supprime l'activation du centre cardiomodérateur et lève l'inhibition du centre vasomoteur : le système sympathique est totalement libéré.
+  - **Conclusion :** Les nerfs de Hering et Cyon sont des **nerfs modérateurs ou freinateurs tensionnels**.
+
+### B. Expériences de Stimulation Électrique Différentielle
+- **Stimulation du bout périphérique** (côté sinus/aorte) : Aucun effet cardiaque ni tensionnel.
+- **Stimulation du bout central** (côté bulbe rachidien) :
+  - Bradycardie intense.
+  - Chute immédiate de la pression artérielle (hypotension).
+  - Vasodilatation généralisée des artérioles splanchniques.
+- **Interprétation Bac :** Le message circule des barorécepteurs périphériques vers les centres bulbaires intégrateurs : Hering et Cyon sont donc des **voies nerveuses sensitives centripètes (afférentes)**.
+
+### C. L'Expérience Cruciale de la Ligature des Carotides
+- **Cas 1 : Ligature en amont (en dessous) des sinus carotidiens :**
+  - Le sang artériel ne parvient plus aux sinus : la pression sanguine **chute localement dans le sinus**.
+  - Les barorécepteurs ne sont plus étirés et cessent d'émettre des potentiels d'action sur le nerf de Hering.
+  - Le bulbe rachidien interprète cette absence d'influx comme une hypotension générale de l'organisme.
+  - Réaction réflexe : inhibition du nerf vague X et décharge intense du sympathique.
+  - **Résultat observé :** Hypertension générale réflexe dans le reste de l'organisme avec tachycardie !
+- **Cas 2 : Ligature en aval (au-dessus) des sinus carotidiens :**
+  - Le sang s'accumule dans le cul-de-sac carotidien : la pression monte localement dans le sinus.
+  - Les barorécepteurs sont fortement étirés et suractivent le nerf de Hering.
+  - Réaction réflexe : activation du vague X et inhibition du sympathique.
+  - **Résultat observé :** Hypotension générale réflexe et bradycardie !
+
+---
+
+## 5. Synthèse Comparée : Réponses Réflexes Face aux Perturbations
+
+| Paramètre / Étape | Réponse à une HYPERTENSION accidentelle | Réponse à une HYPOTENSION (ex: Hémorragie) |
+| :--- | :--- | :--- |
+| **Stimulus initial** | Étirement excessif de la paroi artérielle ($PA \\uparrow$) | Diminution de l'étirement pariétal ($PA \\downarrow$) |
+| **Activité Barorécepteurs** | Fréquence de décharge très élevée (+++++) | Fréquence de décharge très faible ou nulle (+) |
+| **Voie afférente (Hering/Cyon)** | Influx massifs vers le bulbe rachidien | Influx très réduits vers le bulbe rachidien |
+| **Centre Cardiomodérateur (CCM)** | **Activé** (stimulé par les afférences) | **Inhibé** (manque de stimulation afférente) |
+| **Centre Vasomoteur (CVM)** | **Inhibé** (frein bulbaire maximal) | **Activé** (levée du frein inhibiteur) |
+| **Voie Parasympathique (Nerf X)** | Décharge accrue d'Acétylcholine | Activité effondrée (levée du tonus vagal) |
+| **Voie Sympathique** | Activité sympatho-inhibitrice | Décharge massive de Noradrénaline |
+| **Action sur le Cœur** | Bradycardie ($FC \\downarrow$), $VES \\downarrow \\implies DC \\downarrow$ | Tachycardie ($FC \\uparrow$), $VES \\uparrow \\implies DC \\uparrow$ |
+| **Action sur les Artérioles** | Vasodilatation $\\implies RPT \\downarrow$ | Vasoconstriction $\\implies RPT \\uparrow$ |
+| **Action sur les Médullosurrénales** | Inhibition de la sécrétion d'adrénaline | Sécrétion accrue d'Adrénaline circulante |
+| **Résultat global** | $PA = DC \\times RPT \\implies$ **Chute de la PA (Retour à 120/80)** | $PA = DC \\times RPT \\implies$ **Hausse de la PA (Retour à 120/80)** |
+
+---
+
+## 6. Régulation Neuro-Hormonale à Moyen et Long Terme
+
+Si la boucle réflexe baroréceptrice assure la protection immédiate en quelques secondes, des mécanismes hormonaux complètent la régulation pour stabiliser la volémie et la pression à long terme :
+
+### Le Système Rénine-Angiotensine-Aldostérone (SRAA) — Hypertenseur
+1. Déclenché par la baisse de perfusion de l'artère rénale (hypotension, hémorragie).
+2. L'appareil juxtaglomérulaire sécrète la **rénine** dans le sang.
+3. La rénine convertit l'angiotensinogène en **Angiotensine I**, transformée en **Angiotensine II** active par l'Enzyme de Conversion de l'Angiotensine (ECA).
+4. L'Angiotensine II exerce deux rôles majeurs :
+   - Puissante vasoconstriction directe des artérioles ($RPT \\uparrow$).
+   - Stimulation de la sécrétion d'**Aldostérone** par le cortex surrénalien.
+5. L'aldostérone augmente la réabsorption tubulaire rénale de $Na^+$ et d'eau $\\implies$ augmentation du volume sanguin (**volémie $\\uparrow$**) $\\implies$ remontée durable de la pression artérielle.
+
+### Le Facteur Natriurétique Auriculaire (FNA ou ANP) — Hypotenseur
+- Sécrété par les myocytes des oreillettes cardiaques lorsqu'elles sont distendues par une hypervolémie (trop de sang arrivant au cœur).
+- Provoque une vasodilatation et stimule l'élimination urinaire d'eau et de sodium (natriurèse).
+- Baisse de la volémie $\\implies$ baisse de la pression artérielle.
+
+---
+
+## 7. Ndongo S2 — Wolof Insight pour le Baccalauréat
+
+> [!WOLOF_INSIGHT] **Comprendre la régulation de la tension avec la métaphore du réseau de robinets :**
+> - **Pression Artérielle (PA)** : Dafa melni ndox muy circulate ci **tuuyo (tuyaux)** yi. Bu moteur bi (cœur) di pompe vite té bu baax, té robinet yi teju (artérioles), ndox mi dafay door ci kanam tuuyo bi : **pression bi dafay yéeg (Hypertension)** !
+> - **Barorécepteurs (Sinus carotidien ak Crosse aortique)** : Ñoom ñooy **capteurs yi** ! Dañuy nekk ci tuuyo yu mag yi di xool ndax ndox mi dafa door torop. Bu pression bi yéegee, dañuy yabal message ci **Nerf de Hering ak Nerf de Cyon** jëm ci bulbe rachidien bi.
+> - **Bulbe Rachidien** : Mooy **ordinateur central bi** ! Bu déggee ni pression bi yéeg na :
+>   1. Dafay woo **Nerf Vague (X)** : *"Freineul xol bi ! (Bradycardie)"*
+>   2. Dafay tej **Système Sympathique bi** : *"Ubbil robinet yi ! (Vasodilatation)"*
+> - Résultat : Pression bi dafay wàcc ba dellu ci 12/8 normal !
+> - **Expérience Ligature bi** : Bula jury bi laajee ci Bac ligature sous-sinusale : ndox mi agatul ci capteur bi, kon capteur bi dafay foog ne ndox mi jeex na ci yaram bi yépp ! Dafay wax bulbe bi : *"Pression bi dafa wàcc !"* ; bulbe bi dafay accélérer xol bi té tëj artérioles yi, ba tax pression générale bi yéeg ba melni hypertension neurogène !
+
+---
+
+## 8. Conseils Méthodologiques pour la Copie du Bac S2
+
+1. **La formule magique dans l'introduction :** Citez immédiatement $PA = DC \\times RPT$ avec $DC = FC \\times VES$. Toute explication sans cette relation sera pénalisée par le correcteur.
+2. **Pour les barorécepteurs :** Employez toujours les termes rigoureux : **"mécanorécepteurs sensibles à l'étirement pariétal"** et **"transduction sensorielle avec codage en fréquence de potentiels d'action"**.
+3. **Dans les analyses d'expériences de coupure :**
+   - Distinguez toujours avec précision **bout périphérique** (vers l'organe) et **bout central** (vers le centre bulbaire).
+   - Pour un nerf afférent sensitif (Hering, Cyon), seule la stimulation du **bout central** est efficace !
+4. **Schéma fonctionnel obligatoire :** Entraînez-vous à dessiner en 2 minutes un schéma clair à boîtes rectangulaires avec stimulus, récepteurs, voies afférentes, centres, voies efférentes antagonistes et effecteurs.
+`;
+
 export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: string, rawContent: string | null): string {
   const titleLower = `${lessonTitle} ${chapterTitle}`.toLowerCase();
+
+  // Routage SVT B2 Leçon 3 : Régulation Réflexe de la Pression Artérielle
+  if (
+    titleLower.includes('barorécepteur') ||
+    titleLower.includes('barorecepteur') ||
+    titleLower.includes('barocepteur') ||
+    titleLower.includes('hering') ||
+    titleLower.includes('pression artérielle') ||
+    titleLower.includes('pression arterielle') ||
+    (titleLower.includes('régulation') && titleLower.includes('pression')) ||
+    (titleLower.includes('regulation') && titleLower.includes('pression')) ||
+    titleLower.includes('vasomoteur') ||
+    titleLower.includes('60000000-0000-0003-0002-000000000003')
+  ) {
+    return RICH_LESSONS_MAP.regulation_pression_arterielle;
+  }
 
   // Routage SVT B2 Leçon 2 : Innervation & Régulation Nerveuse et Hormonale de l'Activité Cardiaque
   if (

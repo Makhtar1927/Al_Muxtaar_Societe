@@ -129,6 +129,9 @@ import B2CardiaqueQuizEmbedded from '@/components/course/b2-cardiaque-quiz-embed
 import B2RegulationNerveuseReflexesCard from '@/components/course/b2-regulation-nerveuse-reflexes-card';
 import B2RegulationNerveuseInteractiveLab from '@/components/course/b2-regulation-nerveuse-interactive-lab';
 import B2RegulationNerveuseQuizEmbedded from '@/components/course/b2-regulation-nerveuse-quiz-embedded';
+import B2RegulationPaReflexesCard from '@/components/course/b2-regulation-pa-reflexes-card';
+import B2RegulationPaInteractiveLab from '@/components/course/b2-regulation-pa-interactive-lab';
+import B2RegulationPaQuizEmbedded from '@/components/course/b2-regulation-pa-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
@@ -1345,6 +1348,33 @@ const REGULATION_NERVEUSE_AUDIO_CHAPTERS: AudioChapter[] = [
     icon: "cle_solution",
     textScript:
       "Ne tombez jamais dans les pièges classiques de l'épreuve : sectionner les deux nerfs vagues ne provoque pas l'arrêt mais une tachycardie immédiate par levée du frein ! L'atropine bloque les récepteurs muscariniques du cœur et entraîne une tachycardie. En revanche, le curare n'a aucun effet sur le cœur car il cible exclusivement les récepteurs nicotiniques des muscles squelettiques.",
+  },
+];
+
+const REGULATION_PA_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Pression Artérielle & Barorécepteurs",
+    badge: "Fondations",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette leçon clé du Bac S2 sur la régulation de la pression artérielle. Retenez impérativement l'équation fondamentale PA = DC x RPT. Les barorécepteurs du sinus carotidien et de la crosse aortique sont des mécanorécepteurs sensibles à l'étirement pariétal, codant la pression en fréquence de potentiels d'action sur les nerfs de Hering et de Cyon.",
+  },
+  {
+    timeSeconds: 48,
+    title: "2. Centres Bulbaires & Boucle Réflexe",
+    badge: "Mécanisme Réflexe",
+    icon: "theoreme_equerre",
+    textScript:
+      "Le bulbe rachidien agit comme centre intégrateur suprême : en cas d'hypertension, l'afflux de potentiels d'action stimule le centre cardiomodérateur du nerf vague et inhibe le centre vasomoteur sympathique. La bradycardie et la vasodilatation font chuter le débit et les résistances, ramenant aussitôt la pression à 12/8.",
+  },
+  {
+    timeSeconds: 95,
+    title: "3. Pièges du Bac : Ligatures & Sections de Hering",
+    badge: "Classiques Bac",
+    icon: "cle_solution",
+    textScript:
+      "Attention aux deux pièges majeurs du Baccalauréat : la ligature en amont des sinus carotidiens fait chuter la pression localement dans le sinus, déclenchant une fausse alerte et donc une hypertension générale réflexe ! De plus, la section des nerfs de Hering entraîne une hypertension neurogène par levée de frein permanente.",
   },
 ];
 
@@ -2700,7 +2730,22 @@ if (lessonMeta && lessonMeta.status !== 'published') {
       params.lesson === '60000000-0000-0002-0001-000000000012' ||
       params.chapter === '50000000-0000-0002-0001-000000000004');
 
+  const isRegulationPaB2 =
+    params.lesson === '60000000-0000-0003-0002-000000000003' ||
+    lessonMeta.title.toLowerCase().includes('barorécepteur') ||
+    lessonMeta.title.toLowerCase().includes('barorecepteur') ||
+    lessonMeta.title.toLowerCase().includes('barocepteur') ||
+    lessonMeta.title.toLowerCase().includes('hering') ||
+    lessonMeta.title.toLowerCase().includes('pression artérielle') ||
+    lessonMeta.title.toLowerCase().includes('pression arterielle') ||
+    (lessonMeta.title.toLowerCase().includes('régulation') &&
+      lessonMeta.title.toLowerCase().includes('pression')) ||
+    (lessonMeta.title.toLowerCase().includes('regulation') &&
+      lessonMeta.title.toLowerCase().includes('pression')) ||
+    lessonMeta.title.toLowerCase().includes('vasomoteur');
+
   const isCardiaqueB2 =
+    !isRegulationPaB2 && (
     params.lesson === '60000000-0000-0003-0002-000000000001' ||
     lessonMeta.title.toLowerCase().includes('révolution cardiaque') ||
     lessonMeta.title.toLowerCase().includes('revolution cardiaque') ||
@@ -2711,9 +2756,10 @@ if (lessonMeta && lessonMeta.status !== 'published') {
       (lessonMeta.title.toLowerCase().includes('anatomie') ||
         lessonMeta.title.toLowerCase().includes('mécanisme') ||
         lessonMeta.title.toLowerCase().includes('mecanisme') ||
-        lessonMeta.title.toLowerCase().includes('nodal')));
+        lessonMeta.title.toLowerCase().includes('nodal'))));
 
   const isRegulationNerveuseB2 =
+    !isRegulationPaB2 && (
     params.lesson === '60000000-0000-0003-0002-000000000002' ||
     lessonMeta.title.toLowerCase().includes('innervation') ||
     lessonMeta.title.toLowerCase().includes('loewi') ||
@@ -2730,7 +2776,7 @@ if (lessonMeta && lessonMeta.status !== 'published') {
       !lessonMeta.title.toLowerCase().includes('pression')) ||
     (lessonMeta.title.toLowerCase().includes('regulation') &&
       lessonMeta.title.toLowerCase().includes('cardiaque') &&
-      !lessonMeta.title.toLowerCase().includes('pression'));
+      !lessonMeta.title.toLowerCase().includes('pression')));
 
   const isReflexesConditionnels =
     !isCardiaqueB2 &&
@@ -2909,7 +2955,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
               {/* Capsule Vocale & Masterclass Audio du Professeur (Al Muxtaar S2) */}
               <AudioCoachPlayer
                 title={
-                  isRegulationNerveuseB2
+                  isRegulationPaB2
+                    ? 'Masterclass Audio : Régulation Réflexe de la Pression Artérielle'
+                    : isRegulationNerveuseB2
                     ? 'Masterclass Audio : Innervation & Régulation Nerveuse et Hormonale du Cœur'
                     : isCardiaqueB2
                     ? 'Masterclass Audio : Automatisme Cardiaque, Tissu Nodal & Révolution'
@@ -2970,7 +3018,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     : 'Masterclass Audio : Limites & Continuité'
                 }
                 subtitle={
-                  isRegulationNerveuseB2
+                  isRegulationPaB2
+                    ? 'Terminale S2 • SVT : Les 6 réflexes pour PA = DC x RPT, sinus carotidiens, Hering, Cyon et bulbe'
+                    : isRegulationNerveuseB2
                     ? 'Terminale S2 • SVT : Les 6 réflexes pour le vague, sympathique, Otto Loewi et la pharmacologie'
                     : isCardiaqueB2
                     ? 'Terminale S2 • SVT : Les 6 réflexes pour le tissu nodal, Stannius, ECG et la période réfractaire'
@@ -3031,7 +3081,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     : 'Terminale S2 • 5 réflexes essentiels pour l\'épreuve'
                 }
                 chapters={
-                  isRegulationNerveuseB2
+                  isRegulationPaB2
+                    ? REGULATION_PA_AUDIO_CHAPTERS
+                    : isRegulationNerveuseB2
                     ? REGULATION_NERVEUSE_AUDIO_CHAPTERS
                     : isCardiaqueB2
                     ? CARDIAQUE_AUDIO_CHAPTERS
@@ -3175,6 +3227,11 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                   <P4ParticuleReflexesCard />
                   <P4ParticuleInteractiveSimulator />
                 </>
+              ) : isRegulationPaB2 ? (
+                <>
+                  <B2RegulationPaReflexesCard />
+                  <B2RegulationPaInteractiveLab />
+                </>
               ) : isRegulationNerveuseB2 ? (
                 <>
                   <B2RegulationNerveuseReflexesCard />
@@ -3310,7 +3367,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
               {/* Section Annales Officielles du Baccalauréat Sénégalais (Après les exercices d'application) */}
               <BacSenegalAnnales
                 chapter={
-                  isRegulationNerveuseB2
+                  isRegulationPaB2
+                    ? 'regulation_pression'
+                    : isRegulationNerveuseB2
                     ? 'regulation_nerveuse'
                     : isCardiaqueB2
                     ? 'activite_cardiaque'
@@ -3414,6 +3473,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <ProjectileQuizEmbedded />
               ) : isParticule ? (
                 <P4ParticuleQuizEmbedded />
+              ) : isRegulationPaB2 ? (
+                <B2RegulationPaQuizEmbedded />
               ) : isRegulationNerveuseB2 ? (
                 <B2RegulationNerveuseQuizEmbedded />
               ) : isCardiaqueB2 ? (
