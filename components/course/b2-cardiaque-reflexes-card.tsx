@@ -169,7 +169,7 @@ const CARDIAC_FICHES: CardiacFiche[] = [
           <p className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
             VOLUME D&apos;ÉJECTION SYSTOLIQUE (VES)
           </p>
-          <div className="bg-white border border-slate-200 rounded-xl p-3 inline-block shadow-sm">
+          <div className="bg-white border border-slate-200 rounded-xl p-3 inline-block shadow-sm max-w-full overflow-x-auto">
             <MathRenderer content="$$VES = VTD - VTS \approx 120\text{ mL} - 50\text{ mL} = 70\text{ mL}$$" />
           </div>
           <p className="text-xs text-slate-500 mt-2">
@@ -240,7 +240,7 @@ const CARDIAC_FICHES: CardiacFiche[] = [
           <p className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
             CALCUL DE LA FRÉQUENCE CARDIAQUE DEPUIS L&apos;INTERVALLE R-R
           </p>
-          <div className="bg-white border border-slate-200 rounded-xl p-3 inline-block shadow-sm">
+          <div className="bg-white border border-slate-200 rounded-xl p-3 inline-block shadow-sm max-w-full overflow-x-auto">
             <MathRenderer content="$$FC = \frac{60}{\text{Intervalle } R-R \text{ (en secondes)}} \quad (\text{battements/min})$$" />
           </div>
           <p className="text-xs text-slate-500 mt-2">
@@ -317,7 +317,7 @@ const CARDIAC_FICHES: CardiacFiche[] = [
       <div className="space-y-4">
         <div className="bg-sky-50 border border-sky-200 rounded-2xl p-4 sm:p-5 text-center">
           <p className="text-xs font-black text-sky-800 uppercase tracking-wider mb-2">FORMULE FONDAMENTALE DU DÉBIT CARDIAQUE</p>
-          <div className="bg-white border border-sky-200 rounded-xl p-3.5 inline-block shadow-sm">
+          <div className="bg-white border border-sky-200 rounded-xl p-3.5 inline-block shadow-sm max-w-full overflow-x-auto">
             <MathRenderer content="$$DC = FC \times VES \quad (\text{en Litres/minute})$$" />
           </div>
           <p className="text-xs text-slate-600 mt-2 font-medium">
@@ -348,7 +348,7 @@ const CARDIAC_FICHES: CardiacFiche[] = [
           <p className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
             RELATION AVEC LA PRESSION ARTÉRIELLE (PA)
           </p>
-          <div className="bg-white border border-slate-200 rounded-xl p-3 inline-block shadow-sm">
+          <div className="bg-white border border-slate-200 rounded-xl p-3 inline-block shadow-sm max-w-full overflow-x-auto">
             <MathRenderer content="$$PA = DC \times RPT = (FC \times VES) \times RPT$$" />
           </div>
           <p className="text-xs text-slate-500 mt-2">
@@ -501,17 +501,49 @@ export default function B2CardiaqueReflexesCard() {
         </div>
       </div>
 
-      {/* Bilan KaTeX Footer */}
-      <div className="bg-gradient-to-r from-rose-50 via-pink-50 to-rose-50 border border-rose-200 rounded-2xl p-5 text-center">
-        <p className="text-xs font-black text-rose-800 uppercase tracking-widest mb-2.5">
-          FORMULE MAÎTRESSE OFFICIELLE DU BACCALAURÉAT S2
+      {/* Bilan KaTeX Footer Responsif */}
+      <div className="bg-gradient-to-r from-rose-50 via-pink-50 to-rose-50 border border-rose-200 rounded-2xl p-4 sm:p-6 text-center shadow-sm">
+        <p className="text-xs font-black text-rose-800 uppercase tracking-widest mb-3.5">
+          FORMULES MAÎTRESSES OFFICIELLES DU BACCALAURÉAT S2
         </p>
-        <div className="bg-white border border-rose-200 rounded-xl p-3.5 inline-block shadow-sm">
-          <MathRenderer
-            content="$$PA = DC \times RPT \qquad DC = FC \times VES \qquad \Delta PA \xrightarrow{\text{Boucle réflexe}} \text{Barorécepteurs} \to \text{Centre bulbaire}$$"
-          />
+
+        {/* 3 Cartouches Responsifs en grille mobile 1 col -> desktop 3 cols */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3.5">
+          {/* Formule 1 : Pression Artérielle */}
+          <div className="bg-white border border-rose-200/80 rounded-xl p-3.5 shadow-sm flex flex-col justify-center items-center min-w-0">
+            <span className="text-[10px] font-bold text-rose-700 uppercase tracking-wider mb-1.5">
+              1. Pression Artérielle (PA)
+            </span>
+            <div className="w-full overflow-x-auto py-1 text-slate-900 flex justify-center scrollbar-thin">
+              <MathRenderer content="$$PA = DC \times RPT$$" />
+            </div>
+            <span className="text-[10px] text-slate-500 mt-1 font-medium">Débit × Résistances totales</span>
+          </div>
+
+          {/* Formule 2 : Débit Cardiaque */}
+          <div className="bg-white border border-rose-200/80 rounded-xl p-3.5 shadow-sm flex flex-col justify-center items-center min-w-0">
+            <span className="text-[10px] font-bold text-rose-700 uppercase tracking-wider mb-1.5">
+              2. Débit Cardiaque (DC)
+            </span>
+            <div className="w-full overflow-x-auto py-1 text-slate-900 flex justify-center scrollbar-thin">
+              <MathRenderer content="$$DC = FC \times VES$$" />
+            </div>
+            <span className="text-[10px] text-slate-500 mt-1 font-medium">Fréquence × Éjection systolique</span>
+          </div>
+
+          {/* Formule 3 : Boucle Réflexe Régulatrice */}
+          <div className="bg-white border border-rose-200/80 rounded-xl p-3.5 shadow-sm flex flex-col justify-center items-center min-w-0">
+            <span className="text-[10px] font-bold text-rose-700 uppercase tracking-wider mb-1.5">
+              3. Boucle Réflexe Barosensible
+            </span>
+            <div className="w-full overflow-x-auto py-1 text-slate-900 flex justify-center scrollbar-thin text-xs">
+              <MathRenderer content="$$\Delta PA \to \text{Barorécepteurs} \to \text{Bulbe}$$" />
+            </div>
+            <span className="text-[10px] text-slate-500 mt-1 font-medium">Boucle homéostasique</span>
+          </div>
         </div>
-        <p className="text-xs text-slate-600 font-medium mt-2.5">
+
+        <p className="text-[11px] sm:text-xs text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
           PA = Pression Artérielle • DC = Débit Cardiaque • RPT = Résistances Périphériques Totales • FC = Fréquence • VES = Volume d&apos;Éjection
         </p>
       </div>
