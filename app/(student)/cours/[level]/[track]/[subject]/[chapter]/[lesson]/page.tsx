@@ -132,6 +132,9 @@ import B2RegulationNerveuseQuizEmbedded from '@/components/course/b2-regulation-
 import B2RegulationPaReflexesCard from '@/components/course/b2-regulation-pa-reflexes-card';
 import B2RegulationPaInteractiveLab from '@/components/course/b2-regulation-pa-interactive-lab';
 import B2RegulationPaQuizEmbedded from '@/components/course/b2-regulation-pa-quiz-embedded';
+import B3ImmuniteInneeReflexesCard from '@/components/course/b3-immunite-innee-reflexes-card';
+import B3ImmuniteInneeInteractiveLab from '@/components/course/b3-immunite-innee-interactive-lab';
+import B3ImmuniteInneeQuizEmbedded from '@/components/course/b3-immunite-innee-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
@@ -1375,6 +1378,33 @@ const REGULATION_PA_AUDIO_CHAPTERS: AudioChapter[] = [
     icon: "cle_solution",
     textScript:
       "Attention aux deux pièges majeurs du Baccalauréat : la ligature en amont des sinus carotidiens fait chuter la pression localement dans le sinus, déclenchant une fausse alerte et donc une hypertension générale réflexe ! De plus, la section des nerfs de Hering entraîne une hypertension neurogène par levée de frein permanente.",
+  },
+];
+
+const IMMUNITE_INNEE_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Soi, Non-Soi & Marqueurs CMH/HLA",
+    badge: "Fondations",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette leçon d'Immunologie du Bac S2. Le soi est l'ensemble des molécules déterminées par notre génome et tolérées par le système immunitaire. Retenez la différence cardinale : le CMH I est présent sur toutes les cellules nucléées pour présenter les peptides aux LT8, tandis que le CMH II est exclusif aux cellules présentatrices d'antigènes pour alerter les LT4.",
+  },
+  {
+    timeSeconds: 52,
+    title: "2. Réaction Inflammatoire & Diapédèse",
+    badge: "Immunité Innée",
+    icon: "theoreme_equerre",
+    textScript:
+      "Face à une brèche cutanée, la réaction inflammatoire aiguë s'enclenche immédiatement avec ses 4 signes cardinaux : rougeur et chaleur par vasodilatation histaminique, gonflement par œdème exsudatif, et douleur par stimulation des nocicepteurs. Les globules blancs traversent la paroi capillaire par diapédèse pour rejoindre le tissu lésé.",
+  },
+  {
+    timeSeconds: 104,
+    title: "3. Les 4 Temps de la Phagocytose & Règle ABO",
+    badge: "Méthode Bac",
+    icon: "cle_solution",
+    textScript:
+      "Retenez l'ordre strict des 4 étapes de la phagocytose : adhésion, ingestion avec formation du phagosome, digestion par fusion lysosomiale, puis rejet des débris et présentation sur CMH II. Pour les transfusions sanguines, la règle d'or est de ne jamais injecter un globule rouge portant un antigène contre lequel le receveur possède déjà l'anticorps plasmatique.",
   },
 ];
 
@@ -2730,7 +2760,19 @@ if (lessonMeta && lessonMeta.status !== 'published') {
       params.lesson === '60000000-0000-0002-0001-000000000012' ||
       params.chapter === '50000000-0000-0002-0001-000000000004');
 
+  const isImmuniteInneeB3 =
+    params.lesson === '60000000-0000-0003-0003-000000000001' ||
+    lessonMeta.title.toLowerCase().includes('cmh') ||
+    lessonMeta.title.toLowerCase().includes('hla') ||
+    lessonMeta.title.toLowerCase().includes('phagocytose') ||
+    lessonMeta.title.toLowerCase().includes('immunité innée') ||
+    lessonMeta.title.toLowerCase().includes('immunite innee') ||
+    lessonMeta.title.toLowerCase().includes('inflammation') ||
+    (lessonMeta.title.toLowerCase().includes('soi') && lessonMeta.title.toLowerCase().includes('non-soi')) ||
+    (lessonMeta.title.toLowerCase().includes('soi') && lessonMeta.title.toLowerCase().includes('non soi'));
+
   const isRegulationPaB2 =
+    !isImmuniteInneeB3 && (
     params.lesson === '60000000-0000-0003-0002-000000000003' ||
     lessonMeta.title.toLowerCase().includes('barorécepteur') ||
     lessonMeta.title.toLowerCase().includes('barorecepteur') ||
@@ -2742,7 +2784,7 @@ if (lessonMeta && lessonMeta.status !== 'published') {
       lessonMeta.title.toLowerCase().includes('pression')) ||
     (lessonMeta.title.toLowerCase().includes('regulation') &&
       lessonMeta.title.toLowerCase().includes('pression')) ||
-    lessonMeta.title.toLowerCase().includes('vasomoteur');
+    lessonMeta.title.toLowerCase().includes('vasomoteur'));
 
   const isCardiaqueB2 =
     !isRegulationPaB2 && (
@@ -2955,7 +2997,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
               {/* Capsule Vocale & Masterclass Audio du Professeur (Al Muxtaar S2) */}
               <AudioCoachPlayer
                 title={
-                  isRegulationPaB2
+                  isImmuniteInneeB3
+                    ? 'Masterclass Audio : Soi, Non-Soi, CMH/HLA & Immunité Innée'
+                    : isRegulationPaB2
                     ? 'Masterclass Audio : Régulation Réflexe de la Pression Artérielle'
                     : isRegulationNerveuseB2
                     ? 'Masterclass Audio : Innervation & Régulation Nerveuse et Hormonale du Cœur'
@@ -3018,7 +3062,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     : 'Masterclass Audio : Limites & Continuité'
                 }
                 subtitle={
-                  isRegulationPaB2
+                  isImmuniteInneeB3
+                    ? 'Terminale S2 • SVT : Les 6 réflexes pour le CMH I et II, ABO, la réaction inflammatoire et la phagocytose'
+                    : isRegulationPaB2
                     ? 'Terminale S2 • SVT : Les 6 réflexes pour PA = DC x RPT, sinus carotidiens, Hering, Cyon et bulbe'
                     : isRegulationNerveuseB2
                     ? 'Terminale S2 • SVT : Les 6 réflexes pour le vague, sympathique, Otto Loewi et la pharmacologie'
@@ -3081,7 +3127,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     : 'Terminale S2 • 5 réflexes essentiels pour l\'épreuve'
                 }
                 chapters={
-                  isRegulationPaB2
+                  isImmuniteInneeB3
+                    ? IMMUNITE_INNEE_AUDIO_CHAPTERS
+                    : isRegulationPaB2
                     ? REGULATION_PA_AUDIO_CHAPTERS
                     : isRegulationNerveuseB2
                     ? REGULATION_NERVEUSE_AUDIO_CHAPTERS
@@ -3227,6 +3275,11 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                   <P4ParticuleReflexesCard />
                   <P4ParticuleInteractiveSimulator />
                 </>
+              ) : isImmuniteInneeB3 ? (
+                <>
+                  <B3ImmuniteInneeReflexesCard />
+                  <B3ImmuniteInneeInteractiveLab />
+                </>
               ) : isRegulationPaB2 ? (
                 <>
                   <B2RegulationPaReflexesCard />
@@ -3367,7 +3420,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
               {/* Section Annales Officielles du Baccalauréat Sénégalais (Après les exercices d'application) */}
               <BacSenegalAnnales
                 chapter={
-                  isRegulationPaB2
+                  isImmuniteInneeB3
+                    ? 'immunite_innee'
+                    : isRegulationPaB2
                     ? 'regulation_pression'
                     : isRegulationNerveuseB2
                     ? 'regulation_nerveuse'
@@ -3473,6 +3528,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <ProjectileQuizEmbedded />
               ) : isParticule ? (
                 <P4ParticuleQuizEmbedded />
+              ) : isImmuniteInneeB3 ? (
+                <B3ImmuniteInneeQuizEmbedded />
               ) : isRegulationPaB2 ? (
                 <B2RegulationPaQuizEmbedded />
               ) : isRegulationNerveuseB2 ? (

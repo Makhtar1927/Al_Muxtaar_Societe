@@ -2917,6 +2917,82 @@ Face à une baisse de pression de perfusion rénale (hypotension, hémorragie, d
       baremeAstuce: 'Retenez bien l\'opposition : Aldostérone = rétention hydrosodée (augmente la PA) ; FNA (auriculaire) = élimination hydrosodée (baisse la PA).',
     },
   ],
+
+  // B3. LEÇON 1 - RECONNAISSANCE DU SOI ET DU NON-SOI (CMH/HLA) & IMMUNITÉ INNÉE (SVT S2)
+  immunite_innee: [
+    {
+      year: 2023,
+      session: 'Session Normale (SVT Série S2)',
+      points: 'Exercice 1 — Maîtrise des Connaissances (4 Points)',
+      topic: 'Notion de soi et de non-soi, Complexe Majeur d\'Histocompatibilité (CMH I et II), Étapes de la phagocytose',
+      enonce: `Le système immunitaire assure en permanence la surveillance et l'intégrité du milieu intérieur grâce à des mécanismes de reconnaissance du soi et d'élimination précoce des agents pathogènes.
+
+1. Définissez les notions de **Soi biologique** et de **Non-Soi**. *(1 point)*
+2. Comparez les molécules du CMH de classe I et de classe II sous forme de tableau en précisant :
+   - Leur localisation cellulaire dans l'organisme ;
+   - Le type de peptides présentés (endogènes vs exogènes) ;
+   - La sous-population de lymphocytes T cibles auxquels ils présentent l'antigène (LT8 vs LT4). *(1,5 point)*
+3. Décrivez chronologiquement les quatre étapes fondamentales de la phagocytose lors de la réaction inflammatoire aiguë. Précisez le rôle de ce mécanisme dans le déclenchement de la réponse adaptative spécifique. *(1,5 point)*`,
+      solution: `### 1. Définitions du Soi et du Non-Soi (1 pt)
+- **Le Soi biologique :** Ensemble des molécules résultant de l'expression du génome propre à l'individu, reconnues par les cellules immunocompétentes sans déclencher de réponse immunitaire destructrice (phénomène de tolérance naturelle).
+- **Le Non-Soi :** Toute entité moléculaire ou particulaire étrangère à l'organisme (micro-organismes, toxines, cellules allogéniques) ou cellule du soi altérée (cancéreuse ou infectée), capable d'induire une réaction immunitaire.
+
+---
+
+### 2. Tableau comparatif CMH I vs CMH II (1,5 pt)
+
+| Caractéristiques | CMH de Classe I (HLA-I) | CMH de Classe II (HLA-II) |
+| :--- | :--- | :--- |
+| **Localisation cellulaire** | Toutes les cellules nucléées de l'organisme et plaquettes | Uniquement les Cellules Présentatrices d'Antigène (CPA) : macrophages, cellules dendritiques, lymphocytes B |
+| **Origine des peptides présentés** | Peptides **endogènes** (synthétisés par la cellule : protéines virales ou cancéreuses) | Peptides **exogènes** (issus de l'endocytose/phagocytose de pathogènes extracellulaires) |
+| **Cellules cibles reconnues** | **Lymphocytes T8 (CD8+)** cytotoxiques | **Lymphocytes T4 (CD4+)** auxiliaires / helpers |
+
+---
+
+### 3. Les 4 étapes de la phagocytose et transition adaptative (1,5 pt)
+1. **Adhésion :** Fixation du phagocyte (macrophage, neutrophile) sur les motifs microbiens (PAMP) grâce à ses récepteurs PRR, ou via des opsonines (anticorps/complément).
+2. **Ingestion :** Émission de pseudopodes englobant le microbe pour former le **phagosome**.
+3. **Digestion :** Fusion des lysosomes contenant des hydrolases acides pour former le **phagolysosome**, conduisant à la lyse du micro-organisme.
+4. **Rejet des débris et Présentation :** Exocytose des déchets. Chez le macrophage (CPA), des fragments peptidiques sont préservés et couplés au **CMH II** : ils sont exposés à la surface membranaire pour alerter et activer les lymphocytes T4 dans les ganglions lymphatiques.`,
+      baremeAstuce: 'Au Bac S2, ne limitez jamais la phagocytose à un simple "nettoyage" ! Mentionnez TOUJOURS que la phagocytose par les macrophages est le pont indispensable entre l\'immunité innée et l\'immunité adaptative grâce à la présentation sur CMH II.',
+    },
+    {
+      year: 2020,
+      session: 'Session Normale (SVT Série S2)',
+      points: 'Exercice 2 — Raisonnement Scientifique (5 Points)',
+      topic: 'La réaction inflammatoire aiguë, Médiateurs chimiques, Diapédèse et compatibilité des groupes sanguins ABO',
+      enonce: `Une plaie cutanée superficielle souillée par des bactéries induit rapidement une rougeur, une chaleur, un gonflement (œdème) et une douleur locale vive.
+
+1. Nommez les quatre signes cardinaux de la réaction inflammatoire aiguë et expliquez l'origine biologique de chacun d'eux en mentionnant les médiateurs chimiques impliqués (histamine, prostaglandines). *(2 points)*
+2. Expliquez le mécanisme de la diapédèse leucocytaire et précisez son rôle dans la défense rapide de l'organisme. *(1,5 point)*
+3. Deux patients accidentés, l'un de groupe sanguin $A^+$ et l'autre de groupe sanguin $O^-$, nécessitent une transfusion d'urgence. À l'aide de vos connaissances sur les antigènes membranaires érythrocytaires et les agglutinines plasmatiques, déterminez les règles de compatibilité transfusionnelle pour chacun de ces deux receveurs. *(1,5 point)*`,
+      solution: `### 1. Les 4 signes cardinaux de l'inflammation (2 pts)
+- **Rougeur (Rubor) & Chaleur (Calor) :** Provoquées par une vasodilatation artériolaire locale sous l'action de l'**histamine** libérée par la dégranulation des mastocytes résidents, entraînant un afflux accru de sang chaud dans la zone lésée.
+- **Gonflement / Œdème (Tumor) :** Résulte d'une augmentation de la perméabilité des capillaires sanguins permettant l'exsudation de plasma et de protéines (fibrinogène, complément) vers le tissu interstitiel.
+- **Douleur (Dolor) :** Due à la stimulation mécanique des terminaisons nerveuses libres (nocicepteurs) par l'œdème et à leur sensibilisation chimique par les **prostaglandines** et la bradykinine.
+
+---
+
+### 2. Mécanisme de la Diapédèse Leucocytaire (1,5 pt)
+- Attirés par chimiotactisme (cytokines), les polynucléaires neutrophiles et les monocytes ralentissent leur flux, adhèrent à la paroi endothéliale puis changent de forme.
+- Par émission de pseudopodes, ils se faufilent activement à travers les jonctions intercellulaires endothéliales sans altérer le vaisseau sanguin pour gagner le derme infecté.
+- **Rôle vital :** Permet l'acheminement massif et immédiat de cellules phagocytaires sur le site infectieux pour endiguer la prolifération microbienne dans les premières heures.
+
+---
+
+### 3. Compatibilité transfusionnelle ABO et Rhésus (1,5 pt)
+- **Règle fondamentale :** Ne jamais apporter un antigène érythrocytaire contre lequel le receveur possède un anticorps plasmatique préexistant.
+- **Patient de groupe $A^+$ :**
+  - Antigènes portés : A et D (Rhésus).
+  - Anticorps plasmatiques : Anti-B.
+  - Culots globulaires compatibles : Il peut recevoir du sang de groupe **$A^+$**, **$A^-$**, **$O^+$** et **$O^-$**.
+- **Patient de groupe $O^-$ :**
+  - Antigènes portés : Aucun antigène A, B ou D.
+  - Anticorps plasmatiques : Anti-A, Anti-B (et potentiel Anti-D).
+  - Culots globulaires compatibles : Il ne peut recevoir **strictement que du sang de groupe $O^-$** (donneur universel mais receveur très restreint).`,
+      baremeAstuce: 'Dans un exercice sur les transfusions au Bac S2, écrivez TOUJOURS : "On vérifie la réaction entre les anticorps du plasma du RECEVEUR et les antigènes portés par les globules rouges du DONNEUR".',
+    },
+  ],
 };
 
 BAC_ANNALES_BY_CHAPTER.cinematique = BAC_ANNALES_BY_CHAPTER.cinematique_point;
@@ -2978,6 +3054,17 @@ BAC_ANNALES_BY_CHAPTER['barorécepteur'] = BAC_ANNALES_BY_CHAPTER.regulation_pre
 BAC_ANNALES_BY_CHAPTER['pression-arterielle'] = BAC_ANNALES_BY_CHAPTER.regulation_pression;
 BAC_ANNALES_BY_CHAPTER['pression_arterielle'] = BAC_ANNALES_BY_CHAPTER.regulation_pression;
 BAC_ANNALES_BY_CHAPTER['hering'] = BAC_ANNALES_BY_CHAPTER.regulation_pression;
+BAC_ANNALES_BY_CHAPTER['immunite_innee'] = BAC_ANNALES_BY_CHAPTER.immunite_innee;
+BAC_ANNALES_BY_CHAPTER['immunite-innee'] = BAC_ANNALES_BY_CHAPTER.immunite_innee;
+BAC_ANNALES_BY_CHAPTER['b3'] = BAC_ANNALES_BY_CHAPTER.immunite_innee;
+BAC_ANNALES_BY_CHAPTER['b3l1'] = BAC_ANNALES_BY_CHAPTER.immunite_innee;
+BAC_ANNALES_BY_CHAPTER['cmh'] = BAC_ANNALES_BY_CHAPTER.immunite_innee;
+BAC_ANNALES_BY_CHAPTER['hla'] = BAC_ANNALES_BY_CHAPTER.immunite_innee;
+BAC_ANNALES_BY_CHAPTER['phagocytose'] = BAC_ANNALES_BY_CHAPTER.immunite_innee;
+BAC_ANNALES_BY_CHAPTER['inflammation'] = BAC_ANNALES_BY_CHAPTER.immunite_innee;
+BAC_ANNALES_BY_CHAPTER['soi-non-soi'] = BAC_ANNALES_BY_CHAPTER.immunite_innee;
+BAC_ANNALES_BY_CHAPTER['soi_non_soi'] = BAC_ANNALES_BY_CHAPTER.immunite_innee;
+BAC_ANNALES_BY_CHAPTER['groupes-sanguins'] = BAC_ANNALES_BY_CHAPTER.immunite_innee;
 
 interface BacSenegalAnnalesProps {
   chapter?: string;

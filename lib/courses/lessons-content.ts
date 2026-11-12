@@ -6454,8 +6454,169 @@ Si la boucle réflexe baroréceptrice assure la protection immédiate en quelque
 4. **Schéma fonctionnel obligatoire :** Entraînez-vous à dessiner en 2 minutes un schéma clair à boîtes rectangulaires avec stimulus, récepteurs, voies afférentes, centres, voies efférentes antagonistes et effecteurs.
 `;
 
+// ============================================================================
+// B3. LEÇON 1 : RECONNAISSANCE DU SOI ET DU NON-SOI (CMH/HLA) & IMMUNITÉ INNÉE
+// ============================================================================
+RICH_LESSONS_MAP.immunite_innee_soi_cmh = `
+# B3 Leçon 1 — Reconnaissance du Soi et du Non-Soi (CMH/HLA) et Immunité Innée (Inflammation, Phagocytose)
+
+> [!CONSEIL_BAC] **Poids de l'Immunologie au Baccalauréat Sénégalais (Série S2) :**
+> Le chapitre B3 représente l'un des piliers incontournables des épreuves du Bac S2 (régulièrement présent sous forme de grand exercice de restitution organisée de connaissances ou d'analyse d'expériences de greffes et de transfusions). La maîtrise rigoureuse de la distinction CMH I vs CMH II, des étapes de la phagocytose et de la réaction inflammatoire garantit une note maximale.
+
+---
+
+## 1. La Notion Biologique de Soi et de Non-Soi
+
+Le système immunitaire d'un organisme pluricellulaire a pour mission essentielle de préserver l'intégrité biologique de l'individu face aux agressions du milieu extérieur et aux dysfonctionnements internes.
+
+### A. Définition du Soi Biologique
+Le **Soi** est l'ensemble des molécules résultant de l'expression du génome de l'individu, présentes à la surface de ses cellules ou circulant dans ses liquides biologiques, et reconnues par ses propres lymphocytes sans déclencher de réaction destructrice. Cet état de non-réponse physiologique s'appelle la **tolérance immunologique naturelle**.
+
+### B. Définition du Non-Soi
+Le **Non-Soi** désigne toute entité étrangère capable d'être reconnue par le système immunitaire et d'induire une réponse défensive. On distingue :
+1. **Le Non-Soi Exogène :** Molécules ou micro-organismes provenant de l'environnement extérieur : bactéries, virus, champignons, parasites, toxines microbiennes, pollens, et cellules d'un autre individu (greffes allogéniques, transfusions incompatibles).
+2. **Le Soi Modifié (Non-Soi Endogène) :** Cellules appartenant originellement à l'organisme mais dont l'intégrité moléculaire a été altérée :
+   - Cellules infectées par un virus qui synthétisent et exposent des peptides viraux anormaux.
+   - Cellules cancéreuses ou tumorales qui expriment des antigènes mutants anormaux.
+
+---
+
+## 2. Les Marqueurs Moléculaires du Soi : Le Système CMH / HLA
+
+La carte d'identité biologique de chaque être humain est portée par des glycoprotéines membranaires codées par un groupe de gènes situés sur le bras court du **chromosome 6** : le **Complexe Majeur d'Histocompatibilité (CMH)**, appelé système **HLA (Human Leukocyte Antigen)** chez l'Homme.
+
+### Structure et Comparaison Fondamentale : CMH I vs CMH II
+
+| Paramètre Moléculaire | CMH de Classe I (HLA-A, HLA-B, HLA-C) | CMH de Classe II (HLA-DP, HLA-DQ, HLA-DR) |
+| :--- | :--- | :--- |
+| **Localisation cellulaire** | Présent sur **toutes les cellules nucléées** de l'organisme et sur les plaquettes. Absente des hématies. | Réservé exclusivement aux **Cellules Présentatrices d'Antigène (CPA)** professionnelles : macrophages, cellules dendritiques, lymphocytes B. |
+| **Structure moléculaire** | Une chaîne lourde polymorphe $\\alpha$ (3 domaines) associée de façon non covalente à la $\\beta_2$-microglobuline. | Deux chaînes polypeptidiques polymorphes $\\alpha$ et $\\beta$ formant une corbeille ouverte. |
+| **Origine des peptides présentés** | Peptides **endogènes** : protéines synthétisées à l'intérieur de la cellule (protéines du soi normal, protéines virales, protéines tumorales). | Peptides **exogènes** : fragments de protéines étrangères phagocytées ou endocytées par la cellule (bactéries extracellulaires, toxines). |
+| **Cellules cibles reconnues** | Reconnu par le récepteur TCR des **Lymphocytes T8 (CD8+) cytotoxiques**. | Reconnu par le récepteur TCR des **Lymphocytes T4 (CD4+) auxiliaires / helpers**. |
+| **Rôle biologique** | Surveillance de l'intégrité cellulaire (destruction des cellules infectées ou cancéreuses). | Déclenchement et coordination centrale de la réponse immunitaire adaptative via les LT4. |
+
+### Polygénie et Polymorphisme Extrême
+- **Polygénie :** Le CMH comprend plusieurs loci distincts (A, B, C pour la classe I ; DP, DQ, DR pour la classe II).
+- **Polymorphisme :** Pour chaque locus, il existe des centaines d'allèles différents au sein de l'espèce humaine, et ces allèles sont **codominants** (ils s'expriment tous simultanément).
+- **Conséquence médicale :** Deux individus non apparentés ont une probabilité infime de posséder la même combinaison de molécules HLA (1 chance sur plusieurs millions). C'est ce polymorphisme qui explique le **rejet immunologique des greffes** d'organes lorsqu'un donneur et un receveur ne sont pas parfaitement histocompatibles.
+
+---
+
+## 3. Les Marqueurs Érythrocytaires : Systèmes ABO et Rhésus
+
+Les globules rouges (hématies) ne possèdent pas de noyau : ils sont donc dépourvus de molécules du CMH. En revanche, leur membrane plasmique est recouverte d'autres marqueurs génétiques : des glycolipides appelés **agglutinogènes** (antigènes de surface).
+
+### Le Système ABO
+Il est déterminé par un gène porté par le chromosome 9 comportant trois allèles principaux ($A$, $B$ codominants, et $O$ récessif) :
+- **Groupe A :** Présente l'antigène A sur l'hématie. Possède naturellement dans son plasma des **anticorps Anti-B**.
+- **Groupe B :** Présente l'antigène B sur l'hématie. Possède naturellement dans son plasma des **anticorps Anti-A**.
+- **Groupe AB :** Présente à la fois les antigènes A et B. Ne possède **aucun anticorps** anti-A ni anti-B dans son plasma : c'est le **Receveur Universel**.
+- **Groupe O :** Ne présente ni l'antigène A ni l'antigène B (substance de base H). Possède dans son plasma les deux anticorps **Anti-A et Anti-B** : c'est le **Donneur Universel**.
+
+### Règle Impérative de Transfusion Sanguine au Bac S2
+> [!IMPORTANT]
+> **Règle d'or de compatibilité :**
+> Lors d'une transfusion, on ne doit **jamais injecter des hématies portant un antigène** contre lequel le receveur possède déjà des **anticorps (agglutinines) dans son plasma**. Si cette règle est enfreinte, les anticorps du receveur se fixent sur les globules rouges du donneur, provoquant une **agglutination massive** suivie d'une hémolyse aiguë mortelle.
+
+---
+
+## 4. La Réaction Inflammatoire Aiguë (RIA) : Première Ligne Défensive
+
+Dès qu'une brèche cutanée ou muqueuse est ouverte (piqûre, coupure, brûlure), des micro-organismes pénètrent dans le tissu conjonctif sous-jacent. L'organisme déclenche en quelques minutes une réponse stéréotypée : la **réaction inflammatoire aiguë**, composante maîtresse de l'**immunité innée non spécifique**.
+
+### Les Quatre Signes Cliniques Cardinaux de Celse
+1. **Rougeur (Rubor) :** Due à une vasodilatation artériolaire locale intense provoquée par l'histamine.
+2. **Chaleur (Calor) :** Causée par l'afflux massif de sang chaud provenant des organes profonds vers la zone vasodilatée.
+3. **Gonflement / Œdème (Tumor) :** Résulte d'une hausse de la perméabilité capillaire qui laisse fuiter du plasma sanguin riche en protéines (fibrinogène, complément) dans le tissu conjonctif : c'est l'**exsudat inflammatoire**.
+4. **Douleur (Dolor) :** Due à la compression mécanique des terminaisons nerveuses libres (nocicepteurs) par l'œdème et à leur stimulation chimique par la **bradykinine** et les **prostaglandines**.
+
+### Médiateurs Chimiques et Déroulement Cellulaire
+- Les cellules sentinelles du derme (**mastocytes**, **macrophages résidents**, **cellules dendritiques**) possèdent des récepteurs membranaires appelés **PRR (Pattern Recognition Receptors)** capables de reconnaître des motifs moléculaires conservés à la surface des microbes appelés **PAMP (Pathogen-Associated Molecular Patterns)**.
+- Cette liaison active la dégranulation mastocytaire et la libération d'**histamine**, de **prostaglandines** et de cytokines pro-inflammatoires (**TNF-$\\alpha$**, **Interleukine-1**).
+
+---
+
+## 5. La Diapédèse Leucocytaire
+
+Attirés par le gradient de cytokines chimiotactiques, les leucocytes circulants quittent le torrent circulatoire sanguin pour rejoindre le derme lésé :
+1. **Margination et Roulement :** Les polynucléaires neutrophiles et les monocytes ralentissent leur course et roulent le long de l'endothélium grâce à des molécules d'adhésion (sélectines).
+2. **Adhésion ferme :** Les intégrines leucocytaires s'ancrent solidement aux récepteurs endothéliaux.
+3. **Diapédèse active :** Le globule blanc émet des pseudopodes, se déforme considérablement et s'insinue à travers les jonctions entre deux cellules endothéliales contiguës sans léser la paroi vasculaire.
+
+---
+
+## 6. Les Quatre Étapes Fondamentales de la Phagocytose
+
+Une fois dans le foyer inflammatoire, les leucocytes (polynucléaires neutrophiles et macrophages issus de la différenciation des monocytes) assurent l'élimination des microbes par **phagocytose** :
+
+```
+          1. ADHÉSION / FIXATION
+  (Reconnaissance PAMP-PRR ou Opsonines)
+                    ↓
+          2. INGESTION / ENGLEBEMENT
+  (Émission de pseudopodes → Phagosome)
+                    ↓
+          3. DIGESTION ENZYMATIQUE
+  (Fusion lysosomiale → Phagolysosome)
+                    ↓
+       4. REJET DES DÉCHETS & PRÉSENTATION
+  (Exocytose des débris + Exposition sur CMH II)
+```
+
+### Détail des 4 Étapes
+1. **Étape 1 : Adhésion (Fixation) :**
+   - Le phagocyte s'accole à la membrane du micro-organisme.
+   - Cette fixation est grandement facilitée par l'**opsonisation** : les bactéries recouvertes d'anticorps IgG ou de fractions du complément (C3b) sont reconnues avec une affinité décuplée.
+2. **Étape 2 : Ingestion (Englobement) :**
+   - Le phagocyte déploie des prolongements cytoplasmiques appelés **pseudopodes** qui encerclent la bactérie.
+   - Les pseudopodes fusionnent, séquestrant la bactérie vivante dans une vésicule close appelée **phagosome**.
+3. **Étape 3 : Digestion :**
+   - Les lysosomes du cytoplasme contenant des hydrolases acides, des protéases et du lysozyme fusionnent avec le phagosome pour former le **phagolysosome**.
+   - La bactérie est dégradée enzymatiquement et détruite par un pic oxydatif (radicaux libres).
+4. **Étape 4 : Rejet des déchets et Rôle de CPA :**
+   - Les résidus indigestibles sont rejetés à l'extérieur par exocytose.
+   - **Point culminant du programme de SVT :** Le macrophage conserve certains peptides antigéniques microbiens et les fixe au creux de ses molécules de **CMH de classe II**. Il devient alors une **Cellule Présentatrice d'Antigène (CPA)** qui migre vers les ganglions lymphatiques pour initier la réponse adaptative des **Lymphocytes T4** !
+
+---
+
+## 7. Ndongo S2 — Wolof Insight pour le Baccalauréat
+
+> [!WOLOF_INSIGHT] **Comprendre l'immunité innée avec la métaphore de la frontière nationale :**
+> - **Soi ak Non-Soi** : Yaramu nit ki dafa melni réw mu am frontière. Lepp lu nekk ci biir té am carte d'identité réw mi, mooy **Soi** bi. Bép élément bu génné bitim réw (bactérie, virus, greffe allogénique) té amul carte d'identité, mooy **Non-Soi** !
+> - **CMH / HLA** : Mooy **Carte Nationale d'Identité biométrique** bi ! Ku nekk am nga carte boppam. Mënuloo jël carte kenn jox ko keneen (greffe), système bi dafay yëg ni kii du sunu nit té dafay rejeter organe bi !
+> - **CMH I ak CMH II** :
+>   - **CMH I** : Dafa nekk ci **cellule yépp** ; bu cellule bi féebé (virus wala cancer), dafay wone carte bi né : *"Féebar naa, ray léen ma !"* (LT8 cytotoxiques).
+>   - **CMH II** : Dafa nekk rekk ci **policiers yi (macrophages / CPA)** ; buñu japé bandit (bactérie), dañuy wone morceau bandit bi ci carte CMH II ngir wax Général bi (LT4) : *"Xoolal li ñu japp, armez les troupes !"*
+> - **Inflammation ak Diapédèse** : Bu épine piqué sa loxo, mastocytes yi dañuy yéen avertisseur (histamine) ; tuyaux yi (vaisseaux) dañuy yaatool (rougeur + chaleur), ndox génn (œdème + douleur). Ci loolu, leucocytes yi dañuy tëp ci digg brique yi (diapédèse) ngir dem lek bactéries yi (phagocytose) !
+
+---
+
+## 8. Conseils Clés pour la Copie du Bac S2 Sénégal
+
+1. **Ne confondez jamais CMH I et CMH II :**
+   - **CMH I + CD8 (LT8)** $\\implies$ formule mnémotechnique $1 \\times 8 = 8$.
+   - **CMH II + CD4 (LT4)** $\\implies$ formule mnémotechnique $2 \\times 4 = 8$.
+2. **Pour la réaction inflammatoire :** Citez toujours les 4 termes latins et leur explication biologique : Rubor (vasodilatation), Calor (flux sanguin accru), Tumor (œdème exsudatif), Dolor (bradykinine / compression).
+3. **Sur la phagocytose :** L'oubli de la mention du **phagolysosome** ou de la **présentation de l'antigène sur CMH II** coûte systématiquement des points au barème.
+4. **Pour les groupes sanguins :** Formulez toujours rigoureusement : *"L'individu du groupe A possède l'antigène A sur ses hématies et des anticorps naturels anti-B dans son sérum"*.
+`;
+
 export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: string, rawContent: string | null): string {
   const titleLower = `${lessonTitle} ${chapterTitle}`.toLowerCase();
+
+  // Routage SVT B3 Leçon 1 : Reconnaissance du Soi et du Non-Soi (CMH/HLA) & Immunité Innée
+  if (
+    titleLower.includes('soi') ||
+    titleLower.includes('cmh') ||
+    titleLower.includes('hla') ||
+    titleLower.includes('phagocytose') ||
+    titleLower.includes('inflammation') ||
+    titleLower.includes('immunité innée') ||
+    titleLower.includes('immunite innee') ||
+    titleLower.includes('60000000-0000-0003-0003-000000000001')
+  ) {
+    return RICH_LESSONS_MAP.immunite_innee_soi_cmh;
+  }
 
   // Routage SVT B2 Leçon 3 : Régulation Réflexe de la Pression Artérielle
   if (
