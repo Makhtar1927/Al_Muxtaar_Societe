@@ -153,10 +153,56 @@ import B4CyclesSexuelsQuizEmbedded from '@/components/course/b4-cycles-sexuels-q
 import B4FecondationReflexesCard from '@/components/course/b4-fecondation-reflexes-card';
 import B4FecondationInteractiveLab from '@/components/course/b4-fecondation-interactive-lab';
 import B4FecondationQuizEmbedded from '@/components/course/b4-fecondation-quiz-embedded';
+import B4ReproductionMaitriseReflexesCard from '@/components/course/b4-reproduction-maitrise-reflexes-card';
+import B4ReproductionMaitriseInteractiveLab from '@/components/course/b4-reproduction-maitrise-interactive-lab';
+import B4ReproductionMaitriseQuizEmbedded from '@/components/course/b4-reproduction-maitrise-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
 import LessonFeedbackForm from '@/components/course/lesson-feedback-form';
+
+const REPRODUCTION_MAITRISE_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Triple Mode d'Action de la Pilule Combinée",
+    badge: "Contraception",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass sur la maîtrise de la reproduction humaine pour le Bac S2. Retenez absolument le triptyque de la pilule combinée : premièrement, l'apport continu d'œstrogène et de progestatif maintient un rétrocontrôle négatif permanent sur l'axe hypothalamo-hypophysaire, effondrant la FSH et la LH sans aucun pic ovulatoire. Deuxièmement, la glaire cervicale reste dense et imperméable aux spermatozoïdes. Troisièmement, l'endomètre reste mince et impropre à toute nidation.",
+  },
+  {
+    timeSeconds: 50,
+    title: "2. Mini-Pilule & Progestatifs Purs",
+    badge: "Microprogestatif",
+    icon: "theoreme_equerre",
+    textScript:
+      "Attention au piège classique du jury : contrairement à la pilule combinée, la pilule microprogestative pure ne bloque pas obligatoirement l'ovulation ! Son action est essentiellement périphérique : elle verrouille le col de l'utérus en maintenant une glaire cervicale infranchissable et atrophie l'endomètre. Elle est prescrite en cas de contre-indications aux œstrogènes, notamment lors de l'allaitement maternel.",
+  },
+  {
+    timeSeconds: 110,
+    title: "3. Contraception d'Urgence vs Contragestion (RU 486)",
+    badge: "Urgence vs IVG",
+    icon: "rigueur_compas",
+    textScript:
+      "Sachez distinguer sans la moindre hésitation : la contraception d'urgence au lévonorgestrel intervient avant la nidation dans les 72 heures en retardant le pic de LH : elle n'est en aucun cas abortive. À l'opposé, la contragestion par le RU 486 intervient après la nidation : c'est un antagoniste compétitif qui bloque les récepteurs de la progestérone, entraînant le décollement de la muqueuse utérine et l'expulsion embryonnaire sous l'action d'une prostaglandine.",
+  },
+  {
+    timeSeconds: 170,
+    title: "4. Dispositifs Intra-Utérins : Cuivre vs Hormonal",
+    badge: "Stérilet",
+    icon: "cle_solution",
+    textScript:
+      "Pour le stérilet au cuivre, retenez qu'il ne modifie aucunement les sécrétions hormonales ni les cycles ovariens : les ions cuivre exercent une toxicité spermicide directe et provoquent une réaction inflammatoire locale aseptique de l'endomètre empêchant toute nidation. Le stérilet hormonal, quant à lui, diffuse localement un progestatif qui épaissit la glaire et amincit la muqueuse.",
+  },
+  {
+    timeSeconds: 230,
+    title: "5. Les Protocoles d'AMP : De la FIVETE à l'ICSI",
+    badge: "PMA au Bac",
+    icon: "piege_bac",
+    textScript:
+      "Au Bac, le choix de la technique d'AMP découle directement du diagnostic : si les trompes sont obstruées mais le sperme normal, l'insémination artificielle est impossible et la FIVETE classique s'impose après hyperstimulation ovarienne et ponction. Mais si le sperme présente une oligo-asthéno-tératospermie sévère, la fécondation spontanée in vitro échoue : on doit recourir à l'ICSI en injectant mécaniquement un spermatozoïde unique dans le cytoplasme de l'ovocyte !",
+  },
+];
 
 const FECONDATION_AUDIO_CHAPTERS: AudioChapter[] = [
   {
@@ -3038,10 +3084,36 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     lessonMeta.title.toLowerCase().includes('reaction corticale') ||
     lessonMeta.title.toLowerCase().includes('blastocyste'));
 
-  const isImmuniteInneeB3 =
+  const isReproductionMaitriseB4 =
     !isGametogeneseB4 &&
     !isCyclesSexuelsB4 &&
     !isFecondationB4 && (
+    params.lesson === '60000000-0000-0003-0004-000000000004' ||
+    lessonMeta.title.toLowerCase().includes('maîtrise de la reproduction') ||
+    lessonMeta.title.toLowerCase().includes('maitrise de la reproduction') ||
+    lessonMeta.title.toLowerCase().includes('contraception') ||
+    lessonMeta.title.toLowerCase().includes('contragestion') ||
+    lessonMeta.title.toLowerCase().includes('amp') ||
+    lessonMeta.title.toLowerCase().includes('pma') ||
+    lessonMeta.title.toLowerCase().includes('fivete') ||
+    lessonMeta.title.toLowerCase().includes('icsi') ||
+    lessonMeta.title.toLowerCase().includes('ru 486') ||
+    lessonMeta.title.toLowerCase().includes('ru486') ||
+    lessonMeta.title.toLowerCase().includes('mifépristone') ||
+    lessonMeta.title.toLowerCase().includes('mifepristone') ||
+    lessonMeta.title.toLowerCase().includes('lévonorgestrel') ||
+    lessonMeta.title.toLowerCase().includes('levonorgestrel') ||
+    lessonMeta.title.toLowerCase().includes('stérilet') ||
+    lessonMeta.title.toLowerCase().includes('sterilet') ||
+    lessonMeta.title.toLowerCase().includes('diu') ||
+    lessonMeta.title.toLowerCase().includes('insémination') ||
+    lessonMeta.title.toLowerCase().includes('insemination'));
+
+  const isImmuniteInneeB3 =
+    !isGametogeneseB4 &&
+    !isCyclesSexuelsB4 &&
+    !isFecondationB4 &&
+    !isReproductionMaitriseB4 && (
     params.lesson === '60000000-0000-0003-0003-000000000001' ||
     lessonMeta.title.toLowerCase().includes('cmh') ||
     lessonMeta.title.toLowerCase().includes('hla') ||
@@ -3319,7 +3391,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
               {/* Capsule Vocale & Masterclass Audio du Professeur (Al Muxtaar S2) */}
               <AudioCoachPlayer
                 title={
-                  isFecondationB4
+                  isReproductionMaitriseB4
+                    ? 'Masterclass Audio : Maîtrise de la Reproduction — Contraception, Contragestion & AMP'
+                    : isFecondationB4
                     ? 'Masterclass Audio : De la Fécondation à la Lactation — Gestation, HCG & Parturition'
                     : isCyclesSexuelsB4
                     ? 'Masterclass Audio : Cycles Sexuels Féminins & Régulation de l\'Axe Hypothalamo-Hypophysaire'
@@ -3396,7 +3470,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     : 'Masterclass Audio : Limites & Continuité'
                 }
                 subtitle={
-                  isFecondationB4
+                  isReproductionMaitriseB4
+                    ? 'Terminale S2 • SVT : Les 6 réflexes pour la pilule combinée, le RU 486, le DIU et les techniques d’AMP (FIVETE/ICSI)'
+                    : isFecondationB4
                     ? 'Terminale S2 • SVT : Les 6 réflexes pour la réaction corticale, la HCG, l\'ovariectomie, Ferguson et la prolactine'
                     : isCyclesSexuelsB4
                     ? 'Terminale S2 • SVT : Les 6 réflexes pour la synchronisation des cycles, le rétrocontrôle positif et la progestérone'
@@ -3473,7 +3549,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     : 'Terminale S2 • 5 réflexes essentiels pour l\'épreuve'
                 }
                 chapters={
-                  isFecondationB4
+                  isReproductionMaitriseB4
+                    ? REPRODUCTION_MAITRISE_AUDIO_CHAPTERS
+                    : isFecondationB4
                     ? FECONDATION_AUDIO_CHAPTERS
                     : isCyclesSexuelsB4
                     ? CYCLES_SEXUELS_AUDIO_CHAPTERS
@@ -3632,6 +3710,11 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <>
                   <P4ParticuleReflexesCard />
                   <P4ParticuleInteractiveSimulator />
+                </>
+              ) : isReproductionMaitriseB4 ? (
+                <>
+                  <B4ReproductionMaitriseReflexesCard />
+                  <B4ReproductionMaitriseInteractiveLab />
                 </>
               ) : isFecondationB4 ? (
                 <>
@@ -3808,7 +3891,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
               {/* Section Annales Officielles du Baccalauréat Sénégalais (Après les exercices d'application) */}
               <BacSenegalAnnales
                 chapter={
-                  isFecondationB4
+                  isReproductionMaitriseB4
+                    ? 'maitrise_reproduction'
+                    : isFecondationB4
                     ? 'fecondation_lactation'
                     : isCyclesSexuelsB4
                     ? 'cycles_sexuels_hormones'
@@ -3928,6 +4013,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <ProjectileQuizEmbedded />
               ) : isParticule ? (
                 <P4ParticuleQuizEmbedded />
+              ) : isReproductionMaitriseB4 ? (
+                <B4ReproductionMaitriseQuizEmbedded />
               ) : isFecondationB4 ? (
                 <B4FecondationQuizEmbedded />
               ) : isCyclesSexuelsB4 ? (

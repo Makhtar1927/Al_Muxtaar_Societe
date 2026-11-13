@@ -7644,6 +7644,191 @@ Ce mécanisme physiologique explique l'**aménorrhée de lactation** (absence de
 | **Anesthésie locale de l'aréole mammaire chez la nourrice** | Le lait continue d'être produit dans les acini mais ne s'éjecte plus | L'éjection du lait est un réflexe neuro-hormonal dépendant de l'innervation sensitive du mamelon |
 `;
 
+// ══════════════════════════════════════════════════════════════════════════════
+// SVT TERMINALE S2 — B4 LEÇON 4 : MAÎTRISE DE LA REPRODUCTION & AMP
+// Contraception, Contragestion & Assistance Médicale à la Procréation (PMA)
+// ══════════════════════════════════════════════════════════════════════════════
+RICH_LESSONS_MAP.b4_maitrise_reproduction = `
+# Chapitre B4 — Leçon 4 : Maîtrise de la Reproduction — Contraception, Contragestion & AMP
+
+## Introduction & Enjeux du Thème au Bac S2
+
+La maîtrise biologique de la procréation humaine s'exerce selon deux finalités complémentaires :
+1. **Éviter une grossesse non désirée :** par des méthodes préventives (**contraception**) ou par l'interruption précoce après nidation (**contragestion**).
+2. **Permettre une grossesse chez un couple infertile :** grâce aux techniques de pointe de l'**Assistance Médicale à la Procréation (AMP / PMA)**.
+
+Au Baccalauréat sénégalais, cette leçon est un classique absolu qui évalue la rigueur pharmacologique et le raisonnement médical :
+- Expliquer le **triple mode d'action de la pilule combinée** (rétrocontrôle négatif continu sur l'axe HH, imperméabilité de la glaire, atrophie de l'endomètre).
+- Différencier rigoureusement **contraception d'urgence** (Lévonorgestrel, non abortive) et **contragestion** (RU 486 / Mifépristone, abortive par antagonisme de la progestérone).
+- Maîtriser le mode d'action du **stérilet au cuivre** (spermicide et inflammation aseptique) vs **stérilet hormonal**.
+- Poser le diagnostic d'infertilité conjugale à partir d'un spermogramme, d'une hystérosalpingographie ou d'un test de Hühner, et **justifier le choix raisonné entre IAC, FIVETE classique et ICSI**.
+
+---
+
+## 1. La Contraception Hormonale Régulière Préventive
+
+### 1.1 La Pilule Combinée Œstro-Progestative
+La pilule combinée associe un dérivé d'œstrogène de synthèse (l'**éthinylestradiol**) et un progestatif de synthèse (ex: lévonorgestrel, désogestrel ou gestodène). Elle est prise quotidiennement pendant 21 jours consécutifs, suivie d'un arrêt de 7 jours (ou de 7 comprimés placebos).
+
+#### Le Triple Mode d'Action Physiologique (À réciter par cœur au Bac S2) :
+
+1. **Action Centrale (Inhibition de l'Ovulation) :**
+   - L'apport exogène continu de stéroïdes de synthèse maintient en permanence un **rétrocontrôle négatif (RC-) puissant sur l'axe hypothalamo-hypophysaire**.
+   - La sécrétion pulsatile de GnRH est freinée ; les taux plasmatiques de **FSH et de LH restent effondrés et sans variation**.
+   - En l'absence de FSH, aucun follicule ovarien ne parvient à maturité ; en l'absence de pic de LH, **l'ovulation est rigoureusement bloquée**.
+2. **Action Périphérique Cervicale (Barrière de la Glaire) :**
+   - La composante progestative s'oppose à l'action fluidifiante des œstrogènes.
+   - La glaire cervicale reste dense, visqueuse, opaque et présente un **maillage protéique extrêmement resserré** fermant hermétiquement le col de l'utérus.
+   - Les spermatozoïdes sont incapables de franchir cette barrière.
+3. **Action Périphérique Utérine (Impropriété de l'Endomètre) :**
+   - L'endomètre ne subit pas la prolifération normale ni la formation de la dentelle utérine.
+   - La muqueuse reste mince, hypoplasique et impropre à toute implantation embryonnaire.
+
+#### L'Hémorragie de Privation :
+Les saignements qui surviennent pendant la semaine d'arrêt ne sont pas de véritables menstruations physiologiques (puisqu'il n'y a eu ni ovulation ni corps jaune). Il s'agit d'une **hémorragie de privation hormonale** provoquée par l'interruption temporaire des stéroïdes de synthèse, privant la muqueuse de son soutien trophique.
+
+### 1.2 La Pilule Microprogestative Pure (Mini-Pilule)
+- **Composition :** Progestatif pur à très faible dose continue (ex: microval, cérazette), sans composante œstrogénique.
+- **Mode d'administration :** Prise continue 365 jours par an, à heure fixe stricte.
+- **Mécanisme d'action :**
+  - Action quasi-exclusivement **périphérique** : imperméabilisation absolue de la glaire cervicale et atrophie de l'endomètre.
+  - L'axe hypothalamo-hypophysaire n'est pas systématiquement inhibé : **l'ovulation peut persister chez environ 50% des utilisatrices**.
+- **Indication médicale :** Prescrite chez les femmes présentant des contre-indications aux œstrogènes (tabagisme $>35$ ans, antécédents thromboemboliques ou cardiovasculaires, hypertension artérielle, allaitement maternel).
+
+### 1.3 Autres Formes d'Administration Progestative
+- **L'implant sous-cutané :** Bâtonnet flexible inséré sous la peau du bras libérant de l'étonogestrel pendant 3 ans.
+- **L'injection intramusculaire retard :** Injection trimestrielle de progestatif (acétate de médroxyprogestérone).
+
+---
+
+## 2. Les Dispositifs Intra-Utérins (DIU / Stérilets)
+
+Insérés dans la cavité utérine par le médecin pour une durée de 5 à 10 ans, les DIU se divisent en deux familles :
+
+| Critère | DIU au Cuivre | DIU Hormonal (Lévonorgestrel) |
+| :--- | :--- | :--- |
+| **Composition** | Plastique en T entouré d'un fil de cuivre | Réservoir libérant une microdose locale de progestatif |
+| **Effet sur l'axe HH et Ovulation** | **Aucun effet** : cycles hormonaux et ovulations normaux | Axe HH généralement préservé ; cycles maintenus |
+| **Action sur les Spermatozoïdes** | **Effet spermicide direct** : les ions $Cu^{2+}$ altèrent la motilité et la viabilité des spermatozoïdes | Glaire cervicale épaissie et hermétique au col |
+| **Action sur l'Endomètre** | Réaction inflammatoire locale aseptique à corps étranger rendant l'endomètre impropre à la nidation | Atrophie locale marquée de l'endomètre (oligo/aménorrhée) |
+| **Avantage spécifique** | Sans hormone ; utilisable comme contraception d'urgence (jusqu'à J5) | Diminue considérablement les douleurs et les règles abondantes |
+
+---
+
+## 3. Les Méthodes Barrières & Naturelles
+
+1. **Méthodes barrières :**
+   - **Préservatif masculin et féminin :** Seule méthode assurant une **double protection** : contraception efficace et protection contre les Infections Sexuellement Transmissibles (IST / VIH-SIDA).
+   - Diaphragme et cape cervicale (associés aux spermicides).
+2. **Méthodes naturelles d'auto-observation :**
+   - Méthode du calendrier (Ogino-Knaus), méthode de la courbe de température thermique, méthode de la glaire cervicale (Billings).
+   - *Limites :* Efficacité pratique médiocre en raison des variations physiologiques de la date d'ovulation chez la femme.
+3. **Méthodes chirurgicales définitives (Stérilisation) :**
+   - Ligature ou section bilatérale des trompes de Fallope chez la femme.
+   - Vasectomie (section ou ligature bilatérale des canaux déférents) chez l'homme : la spermatogenèse persiste mais les spermatozoïdes ne peuvent plus être éjaculés (le sperme devient azoospermique).
+
+---
+
+## 4. Contraception d'Urgence vs Contragestion : La Distinction Fondamentale au Bac S2
+
+Une confusion majeure sanctionnée au Baccalauréat sénégalais concerne la frontière entre contraception d'urgence et contragestion :
+
+\`\`\`
+Rapport sexuel non protégé
+           │
+           ▼
+[ J0 à J3-J5 ] ──> CONTRACEPTION D'URGENCE (Pilule du lendemain / Lévonorgestrel)
+                   • Agit AVANT la fécondation ou la nidation
+                   • Bloque ou retarde le pic de LH
+                   • STRICTEMENT NON ABORTIVE
+           │
+Fécondation & Nidation (J7)
+           │
+           ▼
+[ Dès la Nidation ] ──> CONTRAGESTION (RU 486 / Mifépristone)
+                        • Agit APRÈS la nidation
+                        • Antagoniste compétitif des récepteurs à la progestérone
+                        • MÉTHODE ABORTIVE (Interruption Volontaire de Grossesse)
+\`\`\`
+
+### 4.1 La Contraception d'Urgence (Pilule du Lendemain)
+- **Molécules :** Lévonorgestrel ($1{,}5\\text{ mg}$) à prendre dans les 72 heures, ou Acétate d'Ulipristal (modulateur des récepteurs progestérone) dans les 120 heures (5 jours).
+- **Mécanisme :**
+  - Si le comprimé est pris avant le pic pré-ovulatoire de LH, la forte dose de progestatif exerce un rétrocontrôle négatif immédiat qui **retarde l'ovulation de quelques jours**.
+  - Les spermatozoïdes présents dans les voies génitales meurent avant la libération de l'ovocyte.
+  - *Point clé :* **Elle n'a aucun effet abortif**. Si la nidation a déjà eu lieu, elle n'empêche pas la grossesse de se poursuivre.
+
+### 4.2 La Contragestion : Le RU 486 (Mifépristone)
+- **Définition :** Méthode médicale d'interruption de grossesse (IVG médicamenteuse) intervenant après la nidation de l'embryon.
+- **Mécanisme d'action moléculaire :**
+  - Le RU 486 présente une ressemblance stérique étroite avec la molécule de progestérone.
+  - Il se lie aux récepteurs intracellulaires de la progestérone avec une affinité supérieure à celle de l'hormone naturelle, **sans déclencher d'effet biologique** : c'est un **antagoniste compétitif**.
+  - La progestérone naturelle ne peut plus se fixer sur ses récepteurs.
+  - *Conséquences physiologiques :*
+    1. Décollement et nécrose de la muqueuse déciduale (dentelle utérine).
+    2. Levée du silence utérin du myomètre.
+- **Protocole complet :** 48 heures après la prise de RU 486, la patiente reçoit une dose de **prostaglandines** (Misoprostol) qui provoque des contractions utérines coordonnées pour expulser l'embryon et la caduque décollés.
+
+---
+
+## 5. L'Assistance Médicale à la Procréation (AMP / PMA)
+
+L'AMP regroupe l'ensemble des pratiques cliniques et biologiques permettant la conception in vitro, le transfert d'embryon et l'insémination artificielle chez un couple diagnostiqué infertile (après 1 à 2 ans de rapports réguliers infructueux).
+
+### 5.1 Le Bilan Médical Préalable d'Infertilité
+Avant toute intervention, le médecin prescrit un bilan complet :
+1. **Chez l'homme :**
+   - **Spermogramme / Spermocytogramme :** Évalue le volume ($>1{,}5\\text{ mL}$), la concentration ($>15\\text{ millions/mL}$), la mobilité progressive ($>32\\%$) et la morphologie ($>15\\%$ de formes typiques).
+   - *Anomalies majeures :* Azoospermie (absence de spermatozoïdes), Oligospermie (déficit numérique), Asthénospermie (mobilité réduite), Tératospermie (malformations anormales de la tête ou du flagelle).
+2. **Chez la femme :**
+   - **Courbe thermique matinale & dosages hormonaux (J3 du cycle) :** FSH, LH, œstradiol et AMH (Hormone Anti-Müllérienne évaluant la réserve ovarienne).
+   - **Hystérosalpingographie :** Radiographie avec produit de contraste vérifiant la perméabilité des trompes de Fallope et la morphologie de la cavité utérine.
+   - **Échographie pelvienne :** Compte des follicules antraux et vérification de l'endomètre.
+3. **Chez le couple :**
+   - **Test post-coïtal de Hühner :** Prélèvement de glaire cervicale quelques heures après un rapport en période ovulatoire pour évaluer la pénétration, la survie et la mobilité des spermatozoïdes dans la glaire.
+
+### 5.2 Les 3 Grandes Techniques d'AMP au Baccalauréat Sénégalais
+
+#### Technique 1 : L'Insémination Artificielle Intra-Utérine (IAC ou IAD)
+- **Principe :** Le sperme du conjoint (IAC) ou d'un donneur (IAD) est recueilli, lavé et capacite en laboratoire. Les spermatozoïdes les plus mobiles sont sélectionnés puis injectés directement au fond de la cavité utérine à l'aide d'un cathéter fin, au moment exact de l'ovulation.
+- **Lieu de la fécondation :** **IN VIVO** dans l'ampoule tubaire de la femme.
+- **Indications majeures :**
+  - Glaire cervicale hostile ou imperméable (test de Hühner négatif).
+  - Oligospermie ou asthénospermie modérée.
+  - Troubles de l'éjaculation ou impuissance mécanique.
+- **Condition absolue :** **Les deux trompes de Fallope (ou au moins une trompe) doivent être parfaitement perméables !**
+
+#### Technique 2 : La Fécondation In Vitro Et Transfert d'Embryon (FIVETE Classique)
+- **Principe :** La rencontre des gamètes et la fécondation sont réalisées **IN VITRO** hors de l'organisme maternel.
+- **Le protocole en 5 étapes chronologiques :**
+  1. *Blocage hypophysaire :* Agoniste ou antagoniste de la GnRH pour mettre au repos l'hypophyse et éviter une ovulation spontanée intempestive.
+  2. *Hyperstimulation ovarienne contrôlée :* Injections quotidiennes de **FSH recombinante** pour stimuler le développement synchrone de nombreux follicules cavitaires.
+  3. *Déclenchement de l'ovulation :* Injection unique d'**HCG** (analogue structural de la LH) lorsque les follicules atteignent $18-20\\text{ mm}$.
+  4. *Ponction folliculaire & Fécondation in vitro :* Aspiration des ovocytes matures par guidage échographique transvaginal 36h après l'HCG. Les ovocytes sont mis en présence de 50 000 à 100 000 spermatozoïdes mobiles dans une boîte de culture à $37\\,^\\circ\\text{C}$.
+  5. *Transfert embryonnaire & Soutien lutéal :* 2 à 5 jours plus tard, 1 à 2 embryons au stade 4-8 cellules ou blastocyste sont transférés dans l'utérus par cathéter. Un traitement par progestérone soutient la nidation.
+- **Indication majeure :** **Obstruction tubaire bilatérale** (trompes bouchées à la suite d'infections ou salpingites).
+
+#### Technique 3 : L'ICSI (Micro-injection Intra-Cytoplasmique d'un Spermatozoïde)
+- **Principe :** Sous microscope équipé de micromanipulateurs, un spermatozoïde unique sélectionné est aspiré dans une micropipette en verre puis **injecté directement à l'intérieur du cytoplasme de l'ovocyte II** préalablement débarrassé de sa corona radiata.
+- **Avantage décisif :** Court-circuite totalement la réaction acrosomique et la traversée de la zone pellucide.
+- **Indications majeures :**
+  - **Oligo-asthéno-tératospermie sévère** de l'homme (spermatozoïdes très rares, immobiles ou sans acrosome fonctionnel).
+  - Échecs répétés de fécondation en FIVETE classique.
+  - Azoospermie obstructive nécessitant un prélèvement chirurgical de spermatozoïdes dans l'épididyme (MESA/PESA) ou le testicule (TESE).
+
+---
+
+## 6. Tableau Récapitulatif : Choix Raisonné de la Technique d'AMP au Bac S2
+
+| Anomalie Détectée au Bilan Médical | Organe / Gamète Défaillant | Technique d'AMP Indiquée | Justification Biologique Exigée au Bac |
+| :--- | :--- | :--- | :--- |
+| **Obstruction tubaire bilatérale** (Trompes imperméables) | Trompes de Fallope de la femme | **FIVETE Classique** | Contourne les trompes en réalisant la fécondation in vitro en boîte de culture |
+| **Oligo-asthéno-tératospermie sévère** | Spermatozoïdes masculins défaillants | **ICSI** | Le spermatozoïde ne pouvant perforer ZP3, il est injecté mécaniquement dans l'ovocyte |
+| **Glaire cervicale hostile ou acide** (Test de Hühner négatif) | Col de l'utérus féminin | **Insémination Artificielle (IAC)** | Dépose le sperme lavé au-delà du col, directement dans la cavité utérine |
+| **Anovulation d'origine hypothalamique** (Trompes et sperme normaux) | Axe hypothalamo-hypophysaire | **Induction de l'ovulation** (Clomiphène / Pompe GnRH) | Restaure la maturation folliculaire naturelle sans recours à une chirurgie lourde |
+| **Azoospermie sécrétoire irréversible** (Testicule non fonctionnel) | Lignée germinale masculine | **IAD ou FIV avec sperme de donneur** | Utilisation de gamètes d'un tiers donneur fertile |
+`;
+
 export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: string, rawContent: string | null): string {
   const titleLower = `${lessonTitle} ${chapterTitle}`.toLowerCase();
 
@@ -7686,6 +7871,32 @@ export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: stri
     titleLower.includes('60000000-0000-0003-0004-000000000003')
   ) {
     return RICH_LESSONS_MAP.b4_fecondation_lactation;
+  }
+
+  // Routage SVT B4 Leçon 4 : Maîtrise de la reproduction (Contraception, Contragestion & AMP)
+  if (
+    titleLower.includes('maîtrise de la reproduction') ||
+    titleLower.includes('maitrise de la reproduction') ||
+    titleLower.includes('contraception') ||
+    titleLower.includes('contragestion') ||
+    titleLower.includes('amp') ||
+    titleLower.includes('pma') ||
+    titleLower.includes('fivete') ||
+    titleLower.includes('icsi') ||
+    titleLower.includes('ru 486') ||
+    titleLower.includes('ru486') ||
+    titleLower.includes('mifépristone') ||
+    titleLower.includes('mifepristone') ||
+    titleLower.includes('lévonorgestrel') ||
+    titleLower.includes('levonorgestrel') ||
+    titleLower.includes('stérilet') ||
+    titleLower.includes('sterilet') ||
+    titleLower.includes('diu') ||
+    titleLower.includes('insémination') ||
+    titleLower.includes('insemination') ||
+    titleLower.includes('60000000-0000-0003-0004-000000000004')
+  ) {
+    return RICH_LESSONS_MAP.b4_maitrise_reproduction;
   }
 
   // Routage SVT B4 Leçon 2 : Cycles sexuels chez la femme & régulation neurohormonale

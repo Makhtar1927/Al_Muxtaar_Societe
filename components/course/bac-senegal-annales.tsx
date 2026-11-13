@@ -3887,6 +3887,151 @@ La gestation humaine illustre un relais endocrinien parfait : d'abord une phase 
       baremeAstuce: 'Dans la question sur la lactation, veillez à ne jamais utiliser le verbe "produire" pour l\'ocytocine. L\'ocytocine N\'EST PAS une hormone productrice de lait, c\'est exclusivement une hormone expulsatrice/éjectrice par contraction des cellules myoépithéliales.',
     },
   ],
+  maitrise_reproduction: [
+    {
+      year: 2020,
+      session: 'Session Normale (SVT Série S2)',
+      points: 'Exercice 2 — Raisonnement Scientifique & Pharmacologie (6 Points)',
+      topic: 'Mode d\'action biologique de la pilule combinée oestro-progestative',
+      enonce: `La pilule contraceptive combinée normodosée constitue le moyen médical le plus largement répandu pour la régulation des naissances. On cherche à élucider ses différents niveaux d'impact physiologique chez la femme.
+
+**Document 1 :** On mesure quotidiennement les concentrations plasmatiques moyennes de FSH, LH, œstradiol et progestérone chez deux groupes de femmes volontaires saines âgées de 25 ans, sur une période de 28 jours consécutifs :
+- *Groupe 1 (Témoin, sans contraception) :* On observe une élévation progressive des œstrogènes culminant à $250\\text{ pg/mL}$ à J13, immédiatement suivie à J14 d'un pic massif de LH ($85\\text{ mUI/mL}$) et de FSH ($22\\text{ mUI/mL}$). En phase lutéale, la progestérone atteint un pic de $16\\text{ ng/mL}$ à J21, puis chute à moins de $1\\text{ ng/mL}$ à J28 avec survenue des règles.
+- *Groupe 2 (Sous pilule combinée prise à heure fixe du 1er au 21e jour) :* Les taux de FSH restent constants et très bas (inférieurs à $4\\text{ mUI/mL}$), et le taux de LH ne dépasse jamais $6\\text{ mUI/mL}$ sans aucune décharge ovulatoire. Les œstrogènes endogènes oscillent autour de $20\\text{ pg/mL}$ et la progestérone endogène demeure inférieure à $0{,}5\\text{ ng/mL}$ tout au long du mois.
+
+**Document 2 :** Des biopsies de l'endomètre utérin et des prélèvements de glaire cervicale sont réalisés au 14e jour du cycle chez les femmes des deux groupes :
+- *Groupe 1 (J14 Témoin) :* Glaire cervicale limpide, très fluide, filante, alcaline, formant une résille protéique à mailles très lâches. L'endomètre présente une épaisseur de $5\\text{ mm}$ avec amorce de spiralisation des vaisseaux.
+- *Groupe 2 (J14 Sous pilule) :* Glaire cervicale très dense, visqueuse, opaque, acide, formant un maillage moléculaire rétracté extrêmement serré. L'endomètre ne dépasse pas $1{,}2\\text{ mm}$ d'épaisseur, sans glandes sécrétoires ni vascularisation spiralée.
+
+**Consignes :**
+1. À partir de l'analyse comparative des données hormonales du Document 1, expliquez le mécanisme endocrinien par lequel la pilule combinée bloque l'ovulation. *(2,5 points)*
+2. En exploitant les observations du Document 2, dégagez les deux modes d'action périphériques complémentaires qui garantissent l'efficacité contraceptive en cas d'ovulation résiduelle accidentelle. *(2 points)*
+3. Justifiez pourquoi des saignements de type menstruel apparaissent systématiquement entre le 22e et le 28e jour chez les utilisatrices de pilule combinée. *(1,5 point)*`,
+      solution: `### 1. Mécanisme endocrinien du blocage de l'ovulation (2,5 pts)
+- **Analyse des données (Document 1) :**
+  - Chez le témoin, le cycle est rythmé par la dynamique normale des rétrocontrôles : élévation de l'œstradiol folliculaire $\\to$ dépassement du seuil critique de $200\\text{ pg/mL}$ pendant $>36\\text{h}$ $\\to$ rétrocontrôle positif (RC+) $\\to$ pic ovulatoire de LH ($85\\text{ mUI/mL}$) et de FSH $\\to$ ovulation à J14 $\\to$ formation du corps jaune et sécrétion de progestérone.
+  - Chez les femmes sous pilule combinée, les taux de FSH et de LH sont écrasés à des valeurs basales très faibles, sans aucune fluctuation ni pic pré-ovulatoire. En conséquence, les ovaires sont mis au repos : sécrétion d'œstrogènes endogènes quasi nulle et absence totale de progestérone (pas de corps jaune).
+- **Mécanisme biologique :**
+  - La pilule combinée apporte quotidiennement dans le sang une dose exogène constante d'œstrogène (éthinylestradiol) et de progestatif de synthèse.
+  - Ces hormones de synthèse exercent un **rétrocontrôle négatif continu et permanent** sur l'axe hypothalamo-hypophysaire :
+    $$\\text{Stéroïdes de synthèse} \\xrightarrow{\\text{Rétrocontrôle négatif continu}} \\text{Hypothalamus (GnRH } \\downarrow\\text{)} \\quad + \\quad \\text{Antéhypophyse (FSH / LH } \\downarrow\\text{)}$$
+  - Sans FSH, aucun follicule ne parvient à maturité ; sans décharge massive de LH, l'ovulation est rigoureusement impossible.
+
+---
+
+### 2. Les deux modes d'action périphériques complémentaires (2 pts)
+Même si un oubli de pilule laissait échapper une ovulation accidentelle, deux verrous périphériques s'opposent à la fécondation et à la gestation (Document 2) :
+1. **Verrou cervical (Barrière de la glaire) :**
+   - Sous l'effet du progestatif de synthèse, la glaire cervicale conserve un maillage protéique extrêmement resserré, un pH acide et une viscosité élevée.
+   - Elle constitue un **bouchon infranchissable** bloquant mécaniquement et chimiquement l'ascension des spermatozoïdes vers la cavité utérine.
+2. **Verrou utérin (Impropriété de l'endomètre) :**
+   - L'endomètre reste mince ($1{,}2\\text{ mm}$ contre $5\\text{ mm}$), atrophique et dépourvu de vascularisation spiralée adéquate.
+   - Si une fécondation survenait miraculeusement dans la trompe, la **nidation embryonnaire serait totalement impossible** par manque de dentelle utérine réceptive.
+
+---
+
+### 3. Origine des saignements menstruels lors de la semaine d'arrêt (1,5 pt)
+- Les saignements survenant du 22e au 28e jour ne résultent pas de l'involution d'un corps jaune naturel, mais de la suspension volontaire de la prise des comprimés actifs.
+- L'arrêt de l'apport exogène entraîne une chute brutale de la concentration plasmatique des hormones de synthèse : c'est une **hémorragie de privation hormonale**.
+- Privée de son soutien trophique artificiel, la muqueuse superficielle desquame, provoquant un écoulement sanguin simulant les règles naturelles.`,
+      baremeAstuce: 'Au Bac S2, ne qualifiez jamais les saignements sous pilule combinée de "menstruations vraies". Exigez toujours l\'expression officielle : "hémorragie de privation consécutive à l\'arrêt des stéroïdes de synthèse".',
+    },
+    {
+      year: 2016,
+      session: 'Session Normale (SVT Série S2)',
+      points: 'Exercice 1 — Restitution Organisée des Connaissances (4 Points)',
+      topic: 'Contraception d\'urgence vs Contragestion : Mécanismes d\'action cellulaire et moléculaire',
+      enonce: `La maîtrise de la procréation dispose de méthodes d'intervention post-coïtales distinctes selon qu'elles interviennent avant ou après l'implantation de l'embryon.
+
+Par un texte structuré et argumenté :
+1. Définissez la contraception d'urgence (pilule du lendemain) et exposez son mode d'action biologique au niveau de l'axe hypothalamo-hypophysaire. *(1,5 point)*
+2. Définissez la contragestion et détaillez le mécanisme d'action moléculaire du RU 486 (Mifépristone) sur l'utérus gravide. *(2 points)*
+3. Résumez dans un tableau comparatif synthétique le critère temporel (par rapport à la nidation), le statut abortif et la cible moléculaire de ces deux démarches médicales. *(0,5 point)*`,
+      solution: `### 1. La Contraception d'Urgence (1,5 pt)
+- **Définition :** Méthode contraceptive d'exception prescrite après un rapport sexuel non ou mal protégé, destinée à empêcher la survenue d'une grossesse avant que la fécondation ou l'implantation ne s'accomplisse (dans les 72 heures pour le Lévonorgestrel).
+- **Mode d'action :**
+  - Délivre une forte dose unique de progestatif pur (Lévonorgestrel $1{,}5\\text{ mg}$).
+  - Si le comprimé est pris en phase pré-ovulatoire, la forte concentration de progestatif exerce un rétrocontrôle négatif brutal qui **bloque ou retarde de plusieurs jours le pic de LH**.
+  - L'ovulation est ainsi différée jusqu'à ce que les spermatozoïdes présents dans les voies génitales aient perdu leur pouvoir fécondant (durée de vie maximale de 3 à 4 jours).
+
+---
+
+### 2. La Contragestion & le Mécanisme du RU 486 (2 pts)
+- **Définition :** Ensemble des méthodes médicales provoquant l'interruption précoce d'une grossesse déjà amorcée, c'est-à-dire intervenant **après la nidation du blastocyste** dans la muqueuse utérine (Interruption Volontaire de Grossesse médicamenteuse).
+- **Mécanisme d'action du RU 486 (Mifépristone) :**
+  - Le RU 486 est un stéroïde de synthèse dont la conformation stérique est analogue à celle de la progestérone naturelle.
+  - Il agit comme un **antagoniste compétitif spécifique** des récepteurs intracellulaires de la progestérone : il se fixe sur ces récepteurs avec une affinité supérieure à celle de la progestérone, mais sans induire l'activation de la transcription génique.
+  - Les molécules de progestérone naturelle ne peuvent plus se lier à leurs récepteurs : l'utérus est en état de **privation progestative fonctionnelle**.
+  - *Conséquences tissulaires :* Décollement de la dentelle utérine (caduque), nécrose déciduale, hématomes sous-choriaux et levée du silence du myomètre.
+  - L'association secondaire à une **prostaglandine** (Misoprostol 48h plus tard) déclenche de violentes contractions myométriales qui expulsent l'œuf embryonnaire décollé.
+
+---
+
+### 3. Tableau Comparatif Synthétique (0,5 pt)
+
+| Critère d'Analyse | Contraception d'Urgence (Lévonorgestrel) | Contragestion (RU 486 / Mifépristone) |
+| :--- | :--- | :--- |
+| **Moment d'action** | **Avant la nidation** (dans les 72h post-coït) | **Après la nidation** (jusqu'à 7-9 semaines d'aménorrhée) |
+| **Caractère abortif** | **Non abortif** (sans effet si l'œuf est implanté) | **Abortif** (interrompt une gestation déjà établie) |
+| **Cible d'action** | Axe hypothalamo-hypophysaire (bloque le pic LH) | Récepteurs utérins à la progestérone (antagonisme) |`,
+      baremeAstuce: 'Retenez la distinction sémantique fondamentale exigée par les jurys du Bac : la contraception empêche la fécondation ou la nidation ; la contragestion détruit ou détache un embryon déjà nidé.',
+    },
+    {
+      year: 2013,
+      session: 'Session de Remplacement (SVT Série S2)',
+      points: 'Exercice 2 — Raisonnement Médical & Assistance Médicale à la Procréation (5 Points)',
+      topic: 'Diagnostics d\'infertilité conjugale et choix raisonné des techniques d\'AMP',
+      enonce: `Un centre d'Assistance Médicale à la Procréation (AMP) prend en charge deux couples consultant pour infertilité involontaire après 3 ans de vie commune sans contraception.
+
+**Document 1 : Cas du Couple 1**
+- Chez l'homme : spermogramme normal ($60\\text{ millions spz/mL}$, motilité $70\\%$, vitalité $85\\%$, morphologie normale $60\\%$) ; test de migration-survie satisfaisant.
+- Chez la femme : cycles réguliers de 28 jours avec plateau thermique net de $37{,}2\\,^\\circ\\text{C}$ pendant 14 jours ; dosages hormonaux de FSH, LH et œstradiol normaux.
+- *Hystérosalpingographie :* Injection d'un liquide radio-opaque dans la cavité utérine. Le liquide remplit parfaitement l'utérus mais s'arrête net au début des deux trompes : aucun passage dans la cavité péritonéale n'est visualisé (**obstruction tubaire bilatérale symétrique**).
+
+**Document 2 : Cas du Couple 2**
+- Chez la femme : bilan hormonal et échographique normal, perméabilité tubaire bilatérale confirmée.
+- Chez l'homme : spermogramme révélant une **oligo-asthéno-tératospermie sévère** :
+  - Numération : $1{,}2\\text{ million spz/mL}$ (Norme $> 15\\text{ millions/mL}$)
+  - Mobilité progressive : $5\\%$ (Norme $> 32\\%$)
+  - Formes typiques : $4\\%$ (Norme $> 15\\%$) ; présence massive d'anomalies de la pièce intermédiaire et d'acrosomes tronqués ou absents.
+- Une tentative préalable de FIVETE classique en boîte de Pétri n'a donné aucun zygote sur 12 ovocytes mis en présence des spermatozoïdes.
+
+**Consignes :**
+1. Pour le Couple 1, identifiez la cause précise de l'infertilité. Justifiez pourquoi l'Insémination Artificielle intra-utérine (IAC) est vouée à l'échec et proposez la technique d'AMP la plus adaptée. *(2 points)*
+2. Pour le Couple 2, analysez les données du spermogramme pour expliquer l'échec de la FIVETE classique. Précisez la technique de pointe requise pour ce couple et décrivez son principe. *(2 points)*
+3. Résumez les grandes étapes de préparation hormonale de la femme communes à toute procédure de fécondation in vitro. *(1 point)*`,
+      solution: `### 1. Analyse du Cas du Couple 1 (2 pts)
+- **Cause de l'infertilité :**
+  - L'examen montre une **obstruction tubaire bilatérale** (trompes de Fallope bouchées, probablement consécutive à une infection pelvienne ou salpingite passée inaperçue).
+  - L'ovogenèse et la spermatogenèse sont normales, mais il y a un **obstacle mécanique infranchissable** empêchant la rencontre physique entre les spermatozoïdes et l'ovocyte II au niveau de l'ampoule tubaire.
+- **Inadéquation de l'Insémination Artificielle (IAC) :**
+  - Dans l'IAC, les spermatozoïdes sont déposés dans la cavité utérine mais doivent obligatoirement remonter d'eux-mêmes dans la trompe pour féconder l'ovocyte in vivo. Les trompes étant imperméables, les spermatozoïdes ne pourront jamais atteindre le gamète femelle. L'IAC est donc totalement inefficace.
+- **Technique d'AMP indiquée :**
+  - La **FIVETE classique (Fécondation In Vitro Et Transfert d'Embryon)** est l'indication reine. Elle court-circuite définitivement les trompes : les ovocytes sont prélevés directement dans les ovaires par ponction transvaginale, fécondés en laboratoire dans une boîte de Pétri, puis les embryons obtenus sont replacés directement au fond de la cavité utérine.
+
+---
+
+### 2. Analyse du Cas du Couple 2 & Recours à l'ICSI (2 pts)
+- **Analyse du spermogramme et échec de la FIVETE classique :**
+  - Le conjoint présente une anomalie combinée majeure : concentration extrêmement faible (**oligospermie**), motilité quasi nulle (**asthénospermie**) et taux écrasant de malformations structurales (**tératospermie** avec absence d'acrosome fonctionnel).
+  - En FIVETE classique, le spermatozoïde doit encore accomplir seul la réaction acrosomique et perforer activement la zone pellucide in vitro. En raison du déficit d'acrosine et du manque de motilité flagellaire, aucun spermatozoïde n'a pu franchir la zone pellucide des 12 ovocytes, aboutissant à un échec total de fécondation.
+- **Technique de pointe requise :**
+  - L'**ICSI (Intra-Cytoplasmic Sperm Injection)** ou **Micro-injection intra-cytoplasmique d'un spermatozoïde**.
+- **Principe de l'ICSI :**
+  - Sous contrôle d'un microscope équipé de micromanipulateurs, le biologiste sélectionne un spermatozoïde vivant unique.
+  - L'ovocyte II mature est maintenu par une pipette de contention.
+  - Le spermatozoïde est aspiré dans une micro-aiguille de verre extrêmement fine qui perfore directement la zone pellucide et la membrane ovocytaire, pour déposer le spermatozoïde **directement au cœur du cytoplasme de l'ovocyte II**. Toutes les barrières membranaires naturelles sont ainsi mécaniquement contournées.
+
+---
+
+### 3. Étapes de préparation hormonale de la femme en FIV (1 pt)
+Toute tentative de fécondation in vitro exige un protocole en 3 phases hormonales :
+1. *Blocage hypophysaire :* Administration d'agonistes ou antagonistes de la GnRH pour mettre au repos l'hypophyse et empêcher une ovulation spontanée prématurée.
+2. *Hyperstimulation ovarienne :* Injections quotidiennes de **FSH recombinante** pour obtenir le développement synchrone de multiples follicules mûrs (recrutement plurifolliculaire).
+3. *Déclenchement de l'ovulation & Ponction :* Injection unique d'**HCG** (analogue de la LH) pour déclencher la maturation finale, suivie 36 heures plus tard de la ponction folliculaire sous guidage échographique juste avant l'expulsion naturelle des ovocytes.`,
+      baremeAstuce: 'Dans un cas d\'infertilité au Bac, commencez toujours par vérifier la perméabilité des trompes : si les trompes sont imperméables, l\'Insémination Artificielle est rigoureusement exclue. La FIVETE devient obligatoire.',
+    },
+  ],
 };
 
 BAC_ANNALES_BY_CHAPTER.cinematique = BAC_ANNALES_BY_CHAPTER.cinematique_point;
@@ -4034,6 +4179,21 @@ BAC_ANNALES_BY_CHAPTER['prolactine'] = BAC_ANNALES_BY_CHAPTER.fecondation_lactat
 BAC_ANNALES_BY_CHAPTER['ocytocine'] = BAC_ANNALES_BY_CHAPTER.fecondation_lactation;
 BAC_ANNALES_BY_CHAPTER['ferguson'] = BAC_ANNALES_BY_CHAPTER.fecondation_lactation;
 BAC_ANNALES_BY_CHAPTER['b4l3'] = BAC_ANNALES_BY_CHAPTER.fecondation_lactation;
+
+// ─── B4 LEÇON 4 — MAÎTRISE DE LA REPRODUCTION & AMP ───────────────────────────
+BAC_ANNALES_BY_CHAPTER['maitrise_reproduction'] = BAC_ANNALES_BY_CHAPTER.maitrise_reproduction;
+BAC_ANNALES_BY_CHAPTER['maitrise-reproduction'] = BAC_ANNALES_BY_CHAPTER.maitrise_reproduction;
+BAC_ANNALES_BY_CHAPTER['contraception'] = BAC_ANNALES_BY_CHAPTER.maitrise_reproduction;
+BAC_ANNALES_BY_CHAPTER['contragestion'] = BAC_ANNALES_BY_CHAPTER.maitrise_reproduction;
+BAC_ANNALES_BY_CHAPTER['amp'] = BAC_ANNALES_BY_CHAPTER.maitrise_reproduction;
+BAC_ANNALES_BY_CHAPTER['pma'] = BAC_ANNALES_BY_CHAPTER.maitrise_reproduction;
+BAC_ANNALES_BY_CHAPTER['fivete'] = BAC_ANNALES_BY_CHAPTER.maitrise_reproduction;
+BAC_ANNALES_BY_CHAPTER['icsi'] = BAC_ANNALES_BY_CHAPTER.maitrise_reproduction;
+BAC_ANNALES_BY_CHAPTER['ru486'] = BAC_ANNALES_BY_CHAPTER.maitrise_reproduction;
+BAC_ANNALES_BY_CHAPTER['mifepristone'] = BAC_ANNALES_BY_CHAPTER.maitrise_reproduction;
+BAC_ANNALES_BY_CHAPTER['diu'] = BAC_ANNALES_BY_CHAPTER.maitrise_reproduction;
+BAC_ANNALES_BY_CHAPTER['sterilet'] = BAC_ANNALES_BY_CHAPTER.maitrise_reproduction;
+BAC_ANNALES_BY_CHAPTER['b4l4'] = BAC_ANNALES_BY_CHAPTER.maitrise_reproduction;
 
 interface BacSenegalAnnalesProps {
   chapter?: string;
