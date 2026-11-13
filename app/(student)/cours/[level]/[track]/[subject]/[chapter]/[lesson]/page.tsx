@@ -150,10 +150,56 @@ import B4GametogeneseQuizEmbedded from '@/components/course/b4-gametogenese-quiz
 import B4CyclesSexuelsReflexesCard from '@/components/course/b4-cycles-sexuels-reflexes-card';
 import B4CyclesSexuelsInteractiveLab from '@/components/course/b4-cycles-sexuels-interactive-lab';
 import B4CyclesSexuelsQuizEmbedded from '@/components/course/b4-cycles-sexuels-quiz-embedded';
+import B4FecondationReflexesCard from '@/components/course/b4-fecondation-reflexes-card';
+import B4FecondationInteractiveLab from '@/components/course/b4-fecondation-interactive-lab';
+import B4FecondationQuizEmbedded from '@/components/course/b4-fecondation-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
 import LessonFeedbackForm from '@/components/course/lesson-feedback-form';
+
+const FECONDATION_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Les 7 Étapes de la Fécondation & Réaction Corticale",
+    badge: "Fécondation",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass sur la Fécondation, la Gestation et la Lactation pour le Bac S2. Retenez la séquence exacte : après capacitation, le spermatozoïde traverse la corona radiata, reconnaît ZP3 et déclenche la réaction acrosomique libérant l'acrosine. Dès la fusion membranaire, une onde de calcium libre déclenche l'exocytose des granules corticaux dans l'espace périvitellin : c'est la réaction corticale qui durcit ZP3 et bloque définitivement toute polyspermie !",
+  },
+  {
+    timeSeconds: 50,
+    title: "2. De la Morula au Blastocyste & Nidation (J0-J7)",
+    badge: "Embryogenèse",
+    icon: "theoreme_equerre",
+    textScript:
+      "Pendant sa descente tubaire de 4 jours, le zygote subit des divisions de clivage purement mitotiques sans augmenter de volume : 2, 4, 8 cellules, puis morula sphérique de 16 à 32 cellules. À son entrée dans l'utérus au 4e jour, la morula se creuse en blastocyste avec son trophoblaste externe et son bouton embryonnaire interne. Après éclosion de la zone pellucide au 5e jour, le trophoblaste s'implante au 7e jour dans la dentelle utérine sécrétoire.",
+  },
+  {
+    timeSeconds: 110,
+    title: "3. La HCG et le Sauvetage du Corps Jaune",
+    badge: "Endocrinologie",
+    icon: "rigueur_compas",
+    textScript:
+      "Question centrale au Bac : pourquoi les règles n'arrivent-elles pas chez la femme enceinte ? Dès son implantation, le trophoblaste sécrète l'hormone HCG. Possédant la même sous-unité alpha et une chaîne bêta homologue à la LH, la HCG se lie aux récepteurs du corps jaune et le sauve de sa dégénérescence normale. Ce corps jaune gravidique maintient une sécrétion massive de progestérone : la dentelle utérine est préservée, le myomètre reste silencieux et les règles n'apparaissent pas !",
+  },
+  {
+    timeSeconds: 170,
+    title: "4. Le Relais Placentaire & Expériences d'Ovariectomie",
+    badge: "Placenta & Bac",
+    icon: "cle_solution",
+    textScript:
+      "Maîtrisez impérativement l'analyse des expériences d'ovariectomie : une ablation des deux ovaires pratiquée au premier mois entraîne un avortement immédiat car le corps jaune ovarien est l'unique source de progestérone. Mais la même ovariectomie pratiquée au 4e mois n'a aucun effet néfaste et la grossesse va à terme ! Pourquoi ? Parce que dès le 3e mois, le placenta hémochorial mature prend en totale autonomie le relais endocrinien et sécrète des quantités massives de progestérone et d'œstrogènes.",
+  },
+  {
+    timeSeconds: 230,
+    title: "5. Accouchement (Ferguson) & Lactation (Prolactine vs Ocytocine)",
+    badge: "Parturition & Lait",
+    icon: "piege_bac",
+    textScript:
+      "À terme, la distension du col utérin par la tête fœtale déclenche le réflexe de Ferguson : l'ocytocine hypophysaire provoque de puissantes contractions myométriales en boucle de rétrocontrôle positif auto-amplificateur. Après la délivrance, la chute brutale des stéroïdes placentaires lève le frein sur la glande mammaire : la prolactine antéhypophysaire assure la synthèse du lait dans les acini, tandis que l'ocytocine posthypophysaire, déclenchée par la tétée, contracte les cellules myoépithéliales pour éjecter le lait !",
+  },
+];
 
 const CYCLES_SEXUELS_AUDIO_CHAPTERS: AudioChapter[] = [
   {
@@ -2973,9 +3019,29 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     lessonMeta.title.toLowerCase().includes('dentelle utérine') ||
     lessonMeta.title.toLowerCase().includes('dentelle uterine'));
 
-  const isImmuniteInneeB3 =
+  const isFecondationB4 =
     !isGametogeneseB4 &&
     !isCyclesSexuelsB4 && (
+    params.lesson === '60000000-0000-0003-0004-000000000003' ||
+    lessonMeta.title.toLowerCase().includes('fécondation') ||
+    lessonMeta.title.toLowerCase().includes('fecondation') ||
+    lessonMeta.title.toLowerCase().includes('nidation') ||
+    lessonMeta.title.toLowerCase().includes('gestation') ||
+    lessonMeta.title.toLowerCase().includes('lactation') ||
+    lessonMeta.title.toLowerCase().includes('placenta') ||
+    lessonMeta.title.toLowerCase().includes('hcg') ||
+    lessonMeta.title.toLowerCase().includes('parturition') ||
+    lessonMeta.title.toLowerCase().includes('accouchement') ||
+    lessonMeta.title.toLowerCase().includes('prolactine') ||
+    lessonMeta.title.toLowerCase().includes('amphimixie') ||
+    lessonMeta.title.toLowerCase().includes('réaction corticale') ||
+    lessonMeta.title.toLowerCase().includes('reaction corticale') ||
+    lessonMeta.title.toLowerCase().includes('blastocyste'));
+
+  const isImmuniteInneeB3 =
+    !isGametogeneseB4 &&
+    !isCyclesSexuelsB4 &&
+    !isFecondationB4 && (
     params.lesson === '60000000-0000-0003-0003-000000000001' ||
     lessonMeta.title.toLowerCase().includes('cmh') ||
     lessonMeta.title.toLowerCase().includes('hla') ||
@@ -3253,7 +3319,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
               {/* Capsule Vocale & Masterclass Audio du Professeur (Al Muxtaar S2) */}
               <AudioCoachPlayer
                 title={
-                  isCyclesSexuelsB4
+                  isFecondationB4
+                    ? 'Masterclass Audio : De la Fécondation à la Lactation — Gestation, HCG & Parturition'
+                    : isCyclesSexuelsB4
                     ? 'Masterclass Audio : Cycles Sexuels Féminins & Régulation de l\'Axe Hypothalamo-Hypophysaire'
                     : isGametogeneseB4
                     ? 'Masterclass Audio : Gamétogenèse Comparée — Spermatogenèse, Ovogenèse & Méiose'
@@ -3328,7 +3396,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     : 'Masterclass Audio : Limites & Continuité'
                 }
                 subtitle={
-                  isCyclesSexuelsB4
+                  isFecondationB4
+                    ? 'Terminale S2 • SVT : Les 6 réflexes pour la réaction corticale, la HCG, l\'ovariectomie, Ferguson et la prolactine'
+                    : isCyclesSexuelsB4
                     ? 'Terminale S2 • SVT : Les 6 réflexes pour la synchronisation des cycles, le rétrocontrôle positif et la progestérone'
                     : isGametogeneseB4
                     ? 'Terminale S2 • SVT : Les 6 réflexes pour le tube séminifère, la spermiogenèse, les 2 blocages méiotiques et la quantité d\'ADN'
@@ -3403,7 +3473,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     : 'Terminale S2 • 5 réflexes essentiels pour l\'épreuve'
                 }
                 chapters={
-                  isCyclesSexuelsB4
+                  isFecondationB4
+                    ? FECONDATION_AUDIO_CHAPTERS
+                    : isCyclesSexuelsB4
                     ? CYCLES_SEXUELS_AUDIO_CHAPTERS
                     : isGametogeneseB4
                     ? GAMETOGENESE_AUDIO_CHAPTERS
@@ -3560,6 +3632,11 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <>
                   <P4ParticuleReflexesCard />
                   <P4ParticuleInteractiveSimulator />
+                </>
+              ) : isFecondationB4 ? (
+                <>
+                  <B4FecondationReflexesCard />
+                  <B4FecondationInteractiveLab />
                 </>
               ) : isCyclesSexuelsB4 ? (
                 <>
@@ -3731,7 +3808,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
               {/* Section Annales Officielles du Baccalauréat Sénégalais (Après les exercices d'application) */}
               <BacSenegalAnnales
                 chapter={
-                  isCyclesSexuelsB4
+                  isFecondationB4
+                    ? 'fecondation_lactation'
+                    : isCyclesSexuelsB4
                     ? 'cycles_sexuels_hormones'
                     : isGametogeneseB4
                     ? 'gametogenese_comparee'
@@ -3849,6 +3928,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <ProjectileQuizEmbedded />
               ) : isParticule ? (
                 <P4ParticuleQuizEmbedded />
+              ) : isFecondationB4 ? (
+                <B4FecondationQuizEmbedded />
               ) : isCyclesSexuelsB4 ? (
                 <B4CyclesSexuelsQuizEmbedded />
               ) : isGametogeneseB4 ? (

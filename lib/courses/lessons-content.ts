@@ -7458,6 +7458,192 @@ L'activité de l'axe hypothalamo-hypophysaire est modulée en retour par les con
 | **Pilule combinée (Œstro-progestatif)** | FSH et LH bloquées à des taux résiduels quasi nuls ; pas de pic de LH | Endomètre atrophié ; glaire cervicale imperméable | Maintien artificiel d'un **RC- permanent** bloquant l'ovulation (contraception hormonale) |
 `;
 
+// ══════════════════════════════════════════════════════════════════════════════
+// SVT TERMINALE S2 — B4 LEÇON 3 : DE LA FÉCONDATION À LA LACTATION
+// Nidation, Gestation, Relais Placentaire (HCG), Parturition & Lactation
+// ══════════════════════════════════════════════════════════════════════════════
+RICH_LESSONS_MAP.b4_fecondation_lactation = `
+# Chapitre B4 — Leçon 3 : De la Fécondation à la Lactation
+
+## Introduction & Enjeux du Thème au Bac S2
+
+La reproduction sexuée culmine avec la formation d'un nouvel individu diploïde lors de la **fécondation**, suivie de son implantation, de son développement in utero pendant 9 mois (**gestation**), de son expulsion coordonnée (**parturition**) et de sa nutrition initiale par le lait maternel (**lactation**).
+
+Au Baccalauréat sénégalais, cette leçon fait l'objet d'exercices d'analyse de documents et de restitution de connaissances centrés sur :
+1. **Les étapes cellulaires de la fécondation** et le mécanisme anti-polyspermie (**réaction corticale**).
+2. **La cinétique chronologique** : fécondation dans l'ampoule tubaire -> segmentation sans croissance -> blastocyste -> nidation au 7e jour.
+3. **Le rôle physiologique de la HCG** sécrétée par le trophoblaste : sauvetage du corps jaune gravidique et explication de l'aménorrhée.
+4. **Le relais endocrinien placentaire** dès le 3e mois (interprétation des expériences d'ovariectomie).
+5. **Le déterminisme neuro-endocrinien de l'accouchement** : réflexe de Ferguson et rétrocontrôle positif de l'ocytocine.
+6. **La double commande de la lactation** : distinction fondamentale entre **prolactine** (synthèse du lait) et **ocytocine** (éjection du lait).
+
+---
+
+## 1. La Fécondation : Rencontre, Reconnaissance & Amphimixie
+
+### 1.1 Localisation Spatio-Temporelle
+- **Lieu :** La fécondation a lieu exclusivement dans le **tiers externe de la trompe de Fallope** (l'**ampoule tubaire**).
+- **Fenêtre de fécondité :**
+  - L'ovocyte II dégénère s'il n'est pas fécondé dans les **12 à 24 heures** suivant l'ovulation.
+  - Les spermatozoïdes conservent leur pouvoir fécondant dans les voies génitales féminines pendant **48 à 72 heures**.
+  - La période de fécondité d'un couple s'étend donc de 3 à 4 jours avant l'ovulation jusqu'à 24 heures après ($J_{11}$ à $J_{15}$ dans un cycle de 28 jours).
+
+### 1.2 La Capacitation des Spermatozoïdes
+Émis dans le vagin, les spermatozoïdes subissent une maturation biochimique au cours de leur traversée du mucus cervical et de la cavité utérine :
+- Élimination des glycoprotéines séminales et du cholestérol de leur membrane plasmique.
+- Augmentation de la perméabilité calcique -> hyperactivation de la motilité flagellaire (battements vigoureux).
+- Acquisition de l'aptitude à effectuer la réaction acrosomique.
+
+### 1.3 Les Étapes Chronologiques de la Fécondation
+
+1. **Traversée de la Corona Radiata :** Mouvements du flagelle et enzymes de surface (hyaluronidases) dispersant les cellules folliculaires nourricières.
+2. **Reconnaissance & Fixation spécifique sur la Zone Pellucide :** Liaison spécifique entre les molécules membranaires du spermatozoïde et les glycoprotéines **ZP3** ovocytaires.
+3. **Réaction Acrosomique :** Fusion de la membrane externe de l'acrosome avec la membrane du spermatozoïde, libérant l'**acrosine** qui perfore localement la zone pellucide.
+4. **Fusion des Membranes Plasmiques :** Contact entre l'ovolemme et la tête spermatique -> pénétration du noyau et du centriole proximal du spermatozoïde dans l'ovocyte.
+5. **Onde Calcique Intracellulaire & Réaction Corticale :** Libération massive d'ions $Ca^{2+}$ entraînant l'exocytose des granules corticaux -> modification irréversible de ZP3 (**blocage de la polyspermie**).
+6. **Achèvement de la Méiose II de l'Ovocyte :** Levée du blocage métaphasique et expulsion du **2e Globule Polaire (GP2)** -> l'ovocyte devient un **ovule vrai**.
+7. **Amphimixie (Caryogamie) :** Rapprochement et fusion des deux Pronuclei haploïdes ($n = 23$) formant la première cellule du nouvel individu : le **Zygote diploïde ($2n = 46$)**.
+
+### 1.4 La Réaction Corticale & le Blocage de la Polyspermie
+
+> [!PIEGE_BAC] **Question classique au Bac S2 : "Comment l'œuf évite-t-il la pénétration de plusieurs spermatozoïdes ?"**
+> La fusion de la membrane du spermatozoïde avec l'ovolemme provoque une dépolarisation membranaire rapide (blocage électrique précoce et transitoire), suivie d'une **onde de calcium libre ($Ca^{2+}$)** se propageant dans tout le cytoplasme ovocytaire.
+> Ce signal calcique déclenche l'**exocytose des granules corticaux** sous-membranaires dans l'espace périvitellin :
+> 1. Des enzymes protéolytiques détruisent les récepteurs ZP3 et clivent les ponts moléculaires.
+> 2. Des mucopolysaccharides s'hydratent et créent un espace empêchant tout contact physique.
+> 3. La zone pellucide subit un **durcissement enzymatique irréversible** : aucun spermatozoïde surnuméraire ne peut plus s'y lier ni la traverser (**blocage mécanique définitif de la polyspermie**).
+
+---
+
+## 2. De la Fécondation à la Nidation ($J_0$ à $J_7$)
+
+### 2.1 La Segmentation : Divisions de Clivage sans Croissance ($J_1$ à $J_4$)
+Durant sa migration lente le long de la trompe vers la lumière utérine, le zygote subit une succession de mitoses rapides appelées **divisions de clivage** :
+- **$J_1$ (30 heures post-fécondation) :** Stade 2 cellules (blastomères).
+- **$J_2$ (40-50 heures) :** Stade 4 cellules, puis 8 cellules.
+- **$J_3-J_4$ (72 heures) :** Stade **morula** (amas sphérique plein de 16 à 32 cellules, semblable à une petite mûre).
+- **Propriété essentielle :** Tout au long de cette étape, l'embryon reste enfermé dans la zone pellucide inextensible. Le diamètre global reste constant (~$100\\,\\mu\\text{m}$) : **il y a multiplication cellulaire sans aucune augmentation de volume ni de masse**.
+
+### 2.2 La Formation du Blastocyste ($J_4-J_5$)
+À son entrée dans la cavité utérine vers le 4e jour, du liquide utérin pénètre entre les cellules de la morula, créant une cavité centrale : le **blastocèle**. L'embryon devient un **blastocyste**, différencié en deux lignées cellulaires distinctes :
+1. **Le trophoblaste (masse cellulaire externe) :** Couche périphérique continue qui donnera les annexes embryonnaires, notamment le **placenta**, et sécrètera la HCG.
+2. **Le bouton embryonnaire (masse cellulaire interne) :** Amas de cellules souches pluripotentes accolé à un pôle, à l'origine exclusive de tous les tissus du futur fœtus.
+
+### 2.3 L'Éclosion & la Nidation ($J_6-J_7$)
+- **Éclosion ($J_5-J_6$) :** Sous l'action d'enzymes protéolytiques trophoblastiques, la zone pellucide se fissure et l'embryon s'en extirpe.
+- **Nidation ($J_6-J_7$) :** Le blastocyste nu entre en contact avec l'endomètre maternel au niveau de son pôle embryonnaire :
+  - L'endomètre est en **phase lutéale sécrétoire maximale** (dentelle utérine vascularisée, gorgée de glycogène et de lipides sous l'effet de la progestérone).
+  - Le trophoblaste se différencie en *syncytiotrophoblaste* invasif qui sécrète des enzymes digestives : il érode l'épithélium et la trame conjonctive de la muqueuse.
+  - Le blastocyste s'enfonce complètement au sein du stroma utérin : **l'implantation est achevée au 10e-11e jour**.
+
+---
+
+## 3. Le Maintien Précoce de la Gestation : Le Rôle Sauveur de la HCG
+
+### 3.1 La Problématique Biologique à $J_{28}$ du Cycle Féminin
+Normalement, à la fin du cycle ($J_{26}-J_{28}$), la baisse de LH provoque la dégénérescence du corps jaune en corps albicans -> chute de la progestérone -> desquamation de la muqueuse (règles) et élimination de l'endomètre. Si ce mécanisme s'enclenchait, le jeune embryon serait expulsé !
+
+### 3.2 L'Hormone Chorionique Gonadotrope Humaine (HCG)
+Dès le début de son implantation ($J_7-J_8$), le syncytiotrophoblaste embryonnaire synthétise et déverse dans les capillaires maternels une glycoprotéine hormonale spécifique : la **HCG**.
+
+- **Structure & Action :** La HCG possède une chaîne $\\alpha$ identique à celle de la LH et une chaîne $\\beta$ très similaire. Elle se fixe donc directement sur les **récepteurs membranaires de la LH** présents sur les cellules lutéales de l'ovaire maternel.
+- **Effet biologique :** Elle assure le **sauvetage du corps jaune**, qui échappe à l'involution et devient le **corps jaune gravidique (ou corps jaune de grossesse)**.
+- **Conséquence :** Le corps jaune gravidique continue de sécréter des quantités croissantes de **progestérone** et d'œstrogènes pendant tout le premier trimestre.
+- **Résultat clinique :**
+  - La muqueuse utérine n'est pas détruite -> pas de règles (**aménorrhée**).
+  - Le myomètre reste silencieux et relâché.
+  - La température basale reste sur son plateau thermique haut.
+
+### 3.3 Cinétique de la HCG & Tests de Grossesse
+- La HCG est détectable dans le plasma maternel dès le 8e jour post-fécondation, et dans les urines dès le 10e jour (base des tests de grossesse immunologiques par anticorps monoclonaux anti-$\\beta\\text{HCG}$).
+- Sa concentration double toutes les 48 heures pour culminer vers la **9e-10e semaine de grossesse**, puis décroît drastiquement pour se stabiliser à un niveau faible durant le reste de la gestation.
+
+---
+
+## 4. Le Relais Placentaire au Cours de la Gestation (Dès le 3e Mois)
+
+### 4.1 Structure et Fonctions du Placenta
+Vers la fin du 1er trimestre (semaines 10 à 12), le placenta hémochorial humain est pleinement constitué à l'interface foeto-maternelle :
+1. **Échanges nutritifs & respiratoires :** Passage d'oxygène, glucose, acides aminés, vitamines et sels minéraux du sang maternel vers le fœtus ; élimination de l'urée et du $CO_2$.
+2. **Protection immunologique :** Barrière physique empêchant le passage de nombreux germes et transmission active d'anticorps maternels (**IgG**) conférant une immunité passive au fœtus. Absence de mélange entre les hématies maternelles et fœtales.
+3. **Fonction endocrine majeure :** Le placenta se substitue progressivement aux glandes maternelles et devient la principale usine hormonale de la grossesse.
+
+### 4.2 Le Relais Endocrinien & l'Ovariectomie au Bac S2
+
+| Période de la Gestation | Organe Producteur des Stéroïdes | Hormone de Contrôle Trophique | Effet d'une Ovariectomie Bilatérale |
+| :--- | :--- | :--- | :--- |
+| **1er Trimestre (Mois 1 à 3)** | **Corps Jaune Gravidique** (Ovaire maternel) | **HCG embryonnaire** (trophoblaste) | **Avortement spontané immédiat** (chute brutale de la progestérone) |
+| **2e et 3e Trimestres (Mois 4 à 9)** | **Placenta** (Unité foeto-placentaire) | Autonomie fonctionnelle du syncytiotrophoblaste | **Aucun avortement** : la grossesse se poursuit normalement jusqu'à terme |
+
+> [!CONSEIL_BAC] **Interprétation de l'expérience d'ovariectomie au Bac S2 :**
+> - *Avant la 10e semaine :* La progestérone provient **exclusivement du corps jaune**. Son ablation chirurgicale prive l'utérus de progestérone -> contractions utérines et décollement placentaire -> avortement.
+> - *Après la 12e-14e semaine :* Le **placenta synthétise lui-même des quantités massives de progestérone et d'œstrogènes**, très supérieures à celles produites par l'ovaire. Le corps jaune ovarien devient obsolète et régresse en corps albicans ; l'ablation des ovaires n'a donc plus aucun impact sur l'issue de la grossesse.
+
+### 4.3 Les Hormones Placentaires
+1. **Progestérone placentaire :** Synthétisée à partir du cholestérol maternel. Rôle capital de maintien du **silence utérin** (diminution des récepteurs à l'ocytocine, hyperpolarisation membranaire du myomètre).
+2. **Œstrogènes placentaires (notamment l'œstriol) :** Synthétisés en coopération étroite avec les glandes surrénales du fœtus (unité fœto-placentaire). Stimulent l'hypertrophie des fibres musculaires du myomètre et la croissance des canaux galactophores des glandes mammaires.
+3. **HPL (Human Placental Lactogen) :** Hormone peptidique modifiant le métabolisme maternel au profit du fœtus (action diabétogène épargnant le glucose pour le cerveau fœtal) et préparant la glande mammaire à la lactation.
+
+---
+
+## 5. La Parturition (Déclenchement & Déroulement de l'Accouchement)
+
+### 5.1 La Préparation à l'Accouchement (Fin du 9e Mois)
+À l'approche du terme (40 semaines d'aménorrhée), plusieurs modifications rendent l'utérus contractile :
+- **Chute du ratio Progestérone / Œstrogènes :** Les œstrogènes prennent le dessus, ce qui induit une forte synthèse de **récepteurs à l'ocytocine** sur les myocytes utérins et multiplie les **jonctions communicantes** (gap junctions) pour propager synchroniquement la contraction.
+- **Sécrétion locale de Prostaglandines ($PGF_{2\\alpha}$) :** Elles provoquent la maturation du col utérin (ramollissement, raccourcissement et effacement) et initient les contractions musculaires.
+
+### 5.2 Le Réflexe de Ferguson : Une Boucle de Rétrocontrôle Positif
+
+La parturition repose sur une chaîne d'événements neuro-endocriniens en cascade :
+1. **Stimulus mécanique :** La tête fœtale descendante appuie sur le col de l'utérus et l'étire.
+2. **Voie sensitive :** Les mécanorécepteurs du col envoient des influx nerveux via la moelle épinière jusqu'à l'hypothalamus.
+3. **Sécrétion d'ocytocine :** L'hypothalamus ordonne à la **posthypophyse** de libérer des bouffées d'**ocytocine** dans la circulation sanguine.
+4. **Réponse musculaire :** L'ocytocine se fixe sur ses récepteurs myométriaux et déclenche de puissantes contractions rythmiques.
+5. **Amplification (Rétrocontrôle Positif) :** Chaque contraction pousse le fœtus plus fort contre le col -> distension accrue -> libération encore plus massive d'ocytocine -> contractions plus violentes.
+6. **Arrêt mécanique :** La boucle se termine uniquement avec l'**expulsion du nouveau-né et du placenta**.
+
+---
+
+## 6. La Lactation : Sécrétion & Éjection du Lait Maternel
+
+### 6.1 Préparation Mammaire durant la Gestation
+Sous l'influence combinée des œstrogènes, de la progestérone et de la HPL, la glande mammaire subit une intense prolifération :
+- Développement et ramification des canaux galactophores (œstrogènes).
+- Différenciation des acini glandulaires sécréteurs (progestérone).
+- Cependant, **aucune sécrétion lactée n'a lieu pendant la grossesse** : les concentrations colossales d'œstrogènes et de progestérone placentaires bloquent l'action de la prolactine au niveau des récepteurs mammaires.
+
+### 6.2 Le Déclencheur de la Montée de Lait : Le Sevrage Hormonal Post-Partum
+Lors de la **délivrance** (expulsion du placenta 15 à 30 minutes après le bébé), la source placentaire d'œstrogènes et de progestérone disparaît instantanément du sang maternel :
+- La chute brutale des stéroïdes lève l'inhibition périphérique sur les cellules glandulaires mammaires.
+- La **prolactine** hypophysaire peut enfin exercer son effet trophique : c'est la **montée de lait** (qui survient 48 à 72 heures après la naissance).
+
+### 6.3 La Double Commande Hormonale de la Lactation : Prolactine vs Ocytocine
+
+| Hormone | Glande d'Origine | Nature Chimique | Stimulus Déclenchant | Organe & Cellule Cible | Rôle Biologique Clé |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **PROLACTINE** | **Antéhypophyse** (adénohypophyse) | Hormone protéique | Succion du mamelon -> lève le frein de la dopamine hypothalamique (PIF) | Cellules épithéliales sécrétrices des **acini mammaires** | **Synthèse & sécrétion du lait** (fabrication des protéines, caséines, lactose et lipides) |
+| **OCYTOCINE** | **Posthypophyse** (neurohypophyse) | Nanopeptide neurosécrété | Succion du mamelon -> arc réflexe neuro-endocrinien | Cellules **myoépithéliales** contractiles entourant les acini et canaux | **Éjection mécanique du lait** par pressurisation et expulsion dans les canaux galactophores |
+
+### 6.4 L'Aménorrhée de Lactation (Effet Contraceptif Naturel)
+La tétée fréquente et exclusive stimule continuellement la sécrétion de **prolactine**. Or, un taux sérique élevé de prolactine exerce un **rétrocontrôle négatif sur l'hypothalamus**, inhibant la libération pulsatile de GnRH :
+$$\\text{Prolactine élevée} \\implies \\text{GnRH} \\downarrow \\implies \\text{FSH et LH} \\downarrow \\implies \\text{Arrêt de la maturation folliculaire et de l'ovulation}$$
+Ce mécanisme physiologique explique l'**aménorrhée de lactation** (absence de règles et infécondité temporaire observée chez les femmes allaitant exclusivement à la demande).
+
+---
+
+## 7. Fiche Récapitulative des Expériences & Raisonnements Bac S2
+
+| Expérience Historique ou Clinique | Observation Constatée | Interprétation & Déduction Scientifique Attendue |
+| :--- | :--- | :--- |
+| **Chélation du calcium ($Ca^{2+}$) lors d'une FIV** | Pénétration de multiples spermatozoïdes dans l'ovocyte | Le $Ca^{2+}$ intracellulaire est le second messager obligatoire de la réaction corticale anti-polyspermie |
+| **Injection de HCG chez une guenon en phase lutéale** | Persistance du corps jaune au-delà de sa durée de vie normale ; pas de règles | La HCG possède une activité lutéotrope identique à celle de la LH et empêche la lutéolyse |
+| **Ovariectomie bilatérale à 6 semaines de grossesse** | Chute de la progestérone plasmatique et avortement immédiat | Le corps jaune ovarien est la seule source indispensable de progestérone au premier trimestre |
+| **Ovariectomie bilatérale à 5 mois de grossesse** | Taux de progestérone inchangés et maintien de la grossesse à terme | Le placenta assure de façon autonome la totalité des sécrétions stéroïdiennes dès le second trimestre |
+| **Prise de Mifépristone (RU 486)** | Contractions du myomètre et détachement de la muqueuse | Le RU 486 est un antagoniste compétitif bloquant les récepteurs de la progestérone (contragestion) |
+| **Anesthésie locale de l'aréole mammaire chez la nourrice** | Le lait continue d'être produit dans les acini mais ne s'éjecte plus | L'éjection du lait est un réflexe neuro-hormonal dépendant de l'innervation sensitive du mamelon |
+`;
+
 export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: string, rawContent: string | null): string {
   const titleLower = `${lessonTitle} ${chapterTitle}`.toLowerCase();
 
@@ -7478,6 +7664,28 @@ export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: stri
     titleLower.includes('60000000-0000-0003-0004-000000000001')
   ) {
     return RICH_LESSONS_MAP.b4_gametogenese_comparee;
+  }
+
+  // Routage SVT B4 Leçon 3 : De la fécondation à la lactation (Gestation, Nidation, HCG, Accouchement)
+  if (
+    titleLower.includes('fécondation') ||
+    titleLower.includes('fecondation') ||
+    titleLower.includes('nidation') ||
+    titleLower.includes('gestation') ||
+    titleLower.includes('lactation') ||
+    titleLower.includes('placenta') ||
+    titleLower.includes('hcg') ||
+    titleLower.includes('parturition') ||
+    titleLower.includes('accouchement') ||
+    titleLower.includes('prolactine') ||
+    titleLower.includes('ferguson') ||
+    titleLower.includes('amphimixie') ||
+    titleLower.includes('réaction corticale') ||
+    titleLower.includes('reaction corticale') ||
+    titleLower.includes('blastocyste') ||
+    titleLower.includes('60000000-0000-0003-0004-000000000003')
+  ) {
+    return RICH_LESSONS_MAP.b4_fecondation_lactation;
   }
 
   // Routage SVT B4 Leçon 2 : Cycles sexuels chez la femme & régulation neurohormonale

@@ -3730,6 +3730,163 @@ Au cours d'un cycle menstruel de 28 jours, deux phases majeures encadrent l'ovul
       baremeAstuce: 'Rappelez toujours que la pilule du lendemain est une méthode d\'urgence et NON un moyen régulier de contraception. Elle n\'est pas abortive : si la nidation a déjà eu lieu, elle n\'interrompt pas la grossesse.',
     },
   ],
+  fecondation_lactation: [
+    {
+      year: 2018,
+      session: 'Session Normale (SVT Série S2)',
+      points: 'Exercice 2 — Raisonnement Scientifique & Analyse de Données (6 Points)',
+      topic: 'De la rencontre des gamètes à l\'implantation embryonnaire : rôle de la réaction corticale et de la HCG',
+      enonce: `Chez la femme, la fécondation constitue un événement biologique hautement coordonné qui réunit deux cellules haploïdes pour former un individu génétiquement unique.
+
+**Document 1 :** On étudie au microscope électronique la pénétration d'un spermatozoïde dans un ovocyte II humain prélevé lors d'une ponction folliculaire.
+- Dès l'amarrage de la membrane du spermatozoïde sur la membrane plasmique ovocytaire, on enregistre une dépolarisation membranaire suivie d'une onde d'ions calcium ($Ca^{2+}$) intracellulaire.
+- En moins de 30 secondes, les granules corticaux situés sous l'ovolemme fusionnent avec la membrane et déversent leurs enzymes hydrolytiques dans l'espace périvitellin.
+- Dans une boîte de Pétri contenant des ovocytes traités préalablement par un chélateur d'ions calcium (substance bloquant le calcium libre), on observe la pénétration simultanée de plusieurs spermatozoïdes dans l'ovocyte.
+
+**Document 2 :** On dose la concentration plasmatique de progestérone et de gonadotrophine chorionique humaine (HCG) chez deux femmes ayant ovulé le même jour (J14 du cycle) :
+- *Femme A (cycle sans fécondation) :* La progestérone passe de 2 ng/mL à J14 à 15 ng/mL à J21, puis s'effondre à moins de 1 ng/mL à J28. Des menstruations apparaissent à J28. Le taux de HCG reste indétectable ($< 2\\text{ mUI/mL}$).
+- *Femme B (cycle fécondant) :* La progestérone atteint 18 ng/mL à J21, puis se maintient au-dessus de 25 ng/mL au-delà de J28. À partir de J22 (J8 post-fécondation), la HCG devient détectable (15 mUI/mL) et double toutes les 48 heures pour dépasser 500 mUI/mL à J28. Aucune menstruation n'apparaît.
+
+**Consignes :**
+1. À partir de l'analyse rigoureuse du Document 1, expliquez le mécanisme cellulaire qui garantit la monospermie lors de la fécondation. Quel est le rôle déterminant des ions calcium ? *(2 points)*
+2. Analysez comparativement les profils hormonaux des femmes A et B (Document 2). Déduisez-en l'origine de la HCG et son rôle fondamental dans le non-déclenchement des règles chez la femme enceinte. *(2 points)*
+3. Schématisez sous forme d'un diagramme fonctionnel fléché la boucle de régulation hormonale assurant le maintien de la dentelle utérine entre la nidation et la 10e semaine de grossesse. *(2 points)*`,
+      solution: `### 1. Mécanisme de la réaction corticale et monospermie (2 pts)
+- **Analyse du Document 1 :**
+  - La fixation du spermatozoïde fécondant déclenche une entrée massive et une vague de libération d'ions $Ca^{2+}$ dans le cytoplasme ovocytaire.
+  - L'élévation de $[Ca^{2+}]_i$ provoque l'exocytose rapide des **granules corticaux** sous-membranaires dans l'espace périvitellin.
+  - Ces granules libèrent des protéases et des glycosidases qui hydrolysent et modifient la structure tridimensionnelle des glycoprotéines **ZP3** de la zone pellucide.
+  - Cette transformation durcit la zone pellucide et détruit les récepteurs spermatiques : aucun autre spermatozoïde ne peut plus s'y fixer ni la traverser.
+- **Rôle déterminant du calcium :**
+  - Chez les ovocytes traités par le chélateur de $Ca^{2+}$, l'absence de signal calcique empêche l'exocytose des granules corticaux $\\to$ absence de durcissement de la zone pellucide $\\to$ survenue d'une **polyspermie létale**.
+  - Le calcium est donc le **second messager intracellulaire indispensable** à la réaction corticale et au blocage définitif de la polyspermie.
+
+---
+
+### 2. Analyse hormonale comparée et rôle de la HCG (2 pts)
+- **Femme A (Cycle normal non fécondant) :**
+  - La progestérone augmente en phase lutéale jusqu'à un pic à J21 sous l'action de la LH hypophysaire qui maintient le corps jaune.
+  - En l'absence de fécondation, la chute physiologique de la LH entraîne l'involution du corps jaune en corps albicans $\\to$ effondrement de la progestérone à J28 $\\to$ desquamation de l'endomètre (**menstruation**).
+- **Femme B (Cycle fécondant) :**
+  - Dès J22 (correspondant à J8 post-fécondation, soit le moment exact de la **nidation** du blastocyste), la **HCG** apparaît dans le sang maternel.
+  - **Origine de la HCG :** Elle est synthétisée et sécrétée activement par le **trophoblaste** (syncytiotrophoblaste) du jeune embryon s'implantant dans l'endomètre.
+  - **Rôle fondamental :** La HCG possède une homologie structurale majeure avec la LH. Elle se lie aux récepteurs lutéaux de la LH et assure le **sauvetage (maintien trophique) du corps jaune**, transformé en *corps jaune gravidique*.
+  - Ce dernier continue de produire de fortes doses de progestérone $\\to$ maintien absolu de la dentelle utérine $\\to$ absence totale de règles (**aménorrhée gravidique**).
+
+---
+
+### 3. Diagramme fonctionnel de régulation (2 pts)
+
+$$\\boxed{\\text{Trophoblaste embryonnaire}} \\xrightarrow{\\text{Sécrète dès J7-J8}} \\boxed{\\text{HCG dans le sang maternel}}$$
+$$\\downarrow \\text{(Mime l'action de la LH)}$$
+$$\\boxed{\\text{Corps Jaune Gravidique (Ovaire)}} \\xrightarrow{\\text{Stimulation continue}}$$
+$$\\downarrow \\text{(Sécrétion accrue)}$$
+$$\\boxed{\\text{Progestérone} + \\text{Œstrogènes}} \\xrightarrow{\\text{Action cible}}$$
+$$\\downarrow$$
+$$\\boxed{\\text{Maintien de la dentelle utérine}} \\quad + \\quad \\boxed{\\text{Silence du myomètre (Inhibition contractions)}} \\quad + \\quad \\boxed{\\text{Aménorrhée}}$$`,
+      baremeAstuce: 'Au Bac S2, ne dites jamais que la HCG "empêche directement les règles". La formulation exacte exigée au barème est : "La HCG stimule le corps jaune qui continue de sécréter la progestérone, et c\'est la progestérone qui maintient la muqueuse utérine et empêche les règles."',
+    },
+    {
+      year: 2014,
+      session: 'Session Normale (SVT Série S2)',
+      points: 'Exercice 1 — Restitution Organisée des Connaissances (4 Points)',
+      topic: 'Le relais endocrinien placentaire au cours de la gestation chez la femme',
+      enonce: `Au cours de la grossesse chez la femme, la muqueuse utérine doit rester intègre et le myomètre au repos pendant 9 mois. Cet équilibre repose sur une succession de relais hormonaux précis.
+
+Par un exposé structuré comprenant une introduction, deux parties rédigées et une conclusion synthétique :
+1. Précisez la source des hormones stéroïdiennes (progestérone et œstrogènes) durant les trois premiers mois de la grossesse et le mécanisme qui assure leur pérennité. *(1,5 point)*
+2. Expliquez comment et par quel organe s'effectue le relais hormonal à partir du début du second trimestre, et justifiez les conséquences d'une ablation bilatérale des ovaires pratiquée au 4e mois de gestation. *(2 points)*
+3. Résumez le rôle physiologique essentiel de la progestérone sur l'utérus tout au long de la gestation. *(0,5 point)*`,
+      solution: `### Introduction
+La gestation humaine dure en moyenne 40 semaines d'aménorrhée. Le maintien de l'œuf dans l'utérus exige une production ininterrompue de progestérone et d'œstrogènes. Nous verrons d'abord le rôle premier du corps jaune gravidique sous contrôle chorial, puis la prise de relais autonome par le placenta dès le deuxième trimestre.
+
+---
+
+### 1. Premier trimestre : Le corps jaune gravidique sous tutelle embryonnaire (1,5 pt)
+- **Source hormonale :** Durant les 10 à 12 premières semaines, la totalité de la progestérone et des œstrogènes provient du **corps jaune ovarien gravidique**.
+- **Mécanisme de pérennité :** En temps normal, la chute de LH hypophysaire ferait régresser le corps jaune en 14 jours. Mais ici, le **trophoblaste embryonnaire** sécrète une hormone de sauvetage : la **HCG** (Gonadotrophine Chorionique Humaine).
+- La HCG mime parfaitement la LH, empêche la lutéolyse et maintient le corps jaune en hyper-activité sécrétoire.
+
+---
+
+### 2. À partir du second trimestre : Le relais placentaire autonome (2 pts)
+- **L'avènement du placenta :** Dès la fin du 3e mois (semaines 10-12), le placenta hémochorial arrive à pleine maturité fonctionnelle.
+- **Production autonome :** Le syncytiotrophoblaste placentaire prend le relais et devient une véritable glande endocrine autonome :
+  - Il sécrète d'énormes quantités de **progestérone placentaire** (multipliées par 10 en fin de gestation).
+  - Il sécrète des **œstrogènes placentaires** (en particulier l'œstriol, en coopération avec les surrénales fœtales).
+  - En conséquence, le taux de HCG s'effondre naturellement vers un plateau bas résiduel, et le corps jaune régresse sans que cela nuise à la gestation.
+- **Justification de l'ovariectomie au 4e mois :**
+  - Une ablation bilatérale des ovaires pratiquée à la 4e semaine entraîne un avortement spontané immédiat (car le corps jaune est la seule source de progestérone).
+  - En revanche, la même ovariectomie pratiquée au **4e mois n'a aucun effet néfaste** : la grossesse se poursuit à terme, car le placenta fournit à lui seul la quantité requise de progestérone.
+
+---
+
+### 3. Rôle de la progestérone sur l'utérus (0,5 pt)
+- **Maintien structural :** Préservation et vascularisation intense de la dentelle utérine riche en glycogène.
+- **Silence électrique et mécanique du myomètre :** La progestérone hyperpolarise les membranes des cellules musculaires lisses utérines, diminue le nombre de jonctions communicantes (gap junctions) et bloque la synthèse des récepteurs à l'ocytocine, empêchant toute contraction prématurée expulsant le fœtus.
+
+---
+
+### Conclusion
+La gestation humaine illustre un relais endocrinien parfait : d'abord une phase dépendante du signal embryonnaire HCG stimulant l'ovaire maternel, relayée dès 3 mois par l'autonomie placentaire.`,
+      baremeAstuce: 'Attention aux copies qui affirment que le placenta sécrète la HCG pendant 9 mois. La HCG culmine à 9-10 semaines puis chute drastiquement. Le placenta assure la suite grâce à sa propre sécrétion de progestérone et d\'œstrogènes.',
+    },
+    {
+      year: 2012,
+      session: 'Session de Remplacement (SVT Série S2)',
+      points: 'Exercice 2 — Exploitation de Documents & Physiologie de la Reproduction (5 Points)',
+      topic: 'La régulation neuro-hormonale de l\'accouchement et de la lactation chez la femme',
+      enonce: `La fin de la gestation et la période post-natale sont marquées par deux processus physiologiques majeurs : la parturition (accouchement) et la lactation.
+
+**Document 1 :** On enregistre l'activité contractile du myomètre et la concentration plasmatique d'ocytocine chez une femme lors du travail d'accouchement.
+- En début de travail, l'engagement de la présentation fœtale applique une pression sur le col utérin. On observe une décharge d'ocytocine dans le sang maternel.
+- Chaque décharge d'ocytocine est immédiatement suivie d'une onde puissante de contraction du corps de l'utérus, ce qui accentue la dilatation mécanique du col.
+- Lorsque le col atteint une dilatation de 10 cm, la concentration d'ocytocine est 5 fois plus élevée qu'au début du travail.
+- Chez une parturiente recevant une anesthésie péridurale haute bloquant les influx nerveux sensitifs provenant du col, la fréquence des contractions ralentit considérablement.
+
+**Document 2 :** On étudie la régulation de la sécrétion lactée chez une mère allaitante.
+- L'administration d'œstrogènes à fortes doses immédiatement après l'accouchement bloque la montée de lait.
+- Chez la nourrice, chaque tétée avec succion vigoureuse du mamelon entraîne dans les 5 minutes qui suivent :
+  1. Une élévation transitoire du taux plasmatique de prolactine.
+  2. Une décharge pulsatile d'ocytocine.
+- Si l'on injecte de l'ocytocine à une femme qui ne produit pas de tétée mais dont les glandes mammaires contiennent du lait, on observe un jaillissement immédiat de lait par les pores du mamelon sans synthèse nouvelle.
+
+**Consignes :**
+1. À partir du Document 1, détaillez la boucle de rétroaction mise en jeu lors de l'accouchement (réflexe de Ferguson). Précisez sa nature (positive ou négative) et justifiez votre réponse. *(2 points)*
+2. À partir du Document 2, distinguez clairement les rôles respectifs de la prolactine et de l'ocytocine dans la fonction de lactation. *(2 points)*
+3. Expliquez pourquoi la sécrétion lactée est inhibée durant la grossesse malgré des taux sanguins élevés de prolactine. *(1 point)*`,
+      solution: `### 1. Boucle de rétroaction de l'accouchement (Réflexe de Ferguson) (2 pts)
+- **Déroulement de l'arc réflexe neuro-endocrinien :**
+  1. *Stimulus initial :* Pression et distension mécanique du col utérin par la tête fœtale descendante.
+  2. *Voie afférente nerveuse :* Les mécanorécepteurs du col transmettent des potentiels d'action via les nerfs pelviens et la moelle épinière jusqu'à l'hypothalamus maternel.
+  3. *Centre intégrateur & effecteur endocrine :* Les neurones paraventriculaires et supra-optiques de l'hypothalamus stimulent la neurohypophyse (hypophyse postérieure) qui déverse l'**ocytocine** dans la circulation sanguine.
+  4. *Voie efférente hormonale & organe cible :* L'ocytocine gagne le myomètre via la circulation générale et se fixe sur ses récepteurs spécifiques.
+  5. *Réponse :* Contraction rythmique puissante du myomètre $\\to$ propulsion du fœtus vers le bas $\\to$ distension encore plus grande du col.
+- **Nature du rétrocontrôle :**
+  - Il s'agit d'un **rétrocontrôle POSITIF** (phénomène auto-amplificateur).
+  - *Justification :* La réponse contractile ne freine pas le stimulus de départ, mais au contraire l'accentue (plus le fœtus pousse sur le col, plus l'ocytocine est libérée, plus les contractions deviennent intenses), jusqu'à l'expulsion finale du nouveau-né qui met un terme mécanique au stimulus.
+
+---
+
+### 2. Rôles respectifs de la Prolactine et de l'Ocytocine (2 pts)
+
+| Critère | Prolactine | Ocytocine |
+| :--- | :--- | :--- |
+| **Origine glandulaire** | Antéhypophyse (Adénohypophyse) | Posthypophyse (Neurohypophyse) |
+| **Stimulus déclenchant** | Succion du mamelon (lève le frein dopaminergique hypothalamique) | Succion du mamelon (arc réflexe neuro-hormonal rapide) |
+| **Cellules cibles** | Cellules épithéliales sécrétrices des **acini mammaires** | Cellules **myoépithéliales** entourant les acini et canaux |
+| **Action biologique** | **Synthèse & sécrétion du lait** (caséine, lactose, lipides) | **Éjection mécanique du lait** (pression dans les canaux galactophores) |
+| **Preuve expérimentale** | L'absence de prolactine tarit la production de lait | L'injection isolée d'ocytocine fait jaillir le lait préexistant sans en synthétiser |
+
+---
+
+### 3. Inhibition de la lactation pendant la grossesse (1 pt)
+- Durant la grossesse, la prolactine hypophysaire augmente progressivement sous l'effet des œstrogènes.
+- Cependant, les concentrations plasmatiques extrêmement massives d'**œstrogènes et de progestérone d'origine placentaire** bloquent l'action de la prolactine au niveau de ses récepteurs mammaires (inhibition périphérique compétitive).
+- Ce n'est qu'à la **délivrance** (expulsion du placenta 15-30 min après la naissance) que les taux d'œstrogènes et de progestérone s'effondrent brutalement : ce "sevrage hormonal" lève l'inhibition mammaire et déclenche la **montée de lait** sous l'action démasquée de la prolactine.`,
+      baremeAstuce: 'Dans la question sur la lactation, veillez à ne jamais utiliser le verbe "produire" pour l\'ocytocine. L\'ocytocine N\'EST PAS une hormone productrice de lait, c\'est exclusivement une hormone expulsatrice/éjectrice par contraction des cellules myoépithéliales.',
+    },
+  ],
 };
 
 BAC_ANNALES_BY_CHAPTER.cinematique = BAC_ANNALES_BY_CHAPTER.cinematique_point;
@@ -3862,6 +4019,21 @@ BAC_ANNALES_BY_CHAPTER['corps_jaune'] = BAC_ANNALES_BY_CHAPTER.cycles_sexuels_ho
 BAC_ANNALES_BY_CHAPTER['dentelle_uterine'] = BAC_ANNALES_BY_CHAPTER.cycles_sexuels_hormones;
 BAC_ANNALES_BY_CHAPTER['glaire_cervicale'] = BAC_ANNALES_BY_CHAPTER.cycles_sexuels_hormones;
 BAC_ANNALES_BY_CHAPTER['pilule'] = BAC_ANNALES_BY_CHAPTER.cycles_sexuels_hormones;
+
+// ─── B4 LEÇON 3 — DE LA FÉCONDATION À LA LACTATION ────────────────────────────
+BAC_ANNALES_BY_CHAPTER['fecondation_lactation'] = BAC_ANNALES_BY_CHAPTER.fecondation_lactation;
+BAC_ANNALES_BY_CHAPTER['fecondation-lactation'] = BAC_ANNALES_BY_CHAPTER.fecondation_lactation;
+BAC_ANNALES_BY_CHAPTER['fecondation'] = BAC_ANNALES_BY_CHAPTER.fecondation_lactation;
+BAC_ANNALES_BY_CHAPTER['nidation'] = BAC_ANNALES_BY_CHAPTER.fecondation_lactation;
+BAC_ANNALES_BY_CHAPTER['gestation'] = BAC_ANNALES_BY_CHAPTER.fecondation_lactation;
+BAC_ANNALES_BY_CHAPTER['placenta'] = BAC_ANNALES_BY_CHAPTER.fecondation_lactation;
+BAC_ANNALES_BY_CHAPTER['hcg'] = BAC_ANNALES_BY_CHAPTER.fecondation_lactation;
+BAC_ANNALES_BY_CHAPTER['accouchement'] = BAC_ANNALES_BY_CHAPTER.fecondation_lactation;
+BAC_ANNALES_BY_CHAPTER['lactation'] = BAC_ANNALES_BY_CHAPTER.fecondation_lactation;
+BAC_ANNALES_BY_CHAPTER['prolactine'] = BAC_ANNALES_BY_CHAPTER.fecondation_lactation;
+BAC_ANNALES_BY_CHAPTER['ocytocine'] = BAC_ANNALES_BY_CHAPTER.fecondation_lactation;
+BAC_ANNALES_BY_CHAPTER['ferguson'] = BAC_ANNALES_BY_CHAPTER.fecondation_lactation;
+BAC_ANNALES_BY_CHAPTER['b4l3'] = BAC_ANNALES_BY_CHAPTER.fecondation_lactation;
 
 interface BacSenegalAnnalesProps {
   chapter?: string;
