@@ -147,10 +147,56 @@ import B3DysfonctionnementsQuizEmbedded from '@/components/course/b3-dysfonction
 import B4GametogeneseReflexesCard from '@/components/course/b4-gametogenese-reflexes-card';
 import B4GametogeneseInteractiveLab from '@/components/course/b4-gametogenese-interactive-lab';
 import B4GametogeneseQuizEmbedded from '@/components/course/b4-gametogenese-quiz-embedded';
+import B4CyclesSexuelsReflexesCard from '@/components/course/b4-cycles-sexuels-reflexes-card';
+import B4CyclesSexuelsInteractiveLab from '@/components/course/b4-cycles-sexuels-interactive-lab';
+import B4CyclesSexuelsQuizEmbedded from '@/components/course/b4-cycles-sexuels-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
 import LessonFeedbackForm from '@/components/course/lesson-feedback-form';
+
+const CYCLES_SEXUELS_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Les 3 Cycles Synchronisés (Ovaire, Utérus, Glaire)",
+    badge: "Introduction",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass capitale d'Endocrinologie Sexuelle pour le Bac S2. Le cycle féminin est une horloge biologique de 28 jours où tout est coordonné : la phase folliculaire ovarienne pilote la régénération proliférative de l'endomètre et fluidifie la glaire cervicale ; la phase lutéale avec son corps jaune transforme l'endomètre en dentelle utérine sécrétoire et rend la glaire étanche.",
+  },
+  {
+    timeSeconds: 45,
+    title: "2. Le Déclencheur Physiologique des Règles",
+    badge: "Mécanisme",
+    icon: "theoreme_equerre",
+    textScript:
+      "Retenez ce réflexe de rédaction absolu au Bac : la menstruation n'est jamais causée par une hormone présente, mais par le sevrage ou la chute brutale de la progestérone et des œstrogènes suite à l'involution du corps jaune en corps albicans. C'est cette privation hormonale qui entraîne la vasoconstriction des artérioles spiralées et la desquamation de la zone fonctionnelle de l'endomètre.",
+  },
+  {
+    timeSeconds: 110,
+    title: "3. Le Rétrocontrôle Positif du Pic de LH",
+    badge: "Rétrocontrôle",
+    icon: "rigueur_compas",
+    textScript:
+      "Voici la question la plus posée au Baccalauréat sénégalais : comment l'axe bascule-t-il vers le pic ovulatoire ? En début de cycle, les œstrogènes modérés exercent un rétrocontrôle négatif. Mais vers J12-J13, le follicule mûr de De Graaf produit une quantité massive d'œstrogènes qui dépasse le seuil critique de 200 picogrammes par millilitre pendant plus de 36 heures. Cet hyper-œstrogénisme inverse le rétrocontrôle en rétrocontrôle positif : décharge explosive de LH déclenchant l'ovulation !",
+  },
+  {
+    timeSeconds: 175,
+    title: "4. Progestérone Lutéale & Plateau Hyperthermique",
+    badge: "Thermorégulation",
+    icon: "cle_solution",
+    textScript:
+      "En phase lutéale, la progestérone sécrétée par le corps jaune exerce un puissant rétrocontrôle négatif empêchant tout nouveau recrutement folliculaire, impose le silence musculaire au myomètre et possède une action thermogène centrale sur l'hypothalamus. Le décalage de plus de 0,3 degré Celsius au-dessus de 37 degrés confirme rétrospectivement que l'ovulation a bien eu lieu la veille.",
+  },
+  {
+    timeSeconds: 240,
+    title: "5. Mode d'Action Contraceptif de la Pilule Combinée",
+    badge: "Application Médicale",
+    icon: "piege_bac",
+    textScript:
+      "Comprenez la pharmacologie de la pilule combinée : en apportant quotidiennement une dose constante d'œstrogène et de progestatif, elle maintient un rétrocontrôle négatif permanent sur l'axe hypothalamo-hypophysaire. Les taux de FSH et de LH restent au ras du sol, aucun follicule ne mûrit et le pic de LH est totalement supprimé : il n'y a donc jamais d'ovulation !",
+  },
+];
 
 const GAMETOGENESE_AUDIO_CHAPTERS: AudioChapter[] = [
   {
@@ -2912,8 +2958,24 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     (lessonMeta.title.toLowerCase().includes('tube') && lessonMeta.title.toLowerCase().includes('séminifère')) ||
     (lessonMeta.title.toLowerCase().includes('tube') && lessonMeta.title.toLowerCase().includes('seminifere'));
 
-  const isImmuniteInneeB3 =
+  const isCyclesSexuelsB4 =
     !isGametogeneseB4 && (
+    params.lesson === '60000000-0000-0003-0004-000000000002' ||
+    lessonMeta.title.toLowerCase().includes('cycle sexuel') ||
+    lessonMeta.title.toLowerCase().includes('cycles sexuels') ||
+    lessonMeta.title.toLowerCase().includes('cycle ovarien') ||
+    lessonMeta.title.toLowerCase().includes('cycle utérin') ||
+    lessonMeta.title.toLowerCase().includes('cycle uterin') ||
+    lessonMeta.title.toLowerCase().includes('axe hypothalamo') ||
+    lessonMeta.title.toLowerCase().includes('rétrocontrôle') ||
+    lessonMeta.title.toLowerCase().includes('retrocontrole') ||
+    lessonMeta.title.toLowerCase().includes('glaire cervicale') ||
+    lessonMeta.title.toLowerCase().includes('dentelle utérine') ||
+    lessonMeta.title.toLowerCase().includes('dentelle uterine'));
+
+  const isImmuniteInneeB3 =
+    !isGametogeneseB4 &&
+    !isCyclesSexuelsB4 && (
     params.lesson === '60000000-0000-0003-0003-000000000001' ||
     lessonMeta.title.toLowerCase().includes('cmh') ||
     lessonMeta.title.toLowerCase().includes('hla') ||
@@ -3191,7 +3253,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
               {/* Capsule Vocale & Masterclass Audio du Professeur (Al Muxtaar S2) */}
               <AudioCoachPlayer
                 title={
-                  isGametogeneseB4
+                  isCyclesSexuelsB4
+                    ? 'Masterclass Audio : Cycles Sexuels Féminins & Régulation de l\'Axe Hypothalamo-Hypophysaire'
+                    : isGametogeneseB4
                     ? 'Masterclass Audio : Gamétogenèse Comparée — Spermatogenèse, Ovogenèse & Méiose'
                     : isImmuniteInneeB3
                     ? 'Masterclass Audio : Soi, Non-Soi, CMH/HLA & Immunité Innée'
@@ -3264,7 +3328,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     : 'Masterclass Audio : Limites & Continuité'
                 }
                 subtitle={
-                  isGametogeneseB4
+                  isCyclesSexuelsB4
+                    ? 'Terminale S2 • SVT : Les 6 réflexes pour la synchronisation des cycles, le rétrocontrôle positif et la progestérone'
+                    : isGametogeneseB4
                     ? 'Terminale S2 • SVT : Les 6 réflexes pour le tube séminifère, la spermiogenèse, les 2 blocages méiotiques et la quantité d\'ADN'
                     : isImmuniteInneeB3
                     ? 'Terminale S2 • SVT : Les 6 réflexes pour le CMH I et II, ABO, la réaction inflammatoire et la phagocytose'
@@ -3337,7 +3403,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     : 'Terminale S2 • 5 réflexes essentiels pour l\'épreuve'
                 }
                 chapters={
-                  isGametogeneseB4
+                  isCyclesSexuelsB4
+                    ? CYCLES_SEXUELS_AUDIO_CHAPTERS
+                    : isGametogeneseB4
                     ? GAMETOGENESE_AUDIO_CHAPTERS
                     : isImmuniteInneeB3
                     ? IMMUNITE_INNEE_AUDIO_CHAPTERS
@@ -3492,6 +3560,11 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <>
                   <P4ParticuleReflexesCard />
                   <P4ParticuleInteractiveSimulator />
+                </>
+              ) : isCyclesSexuelsB4 ? (
+                <>
+                  <B4CyclesSexuelsReflexesCard />
+                  <B4CyclesSexuelsInteractiveLab />
                 </>
               ) : isGametogeneseB4 ? (
                 <>
@@ -3658,7 +3731,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
               {/* Section Annales Officielles du Baccalauréat Sénégalais (Après les exercices d'application) */}
               <BacSenegalAnnales
                 chapter={
-                  isGametogeneseB4
+                  isCyclesSexuelsB4
+                    ? 'cycles_sexuels_hormones'
+                    : isGametogeneseB4
                     ? 'gametogenese_comparee'
                     : isImmuniteInneeB3
                     ? 'immunite_innee'
@@ -3774,6 +3849,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <ProjectileQuizEmbedded />
               ) : isParticule ? (
                 <P4ParticuleQuizEmbedded />
+              ) : isCyclesSexuelsB4 ? (
+                <B4CyclesSexuelsQuizEmbedded />
               ) : isGametogeneseB4 ? (
                 <B4GametogeneseQuizEmbedded />
               ) : isImmuniteInneeB3 ? (

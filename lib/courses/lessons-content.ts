@@ -7297,6 +7297,167 @@ La confusion entre ploïdie (nombre de chromosomes $2n$ ou $n$) et quantité d'A
 4. **Calcul de quantité d'ADN :** Toujours compter le nombre total de **chromatides** présentes dans le noyau pour déduire la quantité relative $Q, 2Q, 4Q$.
 `;
 
+// ═══════════════════════════════════════════════════════════════════════════
+// SVT B4 LEÇON 2 : CYCLES SEXUELS CHEZ LA FEMME & RÉGULATION HORMONALE
+// ═══════════════════════════════════════════════════════════════════════════
+RICH_LESSONS_MAP.b4_cycles_sexuels_hormones = `# B4 : Cycles sexuels chez la femme et régulation hormonale de l'axe hypothalamo-hypophyso-ovarien (Terminale S2)
+
+Bienvenue dans le deuxième volet fondamental du chapitre de **Reproduction et Endocrinologie Humaine (Axe B4)** du programme officiel de **Terminale S2** sénégalais (conforme aux exigences d'excellence de l'Office du Baccalauréat du Sénégal).
+
+Contrairement à l'homme chez qui la production de gamètes et la sécrétion de testostérone sont continues de la puberté à la mort, la femme présente une activité reproductrice cyclique, marquée par la synchronisation rigoureuse de trois organes cibles (l'ovaire, l'utérus et la glaire cervicale) sous le contrôle d'un système de commande hiérarchisé : **l'axe hypothalamo-hypophysaire**.
+
+---
+
+## 1. Vue d'Ensemble des Cycles Sexuels Féminins
+
+Chez la femme en période d'activité génitale (de la puberté à la ménopause, en dehors des périodes de grossesse et d'allaitement), l'appareil reproducteur fonctionne selon un cycle périodique d'une durée moyenne de **28 jours**, dont le premier jour ($J_1$) est conventionnellement repéré par l'apparition de l'écoulement menstruel (**les règles**).
+
+Ce cycle global est la résultante de la synchronisation de quatre cycles physiologiques intriqués :
+1. **Le cycle ovarien :** Folliculogenèse, ovulation à $J_{14}$ et corps jaune.
+2. **Le cycle utérin :** Menstruation, prolifération de l'endomètre et dentelle utérine sécrétoire.
+3. **Le cycle de la glaire cervicale :** Modification des propriétés rhéologiques du mucus du col de l'utérus.
+4. **Le cycle thermique :** Variation biphasique de la température corporelle basale matinale.
+
+---
+
+## 2. Le Cycle Ovarien : Phase Folliculaire, Ovulation et Phase Lutéale
+
+L'ovaire assure une double fonction indissociable :
+- Une **fonction exocrine** : maturation et libération cyclique d'un ovocyte fécondable (ponte ovulaire).
+- Une **fonction endocrine** : sécrétion cyclique des hormones stéroïdiennes femelles, les **œstrogènes** et la **progestérone**.
+
+### 2.1 La Phase Pré-ovulatoire ou Phase Folliculaire ($J_1$ à $J_{13}$)
+- **Évolution morphologique :** Sous l'action de l'hormone hypophysaire **FSH**, une cohorte de follicules cavitaires est recrutée. Un seul follicule devient dominant (follicule sélectionné) et poursuit sa croissance jusqu'au stade de **follicule mûr de De Graaf** ($20\\text{ à }25\\,\\text{mm}$ de diamètre), tandis que les autres dégénèrent par atrésie folliculaire.
+- **Activité endocrine :** Les cellules de la thèque interne (stimulées par la LH) synthétisent des androgènes qui traversent la membrane basale folliculaire. Dans la granulosa (stimulée par la FSH), une enzyme clé, l'**aromatase**, convertit ces androgènes en **œstrogènes (17β-œstradiol)**.
+- **Cinétique hormonale :** Le taux plasmatique d'œstrogènes augmente progressivement tout au long de la phase folliculaire, pour culminer en un **pic pré-ovulatoire massif** vers $J_{12}-J_{13}$ ($> 200\\text{ à }300\\,\\text{pg/mL}$). La progestérone reste quasi-nulle ($< 1\\,\\text{ng/mL}$).
+
+### 2.2 L'Ovulation ($J_{14}$)
+- Déclenchée par une décharge brutale et massive de gonadostimulines hypophysaires, principalement le **pic de LH** (avec un pic concomitant plus modeste de FSH).
+- Le pic de LH active des enzymes protéolytiques (collagénases) qui fragilisent la paroi ovarienne et celle du follicule de De Graaf.
+- Le follicule se rompt et expulse dans le pavillon de la trompe de Fallope le complexe ovulaire : **l'ovocyte II bloqué en métaphase II**, entouré de sa zone pellucide, de son premier globule polaire ($GP_1$) et des cellules folliculaires de la corona radiata.
+
+### 2.3 La Phase Post-ovulatoire ou Phase Lutéale / Lutéinique ($J_{15}$ à $J_{28}$)
+- **Évolution morphologique :** Les cellules de la granulosa et de la thèque interne restant dans l'ovaire se chargent d'un pigment lipidique jaune (lutéine) et sont colonisées par des capillaires sanguins : c'est la **lutéinisation**, commandée par la LH. La structure résiduelle devient le **corps jaune**.
+- **Activité endocrine :** Les cellules lutéales sécrètent d'importantes quantités de **progestérone** (pic vers $J_{21}$, atteignant 15 à 20 ng/mL) et un second dôme modéré d'**œstrogènes**.
+- **Devenir du corps jaune en fin de cycle :**
+  - *En l'absence de fécondation :* Le corps jaune a une durée de vie programmée d'environ 14 jours. Vers $J_{26}-J_{28}$, il involue et régresse en une petite cicatrice conjonctive fibreuse blanche non fonctionnelle, le **corps albicans**.
+  - *En cas de fécondation :* L'embryon produit l'hormone **hCG** qui mime l'action de la LH et maintient le corps jaune actif (**corps jaune gestatif**) pendant le premier trimestre de la grossesse.
+
+---
+
+## 3. Le Cycle Utérin et le Mécanisme Précis des Règles
+
+L'utérus est le principal organe cible des hormones ovariennes. Sa paroi comprend un muscle lisse épais (le **myomètre**) tapissé intérieurement par une muqueuse glandulaire richement vascularisée (l'**endomètre**). L'endomètre comprend une couche basale permanente résiduelle et une couche superficielle fonctionnelle cyclique.
+
+### 3.1 Les Trois Phases du Cycle de l'Endomètre
+
+1. **La phase menstruelle ou des Règles ($J_1$ à $J_5$) :**
+   - Écoulement sanguin d'environ 50 à 80 mL mêlé de débris tissulaires muqueux.
+   - Correspond à la desquamation de la zone superficielle fonctionnelle de l'endomètre. Seule subsiste la couche basale de 1 mm d'épaisseur.
+2. **La phase proliférative ou post-menstruelle ($J_6$ à $J_{14}$) :**
+   - Placée sous la dépendance exclusive des **œstrogènes** ovariens.
+   - Les cellules de la couche basale se multiplient activement par mitoses : l'endomètre s'épaissit pour passer de 1 mm à **4-5 mm**.
+   - Les glandes en tube s'allongent de manière rectiligne, et de nouvelles artérioles droites se développent.
+3. **La phase sécrétoire ou lutéale ($J_{15}$ à $J_{28}$) :**
+   - Placée sous l'action combinée de la **progestérone** et des **œstrogènes**.
+   - L'endomètre atteint son épaisseur maximale (**7 à 8 mm**).
+   - Les glandes utérines s'allongent considérablement, deviennent très tortueuses, ramifiées et festonnées : la muqueuse prend au microscope l'aspect caractéristique de **dentelle utérine**.
+   - Les cellules glandulaires sécrètent un mucus abondant riche en glycogène destiné à nourrir le jeune embryon avant la nidation.
+   - Les artérioles s'allongent plus vite que le stroma et prennent une forme très spiralée (**artérioles spiralées**).
+   - **Action essentielle sur le myomètre :** La progestérone bloque l'excitabilité et les contractions musculaires du myomètre : c'est le **silence utérin**, condition *sine qua non* pour empêcher l'expulsion mécanique du blastocyste lors de la nidation.
+
+### 3.2 Le Déclenchement Physiologique de la Menstruation
+
+> [!CONSEIL_BAC] **Formulation exigée au Baccalauréat sénégalais :**
+> En l'absence de fécondation, l'involution du corps jaune à $J_{26}-J_{28}$ provoque l'**effondrement brutal des concentrations plasmatiques d'œstrogènes et de progestérone** (chute hormonale).
+> Privées de leur soutien trophique, les artérioles spiralées subissent de violentes contractions spastiques (vasoconstriction), entraînant une **ischémie prolongée**, la privation d'oxygène et la nécrose de la couche fonctionnelle de l'endomètre. Des hématomes sous-épithéliaux se forment, se rompent et entraînent le détachement de lambeaux de muqueuse : ce sont **les menstruations**.
+
+---
+
+## 4. Les Cycles Annexes : Glaire Cervicale & Température Corporelle
+
+### 4.1 Le Cycle de la Glaire Cervicale
+La glaire cervicale est un hydrogel de glycoprotéines (mucines) sécrété par les glandes du col de l'utérus (endocol). Elle constitue une barrière biologique sélective entre le milieu vaginal acide et la cavité utérine stérile :
+
+| Période du Cycle | Aspect Macroscopique | Structure Microscopique | Propriétés Biologiques & Rôle |
+| :--- | :--- | :--- | :--- |
+| **Phase folliculaire ($J_1-J_{11}$)** | Opaque, visqueuse, peu abondante | Maillage moléculaire très **serré** | Barrière infranchissable pour les bactéries et les spermatozoïdes |
+| **Période ovulatoire ($J_{12}-J_{14}$)** | **Limpide, très abondante, filante** (blanc d'œuf), alcaline ($pH > 7{,}2$) | Maillage très **lâche**, cristallisation en **feuilles de fougère** au séchage | Guide, nourrit, sélectionne et **permet l'ascension des spermatozoïdes** |
+| **Phase lutéinique ($J_{15}-J_{28}$)** | Pâteuse, très dense, visqueuse, acide | Réseau rétracté à **maillage hermétique** | Ferme hermétiquement le col sous l'action de la progestérone |
+
+### 4.2 Le Cycle Thermique Corporel
+La prise quotidienne de la température corporelle le matin au réveil à jeun révèle une courbe typiquement **biphasique** chez la femme féconde :
+1. **Plateau hypothermique pré-ovulatoire :** Température stable, oscillant entre **$36{,}5$ et $36{,}7\\,^\\circ\\text{C}$**.
+2. **Le nadir :** Point le plus bas de la courbe ($36{,}4\\,^\\circ\\text{C}$) observé vers $J_{13}-J_{14}$, marquant la veille immédiate de l'ovulation.
+3. **Le décalage thermique :** Dès le lendemain de l'ovulation, la température monte brutalement de **$+0{,}3\\text{ à }+0{,}5\\,^\\circ\\text{C}$**.
+4. **Plateau hyperthermique post-ovulatoire :** La température reste constamment au-dessus de **$37{,}0\\,^\\circ\\text{C}$** ($37{,}1\\text{ à }37{,}3\\,^\\circ\\text{C}$) pendant les 14 jours de la phase lutéale.
+   - **Mécanisme :** La **progestérone** exerce une action thermogène centrale sur l'hypothalamus antérieur (centre de thermorégulation).
+   - **Diagnostic de grossesse :** Si le plateau thermique dépasse **16 à 18 jours consécutifs**, la persistance de la progestérone signe le maintien du corps jaune gestatif et constitue le premier signe biologique de grossesse.
+
+---
+
+## 5. Régulation Neuro-hormonale : L'Axe Hypothalamo-Hypophyso-Ovarien
+
+La commande des cycles sexuels repose sur une organisation hiérarchisée en cascade faisant intervenir des messagers chimiques véhiculés par voie humorale sanguine :
+
+$$\\text{Hypothalamus (GnRH)} \\xrightarrow{\\text{Pulsatile}} \\text{Antéhypophyse (FSH / LH)} \\xrightarrow{\\text{Sanguine}} \\text{Ovaires} \\xrightarrow{\\text{Œstrogènes / Progestérone}} \\text{Utérus / Glaire}$$
+
+### 5.1 L'Hypothalamus et la Sécrétion Pulsatile de GnRH
+- Des neurones spécialisés situés dans les noyaux arqués de l'hypothalamus synthétisent la **GnRH (Gonadotropin Releasing Hormone)** ou gonadolibérine.
+- La GnRH est déversée dans le **système porte hypothalamo-hypophysaire** (réseau capillaire fermé reliant directement l'éminence médiane à l'adénohypophyse).
+- **Condition sine qua non de fonctionnement :** La sécrétion de GnRH doit obligatoirement être **pulsatile** (une impulsion ou pulse toutes les 60 à 90 minutes).
+  - *Expérience clé du Bac :* Une administration continue de GnRH provoque la désensibilisation et la disparition des récepteurs hypophysaires, stoppant net toute sécrétion de FSH et de LH ! Seule la pulsatilité maintient l'efficacité de l'axe.
+
+### 5.2 L'Antéhypophyse et les Deux Gonadostimulines
+Sous l'action de la GnRH, les cellules gonadotropes de l'hypophyse antérieure libèrent deux glycoprotéines dans la circulation générale :
+- **FSH (Follicle Stimulating Hormone) :** Stimule la maturation des follicules et active l'aromatase dans la granulosa (sécrétion d'œstrogènes).
+- **LH (Luteinizing Hormone) :** Stimule la synthèse d'androgènes par la thèque interne, déclenche l'ovulation lors de son pic massif à $J_{13}-J_{14}$, et maintient le corps jaune en stimulant la sécrétion de progestérone.
+
+---
+
+## 6. La Dynamique des Rétrocontrôles Ovariens sur l'Axe HH
+
+L'activité de l'axe hypothalamo-hypophysaire est modulée en retour par les concentrations sanguines des hormones sécrétées par l'ovaire : ce sont les **rétrocontrôles** (feedbacks).
+
+### 6.1 Début et Milieu de Phase Folliculaire ($J_1$ à $J_{11}$) : Le Rétrocontrôle Négatif Modéré
+- Les follicules jeunes sécrètent des doses faibles à modérées d'œstrogènes.
+- Ces œstrogènes exercent un **rétrocontrôle négatif (RC-)** sur l'hypothalamus et l'adénohypophyse, freinant la sécrétion de FSH et de LH.
+- Ce freinage entraîne une baisse progressive de la FSH, ce qui permet la sélection d'un follicule unique dominant (le plus sensible à la FSH) et provoque l'atrésie des autres.
+- Les cellules de la granulosa sécrètent également de l'**inhibine**, qui freine sélectivement la sécrétion de FSH.
+
+### 6.2 Fin de Phase Folliculaire ($J_{12}-J_{13}$) : La Bascule en Rétrocontrôle Positif (Le Pic de LH)
+- Le follicule mûr de De Graaf possède une masse considérable de cellules folliculaires qui produisent une quantité énorme d'œstrogènes.
+- **Les 2 conditions du rétrocontrôle positif (RC+) :**
+  1. La concentration plasmatique d'œstrogènes dépasse un **seuil critique d'environ $200\\text{ à }300\\,\\text{pg/mL}$**.
+  2. Ce niveau supraliminaire est **maintenu pendant plus de 36 heures consécutives**.
+- Dès que ces deux conditions sont remplies, le rétrocontrôle s'inverse spectaculairement : il devient un **rétrocontrôle positif (RC+)**.
+- Les œstrogènes stimulent brutalement l'hypothalamus (accélération de la fréquence des pulses de GnRH) et sensibilisent l'hypophyse.
+- **Résultat :** Décharge massive et synchrone de gonadostimulines, créant le gigantesque **pic pré-ovulatoire de LH** (le taux de LH est multiplié par 8 à 10) et un pic secondaire de FSH. C'est ce pic de LH qui ordonne l'ovulation 24 à 36 heures plus tard.
+
+### 6.3 Phase Lutéinique ($J_{15}$ à $J_{26}$) : Le Puissant Rétrocontrôle Négatif Lutéal
+- Le corps jaune sécrète conjointement de très fortes doses de **progestérone** associées aux œstrogènes.
+- L'association progestérone + œstrogènes exerce un **rétrocontrôle négatif extrêmement puissant** sur l'axe hypothalamo-hypophysaire.
+- Les concentrations de FSH et de LH sont écrasées à des taux résiduels très faibles.
+- **Conséquence biologique :** Blocage complet du développement de toute nouvelle cohorte folliculaire pendant toute la phase lutéale.
+
+### 6.4 Fin de Cycle ($J_{26}-J_{28}$) : La Levée de Rétrocontrôle Négatif
+- La dégénérescence du corps jaune en corps albicans entraîne la chute brutale de la progestérone et des œstrogènes.
+- Conséquence 1 : Desquamation de l'endomètre = **les règles**.
+- Conséquence 2 : **Levée du rétrocontrôle négatif** sur l'axe hypothalamo-hypophysaire $\\implies$ la sécrétion de FSH recommence à augmenter légèrement, recrutant immédiatement les follicules primordiaux pour initier le cycle suivant.
+
+---
+
+## 7. Tableau Synoptique des Expériences de Régulation au Bac S2
+
+| Protocole Expérimental | Constatations Hormonales | État de l'Utérus | Interprétation Biologique |
+| :--- | :--- | :--- | :--- |
+| **Ovariectomie bilatérale** | Effondrement des œstrogènes et de la progestérone ; **hausse permanente massive de FSH et LH** | Atrophie totale et irréversible de l'endomètre | L'ovaire stimule l'utérus (voie hormonale) et freine en permanence l'hypophyse (levée du RC-) |
+| **Hypophysectomie** | Sécrétions de FSH et de LH nulles ; arrêt des sécrétions ovariennes | Atrophie utérine secondaire | L'hypophyse contrôle la fonction ovarienne qui contrôle l'utérus (chaîne hiérarchisée) |
+| **Greffe d'ovaire chez l'ovariectomisée** | Rétablissement des taux basaux de FSH/LH et réapparition des cycles hormonaux | Régénération et cycles de l'endomètre | La liaison ovaire-utérus et ovaire-hypophyse est purement humorale (voie sanguine) |
+| **Perfusion continue de GnRH** | Chute de FSH et LH jusqu'à zéro après une brève élévation | Atrophie ovarienne et utérine | L'hypophyse exige une stimulation **pulsatile** ; l'apport continu désensibilise les récepteurs |
+| **Pilule combinée (Œstro-progestatif)** | FSH et LH bloquées à des taux résiduels quasi nuls ; pas de pic de LH | Endomètre atrophié ; glaire cervicale imperméable | Maintien artificiel d'un **RC- permanent** bloquant l'ovulation (contraception hormonale) |
+`;
+
 export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: string, rawContent: string | null): string {
   const titleLower = `${lessonTitle} ${chapterTitle}`.toLowerCase();
 
@@ -7317,6 +7478,30 @@ export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: stri
     titleLower.includes('60000000-0000-0003-0004-000000000001')
   ) {
     return RICH_LESSONS_MAP.b4_gametogenese_comparee;
+  }
+
+  // Routage SVT B4 Leçon 2 : Cycles sexuels chez la femme & régulation neurohormonale
+  if (
+    titleLower.includes('cycle sexuel') ||
+    titleLower.includes('cycles sexuels') ||
+    titleLower.includes('cycle ovarien') ||
+    titleLower.includes('cycle utérin') ||
+    titleLower.includes('cycle uterin') ||
+    titleLower.includes('glaire cervicale') ||
+    titleLower.includes('dentelle utérine') ||
+    titleLower.includes('dentelle uterine') ||
+    titleLower.includes('axe hypothalamo') ||
+    titleLower.includes('rétrocontrôle') ||
+    titleLower.includes('retrocontrole') ||
+    titleLower.includes('pic de lh') ||
+    titleLower.includes('corps jaune') ||
+    titleLower.includes('œstrogène') ||
+    titleLower.includes('oestrogene') ||
+    titleLower.includes('progestérone') ||
+    titleLower.includes('progesterone') ||
+    titleLower.includes('60000000-0000-0003-0004-000000000002')
+  ) {
+    return RICH_LESSONS_MAP.b4_cycles_sexuels_hormones;
   }
 
   // Routage SVT B3 Leçon 4 : Dysfonctionnements Immunitaires — Allergies, Auto-immunité & VIH/SIDA

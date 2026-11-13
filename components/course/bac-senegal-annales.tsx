@@ -3613,6 +3613,123 @@ Dans un exposé clair et structuré comprenant une introduction, un développeme
       baremeAstuce: 'Dans un sujet de synthèse au Bac S2, soignez particulièrement les transitions entre la cytologie (méiose) et l\'endocrinologie (Sertoli / Granulosa). Mentionnez toujours l\'Inhibine pour Sertoli et le tandem Thèque interne / Granulosa pour les œstrogènes.',
     },
   ],
+
+  // B4. LEÇON 2 - CYCLES SEXUELS CHEZ LA FEMME & RÉGULATION HORMONALE (SVT S2)
+  cycles_sexuels_hormones: [
+    {
+      year: 2021,
+      session: 'Session Normale (SVT Série S2)',
+      points: 'Exercice 1 — Maîtrise des Connaissances (5 Points)',
+      topic: 'Synchronisation des cycles ovarien et utérin, Origine de la menstruation et mécanisme du décalage thermique',
+      enonce: `L'activité génitale chez la femme en période d'activité sexuelle se caractérise par des variations cycliques parfaitement synchronisées de l'ovaire, de l'utérus et de la température basale.
+
+Dans un exposé structuré :
+1. Présentez la chronologie synchronisée du cycle ovarien et du cycle utérin au cours d'un cycle idéal de 28 jours en distinguant les phases pré-ovulatoire et post-ovulatoire. *(2,5 points)*
+2. Expliquez le mécanisme physiologique précis à l'origine de l'apparition des règles (menstruation) à la fin d'un cycle en l'absence de fécondation. *(1,25 point)*
+3. Analysez l'évolution de la courbe de température corporelle matinale et justifiez le décalage thermique observé à partir du 14e jour. *(1,25 point)*`,
+      solution: `### 1. Chronologie synchronisée des cycles ovarien et utérin (2,5 pts)
+Au cours d'un cycle menstruel de 28 jours, deux phases majeures encadrent l'ovulation de J14 :
+
+- **Phase pré-ovulatoire (J1 à J14) :**
+  - *Au niveau ovarien (Phase folliculaire) :* Recrutement et maturation d'un follicule cavitaire qui devient follicule mûr de De Graaf (20 mm). Les cellules de la thèque interne et de la granulosa sécrètent des quantités croissantes d'**œstrogènes (17β-œstradiol)**.
+  - *Au niveau utérin (Menstruation J1-J5 puis Phase proliférative J6-J14) :* Les œstrogènes stimulent la régénération de la muqueuse utérine (endomètre) qui passe de 1 mm à 4 mm d'épaisseur par mitoses intenses, avec allongement des vaisseaux sanguins et des glandes utérines rectilignes.
+- **Ovulation (J14) :**
+  - Sous l'effet du pic pré-ovulatoire de **LH**, le follicule de De Graaf se rompt et expulse l'ovocyte II bloqué en métaphase II flanqué de son premier globule polaire ($GP_1$).
+- **Phase post-ovulatoire (J14 à J28) :**
+  - *Au niveau ovarien (Phase lutéinique ou lutéale) :* Le follicule délesté se vascularise et subit la lutéinisation sous l'effet de la LH, devenant un **corps jaune** sécrétant massivement de la **progestérone** et un second dôme d'œstrogènes.
+  - *Au niveau utérin (Phase sécrétoire) :* Sous l'effet combiné de la progestérone et des œstrogènes, l'endomètre atteint 7 à 8 mm et prend l'aspect de **dentelle utérine** : les glandes deviennent très tortueuses et ramifiées, sécrétant du glycogène et du mucus nutritif ; les artérioles deviennent spiralées ; les contractions du myomètre sont inhibées (**silence utérin**).
+
+---
+
+### 2. Mécanisme physiologique du déclenchement des règles (1,25 pt)
+- En l'absence de fécondation, le corps jaune n'est pas soutenu par l'hCG embryonnaire. Vers le 26e-28e jour, il régresse spontanément et involue en tissu cicatriciel fibreux blanc (**corps albicans**).
+- Cette régression entraîne un **effondrement brutal des taux plasmatiques d'œstrogènes et de progestérone** (chute hormonale).
+- Privée de ce soutien hormonal trophique, la couche fonctionnelle de l'endomètre subit une vasoconstriction spastique intense des artérioles spiralées, conduisant à une ischémie locale puis à une nécrose tissulaire.
+- La muqueuse nécrosée desquame et est éliminée avec des écoulements sanguins : ce sont les **règles ou menstruations**, qui marquent le début du cycle suivant ($J_1$).
+
+---
+
+### 3. Courbe de température corporelle et décalage thermique (1,25 pt)
+- **Profil biphasique de la courbe :**
+  - *Du 1er au 13e jour (phase hypothermique) :* La température matinale au réveil reste stable et inférieure à 37 °C (autour de 36,5 - 36,7 °C).
+  - *Vers J13-J14 (nadir) :* On observe une légère baisse transitoire marquant la veille immédiate de l'ovulation.
+  - *Du 15e au 28e jour (plateau hyperthermique) :* La température subit un décalage thermique de **+0,3 à +0,5 °C** et franchit la barre des 37 °C (37,1 - 37,3 °C), se maintenant en plateau jusqu'aux règles suivantes.
+- **Justification physiologique :**
+  - La **progestérone** sécrétée par le corps jaune possède une **action thermogène directe** sur les neurones thermorégulateurs de l'hypothalamus antérieur, augmentant le point de consigne thermique du corps.
+  - L'apparition du décalage thermique confirme rétrospectivement qu'une ovulation a bien eu lieu la veille.`,
+      baremeAstuce: 'Au Bac S2, ne dites jamais que la menstruation est "produite par une hormone". Précisez formellement qu\'elle est provoquée par la CHUTE BRUTALE ou le SEVRAGE conjoint de la progestérone et des œstrogènes consécutif à l\'involution du corps jaune.',
+    },
+    {
+      year: 2017,
+      session: 'Session Normale (SVT Série S2)',
+      points: 'Exercice 2 — Raisonnement Scientifique (5 Points)',
+      topic: 'Régulation neurohormonale de l\'axe hypothalamo-hypophyso-ovarien, Rétrocontrôles négatif et positif',
+      enonce: `Pour comprendre les interactions hormonales entre l'hypophyse et les ovaires chez la guenon (mammifère au cycle analogue à celui de la femme), on réalise les séries d'expériences suivantes :
+
+- **Expérience 1 :** L'ablation bilatérale des ovaires (ovariectomie) chez une guenon adulte entraîne une élévation rapide, considérable et durable des taux sanguins de FSH et de LH.
+- **Expérience 2 :** Chez cette guenon ovariectomisée, des injections quotidiennes de faibles doses régulières d'œstrogènes ramènent les concentrations de FSH et de LH à leurs valeurs basales pré-ovulatoires.
+- **Expérience 3 :** Chez une guenon ovariectomisée recevant déjà ces faibles doses, on injecte vers le 12e jour une forte dose d'œstrogènes maintenant la concentration plasmatique au-dessus de $250\\,\\text{pg/mL}$ pendant 48 heures. Trente-six heures plus tard, on constate une libération explosive de LH (décharge de 80 mUI/mL).
+- **Expérience 4 :** Chez une guenon ovariectomisée, l'injection combinée de progestérone et de fortes doses d'œstrogènes inhibe totalement toute sécrétion de FSH et de LH.
+
+1. Analysez les résultats des expériences 1 et 2. Quelle relation fonctionnelle fondamentale entre l'ovaire et l'hypophyse mettent-elles en évidence ? *(1,5 point)*
+2. Interprétez le résultat de l'expérience 3. En quoi éclaire-t-il le déclenchement de l'ovulation dans les conditions physiologiques normales ? *(2 points)*
+3. À partir de l'expérience 4 et de vos connaissances, expliquez le mécanisme d'action contraceptif de la pilule œstro-progestative combinée. *(1,5 point)*`,
+      solution: `### 1. Analyse des Expériences 1 et 2 — Rétrocontrôle Négatif (1,5 pt)
+- **Expérience 1 :** L'ovariectomie supprime les hormones ovariennes et entraîne une élévation spectaculaire de FSH et LH. Cela démontre que chez l'animal intact, les ovaires exercent une action inhibitrice permanente sur le complexe hypothalamo-hypophysaire.
+- **Expérience 2 :** La réintroduction de faibles doses d'œstrogènes restaure l'inhibition et abaisse FSH et LH à leurs taux basaux.
+- **Conclusion :** À dose physiologique modérée, les œstrogènes exercent un **rétrocontrôle négatif (RC-)** sur l'axe hypothalamo-hypophysaire pour maintenir les sécrétions de gonadostimulines à des niveaux modérés.
+
+---
+
+### 2. Interprétation de l'Expérience 3 — Rétrocontrôle Positif Pré-ovulatoire (2 pts)
+- Lorsque le taux d'œstrogènes dépasse un **seuil critique** ($> 200\\text{ à }250\\,\\text{pg/mL}$) et que cette élévation est maintenue pendant plus de 36 heures, on assiste à une inversion spectaculaire du rétrocontrôle : il devient un **rétrocontrôle positif (RC+)**.
+- Les œstrogènes stimulent alors puissamment la pulsatilité des neurones à GnRH de l'hypothalamus et augmentent la sensibilité des cellules hypophysaires réceptrices à la GnRH.
+- Il en résulte une libération massive et synchrone de gonadostimulines, en particulier le **pic de LH** (décharge ovulante).
+- **Application au cycle normal :** Vers J12-J13, la croissance du follicule de De Graaf produit des œstrogènes en quantité suffisante pour dépasser ce seuil critique, déclenchant ainsi le pic de LH qui provoque l'ovulation 24 à 36 heures plus tard (J14).
+
+---
+
+### 3. Mécanisme contraceptif de la pilule combinée (1,5 pt)
+- L'expérience 4 démontre que l'association œstrogènes + progestérone exerce une **inhibition négative absolue** sur les sécrétions hypophysaires.
+- La pilule combinée apporte quotidiennement des doses constantes de dérivés de synthèse d'œstrogènes et de progestatifs.
+- **Triple mode d'action contraceptif :**
+  1. *Blocage de l'ovulation :* Rétrocontrôle négatif continu sur l'axe HH $\\to$ absence de pic de LH $\\to$ pas d'ovulation.
+  2. *Imperméabilité de la glaire cervicale :* La composante progestative maintient la glaire épaisse et hostile, bloquant l'ascension des spermatozoïdes.
+  3. *Endomètre impropre :* L'endomètre reste mince et atrophique, empêchant toute nidation embryonnaire éventuelle.`,
+      baremeAstuce: 'Pour le rétrocontrôle positif au Bac S2, exigez toujours dans votre copie les DEUX conditions inséparables : 1) Dépasser le seuil critique (~200 pg/mL) ET 2) Maintenir ce niveau pendant au moins 36 heures.',
+    },
+    {
+      year: 2015,
+      session: 'Session de Remplacement (SVT Série S2)',
+      points: 'Exercice 1 — Restitution des Connaissances (4 Points)',
+      topic: 'Le rôle de la glaire cervicale et les méthodes de maîtrise de la procréation',
+      enonce: `La glaire cervicale sécrétée par le col de l'utérus constitue une barrière sélective dynamique dont les propriétés physico-chimiques varient au cours du cycle sexuel féminin.
+
+1. Décrivez l'évolution morphologique et structurale de la glaire cervicale au cours d'un cycle de 28 jours (en phase folliculaire, à l'ovulation et en phase lutéale). Précisez les facteurs hormonaux responsables de ces variations. *(2 points)*
+2. Comparez le mécanisme d'action de la pilule contraceptive régulière (prise quotidienne pendant 21 jours) à celui de la pilule d'urgence dite "du lendemain" (prise unique à forte dose de lévonorgestrel). *(2 points)*`,
+      solution: `### 1. Évolution de la glaire cervicale au cours du cycle (2 pts)
+- **Phase folliculaire (J1 à J11) :**
+  - Sous l'effet de taux modérés d'œstrogènes, la glaire est peu abondante, dense, visqueuse et forme un réseau protéique à **mailles serrées** imperméable aux spermatozoïdes et aux bactéries.
+- **Période ovulatoire (J12 à J14) :**
+  - Sous l'action du **pic pré-ovulatoire d'œstrogènes**, la glaire devient très abondante, limpide comme du blanc d'œuf, très filante (s'étire en longs filaments) et alcaline ($pH > 7{,}2$).
+  - Son maillage moléculaire devient très **lâche**, et elle cristallise en **feuilles de fougère** au séchage. Elle guide, nourrit et facilite l'ascension rapide des spermatozoïdes vers la cavité utérine.
+- **Phase lutéinique (J15 à J28) :**
+  - Sous l'effet prédominant de la **progestérone**, la glaire se rétracte brutalement, devient opaque, acide, pâteuse et son maillage redevient extrêmement serré, fermant hermétiquement l'orifice du col de l'utérus.
+
+---
+
+### 2. Comparaison Pilule Régulière vs Pilule d'Urgence (2 pts)
+
+| Critère | Pilule Régulière (Combinée 21j) | Pilule du Lendemain (Lévonorgestrel) |
+| :--- | :--- | :--- |
+| **Mode d'administration** | Prise quotidienne préventive continue | Prise exceptionnelle d'urgence (dans les 72h post-rapport) |
+| **Composition hormonale** | Faibles doses d'œstrogène + progestatif | Très forte dose unique de progestatif pur (Lévonorgestrel) |
+| **Mécanisme principal** | Rétrocontrôle négatif continu $\\to$ mise au repos de l'axe HH $\\to$ **blocage de l'ovulation** | Pic progestatif brutal $\\to$ **retarde ou bloque l'ovulation imminente** |
+| **Action secondaire** | Glaire imperméable + endomètre mince | Altère brutalement l'endomètre et épaissit la glaire d'urgence |
+| **Efficacité** | Efficacité théorique proche de 99% | Efficacité décroissante avec le temps (95% à 24h, 58% à 72h) |`,
+      baremeAstuce: 'Rappelez toujours que la pilule du lendemain est une méthode d\'urgence et NON un moyen régulier de contraception. Elle n\'est pas abortive : si la nidation a déjà eu lieu, elle n\'interrompt pas la grossesse.',
+    },
+  ],
 };
 
 BAC_ANNALES_BY_CHAPTER.cinematique = BAC_ANNALES_BY_CHAPTER.cinematique_point;
@@ -3732,6 +3849,19 @@ BAC_ANNALES_BY_CHAPTER['spermiogenese'] = BAC_ANNALES_BY_CHAPTER.gametogenese_co
 BAC_ANNALES_BY_CHAPTER['folliculogenese'] = BAC_ANNALES_BY_CHAPTER.gametogenese_comparee;
 BAC_ANNALES_BY_CHAPTER['meiose_comparee'] = BAC_ANNALES_BY_CHAPTER.gametogenese_comparee;
 BAC_ANNALES_BY_CHAPTER['tube-seminifere'] = BAC_ANNALES_BY_CHAPTER.gametogenese_comparee;
+
+// ─── B4 LEÇON 2 — CYCLES SEXUELS & RÉGULATION HORMONALE ──────────────────────
+BAC_ANNALES_BY_CHAPTER['cycles_sexuels'] = BAC_ANNALES_BY_CHAPTER.cycles_sexuels_hormones;
+BAC_ANNALES_BY_CHAPTER['cycles_sexuels_hormones'] = BAC_ANNALES_BY_CHAPTER.cycles_sexuels_hormones;
+BAC_ANNALES_BY_CHAPTER['cycles-sexuels'] = BAC_ANNALES_BY_CHAPTER.cycles_sexuels_hormones;
+BAC_ANNALES_BY_CHAPTER['b4l2'] = BAC_ANNALES_BY_CHAPTER.cycles_sexuels_hormones;
+BAC_ANNALES_BY_CHAPTER['retrocontrole'] = BAC_ANNALES_BY_CHAPTER.cycles_sexuels_hormones;
+BAC_ANNALES_BY_CHAPTER['retrocontrole_positif'] = BAC_ANNALES_BY_CHAPTER.cycles_sexuels_hormones;
+BAC_ANNALES_BY_CHAPTER['pic_lh'] = BAC_ANNALES_BY_CHAPTER.cycles_sexuels_hormones;
+BAC_ANNALES_BY_CHAPTER['corps_jaune'] = BAC_ANNALES_BY_CHAPTER.cycles_sexuels_hormones;
+BAC_ANNALES_BY_CHAPTER['dentelle_uterine'] = BAC_ANNALES_BY_CHAPTER.cycles_sexuels_hormones;
+BAC_ANNALES_BY_CHAPTER['glaire_cervicale'] = BAC_ANNALES_BY_CHAPTER.cycles_sexuels_hormones;
+BAC_ANNALES_BY_CHAPTER['pilule'] = BAC_ANNALES_BY_CHAPTER.cycles_sexuels_hormones;
 
 interface BacSenegalAnnalesProps {
   chapter?: string;
