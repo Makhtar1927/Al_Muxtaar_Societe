@@ -1,6 +1,15 @@
 'use client';
 
 import React, { useState } from 'react';
+import {
+  HelpCircle,
+  CheckCircle,
+  XCircle,
+  RotateCcw,
+  Award,
+  ChevronRight,
+  BookOpen,
+} from 'lucide-react';
 
 interface Question {
   id: number;
@@ -8,318 +17,308 @@ interface Question {
   options: string[];
   correct: number;
   explanation: string;
-  difficulty: 'facile' | 'moyen' | 'difficile';
-  theme: string;
+  concept: string;
 }
 
-const questions: Question[] = [
+const QUESTIONS: Question[] = [
   {
     id: 1,
     question:
-      "Où se produit normalement la fécondation chez la femme ?",
+      'Dans quelle portion précise des voies génitales féminines la fécondation se déroule-t-elle normalement chez l’espèce humaine ?',
     options: [
-      "Dans l'utérus, au niveau de la dentelle utérine",
-      "Dans le tiers externe de la trompe de Fallope (ampoule tubaire)",
-      "Dans l'ovaire, juste après l'ovulation",
-      "Dans le col de l'utérus",
+      'Dans la lumière de la cavité utérine, au contact de la dentelle utérine',
+      'Dans le tiers externe de la trompe de Fallope (ampoule tubaire)',
+      'À la surface de l’ovaire, immédiatement après la rupture folliculaire',
+      'Dans le canal cervical, au sein de la glaire ovulatoire',
     ],
     correct: 1,
     explanation:
-      "La fécondation se produit dans le tiers EXTERNE de la trompe de Fallope, appelé l'ampoule tubaire. C'est là que l'ovocyte II, libéré lors de l'ovulation, rencontre les spermatozoïdes. La fécondation dans l'utérus est impossible car le zygote doit encore se segmenter pendant le trajet tubaire (3-4 jours) avant d'atteindre l'utérus sous forme de morula/blastocyste.",
-    difficulty: 'facile',
-    theme: 'Fécondation',
+      'La fécondation a lieu exclusivement dans l’ampoule tubaire (tiers externe de la trompe de Fallope). L’ovocyte II expulsé lors de l’ovulation y est capté par les franges du pavillon tubaire et y rencontre les spermatozoïdes capacitants ayant migré à travers le col et la cavité utérine.',
+    concept: 'Siège de la Fécondation',
   },
   {
     id: 2,
     question:
-      "Qu'est-ce que la réaction acrosomique et quel est son rôle lors de la fécondation ?",
+      'Quel est le mécanisme cellulaire responsable du blocage définitif de la polyspermie lors de la fécondation ?',
     options: [
-      "Libération de granules corticaux par l'ovocyte pour bloquer la polyspermie",
-      "Fusion des pronuclei mâle et femelle pour reconstituer la diploïdie",
-      "Libération d'enzymes (acrosine) par la tête du spermatozoïde pour traverser la zone pellucide",
-      "Achèvement de la méiose II de l'ovocyte déclenché par la pénétration du spermatozoïde",
+      'L’épuisement immédiat du pool d’ATP des spermatozoïdes environnants',
+      'L’onde de dépolarisation membranaire continue durant 48 heures',
+      'L’exocytose des granules corticaux ovocytaires durcissant la zone pellucide par hydrolyse de ZP3',
+      'La fermeture mécanique de l’orifice pavillonnaire de la trompe',
     ],
     correct: 2,
     explanation:
-      "La RÉACTION ACROSOMIQUE se produit quand le spermatozoïde entre en contact avec la zone pellucide (ZP3). L'acrosome (vésicule en chapeau sur la tête du spermatozoïde) libère ses enzymes : hyaluronidase (traverse la corona radiata) et acrosine (perfore la zone pellucide). C'est un mécanisme enzymatique et non mécanique. Ne pas confondre avec la réaction CORTICALE (libération de granules par l'ovocyte pour bloquer la polyspermie).",
-    difficulty: 'moyen',
-    theme: 'Fécondation',
+      'La fusion des membranes plasmiques de l’ovocyte et du premier spermatozoïde déclenche une onde calcique intracellulaire (Ca2+). Ce signal induit la réaction corticale : les granules corticaux sous-membranaires libèrent par exocytose des enzymes dans l’espace périvitellin, ce qui modifie la structure de ZP3 et durcit la zone pellucide, empêchant irréversiblement l’entrée de tout autre spermatozoïde.',
+    concept: 'Réaction Corticale & Polyspermie',
   },
   {
     id: 3,
     question:
-      "Un blastocyste de 5 jours est composé de quelles structures ?",
+      'Quelle est la particularité morphologique et volumique majeure caractérisant la phase de segmentation du zygote (J1 à J4) ?',
     options: [
-      "Cellules indifférenciées disposées en sphère pleine (morula)",
-      "Trophoblaste externe + bouton embryonnaire interne + cavité blastocœlique",
-      "Épiblaste + hypoblaste + cavité amniotique",
-      "Ectoderme + mésoderme + endoderme (3 feuillets embryonnaires)",
+      'L’embryon multiplie son volume par 10 sous l’effet de l’absorption de liquide utérin',
+      'Le nombre de cellules augmente par mitoses successives tandis que le volume global de l’embryon reste rigoureusement constant',
+      'L’embryon perd son matériel génétique diploïde pour redevenir haploïde',
+      'Les cellules embryonnaires se différencient déjà en tissus osseux et musculaires',
     ],
     correct: 1,
     explanation:
-      "Le BLASTOCYSTE (J4-J5) est constitué de : (1) TROPHOBLASTE = couche cellulaire externe qui donnera le placenta et sécrètera la HCG ; (2) BOUTON EMBRYONNAIRE (ou masse cellulaire interne) = amas de cellules souches pluripotentes qui donneront l'embryon proprement dit ; (3) CAVITÉ BLASTOCŒLIQUE = cavité liquidienne. La morula (sphère pleine) précède le blastocyste. Les 3 feuillets (ectoderme, mésoderme, endoderme) se mettent en place lors de la GASTRULATION, bien plus tard.",
-    difficulty: 'moyen',
-    theme: 'Développement embryonnaire',
+      'Durant les divisions de clivage (2, 4, 8, puis 16 à 32 cellules formant la morula), l’embryon demeure enfermé dans la zone pellucide inextensible. Le diamètre global reste d’environ 100 micromètres : il y a donc multiplication mitotique sans aucune croissance en masse ni en volume. Les blastomères deviennent simplement de plus en plus petits.',
+    concept: 'Segmentation Tubaire',
   },
   {
     id: 4,
     question:
-      "Pourquoi la HCG est-elle indispensable au maintien de la grossesse dans les 3 premiers mois ?",
+      'Pourquoi le trophoblaste embryonnaire commence-t-il à sécréter de la HCG dès la nidation (J7-J8) ?',
     options: [
-      "Elle stimule directement la croissance de l'embryon en activant ses cellules souches",
-      "Elle empêche le rejet immunitaire de l'embryon par le système immunitaire maternel",
-      "Elle maintient le corps jaune actif, qui continue à sécréter progestérone et œstrogènes",
-      "Elle déclenche la nidation en fluidifiant la dentelle utérine",
+      'Pour stimuler directement la croissance des organes fœtaux in utero',
+      'Pour remplacer immédiatement les reins maternels dans l’élimination des déchets',
+      'Pour se lier aux récepteurs lutéaux de la LH et maintenir en activité le corps jaune gravidique (aménorrhée)',
+      'Pour déclencher les premières contractions rythmiques du myomètre',
     ],
     correct: 2,
     explanation:
-      "La HCG (sécrétée par le trophoblaste dès J7-J9) a une structure très proche de la LH : elle se fixe sur les MÊMES récepteurs LH du corps jaune. Normalement, en l'absence de grossesse, le corps jaune involue vers J25-J28 (chute hormonale → règles). La HCG 'rescue' (sauve) le corps jaune : il devient corps jaune GRAVIDIQUE et continue à sécréter progestérone + œstrogènes pendant 3 mois, maintenant ainsi la dentelle utérine et supprimant les règles. Sans HCG → corps jaune meurt → chute progestérone → règles → fausse couche précoce.",
-    difficulty: 'difficile',
-    theme: 'Hormones de grossesse',
+      'En fin de cycle normal, la baisse de LH provoque l’involution du corps jaune, la chute de progestérone et l’apparition des règles (menstruation). La HCG embryonnaire, homologue structural de la LH, prend le relais de l’hypophyse maternelle en stimulant le corps jaune : devenu corps jaune gravidique, il continue à sécréter progestérone et œstrogènes, ce qui préserve l’endomètre et empêche les règles.',
+    concept: 'Rôle de la HCG',
   },
   {
     id: 5,
     question:
-      "À partir du 3ème mois de grossesse, quelle structure prend le relais hormonal du corps jaune ?",
+      'Quelle est la conséquence d’une ovariectomie bilatérale pratiquée au 4e mois de gestation chez la femme ?',
     options: [
-      "L'hypothalamus maternel qui augmente sa sécrétion de GnRH",
-      "Le placenta, qui sécrète progestérone, œstrogènes et HPL",
-      "L'hypophyse fœtale, qui sécrète FSH et LH pour l'embryon",
-      "Le corps jaune qui devient définitif et ne disparaît qu'après l'accouchement",
+      'Un avortement spontané immédiat par effondrement des concentrations de progestérone',
+      'La poursuite normale de la grossesse jusqu’à terme car le placenta assure en autonomie la synthèse de progestérone',
+      'L’apparition d’une lactation prématurée incontrôlable',
+      'Une destruction irréversible des annexes embryonnaires',
     ],
     correct: 1,
     explanation:
-      "À partir du 3ème mois, le PLACENTA devient autonome hormonalement (relais endocrinien) : il sécrète (1) PROGESTÉRONE placentaire en grande quantité → maintien endomètre, silence myomètre ; (2) ŒSTROGÈNES placentaires → croissance utérine, préparation glandes mammaires ; (3) HPL (Human Placental Lactogen) → effet métabolique, préparation à la lactation. Le corps jaune involue alors en corps albicans. Sur un graphe, on observe le croisement : HCG décline après 10 semaines tandis que la progestérone placentaire prend le relais.",
-    difficulty: 'moyen',
-    theme: 'Placenta & hormones',
+      'Au cours du 1er trimestre, le corps jaune ovarien est la seule source de progestérone. Mais dès la fin du 3e mois (semaines 12-14), le placenta mature prend le relais complet et produit lui-même des quantités massives de progestérone et d’œstrogènes. Le corps jaune ovarien devient obsolète ; l’ablation des deux ovaires au 4e mois n’interrompt donc pas la grossesse.',
+    concept: 'Relais Placentaire',
   },
   {
     id: 6,
     question:
-      "Le déclenchement de l'accouchement implique un mécanisme de rétrocontrôle. De quel type s'agit-il et pourquoi ?",
+      'Lors de l’accouchement, par quel mécanisme neuro-endocrinien les contractions utérines s’intensifient-elles (réflexe de Ferguson) ?',
     options: [
-      "Rétrocontrôle négatif : les contractions utérines inhibent la sécrétion d'ocytocine",
-      "Rétrocontrôle positif : les contractions amplifient la distension du col qui stimule plus d'ocytocine",
-      "Rétrocontrôle négatif : la progestérone inhibe les contractions pour protéger le fœtus",
-      "Rétrocontrôle positif : l'ocytocine inhibe la prolactine pour déclencher l'accouchement",
+      'Par un rétrocontrôle négatif de la progestérone freinant l’hypothalamus',
+      'Par une boucle de rétrocontrôle positif : la distension du col stimule la sécrétion d’ocytocine qui amplifie les contractions',
+      'Par une libération continue de dopamine bloquant l’hypophyse',
+      'Par une baisse d’adrénaline provoquant la relaxation musculaire',
     ],
     correct: 1,
     explanation:
-      "Le déclenchement de l'accouchement (réflexe de FERGUSON) est un RÉTROCONTRÔLE POSITIF, rare dans le programme SVT ! Le mécanisme : distension du col par la tête du fœtus → signal nerveux → hypothalamus → hypophyse → ocytocine ↑ → contractions myomètre ↑ → plus de distension du col → encore plus d'ocytocine → etc. Cette boucle s'AUTO-ENTRETIENT et s'AMPLIFIE jusqu'à l'expulsion du bébé, à l'opposé d'un rétrocontrôle négatif qui freinerait le phénomène.",
-    difficulty: 'difficile',
-    theme: 'Accouchement',
+      'Le réflexe de Ferguson est une boucle de rétrocontrôle positif rare : l’engagement de la tête fœtale dilate mécaniquement le col utérin. Les mécanorécepteurs cervicaux envoient des influx sensitifs à l’hypothalamus, qui stimule la libération d’ocytocine par la posthypophyse. L’ocytocine contracte le myomètre, ce qui pousse davantage le fœtus et distend encore plus le col. Le processus s’auto-amplifie jusqu’à l’expulsion.',
+    concept: 'Réflexe de Ferguson & Accouchement',
   },
   {
     id: 7,
     question:
-      "Quelle est la différence de rôle entre la PROLACTINE et l'OCYTOCINE lors de la lactation ?",
+      'Quelle est la distinction fonctionnelle rigoureuse entre la prolactine et l’ocytocine lors de la lactation ?',
     options: [
-      "Prolactine = éjection du lait / Ocytocine = synthèse du lait",
-      "Prolactine = synthèse du lait dans les acini / Ocytocine = éjection du lait par contraction myoépithéliale",
-      "Prolactine et Ocytocine ont le même rôle : toutes deux stimulent la synthèse du lait",
-      "Prolactine = stimule la glande mammaire pendant la grossesse / Ocytocine = inhibe la lactation",
+      'La prolactine assure la contraction myoépithéliale et l’ocytocine la synthèse des caséines',
+      'La prolactine stimule la synthèse et la sécrétion du lait dans les acini ; l’ocytocine provoque l’éjection par contraction des cellules myoépithéliales',
+      'Les deux hormones ont un rôle strictement identique et redondant',
+      'La prolactine inhibe la production de lait tandis que l’ocytocine l’active',
     ],
     correct: 1,
     explanation:
-      "DISTINCTION FONDAMENTALE à ne jamais confondre au Bac : PROLACTINE (sécrétée par l'antéhypophyse) = stimule la SYNTHÈSE et la SÉCRÉTION du lait dans les acini mammaires (cellules sécrétrices). La prolactine est bloquée par les œstrogènes élevés pendant la grossesse. OCYTOCINE (sécrétée par la neurohypophyse) = déclenche l'ÉJECTION du lait en provoquant la contraction des cellules MYOÉPITHÉLIALES entourant les acini → le lait est expulsé dans les canaux galactophores. Réflexe mnémotechnique : Prolactine = PROduit LACtation ; Ocytocine = Éjecte (car elle contracte).",
-    difficulty: 'facile',
-    theme: 'Lactation',
+      'La prolactine (antéhypophyse) agit sur les cellules glandulaires des acini mammaires pour déclencher la synthèse et la sécrétion des composants du lait (lactose, caséines, lipides). L’ocytocine (posthypophyse), libérée par réflexe sous l’effet de la succion du mamelon, contracte les cellules myoépithéliales entourant les acini pour éjecter mécaniquement le lait dans les canaux galactophores.',
+    concept: 'Prolactine vs Ocytocine',
   },
   {
     id: 8,
     question:
-      "Pourquoi une femme qui allaite intensivement est-elle souvent temporairement infertile ?",
+      'Comment explique-t-on l’aménorrhée de lactation (absence de règles et infécondité temporaire) chez la femme allaitante ?',
     options: [
-      "L'ocytocine libérée par la succion bloque directement la maturation folliculaire ovarienne",
-      "La progestérone produite par le placenta persistant inhibe l'axe hypothalamo-hypophysaire",
-      "La prolactine élevée exerce un rétrocontrôle négatif sur l'hypothalamus → GnRH ↓ → FSH/LH ↓ → pas d'ovulation",
-      "Les œstrogènes élevés de la lactation bloquent le développement folliculaire ovarien",
+      'L’ocytocine détruit directement le stock de follicules primordiaux ovariens',
+      'La progestérone placentaire résiduelle reste présente dans le sang pendant 1 an',
+      'La prolactine élevée lors des tétées fréquentes exerce un rétrocontrôle négatif sur l’hypothalamus, freinant la GnRH et les gonadostimulines',
+      'La prolactine stimule la maturation folliculaire précoce sans rupture',
     ],
     correct: 2,
     explanation:
-      "L'AMÉNORRHÉE DE LACTATION est causée par la PROLACTINE ↑ qui exerce un puissant rétrocontrôle négatif sur l'hypothalamus : GnRH ↓ → FSH ↓ + LH ↓ → pas de recrutement folliculaire → pas de maturation folliculaire → pas d'ovulation → infertilité temporaire. C'est d'ailleurs le principe de la contraception naturelle par l'allaitement. ATTENTION : ce mécanisme n'est fiable que si l'allaitement est EXCLUSIF et très fréquent (toutes les 4-6h). Dès que l'allaitement diminue, la prolactine baisse et l'ovulation peut reprendre.",
-    difficulty: 'difficile',
-    theme: 'Lactation & fertilité',
+      'La stimulation fréquente et régulière du mamelon maintient un taux sérique élevé de prolactine. Cette hyperprolactinémie physiologique exerce un rétrocontrôle négatif puissant sur l’hypothalamus : elle inhibe la pulsatilité de la GnRH, ce qui effondre la sécrétion de FSH et de LH. En l’absence de gonadostimulines, il n’y a ni développement folliculaire ni ovulation : c’est l’aménorrhée de lactation.',
+    concept: 'Aménorrhée de Lactation',
   },
 ];
 
-const difficultyConfig = {
-  facile: { label: 'Facile', color: 'bg-green-100 text-green-700', border: 'border-green-200' },
-  moyen: { label: 'Moyen', color: 'bg-amber-100 text-amber-700', border: 'border-amber-200' },
-  difficile: { label: 'Difficile', color: 'bg-red-100 text-red-700', border: 'border-red-200' },
-};
-
 export default function B4FecondationQuizEmbedded() {
-  const [answers, setAnswers] = useState<Record<number, number>>({});
-  const [submitted, setSubmitted] = useState(false);
-  const [showExplanation, setShowExplanation] = useState<Record<number, boolean>>({});
+  const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number>>({});
+  const [showResults, setShowResults] = useState(false);
 
-  const handleAnswer = (questionId: number, optionIndex: number) => {
-    if (submitted) return;
-    setAnswers((prev) => ({ ...prev, [questionId]: optionIndex }));
+  const handleSelectOption = (questionId: number, optionIndex: number) => {
+    if (showResults) return;
+    setSelectedAnswers((prev) => ({ ...prev, [questionId]: optionIndex }));
   };
 
-  const handleSubmit = () => {
-    if (Object.keys(answers).length < questions.length) {
-      alert('Répondez à toutes les questions avant de valider !');
-      return;
-    }
-    setSubmitted(true);
+  const calculateScore = () => {
+    let score = 0;
+    QUESTIONS.forEach((q) => {
+      if (selectedAnswers[q.id] === q.correct) {
+        score++;
+      }
+    });
+    return score;
   };
 
   const handleReset = () => {
-    setAnswers({});
-    setSubmitted(false);
-    setShowExplanation({});
+    setSelectedAnswers({});
+    setShowResults(false);
   };
 
-  const score = submitted
-    ? questions.filter((q) => answers[q.id] === q.correct).length
-    : 0;
-
-  const scorePercent = submitted ? Math.round((score / questions.length) * 100) : 0;
-
-  const scoreColor =
-    scorePercent >= 80
-      ? 'text-green-600'
-      : scorePercent >= 60
-      ? 'text-amber-600'
-      : 'text-red-600';
+  const score = calculateScore();
+  const allAnswered = Object.keys(selectedAnswers).length === QUESTIONS.length;
 
   return (
-    <div className="my-8 rounded-2xl border border-pink-100 bg-gradient-to-br from-pink-50 to-rose-50 p-6 shadow-lg">
+    <div className="my-10 rounded-3xl bg-white border border-navy/10 p-5 sm:p-7 shadow-sm">
       {/* Header */}
-      <div className="mb-6 flex items-center gap-3">
-        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-pink-500 to-rose-600 text-2xl shadow-md">
-          🧬
-        </div>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-navy/10 pb-4 mb-6">
         <div>
-          <h2 className="text-xl font-bold text-gray-900">
-            Quiz Bac S2 — Fécondation, Gestation & Lactation
-          </h2>
-          <p className="text-sm text-gray-500">
-            8 questions type Baccalauréat · SVT B4 Leçon 3 · Corrections détaillées
+          <div className="inline-flex items-center gap-2 rounded-full bg-rose-50 px-3 py-1 text-xs font-bold text-rose-700 mb-1 border border-rose-200">
+            <HelpCircle className="w-3.5 h-3.5 text-rose-600" />
+            <span>Évaluation Formative • Baccalauréat S2</span>
+          </div>
+          <h3 className="text-xl sm:text-2xl font-black text-navy">
+            Quiz d’Entraînement : Fécondation, Gestation &amp; Lactation
+          </h3>
+          <p className="text-xs sm:text-sm text-text/70 mt-0.5">
+            8 questions ciblées sur les mécanismes cellulaires, la cinétique de HCG, le relais placentaire et la régulation neuro-endocrinienne.
           </p>
+        </div>
+        <div className="shrink-0 flex items-center gap-2 bg-surface px-4 py-2 rounded-2xl border border-navy/10">
+          <BookOpen className="w-4 h-4 text-turquoise" />
+          <span className="text-xs font-bold text-navy">
+            {Object.keys(selectedAnswers).length} / {QUESTIONS.length} répondues
+          </span>
         </div>
       </div>
 
-      {/* Score si soumis */}
-      {submitted && (
-        <div className="mb-6 rounded-xl border-2 border-pink-200 bg-white p-5 text-center shadow">
-          <p className="text-lg font-bold text-gray-700">Votre score</p>
-          <p className={`text-5xl font-black ${scoreColor}`}>
-            {score}/{questions.length}
-          </p>
-          <p className={`text-xl font-semibold ${scoreColor}`}>{scorePercent}%</p>
-          <p className="mt-2 text-sm text-gray-500">
-            {scorePercent >= 80
-              ? '🏆 Excellent ! Vous maîtrisez la Fécondation & Lactation !'
-              : scorePercent >= 60
-              ? '📚 Bien ! Révisez les points manqués avec les corrections.'
-              : '💪 Continuez à réviser — relisez les 6 Réflexes Clés !'}
+      {/* Résultat si soumis */}
+      {showResults && (
+        <div
+          className={`mb-8 rounded-2xl p-5 border text-center transition-all ${
+            score >= 6
+              ? 'bg-emerald-50/80 border-emerald-300 text-emerald-950'
+              : score >= 4
+              ? 'bg-amber-50/80 border-amber-300 text-amber-950'
+              : 'bg-rose-50/80 border-rose-300 text-rose-950'
+          }`}
+        >
+          <div className="inline-flex p-3 rounded-2xl bg-white/80 shadow-sm mb-2">
+            <Award
+              className={`w-8 h-8 ${
+                score >= 6 ? 'text-emerald-600' : score >= 4 ? 'text-amber-600' : 'text-rose-600'
+              }`}
+            />
+          </div>
+          <h4 className="text-lg font-black">
+            Score obtenu : {score} sur {QUESTIONS.length} ({Math.round((score / QUESTIONS.length) * 100)}%)
+          </h4>
+          <p className="text-xs sm:text-sm mt-1 max-w-xl mx-auto opacity-90 leading-relaxed">
+            {score >= 7
+              ? 'Excellente maîtrise des mécanismes de la fécondation, de la gestation et de la lactation. Vos réflexes méthodologiques sont parfaitement affûtés pour le Bac S2.'
+              : score >= 5
+              ? 'Bon niveau d’ensemble. Prenez le temps de revoir les justifications détaillées des questions manquées ci-dessous.'
+              : 'Des confusions persistent sur la chronologie et les relais hormonaux. Relisez attentivement les 6 fiches réflexes ci-dessus avant de retenter le quiz.'}
           </p>
         </div>
       )}
 
-      {/* Questions */}
+      {/* Liste des questions */}
       <div className="space-y-6">
-        {questions.map((q, qIdx) => {
-          const userAnswer = answers[q.id];
-          const isCorrect = submitted && userAnswer === q.correct;
-          const isWrong = submitted && userAnswer !== undefined && userAnswer !== q.correct;
-          const diff = difficultyConfig[q.difficulty];
+        {QUESTIONS.map((q, idx) => {
+          const userAnswer = selectedAnswers[q.id];
+          const isAnswered = userAnswer !== undefined;
+          const isCorrect = userAnswer === q.correct;
 
           return (
             <div
               key={q.id}
-              className={`rounded-xl border-2 bg-white p-5 shadow-sm ${
-                isCorrect
-                  ? 'border-green-300'
-                  : isWrong
-                  ? 'border-red-300'
-                  : 'border-pink-100'
+              className={`rounded-2xl border p-4 sm:p-5 transition-all ${
+                showResults
+                  ? isCorrect
+                    ? 'border-emerald-300 bg-emerald-50/30'
+                    : 'border-rose-300 bg-rose-50/30'
+                  : 'border-navy/10 bg-white hover:border-navy/20'
               }`}
             >
-              {/* En-tête question */}
-              <div className="mb-3 flex items-start gap-3">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-pink-500 to-rose-600 text-sm font-bold text-white">
-                  {qIdx + 1}
-                </span>
-                <div className="flex-1">
-                  <div className="mb-1 flex flex-wrap gap-2">
-                    <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ${diff.color} border ${diff.border}`}>
-                      {diff.label}
-                    </span>
-                    <span className="rounded-full bg-pink-100 px-2 py-0.5 text-xs font-semibold text-pink-700">
-                      {q.theme}
-                    </span>
-                  </div>
-                  <p className="font-semibold text-gray-800">{q.question}</p>
+              <div className="flex items-start justify-between gap-3 mb-3">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="w-6 h-6 rounded-lg bg-navy/5 text-navy font-black text-xs flex items-center justify-center shrink-0 border border-navy/10">
+                    {idx + 1}
+                  </span>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-navy/5 text-navy/70 border border-navy/10">
+                    {q.concept}
+                  </span>
                 </div>
+                {showResults && (
+                  <span className="shrink-0 flex items-center gap-1 text-xs font-black">
+                    {isCorrect ? (
+                      <span className="text-emerald-700 flex items-center gap-1">
+                        <CheckCircle className="w-4 h-4 text-emerald-600" /> Correct (+1 pt)
+                      </span>
+                    ) : (
+                      <span className="text-rose-700 flex items-center gap-1">
+                        <XCircle className="w-4 h-4 text-rose-600" /> Incorrect (0 pt)
+                      </span>
+                    )}
+                  </span>
+                )}
               </div>
 
-              {/* Options */}
+              <h4 className="font-bold text-navy text-sm sm:text-base leading-snug mb-3">
+                {q.question}
+              </h4>
+
+              {/* Options de réponse */}
               <div className="space-y-2">
-                {q.options.map((option, oIdx) => {
+                {q.options.map((opt, oIdx) => {
                   const isSelected = userAnswer === oIdx;
-                  const isCorrectOption = oIdx === q.correct;
+                  const isOptionCorrect = oIdx === q.correct;
 
-                  let optionClass =
-                    'w-full rounded-lg border-2 px-4 py-3 text-left text-sm transition-all ';
+                  let optionStyle =
+                    'border-navy/10 bg-white hover:border-navy/30 text-navy/90';
 
-                  if (!submitted) {
-                    optionClass += isSelected
-                      ? 'border-pink-400 bg-pink-50 text-pink-800 font-semibold'
-                      : 'border-gray-200 bg-white text-gray-700 hover:border-pink-300 hover:bg-pink-50';
-                  } else {
-                    if (isCorrectOption) {
-                      optionClass += 'border-green-400 bg-green-50 text-green-800 font-semibold';
-                    } else if (isSelected && !isCorrectOption) {
-                      optionClass += 'border-red-400 bg-red-50 text-red-800 font-semibold line-through';
+                  if (showResults) {
+                    if (isOptionCorrect) {
+                      optionStyle =
+                        'border-emerald-500 bg-emerald-100/60 text-emerald-950 font-bold';
+                    } else if (isSelected && !isOptionCorrect) {
+                      optionStyle =
+                        'border-rose-400 bg-rose-100/60 text-rose-950 line-through opacity-80';
                     } else {
-                      optionClass += 'border-gray-100 bg-gray-50 text-gray-500';
+                      optionStyle = 'border-navy/5 bg-gray-50 text-navy/40';
                     }
+                  } else if (isSelected) {
+                    optionStyle =
+                      'border-turquoise bg-turquoise/10 text-navy font-bold shadow-sm';
                   }
 
                   return (
                     <button
                       key={oIdx}
-                      onClick={() => handleAnswer(q.id, oIdx)}
-                      className={optionClass}
+                      type="button"
+                      disabled={showResults}
+                      onClick={() => handleSelectOption(q.id, oIdx)}
+                      className={`w-full text-left p-3 rounded-xl border text-xs sm:text-sm transition-all flex items-start gap-3 ${optionStyle}`}
                     >
-                      <span className="mr-2 font-bold">
-                        {['A', 'B', 'C', 'D'][oIdx]}.
+                      <span className="w-5 h-5 rounded-md bg-navy/5 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                        {String.fromCharCode(65 + oIdx)}
                       </span>
-                      {option}
-                      {submitted && isCorrectOption && (
-                        <span className="ml-2 text-green-600">✓</span>
-                      )}
-                      {submitted && isSelected && !isCorrectOption && (
-                        <span className="ml-2 text-red-600">✗</span>
-                      )}
+                      <span className="flex-1 leading-relaxed">{opt}</span>
                     </button>
                   );
                 })}
               </div>
 
-              {/* Explication */}
-              {submitted && (
-                <div className="mt-3">
-                  <button
-                    onClick={() =>
-                      setShowExplanation((prev) => ({ ...prev, [q.id]: !prev[q.id] }))
-                    }
-                    className="text-xs font-semibold text-pink-600 underline hover:text-pink-800"
-                  >
-                    {showExplanation[q.id] ? '▲ Masquer la correction' : '▼ Voir la correction détaillée'}
-                  </button>
-                  {showExplanation[q.id] && (
-                    <div className="mt-2 rounded-lg border border-pink-200 bg-pink-50 p-3">
-                      <p className="text-xs leading-relaxed text-gray-700">
-                        💡 <strong>Correction :</strong> {q.explanation}
-                      </p>
-                    </div>
-                  )}
+              {/* Explication après validation */}
+              {showResults && (
+                <div className="mt-4 p-3.5 rounded-xl bg-white border border-navy/10 text-xs sm:text-sm text-text/80 leading-relaxed">
+                  <span className="font-bold text-navy block mb-1">
+                    Justification méthodologique :
+                  </span>
+                  <p>{q.explanation}</p>
                 </div>
               )}
             </div>
@@ -327,26 +326,37 @@ export default function B4FecondationQuizEmbedded() {
         })}
       </div>
 
-      {/* Boutons */}
-      <div className="mt-6 flex gap-3 flex-wrap">
-        {!submitted ? (
-          <button
-            onClick={handleSubmit}
-            disabled={Object.keys(answers).length < questions.length}
-            className="flex-1 rounded-xl bg-gradient-to-r from-pink-500 to-rose-600 px-6 py-3 font-bold text-white shadow-md transition hover:opacity-90 disabled:opacity-40"
-          >
-            Valider mes réponses ({Object.keys(answers).length}/{questions.length})
-          </button>
-        ) : (
-          <button
-            onClick={handleReset}
-            className="flex-1 rounded-xl border-2 border-pink-400 bg-white px-6 py-3 font-bold text-pink-600 shadow-sm transition hover:bg-pink-50"
-          >
-            🔄 Recommencer le quiz
-          </button>
-        )}
+      {/* Barre d'action inférieure */}
+      <div className="mt-8 pt-5 border-t border-navy/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p className="text-xs text-text/60">
+          {!showResults
+            ? 'Cochez une option pour chaque question avant de valider votre copie.'
+            : 'Consultez les explications méthodologiques pour chaque question.'}
+        </p>
+
+        <div className="flex items-center gap-3 w-full sm:w-auto">
+          {!showResults ? (
+            <button
+              type="button"
+              disabled={!allAnswered}
+              onClick={() => setShowResults(true)}
+              className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-navy text-white text-xs sm:text-sm font-bold shadow-sm hover:bg-navy/90 transition-all disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            >
+              <span>Valider mes réponses</span>
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={handleReset}
+              className="w-full sm:w-auto px-5 py-2.5 rounded-xl border border-navy/20 bg-white text-navy text-xs sm:text-sm font-bold shadow-sm hover:bg-surface transition-all flex items-center justify-center gap-2"
+            >
+              <RotateCcw className="w-4 h-4 text-navy/70" />
+              <span>Recommencer le test</span>
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
 }
-

@@ -1,175 +1,212 @@
 'use client';
 
 import React, { useState } from 'react';
+import {
+  Sparkles,
+  ChevronDown,
+  ChevronUp,
+  Clock,
+  CheckCircle2,
+  AlertTriangle,
+  Dna,
+  Layers,
+  HeartPulse,
+  Activity,
+} from 'lucide-react';
 
-const reflexes = [
+interface ReflexeItem {
+  id: number;
+  title: string;
+  badge: string;
+  badgeColor: string;
+  situation: string;
+  action: string;
+  piege: string;
+  exemple: string;
+}
+
+const REFLEXES: ReflexeItem[] = [
   {
     id: 1,
-    icon: '🎯',
-    color: 'from-rose-500 to-pink-600',
-    bgLight: 'bg-rose-50',
-    borderColor: 'border-rose-200',
-    textColor: 'text-rose-700',
-    badgeColor: 'bg-rose-100 text-rose-800',
-    title: 'La Fécondation : Lieu, Moment et Étapes Clés',
-    subtitle: 'Réflexe n°1 — Localisation & Mécanisme',
-    content:
-      "La fécondation a lieu dans le tiers EXTERNE de la trompe de Fallope (ampoule tubaire), dans les 24 heures suivant l'ovulation. Le spermatozoïde traverse 3 barrières : (1) la corona radiata (cellules folliculaires) grâce aux mouvements du flagelle et aux hyaluronidases acrosomiales ; (2) la zone pellucide par la réaction acrosomique libérant la acrosine qui perfore ZP3 ; (3) la membrane plasmique de l'ovocyte II. La pénétration d'un spermatozoïde déclenche la RÉACTION CORTICALE : libération des granules corticaux qui modifient ZP3 → blocage polyspermie. L'ovocyte II achève alors sa méiose II et expulse le 2ème globule polaire → devient OVULE. Les 2 pronuclei (mâle + femelle) fusionnent → zygote 2n = 46 chromosomes.",
-    mnemo: '🔑 Mnémo : T-A-C-R = Trompe → Acrosome → Cortex → Réaction polyspermie',
-    bac: "Question Bac type : « Expliquez le mécanisme empêchant la polyspermie lors de la fécondation. »",
+    title: 'La Fécondation & la Réaction Corticale Anti-Polyspermie',
+    badge: 'Fécondation & Monospermie',
+    badgeColor: 'bg-rose-100 text-rose-800 border-rose-200',
+    situation:
+      'Dans tout sujet portant sur les étapes cellulaires de la fécondation ou sur le maintien du caryotype 2n=46.',
+    action:
+      'Structurer la réponse en 5 étapes rigoureuses : 1) Traversée de la corona radiata (hyaluronidases acrosomiales et battements flagellaires). 2) Liaison spécifique du spermatozoïde aux glycoprotéines ZP3 de la zone pellucide. 3) Réaction acrosomique (libération d’acrosine perforant localement ZP3). 4) Fusion des membranes plasmiques déclenchant une dépolarisation électrique et une onde d’ions calcium intracellulaire (Ca2+). 5) Réaction corticale : exocytose immédiate des granules corticaux dans l’espace périvitellin qui modifient ZP3 et durcissent la zone pellucide, empêchant irréversiblement toute pénétration de spermatozoïdes surnuméraires.',
+    piege:
+      'Affirmer que la réaction acrosomique bloque la polyspermie : FAUX ! C’est la réaction CORTICALE (exocytose des granules ovocytaires) qui bloque la polyspermie. La réaction acrosomique sert uniquement à traverser la zone pellucide.',
+    exemple:
+      'La pénétration du spermatozoïde lève le 2e blocage méiotique : l’ovocyte II achève sa méiose II, expulse le 2e globule polaire (GP2) et devient un ovule vrai avant la fusion des deux pronuclei (amphimixie).',
   },
   {
     id: 2,
-    icon: '🏠',
-    color: 'from-purple-500 to-violet-600',
-    bgLight: 'bg-purple-50',
-    borderColor: 'border-purple-200',
-    textColor: 'text-purple-700',
-    badgeColor: 'bg-purple-100 text-purple-800',
-    title: 'De la Segmentation à la Nidation (J0 → J7)',
-    subtitle: 'Réflexe n°2 — Chronologie obligatoire',
-    content:
-      "Chronologie ABSOLUE à maîtriser : J0 = fécondation (ampoule tubaire) → J1-J3 : segmentation (divisions mitotiques sans croissance : 2, 4, 8, 16 cellules = morula) PENDANT le trajet tubaire → J4 : morula arrive dans l'utérus → J4-J5 : morula se creuse d'une cavité = BLASTOCYSTE (trophoblaste externe + bouton embryonnaire interne + cavité blastocoelique) → J5-J6 : zona pellucida disparaît (éclosion) → J6-J7 : NIDATION dans l'endomètre (phase sécrétoire). Le trophoblaste sécrète des enzymes protéolytiques qui lui permettent de s'implanter dans la dentelle utérine.",
-    mnemo: '🔑 Chrono : J0 Fécond → J1-J3 Morula tubaire → J4 Utérus → J5 Blastocyste → J7 Nidation',
-    bac: "Piège Bac : Ne pas confondre la segmentation (mitoses sans croissance) avec la croissance embryonnaire qui vient APRÈS l'implantation.",
+    title: 'Cinétique Chronologique : Du Zygote à la Nidation (J0 à J7)',
+    badge: 'Développement Pré-implantatoire',
+    badgeColor: 'bg-blue-100 text-blue-800 border-blue-200',
+    situation:
+      'Question portant sur le transit tubaire de l’embryon, la segmentation et les étapes de l’implantation utérine.',
+    action:
+      'Citer la chronologie millimétrée : J0 = fécondation dans l’ampoule tubaire (tiers externe de la trompe). J1 à J3 = segmentation au cours de la descente tubaire (divisions mitotiques de clivage à volume constant : 2, 4, 8, puis 16 à 32 cellules = morula pleine). J4 = entrée de la morula dans la cavité utérine. J5 = creusement du blastocèle, l’embryon devient un blastocyste (trophoblaste externe + bouton embryonnaire interne). J5-J6 = éclosion (perte enzymatique de la zone pellucide). J6-J7 = nidation (adhésion et enfouissement invasif du trophoblaste dans la dentelle utérine sécrétoire).',
+    piege:
+      'Croire que l’embryon grandit pendant les premiers jours : FAUX ! Durant les 4 jours de segmentation tubaire, le diamètre total reste constant (~100 micromètres) car l’embryon est enfermé dans la zone pellucide inextensible ; les cellules deviennent simplement de plus en plus petites.',
+    exemple:
+      'Le trophoblaste donnera le placenta et les annexes, tandis que le bouton embryonnaire (masse cellulaire interne) donnera la totalité des tissus de l’embryon proprement dit.',
   },
   {
     id: 3,
-    icon: '🧪',
-    color: 'from-amber-500 to-orange-600',
-    bgLight: 'bg-amber-50',
-    borderColor: 'border-amber-200',
-    textColor: 'text-amber-700',
-    badgeColor: 'bg-amber-100 text-amber-800',
-    title: 'HCG : Le Messager du Trophoblaste qui Sauve le Corps Jaune',
-    subtitle: 'Réflexe n°3 — Hormone clé de la grossesse précoce',
-    content:
-      "Dès la nidation, le TROPHOBLASTE sécrète la HCG (Human Chorionic Gonadotropin = Gonadotrophine Chorionique Humaine). Rôle CRUCIAL de la HCG : elle possède une structure très proche de la LH (même sous-unité alpha, sous-unité bêta différente) et se fixe sur les MÊMES récepteurs LH du corps jaune → elle SAUVE le corps jaune de son involution normale → le corps jaune gravidique continue à sécréter progestérone + œstrogènes pendant 3 mois. Test de grossesse = détection de HCG urinaire dès J9-J10. Pic de HCG à 8-10 semaines, puis déclin quand le placenta prend le relais.",
-    mnemo: '🔑 HCG = « rescue signal » du corps jaune. Taux ↑ → corps jaune maintenu → progestérone ↑ → pas de règles.',
-    bac: "Question Bac type : « Pourquoi le test de grossesse urinaire est-il positif dès 10 jours après l'ovulation ? » → Détection de HCG sécrétée par le trophoblaste depuis la nidation.",
+    title: 'HCG et Sauvetage du Corps Jaune : La Clé de l’Aménorrhée Gravidique',
+    badge: 'Maintien Hormonal Précoce',
+    badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200',
+    situation:
+      'Explication du retard ou de l’absence de règles (aménorrhée) chez la femme enceinte dès le 28e jour du cycle.',
+    action:
+      'Démontrer l’enchaînement causal : dès J7-J8, le trophoblaste du blastocyste implanté sécrète l’hormone HCG (Human Chorionic Gonadotropin). La HCG possède une homologie structurale avec la LH et se lie aux mêmes récepteurs ovariens. Elle « sauve » le corps jaune de sa lutéolyse programmée, le transformant en corps jaune gravidique. Le corps jaune continue de produire de fortes doses de progestérone et d’œstrogènes, maintenant intacte la dentelle utérine et imposant le silence au myomètre. Les règles n’apparaissent pas.',
+    piege:
+      'Écrire que la HCG empêche directement les règles : FAUX ! La HCG agit indirectement : elle stimule le corps jaune, et c’est la progestérone maintenue qui empêche la desquamation de la muqueuse utérine.',
+    exemple:
+      'Le test de grossesse urinaire repose sur des anticorps monoclonaux reconnaissant la chaîne bêta spécifique de la HCG, détectable dès 10 jours post-ovulation.',
   },
   {
     id: 4,
-    icon: '🏭',
-    color: 'from-teal-500 to-cyan-600',
-    bgLight: 'bg-teal-50',
-    borderColor: 'border-teal-200',
-    textColor: 'text-teal-700',
-    badgeColor: 'bg-teal-100 text-teal-800',
-    title: 'Le Placenta : Organe Endocrine de Substitution',
-    subtitle: 'Réflexe n°4 — Prise de relais hormonal à 3 mois',
-    content:
-      "Le placenta se constitue à partir du trophoblaste + tissu utérin maternel → barrière hémato-placentaire. Dès le 3ème mois, le PLACENTA devient autonome hormonalement : il sécrète lui-même (1) PROGESTÉRONE placentaire en grande quantité (rôle : maintien de la muqueuse utérine, silence du myomètre, blocage des contractions) ; (2) ŒSTROGÈNES placentaires (croissance utérine, préparation glandes mammaires) ; (3) HPL = Human Placental Lactogen (action métabolique sur la mère, préparation lactation) ; (4) HCG continue mais décline. → Corps jaune n'est plus nécessaire après 3 mois : il involue en corps albicans. Mais la grossesse continue car le placenta assure tout !",
-    mnemo: '🔑 3 mois = relais : Corps jaune → Placenta. Mnémo hormones placentaires : P-O-H (Progestérone, Œstrogènes, HPL)',
-    bac: "Interprétation graphique Bac : Sur un graphe hormonal de grossesse, identifier le « croisement » entre déclin HCG et maintien de progestérone = preuve de la prise de relais placentaire.",
+    title: 'Le Relais Placentaire à 3 Mois & Interprétation des Ovariectomies',
+    badge: 'Relais Endocrinien',
+    badgeColor: 'bg-amber-100 text-amber-800 border-amber-200',
+    situation:
+      'Analyse d’expériences d’ablation bilatérale des ovaires (ovariectomie) pratiquées à différents stades de la gestation.',
+    action:
+      'Distinguer impérativement les 2 périodes : 1) Durant le premier trimestre (semaines 1 à 10), la progestérone provient EXCLUSIVEMENT du corps jaune gravidique ovarien. Une ovariectomie entraîne la chute de la progestérone, des contractions utérines et un avortement immédiat. 2) Dès le 3e mois (semaines 12-14), le placenta mature prend le relais complet et devient une glande endocrine autonome sécrétant des quantités massives de progestérone et d’œstrogènes. Une ovariectomie pratiquée au 4e mois n’a AUCUN effet néfaste : la grossesse se poursuit à terme.',
+    piege:
+      'Croire que le corps jaune est actif pendant les 9 mois : FAUX ! Après le 3e mois, le corps jaune ovarien involue en corps albicans sans conséquence car le placenta assure l’intégralité de la synthèse hormonale.',
+    exemple:
+      'Sur un graphe de gestation au Bac S2, identifier le croisement : chute de la HCG embryonnaire dès la 10e semaine, concomitante à l’envolée de la progestérone placentaire.',
   },
   {
     id: 5,
-    icon: '💥',
-    color: 'from-red-500 to-rose-600',
-    bgLight: 'bg-red-50',
-    borderColor: 'border-red-200',
-    textColor: 'text-red-700',
-    badgeColor: 'bg-red-100 text-red-800',
-    title: 'Déclenchement de l\'Accouchement : La Cascade Ocytocine-Prostaglandines',
-    subtitle: 'Réflexe n°5 — Mécanisme neuroendocrinien de parturition',
-    content:
-      "En fin de grossesse (38-40 semaines), la chute du ratio progestérone/œstrogènes lève l'inhibition du myomètre. Le mécanisme de déclenchement est une BOUCLE DE RÉTROCONTRÔLE POSITIF : (1) Distension du col utérin par la tête du fœtus → (2) Influx nerveux → hypothalamus → hypophyse → (3) Libération d'OCYTOCINE → (4) Contractions utérines (myomètre) → (5) Renforcement de la distension → retour à l'étape 1. Les PROSTAGLANDINES locales amplifient les contractions et participent à la maturation du col. La boucle s'auto-entretient jusqu'à l'expulsion. L'ocytocine de synthèse (Syntocinon®) est utilisée pour déclencher ou accélérer l'accouchement en clinique.",
-    mnemo: '🔑 Réflexe Ferguson : Distension col → Ocytocine → Contractions → Plus de distension → Plus d\'ocytocine (rétrocontrôle POSITIF)',
-    bac: "Piège Bac : L'accouchement est un des RARES exemples de rétrocontrôle POSITIF dans le programme SVT. Ne pas le confondre avec les rétrocontrôles négatifs du cycle.",
+    title: 'Parturition : La Boucle de Rétrocontrôle Positif de l’Ocytocine (Ferguson)',
+    badge: 'Déclenchement de l’Accouchement',
+    badgeColor: 'bg-indigo-100 text-indigo-800 border-indigo-200',
+    situation:
+      'Sujet portant sur le déterminisme hormonal et neuro-endocrinien de l’accouchement à terme.',
+    action:
+      'Exposer la cascade neuro-endocrinienne : 1) À terme, la chute du ratio progestérone/œstrogènes lève le silence utérin et induit la synthèse massive de récepteurs à l’ocytocine sur le myomètre. 2) L’engagement de la tête fœtale dilate mécaniquement le col utérin. 3) Les mécanorécepteurs du col transmettent des potentiels d’action via la moelle épinière jusqu’à l’hypothalamus. 4) La posthypophyse déverse des pulses d’ocytocine dans le sang. 5) L’ocytocine contracte vigoureusement le myomètre, ce qui accentue la distension du col, amplifiant encore la sécrétion d’ocytocine. C’est le réflexe de Ferguson : un rétrocontrôle POSITIF auto-entretenu jusqu’à l’expulsion fœtale.',
+    piege:
+      'Qualifier l’accouchement de rétrocontrôle négatif : FAUX ! C’est l’un des très rares exemples de rétrocontrôle POSITIF dans le programme. La contraction amplifie le stimulus initial au lieu de l’atténuer.',
+    exemple:
+      'L’anesthésie péridurale bloquant les afférences sensitives du col ralentit le travail en diminuant la libération réflexe d’ocytocine.',
   },
   {
     id: 6,
-    icon: '🍼',
-    color: 'from-sky-500 to-blue-600',
-    bgLight: 'bg-sky-50',
-    borderColor: 'border-sky-200',
-    textColor: 'text-sky-700',
-    badgeColor: 'bg-sky-100 text-sky-800',
-    title: 'Lactation : Prolactine & Ocytocine — Mise en Route et Éjection',
-    subtitle: 'Réflexe n°6 — Deux hormones, deux rôles distincts',
-    content:
-      "La lactation fait intervenir 2 hormones DISTINCTES à ne jamais confondre : (1) PROLACTINE (antéhypophyse) : induite par la chute des œstrogènes post-partum, stimulée par la succion du mamelon → stimule la SYNTHÈSE et la SÉCRÉTION du lait dans les acini mammaires. Pendant la grossesse, la prolactine est bloquée par les œstrogènes élevés (malgré leur rôle trophique sur la glande). (2) OCYTOCINE (posthypophyse) : libérée réflexe par la succion du mamelon → provoque la contraction des cellules myoépithéliales → ÉJECTION du lait dans les canaux galactophores. Rôle bonus de la prolactine : inhibe l'axe HH (FSH/LH bas) → aménorrhée de lactation contraceptive naturelle.",
-    mnemo: '🔑 Prolactine = FABRIQUE le lait. Ocytocine = ÉJECTE le lait. « Pro-lac-tine = PROduit LACtation »',
-    bac: "Question Bac type : « Expliquez pourquoi une femme qui allaite est temporairement infertile. » → Prolactine ↑ → rétrocontrôle négatif sur hypothalamus → GnRH ↓ → FSH/LH ↓ → pas d'ovulation.",
+    title: 'Lactation : Prolactine (Synthèse) vs Ocytocine (Éjection)',
+    badge: 'Double Commande Lactée',
+    badgeColor: 'bg-purple-100 text-purple-800 border-purple-200',
+    situation:
+      'Question de cours ou comparaison de protocoles expérimentaux sur la montée de lait et la tétée.',
+    action:
+      'Établir la séparation fonctionnelle stricte : 1) PROLACTINE (sécrétée par l’adénohypophyse) : responsable de la SYNTHÈSE et de la sécrétion du lait par les cellules épithéliales des acini mammaires. Inhibée pendant la grossesse par les fortes doses de stéroïdes placentaires, elle est démasquée dès la délivrance par la chute des œstrogènes. 2) OCYTOCINE (sécrétée par la neurohypophyse) : responsable de l’ÉJECTION mécanique du lait par contraction des cellules myoépithéliales entourant les acini sous l’effet de la succion du mamelon (arc réflexe sensitif).',
+    piege:
+      'Attribuer l’éjection à la prolactine ou la synthèse à l’ocytocine : confusion lourdement sanctionnée au Bac S2 ! Retenir : Prolactine = Fabrication ; Ocytocine = Expulsion.',
+    exemple:
+      'Aménorrhée de lactation : la prolactine élevée lors des tétées fréquentes exerce un rétrocontrôle négatif sur l’hypothalamus, freinant la GnRH et bloquant l’ovulation.',
   },
 ];
 
 export default function B4FecondationReflexesCard() {
-  const [openId, setOpenId] = useState<number | null>(1);
+  const [openItem, setOpenItem] = useState<number | null>(1);
 
   return (
-    <div className="my-8 rounded-2xl border border-rose-100 bg-gradient-to-br from-rose-50 to-pink-50 p-6 shadow-lg">
+    <div className="my-8 rounded-3xl bg-white border border-navy/10 p-5 sm:p-7 shadow-sm">
       {/* Header */}
-      <div className="mb-6 flex items-center gap-3">
-        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 text-2xl shadow-md">
-          🧬
-        </div>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-navy/10 pb-4 mb-5">
         <div>
-          <h2 className="text-xl font-bold text-gray-900">
-            Les 6 Réflexes Clés — Fécondation, Gestation & Lactation
-          </h2>
-          <p className="text-sm text-gray-500">
-            SVT Terminale S2 · B4 Leçon 3 · Méthode des réflexes Bac
+          <div className="inline-flex items-center gap-2 rounded-full bg-rose-50 px-3 py-1 text-xs font-bold text-rose-700 mb-1 border border-rose-200">
+            <Sparkles className="w-3.5 h-3.5 text-rose-600" />
+            <span>SVT Terminale S2 • Chapitre B4 • Leçon 3</span>
+          </div>
+          <h3 className="text-xl sm:text-2xl font-black text-navy">
+            Fiches Réflexes : De la Fécondation à la Lactation
+          </h3>
+          <p className="text-xs sm:text-sm text-text/70 mt-0.5">
+            Les 6 automatismes de raisonnement exigés au Baccalauréat sénégalais pour l’analyse embryologique et endocrinienne.
           </p>
         </div>
       </div>
 
-      {/* Grid de réflexes */}
+      {/* Accordéon des 6 réflexes */}
       <div className="space-y-3">
-        {reflexes.map((r) => (
-          <div
-            key={r.id}
-            className={`rounded-xl border-2 ${r.borderColor} bg-white shadow-sm transition-all duration-300`}
-          >
-            {/* Titre cliquable */}
-            <button
-              className="flex w-full items-center gap-4 px-5 py-4 text-left"
-              onClick={() => setOpenId(openId === r.id ? null : r.id)}
+        {REFLEXES.map((r) => {
+          const isOpen = openItem === r.id;
+
+          return (
+            <div
+              key={r.id}
+              className={`rounded-2xl border transition-all overflow-hidden ${
+                isOpen ? 'border-navy/20 bg-surface/30 shadow-sm' : 'border-navy/10 bg-white hover:border-navy/20'
+              }`}
             >
-              <span className="text-2xl">{r.icon}</span>
-              <div className="flex-1">
-                <div className="flex items-center gap-2 flex-wrap">
-                  <span
-                    className={`rounded-full px-2 py-0.5 text-xs font-semibold ${r.badgeColor}`}
-                  >
-                    {r.subtitle}
+              <button
+                type="button"
+                onClick={() => setOpenItem(isOpen ? null : r.id)}
+                className="w-full text-left p-4 flex items-center justify-between gap-3 focus:outline-none"
+              >
+                <div className="flex items-center gap-3 min-w-0">
+                  <span className="w-7 h-7 rounded-lg bg-navy/5 text-navy font-black text-xs flex items-center justify-center shrink-0 border border-navy/10">
+                    {r.id}
                   </span>
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${r.badgeColor}`}>
+                        {r.badge}
+                      </span>
+                    </div>
+                    <h4 className="font-bold text-navy text-sm sm:text-base mt-0.5 truncate">
+                      {r.title}
+                    </h4>
+                  </div>
                 </div>
-                <p className={`mt-0.5 font-bold ${r.textColor}`}>{r.title}</p>
-              </div>
-              <span className="text-gray-400 text-lg">
-                {openId === r.id ? '▲' : '▼'}
-              </span>
-            </button>
-
-            {/* Contenu dépliable */}
-            {openId === r.id && (
-              <div className={`border-t-2 ${r.borderColor} ${r.bgLight} px-5 py-4 space-y-3`}>
-                <p className="text-sm leading-relaxed text-gray-800">{r.content}</p>
-
-                {/* Mnémo */}
-                <div className="rounded-lg bg-white border border-gray-200 px-4 py-2">
-                  <p className="text-xs font-semibold text-gray-600">{r.mnemo}</p>
+                <div className="text-navy/50 shrink-0">
+                  {isOpen ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
                 </div>
+              </button>
 
-                {/* Bac */}
-                <div className="rounded-lg bg-yellow-50 border border-yellow-200 px-4 py-2">
-                  <p className="text-xs font-semibold text-yellow-800">
-                    📝 {r.bac}
-                  </p>
+              {isOpen && (
+                <div className="px-4 pb-4 pt-1 space-y-3 text-xs sm:text-sm">
+                  <div className="bg-blue-50/80 rounded-xl p-3 border border-blue-200/70">
+                    <p className="font-bold text-blue-900 flex items-center gap-1.5 mb-1">
+                      <Clock className="w-4 h-4 text-blue-700" /> Quand appliquer ce réflexe ?
+                    </p>
+                    <p className="text-blue-950/80 leading-relaxed">{r.situation}</p>
+                  </div>
+
+                  <div className="bg-emerald-50/80 rounded-xl p-3 border border-emerald-200/70">
+                    <p className="font-bold text-emerald-900 flex items-center gap-1.5 mb-1">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-700" /> Action &amp; Rédaction Attendue au Bac
+                    </p>
+                    <p className="text-emerald-950/80 leading-relaxed">{r.action}</p>
+                  </div>
+
+                  <div className="bg-amber-50/80 rounded-xl p-3 border border-amber-200/70">
+                    <p className="font-bold text-amber-900 flex items-center gap-1.5 mb-1">
+                      <AlertTriangle className="w-4 h-4 text-amber-700" /> Le Piège Classique à Éviter
+                    </p>
+                    <p className="text-amber-950/80 leading-relaxed">{r.piege}</p>
+                  </div>
+
+                  <div className="bg-purple-50/80 rounded-xl p-3 border border-purple-200/70">
+                    <p className="font-bold text-purple-900 flex items-center gap-1.5 mb-1">
+                      <Dna className="w-4 h-4 text-purple-700" /> Exemple / Chiffre Clé pour la Copie
+                    </p>
+                    <p className="text-purple-950/80 leading-relaxed font-mono text-[11px] sm:text-xs">
+                      {r.exemple}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-
-      {/* Footer */}
-      <div className="mt-5 rounded-xl bg-gradient-to-r from-rose-500 to-pink-600 px-5 py-3 text-center text-sm font-semibold text-white shadow">
-        🏆 Maîtrisez ces 6 réflexes = +4 à +6 points garantis au Bac S2 en Reproduction
+              )}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
 }
-
