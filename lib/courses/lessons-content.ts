@@ -7148,8 +7148,176 @@ L'histoire naturelle de l'infection chez un patient non traité s'étale sur env
 | **Exemple Typique Bac S2** | Asthme bronchique, Choc anaphylactique | Diabète type 1, Myasthénie, RAA | SIDA & Tuberculose / Pneumocystose opportuniste |
 `;
 
+// ═══════════════════════════════════════════════════════════════════════════
+// SVT B4 LEÇON 1 : GAMÉTOGENÈSE COMPARÉE CHEZ L'HOMME ET LA FEMME
+// ═══════════════════════════════════════════════════════════════════════════
+RICH_LESSONS_MAP.b4_gametogenese_comparee = `# B4 : Gamétogenèse comparée chez l'homme et la femme — Spermatogenèse, Ovogenèse et Méiose (Terminale S2)
+
+Bienvenue dans le premier volet fondamental du grand chapitre de **Reproduction et Endocrinologie Humaine (Axe B4)** du programme officiel de **Terminale S2** sénégalais (conforme aux exigences de l'Office du Baccalauréat du Sénégal).
+
+La gamétogenèse est le processus biologique hautement coordonné par lequel des cellules souches diploïdes ($2n$) se transforment en cellules reproductrices haploïdes ($n$) aptes à la fécondation : les **spermatozoïdes** chez l'homme et l'**ovocyte II** chez la femme. 
+
+---
+
+## 1. Vue d'Ensemble & Cadre Génétique de la Gamétogenèse
+
+La formation des gamètes repose sur un événement cytologique unique et universel : la **méiose**, précédée d'une phase de réplication de l'ADN en interphase.
+
+### 1.1 Les Deux Rôles Clés de la Méiose au Bac S2
+1. **La réduction chromatique :** Passage de l'état diploïde ($2n = 46$ chromosomes chez l'être humain) à l'état haploïde ($n = 23$ chromosomes). Cette réduction est indispensable pour maintenir constant le nombre de chromosomes de l'espèce lors de la fécondation ($n + n = 2n$).
+2. **La création de diversité génétique (Brassages génétiques) :**
+   - **Brassage intrachromosomique (Crossing-over) :** En prophase I, les chromosomes homologues s'apparient en bivalents (tétrades) et échangent des segments de chromatides au niveau des chiasmas.
+   - **Brassage interchromosomique :** En anaphase I, la disjonction et la migration indépendante et aléatoire des chromosomes homologues vers chaque pôle cellulaire génèrent $2^n = 2^{23} \\approx 8{,}4 \\times 10^6$ combinaisons chromosomiques distinctes par individu.
+
+---
+
+## 2. La Spermatogenèse : Production Continue & Organisation Centripète
+
+La spermatogenèse se déroule de façon **continue**, de la puberté jusqu'à la fin de la vie, au sein des **tubes séminifères** des testicules. Sa durée totale chez l'espèce humaine est d'environ **74 jours**.
+
+### 2.1 Organisation Histologique du Tube Séminifère
+Une coupe transversale de testicule révèle deux compartiments fonctionnels complémentaires :
+
+1. **Le compartiment tubulaire intra-épithélial (lieu de la spermatogenèse) :**
+   - Délimité en périphérie par une **membrane basale** fibreuse.
+   - Contient la lignée germinale disposée de manière **centripète** (de la périphérie vers la lumière centrale du tube).
+   - Soutenu par les **cellules nourricières de Sertoli** : grandes cellules somatiques qui enveloppent les cellules germinales, sécrètent des nutriments, forment la **barrière hémato-testiculaire** (grâce à des jonctions serrées isolant les spermatozoïdes du système immunitaire) et sécrètent deux molécules clés :
+     - L'**ABP (Androgen Binding Protein)** : concentre la testostérone dans la lumière tubulaire, indispensable à la maturation des spermatozoïdes.
+     - L'**Inhibine** : hormone polypeptidique exerçant un rétrocontrôle négatif sélectif sur la sécrétion de FSH par l'adénohypophyse.
+2. **Le compartiment interstitiel inter-tubulaire (lieu de la fonction endocrine) :**
+   - Situé dans les espaces conjonctifs situés entre les tubes séminifères, richement vascularisé par des capillaires sanguins.
+   - Abrite les **cellules interstitielles de Leydig**, responsables exclusives de la biosynthèse et de la sécrétion de la **testostérone** sous l'action stimulante de la LH hypophysaire.
+
+---
+
+### 2.2 Les 4 Phases Chronologiques de la Spermatogenèse
+
+#### Phase 1 : Multiplication (Mitoses)
+- Situées contre la membrane basale, les **spermatogonies** ($2n = 46$ chromosomes simples, quantité d'ADN = $2Q$) se divisent activement par mitoses.
+- Une cellule fille reste cellule souche de réserve indifférenciée (spermatogonie $A_d$), garantissant un stock inépuisable.
+- L'autre cellule fille (spermatogonie $A_p$ puis B) s'engage irréversiblement vers la différenciation.
+
+#### Phase 2 : Accroissement & Réplication
+- Chaque spermatogonie subit une interphase avec **réplication semi-conservative de l'ADN** en phase S : la quantité d'ADN passe de $2Q$ à $4Q$.
+- La cellule augmente modérément de volume pour devenir un **spermatocyte I** ($2n = 46$ chromosomes doubles à 2 chromatides sœurs, quantité d'ADN = $4Q$).
+
+#### Phase 3 : Maturation Méiotique (Double Division)
+1. **Première division de méiose (Division Réductionnelle) :**
+   - Prophase I longue (~22 jours) avec crossing-over.
+   - En anaphase I, séparation des chromosomes homologues de chaque paire.
+   - Chaque spermatocyte I donne **deux spermatocytes II** ($n = 23$ chromosomes doubles à 2 chromatides, quantité d'ADN = $2Q$).
+2. **Deuxième division de méiose (Division Équationnelle) :**
+   - Quasi-instantanée, sans nouvelle réplication d'ADN.
+   - En anaphase II, clivage des centromères et séparation des chromatides sœurs.
+   - Chaque spermatocyte II donne deux spermatides : ainsi, un spermatocyte I produit au total **4 spermatides rondes** ($n = 23$ chromosomes simples à 1 chromatide, quantité d'ADN = $Q$).
+
+#### Phase 4 : Différenciation Morphologique (La Spermiogenèse)
+C'est la métamorphose cytologique sans division qui transforme chaque spermatide ronde en spermatozoïde profilé et mobile (durée ~24 jours) :
+- **Formation de l'acrosome :** Fusion des vésicules golgiennes contenant des enzymes hydrolytiques (hyaluronidase, acrosine).
+- **Condensation extrême du noyau :** Les histones sont remplacées par des protamines basiques, bloquant toute transcription.
+- **Formation du flagelle :** Le centriole distal engendre l'axonème ($9+2$ microtubules).
+- **Manchon mitochondrial :** Les mitochondries s'enroulent en spirale dans la pièce intermédiaire pour fournir l'ATP au flagelle.
+- **Élimination du cytoplasme résiduel :** Phagocyté par les cellules de Sertoli.
+- **Spermiation :** Libération des spermatozoïdes matures dans la lumière du tube séminifère.
+
+---
+
+## 3. L'Ovogenèse : Processus Discontinu, Cyclique & Blocages Méiotiques
+
+L'ovogenèse se déroule dans la zone corticale de l'**ovaire**. Contrairement à la spermatogenèse, elle est **discontinue dans le temps** et marquée par deux blocages méiotiques majeurs.
+
+### 3.1 Les Deux Blocages Méiotiques (À Maîtriser Absolument au Bac S2)
+
+> [!CONSEIL_BAC] **Règle d'or Office du Bac Sénégal :**
+> - **1er blocage méiotique :** Survenu en **Prophase I** (stade diplotène) dès le 7e mois de la vie fœtale intra-utérine. Ce blocage est maintenu par l'OMI (Oocyte Maturation Inhibitor) sécrété par les cellules folliculaires. Il est levé à partir de la puberté par le **pic pré-ovulatoire de LH** à chaque cycle ovarien.
+> - **2e blocage méiotique :** Survenu en **Métaphase II** au moment de l'expulsion de l'ovocyte II lors de l'ovulation à J14. Ce blocage est levé **uniquement et exclusivement par la pénétration d'un spermatozoïde fécondant**. Sans fécondation, l'ovocyte II meurt et dégénère sans jamais achever sa méiose !
+
+---
+
+### 3.2 La Folliculogenèse : Évolution Parallèle du Follicule Ovarien
+
+Chaque ovocyte I puis II évolue au sein d'une structure somatique nourricière appelée **follicule** :
+
+1. **Follicule Primordial :** Ovocyte I bloqué en prophase I, entouré de quelques cellules folliculaires aplaties. Constitue la réserve définitive non renouvelable (~400 000 à la puberté).
+2. **Follicule Primaire :** Une assise continue de cellules folliculaires devenues cubiques ; mise en place de la zone pellucide.
+3. **Follicule Secondaire (Plein) :** Cellules folliculaires prolifèrent pour former la **granulosa** pluristratifiée. Différenciation du stroma ovarien en **thèque interne** (endocrine, vascularisée) et **thèque externe** (fibreuse protectrice).
+4. **Follicule Tertiaire (Cavitaire / Antral) :** Apparition de cavités confluentes remplies de liquide folliculaire (**antrum**), riche en œstrogènes.
+5. **Follicule Mûr de De Graaf (Pré-ovulatoire) :** Follicule géant (18 à 25 mm). Immense antrum. L'ovocyte I est perché sur le **cumulus oophorus**, entouré de la **corona radiata**.
+   - *36 heures avant l'ovulation :* Le pic de LH débloque la méiose I : division cytoplasmique très asymétrique expulsant le **1er globule polaire ($GP_1$)** et bloquant la cellule en **ovocyte II (Métaphase II)**.
+6. **Ovulation (J14) :** Rupture de la paroi folliculaire sous l'action d'enzymes protéolytiques : expulsion de l'ovocyte II bloqué en métaphase II + $GP_1$ + zone pellucide + corona radiata.
+7. **Corps Jaune :** Les reliquats du follicule restés dans l'ovaire se vascularisent et subissent la **lutéinisation** sous l'effet de la LH : les cellules de la granulosa et de la thèque interne sécrètent massivement de la **progestérone** et des œstrogènes.
+   - *En cas de non-fécondation :* Dégénérescence en corps blanc fibreux (**corps albicans**).
+   - *En cas de fécondation :* Maintien en **corps jaune gestatif** sous l'action de l'hCG embryonnaire.
+
+---
+
+## 4. Analyse Comparative de la Quantité d'ADN et de la Ploïdie
+
+La confusion entre ploïdie (nombre de chromosomes $2n$ ou $n$) et quantité d'ADN ($Q, 2Q, 4Q$) est le piège n°1 au Baccalauréat sénégalais.
+
+### 4.1 Table Infaillible de Correspondance
+
+| Stade Cellulaire | Ploïdie ($n$ / $2n$) | Aspect Chromosomes | Quantité d'ADN ($Q$) | Statut Méiotique |
+| :--- | :--- | :--- | :--- | :--- |
+| **Gonie ($G_1$)** | $2n = 46$ | Simples (1 chromatide) | **$2Q$** | Avant phase S |
+| **Gonie ($G_2$) / Gamétocyte I** | $2n = 46$ | Doubles (2 chromatides) | **$4Q$** | Après phase S, entre en méiose I |
+| **Gamétocyte II** | $n = 23$ | Doubles (2 chromatides) | **$2Q$** | Méiose I achevée, avant anaphase II |
+| **Spermatide / Gamète final** | $n = 23$ | Simples (1 chromatide) | **$Q$** | Méiose II achevée |
+| **Globule Polaire 1 ($GP_1$)** | $n = 23$ | Doubles (2 chromatides) | **$2Q$** | Émis avec l'ovocyte II |
+| **Globule Polaire 2 ($GP_2$)** | $n = 23$ | Simples (1 chromatide) | **$Q$** | Émis après fécondation |
+
+> [!CONSEIL_BAC] **Formulation clé pour justifier $2Q$ chez le spermatocyte II :**
+> « Le spermatocyte II est haploïde car il possède $n = 23$ chromosomes suite à la séparation des paires d'homologues en anaphase I. Cependant, chaque chromosome possède encore ses 2 chromatides sœurs : la cellule contient donc $23 \\times 2 = 46$ chromatides, ce qui correspond exactement à une quantité $2Q$ d'ADN, identique à celle d'une cellule diploïde en phase $G_1$. »
+
+---
+
+## 5. Synthèse Comparée : Spermatogenèse vs Ovogenèse
+
+| Critère de Comparaison | Spermatogenèse (Homme) | Ovogenèse (Femme) |
+| :--- | :--- | :--- |
+| **Lieu anatomique** | Tubes séminifères des testicules | Cortex superficiel des ovaires |
+| **Période d'activité** | Continue de la puberté à la mort | Cyclique de la puberté à la ménopause (~50 ans) |
+| **Stock de cellules souches** | Inépuisable (mitoses permanentes des spermatogonies $A_d$) | Fini et non renouvelable (fixé in utero dès le 7e mois fœtal) |
+| **Blocages méiotiques** | **Aucun** (processus continu en 74 jours) | **Deux blocages méiotiques :** Prophase I (diplotène fœtal) & Métaphase II (ovulation) |
+| **Durée de la méiose** | Rapide et continue (~24 jours) | Très longue : de 13 à 50 ans selon le cycle d'ovulation |
+| **Rendement gamétique** | $1$ spermatogonie ──> **$4$ spermatozoïdes utiles** | $1$ ovogonie ──> **$1$ seul ovocyte II utile** + $2$ ou $3$ globules polaires |
+| **Symétrie des divisions** | Symétrique (4 cellules de volume égal) | Très asymétrique (concentration vitelline dans l'ovocyte II) |
+| **Différenciation morphologique** | **Présente :** Spermiogenèse indispensable | **Absente :** Pas de métamorphose post-méiotique |
+| **Mobilité du gamète** | Très mobile (flagelle propulseur) | Immobile (déplacé passivement par les cils tubaires) |
+
+---
+
+## 6. Les 4 Réflexes Méthodologiques pour la Copie du Bac S2
+
+1. **Ne jamais écrire « ovule » pour désigner le produit de l'ovulation :** C'est un ovocyte II bloqué en métaphase II flanqué de son 1er globule polaire. L'ovule proprement dit (ovotide) n'existe que de manière transitoire lors de la fécondation avant la caryogamie.
+2. **Bien situer les deux compartiments testiculaires :** 
+   - Tubes séminifères = Sertoli + Lignée germinale (Spermatogenèse).
+   - Tissu interstitiel = Leydig + Capillaires sanguins (Testostérone endocrine).
+3. **Savoir justifier l'intérêt de l'asymétrie ovogénétique :** Conserver toutes les réserves cytoplasmiques (vitellus, organites, ARNm maternels) pour soutenir les premières segmentations du zygote avant la nidation.
+4. **Calcul de quantité d'ADN :** Toujours compter le nombre total de **chromatides** présentes dans le noyau pour déduire la quantité relative $Q, 2Q, 4Q$.
+`;
+
 export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: string, rawContent: string | null): string {
   const titleLower = `${lessonTitle} ${chapterTitle}`.toLowerCase();
+
+  // Routage SVT B4 Leçon 1 : Gamétogenèse comparée — Spermatogenèse, Ovogenèse et Méiose
+  if (
+    titleLower.includes('gamétogenèse') ||
+    titleLower.includes('gametogenese') ||
+    titleLower.includes('spermatogenèse') ||
+    titleLower.includes('spermatogenese') ||
+    titleLower.includes('ovogenèse') ||
+    titleLower.includes('ovogenese') ||
+    titleLower.includes('spermiogenèse') ||
+    titleLower.includes('spermiogenese') ||
+    titleLower.includes('folliculogenèse') ||
+    titleLower.includes('folliculogenese') ||
+    titleLower.includes('tube séminifère') ||
+    titleLower.includes('tube seminifere') ||
+    titleLower.includes('60000000-0000-0003-0004-000000000001')
+  ) {
+    return RICH_LESSONS_MAP.b4_gametogenese_comparee;
+  }
 
   // Routage SVT B3 Leçon 4 : Dysfonctionnements Immunitaires — Allergies, Auto-immunité & VIH/SIDA
   if (

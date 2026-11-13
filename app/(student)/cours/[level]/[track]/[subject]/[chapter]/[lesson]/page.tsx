@@ -144,10 +144,56 @@ import B3ImmuniteCellulaireQuizEmbedded from '@/components/course/b3-immunite-ce
 import B3DysfonctionnementsReflexesCard from '@/components/course/b3-dysfonctionnements-reflexes-card';
 import B3DysfonctionnementsInteractiveLab from '@/components/course/b3-dysfonctionnements-interactive-lab';
 import B3DysfonctionnementsQuizEmbedded from '@/components/course/b3-dysfonctionnements-quiz-embedded';
+import B4GametogeneseReflexesCard from '@/components/course/b4-gametogenese-reflexes-card';
+import B4GametogeneseInteractiveLab from '@/components/course/b4-gametogenese-interactive-lab';
+import B4GametogeneseQuizEmbedded from '@/components/course/b4-gametogenese-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
 import LessonFeedbackForm from '@/components/course/lesson-feedback-form';
+
+const GAMETOGENESE_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Enjeux de la Gamétogenèse au Bac S2",
+    badge: "Introduction",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass de Reproduction et Endocrinologie Humaine pour la Terminale S2. La gamétogenèse comparée est un classique incontournable du Baccalauréat sénégalais. Les correcteurs sanctionnent systématiquement les confusions de vocabulaire : retenez dès maintenant qu'une femme n'ovule jamais un 'ovule mûr', mais un ovocyte II bloqué en métaphase II !",
+  },
+  {
+    timeSeconds: 45,
+    title: "2. Organisation Centripète & Cellules de Soutien",
+    badge: "Histologie",
+    icon: "theoreme_equerre",
+    textScript:
+      "Visualisez la coupe du testicule : de la membrane basale vers la lumière centrale, vous avez les spermatogonies 2n, les spermatocytes I 2n 4C, les spermatocytes II n 2C, les spermatides n C, puis les spermatozoïdes libres. Ne confondez jamais les cellules de Sertoli intra-tubulaires, qui nourrissent et forment la barrière hémato-testiculaire, avec les cellules de Leydig interstitielles qui fabriquent la testostérone sous contrôle de la LH.",
+  },
+  {
+    timeSeconds: 110,
+    title: "3. Les 4 Métamorphoses de la Spermiogenèse",
+    badge: "Spermiogenèse",
+    icon: "rigueur_compas",
+    textScript:
+      "La spermiogenèse est une différenciation pure sans aucune division cellulaire. Retenez les 4 étapes : 1) formation de l'acrosome à partir de l'appareil de Golgi ; 2) condensation extrême du noyau par remplacement des histones par des protamines ; 3) élongation du flagelle issu du centriole distal avec manchon mitochondrial ; et 4) rejet du cytoplasme résiduel phagocyté par Sertoli.",
+  },
+  {
+    timeSeconds: 175,
+    title: "4. Les Deux Blocages Méiotiques Féminins",
+    badge: "Méiose & Blocages",
+    icon: "cle_solution",
+    textScript:
+      "C'est la question reine du Bac ! Premier blocage : en Prophase I, survenant dès la vie fœtale intra-utérine au septième mois chez l'ovocyte I, levé à chaque cycle dès la puberté par le pic pré-ovulatoire de LH. Deuxième blocage : en Métaphase II lors de l'ovulation, expulsant le premier globule polaire. Ce second blocage n'est levé qu'en cas de fécondation par un spermatozoïde.",
+  },
+  {
+    timeSeconds: 240,
+    title: "5. Ploïdie vs Quantité d'ADN : Le Piège Évité",
+    badge: "Génétique",
+    icon: "piege_bac",
+    textScript:
+      "Attention au piège de la quantité d'ADN : un spermatocyte II est haploïde à n égale 23 chromosomes, mais chaque chromosome a 2 chromatides. Il contient donc 2Q d'ADN, exactement comme une spermatogonie en phase G1 ! Pour ne jamais vous tromper, comptez toujours le nombre total de chromatides dans le noyau.",
+  },
+];
 
 const ALCOOLS_AUDIO_CHAPTERS: AudioChapter[] = [
   {
@@ -2851,7 +2897,23 @@ if (lessonMeta && lessonMeta.status !== 'published') {
       params.lesson === '60000000-0000-0002-0001-000000000012' ||
       params.chapter === '50000000-0000-0002-0001-000000000004');
 
+  const isGametogeneseB4 =
+    params.lesson === '60000000-0000-0003-0004-000000000001' ||
+    lessonMeta.title.toLowerCase().includes('gamétogenèse') ||
+    lessonMeta.title.toLowerCase().includes('gametogenese') ||
+    lessonMeta.title.toLowerCase().includes('spermatogenèse') ||
+    lessonMeta.title.toLowerCase().includes('spermatogenese') ||
+    lessonMeta.title.toLowerCase().includes('ovogenèse') ||
+    lessonMeta.title.toLowerCase().includes('ovogenese') ||
+    lessonMeta.title.toLowerCase().includes('spermiogenèse') ||
+    lessonMeta.title.toLowerCase().includes('spermiogenese') ||
+    lessonMeta.title.toLowerCase().includes('folliculogenèse') ||
+    lessonMeta.title.toLowerCase().includes('folliculogenese') ||
+    (lessonMeta.title.toLowerCase().includes('tube') && lessonMeta.title.toLowerCase().includes('séminifère')) ||
+    (lessonMeta.title.toLowerCase().includes('tube') && lessonMeta.title.toLowerCase().includes('seminifere'));
+
   const isImmuniteInneeB3 =
+    !isGametogeneseB4 && (
     params.lesson === '60000000-0000-0003-0003-000000000001' ||
     lessonMeta.title.toLowerCase().includes('cmh') ||
     lessonMeta.title.toLowerCase().includes('hla') ||
@@ -2860,7 +2922,7 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     lessonMeta.title.toLowerCase().includes('immunite innee') ||
     lessonMeta.title.toLowerCase().includes('inflammation') ||
     (lessonMeta.title.toLowerCase().includes('soi') && lessonMeta.title.toLowerCase().includes('non-soi')) ||
-    (lessonMeta.title.toLowerCase().includes('soi') && lessonMeta.title.toLowerCase().includes('non soi'));
+    (lessonMeta.title.toLowerCase().includes('soi') && lessonMeta.title.toLowerCase().includes('non soi')));
 
   const isImmuniteHumoraleB3 =
     !isImmuniteInneeB3 && (
@@ -3129,7 +3191,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
               {/* Capsule Vocale & Masterclass Audio du Professeur (Al Muxtaar S2) */}
               <AudioCoachPlayer
                 title={
-                  isImmuniteInneeB3
+                  isGametogeneseB4
+                    ? 'Masterclass Audio : Gamétogenèse Comparée — Spermatogenèse, Ovogenèse & Méiose'
+                    : isImmuniteInneeB3
                     ? 'Masterclass Audio : Soi, Non-Soi, CMH/HLA & Immunité Innée'
                     : isImmuniteHumoraleB3
                     ? 'Masterclass Audio : Immunité Humorale — Anticorps, Sélection Clonale & Réponse B'
@@ -3200,7 +3264,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     : 'Masterclass Audio : Limites & Continuité'
                 }
                 subtitle={
-                  isImmuniteInneeB3
+                  isGametogeneseB4
+                    ? 'Terminale S2 • SVT : Les 6 réflexes pour le tube séminifère, la spermiogenèse, les 2 blocages méiotiques et la quantité d\'ADN'
+                    : isImmuniteInneeB3
                     ? 'Terminale S2 • SVT : Les 6 réflexes pour le CMH I et II, ABO, la réaction inflammatoire et la phagocytose'
                     : isImmuniteHumoraleB3
                     ? 'Terminale S2 • SVT : Les 6 réflexes pour la structure IgG, les classes Ig, la sélection clonale et l\'Ouchterlony'
@@ -3271,7 +3337,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     : 'Terminale S2 • 5 réflexes essentiels pour l\'épreuve'
                 }
                 chapters={
-                  isImmuniteInneeB3
+                  isGametogeneseB4
+                    ? GAMETOGENESE_AUDIO_CHAPTERS
+                    : isImmuniteInneeB3
                     ? IMMUNITE_INNEE_AUDIO_CHAPTERS
                     : isImmuniteHumoraleB3
                     ? IMMUNITE_HUMORALE_AUDIO_CHAPTERS
@@ -3424,6 +3492,11 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <>
                   <P4ParticuleReflexesCard />
                   <P4ParticuleInteractiveSimulator />
+                </>
+              ) : isGametogeneseB4 ? (
+                <>
+                  <B4GametogeneseReflexesCard />
+                  <B4GametogeneseInteractiveLab />
                 </>
               ) : isImmuniteInneeB3 ? (
                 <>
@@ -3585,7 +3658,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
               {/* Section Annales Officielles du Baccalauréat Sénégalais (Après les exercices d'application) */}
               <BacSenegalAnnales
                 chapter={
-                  isImmuniteInneeB3
+                  isGametogeneseB4
+                    ? 'gametogenese_comparee'
+                    : isImmuniteInneeB3
                     ? 'immunite_innee'
                     : isImmuniteHumoraleB3
                     ? 'immunite_humorale'
@@ -3699,6 +3774,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <ProjectileQuizEmbedded />
               ) : isParticule ? (
                 <P4ParticuleQuizEmbedded />
+              ) : isGametogeneseB4 ? (
+                <B4GametogeneseQuizEmbedded />
               ) : isImmuniteInneeB3 ? (
                 <B3ImmuniteInneeQuizEmbedded />
               ) : isImmuniteHumoraleB3 ? (

@@ -3484,6 +3484,135 @@ Lors du **rappel** (2ème injection, 4 mois) :
       baremeAstuce: 'Dans un exercice sur les transfusions au Bac S2, écrivez TOUJOURS : "On vérifie la réaction entre les anticorps du plasma du RECEVEUR et les antigènes portés par les globules rouges du DONNEUR".',
     },
   ],
+
+  // B4. LEÇON 1 - GAMÉTOGENÈSE COMPARÉE : SPERMATOGENÈSE, OVOGENÈSE & MÉIOSE (SVT S2)
+  gametogenese_comparee: [
+    {
+      year: 2022,
+      session: 'Session Normale (SVT Série S2)',
+      points: 'Exercice 1 — Maîtrise des Connaissances (4 Points)',
+      topic: 'Spermatogenèse centripète, Histologie du testicule, Spermiogenèse et les deux blocages méiotiques de l\'ovogenèse',
+      enonce: `La reproduction sexuée chez les mammifères repose sur la production de gamètes haploïdes par deux lignées germinales aux cinétiques distinctes : la spermatogenèse chez l'homme et l'ovogenèse chez la femme.
+
+1. Décrivez l'organisation fonctionnelle d'un tube séminifère en précisant la disposition centripète des différentes cellules de la lignée germinale ainsi que les rôles physiologiques des cellules de Sertoli et des cellules interstitielles de Leydig. *(1,5 point)*
+2. Définissez la **spermiogenèse** et détaillez les quatre transformations cytologiques majeures subies par la spermatide sans division cellulaire. *(1,25 point)*
+3. Chez la femme, la méiose est marquée par deux arrêts temporaires ou blocages méiotiques.
+   - À quels stades cytologiques précis correspondent ces deux blocages ?
+   - Précisez pour chacun le moment de sa survenue et le facteur physiologique ou l'événement qui en commande la levée. *(1,25 point)*`,
+      solution: `### 1. Organisation du tube séminifère et cellules annexes (1,5 pt)
+- **Organisation centripète :** La spermatogenèse se déroule de la périphérie vers la lumière du tube séminifère :
+  1. *Membrane basale :* Spermatogonies souches diploïdes ($2n = 46$ chromosomes).
+  2. *Compartiment intermédiaire :* Spermatocytes I ($2n$, $4C$, volumineux) puis Spermatocytes II ($n = 23$, $2C$, après méiose I réductionnelle).
+  3. *Compartiment adluminal :* Spermatides rondes ($n$, $C$, après méiose II équationnelle).
+  4. *Lumière centrale :* Spermatozoïdes mobiles ($n$, $C$) libérés par spermiation.
+- **Cellules de Sertoli (intra-tubulaires) :** Grandes cellules somatiques nourricières, sécrètent des nutriments, assurent la barrière hémato-testiculaire (protection contre le système immunitaire) et sécrètent l'ABP (Androgen Binding Protein) et l'inhibine.
+- **Cellules de Leydig (interstitielles) :** Situées dans le tissu conjonctif entre les tubes séminifères, richement vascularisées ; elles sécrètent la testostérone sous le contrôle de la LH.
+
+---
+
+### 2. La Spermiogenèse et ses 4 métamorphoses cytologiques (1,25 pt)
+**Définition :** La spermiogenèse est la phase ultime de différenciation cellulaire au cours de laquelle chaque spermatide ronde haploïde se transforme en spermatozoïde profilé et fonctionnel, sans aucune division cellulaire.
+**Les 4 transformations majeures :**
+1. **Formation de l'acrosome :** Fusion et condensation des vésicules de l'appareil de Golgi formant une vésicule acrosomiale coiffant les deux tiers antérieurs du noyau, riche en enzymes hydrolytiques (hyaluronidase, acrosine).
+2. **Condensation nucléaire :** Remplacement des histones par des protamines basiques, entraînant un arrêt total de la transcription et une réduction extrême du volume nucléaire.
+3. **Formation du flagelle :** Le centriole distal s'allonge pour édifier le filament axial (axonème $9+2$ microtubules) formant la pièce intermédiaire, la pièce principale et la pièce terminale.
+4. **Élimination du cytoplasme résiduel :** Glissement des mitochondries en manchon spiralé autour de la pièce intermédiaire (fourniture d'ATP pour la motilité) et rejet de l'excès de cytoplasme sous forme de gouttelette résiduelle phagocytée par Sertoli.
+
+---
+
+### 3. Les deux blocages méiotiques de l'ovogenèse (1,25 pt)
+1. **Premier blocage méiotique :**
+   - *Stade :* **Prophase I** (plus précisément au stade diplotène).
+   - *Moment de survenue :* Dès la vie intra-utérine chez le fœtus femelle (vers le 7e mois de grossesse).
+   - *Événement de levée :* Le pic pré-ovulatoire de **LH** (hormone lutéinisante) hypophysaire à chaque cycle à partir de la puberté, qui réactive la méiose I juste avant l'ovulation (expulsion du 1er globule polaire GP1).
+2. **Deuxième blocage méiotique :**
+   - *Stade :* **Métaphase II** (dans l'ovocyte II entouré de sa zone pellucide).
+   - *Moment de survenue :* Lors de l'ovulation au 14e jour du cycle.
+   - *Événement de levée :* **Exclusivement la fécondation** (pénétration d'un spermatozoïde déclenchant une onde calcique intracellulaire, l'achèvement de l'anaphase II et l'expulsion du 2e globule polaire GP2). En l'absence de fécondation, l'ovocyte II dégénère sans jamais achever sa méiose.`,
+      baremeAstuce: 'Au Bac S2, ne dites JAMAIS que la femme ovule un "ovule mûr". La formulation exacte exigée par les correcteurs est : "Ovocyte II bloqué en métaphase II accompagné de son premier globule polaire". La méiose femelle ne s\'achève qu\'après pénétration du spermatozoïde.',
+    },
+    {
+      year: 2019,
+      session: 'Session Normale (SVT Série S2)',
+      points: 'Exercice 2 — Raisonnement Scientifique (5 Points)',
+      topic: 'Cinétique de la quantité d\'ADN au cours de la méiose et rendement gamétique comparé',
+      enonce: `Le document suivant schématise l'évolution de la quantité d'ADN par noyau ($Q$) et le nombre de chromosomes au cours des différentes étapes de la gamétogenèse humaine.
+
+1. À partir de vos connaissances, reproduisez et complétez le tableau suivant pour une cellule humaine engagée dans la gamétogenèse :
+   - Spermatogonie en phase $G_1$
+   - Spermatocyte I en métaphase I
+   - Spermatocyte II en métaphase II
+   - Spermatide
+   - Spermatozoïde mûr
+   *(Précisez pour chacun : nombre de chromosomes, nombre de chromatides par chromosome, et quantité d'ADN relative $Q$, $2Q$ ou $4Q$). (2 points)*
+2. Expliquez pourquoi la quantité d'ADN d'un spermatocyte II est égale à celle d'une cellule somatique en $G_1$ ($2Q$), alors que son nombre de chromosomes est divisé par deux ($n = 23$). *(1,5 point)*
+3. Comparez le rendement gamétique d'une ovogonie et d'une spermatogonie. Expliquez l'intérêt biologique de l'asymétrie des divisions cytoplasmiques de l'ovogenèse. *(1,5 point)*`,
+      solution: `### 1. Tableau comparatif Ploïdie et Quantité d'ADN (2 pts)
+
+| Stade cellulaire | Nombre de chromosomes | Chromatides / chromosome | Quantité d'ADN relative |
+| :--- | :--- | :--- | :--- |
+| **Spermatogonie ($G_1$)** | $2n = 46$ chromosomes simples | 1 chromatide | **$2Q$** |
+| **Spermatocyte I (Métaphase I)** | $2n = 46$ chromosomes doubles | 2 chromatides sœurs | **$4Q$** |
+| **Spermatocyte II (Métaphase II)** | $n = 23$ chromosomes doubles | 2 chromatides sœurs | **$2Q$** |
+| **Spermatide** | $n = 23$ chromosomes simples | 1 chromatide | **$Q$** |
+| **Spermatozoïde mûr** | $n = 23$ chromosomes simples | 1 chromatide | **$Q$** |
+
+---
+
+### 2. Explication cytogénétique de la quantité $2Q$ du spermatocyte II (1,5 pt)
+- Une cellule somatique en $G_1$ est **diploïde** ($2n = 46$ chromosomes), chaque chromosome ne possédant qu'**une seule chromatide**. Sa quantité d'ADN totale est donc proportionnelle à $46 \\times 1 = 46$ chromatides, ce qui correspond à $2Q$.
+- Le spermatocyte II est issu de la division réductionnelle (méiose I) qui a séparé les paires d'homologues : il est donc **haploïde** ($n = 23$ chromosomes). En revanche, les chromatides sœurs ne se sont pas encore séparées : chaque chromosome est encore constitué de **deux chromatides doubles**.
+- Sa quantité d'ADN est donc proportionnelle à $23 \\times 2 = 46$ chromatides, soit rigoureusement **$2Q$**.
+- **Conclusion clé :** Le spermatocyte II a le nombre de chromosomes divisé par 2 ($n$), mais sa quantité d'ADN ($2Q$) est identique à celle d'une spermatogonie en $G_1$ car ses chromosomes sont encore bichromatidiens.
+
+---
+
+### 3. Rendement gamétique et intérêt de l'asymétrie ovogénétique (1,5 pt)
+- **Comparaison des rendements :**
+  - Chez l'homme : $1$ spermatogonie donne $4$ spermatocytes, puis **$4$ spermatozoïdes fonctionnels** équitablement pourvus en matériel génétique et cytoplasmique.
+  - Chez la femme : $1$ ovogonie donne **$1$ seul ovocyte II volumineux et fécondable**, tandis que les deux ou trois autres cellules formées (les globules polaires $GP_1$ et $GP_2$) sont minuscules et vouées à la dégénérescence.
+- **Intérêt biologique fondamental :**
+  - Les divisions méiotiques asymétriques chez la femme expulsent les lots de chromosomes superflus dans des globules polaires très pauvres en cytoplasme, tout en concentrant la quasi-totalité des réserves cytoplasmiques (vitellus, ARN messagers maternels, mitochondries, ribosomes et enzymes) dans l'ovocyte II.
+  - Ces réserves métaboliques abondantes sont indispensables pour nourrir et guider les premières divisions de segmentation du jeune embryon durant sa migration tubaire de 6 à 7 jours, avant son implantation utérine (nidation).`,
+      baremeAstuce: 'Dans la justification de la quantité d\'ADN, comptez toujours les CHROMATIDES : 46 chromatides simples = 2Q, 46 chromosomes doubles (92 chromatides) = 4Q, 23 chromosomes doubles (46 chromatides) = 2Q, 23 chromatides simples = Q.',
+    },
+    {
+      year: 2016,
+      session: 'Session de Remplacement (SVT Série S2)',
+      points: 'Exercice 1 — Restitution Organisée des Connaissances (5 Points)',
+      topic: 'Comparaison globale de la spermatogenèse et de l\'ovogenèse chez l\'espèce humaine',
+      enonce: `La gamétogenèse présente chez l'espèce humaine des similitudes fondamentales mais également des divergences physiologiques majeures entre l'homme et la femme.
+
+Dans un exposé clair et structuré comprenant une introduction, un développement ordonné et une conclusion :
+1. Présentez dans un tableau synoptique les analogies et les différences entre spermatogenèse et ovogenèse selon les critères suivants : lieu de déroulement, période de la vie concernée, continuité du processus, cinétique des divisions méiotiques, morphologie des gamètes produits et rendement cellulaire. *(3 points)*
+2. Expliquez le rôle des cellules compagnes (cellules de Sertoli d'une part, cellules folliculaires d'autre part) dans l'accomplissement réussi de ces deux gamétogenèses. *(2 points)*`,
+      solution: `### 1. Tableau Synoptique Comparatif Officiel (3 pts)
+
+| Critère de comparaison | Spermatogenèse (♂) | Ovogenèse (♀) |
+| :--- | :--- | :--- |
+| **Lieu anatomique** | Tubes séminifères des testicules | Cortex superficiel des ovaires |
+| **Période d'activité** | Continue de la puberté jusqu'à la fin de la vie | Cyclique de la puberté à la ménopause (~50 ans) |
+| **Origine des gonies** | Stock renouvelable indéfiniment par mitoses | Stock fixe et non renouvelable, constitué in utero |
+| **Blocages méiotiques** | **Aucun blocage** (méiose continue et fluide) | **Deux blocages méiotiques :** Prophase I (diplotène fœtal) et Métaphase II (ovulation) |
+| **Phase de différenciation** | **Présente et marquée :** Spermiogenèse (acrosome, flagelle, perte de cytoplasme) | **Absente :** L'ovocyte acquiert ses réserves pendant la phase d'accroissement, pas de spermiogenèse |
+| **Rendement gamétique** | $1$ gonie ──> $4$ spermatozoïdes utiles | $1$ gonie ──> $1$ seul ovocyte II utile + $2$ ou $3$ globules polaires dégénérescents |
+| **Morphologie du gamète** | Minuscule ($60\\,\\mu\\text{m}$), très mobile, flagellé, pauvre en cytoplasme | Cellule géante ($120\\,\\mu\\text{m}$), immobile, sphérique, riche en vitellus |
+
+---
+
+### 2. Rôles indispensables des cellules compagnes somatiques (2 pts)
+- **Cellules de Sertoli (chez l'homme) :**
+  - *Soutien mécanique et nutrition :* Enveloppent et nourrissent les spermatocytes et spermatides en développement.
+  - *Barrière hémato-testiculaire :* Grâce à leurs jonctions serrées, elles isolent les cellules germinales post-méiotiques (portant des antigènes nouveaux) du système immunitaire, évitant ainsi la formation d'anticorps anti-spermatozoïdes (auto-immunité).
+  - *Sécrétion endocrine et paracrine :* Produisent l'**ABP** qui concentre la testostérone dans les tubes séminifères indispensable à la spermiogenèse, et sécrètent l'**inhibine** pour freiner la FSH hypophysaire par rétrocontrôle négatif.
+  - *Phagocytose :* Éliminent les corps résiduels rejetés par les spermatides lors de la spermiogenèse.
+- **Cellules folliculaires / Granulosa et Thèques (chez la femme) :**
+  - *Nutrition et maintien de l'arrêt méiotique :* Les cellules folliculaires envoient des prolongements à travers la zone pellucide vers l'ovocyte I et maintiennent le blocage en prophase I via la sécrétion d'OMI (Oocyte Maturation Inhibitor) et d'AMPc.
+  - *Sécrétion hormonale stéroïdienne :* La thèque interne sécrète des androgènes convertis en **œstrogènes** par l'aromatase de la granulosa sous stimulation de la FSH, responsables de la prolifération de l'endomètre utérin et du pic déclencheur de LH à J14.
+  - *Lutéinisation post-ovulatoire :* Après ovulation, ces cellules se métamorphosent en corps jaune sous l'effet de la LH et sécrètent massivement de la **progestérone** pour préparer la muqueuse utérine à la gestation.`,
+      baremeAstuce: 'Dans un sujet de synthèse au Bac S2, soignez particulièrement les transitions entre la cytologie (méiose) et l\'endocrinologie (Sertoli / Granulosa). Mentionnez toujours l\'Inhibine pour Sertoli et le tandem Thèque interne / Granulosa pour les œstrogènes.',
+    },
+  ],
 };
 
 BAC_ANNALES_BY_CHAPTER.cinematique = BAC_ANNALES_BY_CHAPTER.cinematique_point;
@@ -3590,6 +3719,19 @@ BAC_ANNALES_BY_CHAPTER['auto-immunite'] = BAC_ANNALES_BY_CHAPTER.dysfonctionneme
 BAC_ANNALES_BY_CHAPTER['auto_immunite'] = BAC_ANNALES_BY_CHAPTER.dysfonctionnements_immunitaires;
 BAC_ANNALES_BY_CHAPTER['mastocyte'] = BAC_ANNALES_BY_CHAPTER.dysfonctionnements_immunitaires;
 BAC_ANNALES_BY_CHAPTER['histamine'] = BAC_ANNALES_BY_CHAPTER.dysfonctionnements_immunitaires;
+
+// ─── B4 LEÇON 1 — GAMÉTOGENÈSE COMPARÉE : SPERMATOGENÈSE & OVOGENÈSE ─────────
+BAC_ANNALES_BY_CHAPTER['gametogenese'] = BAC_ANNALES_BY_CHAPTER.gametogenese_comparee;
+BAC_ANNALES_BY_CHAPTER['gametogenese_comparee'] = BAC_ANNALES_BY_CHAPTER.gametogenese_comparee;
+BAC_ANNALES_BY_CHAPTER['gametogenese-comparee'] = BAC_ANNALES_BY_CHAPTER.gametogenese_comparee;
+BAC_ANNALES_BY_CHAPTER['b4'] = BAC_ANNALES_BY_CHAPTER.gametogenese_comparee;
+BAC_ANNALES_BY_CHAPTER['b4l1'] = BAC_ANNALES_BY_CHAPTER.gametogenese_comparee;
+BAC_ANNALES_BY_CHAPTER['spermatogenese'] = BAC_ANNALES_BY_CHAPTER.gametogenese_comparee;
+BAC_ANNALES_BY_CHAPTER['ovogenese'] = BAC_ANNALES_BY_CHAPTER.gametogenese_comparee;
+BAC_ANNALES_BY_CHAPTER['spermiogenese'] = BAC_ANNALES_BY_CHAPTER.gametogenese_comparee;
+BAC_ANNALES_BY_CHAPTER['folliculogenese'] = BAC_ANNALES_BY_CHAPTER.gametogenese_comparee;
+BAC_ANNALES_BY_CHAPTER['meiose_comparee'] = BAC_ANNALES_BY_CHAPTER.gametogenese_comparee;
+BAC_ANNALES_BY_CHAPTER['tube-seminifere'] = BAC_ANNALES_BY_CHAPTER.gametogenese_comparee;
 
 interface BacSenegalAnnalesProps {
   chapter?: string;
