@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
+import Link from 'next/link';
 import MathRenderer from '@/components/course/math-renderer';
 import {
   BookOpen,
@@ -13,6 +14,7 @@ import {
   GraduationCap,
   Sparkles,
   ExternalLink,
+  Lock,
 } from 'lucide-react';
 
 export interface EpreuveItem {
@@ -600,13 +602,636 @@ $$J = \\int_{0}^{1} e^{3x} \\, dx$$`,
     correction: `Une primitive de $x \\mapsto e^{ax}$ (avec $a = 3 \\neq 0$) est $x \\mapsto \\frac{1}{3}e^{3x}$.
 $$J = \\left[\\frac{1}{3}e^{3x}\\right]_0^1 = \\frac{1}{3}e^{3(1)} - \\frac{1}{3}e^{3(0)} = \\frac{1}{3}e^3 - \\frac{1}{3}(1) = \\frac{e^3 - 1}{3}$$`,
   },
+  {
+    id: 31,
+    title: 'Annale Bac S2 Sénégal — Session 2023 (Nombres Complexes)',
+    source: 'Office du Baccalauréat Sénégal',
+    sourceType: 'bac',
+    theme: 'Nombres Complexes (Forme Trigonométrique et Exponentielle)',
+    category: 'algebre',
+    enonce: `Soient les nombres complexes :
+$$z_1 = 1 + i\\sqrt{3} \\quad \\text{et} \\quad z_2 = 1 + i$$
+
+1. Mettre $z_1$ et $z_2$ sous forme exponentielle.
+2. En déduire la forme exponentielle et la forme algébrique du quotient :
+$$Z = \\frac{z_1}{z_2}$$`,
+    correction: `1. **Formes exponentielles de $z_1$ et $z_2$ :**
+* **Pour $z_1 = 1 + i\\sqrt{3}$ :**
+  * Module : $|z_1| = \\sqrt{1^2 + (\\sqrt{3})^2} = \\sqrt{1 + 3} = \\sqrt{4} = 2$.
+  * Argument $\\theta_1$ :
+    $$\\begin{cases} \\cos\\theta_1 = \\frac{1}{2} \\\\ \\sin\\theta_1 = \\frac{\\sqrt{3}}{2} \\end{cases} \\implies \\theta_1 \\equiv \\frac{\\pi}{3} \\pmod{2\\pi}$$
+  * D'où : $$z_1 = 2e^{i\\frac{\\pi}{3}}$$
+
+* **Pour $z_2 = 1 + i$ :**
+  * Module : $|z_2| = \\sqrt{1^2 + 1^2} = \\sqrt{2}$.
+  * Argument $\\theta_2$ :
+    $$\\begin{cases} \\cos\\theta_2 = \\frac{1}{\\sqrt{2}} = \\frac{\\sqrt{2}}{2} \\\\ \\sin\\theta_2 = \\frac{1}{\\sqrt{2}} = \\frac{\\sqrt{2}}{2} \\end{cases} \\implies \\theta_2 \\equiv \\frac{\\pi}{4} \\pmod{2\\pi}$$
+  * D'où : $$z_2 = \\sqrt{2}e^{i\\frac{\\pi}{4}}$$
+
+2. **Quotient $Z = \\frac{z_1}{z_2}$ :**
+* **Forme exponentielle :**
+  $$Z = \\frac{2e^{i\\frac{\\pi}{3}}}{\\sqrt{2}e^{i\\frac{\\pi}{4}}} = \\frac{2}{\\sqrt{2}}e^{i\\left(\\frac{\\pi}{3} - \\frac{\\pi}{4}\\right)} = \\sqrt{2}e^{i\\frac{4\\pi - 3\\pi}{12}} = \\sqrt{2}e^{i\\frac{\\pi}{12}}$$
+
+* **Forme algébrique :**
+  $$Z = \\frac{1 + i\\sqrt{3}}{1 + i} = \\frac{(1 + i\\sqrt{3})(1 - i)}{(1 + i)(1 - i)} = \\frac{1 - i + i\\sqrt{3} - i^2\\sqrt{3}}{1^2 - i^2} = \\frac{(1 + \\sqrt{3}) + i(\\sqrt{3} - 1)}{2} = \\frac{1+\\sqrt{3}}{2} + i\\frac{\\sqrt{3}-1}{2}$$`,
+  },
+  {
+    id: 32,
+    title: 'Devoir Surveillé N°2 — Lycée Limamou Laye 2022',
+    source: 'Lycée Seydina Limamou Laye',
+    sourceType: 'lycee',
+    theme: 'Calcul Intégral & Intégration par Parties',
+    category: 'analyse',
+    enonce: `Calculer la valeur exacte de l'intégrale :
+$$I = \\int_{0}^{1} x e^x \\, dx$$`,
+    correction: `Appliquons la formule d'intégration par parties :
+$$\\int_a^b u(x)v'(x)\\,dx = [u(x)v(x)]_a^b - \\int_a^b u'(x)v(x)\\,dx$$
+
+Posons :
+* $u(x) = x \\implies u'(x) = 1$
+* $v'(x) = e^x \\implies v(x) = e^x$
+
+Les fonctions $u$ et $v$ sont dérivables et leurs dérivées sont continues sur $[0, 1]$.
+$$I = [x e^x]_0^1 - \\int_{0}^{1} 1 \\cdot e^x \\, dx$$
+$$I = (1 \\cdot e^1 - 0) - [e^x]_0^1 = e - (e^1 - e^0) = e - (e - 1) = e - e + 1 = 1$$
+
+Conclusion :
+$$I = 1$$`,
+  },
+  {
+    id: 33,
+    title: 'Annale Concours EPT — Session 2023',
+    source: 'École Polytechnique de Thiès',
+    sourceType: 'concours',
+    theme: 'Équation Logarithmique & Trinôme du 2nd Degré',
+    category: 'analyse',
+    enonce: `Résoudre dans $\\mathbb{R}$ l'équation :
+$$\\ln(2x - 1) + \\ln(x) = \\ln(3)$$`,
+    correction: `1. **Domaine de validité de l'équation ($D_E$) :**
+L'équation est définie si et seulement si :
+$$\\begin{cases} 2x - 1 > 0 \\\\ x > 0 \\end{cases} \\iff \\begin{cases} x > \\frac{1}{2} \\\\ x > 0 \\end{cases} \\iff x \\in \\left]\\frac{1}{2}, +\\infty\\right[$$
+Donc $D_E = \\left]\\frac{1}{2}, +\\infty\\right[$.
+
+2. **Résolution algébrique :**
+Pour tout $x \\in D_E$ :
+$$\\ln(x(2x - 1)) = \\ln(3) \\iff x(2x - 1) = 3 \\iff 2x^2 - x - 3 = 0$$
+
+Calculons le discriminant :
+$$\\Delta = (-1)^2 - 4(2)(-3) = 1 + 24 = 25 = 5^2$$
+
+Les racines du trinôme sont :
+$$x_1 = \\frac{1 - 5}{2(2)} = \\frac{-4}{4} = -1 \\quad \\text{et} \\quad x_2 = \\frac{1 + 5}{2(2)} = \\frac{6}{4} = \\frac{3}{2}$$
+
+3. **Vérification de l'appartenance à $D_E$ :**
+* $x_1 = -1 \\notin D_E$ (rejeté car $-1 \\le \\frac{1}{2}$)
+* $x_2 = \\frac{3}{2} \\in D_E$ (retenu car $\\frac{3}{2} = 1{,}5 > 0{,}5$)
+
+Conclusion :
+$$S = \\left\\{\\frac{3}{2}\\right\\}$$`,
+  },
+  {
+    id: 34,
+    title: 'Manuel CIAM (Terminale S) — Suites Arithmétiques',
+    source: 'CIAM Terminale S',
+    sourceType: 'ciam',
+    theme: 'Suites Arithmétiques (Raison & Premier Terme)',
+    category: 'analyse',
+    enonce: `Soit $(u_n)$ une suite arithmétique de raison $r$ telle que :
+$$u_2 = 5 \\quad \\text{et} \\quad u_5 = 14$$
+
+Déterminer la raison $r$ et le premier terme $u_0$.`,
+    correction: `Pour toute suite arithmétique de raison $r$ et pour tous entiers naturels $n$ et $p$ :
+$$u_n = u_p + (n - p)r \\quad \\text{et} \\quad u_n = u_0 + n r$$
+
+1. **Calcul de la raison $r$ :**
+En appliquant la formule entre $u_5$ et $u_2$ :
+$$u_5 = u_2 + (5 - 2)r \\iff 14 = 5 + 3r \\iff 3r = 14 - 5 = 9 \\iff r = \\frac{9}{3} = 3$$
+
+2. **Calcul du premier terme $u_0$ :**
+$$u_2 = u_0 + 2r \\iff 5 = u_0 + 2(3) \\iff 5 = u_0 + 6 \\iff u_0 = 5 - 6 = -1$$
+
+Conclusion :
+$$r = 3 \\quad \\text{et} \\quad u_0 = -1$$`,
+  },
+  {
+    id: 35,
+    title: 'Composition Trimestrielle — Lycée Djignabo (Ziguinchor) 2021',
+    source: 'Lycée Djignabo de Ziguinchor',
+    sourceType: 'lycee',
+    theme: 'Calcul de Limites Trigonométriques Usuelles',
+    category: 'analyse',
+    enonce: `Calculer la limite :
+$$\\lim_{x \\to 0} \\frac{\\sin(3x)}{x}$$`,
+    correction: `Rappelons la limite trigonométrique fondamentale du programme :
+$$\\lim_{X \\to 0} \\frac{\\sin(X)}{X} = 1$$
+
+Pour tout réel $x \\neq 0$, réécrivons le quotient :
+$$\\frac{\\sin(3x)}{x} = 3 \\cdot \\frac{\\sin(3x)}{3x}$$
+
+En effectuant le changement de variable $X = 3x$, on a $X \\to 0$ lorsque $x \\to 0$ :
+$$\\lim_{x \\to 0} \\frac{\\sin(3x)}{3x} = \\lim_{X \\to 0} \\frac{\\sin(X)}{X} = 1$$
+
+Par produit de limites :
+$$\\lim_{x \\to 0} \\frac{\\sin(3x)}{x} = 3 \\times 1 = 3$$`,
+  },
+  {
+    id: 36,
+    title: 'Annale Bac S2 Sénégal — Session 2022 (Probabilités)',
+    source: 'Office du Baccalauréat Sénégal',
+    sourceType: 'bac',
+    theme: 'Probabilités & Tirages Simultanés',
+    category: 'proba',
+    enonce: `Une urne contient 4 boules blanches et 2 boules noires (soit 6 boules indiscernables au toucher).
+On tire simultanément 3 boules de l'urne.
+
+Calculer la probabilité d'obtenir exactement 2 boules blanches.`,
+    correction: `Le tirage de 3 boules parmi 6 étant simultané, le nombre total d'issues possibles est :
+$$\\text{Card}(\\Omega) = C_6^3 = \\frac{6 \\times 5 \\times 4}{3 \\times 2 \\times 1} = 20$$
+
+Soit l'événement $A$ : « Obtenir exactement 2 boules blanches ».
+Puisqu'on tire 3 boules au total, obtenir 2 blanches signifie tirer 2 blanches parmi les 4 et 1 noire parmi les 2 :
+$$\\text{Card}(A) = C_4^2 \\times C_2^1 = \\frac{4 \\times 3}{2} \\times 2 = 6 \\times 2 = 12$$
+
+En situation d'équiprobabilité :
+$$P(A) = \\frac{\\text{Card}(A)}{\\text{Card}(\\Omega)} = \\frac{12}{20} = \\frac{3}{5} = 0{,}6$$
+
+Conclusion : La probabilité est de **$0{,}6$** (ou $\\frac{3}{5}$).`,
+  },
+  {
+    id: 37,
+    title: 'Annale Concours ESP — Session 2022',
+    source: 'École Supérieure Polytechnique (ESP Dakar)',
+    sourceType: 'concours',
+    theme: 'Nombres Complexes (Équation du Second Degré dans C)',
+    category: 'algebre',
+    enonce: `Résoudre dans $\\mathbb{C}$ l'équation du second degré :
+$$z^2 + 2z + 5 = 0$$`,
+    correction: `Calculons le discriminant $\\Delta$ :
+$$\\Delta = b^2 - 4ac = 2^2 - 4(1)(5) = 4 - 20 = -16 = 16 i^2 = (4i)^2$$
+
+Comme $\\Delta < 0$, l'équation admet deux solutions complexes conjuguées :
+$$z_1 = \\frac{-b - 4i}{2a} = \\frac{-2 - 4i}{2} = -1 - 2i$$
+$$z_2 = \\frac{-b + 4i}{2a} = \\frac{-2 + 4i}{2} = -1 + 2i$$
+
+Conclusion :
+$$S = \\{-1 - 2i ;\\; -1 + 2i\\}$$`,
+  },
+  {
+    id: 38,
+    title: 'Lycée Limamou Laye — Devoir de Synthèse 2020',
+    source: 'Lycée Seydina Limamou Laye',
+    sourceType: 'lycee',
+    theme: 'Dérivabilité en un Point & Dérivées à Gauche/Droite',
+    category: 'analyse',
+    enonce: `Étudier la dérivabilité de la fonction $f$ définie sur $\\mathbb{R}$ par $f(x) = |x|$ en $x_0 = 0$.`,
+    correction: `Exprimons $f(x)$ sans valeur absolue :
+$$f(x) = \\begin{cases} x & \\text{si } x \\ge 0 \\\\ -x & \\text{si } x < 0 \\end{cases}$$
+
+Calculons les nombres dérivés à droite et à gauche en $0$ à partir du taux d'accroissement :
+* **Dérivée à droite en $0$ ($x > 0$) :**
+  $$\\lim_{x \\to 0^+} \\frac{f(x) - f(0)}{x - 0} = \\lim_{x \\to 0^+} \\frac{x - 0}{x} = \\lim_{x \\to 0^+} 1 = 1 = f'_d(0)$$
+
+* **Dérivée à gauche en $0$ ($x < 0$) :**
+  $$\\lim_{x \\to 0^-} \\frac{f(x) - f(0)}{x - 0} = \\lim_{x \\to 0^-} \\frac{-x - 0}{x} = \\lim_{x \\to 0^-} (-1) = -1 = f'_g(0)$$
+
+Puisque $f'_d(0) = 1 \\neq f'_g(0) = -1$, la fonction $f$ n'admet pas de limite unique pour son taux d'accroissement en $0$.
+**Conclusion :** La fonction $f$ **n'est pas dérivable en 0**. Graphiquement, la courbe $\\mathcal{C}_f$ admet un **point anguleux** à l'origine $(0, 0)$.`,
+  },
+  {
+    id: 39,
+    title: 'Manuel CIAM (Terminale S) — Géométrie Vectorielle',
+    source: 'CIAM Terminale S',
+    sourceType: 'ciam',
+    theme: 'Géométrie dans l\'Espace (Norme d\'un Vecteur)',
+    category: 'geometrie',
+    enonce: `Dans l'espace muni d'un repère orthonormé $(O, \\vec{i}, \\vec{j}, \\vec{k})$, calculer la norme du vecteur :
+$$\\vec{u}(3, -4, 12)$$`,
+    correction: `Dans une base orthonormée de l'espace, la norme d'un vecteur $\\vec{u}(x, y, z)$ est :
+$$\\|\\vec{u}\\| = \\sqrt{x^2 + y^2 + z^2}$$
+
+Calcul numérique :
+$$\\|\\vec{u}\\| = \\sqrt{3^2 + (-4)^2 + 12^2} = \\sqrt{9 + 16 + 144} = \\sqrt{169}$$
+
+Comme $13^2 = 169$ :
+$$\\|\\vec{u}\\| = 13$$`,
+  },
+  {
+    id: 40,
+    title: 'Annale Bac S2 Sénégal — Session 2021 (Fonctions)',
+    source: 'Office du Baccalauréat Sénégal',
+    sourceType: 'bac',
+    theme: 'Dérivation d\'un Produit $(u \\cdot v)$ avec Exponentielle',
+    category: 'analyse',
+    enonce: `Soit la fonction $f$ définie sur $\\mathbb{R}$ par :
+$$f(x) = x e^{-x}$$
+
+Déterminer l'expression de la dérivée $f'(x)$ et étudier son signe.`,
+    correction: `La fonction $f$ est le produit de deux fonctions dérivables sur $\\mathbb{R}$ :
+* $u(x) = x \\implies u'(x) = 1$
+* $v(x) = e^{-x} \\implies v'(x) = -e^{-x}$
+
+D'après la formule de dérivation d'un produit $(u v)' = u' v + u v'$ :
+$$f'(x) = 1 \\cdot e^{-x} + x(-e^{-x}) = e^{-x} - x e^{-x} = (1 - x)e^{-x}$$
+
+**Signe de $f'(x)$ :**
+Comme pour tout $x \\in \\mathbb{R}$, $e^{-x} > 0$, le signe de $f'(x)$ est strictement celui du facteur $(1 - x)$ :
+* $f'(x) > 0 \\iff 1 - x > 0 \\iff x < 1$ : $f$ est strictement croissante sur $]-\\infty, 1]$.
+* $f'(1) = 0$ : $f$ admet un maximum local en $x = 1$ de valeur $f(1) = 1 \\cdot e^{-1} = \\frac{1}{e}$.
+* $f'(x) < 0 \\iff 1 - x < 0 \\iff x > 1$ : $f$ est strictement décroissante sur $[1, +\\infty[$.`,
+  },
+  {
+    id: 41,
+    title: 'Devoir Commun — Lycée Blaise Diagne (Dakar) 2023',
+    source: 'Lycée Blaise Diagne de Dakar',
+    sourceType: 'lycee',
+    theme: 'Calcul de Limite en l\'Infini (Fonction Rationnelle)',
+    category: 'analyse',
+    enonce: `Calculer la limite :
+$$\\lim_{x \\to +\\infty} \\frac{3x^2 - x + 1}{x^2 + 2}$$`,
+    correction: `En $+\\infty$, la limite d'une fonction rationnelle est égale à la limite du quotient de ses termes de plus haut degré :
+$$\\lim_{x \\to +\\infty} \\frac{3x^2 - x + 1}{x^2 + 2} = \\lim_{x \\to +\\infty} \\frac{3x^2\\left(1 - \\frac{1}{3x} + \\frac{1}{3x^2}\\right)}{x^2\\left(1 + \\frac{2}{x^2}\\right)} = \\lim_{x \\to +\\infty} \\frac{3x^2}{x^2} = 3$$
+
+**Interprétation graphique :**
+La droite d'équation $y = 3$ est **asymptote horizontale** à la courbe $\\mathcal{C}$ au voisinage de $+\\infty$.`,
+  },
+  {
+    id: 42,
+    title: 'Annale Concours EPT — Session 2022',
+    source: 'École Polytechnique de Thiès',
+    sourceType: 'concours',
+    theme: 'Calcul de Primitives de la Forme $u\'/u$',
+    category: 'analyse',
+    enonce: `Déterminer l'ensemble des primitives de la fonction $f$ définie sur $\\left]-\\frac{1}{2}, +\\infty\\right[$ par :
+$$f(x) = \\frac{1}{2x + 1}$$`,
+    correction: `Faisons apparaître la dérivée du dénominateur $u(x) = 2x + 1$ au numérateur :
+$$u'(x) = 2 \\implies f(x) = \\frac{1}{2} \\cdot \\frac{2}{2x + 1} = \\frac{1}{2} \\cdot \\frac{u'(x)}{u(x)}$$
+
+Sur l'intervalle $\\left]-\\frac{1}{2}, +\\infty\\right[$, $2x + 1 > 0$, donc $|2x + 1| = 2x + 1$.
+Une primitive de $\\frac{u'(x)}{u(x)}$ est $\\ln(u(x))$.
+Par conséquent, l'ensemble des primitives $F$ est :
+$$F(x) = \\frac{1}{2} \\ln(2x + 1) + C \\quad (C \\in \\mathbb{R})$$`,
+  },
+  {
+    id: 43,
+    title: 'Manuel CIAM (Terminale S) — Linéarisation d\'Euler',
+    source: 'CIAM Terminale S',
+    sourceType: 'ciam',
+    theme: 'Formules d\'Euler & Linéarisation de $\\sin^2(x)$',
+    category: 'algebre',
+    enonce: `Linéariser l'expression $\\sin^2(x)$ en utilisant les formules d'Euler.`,
+    correction: `D'après la formule d'Euler pour la fonction sinus :
+$$\\sin(x) = \\frac{e^{ix} - e^{-ix}}{2i}$$
+
+Élevons au carré :
+$$\\sin^2(x) = \\left(\\frac{e^{ix} - e^{-ix}}{2i}\\right)^2 = \\frac{(e^{ix})^2 - 2 e^{ix} e^{-ix} + (e^{-ix})^2}{(2i)^2}$$
+Comme $(2i)^2 = 4i^2 = -4$ et $e^{ix}e^{-ix} = e^0 = 1$ :
+$$\\sin^2(x) = \\frac{e^{2ix} - 2 + e^{-2ix}}{-4} = -\\frac{e^{2ix} + e^{-2ix}}{4} + \\frac{2}{4}$$
+
+Or d'après la formule d'Euler pour le cosinus : $e^{2ix} + e^{-2ix} = 2\\cos(2x)$.
+D'où :
+$$\\sin^2(x) = -\\frac{2\\cos(2x)}{4} + \\frac{1}{2} = \\frac{1 - \\cos(2x)}{2}$$`,
+  },
+  {
+    id: 44,
+    title: 'Annale Bac S2 Sénégal — Session 2020 (Équations Différentielles)',
+    source: 'Office du Baccalauréat Sénégal',
+    sourceType: 'bac',
+    theme: 'Équation Différentielle Linéaire $y\'\' - \\omega^2 y = 0$',
+    category: 'analyse',
+    enonce: `Résoudre dans $\\mathbb{R}$ l'équation différentielle :
+$$y'' - 4y = 0$$`,
+    correction: `L'équation caractéristique associée est :
+$$r^2 - 4 = 0 \\iff (r - 2)(r + 2) = 0 \\iff r = 2 \\quad \\text{ou} \\quad r = -2$$
+
+L'équation caractéristique admet deux racines réelles distinctes $r_1 = 2$ et $r_2 = -2$.
+D'après le cours de Terminale S2, la solution générale sur $\\mathbb{R}$ est :
+$$y(x) = C_1 e^{2x} + C_2 e^{-2x} \\quad (C_1, C_2 \\in \\mathbb{R})$$`,
+  },
+  {
+    id: 45,
+    title: 'Lycée Limamou Laye — Compositions Trimestrielles 2019',
+    source: 'Lycée Seydina Limamou Laye',
+    sourceType: 'lycee',
+    theme: 'Calcul d\'Aire Délimitée par une Intégrale',
+    category: 'analyse',
+    enonce: `Calculer l'aire $\\mathcal{A}$ du domaine plan délimité par l'axe des abscisses, la droite d'équation $y = 2 - x$ et les droites verticales $x = 0$ et $x = 2$.`,
+    correction: `Pour tout $x \\in [0, 2]$, la fonction $f(x) = 2 - x$ est continue et positive ($2 - x \\ge 0$).
+L'aire du domaine s'exprime par l'intégrale :
+$$\\mathcal{A} = \\int_{0}^{2} (2 - x) \\, dx$$
+
+Calculons une primitive : $F(x) = 2x - \\frac{1}{2}x^2$.
+$$\\mathcal{A} = \\left[2x - \\frac{1}{2}x^2\\right]_0^2 = \\left(2(2) - \\frac{1}{2}(2^2)\\right) - \\left(0 - 0\\right) = 4 - \\frac{4}{2} = 4 - 2 = 2$$
+
+Conclusion :
+$$\\mathcal{A} = 2 \\text{ unités d'aire (u.a.)}$$`,
+  },
+  {
+    id: 46,
+    title: 'Annale Concours ESP — Session 2021',
+    source: 'École Supérieure Polytechnique (ESP Dakar)',
+    sourceType: 'concours',
+    theme: 'Calcul Matriciel (Produit de Deux Matrices Carrées)',
+    category: 'algebre',
+    enonce: `Soient les matrices carrées d'ordre 2 :
+$$A = \\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix} \\quad \\text{et} \\quad B = \\begin{pmatrix} 3 & 0 \\\\ 1 & 2 \\end{pmatrix}$$
+
+Calculer le produit matriciel $A \\times B$.`,
+    correction: `Effectuons le produit ligne par colonne :
+$$A \\times B = \\begin{pmatrix} 1(3) + 2(1) & 1(0) + 2(2) \\\\ 0(3) + 1(1) & 0(0) + 1(2) \\end{pmatrix} = \\begin{pmatrix} 3 + 2 & 0 + 4 \\\\ 0 + 1 & 0 + 2 \\end{pmatrix} = \\begin{pmatrix} 5 & 4 \\\\ 1 & 2 \\end{pmatrix}$$`,
+  },
+  {
+    id: 47,
+    title: 'Manuel CIAM (Terminale S) — Probabilités Composées',
+    source: 'CIAM Terminale S',
+    sourceType: 'ciam',
+    theme: 'Probabilités Conditionnelles & Formule du Produit',
+    category: 'proba',
+    enonce: `Soient $A$ et $B$ deux événements tels que :
+$$P(A) = 0{,}4 \\quad \\text{et} \\quad P(B|A) = 0{,}5$$
+
+Calculer $P(A \\cap B)$.`,
+    correction: `D'après la formule des probabilités composées (définition de la probabilité conditionnelle) :
+$$P(A \\cap B) = P(A) \\times P(B|A)$$
+
+Application numérique :
+$$P(A \\cap B) = 0{,}4 \\times 0{,}5 = 0{,}2$$
+
+Conclusion :
+$$P(A \\cap B) = 0{,}2$$`,
+  },
+  {
+    id: 48,
+    title: 'Annale Bac S2 Sénégal — Session 2018',
+    source: 'Office du Baccalauréat Sénégal',
+    sourceType: 'bac',
+    theme: 'Limite Remarquable du Logarithme en 0',
+    category: 'analyse',
+    enonce: `Calculer la limite :
+$$\\lim_{x \\to 0} \\frac{\\ln(1 + x)}{x}$$`,
+    correction: `Considérons la fonction $f(x) = \\ln(1 + x)$ définie et dérivable sur $]-1, +\\infty[$.
+Sa fonction dérivée est :
+$$f'(x) = \\frac{1}{1 + x}$$
+En $x = 0$ :
+$$f(0) = \\ln(1) = 0 \\quad \\text{et} \\quad f'(0) = \\frac{1}{1 + 0} = 1$$
+
+L'expression donnée représente le taux d'accroissement de $f$ en $0$ :
+$$\\lim_{x \\to 0} \\frac{\\ln(1 + x)}{x} = \\lim_{x \\to 0} \\frac{f(x) - f(0)}{x - 0} = f'(0) = 1$$`,
+  },
+  {
+    id: 49,
+    title: 'Devoir Surveillé — Lycée Maurice Delafosse (Ginddi) 2022',
+    source: 'Lycée Maurice Delafosse (Ginddi)',
+    sourceType: 'lycee',
+    theme: 'Nombres Complexes (Module & Argument d\'un Réel Négatif)',
+    category: 'algebre',
+    enonce: `Déterminer le module et l'argument principal du nombre complexe :
+$$z = -2$$`,
+    correction: `Écrivons $z = -2$ sous forme trigonométrique canonique :
+* **Module :**
+  $$|z| = |-2| = 2$$
+
+* **Argument :**
+  $$z = 2(-1 + 0i) = 2(\\cos\\pi + i\\sin\\pi)$$
+  Puisque $-2$ est un nombre réel strictement négatif situé sur le demi-axe réel négatif :
+  $$\\arg(z) \\equiv \\pi \\pmod{2\\pi}$$
+
+Conclusion :
+$$|z| = 2 \\quad \\text{et} \\quad \\arg(z) = \\pi$$`,
+  },
+  {
+    id: 50,
+    title: 'Annale Concours EPT — Session 2021',
+    source: 'École Polytechnique de Thiès',
+    sourceType: 'concours',
+    theme: 'Arithmétique & Équations de Congruence',
+    category: 'algebre',
+    enonce: `Résoudre dans $\\mathbb{Z}$ l'équation de congruence :
+$$2x \\equiv 3 \\pmod 5$$`,
+    correction: `Cherchons un inverse de $2$ modulo $5$ :
+$$2 \\times 3 = 6 = 5(1) + 1 \\equiv 1 \\pmod 5$$
+L'inverse de $2$ modulo $5$ est donc $3$.
+
+Multiplions les deux membres de la congruence par $3$ :
+$$3 \\times (2x) \\equiv 3 \\times 3 \\pmod 5 \\iff 6x \\equiv 9 \\pmod 5$$
+
+Comme $6 \\equiv 1 \\pmod 5$ et $9 \\equiv 4 \\pmod 5$ :
+$$x \\equiv 4 \\pmod 5$$
+
+L'ensemble des solutions dans $\\mathbb{Z}$ est :
+$$S = \\{5k + 4 \\mid k \\in \\mathbb{Z}\\}$$`,
+  },
+  {
+    id: 51,
+    title: 'Manuel CIAM (Terminale S) — Suites Géométriques',
+    source: 'CIAM Terminale S',
+    sourceType: 'ciam',
+    theme: 'Suites Géométriques (Somme de Termes Consécutifs)',
+    category: 'analyse',
+    enonce: `Soit $(u_n)$ une suite géométrique de premier terme $u_0 = 2$ et de raison $q = 3$.
+Calculer la somme :
+$$S = u_0 + u_1 + u_2 + u_3$$`,
+    correction: `Pour une suite géométrique de raison $q \\neq 1$, la somme des $(n+1)$ premiers termes est :
+$$S = u_0 \\cdot \\frac{1 - q^{\\text{nombre de termes}}}{1 - q}$$
+
+Ici, il y a 4 termes ($u_0, u_1, u_2, u_3$) :
+$$S = 2 \\cdot \\frac{1 - 3^4}{1 - 3} = 2 \\cdot \\frac{1 - 81}{-2} = -(1 - 81) = -(-80) = 80$$
+
+*(Vérification directe : $u_0 = 2$, $u_1 = 6$, $u_2 = 18$, $u_3 = 54 \\implies 2 + 6 + 18 + 54 = 80$.)*`,
+  },
+  {
+    id: 52,
+    title: 'Annale Bac S2 Sénégal — Session 2017',
+    source: 'Office du Baccalauréat Sénégal',
+    sourceType: 'bac',
+    theme: 'Équation Exponentielle ($e^{2x} - e^x = 0$)',
+    category: 'analyse',
+    enonce: `Déterminer l'ensemble des solutions réelles de l'équation :
+$$e^{2x} - e^x = 0$$`,
+    correction: `Factorisons par $e^x$ :
+$$e^x(e^x - 1) = 0$$
+
+Comme pour tout $x \\in \\mathbb{R}$, $e^x > 0$ (la fonction exponentielle ne s'annule jamais) :
+$$e^x - 1 = 0 \\iff e^x = 1 = e^0 \\iff x = 0$$
+
+Conclusion :
+$$S = \\{0\\}$$`,
+  },
+  {
+    id: 53,
+    title: 'Lycée Limamou Laye — Devoir N°1 2021',
+    source: 'Lycée Seydina Limamou Laye',
+    sourceType: 'lycee',
+    theme: 'Polynômes (Dérivée & Extrema Locaux)',
+    category: 'analyse',
+    enonce: `Soit la fonction $f$ définie sur $\\mathbb{R}$ par $f(x) = x^3 - 3x + 2$.
+Calculer $f'(x)$ et déterminer les coordonnées des extrema de $f$.`,
+    correction: `1. **Calcul de la dérivée :**
+$$f'(x) = 3x^2 - 3 = 3(x^2 - 1) = 3(x - 1)(x + 1)$$
+
+2. **Recherche des extrema locaux :**
+$f'(x) = 0 \\iff x = 1$ ou $x = -1$.
+* **En $x = -1$ :**
+  $f'$ est positive pour $x < -1$ et négative pour $-1 < x < 1$.
+  $f$ admet un **maximum local** en $x = -1$ de valeur :
+  $$f(-1) = (-1)^3 - 3(-1) + 2 = -1 + 3 + 2 = 4$$
+
+* **En $x = 1$ :**
+  $f'$ est négative pour $-1 < x < 1$ et positive pour $x > 1$.
+  $f$ admet un **minimum local** en $x = 1$ de valeur :
+  $$f(1) = 1^3 - 3(1) + 2 = 1 - 3 + 2 = 0$$`,
+  },
+  {
+    id: 54,
+    title: 'Annale Concours ESP — Session 2020',
+    source: 'École Supérieure Polytechnique (ESP Dakar)',
+    sourceType: 'concours',
+    theme: 'Dérivation d\'une Fonction Composée $\\ln(u)$',
+    category: 'analyse',
+    enonce: `Calculer la dérivée de la fonction $f(x) = \\ln(\\sin(x))$ sur l'intervalle $]0, \\pi[$.`,
+    correction: `Sur $]0, \\pi[$, $\\sin(x) > 0$. La fonction $f$ est dérivable comme composée de fonctions dérivables.
+D'après la formule $(\\ln u)' = \\frac{u'}{u}$ avec $u(x) = \\sin(x)$ et $u'(x) = \\cos(x)$ :
+$$f'(x) = \\frac{\\cos(x)}{\\sin(x)} = \\cotan(x)$$`,
+  },
+  {
+    id: 55,
+    title: 'Manuel CIAM (Terminale S) — Barycentres du Plan',
+    source: 'CIAM Terminale S',
+    sourceType: 'ciam',
+    theme: 'Barycentre de Trois Points & Centre de Gravité',
+    category: 'geometrie',
+    enonce: `Soient $A, B, C$ trois points non alignés du plan.
+Définir le barycentre $G$ du système pondéré :
+$$\\{(A, 1), (B, 1), (C, 1)\\}$$`,
+    correction: `Puisque la somme des coefficients est :
+$$\\alpha + \\beta + \\gamma = 1 + 1 + 1 = 3 \\neq 0$$
+le barycentre $G$ existe et est unique.
+Comme les trois coefficients sont égaux, $G$ est l'**isobarycentre** (ou le **centre de gravité**) du triangle $ABC$.
+Il est caractérisé par la relation vectorielle :
+$$\\vec{GA} + \\vec{GB} + \\vec{GC} = \\vec{0}$$
+
+Ou pour tout point $M$ du plan :
+$$\\vec{MG} = \\frac{1}{3}(\\vec{MA} + \\vec{MB} + \\vec{MC})$$`,
+  },
+  {
+    id: 56,
+    title: 'Annale Bac S2 Sénégal — Session 2016',
+    source: 'Office du Baccalauréat Sénégal',
+    sourceType: 'bac',
+    theme: 'Calcul Intégral d\'une Fonction Trigonométrique',
+    category: 'analyse',
+    enonce: `Calculer la valeur exacte de l'intégrale :
+$$K = \\int_{0}^{\\pi} \\sin(x) \\, dx$$`,
+    correction: `Une primitive de $x \\mapsto \\sin(x)$ sur $\\mathbb{R}$ est $x \\mapsto -\\cos(x)$.
+$$K = [-\\cos(x)]_0^\\pi = (-\\cos(\\pi)) - (-\\cos(0))$$
+Comme $\\cos(\\pi) = -1$ et $\\cos(0) = 1$ :
+$$K = (-(-1)) - (-1) = 1 + 1 = 2$$
+
+Conclusion :
+$$K = 2$$`,
+  },
+  {
+    id: 57,
+    title: 'Devoir Surveillé — Lycée John F. Kennedy (Dakar) 2022',
+    source: 'Lycée John F. Kennedy de Dakar',
+    sourceType: 'lycee',
+    theme: 'Inéquations du Second Degré & Règle des Signes',
+    category: 'algebre',
+    enonce: `Résoudre dans $\\mathbb{R}$ l'inéquation :
+$$x^2 - 5x + 6 \\le 0$$`,
+    correction: `Étudions les racines du trinôme $P(x) = x^2 - 5x + 6$ :
+$$\\Delta = (-5)^2 - 4(1)(6) = 25 - 24 = 1 = 1^2$$
+Les racines sont :
+$$x_1 = \\frac{5 - 1}{2} = 2 \\quad \\text{et} \\quad x_2 = \\frac{5 + 1}{2} = 3$$
+
+Règle du signe d'un trinôme $ax^2 + bx + c$ avec $a = 1 > 0$ :
+Le trinôme est négatif ou nul **entre ses racines**.
+Conclusion :
+$$S = [2, 3]$$`,
+  },
+  {
+    id: 58,
+    title: 'Annale Concours EPT — Session 2019',
+    source: 'École Polytechnique de Thiès',
+    sourceType: 'concours',
+    theme: 'Croissances Comparées en $+\\infty$',
+    category: 'analyse',
+    enonce: `Calculer la limite :
+$$\\lim_{x \\to +\\infty} x e^{-x}$$`,
+    correction: `Réécrivons l'expression sous la forme :
+$$x e^{-x} = \\frac{x}{e^x} = \\frac{1}{\\frac{e^x}{x}}$$
+
+D'après le théorème des croissances comparées de référence en Terminale S2 :
+$$\\lim_{x \\to +\\infty} \\frac{e^x}{x} = +\\infty$$
+
+Par passage à l'inverse :
+$$\\lim_{x \\to +\\infty} x e^{-x} = \\lim_{x \\to +\\infty} \\frac{1}{\\frac{e^x}{x}} = 0$$`,
+  },
+  {
+    id: 59,
+    title: 'Manuel CIAM (Terminale S) — Affixe du Milieu',
+    source: 'CIAM Terminale S',
+    sourceType: 'ciam',
+    theme: 'Nombres Complexes (Affixe du Milieu d\'un Segment)',
+    category: 'algebre',
+    enonce: `Dans le plan complexe muni d'un repère orthonormé, on donne les points :
+$$A(1 + 2i) \\quad \\text{et} \\quad B(3 - 4i)$$
+
+Déterminer l'affixe $z_I$ du milieu $I$ du segment $[AB]$.`,
+    correction: `L'affixe du milieu $I$ d'un segment $[AB]$ est la demi-somme des affixes des extrémités :
+$$z_I = \\frac{z_A + z_B}{2}$$
+
+Application numérique :
+$$z_I = \\frac{(1 + 2i) + (3 - 4i)}{2} = \\frac{(1 + 3) + i(2 - 4)}{2} = \\frac{4 - 2i}{2} = 2 - i$$
+
+Conclusion :
+$$z_I = 2 - i$$`,
+  },
+  {
+    id: 60,
+    title: 'Annale Bac S2 Sénégal — Session 2015',
+    source: 'Office du Baccalauréat Sénégal',
+    sourceType: 'bac',
+    theme: 'Dérivation d\'une Fonction Composée $\\sqrt{u}$',
+    category: 'analyse',
+    enonce: `Calculer la dérivée de la fonction $f$ définie sur $\\mathbb{R}$ par :
+$$f(x) = \\sqrt{x^2 + 1}$$`,
+    correction: `Pour tout $x \\in \\mathbb{R}$, $x^2 + 1 \\ge 1 > 0$. La fonction $u(x) = x^2 + 1$ est strictement positive et dérivable sur $\\mathbb{R}$.
+La fonction $f = \\sqrt{u}$ est donc dérivable sur $\\mathbb{R}$.
+D'après la formule $(\\sqrt{u})' = \\frac{u'}{2\\sqrt{u}}$ avec $u'(x) = 2x$ :
+$$f'(x) = \\frac{2x}{2\\sqrt{x^2 + 1}} = \\frac{x}{\\sqrt{x^2 + 1}}$$`,
+  },
 ];
 
-export default function MathsRecueilEpreuves() {
+export interface MathsRecueilEpreuvesProps {
+  isSubscribed?: boolean;
+}
+
+export default function MathsRecueilEpreuves({ isSubscribed = false }: MathsRecueilEpreuvesProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'analyse' | 'algebre' | 'proba' | 'geometrie'>('all');
   const [selectedSourceType, setSelectedSourceType] = useState<'all' | 'bac' | 'lycee' | 'ciam' | 'concours'>('all');
-  const [expandedIds, setExpandedIds] = useState<Set<number>>(new Set([1, 2]));
+  const [expandedIds, setExpandedIds] = useState<Set<number>>(new Set([1, 2, 3]));
+
+  // Calcul dynamique des statistiques de répartition
+  const categoryCounts = useMemo(() => {
+    const counts = { all: MEGA_RECUEIL_30_EPREUVES.length, analyse: 0, algebre: 0, proba: 0, geometrie: 0 };
+    for (const ep of MEGA_RECUEIL_30_EPREUVES) {
+      if ((ep.category as any) in counts) {
+        counts[ep.category as keyof typeof counts]++;
+      }
+    }
+    return counts;
+  }, []);
+
+  const sourceCounts = useMemo(() => {
+    const counts = { all: MEGA_RECUEIL_30_EPREUVES.length, bac: 0, lycee: 0, ciam: 0, concours: 0 };
+    for (const ep of MEGA_RECUEIL_30_EPREUVES) {
+      if ((ep.sourceType as any) in counts) {
+        counts[ep.sourceType as keyof typeof counts]++;
+      }
+    }
+    return counts;
+  }, []);
 
   const toggleExpand = (id: number) => {
     setExpandedIds((prev) => {
@@ -658,10 +1283,10 @@ export default function MathsRecueilEpreuves() {
           </div>
           <h2 className="text-xl sm:text-2xl font-black text-navy mt-1 flex items-center gap-2">
             <Award className="w-6 h-6 text-gold shrink-0" />
-            <span>Méga Recueil de 30 Épreuves &amp; Corrigés Détaillés</span>
+            <span>Second Méga Recueil : 60 Épreuves &amp; Corrigés Détaillés</span>
           </h2>
           <p className="text-xs text-navy/60 mt-1 max-w-2xl leading-relaxed">
-            Sujets complets et corrigés pas à pas issus des <strong>Annales du Bac S2</strong>, du <strong>Lycée Limamou Laye</strong>, des <strong>Manuels CIAM</strong> et des <strong>Concours EPT / ESP</strong>.
+            Sujets complets et corrigés pas à pas issus des <strong>Annales du Bac S2 (2015-2024)</strong>, du <strong>Lycée Limamou Laye</strong>, des <strong>Manuels CIAM</strong> et des <strong>Concours EPT / ESP</strong>.
           </p>
         </div>
 
@@ -698,7 +1323,7 @@ export default function MathsRecueilEpreuves() {
 
           {/* Compteur de résultats */}
           <span className="text-xs font-black text-navy/60 bg-white px-3 py-2 rounded-xl border border-navy/10 whitespace-nowrap self-end sm:self-auto">
-            {filteredEpreuves.length} épreuve{filteredEpreuves.length > 1 ? 's' : ''} sur 30
+            {filteredEpreuves.length} épreuve{filteredEpreuves.length > 1 ? 's' : ''} sur {MEGA_RECUEIL_30_EPREUVES.length}
           </span>
         </div>
 
@@ -708,11 +1333,11 @@ export default function MathsRecueilEpreuves() {
             <Filter className="w-3 h-3" /> Domaine :
           </span>
           {[
-            { id: 'all', label: 'Tous les Domaines' },
-            { id: 'analyse', label: 'Analyse (17)' },
-            { id: 'algebre', label: 'Algèbre (7)' },
-            { id: 'proba', label: 'Probabilités (4)' },
-            { id: 'geometrie', label: 'Géométrie (2)' },
+            { id: 'all', label: `Tous les Domaines (${categoryCounts.all})` },
+            { id: 'analyse', label: `Analyse (${categoryCounts.analyse})` },
+            { id: 'algebre', label: `Algèbre (${categoryCounts.algebre})` },
+            { id: 'proba', label: `Probabilités (${categoryCounts.proba})` },
+            { id: 'geometrie', label: `Géométrie (${categoryCounts.geometrie})` },
           ].map((cat) => (
             <button
               key={cat.id}
@@ -734,11 +1359,11 @@ export default function MathsRecueilEpreuves() {
             <GraduationCap className="w-3 h-3" /> Source :
           </span>
           {[
-            { id: 'all', label: 'Toutes les sources' },
-            { id: 'bac', label: 'Office du Bac (9)' },
-            { id: 'lycee', label: 'Lycée Limamou Laye & Djignabo (8)' },
-            { id: 'ciam', label: 'Manuels CIAM (7)' },
-            { id: 'concours', label: 'Concours EPT / ESP (6)' },
+            { id: 'all', label: `Toutes les sources (${sourceCounts.all})` },
+            { id: 'bac', label: `Office du Bac (${sourceCounts.bac})` },
+            { id: 'lycee', label: `Lycée Limamou Laye & Djignabo (${sourceCounts.lycee})` },
+            { id: 'ciam', label: `Manuels CIAM (${sourceCounts.ciam})` },
+            { id: 'concours', label: `Concours EPT / ESP (${sourceCounts.concours})` },
           ].map((src) => (
             <button
               key={src.id}
@@ -755,7 +1380,7 @@ export default function MathsRecueilEpreuves() {
         </div>
       </div>
 
-      {/* Liste des 30 Épreuves */}
+      {/* Liste des 60 Épreuves */}
       <div className="space-y-4">
         {filteredEpreuves.length === 0 ? (
           <div className="text-center py-12 bg-surface/40 rounded-2xl border border-navy/5">
@@ -765,6 +1390,8 @@ export default function MathsRecueilEpreuves() {
         ) : (
           filteredEpreuves.map((ep) => {
             const isExpanded = expandedIds.has(ep.id);
+            const isFree = ep.id <= 3;
+            const canViewCorrection = isFree || isSubscribed;
 
             return (
               <div
@@ -800,6 +1427,17 @@ export default function MathsRecueilEpreuves() {
                         <span className="text-[10px] font-bold text-navy/40 uppercase tracking-wider">
                           • {ep.theme}
                         </span>
+
+                        {isFree ? (
+                          <span className="text-[9px] bg-turquoise/20 text-navy font-bold px-2 py-0.5 rounded-md">
+                            Gratuit
+                          </span>
+                        ) : !isSubscribed ? (
+                          <span className="text-[9px] bg-gold/20 text-navy font-bold px-2 py-0.5 rounded-md flex items-center gap-1">
+                            <Lock className="w-2.5 h-2.5 text-navy" />
+                            Abonnés
+                          </span>
+                        ) : null}
                       </div>
 
                       <h3 className="font-extrabold text-navy text-sm sm:text-base leading-snug">
@@ -810,7 +1448,11 @@ export default function MathsRecueilEpreuves() {
 
                   <div className="flex items-center gap-2 shrink-0 self-end sm:self-auto">
                     <span className="text-xs font-bold text-turquoise hidden sm:inline">
-                      {isExpanded ? 'Masquer la correction' : 'Voir le corrigé'}
+                      {isExpanded
+                        ? 'Masquer la correction'
+                        : canViewCorrection
+                        ? 'Voir le corrigé'
+                        : '🔒 Corrigé réservé'}
                     </span>
                     <div className="w-8 h-8 rounded-lg bg-surface flex items-center justify-center border border-navy/5 text-navy">
                       {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
@@ -831,20 +1473,45 @@ export default function MathsRecueilEpreuves() {
                   </div>
                 </div>
 
-                {/* Corrigé Détaillé Dépliable */}
+                {/* Corrigé Détaillé Dépliable ou Paywall Sécurisé */}
                 {isExpanded && (
-                  <div className="p-4 sm:p-5 bg-gradient-to-b from-turquoise-light/10 to-surface/40 border-t border-turquoise/20 space-y-3">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                      <span className="text-[11px] font-black uppercase tracking-wider text-emerald-900 bg-emerald-100 px-2.5 py-1 rounded-md border border-emerald-300">
-                        Correction Complète &amp; Rédigée (Barème Bac S2)
-                      </span>
-                    </div>
+                  canViewCorrection ? (
+                    <div className="p-4 sm:p-5 bg-gradient-to-b from-turquoise-light/10 to-surface/40 border-t border-turquoise/20 space-y-3">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span className="text-[11px] font-black uppercase tracking-wider text-emerald-900 bg-emerald-100 px-2.5 py-1 rounded-md border border-emerald-300">
+                          Correction Complète &amp; Rédigée (Barème Bac S2)
+                        </span>
+                      </div>
 
-                    <div className="text-sm text-navy/90 leading-relaxed font-sans pt-1 space-y-2">
-                      <MathRenderer content={ep.correction} />
+                      <div className="text-sm text-navy/90 leading-relaxed font-sans pt-1 space-y-2">
+                        <MathRenderer content={ep.correction} />
+                      </div>
                     </div>
-                  </div>
+                  ) : (
+                    <div className="p-5 sm:p-6 bg-gradient-to-br from-navy/5 via-turquoise-light/15 to-surface border-t border-navy/10 space-y-3">
+                      <div className="max-w-xl mx-auto text-center space-y-2.5 py-2">
+                        <div className="w-10 h-10 rounded-2xl bg-navy text-gold flex items-center justify-center mx-auto shadow-sm">
+                          <Lock className="w-5 h-5 text-amber-400" />
+                        </div>
+                        <h4 className="font-extrabold text-navy text-sm sm:text-base">
+                          Correction réservée aux abonnés Al Muxtaar
+                        </h4>
+                        <p className="text-xs text-navy/70 leading-relaxed">
+                          Les 3 premières épreuves sont offertes en libre accès. Pour accéder aux corrections rédigées pas à pas des <strong>60 épreuves intégrales</strong> du Bac S2, Lycée Limamou Laye et Concours d&apos;excellence, activez votre abonnement.
+                        </p>
+                        <div className="pt-1">
+                          <Link
+                            href="/abonnement"
+                            className="inline-flex items-center gap-2 bg-turquoise hover:bg-turquoise/90 text-white font-bold text-xs px-4 py-2 rounded-xl shadow-sm transition-all"
+                          >
+                            <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+                            <span>Débloquer les 60 corrigés détaillés →</span>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  )
                 )}
               </div>
             );
@@ -859,7 +1526,7 @@ export default function MathsRecueilEpreuves() {
           <div>
             <p className="font-extrabold text-sm">Conseil Méthodologique de l&apos;Équipe IGEF</p>
             <p className="text-xs text-white/70 mt-0.5">
-              Ces 30 épreuves couvrent l&apos;intégralité des questions types du Bac S2 de 2015 à 2024. Travaillez d&apos;abord chaque énoncé pendant 15 minutes avant de regarder le corrigé.
+              Ces 60 épreuves couvrent l&apos;intégralité des questions types du Bac S2 de 2015 à 2024. Travaillez d&apos;abord chaque énoncé pendant 15 minutes avant de regarder le corrigé.
             </p>
           </div>
         </div>

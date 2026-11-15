@@ -864,10 +864,10 @@ export default async function SubjectChaptersPage({ params }: PageProps) {
           </div>
         )}
 
-        {/* Méga Recueil de 30 Épreuves et Corrigés — Terminale S2 Sénégal */}
+        {/* Méga Recueil de 60 Épreuves et Corrigés — Terminale S2 Sénégal */}
         {isMaths && (
           <div className="pt-4">
-            <MathsRecueilEpreuves />
+            <MathsRecueilEpreuves isSubscribed={isSubscribed} />
           </div>
         )}
       </div>

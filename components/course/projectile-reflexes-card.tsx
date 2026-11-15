@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import MathRenderer from '@/components/course/math-renderer';
-import { Target, Lightbulb, AlertTriangle, CheckCircle, Sparkles, Crosshair } from 'lucide-react';
 
 export default function ProjectileReflexesCard() {
   const [activeTab, setActiveTab] = useState<number>(0);
@@ -11,7 +10,7 @@ export default function ProjectileReflexesCard() {
     {
       num: 1,
       title: "Indépendance des Mouvements selon (Ox) et (Oy)",
-      badge: "Principe de Superposition",
+      badge: "Superposition",
       formule: "a_x = 0 \\implies v_x = v_0\\cos\\alpha = \\text{cte} \\quad ; \\quad a_y = -g \\implies v_y = -g\\,t + v_0\\sin\\alpha",
       regleBac:
         "Au Baccalauréat sénégalais, le mouvement d'un projectile dans le champ de pesanteur se décompose rigoureusement en deux mouvements orthogonaux indépendants : un MRU horizontal et un MRUV vertical de chute libre.",
@@ -25,7 +24,7 @@ export default function ProjectileReflexesCard() {
     {
       num: 2,
       title: "Équation Cartésienne de la Trajectoire Parabolique",
-      badge: "Élimination du Temps t",
+      badge: "Élimination de t",
       formule: "y(x) = -\\frac{g}{2\\,v_0^2\\,\\cos^2\\alpha}\\,x^2 + (\\tan\\alpha)\\,x + y_0",
       regleBac:
         "L'équation de la trajectoire ne doit JAMAIS contenir le temps $t$. Elle s'obtient en exprimant $t = \\frac{x}{v_0\\cos\\alpha}$ depuis l'équation de $x(t)$, puis en le substituant dans $y(t)$.",
@@ -53,7 +52,7 @@ export default function ProjectileReflexesCard() {
     {
       num: 4,
       title: "Portée Horizontale & Condition de Portée Maximale",
-      badge: "Portée Maximale à 45°",
+      badge: "Portée max (45°)",
       formule: "x_P = \\frac{v_0^2\\sin(2\\alpha)}{g} \\quad \\implies \\quad x_{P,\\text{max}} = \\frac{v_0^2}{g} \\quad (\\text{pour } \\alpha = 45^\\circ)",
       regleBac:
         "Lorsque le tir a lieu depuis le sol ($y_0 = 0$), la portée est maximale pour un angle de tir $\\alpha = 45^\\circ$ car $\\sin(2\\alpha) = \\sin(90^\\circ) = 1$. De plus, la parabole est symétrique : $x_P = 2\\,x_S$ et $t_P = 2\\,t_S$.",
@@ -67,7 +66,7 @@ export default function ProjectileReflexesCard() {
     {
       num: 5,
       title: "Vitesse d'Impact au Sol & Théorème de l'Énergie Cinétique",
-      badge: "Méthode Énergétique T.E.C.",
+      badge: "Méthode T.E.C.",
       formule: "v_P = \\sqrt{v_0^2 + 2\\,g\\,(y_0 - y_P)} \\quad \\implies \\quad v_P = v_0 \\quad (\\text{si } y_0 = y_P = 0)",
       regleBac:
         "Le Théorème de l'Énergie Cinétique permet de déterminer instantanément la vitesse en n'importe quel point de la trajectoire sans avoir besoin de calculer la durée de vol ni les composantes vectorielles.",
@@ -81,7 +80,7 @@ export default function ProjectileReflexesCard() {
     {
       num: 6,
       title: "Équation en tan(α) pour Toucher une Cible & Vitesse Minimale",
-      badge: "Grand Classique d'Excellence",
+      badge: "Équation en tan(α)",
       formule: "\\frac{1}{\\cos^2\\alpha} = 1 + \\tan^2\\alpha \\implies \\left(\\frac{g\\,x_C^2}{2v_0^2}\\right)\\tan^2\\alpha - x_C\\tan\\alpha + \\left(y_C + \\frac{g\\,x_C^2}{2v_0^2}\\right) = 0",
       regleBac:
         "Pour trouver l'angle de tir permettant d'atteindre une cible $C(x_C, y_C)$, on utilise toujours l'identité $\\frac{1}{\\cos^2\\alpha} = 1 + \\tan^2\\alpha$ pour se ramener à une équation du second degré en $X = \\tan\\alpha$.",
@@ -98,23 +97,21 @@ export default function ProjectileReflexesCard() {
 
   return (
     <div className="bg-white rounded-3xl border border-navy/10 p-5 sm:p-7 shadow-sm space-y-6">
-      {/* En-tête */}
+      {/* En-tête sobre sans icônes superflues */}
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-navy/10 pb-4">
-        <div className="flex items-center gap-2">
-          <span className="p-2 rounded-xl bg-turquoise-light text-turquoise">
-            <Crosshair className="w-5 h-5" />
-          </span>
-          <div>
-            <h3 className="text-xl font-bold text-navy">
-              Fiches Réflexes Bac S2 — P3 : Mouvement d&apos;un Projectile dans le Champ de Pesanteur
-            </h3>
-            <p className="text-xs text-text/60">
-              6 réflexes incontournables et rigoureux pour maîtriser la trajectoire parabolique, la flèche, la portée et le tir sur cible au Baccalauréat sénégalais.
-            </p>
+        <div>
+          <div className="inline-flex items-center gap-2 rounded-full bg-navy/5 px-3 py-1 text-xs font-bold text-navy mb-1.5 border border-navy/10">
+            <span>Chapitre P3 • Fiches Méthodes &amp; Réflexes</span>
           </div>
+          <h3 className="text-xl sm:text-2xl font-black text-navy">
+            Réflexes Clés du Tir Parabolique (Bac S2)
+          </h3>
+          <p className="text-xs sm:text-sm text-surface-muted mt-1 max-w-2xl">
+            6 principes incontournables et démonstrations pas à pas conformes au programme sénégalais : équations horaires, sommet, portée, conservation d&apos;énergie et visée d&apos;une cible.
+          </p>
         </div>
-        <span className="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
-          Physique Terminale S2
+        <span className="text-xs font-bold px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 shrink-0">
+          Physique — Terminale S2
         </span>
       </div>
 
@@ -126,48 +123,49 @@ export default function ProjectileReflexesCard() {
             onClick={() => setActiveTab(idx)}
             className={`py-2 px-3 rounded-2xl text-xs font-bold text-left transition-all border ${
               activeTab === idx
-                ? 'bg-turquoise text-white border-turquoise shadow-md shadow-turquoise/20'
+                ? 'bg-navy text-white border-navy shadow-sm'
                 : 'bg-surface hover:bg-navy/5 text-navy border-navy/10'
             }`}
           >
             <div className="flex items-center gap-1.5 mb-1">
-              <span className={`w-4 h-4 rounded-full flex items-center justify-center text-[10px] ${
+              <span className={`w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold ${
                 activeTab === idx ? 'bg-white/20 text-white' : 'bg-navy/10 text-navy'
               }`}>
                 {r.num}
               </span>
               <span className="truncate">{r.badge}</span>
             </div>
-            <div className="text-[11px] font-normal truncate opacity-90">{r.title}</div>
+            <div className="text-[11px] font-normal truncate opacity-85">{r.title}</div>
           </button>
         ))}
       </div>
 
       {/* Contenu du réflexe actif */}
-      <div className="space-y-5 animate-in fade-in duration-300">
+      <div className="space-y-5">
         {/* Titre et Formule clé */}
-        <div className="bg-gradient-to-r from-navy/5 via-turquoise/5 to-transparent p-4 sm:p-5 rounded-2xl border border-navy/10">
+        <div className="bg-slate-50 p-4 sm:p-5 rounded-2xl border border-navy/10">
           <div className="flex items-center gap-2 mb-2">
-            <Target className="w-5 h-5 text-turquoise" />
-            <h4 className="text-base font-bold text-navy">
-              Réflexe #{current.num} : {current.title}
+            <span className="px-2.5 py-0.5 rounded-lg text-xs font-black bg-navy text-white">
+              Réflexe #{current.num}
+            </span>
+            <h4 className="text-base sm:text-lg font-bold text-navy">
+              {current.title}
             </h4>
           </div>
-          <div className="my-3 py-2 px-3 bg-white rounded-xl border border-navy/10 text-center">
-            <MathRenderer content={`$$${current.formule}$$`} />
+          <div className="my-3 py-3 px-3 bg-white rounded-xl border border-navy/10 text-center overflow-x-auto">
+            <MathRenderer formula={current.formule} />
           </div>
-          <p className="text-xs text-text/80 font-medium leading-relaxed">
+          <p className="text-xs sm:text-sm text-navy/80 font-medium leading-relaxed">
             {current.regleBac}
           </p>
         </div>
 
         {/* Explication détaillée pas à pas */}
         <div className="space-y-2">
-          <div className="flex items-center gap-2 text-navy font-bold text-sm">
-            <CheckCircle className="w-4 h-4 text-emerald-600" />
-            <span>Démonstration &amp; Démarche Pas à Pas Conforme au Bac S2</span>
+          <div className="text-navy font-bold text-xs sm:text-sm uppercase tracking-wide">
+            Démonstration &amp; Démarche Pas à Pas (Critères de notation Bac S2)
           </div>
-          <div className="bg-surface/60 rounded-2xl p-4 sm:p-5 border border-navy/10 text-xs sm:text-sm text-text leading-relaxed">
+          <div className="bg-white rounded-2xl p-4 sm:p-5 border border-navy/10 text-xs sm:text-sm text-navy/90 leading-relaxed overflow-x-auto shadow-sm">
             <MathRenderer content={current.explication} />
           </div>
         </div>
@@ -175,21 +173,29 @@ export default function ProjectileReflexesCard() {
         {/* Décryptage en Wolof & Piège à éviter */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Note en Wolof */}
-          <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-xs sm:text-sm space-y-1.5">
+          <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/70 text-xs sm:text-sm space-y-1.5">
             <div className="flex items-center gap-2 font-bold text-amber-900">
-              <span className="text-base">🇸🇳</span>
-              <span>Xam-xam ci Wolof • Décodage Pédagogique</span>
+              <span className="px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-wider bg-amber-600/15 text-amber-900 border border-amber-600/20">
+                Xam-Xam ci Wolof
+              </span>
+              <span>Décodage conceptuel</span>
             </div>
-            <div className="text-amber-950/90 leading-relaxed font-medium"><MathRenderer content={current.wolof} /></div>
+            <div className="text-amber-950/90 leading-relaxed font-medium">
+              <MathRenderer content={current.wolof} />
+            </div>
           </div>
 
           {/* Piège classique du Bac */}
-          <div className="p-4 rounded-2xl bg-rose-50 border border-rose-200 text-xs sm:text-sm space-y-1.5">
-            <div className="flex items-center gap-2 font-bold text-rose-800">
-              <AlertTriangle className="w-4 h-4 text-rose-600" />
-              <span>Piège Éliminatoire au Baccalauréat</span>
+          <div className="p-4 rounded-2xl bg-rose-50/70 border border-rose-200/70 text-xs sm:text-sm space-y-1.5">
+            <div className="flex items-center gap-2 font-bold text-rose-900">
+              <span className="px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-wider bg-rose-600/15 text-rose-900 border border-rose-600/20">
+                Alerte Bac S2
+              </span>
+              <span>Erreur fréquente à éliminer</span>
             </div>
-            <div className="text-rose-950/90 leading-relaxed"><MathRenderer content={current.piege} /></div>
+            <div className="text-rose-950/90 leading-relaxed font-medium">
+              <MathRenderer content={current.piege} />
+            </div>
           </div>
         </div>
       </div>

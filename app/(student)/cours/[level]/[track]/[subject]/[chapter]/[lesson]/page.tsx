@@ -111,6 +111,24 @@ import ProjectileQuizEmbedded from '@/components/course/projectile-quiz-embedded
 import P4ParticuleReflexesCard from '@/components/course/p4-particule-reflexes-card';
 import P4ParticuleInteractiveSimulator from '@/components/course/p4-particule-interactive-simulator';
 import P4ParticuleQuizEmbedded from '@/components/course/p4-particule-quiz-embedded';
+import P5OscillationsReflexesCard from '@/components/course/p5-oscillations-reflexes-card';
+import P5OscillationsInteractiveLab from '@/components/course/p5-oscillations-interactive-lab';
+import P5OscillationsQuizEmbedded from '@/components/course/p5-oscillations-quiz-embedded';
+import P6InductionReflexesCard from '@/components/course/p6-induction-reflexes-card';
+import P6InductionInteractiveLab from '@/components/course/p6-induction-interactive-lab';
+import P6InductionQuizEmbedded from '@/components/course/p6-induction-quiz-embedded';
+import P7RlcLibresReflexesCard from '@/components/course/p7-rlc-libres-reflexes-card';
+import P7RlcLibresInteractiveLab from '@/components/course/p7-rlc-libres-interactive-lab';
+import P7RlcLibresQuizEmbedded from '@/components/course/p7-rlc-libres-quiz-embedded';
+import P8RlcForceesReflexesCard from '@/components/course/p8-rlc-forcees-reflexes-card';
+import P8RlcForceesInteractiveLab from '@/components/course/p8-rlc-forcees-interactive-lab';
+import P8RlcForceesQuizEmbedded from '@/components/course/p8-rlc-forcees-quiz-embedded';
+import P9LumiereReflexesCard from '@/components/course/p9-lumiere-reflexes-card';
+import P9LumiereInteractiveLab from '@/components/course/p9-lumiere-interactive-lab';
+import P9LumiereQuizEmbedded from '@/components/course/p9-lumiere-quiz-embedded';
+import P10NucleaireReflexesCard from '@/components/course/p10-nucleaire-reflexes-card';
+import P10NucleaireInteractiveLab from '@/components/course/p10-nucleaire-interactive-lab';
+import P10NucleaireQuizEmbedded from '@/components/course/p10-nucleaire-quiz-embedded';
 import B1SystemeNerveuxReflexesCard from '@/components/course/b1-systeme-nerveux-reflexes-card';
 import B1SystemeNerveuxInteractiveLab from '@/components/course/b1-systeme-nerveux-interactive-lab';
 import B1SystemeNerveuxQuizEmbedded from '@/components/course/b1-systeme-nerveux-quiz-embedded';
@@ -156,10 +174,449 @@ import B4FecondationQuizEmbedded from '@/components/course/b4-fecondation-quiz-e
 import B4ReproductionMaitriseReflexesCard from '@/components/course/b4-reproduction-maitrise-reflexes-card';
 import B4ReproductionMaitriseInteractiveLab from '@/components/course/b4-reproduction-maitrise-interactive-lab';
 import B4ReproductionMaitriseQuizEmbedded from '@/components/course/b4-reproduction-maitrise-quiz-embedded';
+import B5GenetiqueArbresReflexesCard from '@/components/course/b5-genetique-arbres-reflexes-card';
+import B5GenetiqueArbresInteractiveLab from '@/components/course/b5-genetique-arbres-interactive-lab';
+import B5GenetiqueArbresQuizEmbedded from '@/components/course/b5-genetique-arbres-quiz-embedded';
+import B5ExpressionGenetiqueReflexesCard from '@/components/course/b5-expression-genetique-reflexes-card';
+import B5ExpressionGenetiqueInteractiveLab from '@/components/course/b5-expression-genetique-interactive-lab';
+import B5ExpressionGenetiqueQuizEmbedded from '@/components/course/b5-expression-genetique-quiz-embedded';
+import B5GenieGenetiqueReflexesCard from '@/components/course/b5-genie-genetique-reflexes-card';
+import B5GenieGenetiqueInteractiveLab from '@/components/course/b5-genie-genetique-interactive-lab';
+import { B5GenieGenetiqueQuizEmbedded } from '@/components/course/b5-genie-genetique-quiz-embedded';
 import StudyIcon from '@/components/ui/study-icon';
 import CourseProtectionGuard from '@/components/course/course-protection-guard';
 import AudioCoachPlayer, { AudioChapter } from '@/components/course/audio-coach-player';
 import LessonFeedbackForm from '@/components/course/lesson-feedback-form';
+
+const INDUCTION_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Le Flux Magnétique & Le Piège d'Angle α",
+    badge: "Flux",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass de Physique sur l'Induction Électromagnétique et l'Auto-Induction pour le Bac S2. Retenez d'abord la formule du flux : Phi égale N B S cos alpha. Le piège numéro un de l'épreuve concerne l'angle alpha : il se mesure toujours entre le champ B et la normale au plan du circuit ! Si l'énoncé dit que le champ fait 30 degrés avec le plan de la bobine, l'angle alpha vaut impérativement 90 moins 30, soit 60 degrés !",
+  },
+  {
+    timeSeconds: 50,
+    title: "2. Loi de Faraday & Loi de Lenz",
+    badge: "Lois Clés",
+    icon: "theoreme_equerre",
+    textScript:
+      "La loi de Faraday stipule que toute variation de flux engendre une f.é.m. induite e égale moins dPhi sur dt. Le signe moins traduit la loi de Lenz : le courant induit s'oppose par ses effets magnétiques à la cause qui lui donne naissance. Si vous approchez le pôle Nord d'un aimant, la face de la bobine devient un pôle Nord pour repousser l'aimant et s'opposer au mouvement !",
+  },
+  {
+    timeSeconds: 110,
+    title: "3. Rails de Laplace & Force de Freinage",
+    badge: "Laplace",
+    icon: "rigueur_compas",
+    textScript:
+      "Pour la tige mobile sur rails de Laplace, la f.é.m. vaut e égale moins B l v. Le courant induit i égale B l v sur R crée une force de Laplace de freinage égale à moins B carré l carré sur R fois v. Cette force s'oppose à la vitesse et dissipe l'énergie cinétique en chaleur par effet Joule dans le résistor !",
+  },
+  {
+    timeSeconds: 170,
+    title: "4. Inductance L d'un Solénoïde & Tension u_B",
+    badge: "Bobine",
+    icon: "cle_solution",
+    textScript:
+      "L'inductance d'un solénoïde s'écrit L égale mu zéro N carré S sur petite l, exprimée en Henrys. Aux bornes d'une bobine réelle, la tension en convention récepteur est uB égale r i plus L di sur dt. En régime permanent continu, comme di sur dt est nul, la bobine se comporte comme une simple résistance r !",
+  },
+  {
+    timeSeconds: 230,
+    title: "5. Dipôle RL : Constante de Temps τ = L/R & Continuité",
+    badge: "Transitoire",
+    icon: "piege_bac",
+    textScript:
+      "À la fermeture du circuit RL, le courant s'établit selon i de t égale I zéro facteur de 1 moins exponentielle de moins t sur tau, avec tau égale L sur R total. À t égale tau, le courant atteint 63 % de sa valeur maximale I zéro. Enfin, retenez ce principe vital : le courant à travers une bobine est strictement continu, i de 0 plus égale i de 0 moins !",
+  },
+];
+
+const RLC_LIBRES_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Circuit LC Idéal : Équation Différentielle & Période Propre T₀",
+    badge: "LC Idéal",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass de Physique Terminale S2 sur les Oscillations Électriques Libres. Dans un circuit LC idéal sans résistance, la loi d'additivité des tensions donne uL plus uC égale zéro, soit L d carré q sur d t carré plus q sur C égale zéro. La période propre T zéro égale deux pi racine de L C est une constante fondamentale à mémoriser impérativement !",
+  },
+  {
+    timeSeconds: 55,
+    title: "2. Conditions Initiales & Détermination Rigoureuse de Qm et φ",
+    badge: "Méthode",
+    icon: "theoreme_equerre",
+    textScript:
+      "À t égale zéro, le condensateur est chargé à U zéro et le courant initial dans la bobine est nul par continuité. On a q de zéro égale Qm cosinus phi égale C U zéro, et i de zéro égale moins Qm oméga zéro sinus phi égale zéro. On en tire immédiatement phi égale zéro radian et l'amplitude maximale de charge Qm égale C U zéro !",
+  },
+  {
+    timeSeconds: 115,
+    title: "3. Conservation d'Énergie Totale & Période des Énergies TE = T₀/2",
+    badge: "Bilan Énergétique",
+    icon: "cle_solution",
+    textScript:
+      "En circuit LC idéal, l'énergie totale ET égale un demi de q carré sur C plus un demi de L i carré se conserve parfaitement au cours du temps. L'énergie électrique et l'énergie magnétique s'échangent perpétuellement. Attention au piège classique du Bac : les énergies oscillent à la période TE égale T zéro divisé par deux, soit deux fois plus vite que la charge q !",
+  },
+  {
+    timeSeconds: 175,
+    title: "4. Circuit RLC Série : Les 3 Régimes & Résistance Critique Rc",
+    badge: "Amortissement",
+    icon: "rigueur_compas",
+    textScript:
+      "Dans un circuit RLC réel, la dérivée de l'énergie totale vaut moins R total fois i carré, traduisant la perte irréversible par effet Joule. La résistance critique vaut Rc égale deux racine de L sur C. Si R est inférieure à Rc, le régime est pseudo-périodique. Si R égale Rc, c'est le régime critique avec retour à zéro le plus rapide. Si R dépasse Rc, c'est le régime apériodique sans aucune oscillation.",
+  },
+  {
+    timeSeconds: 235,
+    title: "5. Décrément Logarithmique δ & Analogie Mécanique-Électrique",
+    badge: "Piège Bac",
+    icon: "piege_bac",
+    textScript:
+      "Le décrément logarithmique delta égale un sur n logarithme de U zéro sur Un mesure l'amortissement et vaut R total fois T sur deux L. Enfin, retenez l'analogie formelle reine du Bac S2 : la charge q correspond à l'élongation x, le courant i à la vitesse v, l'inductance L à la masse m, un sur C à la raideur k, et la résistance R au coefficient de frottement h !",
+  },
+];
+
+const RLC_FORCEES_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Régime Forcé Sinusoïdal & Équation Différentielle Canonique",
+    badge: "Régime Forcé",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass de Physique Terminale S2 sur les Oscillations Électriques Forcées en courant alternatif. Sous l'action d'un GBF délivrant une tension u de t égale Um cosinus oméga t, le dipôle RLC série oscille en régime permanent à la pulsation imposée oméga du générateur. La loi des mailles s'écrit L di sur dt plus Rt i plus un sur C intégrale de i dt égale u de t !",
+  },
+  {
+    timeSeconds: 55,
+    title: "2. Représentation Vectorielle de Fresnel & Impédance Totale Z",
+    badge: "Fresnel",
+    icon: "theoreme_equerre",
+    textScript:
+      "La méthode de Fresnel associe à chaque tension partielle un vecteur tournant. En prenant l'intensité i comme origine des phases, UR est horizontal de longueur Rt Im, UL pointe vers le haut avec pi sur deux de longueur L oméga Im, et UC vers le bas avec moins pi sur deux de longueur Im sur C oméga. Par le théorème de Pythagore, l'impédance totale vaut Z égale racine carrée de Rt carré plus entre parenthèses L oméga moins un sur C oméga au carré !",
+  },
+  {
+    timeSeconds: 115,
+    title: "3. Déphasage φ & Comportement Inductif / Capacitif / Résistif",
+    badge: "Déphasage",
+    icon: "rigueur_compas",
+    textScript:
+      "La tangente du déphasage phi égale L oméga moins un sur C oméga, le tout divisé par Rt. Si L oméga dépasse un sur C oméga, phi est positif : le circuit est inductif et la tension est en avance sur le courant. Si L oméga est inférieur à un sur C oméga, phi est négatif : le circuit est capacitif et la tension est en retard. Enfin, à la résonance, phi est nul et la tension est en phase avec le courant !",
+  },
+  {
+    timeSeconds: 175,
+    title: "4. Résonance d'Intensité : Condition, Pic I₀ et Surtension au Condensateur",
+    badge: "Résonance",
+    icon: "cle_solution",
+    textScript:
+      "La résonance d'intensité a lieu lorsque la réactance s'annule : L oméga égale un sur C oméga, d'où oméga zéro égale un sur racine de LC. L'impédance devient minimale et égale à Rt, propulsant le courant efficace à sa valeur maximale I zéro égale U sur Rt. Attention au phénomène de surtension : la tension aux bornes du condensateur vaut UC zéro égale Q fois U, pouvant dépasser largement la tension du générateur !",
+  },
+  {
+    timeSeconds: 235,
+    title: "5. Facteur de Qualité Q, Bande Passante à -3 dB & Puissance Active",
+    badge: "Bande Passante",
+    icon: "piege_bac",
+    textScript:
+      "Le facteur de qualité Q égale L oméga zéro sur Rt mesure l'acuité de la résonance. La bande passante à moins trois décibels vaut delta N égale Rt divisé par deux pi L. Plus la résistance Rt est faible, plus le pic est aigu et sélectif. Côté puissance, seule la résistance dissipe de la puissance active selon P égale U I cosinus phi égale Rt I carré, tandis que la bobine et le condensateur consomment une puissance active moyenne strictement nulle !",
+  },
+];
+
+const LUMIERE_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Enjeux du Chapitre P9 au Bac S2 Sénégal",
+    badge: "Introduction",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass de Physique de Terminale S2 consacrée au Modèle Ondulatoire et Corpusculaire de la Lumière. Ce chapitre charnière du Baccalauréat sénégalais confronte l'aspect ondulatoire d'Young lors de la propagation et l'aspect quantique d'Einstein et de Bohr lors de l'interaction avec la matière.",
+  },
+  {
+    timeSeconds: 50,
+    title: "2. Les Interférences d'Young & l'Interfrange i = λD / a",
+    badge: "Formule clé",
+    icon: "theoreme_equerre",
+    textScript:
+      "Pour observer des interférences stables, les sources doivent être cohérentes. La différence de marche vaut delta égal a x sur D. Pour une frange brillante, delta égal k lambda. Pour une frange sombre, delta égal (k plus 1/2) lambda. L'interfrange i vaut lambda D sur a. Attention au piège de comptage : n franges consécutives contiennent exactement n moins un interfranges !",
+  },
+  {
+    timeSeconds: 115,
+    title: "3. La Lame à Faces Parallèles & Déplacement de Franges",
+    badge: "Technique",
+    icon: "technique_outils",
+    textScript:
+      "Lorsqu'on place une lame mince d'indice n et d'épaisseur e devant l'une des fentes, le système de franges se translate en bloc vers cette fente d'une distance Delta x égal (n moins un) e D sur a. Retenez bien que l'interfrange i reste rigoureusement inchangé !",
+  },
+  {
+    timeSeconds: 180,
+    title: "4. L'Effet Photoélectrique & Bilan d'Énergie d'Einstein",
+    badge: "Règle d'or",
+    icon: "cle_solution",
+    textScript:
+      "Pour extraire un électron, l'énergie du photon incident h nu doit dépasser le travail d'extraction W 0 du métal, soit une longueur d'onde inférieure ou égale à lambda 0. L'excédent devient de l'énergie cinétique maximale : h nu égal W 0 plus 1/2 m v max carré. Le potentiel d'arrêt vérifie e |U 0| égal Ec max.",
+  },
+  {
+    timeSeconds: 245,
+    title: "5. Les Postulats de Bohr & les Séries Spectrales de l'Hydrogène",
+    badge: "Piège Bac",
+    icon: "piege_bac",
+    textScript:
+      "L'atome d'hydrogène possède des états stationnaires quantifiés E n égal moins 13,6 sur n carré en eV. Toute transition émet ou absorbe un photon d'énergie Delta E égal h nu égal h c sur lambda. Retenez les séries : Lyman vers n=1 dans l'ultraviolet, Balmer vers n=2 dans le visible avec la raie H alpha rouge à 656 nm, et Paschen vers n=3 dans l'infrarouge.",
+  },
+];
+
+const NUCLEAIRE_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Noyau Atomique, Défaut de Masse & Énergie de Liaison",
+    badge: "Structure",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass de Physique Nucléaire pour le Bac S2 Sénégal. Un noyau A Z X est composé de Z protons et de N = A moins Z neutrons. La masse des nucléons isolés est TOUJOURS supérieure à la masse du noyau lié : le défaut de masse delta m est positif. L'énergie de liaison vaut El = delta m fois c carré. Mémorisez l'équivalence d'Einstein : un u fois c carré égale 931,5 MeV, ce qui vous permet de calculer directement en MeV sans conversion kilogrammes !",
+  },
+  {
+    timeSeconds: 55,
+    title: "2. Courbe d'Aston & Stabilité par Nucléon El / A",
+    badge: "Aston",
+    icon: "theoreme_equerre",
+    textScript:
+      "Le vrai critère de stabilité nucléaire est l'énergie de liaison PAR NUCLÉON El divisé par A. Sur la courbe d'Aston, le maximum se situe autour du Fer 56 et du Nickel 62, avec environ 8,8 MeV par nucléon. Les noyaux légers comme le Deutérium ou le Tritium sont peu stables et peuvent gagner en énergie par fusion thermonucléaire. Les noyaux très lourds comme l'Uranium 235 ou 238 peuvent se casser par fission pour rejoindre le plateau du Fer. Dans les deux cas, les produits sont plus stables et de l'énergie est libérée !",
+  },
+  {
+    timeSeconds: 120,
+    title: "3. Lois de Soddy & Types de Désintégrations Radioactives",
+    badge: "Soddy",
+    icon: "rigueur_compas",
+    textScript:
+      "Dans toute réaction nucléaire, conservez toujours le nombre de nucléons A et la charge électrique Z. Pour la désintégration alpha, le noyau perd 2 protons et 4 nucléons : Z moins 2, A moins 4. Pour la désintégration bêta moins, Z augmente de 1 car un neutron devient un proton en émettant un électron. Pour la bêta plus, Z diminue de 1. Le rayonnement gamma, lui, ne modifie ni A ni Z : c'est juste une désexcitation électromagnétique du noyau fils excité !",
+  },
+  {
+    timeSeconds: 185,
+    title: "4. Loi de Décroissance & Période Radioactive T",
+    badge: "Cinétique",
+    icon: "cle_solution",
+    textScript:
+      "La loi fondamentale de décroissance est N de t égale N zéro fois exponentielle de moins lambda t. La période radioactive T, aussi appelée demi-vie, vérifie T égale logarithme de 2 sur lambda. Après n périodes, il ne reste que N zéro sur 2 puissance n. L'activité A de t égale lambda N de t. ATTENTION : pour obtenir l'activité en Becquerels, lambda DOIT être en secondes inverses ! Convertissez toujours la période en secondes avant de calculer lambda !",
+  },
+  {
+    timeSeconds: 250,
+    title: "5. Datation C14, Fission U235 & Énergie d'Einstein",
+    badge: "Applications",
+    icon: "piege_bac",
+    textScript:
+      "Pour dater un fossile au Carbone 14 de période 5730 ans : âge t égale T sur logarithme de 2 fois logarithme de A zéro sur A. Pour une réaction nucléaire, si la masse totale diminue, l'énergie libérée vaut E lib égale valeur absolue de delta m fois c carré. Pour la puissance d'un réacteur : la puissance thermique vaut P élec sur rendement r. Divisez par l'énergie par fission E1 pour obtenir le nombre de fissions par seconde. N'oubliez pas le rendement : calculer avec P élec seul donne un résultat 3 fois plus petit !",
+  },
+];
+
+const PROJECTILE_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Décomposition sur (Ox) et (Oy) & Principe d'Indépendance",
+    badge: "Indépendance",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass de Physique sur le Mouvement d'un Projectile dans le Champ de Pesanteur pour le Bac S2. Le principe fondamental découvert par Galilée repose sur l'indépendance totale des deux axes : selon l'horizontale Ox, aucune force n'agit, l'accélération ax est nulle, la vitesse vx égale v0 cos alpha reste rigoureusement constante : c'est un MRU. Selon la verticale Oy orientée vers le haut, le poids attire vers le bas, l'accélération ay vaut moins g : c'est un MRUV de chute libre !",
+  },
+  {
+    timeSeconds: 50,
+    title: "2. Équation de la Trajectoire & Élimination du Temps",
+    badge: "Parabole",
+    icon: "theoreme_equerre",
+    textScript:
+      "Pour établir l'équation de la trajectoire y de x, isolez le temps t depuis l'équation horaire x : t égale x sur v0 cos alpha. En injectant ce t dans l'équation horaire y de t, vous obtenez la parabole : y égale moins g sur deux v0 carré cosinus carré alpha fois x carré plus tangente alpha fois x plus y0. Retenez que le coefficient devant x carré est toujours négatif, ce qui donne une parabole avec concavité tournée vers le bas.",
+  },
+  {
+    timeSeconds: 110,
+    title: "3. Le Sommet S & Le Piège Éliminatoire de la Vitesse",
+    badge: "Sommet S",
+    icon: "rigueur_compas",
+    textScript:
+      "Voici l'erreur numéro un sanctionnée par les correcteurs du Bac S2 : au sommet de la trajectoire, la vitesse du projectile n'est jamais nulle ! Seule sa composante verticale vy s'annule temporairement au point le plus haut. La composante horizontale vx égale v0 cos alpha continue d'exister. La vitesse au sommet vaut donc vS égale v0 cos alpha ! La flèche maximale s'obtient à la date tS égale v0 sinus alpha sur g.",
+  },
+  {
+    timeSeconds: 170,
+    title: "4. Portée Horizontale & L'Angle Optimal de 45°",
+    badge: "Portée Max",
+    icon: "cle_solution",
+    textScript:
+      "Lorsque le tir part du sol plat où y0 égale 0, la portée horizontale s'écrit xP égale v0 carré sinus deux alpha sur g. Comme le sinus est au maximum égal à 1, la portée est maximale pour 2 alpha égale 90 degrés, soit alpha égale 45 degrés ! Retenez également que deux angles complémentaires, par exemple 30 et 60 degrés, ont exactement la même portée : l'un donne le tir tendu et l'autre le tir en cloche.",
+  },
+  {
+    timeSeconds: 230,
+    title: "5. Vitesse d'Impact & Théorème de l'Énergie Cinétique",
+    badge: "Méthode T.E.C.",
+    icon: "piege_bac",
+    textScript:
+      "Pour calculer la vitesse en n'importe quel point ou lors de l'impact au sol, appliquez immédiatement le Théorème de l'Énergie Cinétique entre le départ et l'arrivée : un demi de m v carré moins un demi de m v0 carré égale le travail du poids m g delta y. La vitesse d'impact vaut racine de v0 carré plus 2 g dénivellation. Si le sol est plat, la vitesse d'impact est exactement égale à la vitesse initiale v0, quelle que soit la valeur de l'angle de tir !",
+  },
+];
+
+const OSCILLATIONS_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. TCI sur Pendule Horizontal & Équation Différentielle",
+    badge: "Mécanique",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass de Physique sur les Oscillations Mécaniques et le Pendule Élastique pour le Bac S2. Pour le pendule horizontal sans frottement, projetez la deuxième loi de Newton sur l'axe Ox : la seule force horizontale est la force de rappel Tx égale moins k x. Vous obtenez directement moins k x égale m x deux-points, soit x deux-points plus k sur m x égale zéro. La pulsation propre est oméga zéro égale racine de k sur m !",
+  },
+  {
+    timeSeconds: 55,
+    title: "2. Période Propre T₀ & Isochronisme des Oscillations",
+    badge: "Période",
+    icon: "theoreme_equerre",
+    textScript:
+      "Retenez la formule d'or de la période propre : T zéro égale deux pi racine de m sur k. Soulignez devant le jury l'isochronisme des oscillations : la période est totalement indépendante de l'amplitude de lâcher Xm ! Si l'on quadruple la masse suspendue, la période est simplement multipliée par racine de 4, c'est-à-dire doublée.",
+  },
+  {
+    timeSeconds: 115,
+    title: "3. Pendule Vertical & Allongement Statique Δl₀",
+    badge: "Statique & Bac",
+    icon: "rigueur_compas",
+    textScript:
+      "Pour le pendule élastique vertical, commencez toujours par l'équilibre statique : le poids compense la tension, d'où m g égale k delta l zéro, ce qui donne k sur m égale g sur delta l zéro. L'équation du mouvement autour de l'équilibre reste z deux-points plus k sur m z égale zéro, et la période peut s'écrire T zéro égale deux pi racine de delta l zéro sur g, comme un pendule simple !",
+  },
+  {
+    timeSeconds: 175,
+    title: "4. Conditions Initiales & Détermination de la Phase φ",
+    badge: "Méthode",
+    icon: "cle_solution",
+    textScript:
+      "Pour déterminer l'amplitude Xm et la phase initiale phi, posez toujours le système à t égale zéro : x de zéro égale Xm cos phi et v de zéro égale moins Xm oméga zéro sin phi. Ne vous contentez jamais de calculer la tangente de phi : déterminez impérativement le signe du cosinus et du sinus pour lever l'ambiguïté du quadrant !",
+  },
+  {
+    timeSeconds: 235,
+    title: "5. Conservation de l'Énergie Mécanique & Période TE = T₀/2",
+    badge: "Énergie & Piège",
+    icon: "piege_bac",
+    textScript:
+      "En l'absence de frottement, l'énergie mécanique Em égale un demi de m v carré plus un demi de k x carré est rigoureusement constante et vaut un demi de k Xm carré ou un demi de m Vm carré. Attention au piège majeur du Bac S2 : les énergies cinétique et potentielle oscillent deux fois plus vite que l'élongation, leur période énergétique vaut TE égale T zéro divisé par 2 !",
+  },
+];
+
+const GENIE_GENETIQUE_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Enzymes de Restriction & Sites Palindromiques",
+    badge: "Outils clés",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass sur le Génie Génétique et les Biotechnologies pour le Bac S2. Retenez d'emblée la définition d'un site palindromique : c'est une séquence d'ADN bicaténaire dont la lecture est identique dans le sens 5' vers 3' sur chacun des deux brins antiparallèles. L'enzyme EcoRI reconnaît 5'-GAATTC-3' et coupe de façon décalée entre G et A, générant des extrémités cohésives en 5'-AATT-3'. Ces bouts collants peuvent s'hybrider spontanément avec tout fragment portant la même extrémité, quelle que soit l'espèce d'origine !",
+  },
+  {
+    timeSeconds: 55,
+    title: "2. ADNc vs Gène Génomique : Le Piège de l'Intron",
+    badge: "Piège du Bac",
+    icon: "piege_bac",
+    textScript:
+      "Voici le piège numéro un des exercices de génie génétique au Baccalauréat : on ne peut pas faire exprimer directement le gène génomique eucaryote dans une bactérie ! Pourquoi ? Parce que les bactéries procaryotes sont absolument dépourvues de spliceosome et ne peuvent pas exciser les introns du pré-ARNm. On utilise donc obligatoirement un ADNc synthétisé par la transcriptase inverse à partir de l'ARNm mature déjà épissé, qui ne contient que les exons !",
+  },
+  {
+    timeSeconds: 115,
+    title: "3. Les 5 Étapes du Clonage Moléculaire",
+    badge: "Protocole",
+    icon: "rigueur_compas",
+    textScript:
+      "Mémorisez la séquence exacte du clonage moléculaire : première étape, coupure du gène d'intérêt et du plasmide vecteur par la même enzyme de restriction. Deuxième étape, hybridation des extrémités cohésives complémentaires. Troisième étape, ligature covalente par l'ADN ligase consommant de l'ATP. Quatrième étape, transformation des bactéries par choc thermique. Cinquième étape, sélection des recombinants par inactivation insertionnelle sur milieu antibiotique !",
+  },
+  {
+    timeSeconds: 180,
+    title: "4. PCR : La Formule 2^n et les 3 Températures",
+    badge: "PCR au Bac",
+    icon: "theoreme_equerre",
+    textScript:
+      "La formule d'amplification PCR que vous devez savoir écrire à l'aveugle est N égale 2 puissance n, où n est le nombre de cycles. Retenez les trois températures dans l'ordre : 94 à 95 degrés Celsius pour la dénaturation, 50 à 65 degrés pour l'hybridation des amorces selon leur température de fusion, et 72 degrés pour l'élongation par la Taq ADN polymérase thermorésistante. Après 30 cycles, à partir d'une molécule unique, vous obtenez un milliard de copies !",
+  },
+  {
+    timeSeconds: 245,
+    title: "5. Thérapie Génique Somatique vs Germinale & Bioéthique",
+    badge: "Éthique & Bac",
+    icon: "cle_solution",
+    textScript:
+      "La distinction entre thérapie génique somatique et germinale est un point de dissertation récurrent au Bac S2. La thérapie somatique ne cible que des cellules non reproductrices : les modifications s'éteignent avec le patient et ne sont jamais transmises à la descendance. La thérapie germinale modifie les gamètes ou le zygote, rendant la modification héréditaire pour toutes les générations futures. C'est pourquoi un moratoire international interdit toute expérimentation germinale chez l'homme !",
+  },
+];
+
+const EXPRESSION_GENETIQUE_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Structure de l'ADN & Règles d'Équimolarité de Chargaff",
+    badge: "Structure",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass sur les Acides Nucléiques et l'Expression de l'Information Génétique. Retenez d'abord la règle absolue de Chargaff : dans tout ADN bicaténaire, l'adénine est égale à la thymine par deux liaisons hydrogène, et la cytosine est égale à la guanine par trois liaisons hydrogène. Par conséquent, le rapport purines sur pyrimidines vaut toujours exactement un. Plus un ADN est riche en paires CG, plus sa température de dénaturation thermique est élevée !",
+  },
+  {
+    timeSeconds: 50,
+    title: "2. Meselson & Stahl et la Réplication Semi-Conservative",
+    badge: "Réplication",
+    icon: "theoreme_equerre",
+    textScript:
+      "Maîtrisez l'analyse de l'expérience de Meselson et Stahl : la présence d'une bande unique de densité intermédiaire en génération 1 réfute catégoriquement le modèle conservatif. En génération 2, l'apparition de deux bandes d'égale intensité — 50% hybride et 50% légère — élimine le modèle dispersif et confirme de manière irréfutable le modèle semi-conservatif. Quel que soit le nombre de générations, il n'y aura toujours que deux molécules hybrides issues des brins lourds initiaux !",
+  },
+  {
+    timeSeconds: 110,
+    title: "3. Transcription : Brin Matrice vs Brin Codant",
+    badge: "Transcription",
+    icon: "rigueur_compas",
+    textScript:
+      "Attention au piège n°1 de l'épreuve de SVT : l'ARN polymérase lit le brin transcrit ou matrice dans le sens 3' vers 5' et synthétise l'ARNm dans le sens 5' vers 3'. N'oubliez jamais d'écrire les polarités 5' et 3' de votre ARNm. Retenez que l'ARNm possède la même séquence que le brin codant non transcrit, à la seule différence que les thymines sont remplacées par des uraciles !",
+  },
+  {
+    timeSeconds: 170,
+    title: "4. Traduction Ribosomique (Sites A & P) et Codons STOP",
+    badge: "Traduction",
+    icon: "cle_solution",
+    textScript:
+      "La traduction s'effectue dans le sens 5' vers 3' au niveau des ribosomes. Le codon initiateur AUG au site P fixe l'ARNt portant la première méthionine. Lors de l'élongation, chaque nouvel aminoacyl-ARNt entre au site A, la liaison peptidique est créée, puis la translocation déplace le ribosome de trois nucléotides. À la rencontre d'un codon STOP — UAA, UAG ou UGA —, un facteur de libération détache le polypeptide : ne traduisez jamais un codon STOP par un acide aminé !",
+  },
+  {
+    timeSeconds: 230,
+    title: "5. Drépanocytose : De la Mutation à la Falciformation",
+    badge: "Mutations & Bac",
+    icon: "piege_bac",
+    textScript:
+      "Sur la chaîne bêta de l'hémoglobine, la mutation de la drépanocytose est une substitution de l'adénine par une thymine au 6e codon : le codon GAG devient GUG, ce qui remplace l'acide glutamique hydrophile par la valine hydrophobe. En hypoxie, les molécules d'HbS polymérisent en fibres insolubles qui déforment les hématies en faucilles rigides, provoquant anémie hémolytique chronique et crises vaso-occlusives !",
+  },
+];
+
+const GENETIQUE_ARBRES_AUDIO_CHAPTERS: AudioChapter[] = [
+  {
+    timeSeconds: 0,
+    title: "1. Lecture Rigoureuse d'un Pedigree (I, II, III)",
+    badge: "Méthode",
+    icon: "cible_reflexe",
+    textScript:
+      "Bienvenue dans cette masterclass sur la Génétique Humaine et l'Analyse des Arbres Généalogiques pour le Bac S2. Pour commencer, repérez toujours les générations en chiffres romains et les individus de gauche à droite. Le carré désigne l'homme, le cercle la femme, et le remplissage sombre l'individu malade. Identifiez les liens d'union, de descendance et surtout les doubles barres de consanguinité qui augmentent considérablement l'expression des tares récessives !",
+  },
+  {
+    timeSeconds: 50,
+    title: "2. Démonstration de la Récessivité vs Dominance",
+    badge: "Règle d'or",
+    icon: "theoreme_equerre",
+    textScript:
+      "Règle d'or notée sur un point plein au Bac : deux parents phénotypiquement sains donnant un enfant malade prouvent formellement que l'allèle est récessif. Pourquoi ? Parce que l'allèle était présent chez les parents sans s'exprimer, masqué par l'allèle normal dominant. À l'inverse, si deux parents malades donnent un enfant sain, la tare est obligatoirement dominante, car deux malades récessifs ne pourraient jamais engendrer un enfant sain !",
+  },
+  {
+    timeSeconds: 110,
+    title: "3. Localisation Chromosomique : Élimination Y et X",
+    badge: "Démonstration",
+    icon: "rigueur_compas",
+    textScript:
+      "Pour établir la localisation, appliquez toujours la démarche d'exclusion par contre-exemple. Éliminez la liaison à Y dès qu'une femme est malade ou qu'un père malade a un fils sain. Pour éliminer la liaison à X récessif, cherchez une fille malade issue d'un père sain : si c'était lié à X, la fille Xm/Xm recevrait obligatoirement son Xm de son père qui serait Xm/Y malade. Si son père est sain, l'hypothèse est réfutée : le gène est autosomique !",
+  },
+  {
+    timeSeconds: 170,
+    title: "4. Calcul de Probabilité & Le Piège des 2/3",
+    badge: "Calcul & Piège",
+    icon: "piege_bac",
+    textScript:
+      "Attention au piège classique du Baccalauréat ! Dans une fratrie issue de parents hétérozygotes où sévit une maladie autosomique récessive, un enfant sain n'a pas 1/2 mais 2 chances sur 3 d'être porteur hétérozygote. Pourquoi ? Parce qu'étant déjà sain, la case homozygote malade est exclue du dénominateur. Pour calculer le risque du futur bébé, multipliez la probabilité du père d'être porteur par celle de la mère, puis par 1/4 !",
+  },
+  {
+    timeSeconds: 230,
+    title: "5. Trisomie 21 & Non-Disjonction en Anaphase I vs II",
+    badge: "Cytogénétique",
+    icon: "cle_solution",
+    textScript:
+      "En cytogénétique moléculaire, distinguez impérativement les deux accidents de méiose : si l'enfant trisomique possède les deux allèles parentaux différents pour un marqueur du chromosome 21, la non-disjonction s'est produite en Anaphase I par défaut de séparation des chromosomes homologues. S'il possède un seul allèle parental en double dose, l'accident a eu lieu en Anaphase II par non-disjonction des chromatides sœurs !",
+  },
+];
 
 const REPRODUCTION_MAITRISE_AUDIO_CHAPTERS: AudioChapter[] = [
   {
@@ -2629,7 +3086,9 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     lessonContent = getEnhancedLessonContent(
       lessonMeta.title,
       chapter?.title ?? '',
-      lessonMeta.content_markdown
+      lessonMeta.content_markdown,
+      params.lesson,
+      params.chapter
     );
 
     // Synchronisation en arrière-plan non bloquante
@@ -2921,6 +3380,67 @@ if (lessonMeta && lessonMeta.status !== 'published') {
       params.lesson === '60000000-0000-0001-0001-000000000025' ||
       params.chapter === '50000000-0000-0001-0001-000000000009');
 
+  // ── DÉTECTIONS PAR IDENTIFIANTS STRICTS (RÈGLE GUIDELINES_COURS_S2) ──────────
+  const isP1Strict =
+    params.chapter === '50000000-0000-0002-0001-000000000001' ||
+    params.lesson === '60000000-0000-0002-0001-000000000001' ||
+    params.lesson === '60000000-0000-0002-0001-000000000002' ||
+    params.lesson === '60000000-0000-0002-0001-000000000003';
+
+  const isP2Strict =
+    params.chapter === '50000000-0000-0002-0001-000000000002' ||
+    params.lesson === '60000000-0000-0002-0001-000000000004' ||
+    params.lesson === '60000000-0000-0002-0001-000000000005' ||
+    params.lesson === '60000000-0000-0002-0001-000000000006';
+
+  const isP3Strict =
+    params.chapter === '50000000-0000-0002-0001-000000000003' ||
+    params.lesson === '60000000-0000-0002-0001-000000000007' ||
+    params.lesson === '60000000-0000-0002-0001-000000000008' ||
+    params.lesson === '60000000-0000-0002-0001-000000000009';
+
+  const isP4Strict =
+    params.chapter === '50000000-0000-0002-0001-000000000004' ||
+    params.lesson === '60000000-0000-0002-0001-000000000010' ||
+    params.lesson === '60000000-0000-0002-0001-000000000011' ||
+    params.lesson === '60000000-0000-0002-0001-000000000012';
+
+  const isP5Strict =
+    params.chapter === '50000000-0000-0002-0001-000000000005' ||
+    params.lesson === '60000000-0000-0002-0001-000000000013' ||
+    params.lesson === '60000000-0000-0002-0001-000000000014' ||
+    params.lesson === '60000000-0000-0002-0001-000000000015';
+
+  const isP6Strict =
+    params.chapter === '50000000-0000-0002-0001-000000000006' ||
+    params.lesson === '60000000-0000-0002-0001-000000000016' ||
+    params.lesson === '60000000-0000-0002-0001-000000000017' ||
+    params.lesson === '60000000-0000-0002-0001-000000000018';
+
+  const isP7Strict =
+    params.chapter === '50000000-0000-0002-0001-000000000007' ||
+    params.lesson === '60000000-0000-0002-0001-000000000019' ||
+    params.lesson === '60000000-0000-0002-0001-000000000020' ||
+    params.lesson === '60000000-0000-0002-0001-000000000021';
+
+  const isP8Strict =
+    params.chapter === '50000000-0000-0002-0001-000000000008' ||
+    params.lesson === '60000000-0000-0002-0001-000000000022' ||
+    params.lesson === '60000000-0000-0002-0001-000000000023' ||
+    params.lesson === '60000000-0000-0002-0001-000000000024';
+
+  const isP9Strict =
+    params.chapter === '50000000-0000-0002-0001-000000000009' ||
+    params.lesson === '60000000-0000-0002-0001-000000000025' ||
+    params.lesson === '60000000-0000-0002-0001-000000000026' ||
+    params.lesson === '60000000-0000-0002-0001-000000000027';
+
+  const isP10Strict =
+    params.chapter === '50000000-0000-0002-0001-000000000010' ||
+    params.lesson === '60000000-0000-0002-0001-000000000028' ||
+    params.lesson === '60000000-0000-0002-0001-000000000029' ||
+    params.lesson === '60000000-0000-0002-0001-000000000030';
+
   const isCinematique =
     !isAcidesAmines &&
     !isAlcools &&
@@ -2931,21 +3451,28 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     !isAcideFortBaseForte &&
     !isAcideFaibleBaseFaible &&
     !isDosageAcideFaibleBaseForte &&
-    (lessonMeta.title.toLowerCase().includes('cinématique') ||
-      lessonMeta.title.toLowerCase().includes('cinematique') ||
-      lessonMeta.title.toLowerCase().includes('frenet') ||
-      lessonMeta.title.toLowerCase().includes('torricelli') ||
-      lessonMeta.title.toLowerCase().includes('mruv') ||
-      lessonMeta.title.toLowerCase().includes('circulaire') ||
-      lessonMeta.title.toLowerCase().includes('point matériel') ||
-      lessonMeta.title.toLowerCase().includes('point materiel') ||
-      (chapter?.title?.toLowerCase() || '').includes('cinématique') ||
-      (chapter?.title?.toLowerCase() || '').includes('cinematique') ||
-      (chapter?.title?.toLowerCase() || '').includes('p1') ||
-      params.lesson === '60000000-0000-0002-0001-000000000001' ||
-      params.lesson === '60000000-0000-0002-0001-000000000002' ||
-      params.lesson === '60000000-0000-0002-0001-000000000003' ||
-      params.chapter === '50000000-0000-0002-0001-000000000001');
+    (isP1Strict ||
+      (!isP2Strict &&
+        !isP3Strict &&
+        !isP4Strict &&
+        !isP5Strict &&
+        !isP6Strict &&
+        !isP7Strict &&
+        !isP8Strict &&
+        !isP9Strict &&
+        !isP10Strict &&
+        (lessonMeta.title.toLowerCase().includes('cinématique') ||
+          lessonMeta.title.toLowerCase().includes('cinematique') ||
+          lessonMeta.title.toLowerCase().includes('frenet') ||
+          lessonMeta.title.toLowerCase().includes('torricelli') ||
+          lessonMeta.title.toLowerCase().includes('mruv') ||
+          lessonMeta.title.toLowerCase().includes('circulaire') ||
+          lessonMeta.title.toLowerCase().includes('point matériel') ||
+          lessonMeta.title.toLowerCase().includes('point materiel') ||
+          (chapter?.title?.toLowerCase() || '').includes('cinématique') ||
+          (chapter?.title?.toLowerCase() || '').includes('cinematique') ||
+          /\bp1\b/i.test(chapter?.title || '') ||
+          /\bp1\b/i.test(lessonMeta.title || ''))));
 
   const isNewton =
     !isAcidesAmines &&
@@ -2957,19 +3484,26 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     !isAcideFortBaseForte &&
     !isAcideFaibleBaseFaible &&
     !isDosageAcideFaibleBaseForte &&
-    !isCinematique &&
-    (lessonMeta.title.toLowerCase().includes('newton') ||
-      lessonMeta.title.toLowerCase().includes('dynamique') ||
-      lessonMeta.title.toLowerCase().includes('inertie') ||
-      lessonMeta.title.toLowerCase().includes('tci') ||
-      lessonMeta.title.toLowerCase().includes('actions réciproques') ||
-      lessonMeta.title.toLowerCase().includes('actions reciproques') ||
-      (chapter?.title?.toLowerCase() || '').includes('newton') ||
-      (chapter?.title?.toLowerCase() || '').includes('p2') ||
-      params.lesson === '60000000-0000-0002-0001-000000000004' ||
-      params.lesson === '60000000-0000-0002-0001-000000000005' ||
-      params.lesson === '60000000-0000-0002-0001-000000000006' ||
-      params.chapter === '50000000-0000-0002-0001-000000000002');
+    (isP2Strict ||
+      (!isP1Strict &&
+        !isP3Strict &&
+        !isP4Strict &&
+        !isP5Strict &&
+        !isP6Strict &&
+        !isP7Strict &&
+        !isP8Strict &&
+        !isP9Strict &&
+        !isP10Strict &&
+        !isCinematique &&
+        (lessonMeta.title.toLowerCase().includes('newton') ||
+          lessonMeta.title.toLowerCase().includes('dynamique') ||
+          lessonMeta.title.toLowerCase().includes('inertie') ||
+          lessonMeta.title.toLowerCase().includes('tci') ||
+          lessonMeta.title.toLowerCase().includes('actions réciproques') ||
+          lessonMeta.title.toLowerCase().includes('actions reciproques') ||
+          (chapter?.title?.toLowerCase() || '').includes('newton') ||
+          /\bp2\b/i.test(chapter?.title || '') ||
+          /\bp2\b/i.test(lessonMeta.title || ''))));
 
   const isProjectile =
     !isAcidesAmines &&
@@ -2981,22 +3515,29 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     !isAcideFortBaseForte &&
     !isAcideFaibleBaseFaible &&
     !isDosageAcideFaibleBaseForte &&
-    !isCinematique &&
-    !isNewton &&
-    (lessonMeta.title.toLowerCase().includes('projectile') ||
-      lessonMeta.title.toLowerCase().includes('pesanteur') ||
-      lessonMeta.title.toLowerCase().includes('parabolique') ||
-      lessonMeta.title.toLowerCase().includes('flèche') ||
-      lessonMeta.title.toLowerCase().includes('fleche') ||
-      lessonMeta.title.toLowerCase().includes('portée') ||
-      lessonMeta.title.toLowerCase().includes('portee') ||
-      (chapter?.title?.toLowerCase() || '').includes('projectile') ||
-      (chapter?.title?.toLowerCase() || '').includes('pesanteur') ||
-      (chapter?.title?.toLowerCase() || '').includes('p3') ||
-      params.lesson === '60000000-0000-0002-0001-000000000007' ||
-      params.lesson === '60000000-0000-0002-0001-000000000008' ||
-      params.lesson === '60000000-0000-0002-0001-000000000009' ||
-      params.chapter === '50000000-0000-0002-0001-000000000003');
+    (isP3Strict ||
+      (!isP1Strict &&
+        !isP2Strict &&
+        !isP4Strict &&
+        !isP5Strict &&
+        !isP6Strict &&
+        !isP7Strict &&
+        !isP8Strict &&
+        !isP9Strict &&
+        !isP10Strict &&
+        !isCinematique &&
+        !isNewton &&
+        (lessonMeta.title.toLowerCase().includes('projectile') ||
+          lessonMeta.title.toLowerCase().includes('pesanteur') ||
+          lessonMeta.title.toLowerCase().includes('parabolique') ||
+          lessonMeta.title.toLowerCase().includes('flèche') ||
+          lessonMeta.title.toLowerCase().includes('fleche') ||
+          lessonMeta.title.toLowerCase().includes('portée') ||
+          lessonMeta.title.toLowerCase().includes('portee') ||
+          (chapter?.title?.toLowerCase() || '').includes('projectile') ||
+          (chapter?.title?.toLowerCase() || '').includes('pesanteur') ||
+          /\bp3\b/i.test(chapter?.title || '') ||
+          /\bp3\b/i.test(lessonMeta.title || ''))));
 
   const isParticule =
     !isAcidesAmines &&
@@ -3008,34 +3549,297 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     !isAcideFortBaseForte &&
     !isAcideFaibleBaseFaible &&
     !isDosageAcideFaibleBaseForte &&
-    !isCinematique &&
-    !isNewton &&
-    !isProjectile &&
-    (lessonMeta.title.toLowerCase().includes('particule') ||
-      lessonMeta.title.toLowerCase().includes('particules chargées') ||
-      lessonMeta.title.toLowerCase().includes('particules chargees') ||
-      lessonMeta.title.toLowerCase().includes('champ électrique') ||
-      lessonMeta.title.toLowerCase().includes('champ electrique') ||
-      lessonMeta.title.toLowerCase().includes('champ magnétique') ||
-      lessonMeta.title.toLowerCase().includes('champ magnetique') ||
-      lessonMeta.title.toLowerCase().includes('lorentz') ||
-      lessonMeta.title.toLowerCase().includes('cyclotron') ||
-      lessonMeta.title.toLowerCase().includes('spectromètre') ||
-      lessonMeta.title.toLowerCase().includes('spectrometre') ||
-      lessonMeta.title.toLowerCase().includes('wien') ||
-      lessonMeta.title.toLowerCase().includes('bainbridge') ||
-      lessonMeta.title.toLowerCase().includes('déviation') ||
-      lessonMeta.title.toLowerCase().includes('deviation') ||
-      (chapter?.title?.toLowerCase() || '').includes('particule') ||
-      (chapter?.title?.toLowerCase() || '').includes('champ électrique') ||
-      (chapter?.title?.toLowerCase() || '').includes('champ magnétique') ||
-      (chapter?.title?.toLowerCase() || '').includes('p4') ||
-      params.lesson === '60000000-0000-0002-0001-000000000010' ||
-      params.lesson === '60000000-0000-0002-0001-000000000011' ||
-      params.lesson === '60000000-0000-0002-0001-000000000012' ||
-      params.chapter === '50000000-0000-0002-0001-000000000004');
+    (isP4Strict ||
+      (!isP1Strict &&
+        !isP2Strict &&
+        !isP3Strict &&
+        !isP5Strict &&
+        !isP6Strict &&
+        !isP7Strict &&
+        !isP8Strict &&
+        !isP9Strict &&
+        !isP10Strict &&
+        !isCinematique &&
+        !isNewton &&
+        !isProjectile &&
+        (lessonMeta.title.toLowerCase().includes('particule') ||
+          lessonMeta.title.toLowerCase().includes('particules chargées') ||
+          lessonMeta.title.toLowerCase().includes('particules chargees') ||
+          lessonMeta.title.toLowerCase().includes('champ électrique') ||
+          lessonMeta.title.toLowerCase().includes('champ electrique') ||
+          lessonMeta.title.toLowerCase().includes('champ magnétique') ||
+          lessonMeta.title.toLowerCase().includes('champ magnetique') ||
+          lessonMeta.title.toLowerCase().includes('lorentz') ||
+          lessonMeta.title.toLowerCase().includes('cyclotron') ||
+          lessonMeta.title.toLowerCase().includes('spectromètre') ||
+          lessonMeta.title.toLowerCase().includes('spectrometre') ||
+          lessonMeta.title.toLowerCase().includes('wien') ||
+          lessonMeta.title.toLowerCase().includes('bainbridge') ||
+          lessonMeta.title.toLowerCase().includes('déviation') ||
+          lessonMeta.title.toLowerCase().includes('deviation') ||
+          (chapter?.title?.toLowerCase() || '').includes('particule') ||
+          (chapter?.title?.toLowerCase() || '').includes('champ électrique') ||
+          (chapter?.title?.toLowerCase() || '').includes('champ magnétique') ||
+          /\bp4\b/i.test(chapter?.title || '') ||
+          /\bp4\b/i.test(lessonMeta.title || ''))));
+
+  const isOscillationsP5 =
+    isP5Strict ||
+    (!isP1Strict &&
+      !isP2Strict &&
+      !isP3Strict &&
+      !isP4Strict &&
+      !isP6Strict &&
+      !isP7Strict &&
+      !isP8Strict &&
+      !isP9Strict &&
+      !isP10Strict &&
+      !isCinematique &&
+      !isNewton &&
+      !isProjectile &&
+      !isParticule &&
+      (lessonMeta.title.toLowerCase().includes('pendule élastique') ||
+        lessonMeta.title.toLowerCase().includes('pendule elastique') ||
+        lessonMeta.title.toLowerCase().includes('oscillations mécaniques') ||
+        lessonMeta.title.toLowerCase().includes('oscillations mecaniques') ||
+        lessonMeta.title.toLowerCase().includes('ressort') ||
+        (chapter?.title?.toLowerCase() || '').includes('oscillations mécaniques') ||
+        (chapter?.title?.toLowerCase() || '').includes('pendule élastique') ||
+        /\bp5\b/i.test(chapter?.title || '')));
+
+  const isInductionP6 =
+    isP6Strict ||
+    (!isP1Strict &&
+      !isP2Strict &&
+      !isP3Strict &&
+      !isP4Strict &&
+      !isP5Strict &&
+      !isP7Strict &&
+      !isP8Strict &&
+      !isP9Strict &&
+      !isP10Strict &&
+      !isCinematique &&
+      !isNewton &&
+      !isProjectile &&
+      !isParticule &&
+      !isOscillationsP5 &&
+      (lessonMeta.title.toLowerCase().includes('induction') ||
+        lessonMeta.title.toLowerCase().includes('auto-induction') ||
+        lessonMeta.title.toLowerCase().includes('auto_induction') ||
+        lessonMeta.title.toLowerCase().includes('solénoïde') ||
+        lessonMeta.title.toLowerCase().includes('solenoide') ||
+        lessonMeta.title.toLowerCase().includes('bobine') ||
+        lessonMeta.title.toLowerCase().includes('dipôle rl') ||
+        lessonMeta.title.toLowerCase().includes('dipole rl') ||
+        lessonMeta.title.toLowerCase().includes('laplace') ||
+        (chapter?.title?.toLowerCase() || '').includes('induction') ||
+        /\bp6\b/i.test(chapter?.title || '')));
+
+  const isRlcForceesP8 =
+    isP8Strict ||
+    (!isP1Strict &&
+      !isP2Strict &&
+      !isP3Strict &&
+      !isP4Strict &&
+      !isP5Strict &&
+      !isP6Strict &&
+      !isP7Strict &&
+      !isP9Strict &&
+      !isP10Strict &&
+      !isCinematique &&
+      !isNewton &&
+      !isProjectile &&
+      !isParticule &&
+      !isOscillationsP5 &&
+      !isInductionP6 &&
+      (lessonMeta.title.toLowerCase().includes('forcées') ||
+        lessonMeta.title.toLowerCase().includes('forcees') ||
+        lessonMeta.title.toLowerCase().includes('courant alternatif') ||
+        lessonMeta.title.toLowerCase().includes('fresnel') ||
+        lessonMeta.title.toLowerCase().includes('impédance') ||
+        lessonMeta.title.toLowerCase().includes('impedance') ||
+        lessonMeta.title.toLowerCase().includes('résonance') ||
+        lessonMeta.title.toLowerCase().includes('resonance') ||
+        lessonMeta.title.toLowerCase().includes('acuité') ||
+        lessonMeta.title.toLowerCase().includes('acuite') ||
+        lessonMeta.title.toLowerCase().includes('bande passante') ||
+        /\bp8\b/i.test(chapter?.title || '') ||
+        (chapter?.title?.toLowerCase() || '').includes('forcées') ||
+        (chapter?.title?.toLowerCase() || '').includes('forcees')));
+
+  const isRlcLibresP7 =
+    isP7Strict ||
+    (!isP1Strict &&
+      !isP2Strict &&
+      !isP3Strict &&
+      !isP4Strict &&
+      !isP5Strict &&
+      !isP6Strict &&
+      !isP8Strict &&
+      !isP9Strict &&
+      !isP10Strict &&
+      !isCinematique &&
+      !isNewton &&
+      !isProjectile &&
+      !isParticule &&
+      !isOscillationsP5 &&
+      !isInductionP6 &&
+      !isRlcForceesP8 &&
+      (lessonMeta.title.toLowerCase().includes('oscillations électriques') ||
+        lessonMeta.title.toLowerCase().includes('oscillations electriques') ||
+        lessonMeta.title.toLowerCase().includes('circuit lc') ||
+        lessonMeta.title.toLowerCase().includes('circuit rlc') ||
+        lessonMeta.title.toLowerCase().includes('rlc') ||
+        lessonMeta.title.toLowerCase().includes('décrément') ||
+        lessonMeta.title.toLowerCase().includes('decrement') ||
+        lessonMeta.title.toLowerCase().includes('pseudopériodique') ||
+        lessonMeta.title.toLowerCase().includes('pseudoperiodique') ||
+        lessonMeta.title.toLowerCase().includes('apériodique') ||
+        lessonMeta.title.toLowerCase().includes('aperiodique') ||
+        /\bp7\b/i.test(chapter?.title || '') ||
+        (chapter?.title?.toLowerCase() || '').includes('oscillations électriques')));
+
+  const isLumiereP9 =
+    isP9Strict ||
+    (!isP1Strict &&
+      !isP2Strict &&
+      !isP3Strict &&
+      !isP4Strict &&
+      !isP5Strict &&
+      !isP6Strict &&
+      !isP7Strict &&
+      !isP8Strict &&
+      !isP10Strict &&
+      !isCinematique &&
+      !isNewton &&
+      !isProjectile &&
+      !isParticule &&
+      !isOscillationsP5 &&
+      !isInductionP6 &&
+      !isRlcForceesP8 &&
+      !isRlcLibresP7 &&
+      (lessonMeta.title.toLowerCase().includes('interférence') ||
+        lessonMeta.title.toLowerCase().includes('interference') ||
+        lessonMeta.title.toLowerCase().includes('young') ||
+        lessonMeta.title.toLowerCase().includes('interfrange') ||
+        lessonMeta.title.toLowerCase().includes('photoélectrique') ||
+        lessonMeta.title.toLowerCase().includes('photoelectrique') ||
+        lessonMeta.title.toLowerCase().includes('photon') ||
+        lessonMeta.title.toLowerCase().includes('planck') ||
+        lessonMeta.title.toLowerCase().includes('bohr') ||
+        lessonMeta.title.toLowerCase().includes('spectres de raies') ||
+        lessonMeta.title.toLowerCase().includes('spectre de raies') ||
+        lessonMeta.title.toLowerCase().includes('ondes et corpuscules') ||
+        /\bp9\b/i.test(chapter?.title || '') ||
+        (chapter?.title?.toLowerCase() || '').includes('modèle ondulatoire') ||
+        (chapter?.title?.toLowerCase() || '').includes('modele ondulatoire') ||
+        (chapter?.title?.toLowerCase() || '').includes('lumière') ||
+        (chapter?.title?.toLowerCase() || '').includes('lumiere')));
+
+  const isNucleaireP10 =
+    isP10Strict ||
+    (!isP1Strict &&
+      !isP2Strict &&
+      !isP3Strict &&
+      !isP4Strict &&
+      !isP5Strict &&
+      !isP6Strict &&
+      !isP7Strict &&
+      !isP8Strict &&
+      !isP9Strict &&
+      !isCinematique &&
+      !isNewton &&
+      !isProjectile &&
+      !isParticule &&
+      !isOscillationsP5 &&
+      !isInductionP6 &&
+      !isRlcForceesP8 &&
+      !isRlcLibresP7 &&
+      !isLumiereP9 &&
+      (lessonMeta.title.toLowerCase().includes('nucléaire') ||
+        lessonMeta.title.toLowerCase().includes('nucleaire') ||
+        lessonMeta.title.toLowerCase().includes('radioactivité') ||
+        lessonMeta.title.toLowerCase().includes('radioactivite') ||
+        lessonMeta.title.toLowerCase().includes('défaut de masse') ||
+        lessonMeta.title.toLowerCase().includes('defaut de masse') ||
+        lessonMeta.title.toLowerCase().includes('énergie de liaison') ||
+        lessonMeta.title.toLowerCase().includes('energie de liaison') ||
+        lessonMeta.title.toLowerCase().includes('aston') ||
+        lessonMeta.title.toLowerCase().includes('soddy') ||
+        lessonMeta.title.toLowerCase().includes('fission') ||
+        lessonMeta.title.toLowerCase().includes('fusion') ||
+        lessonMeta.title.toLowerCase().includes('décroissance') ||
+        lessonMeta.title.toLowerCase().includes('decroissance') ||
+        lessonMeta.title.toLowerCase().includes('demi-vie') ||
+        lessonMeta.title.toLowerCase().includes('becquerel') ||
+        lessonMeta.title.toLowerCase().includes('carbone 14') ||
+        lessonMeta.title.toLowerCase().includes('datation') ||
+        /\bp10\b/i.test(chapter?.title || '') ||
+        (chapter?.title?.toLowerCase() || '').includes('nucléaire') ||
+        (chapter?.title?.toLowerCase() || '').includes('nucleaire')));
+
+  const isSvtSubject = params.subject === 'svt';
+
+  const isGenetiqueArbresB5 =
+    isSvtSubject && (
+    params.lesson === '60000000-0000-0003-0005-000000000001' ||
+    lessonMeta.title.toLowerCase().includes('arbre généalogique') ||
+    lessonMeta.title.toLowerCase().includes('arbres généalogiques') ||
+    lessonMeta.title.toLowerCase().includes('arbre genealogique') ||
+    lessonMeta.title.toLowerCase().includes('arbres genealogiques') ||
+    lessonMeta.title.toLowerCase().includes('hérédité humaine') ||
+    lessonMeta.title.toLowerCase().includes('heredite humaine') ||
+    lessonMeta.title.toLowerCase().includes('pedigree') ||
+    lessonMeta.title.toLowerCase().includes('pedigrees') ||
+    lessonMeta.title.toLowerCase().includes('maladies génétiques') ||
+    lessonMeta.title.toLowerCase().includes('maladie génétique') ||
+    lessonMeta.title.toLowerCase().includes('maladies genetiques') ||
+    lessonMeta.title.toLowerCase().includes('maladie genetique') ||
+    (lessonMeta.title.toLowerCase().includes('trisomie') && lessonMeta.title.toLowerCase().includes('21')));
+
+  const isExpressionGenetiqueB5 =
+    isSvtSubject &&
+    !isGenetiqueArbresB5 && (
+    params.lesson === '60000000-0000-0003-0005-000000000002' ||
+    lessonMeta.title.toLowerCase().includes('acide nucléique') ||
+    lessonMeta.title.toLowerCase().includes('acides nucléiques') ||
+    lessonMeta.title.toLowerCase().includes('acide nucleique') ||
+    lessonMeta.title.toLowerCase().includes('acides nucleiques') ||
+    lessonMeta.title.toLowerCase().includes('expression de l’information') ||
+    lessonMeta.title.toLowerCase().includes('expression de l\'information') ||
+    lessonMeta.title.toLowerCase().includes('expression génique') ||
+    lessonMeta.title.toLowerCase().includes('expression genique') ||
+    lessonMeta.title.toLowerCase().includes('transcription') ||
+    lessonMeta.title.toLowerCase().includes('traduction') ||
+    lessonMeta.title.toLowerCase().includes('code génétique') ||
+    lessonMeta.title.toLowerCase().includes('code genetique') ||
+    lessonMeta.title.toLowerCase().includes('meselson') ||
+    lessonMeta.title.toLowerCase().includes('chargaff') ||
+    lessonMeta.title.toLowerCase().includes('polymérase') ||
+    lessonMeta.title.toLowerCase().includes('polymerase'));
+
+  const isGenieGenetiqueB5 =
+    isSvtSubject &&
+    !isGenetiqueArbresB5 &&
+    !isExpressionGenetiqueB5 && (
+    params.lesson === '60000000-0000-0003-0005-000000000003' ||
+    lessonMeta.title.toLowerCase().includes('génie génétique') ||
+    lessonMeta.title.toLowerCase().includes('genie genetique') ||
+    lessonMeta.title.toLowerCase().includes('biotechnologie') ||
+    lessonMeta.title.toLowerCase().includes('ogm') ||
+    lessonMeta.title.toLowerCase().includes('clonage') ||
+    lessonMeta.title.toLowerCase().includes('transgénèse') ||
+    lessonMeta.title.toLowerCase().includes('transgenese') ||
+    lessonMeta.title.toLowerCase().includes('enzyme de restriction') ||
+    lessonMeta.title.toLowerCase().includes('insuline recombinante') ||
+    lessonMeta.title.toLowerCase().includes('thérapie génique') ||
+    lessonMeta.title.toLowerCase().includes('therapie genique') ||
+    (lessonMeta.title.toLowerCase().includes('pcr') && lessonMeta.title.toLowerCase().includes('adn')));
 
   const isGametogeneseB4 =
+    isSvtSubject &&
+    !isGenetiqueArbresB5 &&
+    !isExpressionGenetiqueB5 && (
     params.lesson === '60000000-0000-0003-0004-000000000001' ||
     lessonMeta.title.toLowerCase().includes('gamétogenèse') ||
     lessonMeta.title.toLowerCase().includes('gametogenese') ||
@@ -3048,9 +3852,10 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     lessonMeta.title.toLowerCase().includes('folliculogenèse') ||
     lessonMeta.title.toLowerCase().includes('folliculogenese') ||
     (lessonMeta.title.toLowerCase().includes('tube') && lessonMeta.title.toLowerCase().includes('séminifère')) ||
-    (lessonMeta.title.toLowerCase().includes('tube') && lessonMeta.title.toLowerCase().includes('seminifere'));
+    (lessonMeta.title.toLowerCase().includes('tube') && lessonMeta.title.toLowerCase().includes('seminifere')));
 
   const isCyclesSexuelsB4 =
+    isSvtSubject &&
     !isGametogeneseB4 && (
     params.lesson === '60000000-0000-0003-0004-000000000002' ||
     lessonMeta.title.toLowerCase().includes('cycle sexuel') ||
@@ -3066,6 +3871,7 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     lessonMeta.title.toLowerCase().includes('dentelle uterine'));
 
   const isFecondationB4 =
+    isSvtSubject &&
     !isGametogeneseB4 &&
     !isCyclesSexuelsB4 && (
     params.lesson === '60000000-0000-0003-0004-000000000003' ||
@@ -3085,6 +3891,7 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     lessonMeta.title.toLowerCase().includes('blastocyste'));
 
   const isReproductionMaitriseB4 =
+    isSvtSubject &&
     !isGametogeneseB4 &&
     !isCyclesSexuelsB4 &&
     !isFecondationB4 && (
@@ -3093,8 +3900,8 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     lessonMeta.title.toLowerCase().includes('maitrise de la reproduction') ||
     lessonMeta.title.toLowerCase().includes('contraception') ||
     lessonMeta.title.toLowerCase().includes('contragestion') ||
-    lessonMeta.title.toLowerCase().includes('amp') ||
-    lessonMeta.title.toLowerCase().includes('pma') ||
+    /\bamp\b/.test(lessonMeta.title.toLowerCase()) ||
+    /\bpma\b/.test(lessonMeta.title.toLowerCase()) ||
     lessonMeta.title.toLowerCase().includes('fivete') ||
     lessonMeta.title.toLowerCase().includes('icsi') ||
     lessonMeta.title.toLowerCase().includes('ru 486') ||
@@ -3110,6 +3917,7 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     lessonMeta.title.toLowerCase().includes('insemination'));
 
   const isImmuniteInneeB3 =
+    isSvtSubject &&
     !isGametogeneseB4 &&
     !isCyclesSexuelsB4 &&
     !isFecondationB4 &&
@@ -3125,6 +3933,7 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     (lessonMeta.title.toLowerCase().includes('soi') && lessonMeta.title.toLowerCase().includes('non soi')));
 
   const isImmuniteHumoraleB3 =
+    isSvtSubject &&
     !isImmuniteInneeB3 && (
     params.lesson === '60000000-0000-0003-0003-000000000002' ||
     lessonMeta.title.toLowerCase().includes('humorale') ||
@@ -3136,6 +3945,7 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     (lessonMeta.title.toLowerCase().includes('lymphocyte') && lessonMeta.title.toLowerCase().includes('b')));
 
   const isImmuniteCellulaireB3 =
+    isSvtSubject &&
     !isImmuniteInneeB3 &&
     !isImmuniteHumoraleB3 && (
     params.lesson === '60000000-0000-0003-0003-000000000003' ||
@@ -3149,6 +3959,7 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     (lessonMeta.title.toLowerCase().includes('lymphocyte') && lessonMeta.title.toLowerCase().includes('t')));
 
   const isDysfonctionnementsB3 =
+    isSvtSubject &&
     !isImmuniteInneeB3 &&
     !isImmuniteHumoraleB3 &&
     !isImmuniteCellulaireB3 && (
@@ -3166,6 +3977,7 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     lessonMeta.title.toLowerCase().includes('histamine'));
 
   const isRegulationPaB2 =
+    isSvtSubject &&
     !isImmuniteInneeB3 && !isImmuniteHumoraleB3 && !isImmuniteCellulaireB3 && !isDysfonctionnementsB3 && (
     params.lesson === '60000000-0000-0003-0002-000000000003' ||
     lessonMeta.title.toLowerCase().includes('barorécepteur') ||
@@ -3181,6 +3993,7 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     lessonMeta.title.toLowerCase().includes('vasomoteur'));
 
   const isCardiaqueB2 =
+    isSvtSubject &&
     !isRegulationPaB2 && (
     params.lesson === '60000000-0000-0003-0002-000000000001' ||
     lessonMeta.title.toLowerCase().includes('révolution cardiaque') ||
@@ -3195,6 +4008,7 @@ if (lessonMeta && lessonMeta.status !== 'published') {
         lessonMeta.title.toLowerCase().includes('nodal'))));
 
   const isRegulationNerveuseB2 =
+    isSvtSubject &&
     !isRegulationPaB2 && (
     params.lesson === '60000000-0000-0003-0002-000000000002' ||
     lessonMeta.title.toLowerCase().includes('innervation') ||
@@ -3215,6 +4029,7 @@ if (lessonMeta && lessonMeta.status !== 'published') {
       !lessonMeta.title.toLowerCase().includes('pression')));
 
   const isReflexesConditionnels =
+    isSvtSubject &&
     !isCardiaqueB2 &&
     !isRegulationNerveuseB2 && (
     params.lesson === '60000000-0000-0003-0001-000000000004' ||
@@ -3232,6 +4047,7 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     (lessonMeta.title.toLowerCase().includes('réflexe') && !lessonMeta.title.toLowerCase().includes('synapse')));
 
   const isSynapse =
+    isSvtSubject &&
     !isReflexesConditionnels && (
     params.lesson === '60000000-0000-0003-0001-000000000003' ||
     lessonMeta.title.toLowerCase().includes('transmission synaptique') ||
@@ -3245,6 +4061,7 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     lessonMeta.title.toLowerCase().includes('sommation'));
 
   const isTissuNerveux =
+    isSvtSubject &&
     !isReflexesConditionnels &&
     !isSynapse && (
     params.lesson === '60000000-0000-0003-0001-000000000002' ||
@@ -3257,6 +4074,7 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     (lessonMeta.title.toLowerCase().includes('neurone') && (lessonMeta.title.toLowerCase().includes('action') || lessonMeta.title.toLowerCase().includes('repos') || lessonMeta.title.toLowerCase().includes('structure'))));
 
   const isSystemeNerveux =
+    isSvtSubject &&
     !isReflexesConditionnels &&
     !isSynapse && !isTissuNerveux && (
     lessonMeta.title.toLowerCase().includes('système nerveux') ||
@@ -3281,6 +4099,14 @@ if (lessonMeta && lessonMeta.status !== 'published') {
     !isCinetique &&
     !isCinematique &&
     !isNewton &&
+    !isProjectile &&
+    !isParticule &&
+    !isOscillationsP5 &&
+    !isInductionP6 &&
+    !isRlcLibresP7 &&
+    !isRlcForceesP8 &&
+    !isLumiereP9 &&
+    !isNucleaireP10 &&
     !isAsymptotes &&
     !isSuites &&
     !isLogarithme &&
@@ -3391,7 +4217,25 @@ if (lessonMeta && lessonMeta.status !== 'published') {
               {/* Capsule Vocale & Masterclass Audio du Professeur (Al Muxtaar S2) */}
               <AudioCoachPlayer
                 title={
-                  isReproductionMaitriseB4
+                  isNucleaireP10
+                    ? 'Masterclass Audio : Physique Nucléaire — Noyau, Radioactivité, Décroissance, Fission & Fusion'
+                    : isLumiereP9
+                    ? 'Masterclass Audio : Le Modèle Ondulatoire & Corpusculaire de la Lumière (P9)'
+                    : isRlcForceesP8
+                    ? 'Masterclass Audio : Oscillations Électriques Forcées — Circuit RLC Série, Fresnel & Résonance'
+                    : isRlcLibresP7
+                    ? 'Masterclass Audio : Oscillations Électriques Libres — Circuit LC, RLC & Analogie Mécanique'
+                    : isInductionP6
+                    ? 'Masterclass Audio : Phénomène d\'Induction Électromagnétique & Auto-Induction'
+                    : isOscillationsP5
+                    ? 'Masterclass Audio : Les Oscillations Mécaniques — Pendule Élastique Horizontal & Vertical'
+                    : isGenieGenetiqueB5
+                    ? 'Masterclass Audio : Génie Génétique & Biotechnologies — Clonage, PCR, Transgénèse & Thérapie Génique'
+                    : isExpressionGenetiqueB5
+                    ? 'Masterclass Audio : Acides Nucléiques & Expression du Gène — Réplication, Transcription & Traduction'
+                    : isGenetiqueArbresB5
+                    ? 'Masterclass Audio : Hérédité Humaine & Analyse des Arbres Généalogiques'
+                    : isReproductionMaitriseB4
                     ? 'Masterclass Audio : Maîtrise de la Reproduction — Contraception, Contragestion & AMP'
                     : isFecondationB4
                     ? 'Masterclass Audio : De la Fécondation à la Lactation — Gestation, HCG & Parturition'
@@ -3470,7 +4314,27 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     : 'Masterclass Audio : Limites & Continuité'
                 }
                 subtitle={
-                  isReproductionMaitriseB4
+                  isNucleaireP10
+                    ? 'Terminale S2 • Physique : Les 6 réflexes pour le défaut de masse, Aston, Soddy, la décroissance N(t), la datation au C14 et le bilan d\'énergie d\'Einstein'
+                    : isLumiereP9
+                    ? 'Terminale S2 • Physique : Les 6 réflexes pour les interférences d’Young, l’interfrange i, le seuil photoélectrique, le bilan d’Einstein et les séries de Bohr'
+                    : isRlcForceesP8
+                    ? 'Terminale S2 • Physique : Les 6 réflexes pour Fresnel, l\'impédance Z, le déphasage φ, la résonance I₀, la bande passante et la surtension'
+                    : isRlcLibresP7
+                    ? 'Terminale S2 • Physique : Les 6 réflexes pour T₀ = 2π√(LC), les 3 régimes, le décrément δ et l\'analogie mécanique'
+                    : isInductionP6
+                    ? 'Terminale S2 • Physique : Les 6 réflexes pour le flux Φ, la loi de Lenz, les rails de Laplace et le dipôle RL'
+                    : isOscillationsP5
+                    ? 'Terminale S2 • Physique : Les 6 réflexes pour le TCI, l\'allongement Δl₀, les conditions initiales et l\'énergie mécanique'
+                    : isProjectile
+                    ? 'Terminale S2 • Physique : Les 5 réflexes clés pour les équations horaires, le sommet S, la portée à 45° et le T.E.C.'
+                    : isGenieGenetiqueB5
+                    ? 'Terminale S2 • SVT : Les 6 réflexes pour les enzymes de restriction, l\'ADNc, pBR322, la PCR, l\'insuline et les OGM'
+                    : isExpressionGenetiqueB5
+                    ? 'Terminale S2 • SVT : Les 6 réflexes pour Chargaff, Meselson-Stahl, l\'ARN polymérase, le ribosome et la drépanocytose'
+                    : isGenetiqueArbresB5
+                    ? 'Terminale S2 • SVT : Les 6 réflexes pour la dominance, l\'exclusion Y et X, le piège des 2/3 et la trisomie 21'
+                    : isReproductionMaitriseB4
                     ? 'Terminale S2 • SVT : Les 6 réflexes pour la pilule combinée, le RU 486, le DIU et les techniques d’AMP (FIVETE/ICSI)'
                     : isFecondationB4
                     ? 'Terminale S2 • SVT : Les 6 réflexes pour la réaction corticale, la HCG, l\'ovariectomie, Ferguson et la prolactine'
@@ -3549,7 +4413,27 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     : 'Terminale S2 • 5 réflexes essentiels pour l\'épreuve'
                 }
                 chapters={
-                  isReproductionMaitriseB4
+                  isNucleaireP10
+                    ? NUCLEAIRE_AUDIO_CHAPTERS
+                    : isLumiereP9
+                    ? LUMIERE_AUDIO_CHAPTERS
+                    : isRlcForceesP8
+                    ? RLC_FORCEES_AUDIO_CHAPTERS
+                    : isRlcLibresP7
+                    ? RLC_LIBRES_AUDIO_CHAPTERS
+                    : isInductionP6
+                    ? INDUCTION_AUDIO_CHAPTERS
+                    : isOscillationsP5
+                    ? OSCILLATIONS_AUDIO_CHAPTERS
+                    : isProjectile
+                    ? PROJECTILE_AUDIO_CHAPTERS
+                    : isGenieGenetiqueB5
+                    ? GENIE_GENETIQUE_AUDIO_CHAPTERS
+                    : isExpressionGenetiqueB5
+                    ? EXPRESSION_GENETIQUE_AUDIO_CHAPTERS
+                    : isGenetiqueArbresB5
+                    ? GENETIQUE_ARBRES_AUDIO_CHAPTERS
+                    : isReproductionMaitriseB4
                     ? REPRODUCTION_MAITRISE_AUDIO_CHAPTERS
                     : isFecondationB4
                     ? FECONDATION_AUDIO_CHAPTERS
@@ -3646,7 +4530,22 @@ if (lessonMeta && lessonMeta.status !== 'published') {
               </article>
 
               {/* Fiches Réflexes Mobiles & Simulateur Tactile Interactif */}
-              {isAlcools ? (
+              {isGenieGenetiqueB5 ? (
+                <>
+                  <B5GenieGenetiqueReflexesCard />
+                  <B5GenieGenetiqueInteractiveLab />
+                </>
+              ) : isExpressionGenetiqueB5 ? (
+                <>
+                  <B5ExpressionGenetiqueReflexesCard />
+                  <B5ExpressionGenetiqueInteractiveLab />
+                </>
+              ) : isGenetiqueArbresB5 ? (
+                <>
+                  <B5GenetiqueArbresReflexesCard />
+                  <B5GenetiqueArbresInteractiveLab />
+                </>
+              ) : isAlcools ? (
                 <>
                   <AlcoolsReflexesCard />
                   <AlcoolsInteractiveSimulator />
@@ -3691,25 +4590,55 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                   <AcidesAminesReflexesCard />
                   <AcidesAminesInteractiveSimulator />
                 </>
-              ) : isCinematique ? (
+              ) : isNucleaireP10 ? (
                 <>
-                  <CinematiqueReflexesCard />
-                  <CinematiqueInteractiveSimulator />
+                  <P10NucleaireReflexesCard />
+                  <P10NucleaireInteractiveLab />
                 </>
-              ) : isNewton ? (
+              ) : isLumiereP9 ? (
                 <>
-                  <NewtonReflexesCard />
-                  <NewtonInteractiveSimulator />
+                  <P9LumiereReflexesCard />
+                  <P9LumiereInteractiveLab />
+                </>
+              ) : isRlcForceesP8 ? (
+                <>
+                  <P8RlcForceesReflexesCard />
+                  <P8RlcForceesInteractiveLab />
+                </>
+              ) : isRlcLibresP7 ? (
+                <>
+                  <P7RlcLibresReflexesCard />
+                  <P7RlcLibresInteractiveLab />
+                </>
+              ) : isInductionP6 ? (
+                <>
+                  <P6InductionReflexesCard />
+                  <P6InductionInteractiveLab />
+                </>
+              ) : isOscillationsP5 ? (
+                <>
+                  <P5OscillationsReflexesCard />
+                  <P5OscillationsInteractiveLab />
+                </>
+              ) : isParticule ? (
+                <>
+                  <P4ParticuleReflexesCard />
+                  <P4ParticuleInteractiveSimulator />
                 </>
               ) : isProjectile ? (
                 <>
                   <ProjectileReflexesCard />
                   <ProjectileInteractiveSimulator />
                 </>
-              ) : isParticule ? (
+              ) : isNewton ? (
                 <>
-                  <P4ParticuleReflexesCard />
-                  <P4ParticuleInteractiveSimulator />
+                  <NewtonReflexesCard />
+                  <NewtonInteractiveSimulator />
+                </>
+              ) : isCinematique ? (
+                <>
+                  <CinematiqueReflexesCard />
+                  <CinematiqueInteractiveSimulator />
                 </>
               ) : isReproductionMaitriseB4 ? (
                 <>
@@ -3891,7 +4820,13 @@ if (lessonMeta && lessonMeta.status !== 'published') {
               {/* Section Annales Officielles du Baccalauréat Sénégalais (Après les exercices d'application) */}
               <BacSenegalAnnales
                 chapter={
-                  isReproductionMaitriseB4
+                  isGenieGenetiqueB5
+                    ? 'genie_genetique'
+                    : isExpressionGenetiqueB5
+                    ? 'expression_genetique'
+                    : isGenetiqueArbresB5
+                    ? 'genetique_arbres'
+                    : isReproductionMaitriseB4
                     ? 'maitrise_reproduction'
                     : isFecondationB4
                     ? 'fecondation_lactation'
@@ -3917,14 +4852,26 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     ? 'reflexes_medullaires'
                     : isSynapse
                     ? 'synapse'
-                    : isCinematique
-                    ? 'cinematique_point'
-                    : isNewton
-                    ? 'lois_newton'
-                    : isProjectile
-                    ? 'projectile_champ_pesanteur'
+                    : isNucleaireP10
+                    ? 'physique_nucleaire'
+                    : isLumiereP9
+                    ? 'lumiere_quanta'
+                    : isRlcForceesP8
+                    ? 'rlc_forcees'
+                    : isRlcLibresP7
+                    ? 'rlc_libres'
+                    : isInductionP6
+                    ? 'induction_electromagnetique'
+                    : isOscillationsP5
+                    ? 'oscillations_mecaniques'
                     : isParticule
                     ? 'particule_champ_e_b'
+                    : isProjectile
+                    ? 'projectile_champ_pesanteur'
+                    : isNewton
+                    ? 'lois_newton'
+                    : isCinematique
+                    ? 'cinematique_point'
                     : isTissuNerveux
                     ? 'tissu_nerveux'
                     : isSystemeNerveux
@@ -3987,6 +4934,12 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                     questions={quizData.questions}
                   />
                 </section>
+              ) : isGenieGenetiqueB5 ? (
+                <B5GenieGenetiqueQuizEmbedded />
+              ) : isExpressionGenetiqueB5 ? (
+                <B5ExpressionGenetiqueQuizEmbedded />
+              ) : isGenetiqueArbresB5 ? (
+                <B5GenetiqueArbresQuizEmbedded />
               ) : isAlcools ? (
                 <AlcoolsQuizEmbedded />
               ) : isAmines ? (
@@ -4005,14 +4958,26 @@ if (lessonMeta && lessonMeta.status !== 'published') {
                 <DosageAcideFaibleBaseForteQuizEmbedded />
               ) : isAcidesAmines ? (
                 <AcidesAminesQuizEmbedded />
-              ) : isCinematique ? (
-                <CinematiqueQuizEmbedded />
-              ) : isNewton ? (
-                <NewtonQuizEmbedded />
-              ) : isProjectile ? (
-                <ProjectileQuizEmbedded />
+              ) : isNucleaireP10 ? (
+                <P10NucleaireQuizEmbedded />
+              ) : isLumiereP9 ? (
+                <P9LumiereQuizEmbedded />
+              ) : isRlcForceesP8 ? (
+                <P8RlcForceesQuizEmbedded />
+              ) : isRlcLibresP7 ? (
+                <P7RlcLibresQuizEmbedded />
+              ) : isInductionP6 ? (
+                <P6InductionQuizEmbedded />
+              ) : isOscillationsP5 ? (
+                <P5OscillationsQuizEmbedded />
               ) : isParticule ? (
                 <P4ParticuleQuizEmbedded />
+              ) : isProjectile ? (
+                <ProjectileQuizEmbedded />
+              ) : isNewton ? (
+                <NewtonQuizEmbedded />
+              ) : isCinematique ? (
+                <CinematiqueQuizEmbedded />
               ) : isReproductionMaitriseB4 ? (
                 <B4ReproductionMaitriseQuizEmbedded />
               ) : isFecondationB4 ? (

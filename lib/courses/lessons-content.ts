@@ -3394,11 +3394,10 @@ La méthode officielle prescrite par l'Office du Baccalauréat sénégalais pour
 > - « H₂SO₄ diacide la : benn mole bu nekk ñaari H₃O⁺ lay jur, motax VbE dafay doublewu bu ñu koy doser ! »
 > - « Équivalence bi pH bi 7 la koy doon faww ci 25°C ndax ndoxum xorom neutre lay jur ! »
 > - « BBT mooy champion dosage fort-fort bi ndax teinte sensible verte bi dafa tàbbi ci 7,00 exact ! »
-`
-};
+`,
 
   // C7 : ACIDES ET BASES FAIBLES – COUPLES ACIDE-BASE – CONSTANTE D'ACIDITÉ Ka / pKa (Terminale S2 Sénégal)
-RICH_LESSONS_MAP.acide_faible_base_faible = `# C7 : Acides et Bases Faibles – Couples Acide-Base – Constante d'Acidité (pKa) (Terminale S2)
+acide_faible_base_faible: `# C7 : Acides et Bases Faibles – Couples Acide-Base – Constante d'Acidité (pKa) (Terminale S2)
 
 Bienvenue dans le septième chapitre de **Chimie Générale** de **Terminale S2**, rigoureusement conforme au programme officiel sénégalais (MEN / IGEF / Office du Baccalauréat).
 
@@ -3562,9 +3561,8 @@ $$\\mathbf{pK_a + pK_b = pK_e = 14{,}00}$$
 > - « Constante Ka bi tàngaay bi rekk la dépendre ! Bu pKa bi tuuti, acide bi dafa gën a dëgër. »
 > - « Bu [Base] = [Acide], pH bi day yem ci pKa bi rek ! Ci diagramme bi, dañuy croiser ci 50-50 ci pKa exact. »
 > - « Loi Ostwald : boo yokkee ndox (dilution), alpha bi day yokk ndax molécules yi dañuy gën a xàjjikoo, waaye pH bi day yéeg jëm 7 ! »
-`;
-
-RICH_LESSONS_MAP.dosage_acide_faible_base_forte = `# C8 : Réaction Acide Faible / Base Forte, Effet Tampon et Dosages (Terminale S2)
+`,
+dosage_acide_faible_base_forte: `# C8 : Réaction Acide Faible / Base Forte, Effet Tampon et Dosages (Terminale S2)
 
 Bienvenue dans le huitième chapitre de **Chimie de Terminale S2**, rigoureusement conforme au programme officiel sénégalais (MEN / IGEF / Office du Baccalauréat).
 
@@ -3816,10 +3814,9 @@ $$V_b = 100 - 71{,}4 = 28{,}6\\text{ mL}$$
 > - « **Demi-équivalence :** Lireel pH bi ci $V_{bE}/2$ ci courbe bi, moom rekk mooy $pK_a$ bi ! »
 > - « **Phénolphtaléine** la indicateur bi gën a nef — BBT du ko jëf ndax zone de virage bi trop tôt la ! »
 > - « **Tampon bi :** pH stable la si ñu yokkee ndaw acide walla base. Dafa melni goalkeeper bu dëgër gu du tólliku ! »
-`;
-
+`,
 // C9 : ACIDES ALPHA-AMINÉS ET ÉLÉMENTS DE STÉRÉOCHIMIE (Terminale S2 Sénégal)
-RICH_LESSONS_MAP.acides_amines = `# C9 : Acides α-Aminés & Éléments de Stéréochimie (Terminale S2)
+acides_amines: `# C9 : Acides α-Aminés & Éléments de Stéréochimie (Terminale S2)
 
 Bienvenue dans le neuvième chapitre de **Chimie Organique et Générale** de **Terminale S2**, rigoureusement conforme au programme officiel sénégalais (MEN / IGEF / Office du Baccalauréat).
 
@@ -4100,10 +4097,10 @@ Pour obtenir **exclusivement** le dipeptide désiré $A-B$ sans formation des tr
 > - « **Série L bi :** $-\\text{NH}_2$ bi ci loxo cammooñ la nekk ! »
 > - « **Électrophorèse bi :** Cation $\\to$ Cathode (-), Anion $\\to$ Anode (+), Zwitterion du yëngu ci pHi ! »
 > - « **Dipeptides yi :** A-B ak B-A wuute nañu faww ! »
-`
+`,
 
 // P1 : CINÉMATIQUE DU POINT MATÉRIEL (Terminale S2 Sénégal)
-RICH_LESSONS_MAP.cinematique_point = `# P1 : Cinématique du Point Matériel (Terminale S2)
+cinematique_point: `# P1 : Cinématique du Point Matériel (Terminale S2)
 
 Bienvenue dans le premier chapitre fondamental de **Mécanique** de **Terminale S2**, rigoureusement conforme au programme officiel sénégalais (MEN / IGEF / Office du Baccalauréat).
 
@@ -4535,10 +4532,9 @@ $\\rho_S = \\frac{v_S^2}{a_n} = \\frac{(4{,}0)^2}{10{,}0} = \\frac{16{,}0}{10{,}
 > - « **Frenet :** $a_t = \\frac{dv}{dt}$, $a_n = \\frac{v^2}{\\rho}$ ! »
 > - « **Torricelli :** $v_B^2 - v_A^2 = 2\\,a\\,d$ ! »
 > - « **MCU :** $v = R\\,\\omega$ ak $a_n = R\\,\\omega^2$ ! »
-`;
-
+`,
 // P2 : LES LOIS DE NEWTON SUR LE MOUVEMENT (Terminale S2 Sénégal)
-RICH_LESSONS_MAP.lois_newton = `# P2 : Les Lois de Newton sur le Mouvement (Terminale S2)
+lois_newton: `# P2 : Les Lois de Newton sur le Mouvement (Terminale S2)
 
 Bienvenue dans le deuxième chapitre fondamental de **Mécanique** de **Terminale S2**, rigoureusement conforme au programme officiel sénégalais (MEN / IGEF / Office du Baccalauréat).
 
@@ -4875,10 +4871,9 @@ $f = \\mu\\,R_N \\implies \\mu = \\frac{f}{R_N} = \\frac{0{,}68}{3{,}395} \\appr
 > - « **Plan incliné :** $a = g\\,\\sin\\alpha$ sans frottement ; $a = g\\,(\\sin\\alpha - \\mu\\,\\cos\\alpha)$ ak frottement ! »
 > - « **Torricelli :** $v_B^2 - v_A^2 = 2\\,a\\,d$ mooy sa arme secrète ci Bac ! »
 > - « **Action-Réaction :** $\\vec{F}_{A/B} = -\\vec{F}_{B/A}$, duñu faye bopp mukk ! »
-`;
-
+`,
 // P3 : MOUVEMENT D'UN PROJECTILE DANS UN CHAMP DE PESANTEUR UNIFORME (Terminale S2 Sénégal)
-RICH_LESSONS_MAP.projectile_champ_pesanteur = `# P3 : Mouvement d'un Projectile dans un Champ de Pesanteur Uniforme (Terminale S2)
+projectile_champ_pesanteur: `# P3 : Mouvement d'un Projectile dans un Champ de Pesanteur Uniforme (Terminale S2)
 
 Bienvenue dans le troisième chapitre fondamental de **Mécanique** de **Terminale S2**, rigoureusement conforme au programme officiel sénégalais (MEN / IGEF / Office du Baccalauréat).
 
@@ -5166,10 +5161,9 @@ $y_{\\text{sécurité}}(x) = \\frac{v_0^2}{2\\,g} - \\frac{g}{2\\,v_0^2}\\,x^2 +
 > - « **Sommet bi :** $v_y = 0 \\implies t_S = \\frac{v_0\\sin\\alpha}{g}$ ak $H = \\frac{v_0^2\\sin^2\\alpha}{2g}$ ! »
 > - « **Portée bi :** $x_P = \\frac{v_0^2\\sin(2\\alpha)}{g}$. Angle optimal bi mooy $45^\\circ$ ! »
 > - « **Cible bi :** Remplacél $\\frac{1}{\\cos^2\\alpha}$ par $1 + \\tan^2\\alpha$ ngir am équation du second degré en $\\tan\\alpha$ ! »
-`;
-
+`,
 // P4 : MOUVEMENT D'UNE PARTICULE CHARGÉE DANS UN CHAMP ÉLECTRIQUE OU MAGNÉTIQUE UNIFORME (Terminale S2 Sénégal)
-RICH_LESSONS_MAP.particule_champ_e_b = `# P4 : Mouvement d'une Particule Chargée dans un Champ Électrique ou Magnétique Uniforme (Terminale S2)
+particule_champ_e_b: `# P4 : Mouvement d'une Particule Chargée dans un Champ Électrique ou Magnétique Uniforme (Terminale S2)
 
 Bienvenue dans le quatrième grand chapitre fondamental de **Physique** de **Terminale S2**, rigoureusement conforme au programme officiel sénégalais (MEN / IGEF / Office du Baccalauréat).
 
@@ -5356,9 +5350,8 @@ La distance $\\Delta d$ est directement proportionnelle à l'écart de masse $\\
 > 6. **Valeur absolue sur la charge :** Le rayon $R = \\frac{m v}{|q| B}$ et la période $T = \\frac{2\\pi m}{|q| B}$ sont strictement positifs : toujours écrire $|q|$ !
 > 7. **Sélecteur de Wien indépendant de $m$ et $q$ :** Dans le filtre de Wien, la condition $v_0 = E/B$ ne dépend ni de la masse, ni de la charge.
 > 8. **Piège du diamètre dans le spectrographe :** La particule décrit un demi-cercle : la distance entre le point d'entrée et le point d'impact est le diamètre $2R$ et non le rayon $R$ !
-`;
-
-RICH_LESSONS_MAP.systeme_nerveux_cerebrospinal = `# B1 : Organisation du Système Nerveux Cérébrospinal des Mammifères (Terminale S2)
+`,
+systeme_nerveux_cerebrospinal: `# B1 : Organisation du Système Nerveux Cérébrospinal des Mammifères (Terminale S2)
 
 Bienvenue dans le premier axe fondamental de **Sciences de la Vie et de la Terre (SVT)** de **Terminale S2**, rigoureusement aligné sur les exigences officielles de l'Office du Baccalauréat du Sénégal et de l'Inspection Générale de l'Éducation et de la Formation (IGEF).
 
@@ -5490,9 +5483,8 @@ Pour éviter toute confusion lors de l'examen du Baccalauréat, voici le tableau
 | **Canal / Cavité interne** | Canal central de l'épendyme | Ventricules cérébraux ($V_1, V_2, V_3, V_4$) |
 | **Nerfs rattachés** | 31 paires de nerfs rachidiens mixtes | 12 paires de nerfs crâniens (sensitifs, moteurs ou mixtes) |
 | **Rôle fonctionnel majeur** | Centre réflexe involontaire & voie de conduction | Intégration consciente, motricité volontaire, pensée, mémoire |
-`;
-
-RICH_LESSONS_MAP.tissu_nerveux_potentiel_action = `# B1 - Leçon 2 : Tissu Nerveux : Structure du Neurone, Potentiel de Repos et Potentiel d’Action (Terminale S2)
+`,
+tissu_nerveux_potentiel_action: `# B1 - Leçon 2 : Tissu Nerveux : Structure du Neurone, Potentiel de Repos et Potentiel d’Action (Terminale S2)
 
 Bienvenue dans la deuxième grande masterclass de **Sciences de la Vie et de la Terre (SVT)** de **Terminale S2**, rigoureusement alignée sur le programme officiel du Ministère de l'Éducation Nationale du Sénégal et les critères d'évaluation de l'Office du Baccalauréat.
 
@@ -5668,9 +5660,8 @@ Le potentiel de repos résulte de la combinaison de trois facteurs biophysiques 
 > Au Bac S2, lorsqu'on vous donne deux couples d'électrodes réceptrices $R_1$ et $R_2$ distantes de $d$ avec des dates d'arrivée $t_1$ et $t_2$ :
 > $$v = \\frac{d}{\\Delta t} = \\frac{d}{t_2 - t_1}$$
 > Attention capitale aux unités : convertissez toujours $d$ en mètres ($\\text{m}$) et $\\Delta t$ en secondes ($\\text{s}$) pour obtenir $v$ en $\\text{m}\\cdot\\text{s}^{-1}$.
-`;
-
-RICH_LESSONS_MAP.synapse_transmission_chimique = `# B1 - Leçon 3 : Transmission Synaptique Chimique & Intégration Nerveuse
+`,
+synapse_transmission_chimique: `# B1 - Leçon 3 : Transmission Synaptique Chimique & Intégration Nerveuse
 
 ---
 
@@ -5791,9 +5782,8 @@ Les épreuves du Baccalauréat sénégalais font fréquemment appel à des agent
 > 1. **Localiser l'action :** Présynaptique (exocytose/calcium) ou Postsynaptique (récepteurs ROC) ?
 > 2. **Citer le témoin :** Montrer que sous stimulation directe de la fibre musculaire, le muscle se contracte toujours (prouve que la machinerie contractile actinomyosine est intacte).
 > 3. **Conclure sur le mécanisme :** "Le produit $X$ agit spécifiquement au niveau de la synapse neuromusculaire en inhibant [nom du récepteur ou de l'enzyme]."
-`;
-
-RICH_LESSONS_MAP.reflexes_medullaires_conditionnels = `# B1 - Leçon 4 : Activité Réflexe Médullaire (Réflexe Myotatique) & Réflexes Conditionnels Pavloviens
+`,
+reflexes_medullaires_conditionnels: `# B1 - Leçon 4 : Activité Réflexe Médullaire (Réflexe Myotatique) & Réflexes Conditionnels Pavloviens
 
 ---
 
@@ -5915,9 +5905,8 @@ Chez l'animal décortiqué (ablation chirurgicale des hémisphères cérébraux)
 > 1. Définition et mise en évidence expérimentale (Percussion vs Pavlov).
 > 2. Comparaison des centres et des circuits (Moelle/Monosynaptique vs Cortex/Liaison temporaire).
 > 3. Tableau comparatif final récapitulant les 6 critères clés.
-`;
-
-RICH_LESSONS_MAP.activite_cardiaque_automatisme = `# B2 - Leçon 1 : Anatomie, Révolution Cardiaque & Mécanisme de l'Automatisme Cardiaque (Tissu Nodal)
+`,
+activite_cardiaque_automatisme: `# B2 - Leçon 1 : Anatomie, Révolution Cardiaque & Mécanisme de l'Automatisme Cardiaque (Tissu Nodal)
 
 ---
 
@@ -6083,9 +6072,8 @@ $$PA = DC \\times RPT = (FC \\times VES) \\times RPT$$
 > 1. Définissez toujours l'automatisme intrinsèque et citez le tissu nodal.
 > 2. Détaillez les 4 étapes de propagation : Keith-Flack $\\to$ Aschoff-Tawara $\\to$ His $\\to$ Purkinje.
 > 3. En cas d'analyse de graphiques (cardiogrammes ou ECG), repérez l'onde P, le QRS et l'onde T, et n'oubliez jamais de justifier l'inexcitabilité périodique par la longue période réfractaire absolue !
-`;
-
-RICH_LESSONS_MAP.regulation_nerveuse_cardiaque = `# B2 - Leçon 2 : Innervation et Régulation Nerveuse et Hormonale de l'Activité Cardiaque
+`,
+regulation_nerveuse_cardiaque: `# B2 - Leçon 2 : Innervation et Régulation Nerveuse et Hormonale de l'Activité Cardiaque
 
 ---
 
@@ -6273,12 +6261,11 @@ Dans le vocabulaire médical et au Baccalauréat S2, les effets des systèmes r�
    - Insistez sur le fait que le cœur 2 n'a pas de contact électrique avec le cœur 1. Le médiateur est **chimique et hydrosoluble**, transporté par le liquide physiologique.
 4. **Distinction Atropine vs Curare** :
    - C'est la question piège par excellence du jury du Bac : l'atropine agit sur le cœur car les récepteurs y sont **muscariniques**, tandis que le curare n'a aucun effet sur le cœur car il cible uniquement les récepteurs **nicotiniques** des muscles squelettiques.
-`;
-
+`,
 // ============================================================================
 // B2. LEÇON 3 : RÉGULATION RÉFLEXE DE LA PRESSION ARTÉRIELLE
 // ============================================================================
-RICH_LESSONS_MAP.regulation_pression_arterielle = `
+regulation_pression_arterielle: `
 # B2 Leçon 3 — Régulation Réflexe de la Pression Artérielle : Barorécepteurs, Centres Bulbaires et Effecteurs
 
 > [!CONSEIL_BAC] **Importance Stratégique au Baccalauréat Sénégalais (Série S2) :**
@@ -6452,12 +6439,11 @@ Si la boucle réflexe baroréceptrice assure la protection immédiate en quelque
    - Distinguez toujours avec précision **bout périphérique** (vers l'organe) et **bout central** (vers le centre bulbaire).
    - Pour un nerf afférent sensitif (Hering, Cyon), seule la stimulation du **bout central** est efficace !
 4. **Schéma fonctionnel obligatoire :** Entraînez-vous à dessiner en 2 minutes un schéma clair à boîtes rectangulaires avec stimulus, récepteurs, voies afférentes, centres, voies efférentes antagonistes et effecteurs.
-`;
-
+`,
 // ============================================================================
 // B3. LEÇON 1 : RECONNAISSANCE DU SOI ET DU NON-SOI (CMH/HLA) & IMMUNITÉ INNÉE
 // ============================================================================
-RICH_LESSONS_MAP.immunite_innee_soi_cmh = `
+immunite_innee_soi_cmh: `
 # B3 Leçon 1 — Reconnaissance du Soi et du Non-Soi (CMH/HLA) et Immunité Innée (Inflammation, Phagocytose)
 
 > [!CONSEIL_BAC] **Poids de l'Immunologie au Baccalauréat Sénégalais (Série S2) :**
@@ -6594,9 +6580,8 @@ Une fois dans le foyer inflammatoire, les leucocytes (polynucléaires neutrophil
 2. **Pour la réaction inflammatoire :** Citez toujours les 4 termes latins et leur explication biologique : Rubor (vasodilatation), Calor (flux sanguin accru), Tumor (œdème exsudatif), Dolor (bradykinine / compression).
 3. **Sur la phagocytose :** L'oubli de la mention du **phagolysosome** ou de la **présentation de l'antigène sur CMH II** coûte systématiquement des points au barème.
 4. **Pour les groupes sanguins :** Formulez toujours rigoureusement : *"L'individu du groupe A possède l'antigène A sur ses hématies et des anticorps naturels anti-B dans son sérum"*.
-`;
-
-RICH_LESSONS_MAP.immunite_humorale = `
+`,
+immunite_humorale: `
 # Immunité Adaptative Humorale : Anticorps, Sélection Clonale et Réponse B
 
 ## Introduction : La Défense Spécifique à Médiation Humorale
@@ -6811,9 +6796,8 @@ Le test d'Ouchterlony (double immunodiffusion radiale en gel d'agarose) est une 
 > 3. L'IgM est PENTAMERE (5 unités) et première produite — l'IgG est MONOMERE et majoritaire dans la réponse secondaire.
 > 4. La commutation de classe ne modifie PAS la spécificité de l'anticorps (région variable conservée) — seule la région constante (classe) change.
 > 5. Dans un test d'Ouchterlony, l'ARC se forme à la zone d'EQUIVALENCE — pas n'importe où dans le gel.
-`;
-
-RICH_LESSONS_MAP.immunite_cellulaire = `
+`,
+immunite_cellulaire: `
 # Immunité Adaptative Cellulaire : Lymphocytes T Cytotoxiques (LT8) et Rôle Central Pivot des LT4
 
 ## Introduction : La Surveillance et l'Élimination du Soi Altéré
@@ -6974,9 +6958,8 @@ Pour qu'un lymphocyte T cytotoxique détruise une cellule cible, il faut impéra
 | **Cibles Principales** | Bactéries extracellulaires, virus circulants, toxines | Cellules infectées (virus/bactéries intracellulaires), tumeurs, greffons |
 | **Mécanisme d'Élimination** | Neutralisation, opsonisation, agglutination | Apoptose cellulaire par perforation et caspases |
 | **Dépendance envers LT4** | Absolue (IL-4, IL-5 pour switch et plasmocytes) | Absolue (IL-2 pour expansion et différenciation) |
-`;
-
-RICH_LESSONS_MAP.dysfonctionnements_immunitaires = `
+`,
+dysfonctionnements_immunitaires: `
 # Dysfonctionnements du Système Immunitaire : Allergies, Maladies Auto-Immunes et Infection par le VIH/SIDA
 
 ## Introduction : Les Dérives et Failles du Système Immunitaire
@@ -7146,12 +7129,11 @@ L'histoire naturelle de l'infection chez un patient non traité s'étale sur env
 | **Effecteurs Clés** | Plasmocytes (IgE), Mastocytes, Histamine | Auto-anticorps, Lymphocytes T autoréactifs | Transcriptase inverse, Intégrase, Effondrement IL-2 |
 | **Traitement d'Urgence / Médical** | Adrénaline IM (choc), Antihistaminiques, Corticoïdes | Immunosuppresseurs, Corticoïdes, Anti-inflammatoires | Trithérapie antirétrovirale (TAR / ARV) |
 | **Exemple Typique Bac S2** | Asthme bronchique, Choc anaphylactique | Diabète type 1, Myasthénie, RAA | SIDA & Tuberculose / Pneumocystose opportuniste |
-`;
-
+`,
 // ═══════════════════════════════════════════════════════════════════════════
 // SVT B4 LEÇON 1 : GAMÉTOGENÈSE COMPARÉE CHEZ L'HOMME ET LA FEMME
 // ═══════════════════════════════════════════════════════════════════════════
-RICH_LESSONS_MAP.b4_gametogenese_comparee = `# B4 : Gamétogenèse comparée chez l'homme et la femme — Spermatogenèse, Ovogenèse et Méiose (Terminale S2)
+b4_gametogenese_comparee: `# B4 : Gamétogenèse comparée chez l'homme et la femme — Spermatogenèse, Ovogenèse et Méiose (Terminale S2)
 
 Bienvenue dans le premier volet fondamental du grand chapitre de **Reproduction et Endocrinologie Humaine (Axe B4)** du programme officiel de **Terminale S2** sénégalais (conforme aux exigences de l'Office du Baccalauréat du Sénégal).
 
@@ -7295,12 +7277,11 @@ La confusion entre ploïdie (nombre de chromosomes $2n$ ou $n$) et quantité d'A
    - Tissu interstitiel = Leydig + Capillaires sanguins (Testostérone endocrine).
 3. **Savoir justifier l'intérêt de l'asymétrie ovogénétique :** Conserver toutes les réserves cytoplasmiques (vitellus, organites, ARNm maternels) pour soutenir les premières segmentations du zygote avant la nidation.
 4. **Calcul de quantité d'ADN :** Toujours compter le nombre total de **chromatides** présentes dans le noyau pour déduire la quantité relative $Q, 2Q, 4Q$.
-`;
-
+`,
 // ═══════════════════════════════════════════════════════════════════════════
 // SVT B4 LEÇON 2 : CYCLES SEXUELS CHEZ LA FEMME & RÉGULATION HORMONALE
 // ═══════════════════════════════════════════════════════════════════════════
-RICH_LESSONS_MAP.b4_cycles_sexuels_hormones = `# B4 : Cycles sexuels chez la femme et régulation hormonale de l'axe hypothalamo-hypophyso-ovarien (Terminale S2)
+b4_cycles_sexuels_hormones: `# B4 : Cycles sexuels chez la femme et régulation hormonale de l'axe hypothalamo-hypophyso-ovarien (Terminale S2)
 
 Bienvenue dans le deuxième volet fondamental du chapitre de **Reproduction et Endocrinologie Humaine (Axe B4)** du programme officiel de **Terminale S2** sénégalais (conforme aux exigences d'excellence de l'Office du Baccalauréat du Sénégal).
 
@@ -7456,13 +7437,12 @@ L'activité de l'axe hypothalamo-hypophysaire est modulée en retour par les con
 | **Greffe d'ovaire chez l'ovariectomisée** | Rétablissement des taux basaux de FSH/LH et réapparition des cycles hormonaux | Régénération et cycles de l'endomètre | La liaison ovaire-utérus et ovaire-hypophyse est purement humorale (voie sanguine) |
 | **Perfusion continue de GnRH** | Chute de FSH et LH jusqu'à zéro après une brève élévation | Atrophie ovarienne et utérine | L'hypophyse exige une stimulation **pulsatile** ; l'apport continu désensibilise les récepteurs |
 | **Pilule combinée (Œstro-progestatif)** | FSH et LH bloquées à des taux résiduels quasi nuls ; pas de pic de LH | Endomètre atrophié ; glaire cervicale imperméable | Maintien artificiel d'un **RC- permanent** bloquant l'ovulation (contraception hormonale) |
-`;
-
+`,
 // ══════════════════════════════════════════════════════════════════════════════
 // SVT TERMINALE S2 — B4 LEÇON 3 : DE LA FÉCONDATION À LA LACTATION
 // Nidation, Gestation, Relais Placentaire (HCG), Parturition & Lactation
 // ══════════════════════════════════════════════════════════════════════════════
-RICH_LESSONS_MAP.b4_fecondation_lactation = `
+b4_fecondation_lactation: `
 # Chapitre B4 — Leçon 3 : De la Fécondation à la Lactation
 
 ## Introduction & Enjeux du Thème au Bac S2
@@ -7642,13 +7622,13 @@ Ce mécanisme physiologique explique l'**aménorrhée de lactation** (absence de
 | **Ovariectomie bilatérale à 5 mois de grossesse** | Taux de progestérone inchangés et maintien de la grossesse à terme | Le placenta assure de façon autonome la totalité des sécrétions stéroïdiennes dès le second trimestre |
 | **Prise de Mifépristone (RU 486)** | Contractions du myomètre et détachement de la muqueuse | Le RU 486 est un antagoniste compétitif bloquant les récepteurs de la progestérone (contragestion) |
 | **Anesthésie locale de l'aréole mammaire chez la nourrice** | Le lait continue d'être produit dans les acini mais ne s'éjecte plus | L'éjection du lait est un réflexe neuro-hormonal dépendant de l'innervation sensitive du mamelon |
-`;
+`,
 
-// ══════════════════════════════════════════════════════════════════════════════
-// SVT TERMINALE S2 — B4 LEÇON 4 : MAÎTRISE DE LA REPRODUCTION & AMP
-// Contraception, Contragestion & Assistance Médicale à la Procréation (PMA)
-// ══════════════════════════════════════════════════════════════════════════════
-RICH_LESSONS_MAP.b4_maitrise_reproduction = `
+  // ══════════════════════════════════════════════════════════════════════════════
+  // SVT TERMINALE S2 — B4 LEÇON 4 : MAÎTRISE DE LA REPRODUCTION & AMP
+  // Contraception, Contragestion & Assistance Médicale à la Procréation (PMA)
+  // ══════════════════════════════════════════════════════════════════════════════
+  b4_maitrise_reproduction: `
 # Chapitre B4 — Leçon 4 : Maîtrise de la Reproduction — Contraception, Contragestion & AMP
 
 ## Introduction & Enjeux du Thème au Bac S2
@@ -7827,10 +7807,2016 @@ Avant toute intervention, le médecin prescrit un bilan complet :
 | **Glaire cervicale hostile ou acide** (Test de Hühner négatif) | Col de l'utérus féminin | **Insémination Artificielle (IAC)** | Dépose le sperme lavé au-delà du col, directement dans la cavité utérine |
 | **Anovulation d'origine hypothalamique** (Trompes et sperme normaux) | Axe hypothalamo-hypophysaire | **Induction de l'ovulation** (Clomiphène / Pompe GnRH) | Restaure la maturation folliculaire naturelle sans recours à une chirurgie lourde |
 | **Azoospermie sécrétoire irréversible** (Testicule non fonctionnel) | Lignée germinale masculine | **IAD ou FIV avec sperme de donneur** | Utilisation de gamètes d'un tiers donneur fertile |
-`;
+`,
 
-export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: string, rawContent: string | null): string {
+  b5_genetique_arbres: `# Chapitre B5 : Génétique Humaine & Biotechnologies
+## Leçon 1 : Hérédité Humaine et Analyse Rigoureuse des Arbres Généalogiques (Maladies Génétiques)
+
+---
+
+## Introduction & Enjeux au Baccalauréat Sénégalais
+L'analyse des arbres généalogiques (pedigrees) constitue un pilier fondamental de l'épreuve de SVT au Baccalauréat de la série S2 (notée traditionnellement sur 4 à 5 points dans la partie Raisonnement Scientifique). Elle permet de reconstituer l'histoire génétique d'une lignée humaine afin de :
+1. Déterminer la relation de dominance entre les allèles du gène considéré.
+2. Établir la localisation chromosomique du locus (autosome ou gonosomes X/Y).
+3. Attribuer les génotypes certains ou probables des différents membres de la famille.
+4. Évaluer le risque génétique de récurrence (calcul de probabilité) pour un conseil génétique éclairé.
+
+> [!CONSIGNE] Les correcteurs du Bac S2 n'attribuent aucun point aux réponses affirmatives non démontrées. Chaque conclusion doit impérativement s'appuyer sur un **constat dans l'arbre** suivi d'une **démonstration logique rigoureuse**.
+
+---
+
+## 1. Conventions Universelles de Lecture d'un Arbre Généalogique
+
+Dans un pedigree officiel du Baccalauréat :
+- **Générations :** Numérotées en chiffres romains de haut en bas (**I**, **II**, **III**, **IV**).
+- **Individus :** Numérotés en chiffres arabes de gauche à droite à chaque génération (**1**, **2**, **3**...). Un individu est désigné par ses coordonnées : par exemple **II-3** désigne le troisième individu de la deuxième génération.
+- **Symboles des sexes :**
+  - **Carré ($\square$) :** Individu de sexe masculin.
+  - **Cercle ($\bigcirc$) :** Individu de sexe féminin.
+  - **Losange ($\Diamond$) :** Sexe non précisé ou fausse couche.
+- **Phénotypes :**
+  - **Symbole blanc / vide :** Individu sain (ne présentant pas le caractère étudié).
+  - **Symbole noirci / hachuré :** Individu atteint par l'affection étudiée.
+  - **Cercle avec point central ($\odot$) :** Femme conductrice asymptomatique (hétérozygote pour une tare récessive liée à X).
+- **Liens familiaux :**
+  - *Trait horizontal simple :* Union ou mariage de deux individus non apparentés.
+  - *Double trait horizontal :* **Union consanguine** (mariage entre personnes apparentées, augmentant fortement la probabilité de rencontre de deux allèles récessifs délétères).
+  - *Trait vertical descendant :* Ligne de descendance rattachée à une barre horizontale de fratrie.
+
+---
+
+## 2. Détermination de la Relation de Dominance / Récessivité
+
+C'est la première étape obligatoire de toute analyse de génétique humaine.
+
+### 2.1 Preuve Absolue de la Récessivité de la Tare
+- **Règle d'or :** L'apparition d'un enfant malade $[m]$ issu de deux parents phénotypiquement sains $[N]$ prouve de manière indiscutable que **l'allèle responsable de la tare est récessif face à l'allèle normal**.
+- **Démonstration type Bac :**
+  > « Les parents I-1 et I-2 sont phénotypiquement sains et ont un enfant II-3 atteint. L'allèle responsable de l'affection était donc nécessairement présent chez les parents sans se manifester à l'état hétérozygote. Il a été masqué par l'allèle normal. Par conséquent, l'allèle morbide est **récessif** (noté $m$) et l'allèle sain est **dominant** (noté $N$). Relation : $N > m$. »
+- **Caractéristiques de l'arbre :** La tare « saute » des générations ; les enfants malades sont souvent issus de parents sains ; la consanguinité augmente la fréquence des atteints.
+
+### 2.2 Preuve Absolue de la Dominance de la Tare
+- **Règle d'or :** La naissance d'un enfant sain $[sain]$ issu de deux parents atteints $[malade]$ prouve de manière indiscutable que **l'allèle responsable de la tare est dominant**.
+- **Démonstration type Bac :**
+  > « Les parents II-1 et II-2 sont tous deux atteints et donnent naissance à une fille III-3 saine. Si la tare était récessive, les deux parents seraient homozygotes récessifs et ne pourraient transmettre que l'allèle malade, donnant 100% d'enfants malades. La naissance d'un enfant sain prouve que les parents possèdent l'allèle sain à l'état masqué. Par conséquent, l'allèle responsable de la tare est **dominant** (noté $M$) et l'allèle normal est **récessif** (noté $n$). Relation : $M > n$. »
+- **Caractéristiques de l'arbre :** La maladie ne saute aucune génération ; tout individu atteint a au moins un parent atteint.
+
+---
+
+## 3. Détermination de la Localisation Chromosomique du Locus
+
+Une fois la dominance établie, testez systématiquement les hypothèses gonosomiques avant de conclure à l'autosomie.
+
+### 3.1 Élimination de la Liaison à la Portion Spécifique de Y (Hérédité Holandrique)
+Un gène est situé sur la portion propre du chromosome Y si et seulement si :
+1. Seuls les individus masculins sont atteints (aucune femme malade dans tout l'arbre).
+2. Tout père atteint transmet obligatoirement la tare à **la totalité de ses fils**.
+3. Tout fils atteint a obligatoirement un **père atteint**.
+
+> [!REJET_Y] Dès qu'une femme est atteinte dans l'arbre, OU qu'un père malade a un fils sain, OU qu'un fils malade a un père sain $\\implies$ **L'hypothèse de liaison à Y est formellement rejetée**.
+
+### 3.2 Discussion de la Liaison au Chromosome X
+
+#### Cas A : L'allèle morbide est RÉCESSIF ($m$)
+Si le gène était porté par la portion spécifique du chromosome X :
+- Une fille malade aurait pour génotype $X^m X^m$. Elle recevrait obligatoirement un chromosome $X^m$ de sa mère et son unique chromosome $X^m$ de son père. Son père aurait donc le génotype $X^m Y$ et serait **obligatoirement malade**.
+- Une mère malade $X^m X^m$ transmettrait obligatoirement son chromosome $X^m$ à tous ses fils ($X^m Y$), qui seraient **tous obligatoirement malades**.
+
+> [!REJET_X_RECESSIF] 
+> - Si une fille malade a un **père sain** $\\implies$ **Liaison à X récessif rejetée**.
+> - Si une mère malade a un **fils sain** $\\implies$ **Liaison à X récessif rejetée**.
+
+#### Cas B : L'allèle morbide est DOMINANT ($M$)
+Si le gène était porté par le chromosome X :
+- Un père malade $X^M Y$ transmettrait obligatoirement son chromosome $X^M$ à **toutes ses filles**, qui seraient **toutes obligatoirement malades**.
+- Un père malade transmet son chromosome Y à ses fils : il ne pourrait **jamais transmettre la maladie à ses fils**.
+
+> [!REJET_X_DOMINANT]
+> - Si un père malade a une **fille saine** $\\implies$ **Liaison à X dominant rejetée**.
+> - Si un père malade a un **fils malade** dont la mère est saine $\\implies$ **Liaison à X dominant rejetée**.
+
+### 3.3 Déduction de l'Autosomie
+Lorsque les hypothèses de liaison aux chromosomes sexuels Y et X ont été successivement et rigoureusement éliminées par des contre-exemples tirés de l'arbre, on conclut de façon irréfutable que :
+$$\\mathbf{\\text{Le gène responsable de la tare est situé sur un AUTOSOME.}}$$
+
+---
+
+## 4. Calculs des Risques Génétiques & Échiquier de Punnett
+
+### 4.1 Le Piège Classique de l'Individu Sain d'une Fratrie (Règle des 2/3)
+Considérons deux parents hétérozygotes sains ($N//m \\times N//m$) pour une tare autosomique récessive.
+L'échiquier de croisement mendélien donne :
+- $1/4$ d'homozygotes sains ($N//N$).
+- $2/4 = 1/2$ d'hétérozygotes porteurs sains ($N//m$).
+- $1/4$ d'homozygotes malades ($m//m$).
+
+Soit un individu sain $[N]$ appartenant à cette fratrie :
+- L'individu étant phénotypiquement sain, l'éventualité $m//m$ est **déjà réalisée comme impossible**.
+- L'univers des cas possibles est réduit aux 3 cases phénotypiquement saines ($1 N//N + 2 N//m$).
+- **La probabilité qu'il soit porteur sain (hétérozygote) est donc :**
+$$P(\\text{Porteur } N//m \\mid \\text{Phénotype } [N]) = \\mathbf{\\frac{2}{3}} \\quad (\\text{et NON } \\frac{1}{2})$$
+
+### 4.2 Calcul du Risque pour un Couple (Règle du Produit)
+Pour un couple d'individus sains $A$ et $B$ attendant un enfant :
+$$P(\\text{Enfant atteint } m//m) = P(A \\text{ est } N//m) \\times P(B \\text{ est } N//m) \\times P(\\text{Transmission de } m \\text{ par les deux parents, soit } \\frac{1}{4})$$
+
+Exemple numérique typique du Bac S2 :
+Si $P(A \\text{ porteur}) = \\frac{2}{3}$ et $P(B \\text{ porteur}) = \\frac{2}{3}$ :
+$$P(\\text{Enfant malade}) = \\frac{2}{3} \\times \\frac{2}{3} \\times \\frac{1}{4} = \\frac{4}{36} = \\mathbf{\\frac{1}{9}} \\approx 11{,}1\\%$$
+
+---
+
+## 5. Aberrations Chromosomiques : La Trisomie 21 (Syndrome de Down)
+
+La trisomie 21 est l'aneuploïdie la plus fréquente chez l'Homme ($1/700$ naissances vivantes).
+
+### 5.1 Mécanismes Cytogénétiques
+1. **Trisomie 21 libre et homogène ($47, XX, +21$ ou $47, XY, +21$) — $95\\%$ des cas :**
+   - Résulte d'un **accident méiotique de non-disjonction** lors de la gamétogenèse (le plus souvent maternelle, dans $90\\%$ des cas, liée au vieillissement des ovocytes I bloqués en prophase I depuis la vie fœtale).
+   - *Non-disjonction en Anaphase I :* Les deux chromosomes 21 homologues ne se séparent pas et migrent ensemble vers le même pôle. Les gamètes produits contiennent deux chromosomes 21 différents ($n+1 = 24$).
+   - *Non-disjonction en Anaphase II :* Les chromatides sœurs d'un chromosome 21 ne se séparent pas. Les gamètes produits contiennent deux copies identiques du même chromosome 21 ($n+1 = 24$).
+   - La fécondation d'un gamète disomique ($n=24$) par un gamète normal ($n=23$) donne un zygote à $2n+1 = 47$ chromosomes.
+2. **Trisomie 21 par translocation robertsonienne — $3$ à $4\\%$ des cas :**
+   - Le caryotype compte **46 chromosomes**, mais l'un des chromosomes acrocentriques (le plus souvent le chromosome 14) porte un chromosome 21 complet fixé sur son bras long ($46, XX, t(14;21)$).
+   - Cette forme peut être héritée d'un parent phénotypiquement normal porteur d'une **translocation équilibrée à 45 chromosomes** ($45, XX, t(14;21)$). Le risque de récidive pour les grossesses ultérieures est élevé (jusqu'à $15\\%$) !
+3. **Trisomie 21 en mosaïque — $1$ à $2\\%$ des cas :**
+   - Résulte d'une non-disjonction mitotique post-zygotique lors des premières divisions de clivage de l'embryon, donnant une coexistence de lignées cellulaires à 46 et 47 chromosomes.
+
+---
+
+## 6. Diagnostic Moléculaire : Électrophorèse de l'ADN & Sondes Géniques
+
+Les sujets récents du Baccalauréat associent fréquemment l'arbre généalogique à des gels d'électrophorèse d'ADN (Southern blot ou PCR-RFLP).
+
+### 6.1 Principe de l'Analyse Moléculaire
+- L'ADN des membres de la famille est extrait, coupé par une **enzyme de restriction spécifique** (ex: *MstII*, *EcoRI*) et soumis à une électrophorèse sur gel d'agarose qui sépare les fragments selon leur taille (en paires de bases ou kilobases).
+- Une **sonde moléculaire radioactive ou fluorescente** s'hybride spécifiquement avec les fragments contenant le gène étudié.
+
+### 6.2 Lecture des Bandes Électrophorétiques
+- **Homozygote normal :** Présente uniquement la ou les bandes caractéristiques de l'allèle normal (ex: bande à $1{,}1\\text{ kb}$ et $0{,}2\\text{ kb}$).
+- **Homozygote malade :** Présente uniquement la bande caractéristique de l'allèle muté (ex: bande unique de $1{,}3\\text{ kb}$ due à la perte du site de coupure).
+- **Hétérozygote porteur sain :** Présente un **profil composite** additionnant l'ensemble des bandes normales et mutées (ex: bandes à $1{,}3\\text{ kb}$, $1{,}1\\text{ kb}$ et $0{,}2\\text{ kb}$).
+
+---
+
+## 7. Fiche Méthode Synthétique : Rédaction Notée 5/5 au Bac S2
+
+| Étape | Ce qu'il faut chercher dans l'arbre | Formule de rédaction officielle Bac |
+| :--- | :--- | :--- |
+| **1. Dominance** | Deux parents sains ayant un enfant malade | *« Les parents [S] ont un enfant [M] : l'allèle est récessif masqué chez les parents. »* |
+| **2. Liaison à Y** | Femmes malades ou pères sains avec fils malades | *« Des femmes sont malades / un père sain a un fils malade : hypothèse Y rejetée. »* |
+| **3. Liaison à X** | Fille malade avec père sain OU mère malade avec fils sain | *« Fille malade Xm/Xm issue d'un père sain XN/Y impossible : hypothèse X récessif rejetée. »* |
+| **4. Conclusion** | Élimination de Y et de X | *« Le gène est obligatoirement localisé sur un autosome. »* |
+| **5. Génotypes** | Phénotypes observés et fratrie | *« Malade : m//m ; Parents : N//m ; Sujet sain d'une fratrie atteinte : 2/3 N//m + 1/3 N//N. »* |
+| **6. Risque** | Grille de Punnett et produit des probabilités | *« P = P(père porteur) × P(mère porteuse) × 1/4. »* |
+`,
+
+  b5_expression_genetique: `# Chapitre B5 : Génétique Humaine & Biotechnologies
+## Leçon 2 : Acides Nucléiques & Expression de l’Information Génétique (Réplication, Transcription & Traduction)
+
+---
+
+## Introduction & Historique de la Découverte du Matériel Génétique
+La compréhension de la nature biochimique du support de l'hérédité s'est construite à travers une série d'expériences historiques fondamentales au programme du Bac S2 :
+1. **Expérience de Griffith (1928) :** Mise en évidence du « principe transformant » chez le pneumocoque (*Streptococcus pneumoniae*). L'injection à des souris de bactéries virulentes de souche S tuées par la chaleur mélangées à des bactéries non virulentes de souche R vivantes entraîne la mort des souris et l'isolement de souches S vivantes.
+2. **Expérience d'Avery, MacLeod et McCarty (1944) :** Identification biochimique du principe transformant. Seul le traitement par une désoxyribonucléase (DNase) détruit le pouvoir transformant, prouvant que **l'ADN est le support universel de l'information génétique**.
+3. **Expérience de Hershey et Chase (1952) :** Utilisation de bactériophages T2 marqués au soufre radioactif $^{35}\\text{S}$ (protéines de la capside) et au phosphore radioactif $^{32}\\text{P}$ (ADN). Seul le $^{32}\\text{P}$ pénètre dans la bactérie hôte et permet la réplication virale.
+4. **Modèle de Watson et Crick (1953) :** Découverte de la structure tridimensionnelle en **double hélice antiparallèle**, fondée sur les clichés de diffraction aux rayons X de Rosalind Franklin et les rapports stœchiométriques d'Erwin Chargaff.
+
+---
+
+## 1. Structure Moléculaire des Acides Nucléiques (ADN & ARN)
+
+### 1.1 Composition d'un Nucléotide
+Un nucléotide résulte de la condensation de 3 composants :
+- **Un ose à 5 carbones (pentose) :** Le **2-désoxyribose** ($C_5H_{10}O_4$) dans l'ADN ; le **D-ribose** ($C_5H_{10}O_5$) dans l'ARN.
+- **Un groupement phosphate (acide phosphorique $H_3PO_4$) :** Relié au carbone 5' du pentose par une liaison phosphoester.
+- **Une base azotée hétérocyclique :** Liée au carbone 1' par une liaison N-glycosidique :
+  - *Bases puriques (à 2 cycles) :* **Adénine (A)** et **Guanine (G)**.
+  - *Bases pyrimidiques (à 1 cycle) :* **Cytosine (C)**, **Thymine (T)** (exclusive à l'ADN) et **Uracile (U)** (exclusif à l'ARN).
+
+### 1.2 La Double Hélice d'ADN & Règles d'Équimolarité de Chargaff
+L'ADN est une macromolécule bicaténaire formée de deux brins hélicoïdaux enroulés autour d'un axe commun :
+- **Antiparallélisme :** Les deux brins ont des polarités chimiques opposées. Un brin est orienté **5' $\\to$ 3'** (extrémité 5' portant un phosphate libre, extrémité 3' portant un groupement hydroxyle -OH libre) ; le brin complémentaire est orienté **3' $\\to$ 5'**.
+- **Complémentarité des bases azotées :**
+  - L'Adénine s'apparie toujours avec la Thymine par **2 liaisons hydrogène** ($A = T$).
+  - La Guanine s'apparie toujours avec la Cytosine par **3 liaisons hydrogène** ($C \\equiv G$).
+- **Règles d'Erwin Chargaff :**
+  $$A = T \\implies \\frac{A}{T} = 1 \\qquad \\text{et} \\qquad C = G \\implies \\frac{C}{G} = 1$$
+  $$\\frac{A + G}{T + C} = 1 \\quad (\\text{Rapport Purines / Pyrimidines invariant = 1})$$
+  - Le rapport de spécificité $\\frac{A+T}{C+G}$ est constant pour une espèce donnée, mais varie selon les taxons.
+  - **Stabilité thermique :** Plus un ADN possède un pourcentage élevé en $C \\equiv G$, plus sa température de dénaturation ($T_m$) est haute en raison de l'énergie des 3 liaisons hydrogène.
+
+---
+
+## 2. Réplication Semi-Conservative de l'ADN
+
+La réplication permet la transmission conforme de l'information génétique d'une cellule mère aux deux cellules filles lors de la phase S de l'interphase.
+
+### 2.1 L'Expérience Fondatrice de Meselson et Stahl (1958)
+- **Principe :** Bactéries *E. coli* cultivées sur azote lourd $^{15}\\text{N}$ puis transférées sur milieu à azote léger $^{14}\\text{N}$. Séparation par ultracentrifugation sur gradient de chlorure de césium (CsCl).
+- **Résultats expérimentaux & Interprétation :**
+  - *Génération 0 :* $100\\%$ d'ADN lourd ($^{15}\\text{N}-^{15}\\text{N}$), une bande au fond du tube.
+  - *Génération 1 :* $100\\%$ d'ADN hybride ($^{15}\\text{N}-^{14}\\text{N}$), une bande unique intermédiaire $\\implies$ **Réfute le modèle conservatif** (qui aurait donné 2 bandes : 1 lourde et 1 légère).
+  - *Génération 2 :* $50\\%$ d'ADN hybride et $50\\%$ d'ADN léger ($^{14}\\text{N}-^{14}\\text{N}$), deux bandes d'égale intensité $\\implies$ **Réfute le modèle dispersif** et **valide définitivement le modèle semi-conservatif**.
+- **Loi mathématique à la génération $n$ :**
+  $$\\text{Nombre total de molécules} = 2^n$$
+  $$\\text{Nombre de molécules hybrides} = 2 \\quad (\\text{constant } \\forall n \\ge 1)$$
+  $$\\text{Nombre de molécules légères} = 2^n - 2$$
+
+### 2.2 Mécanisme Moléculaire à la Fourche de Réplication
+1. **Ouverture de la double hélice :** L'**hélicase** rompt les liaisons hydrogène entre bases azotées, créant des « yeux » de réplication. La **topoisomérase** (gyrase) lève les contraintes de torsion en aval.
+2. **Amorce d'ARN :** L'**ARN primase** synthétise une courte amorce d'ARN nécessaire au démarrage.
+3. **Élongation par l'ADN polymérase III :** L'enzyme ne sait allonger une chaîne que dans le sens **5' $\\to$ 3'** par incorporation de désoxyribonucléotides complémentaires :
+   - *Brin précoce (avancé) :* Synthèse continue dans le sens d'avancement de la fourche.
+   - *Brin tardif (retardé) :* Synthèse discontinue par petites séquences appelées **fragments d'Okazaki**.
+4. **Finition :** L'**ADN polymérase I** remplace les amorces d'ARN par de l'ADN, et l'**ADN ligase** suture les fragments d'Okazaki par des liaisons phosphodiester.
+
+---
+
+## 3. La Transcription : De l'ADN à l'ARN Messager
+
+La transcription est la synthèse d'une copie d'ARN complémentaire d'une séquence d'ADN dans le noyau.
+
+### 3.1 Mécanisme Enzymatique
+- **ARN polymérase :** Enzyme maîtresse qui reconnaît le **promoteur** (ex: boîte TATA en amont du gène).
+- **Sens de parcours :** L'ARN polymérase lit le **brin transcrit (matrice)** dans le sens **3' $\\to$ 5'**.
+- **Sens de synthèse :** L'ARNm est polymérisé dans le sens **5' $\\to$ 3'** par complémentarité exacte :
+  - $A \\text{ de l'ADN} \\implies U \\text{ sur l'ARNm}$
+  - $T \\text{ de l'ADN} \\implies A \\text{ sur l'ARNm}$
+  - $C \\text{ de l'ADN} \\implies G \\text{ sur l'ARNm}$
+  - $G \\text{ de l'ADN} \\implies C \\text{ sur l'ARNm}$
+- L'ARNm a rigoureusement la même séquence que le **brin non transcrit (brin codant)**, à l'exception des thymines remplacées par des uraciles.
+
+### 3.2 Maturation chez les Eucaryotes
+Le transcrit primaire (ARN pré-messager) subit une maturation intranucléaire :
+1. *Addition d'une coiffe 7-méthylguanosine en 5'* (protection contre les nucléases et signal d'initiation).
+2. *Addition d'une queue poly-A en 3'* (stabilité et export vers le cytoplasme).
+3. *Excision-Épissage (Splicing) :* Élimination des séquences non codantes (**introns**) et raccordement bout à bout des séquences codantes (**exons**) par le complexe ribonucléoprotéique du splicéosome.
+
+---
+
+## 4. Le Code Génétique & La Traduction Ribosomique
+
+### 4.1 Caractéristiques Universelles du Code Génétique
+Le code génétique est le système de correspondance entre les codons (triplets de ribonucléotides) de l'ARNm et les acides aminés d'une chaîne polypeptidique ($4^3 = 64$ combinaisons possibles) :
+1. **Universel :** Le même codon spécifie le même acide aminé chez tous les êtres vivants (bactéries, végétaux, animaux), prouvant une origine évolutive commune.
+2. **Dégénéré ou Redondant :** Plusieurs codons différents peuvent spécifier le même acide aminé (61 codons codants pour 20 acides aminés). Cette dégénérescence confère une tolérance aux mutations.
+3. **Non chevauchant & Sans ponctuation :** La lecture s'effectue strictement triplet par triplet de façon continue sans interruption.
+4. **Signaux spécifiques :**
+   - *Codon initiateur :* **$5'\\text{-AUG-}3'$**, codant pour la **Méthionine (Met)**.
+   - *3 Codons STOP (non-sens) :* **$5'\\text{-UAA-}3'$**, **$5'\\text{-UAG-}3'$**, **$5'\\text{-UGA-}3'$**. Ils ne correspondent à aucun acide aminé et signalent l'arrêt de la traduction.
+
+### 4.2 Les Acteurs de la Traduction
+- **Le Ribosome :** Complexe formé d'ARN ribosomique (ARNr) et de protéines, constitué de deux sous-unités :
+  - *Petite sous-unité :* Fixe l'ARNm.
+  - *Grande sous-unité :* Comporte deux sites actifs fondamentaux : le **site P (Peptidyle)** qui porte le peptide naissant, et le **site A (Aminoacyle)** qui accueille le nouvel aminoacyl-ARNt.
+- **L'ARN de transfert (ARNt) :** Molécule en trèfle portant à une extrémité un **anticodon** complémentaire du codon de l'ARNm, et à son extrémité 3'-OH l'acide aminé correspondant.
+
+### 4.3 Les 3 Étapes de la Traduction
+1. **Initiation :** La petite sous-unité se fixe sur la coiffe de l'ARNm et glisse jusqu'au codon initiateur $5'\\text{-AUG-}3'$. L'ARNt initiateur portant la Méthionine s'apparie par son anticodon $3'\\text{-UAC-}5'$ au site P. La grande sous-unité s'assemble pour former le ribosome fonctionnel.
+2. **Élongation :**
+   - Le codon suivant exposé au **site A** est reconnu par l'anticodon d'un nouvel ARNt chargé.
+   - La **peptidyl-transférase** crée une liaison peptidique covalente entre le groupe carboxyle de l'acide aminé du site P et le groupe amine du site A.
+   - **Translocation :** Le ribosome avance d'exactement 3 nucléotides vers l'extrémité 3'. L'ARNt déchargé quitte le site E/P, et l'ARNt portant le dipeptide passe du site A au site P, libérant le site A pour le codon suivant.
+3. **Terminaison :** Lorsque le site A rencontre l'un des trois codons STOP ($5'\\text{-UAA-}3'$, $5'\\text{-UAG-}3'$, $5'\\text{-UGA-}3'$), aucun ARNt ne s'y lie. Un **facteur de libération (RF)** provoque l'hydrolyse du polypeptide, qui se détache du ribosome. Les deux sous-unités ribosomiques se dissocient. La méthionine initiale est ensuite éliminée par une méthionyl-aminopeptidase.
+
+---
+
+## 5. Les Mutations Ponctuelles & Conséquences Phénotypiques
+
+Une mutation est une altération accidentelle de la séquence nucléotidique de l'ADN.
+
+### 5.1 Typologie des Mutations Ponctuelles
+- **Substitution :** Remplacement d'une paire de bases par une autre :
+  - *Mutation silencieuse :* Le nouveau codon code pour le même acide aminé (grâce à la redondance du code). La protéine reste identique.
+  - *Mutation faux-sens :* Le nouveau codon code pour un acide aminé différent, modifiant la structure primaire de la protéine.
+  - *Mutation non-sens :* Création prématurée d'un codon STOP ($UAA, UAG, UGA$). La synthèse s'arrête prématurément, produisant une protéine tronquée et inactive.
+- **Délétion / Insertion :** Perte ou ajout d'un nombre de nucléotides non multiple de 3 $\\implies$ **Décalage du cadre de lecture (Frameshift)** entraînant la modification de tous les acides aminés en aval et l'apparition rapide d'un codon STOP.
+
+### 5.2 Étude Détaillée de la Drépanocytose (Anémie Falciforme) au Bac S2
+La drépanocytose est le modèle de référence au Baccalauréat sénégalais pour illustrer la chaîne des phénotypes du gène à l'organisme :
+1. **Échelon Moléculaire :**
+   - *ADN normal (gène $\\beta$-globine) :* Brin codant $5'\\text{-GAG-}3'$ (brin transcrit $3'\\text{-CTC-}5'$).
+   - *Mutation ponctuelle :* Substitution d'une adénine par une thymine ($A \\to T$ sur le brin codant, $T \\to A$ sur le brin transcrit $3'\\text{-CAC-}5'$).
+   - *ARNm :* Le codon $5'\\text{-GAG-}3'$ devient $5'\\text{-GUG-}3'$.
+   - *Protéine :* Le 6e acide aminé de la chaîne $\\beta$, normalement l'**Acide Glutamique (Glu)**, hydrophile et chargé négativement, est remplacé par la **Valine (Val)**, hydrophobe.
+2. **Échelon Cellulaire :**
+   - En milieu hypoxique (baisse de $PO_2$), les molécules d'hémoglobine anormale (HbS) polymérisent en longues fibres rigides insolubles.
+   - Ces fibres déforment les hématies en forme de faucille (**falciformation** / drépanocytes).
+3. **Échelon Macroscopique :**
+   - Les drépanocytes rigides perdent leur déformabilité et bloquent la microcirculation capillaire $\\implies$ **crises vaso-occlusives** douloureuses et ischémie tissulaire.
+   - Les hématies fragiles sont rapidement détruites dans la rate (durée de vie réduite de 120 à 15 jours) $\\implies$ **anémie hémolytique chronique sévère**.
+
+---
+
+## 6. Fiche Méthode Synthétique pour l'Épreuve du Bac S2
+
+| Étape de l'Exercice | Règle Opératoire Impérative | Formulation Modèle pour le Bac S2 |
+| :--- | :--- | :--- |
+| **1. Choix du brin transcrit** | Chercher le triplet $3'\\text{-TAC-}5'$ débutant le gène | *« Le brin 2 est le brin transcrit car il débute par 3'-TAC-5', complémentaire du codon initiateur 5'-AUG-3'. »* |
+| **2. Écriture de l'ARNm** | Complémentarité avec polarités $5' \\to 3'$ | *« ARNm : 5' - AUG - ... - UAA - 3' (toujours indiquer 5' et 3'). »* |
+| **3. Décodage peptidique** | Utiliser le code génétique, stopper au STOP | *« Chaîne : Met - ... - Dernier AA (le codon STOP n'est pas un AA). »* |
+| **4. Analyse de mutation** | Nommer la base substituée, le triplet et l'AA | *« Substitution de A par T au 6e codon : GAG → GUG remplaçant Glu par Val. Mutation faux-sens. »* |
+| **5. Meselson-Stahl** | Calculer $2^n$, garder 2 hybrides | *« À Gn : 2 hybrides (15N-14N) et 2^n - 2 légères (14N-14N). »* |
+`,
+
+  // ─── B5 LEÇON 3 — GÉNIE GÉNÉTIQUE & BIOTECHNOLOGIES ───────────────────────
+  b5_genie_genetique: `# B5 Leçon 3 : Génie Génétique & Biotechnologies — Terminale S2 (Baccalauréat Sénégal)
+
+Le génie génétique regroupe l'ensemble des techniques permettant d'**isoler, modifier, amplifier et transférer des gènes** entre organismes. Ces outils ont révolutionné la médecine, l'agriculture et l'industrie pharmaceutique.
+
+---
+
+## 1. Les Outils Fondamentaux du Génie Génétique
+
+### A. Les Enzymes de Restriction — Ciseaux Moléculaires
+
+Les **enzymes de restriction** (ou endonucléases de restriction) sont des protéines bactériennes qui reconnaissent des **séquences palindromiques spécifiques** de l'ADN bicaténaire et les coupent de façon précise.
+
+**Propriétés essentielles :**
+- Chaque enzyme reconnaît une séquence unique de 4 à 8 paires de bases
+- La coupure peut générer des **extrémités cohésives** (bouts collants) ou des **extrémités franches**
+
+**Exemple type (Bac S2) : EcoRI**
+
+Séquence palindromique reconnue et coupure décalée :
+- Brin 1 : $5'\\text{-G}|\\text{AATTC-}3'$ (coupure entre G et A)
+- Brin 2 : $3'\\text{-CTTAA}|\\text{G-}5'$ (coupure entre A et G)
+
+Extrémités cohésives résultantes : $5'\\text{-AATT-}3'$ sortant en 5' (bouts collants).
+
+> **Réflexe Bac S2 :** Un site palindromique se lit identiquement de 5' en 3' sur chacun des deux brins antiparallèles. Si l'enzyme coupe de façon décalée entre les deux brins, elle génère des bouts collants ; si elle coupe en face, des bouts francs.
+
+---
+
+### B. L'ADN Ligase — Enzyme de Suture Moléculaire
+
+L'**ADN ligase** catalyse la formation de **liaisons phosphodiester covalentes** entre le groupement $3'$-OH d'un fragment et le groupement $5'$-phosphate du fragment adjacent, en consommant de l'ATP.
+
+Rôles biologiques naturels : réparation des cassures de l'ADN, jonction des fragments d'Okazaki lors de la réplication.
+
+---
+
+### C. La Transcriptase Inverse (Reverse Transcriptase)
+
+Enzyme virale (d'origine rétrovirale) qui synthétise un **ADN complémentaire (ADNc)** à partir d'un ARNm matrice. L'ADNc obtenu ne contient que les **exons** (séquences codantes). C'est pourquoi on l'utilise pour l'expression de gènes eucaryotes dans des bactéries (procaryotes) dépourvues de spliceosome.
+
+---
+
+## 2. Le Clonage Moléculaire — Construction d'un Plasmide Recombinant
+
+Le **clonage moléculaire** permet d'insérer un gène d'intérêt dans un vecteur de clonage (plasmide, phage) pour le faire répliquer et exprimer dans une cellule hôte.
+
+### Protocole en 5 Étapes
+
+**Étape 1 — Obtention du gène d'intérêt :** Synthèse d'ADNc à partir de l'ARNm matrice (pour les gènes eucaryotes avec introns).
+
+**Étape 2 — Coupure enzymatique :** Le gène d'intérêt et le vecteur plasmidique sont tous deux digérés par la **même enzyme de restriction**, générant des extrémités cohésives complémentaires.
+
+**Étape 3 — Hybridation (Insertion) :** Les fragments sont mélangés à basse température. Les extrémités cohésives complémentaires s'hybrident spontanément par liaisons hydrogène.
+
+**Étape 4 — Ligature :** L'ADN ligase (+ ATP) reforme les liaisons phosphodiester covalentes → **plasmide recombinant circulaire** stable.
+
+**Étape 5 — Transformation bactérienne :** Le plasmide recombinant est introduit dans la bactérie hôte (*E. coli*) par transformation (choc thermique + CaCl₂, ou électroporation).
+
+---
+
+### Sélection des Bactéries Recombinantes : Inactivation Insertionnelle
+
+Exemple avec le plasmide **pBR322** portant deux gènes de résistance : $\\text{Amp}^R$ (ampicilline) et $\\text{Tet}^R$ (tétracycline). L'insert est cloné dans le site unique EcoRI situé dans $\\text{Tet}^R$.
+
+| Phénotype | Interprétation |
+| :--- | :--- |
+| $\\text{Amp}^S$, $\\text{Tet}^S$ | Bactérie non transformée (sans plasmide) |
+| $\\text{Amp}^R$, $\\text{Tet}^R$ | Bactérie avec plasmide NON recombinant |
+| $\\text{Amp}^R$, $\\text{Tet}^S$ | **Bactérie recombinante (insert dans TetR)** |
+
+La **réplique sur velours** permet d'identifier les recombinants : absents sur tétracycline mais présents sur ampicilline.
+
+---
+
+## 3. La PCR — Réaction en Chaîne par Polymérase
+
+La **PCR** (Mullis 1983) permet d'amplifier exponentiellement une séquence d'ADN cible in vitro, sans cellule vivante.
+
+### Les 3 Phases d'un Cycle PCR
+
+| Phase | Température | Rôle |
+| :--- | :--- | :--- |
+| **Dénaturation** | 94–95 °C | Rupture des liaisons H → séparation des brins |
+| **Hybridation (Annealing)** | 50–65 °C | Fixation des amorces sur leurs séquences complémentaires |
+| **Élongation** | 72 °C | Synthèse de nouveaux brins par la Taq polymérase |
+
+### Formule d'Amplification (indispensable au Bac S2)
+
+Après $n$ cycles à partir d'une seule molécule d'ADN double brin :
+$$N = 2^n \\text{ copies du fragment cible}$$
+
+Exemples :
+- $n = 10 \\implies N = 2^{10} = 1024$ copies
+- $n = 30 \\implies N = 2^{30} \\approx 10^9$ copies (1 milliard !)
+
+### Applications de la PCR
+- Diagnostic médical (détection de virus, bactéries, mutations ponctuelles)
+- Empreintes génétiques forensiques (identification criminelle, paternité)
+- Amplification d'espèces rares (paléontologie, conservation)
+- Préparation d'insert avant clonage moléculaire
+
+---
+
+## 4. La Transgénèse — Création d'Organismes Génétiquement Modifiés (OGM)
+
+### A. Transgénèse Végétale via Agrobacterium tumefaciens
+
+*Agrobacterium tumefaciens* est une bactérie du sol pathogène des plantes qui transfère naturellement une portion de son plasmide Ti (Tumor-Inducing), l'**ADN-T**, dans le noyau des cellules végétales où il s'intègre stablement au génome.
+
+**Stratégie biotechnologique :**
+1. Supprimer les gènes oncogènes de l'ADN-T (pour neutraliser la pathogénicité)
+2. Insérer le transgène d'intérêt dans l'ADN-T désarmé
+3. Transformer des explants végétaux (cals, disques foliaires)
+4. Régénérer des plantes transgéniques complètes
+
+**Exemples d'OGM végétaux :**
+- **Soja Roundup Ready** : gène de résistance à l'herbicide glyphosate
+- **Maïs Bt** : gène de la toxine insecticide de *Bacillus thuringiensis* (résistance à la pyrale)
+- **Riz doré (Golden Rice)** : gènes de biosynthèse du bêta-carotène (précurseur de la vitamine A)
+
+---
+
+## 5. Biotechnologies Pharmaceutiques — L'Insuline Recombinante
+
+Avant 1982, l'insuline provenait du pancréas de porc ou de bœuf (risques d'allergie). La première biotechnologie médicale majeure a été la production d'**insuline humaine recombinante** par *E. coli* (Genentech, 1982).
+
+L'insuline active est constituée de deux chaînes polypeptidiques (A : 21 aa, B : 30 aa) reliées par **2 ponts disulfures interchaînes** (+ 1 intrachaîne A). Problème : *E. coli* ne réalise pas correctement la formation des ponts disulfures dans son cytoplasme réducteur, nécessitant une renaturation in vitro.
+
+---
+
+## 6. Thérapie Génique — Corriger les Maladies Génétiques par le Gène
+
+### Distinction Fondamentale Bac S2
+
+| Critère | Thérapie Somatique | Thérapie Germinale |
+| :--- | :--- | :--- |
+| **Cellules cibles** | Cellules somatiques (non reproductives) : lymphocytes, cellules souches hématopoïétiques, pneumocytes | Cellules germinales : ovocytes, spermatozoïdes, zygote, embryon |
+| **Hérédité** | Non transmissible à la descendance | Transmissible à toutes les générations futures |
+| **Statut légal** | Autorisée sous conditions strictes (essais cliniques encadrés) | Moratoire international (éthique, irréversibilité) |
+
+### Vecteurs Thérapeutiques
+- **Vecteurs viraux** : rétrovirus (intégration stable), adénovirus (épisomique), AAV (Adeno-Associated Virus, préféré actuellement)
+- **Vecteurs non viraux** : liposomes, nanoparticules lipidiques
+
+---
+
+## 7. Bioéthique des OGM — Arguments et Controverses
+
+| Argument PRO | Argument CONTRE |
+| :--- | :--- |
+| Augmentation des rendements agricoles | Risque de dissémination génique involontaire |
+| Réduction des pesticides (OGM Bt) | Dépendance des agriculteurs envers les semenciers |
+| Aliments enrichis en nutriments (riz doré) | Biodiversité réduite (monocultures) |
+| Production de médicaments (insuline, vaccins) | Principe de précaution (effets à long terme inconnus) |
+
+> **Réflexe Bac S2 :** Dans une question sur la bioéthique, présentez toujours au minimum 2 arguments pour et 2 arguments contre, en les contextualisant scientifiquement. Le jury sanctionne les réponses à sens unique.
+
+---
+
+## 8. Tableau Synoptique des Techniques
+
+| Technique | Objectif | Enzyme(s) clé(s) | Application médicale |
+| :--- | :--- | :--- | :--- |
+| Clonage moléculaire | Insérer un gène dans un vecteur | Enzyme de restriction + ADN Ligase | Insuline, hormone de croissance |
+| PCR | Amplifier un fragment d'ADN | Taq ADN polymérase | Diagnostic VIH, empreinte génétique |
+| Transgénèse végétale | Créer des OGM végétaux | Agrobacterium Ti (vecteur naturel) | Riz doré, maïs Bt |
+| Thérapie génique | Corriger une mutation pathologique | Vecteur viral (rétrovirus, AAV) | ADA-SCID, drépanocytose |
+| Séquençage | Lire la séquence ADN | ADN polymérase + ddNTP (Sanger) | Génomique médicale |
+`,
+
+  // ─── P5 : LES OSCILLATIONS MÉCANIQUES (PENDULE ÉLASTIQUE) ───────────────────
+  p5_oscillations_mecaniques: `# P5 : Les Oscillations Mécaniques — Pendule Élastique (Terminale S2)
+
+Le chapitre **P5 : Oscillations mécaniques** est un pilier de la mécanique classique au Baccalauréat sénégalais Série S2. Il mobilise à la fois le **Théorème du Centre d'Inertie (TCI)**, la résolution d'**équations différentielles du second ordre à coefficients constants sans second membre** et le **théorème de l'énergie mécanique**.
+
+---
+
+## 1. Définition et Caractéristiques du Ressort
+
+Un **ressort hélicoïdal parfait** possède les propriétés idéalisées suivantes :
+- Masse négligeable par rapport à la masse $m$ du solide suspendu
+- Spires non jointives en l'absence de compression
+- Comportement purement élastique obéissant à la **loi de Hooke** : la force de rappel élastique exercée par le ressort est proportionnelle à son allongement algébrique et constamment dirigée vers sa position de repos.
+
+Vecteur force de rappel exercée par le ressort sur le solide :
+$$\\vec{T} = -k \\cdot \\Delta l \\cdot \\vec{u}$$
+- $k$ : constante de raideur du ressort (en $\\text{N}\\cdot\\text{m}^{-1}$ ou $\\text{N/m}$)
+- $\\Delta l = l - l_0$ : variation de longueur (allongement si $\\Delta l > 0$, raccourcissement si $\\Delta l < 0$)
+- $\\vec{u}$ : vecteur unitaire orienté dans le sens de l'allongement
+
+---
+
+## 2. Le Pendule Élastique Horizontal
+
+### A. Modélisation et Schéma Mécanique
+Un solide ponctuel $(S)$ de masse $m$ est fixé à l'extrémité libre d'un ressort horizontal de raideur $k$, dont l'autre extrémité est scellée à une butée fixe. Le solide glisse sans frottement sur un banc à coussin d'air horizontal.
+On repère la position de son centre d'inertie $G$ par son abscisse $x(t)$ sur l'axe $(O, \\vec{i})$, l'origine $O$ coïncidant avec la position d'équilibre ($x = 0 \\implies$ ressort non déformé, $\\Delta l = x$).
+
+### B. Établissement de l'Équation Différentielle (Méthode Dynamique)
+- **Système :** Le solide $(S)$ de masse $m$
+- **Référentiel :** Terrestre supposé galiléen
+- **Bilan des forces extérieures appliquées :**
+  1. Le poids $\\vec{P} = m\\vec{g}$ (vertical descendant)
+  2. La réaction normale du support $\\vec{R}_N$ (verticale ascendante, pas de composante tangentielle car pas de frottement)
+  3. La tension de rappel du ressort $\\vec{T} = -k\\,x\\,\\vec{i}$
+
+D'après le **Théorème du Centre d'Inertie (2e loi de Newton)** :
+$$\\sum \\vec{F}_{\\text{ext}} = m\\,\\vec{a} \\iff \\vec{P} + \\vec{R}_N + \\vec{T} = m\\,\\vec{a}$$
+
+Projection sur l'axe horizontal $(O, \\vec{i})$ :
+$$P_x + R_{Nx} + T_x = m\\,a_x$$
+Comme $\\vec{P} \\perp \\vec{i}$ et $\\vec{R}_N \\perp \\vec{i}$, $P_x = 0$ et $R_{Nx} = 0$. D'où :
+$$-k\\,x = m\\,\\ddot{x} \\iff m\\,\\ddot{x} + k\\,x = 0$$
+
+En divisant par la masse $m$ ($m \\neq 0$) :
+$$\\mathbf{\\ddot{x} + \\frac{k}{m}\\,x = 0}$$
+
+C'est l'**équation différentielle du Mouvement Rectiligne Sinusoïdal (MRS)** ou oscillateur harmonique simple.
+
+---
+
+### C. Solution Générale de l'Équation Différentielle
+
+En posant la **pulsation propre** $\\omega_0$ :
+$$\\omega_0^2 = \\frac{k}{m} \\implies \\mathbf{\\omega_0 = \\sqrt{\\frac{k}{m}}} \\quad (\\text{en rad}\\cdot\\text{s}^{-1})$$
+
+L'équation s'écrit sous forme canonique :
+$$\\ddot{x} + \\omega_0^2\\,x = 0$$
+
+Sa solution générale est une fonction sinusoïdale du temps :
+$$\\mathbf{x(t) = X_m\\cos(\\omega_0 t + \\varphi)}$$
+- $X_m$ : **amplitude** maximale du mouvement ($X_m > 0$, en mètres $\\text{m}$)
+- $\\omega_0$ : **pulsation propre** (en $\\text{rad}\\cdot\\text{s}^{-1}$)
+- $\\varphi$ : **phase initiale** ou phase à l'origine ($t = 0$), en radians ($\\text{rad}$)
+- $(\\omega_0 t + \\varphi)$ : **phase instantanée** à la date $t$ (en $\\text{rad}$)
+
+---
+
+### D. Période Propre $T_0$ et Fréquence Propre $N_0$
+
+- **Période propre $T_0$ :** Durée d'une oscillation complète (aller-retour) :
+  $$\\mathbf{T_0 = \\frac{2\\pi}{\\omega_0} = 2\\pi\\sqrt{\\frac{m}{k}}} \\quad (\\text{en secondes s})$$
+
+- **Fréquence propre $N_0$ :** Nombre d'oscillations par seconde :
+  $$\\mathbf{N_0 = \\frac{1}{T_0} = \\frac{\\omega_0}{2\\pi} = \\frac{1}{2\\pi}\\sqrt{\\frac{k}{m}}} \\quad (\\text{en Hertz Hz})$$
+
+> **Règle d'or Bac S2 (Isochronisme) :** La période propre $T_0$ ne dépend **NI** de l'amplitude $X_m$, **NI** de la phase initiale $\\varphi$ ! Elle dépend exclusivement des grandeurs intrinsèques du système : l'inertie du mobile ($m$) et l'élasticité du ressort ($k$).
+> - Si la masse quadruple ($m' = 4m$), la période double ($T_0' = 2T_0$).
+> - Si la raideur quadruple ($k' = 4k$), la période est divisée par deux ($T_0' = T_0 / 2$).
+
+---
+
+### E. Vitesse et Accélération du Mobile
+
+- **Vitesse instantanée :** Dérivée première de l'élongation par rapport au temps :
+  $$v(t) = \\dot{x}(t) = \\frac{dx}{dt} = -X_m\\omega_0\\sin(\\omega_0 t + \\varphi) = X_m\\omega_0\\cos\\left(\\omega_0 t + \\varphi + \\frac{\\pi}{2}\\right)$$
+  La vitesse est en **quadrature avance de phase** de $\\pi/2$ par rapport à l'élongation.
+  Vitesse maximale atteinte lors du passage par la position d'équilibre ($x = 0$) :
+  $$\\mathbf{V_m = \\omega_0\\,X_m}$$
+
+- **Accélération instantanée :** Dérivée seconde de l'élongation :
+  $$a(t) = \\ddot{x}(t) = \\frac{dv}{dt} = -X_m\\omega_0^2\\cos(\\omega_0 t + \\varphi) = -\\omega_0^2\\,x(t)$$
+  L'accélération est constamment proportionnelle et de signe opposé à l'élongation : elle est en **opposition de phase** (déphasage de $\\pi$) par rapport à $x(t)$.
+  Accélération maximale atteinte aux élongations extrêmes ($x = \\pm X_m$) :
+  $$\\mathbf{a_m = \\omega_0^2\\,X_m}$$
+
+---
+
+### F. Détermination des Constantes $X_m$ et $\\varphi$ par les Conditions Initiales
+
+À $t = 0$, le solide a pour position $x(0) = x_0$ et pour vitesse $v(0) = v_0$ :
+$$\\begin{cases} x(0) = X_m\\cos\\varphi = x_0 \\\\ v(0) = -X_m\\omega_0\\sin\\varphi = v_0 \\implies X_m\\sin\\varphi = -\\frac{v_0}{\\omega_0} \\end{cases}$$
+
+1. **Calcul de l'amplitude $X_m$ :**
+   En élevant au carré et en sommant :
+   $$(X_m\\cos\\varphi)^2 + (X_m\\sin\\varphi)^2 = x_0^2 + \\left(-\\frac{v_0}{\\omega_0}\\right)^2$$
+   $$X_m^2(\\cos^2\\varphi + \\sin^2\\varphi) = X_m^2 = x_0^2 + \\frac{v_0^2}{\\omega_0^2}$$
+   $$\\mathbf{X_m = \\sqrt{x_0^2 + \\frac{v_0^2}{\\omega_0^2}}}$$
+
+2. **Calcul de la phase initiale $\\varphi$ :**
+   $$\\tan\\varphi = \\frac{X_m\\sin\\varphi}{X_m\\cos\\varphi} = -\\frac{v_0}{\\omega_0\\,x_0}$$
+   Pour lever l'ambiguïté de $\\pi$ sur l'arctangente, déterminez obligatoirement le signe de $\\cos\\varphi = \\frac{x_0}{X_m}$ et de $\\sin\\varphi = -\\frac{v_0}{\\omega_0 X_m}$.
+
+**Cas particuliers fréquents au Bac :**
+- Lâché sans vitesse initiale depuis $x_0 = +X_m$ : $\\cos\\varphi = 1 \\implies \\mathbf{\\varphi = 0}$.
+- Lâché sans vitesse initiale depuis $x_0 = -X_m$ : $\\cos\\varphi = -1 \\implies \\mathbf{\\varphi = \\pi}$.
+- Lancé depuis l'équilibre ($x_0 = 0$) vers les $x$ positifs ($v_0 > 0$) : $\\cos\\varphi = 0$ et $\\sin\\varphi < 0 \\implies \\mathbf{\\varphi = -\\frac{\\pi}{2}}$.
+
+---
+
+## 3. Le Pendule Élastique Vertical
+
+### A. Équilibre Statique & Allongement $\\Delta l_0$
+Lorsqu'on suspend un solide de masse $m$ à un ressort vertical, celui-ci s'allonge d'une quantité $\\Delta l_0 = l_1 - l_0$ sous l'effet du poids.
+À l'équilibre statique :
+$$\\vec{P} + \\vec{T}_0 = \\vec{0} \\iff m\\,g - k\\,\\Delta l_0 = 0$$
+$$\\mathbf{\\Delta l_0 = \\frac{m\\,g}{k}}$$
+
+D'où la relation fondamentale :
+$$\\mathbf{\\frac{k}{m} = \\frac{g}{\\Delta l_0}}$$
+
+### B. Mouvement et Équation Différentielle
+On repère la position de $G$ par son élongation $z(t)$ sur un axe vertical descendant dont l'origine $O$ coïncide avec la **position d'équilibre statique**.
+À un instant $t$, l'allongement total du ressort est $\\Delta l = \\Delta l_0 + z$.
+La tension du ressort est $\\vec{T} = -k(\\Delta l_0 + z)\\,\\vec{k}$.
+
+Application de la 2e loi de Newton :
+$$P_z + T_z = m\\,a_z \\iff m\\,g - k(\\Delta l_0 + z) = m\\,\\ddot{z}$$
+$$(\\underbrace{m\\,g - k\\,\\Delta l_0}_{= 0 \\text{ à l'équilibre}}) - k\\,z = m\\,\\ddot{z} \\implies -k\\,z = m\\,\\ddot{z}$$
+$$\\mathbf{\\ddot{z} + \\frac{k}{m}\\,z = 0}$$
+
+L'équation différentielle du mouvement autour de la position d'équilibre est **strictement identique** à celle du pendule horizontal.
+
+### C. Expression Remarquable de la Période Propre
+En substituant $\\frac{k}{m} = \\frac{g}{\\Delta l_0}$ dans l'expression de $T_0$ :
+$$\\mathbf{T_0 = 2\\pi\\sqrt{\\frac{m}{k}} = 2\\pi\\sqrt{\\frac{\\Delta l_0}{g}}}$$
+
+> **Analogie Bac S2 :** Cette formule met en évidence l'analogie frappante avec le **pendule simple** de longueur $L$ ($T_0 = 2\\pi\\sqrt{L/g}$), où l'allongement statique $\\Delta l_0$ joue exactement le rôle d'une longueur équivalente !
+
+---
+
+## 4. Étude Énergétique de l'Oscillateur Harmonique
+
+### A. Formes d'Énergie
+
+1. **Énergie Cinétique $E_c$ :**
+   $$E_c(t) = \\frac{1}{2}m\\,v^2 = \\frac{1}{2}m\\,\\dot{x}^2 = \\frac{1}{2}m\\,X_m^2\\,\\omega_0^2\\,\\sin^2(\\omega_0 t + \\varphi)$$
+
+2. **Énergie Potentielle Élastique $E_{pe}$ :**
+   En prenant pour référence $E_{pe} = 0$ quand le ressort est non déformé ($x = 0$) :
+   $$E_{pe}(t) = \\frac{1}{2}k\\,x^2 = \\frac{1}{2}k\\,X_m^2\\,\\cos^2(\\omega_0 t + \\varphi)$$
+
+3. **Énergie Mécanique Totale $E_m$ :**
+   $$E_m = E_c + E_{pe} = \\frac{1}{2}m\\,X_m^2\\,\\omega_0^2\\,\\sin^2(\\omega_0 t + \\varphi) + \\frac{1}{2}k\\,X_m^2\\,\\cos^2(\\omega_0 t + \\varphi)$$
+   Puisque $\\omega_0^2 = \\frac{k}{m} \\implies m\\,\\omega_0^2 = k$ :
+   $$E_m = \\frac{1}{2}k\\,X_m^2(\\sin^2(\\omega_0 t + \\varphi) + \\cos^2(\\omega_0 t + \\varphi)) = \\mathbf{\\frac{1}{2}k\\,X_m^2 = \\text{constante}}$$
+
+L'énergie mécanique se conserve intégralement au cours du temps en l'absence de frottements.
+
+---
+
+### B. Échanges Énergétiques et Période Énergétique $T_E$
+
+Au cours d'une oscillation complète :
+- À $x = \\pm X_m$ (extrémités) : $v = 0 \\implies E_c = 0$ et $E_{pe} = E_m = \\frac{1}{2}k X_m^2$ (toute l'énergie est potentielle).
+- À $x = 0$ (passage par l'équilibre) : $v = \\pm V_m \\implies E_{pe} = 0$ et $E_c = E_m = \\frac{1}{2}m V_m^2$ (toute l'énergie est cinétique).
+- D'où l'égalité fondamentale :
+  $$\\mathbf{E_m = \\frac{1}{2}k\\,X_m^2 = \\frac{1}{2}m\\,V_m^2} \\implies V_m = X_m\\sqrt{\\frac{k}{m}} = \\omega_0\\,X_m$$
+
+**Période Énergétique :**
+Les fonctions $\\cos^2(\\theta)$ et $\\sin^2(\\theta)$ s'annulent et atteignent leur maximum deux fois par période mécanique $T_0$.
+$$\\cos^2(\\omega_0 t) = \\frac{1 + \\cos(2\\omega_0 t)}{2}$$
+La pulsation des énergies est donc $\\omega_E = 2\\omega_0$. La période des variations d'énergie est la moitié de la période propre mécanique :
+$$\\mathbf{T_E = \\frac{T_0}{2}}$$
+
+---
+
+### C. Retrouver l'Équation Différentielle par Dérivation de $E_m$
+
+Puisque $E_m = \\frac{1}{2}m\\dot{x}^2 + \\frac{1}{2}kx^2 = \\text{cste}$, sa dérivée par rapport au temps est nulle :
+$$\\frac{dE_m}{dt} = 0$$
+$$\\frac{d}{dt}\\left(\\frac{1}{2}m\\dot{x}^2 + \\frac{1}{2}kx^2\\right) = \\frac{1}{2}m(2\\dot{x}\\ddot{x}) + \\frac{1}{2}k(2x\\dot{x}) = m\\dot{x}\\ddot{x} + kx\\dot{x} = 0$$
+$$\\dot{x}(m\\ddot{x} + kx) = 0$$
+Comme la vitesse $\\dot{x}(t)$ n'est pas identiquement nulle à tout instant, c'est le second facteur qui est nul :
+$$m\\ddot{x} + kx = 0 \\iff \\mathbf{\\ddot{x} + \\frac{k}{m}\\,x = 0}$$
+
+---
+
+## 5. Oscillations Amorties (Frottements Fluides et Solides)
+
+En réalité, les frottements dissipent l'énergie mécanique sous forme de chaleur.
+
+### A. Force de Frottement Fluide
+Lorsque le mobile se déplace à vitesse modérée dans un fluide (air, huile), il subit une force de frottement visqueux :
+$$\\vec{f} = -h\\,\\vec{v} = -h\\,\\dot{x}\\,\\vec{i} \\quad (h > 0 : \\text{coefficient d'amortissement})$$
+
+Équation différentielle amortie :
+$$m\\ddot{x} + h\\dot{x} + kx = 0 \\iff \\mathbf{\\ddot{x} + \\frac{h}{m}\\dot{x} + \\frac{k}{m}x = 0}$$
+
+### B. Les Trois Régimes d'Oscillation
+1. **Régime Pseudopériodique (amortissement faible $h < 2\\sqrt{km}$) :**
+   Le solide effectue des oscillations dont l'amplitude décroît exponentiellement. La pseudo-période $T$ est légèrement supérieure à la période propre $T_0$.
+2. **Régime Critique ($h = 2\\sqrt{km}$) :**
+   Le système revient à sa position d'équilibre le plus rapidement possible sans osciller (système d'amortisseurs de voiture, aiguilles d'appareils de mesure).
+3. **Régime Apériodique (amortissement fort $h > 2\\sqrt{km}$) :**
+   Le mobile retourne très lentement à l'équilibre sans aucune oscillation.
+
+---
+
+## 6. Fiche Synthétique des Formules pour le Bac S2
+
+| Grandeur Physique | Formule Théorique | Unité SI | Piège fréquent au Bac S2 |
+| :--- | :--- | :--- | :--- |
+| **Pulsation propre** | $\\omega_0 = \\sqrt{k/m}$ | $\\text{rad}\\cdot\\text{s}^{-1}$ | Confondre $\\sqrt{k/m}$ et $\\sqrt{m/k}$ |
+| **Période propre** | $T_0 = 2\\pi\\sqrt{m/k} = 2\\pi\\sqrt{\\Delta l_0/g}$ | $\\text{s}$ | Oublier de convertir la masse $m$ en kg |
+| **Allongement statique** | $\\Delta l_0 = \\frac{mg}{k}$ | $\\text{m}$ | Oublier de convertir les cm en mètres |
+| **Loi horaire** | $x(t) = X_m\\cos(\\omega_0 t + \\varphi)$ | $\\text{m}$ | Ne pas lever l'ambiguïté de quadrant sur $\\varphi$ |
+| **Vitesse maximale** | $V_m = \\omega_0\\,X_m$ | $\\text{m}\\cdot\\text{s}^{-1}$ | Confondre avec l'accélération $a_m = \\omega_0^2 X_m$ |
+| **Énergie mécanique** | $E_m = \\frac{1}{2}k X_m^2 = \\frac{1}{2}m V_m^2$ | $\\text{J}$ | Oublier le carré sur $X_m$ ou $V_m$ |
+| **Période énergétique** | $T_E = \\frac{T_0}{2}$ | $\\text{s}$ | Croire que l'énergie a la même période que $x(t)$ |
+`,
+
+  // ─── P6 : PHÉNOMÈNE D'INDUCTION ÉLECTROMAGNÉTIQUE & AUTO-INDUCTION ─────────
+  p6_induction_electromagnetique: `# P6 : Phénomène d'Induction Électromagnétique & Auto-Induction (Terminale S2)
+
+Le chapitre **P6 : Induction et Auto-induction** constitue le cœur de l'électromagnétisme en classe de **Terminale S2**. Il relie de manière fondamentale le magnétisme aux circuits électriques et explique le fonctionnement des alternateurs, transformateurs et bobines d'inductance.
+
+---
+
+## 1. Le Flux du Champ Magnétique
+
+### A. Définition et Expression Mathématique
+Soit une surface plane $S$ délimitée par un contour fermé orienté. On définit le vecteur surface :
+$$\\vec{S} = S \\cdot \\vec{n}$$
+où $\\vec{n}$ est le **vecteur unitaire normal** au plan, dont le sens est déterminé par la **règle de la main droite** (ou du tire-bouchon) associée au sens d'orientation arbitraire du contour.
+
+Placée dans un champ magnétique uniforme $\\vec{B}$, le **flux magnétique** $\\Phi$ traversant une spire est le produit scalaire :
+$$\\Phi = \\vec{B} \\cdot \\vec{S} = B \\cdot S \\cdot \\cos\\alpha$$
+
+Pour une bobine comportant $N$ spires identiques :
+$$\\mathbf{\\Phi = N \\cdot \\vec{B} \\cdot \\vec{S} = N \\cdot B \\cdot S \\cdot \\cos\\alpha}$$
+- $\\Phi$ : flux magnétique en **Webers ($\\text{Wb}$)**
+- $B$ : intensité du champ magnétique en **Teslas ($\\text{T}$)**
+- $S$ : aire de la surface délimitée par une spire en mètres carrés ($\\text{m}^2$)
+- $\\alpha = (\\vec{n}, \\vec{B})$ : angle entre la normale $\\vec{n}$ et le vecteur $\\vec{B}$
+
+> **Piège Majeur du Bac S2 :** L'angle $\\alpha$ est mesuré par rapport à la **normale** $\\vec{n}$ et non par rapport au plan du circuit !
+> - Si le plan du circuit est **perpendiculaire** à $\\vec{B}$ : $\\vec{B} \\parallel \\vec{n} \\implies \\alpha = 0^\\circ \\implies \\cos\\alpha = 1 \\implies \\Phi = \\Phi_{\\text{max}} = N B S$.
+> - Si le plan du circuit est **parallèle** à $\\vec{B}$ : $\\vec{B} \\perp \\vec{n} \\implies \\alpha = 90^\\circ \\implies \\cos\\alpha = 0 \\implies \\Phi = 0$.
+> - Si l'énoncé dit : *« le champ fait un angle de $30^\\circ$ avec le plan de la bobine »*, alors $\\mathbf{\\alpha = 90^\\circ - 30^\\circ = 60^\\circ}$ !
+
+---
+
+## 2. Le Phénomène d'Induction Électromagnétique
+
+### A. Expériences Fondamentales de Faraday (1831)
+1. **Mouvement relatif aimant/bobine :** Lorsqu'on approche ou éloigne un aimant d'une bobine reliée à un galvanomètre sensible, l'aiguille dévie : un courant électrique temporaire circule pendant le mouvement. Dès que l'aimant s'arrête, le courant s'annule.
+2. **Circuit primaire et secondaire :** La fermeture ou l'ouverture du circuit d'une bobine primaire (créant un champ $\\vec{B}$ variable) induit un courant instantané dans une bobine secondaire voisine.
+3. **Déformation de surface :** La variation de l'aire d'un circuit dans un champ $\\vec{B}$ constant engendre également un courant induit (rails de Laplace).
+
+**Conclusion unificatrice de Faraday :**
+L'induction électromagnétique apparaît chaque fois que le **flux magnétique $\\Phi$ à travers le circuit varie au cours du temps** (que ce soit par variation de $B$, de $S$ ou de l'angle $\\alpha$).
+
+---
+
+### B. Loi Quantitative de Faraday
+Toute variation de flux $\\frac{d\\Phi}{dt}$ engendre dans le circuit une **force électromotrice induite** notée $e(t)$ :
+$$\\mathbf{e(t) = -\\frac{d\\Phi}{dt}} \\quad (\\text{en Volts V})$$
+
+Si le circuit fermé possède une résistance totale $R_{\\text{total}}$, l'intensité du **courant induit** est donnée par la loi d'Ohm :
+$$\\mathbf{i(t) = \\frac{e(t)}{R_{\\text{total}}} = -\\frac{1}{R_{\\text{total}}}\\,\\frac{d\\Phi}{dt}}$$
+
+---
+
+### C. La Loi de Lenz (Signification Physique du Signe Moins)
+Énoncée par Heinrich Lenz en 1834 :
+> *« Le courant induit a un sens tel que, par ses effets magnétiques ou mécaniques, il s'oppose à la cause qui lui donne naissance. »*
+
+**Applications concrètes :**
+1. **Approche du pôle Nord d'un aimant vers une bobine :**
+   - *Cause :* Le flux magnétique entrant augmente ($\\Delta\\Phi > 0$).
+   - *Réponse selon Lenz :* La bobine génère un champ induit $\\vec{B}_{\\text{induit}}$ opposé au champ de l'aimant pour freiner cette augmentation.
+   - *Conséquence :* La face en regard devient un **pôle Nord** qui repousse l'aimant : force de répulsion résistive (il faut fournir un travail mécanique pour approcher l'aimant).
+2. **Éloignement du pôle Nord :**
+   - *Cause :* Le flux magnétique diminue ($\\Delta\\Phi < 0$).
+   - *Réponse :* La bobine crée un champ $\\vec{B}_{\\text{induit}}$ de même sens que celui de l'aimant pour compenser la baisse.
+   - *Conséquence :* La face en regard devient un **pôle Sud** qui attire l'aimant : force d'attraction résistive qui s'oppose à l'éloignement.
+
+---
+
+### D. Application Fondamentale au Bac : Les Rails de Laplace
+
+Une tige conductrice $MN$ de masse $m$ et de longueur utile $l$ glisse à la vitesse $\\vec{v} = v\\,\\vec{i}$ sans frottement sur deux rails horizontaux distants de $l$. Le circuit est fermé par un résistor $R$ et plongé dans un champ uniforme $\\vec{B} = B\\,\\vec{k}$ vertical.
+
+1. **Surface du circuit :** $S(t) = l \\cdot x(t)$
+2. **Flux magnétique :** $\\Phi(t) = B \\cdot l \\cdot x(t)$
+3. **f.é.m. induite :**
+   $$e = -\\frac{d\\Phi}{dt} = -B\\,l\\,\\frac{dx}{dt} = -B\\,l\\,v$$
+4. **Courant induit :**
+   $$i = \\frac{|e|}{R} = \\frac{B\\,l\\,v}{R}$$
+5. **Force de Laplace induite :**
+   $$\\vec{F}_L = i\\,\\vec{MN} \\wedge \\vec{B} \\implies \\mathbf{\\vec{F}_L = -\\frac{B^2\\,l^2}{R}\\,v\\,\\vec{i}}$$
+   Il s'agit d'une **force de freinage électromagnétique** proportionnelle à la vitesse.
+6. **Équation différentielle du mouvement de la tige libre :**
+   $$m\\,\\frac{dv}{dt} = F_L = -\\frac{B^2 l^2}{R}\\,v \\iff \\mathbf{\\frac{dv}{dt} + \\frac{B^2 l^2}{m R}\\,v = 0}$$
+   Solution exponentielle : $v(t) = v_0\\,e^{-t/\\tau}$ avec $\\tau = \\frac{m R}{B^2 l^2}$.
+
+---
+
+## 3. Le Phénomène d'Auto-Induction
+
+### A. Définition du Flux Propre et de l'Inductance $L$
+Lorsqu'un circuit fermé est parcouru par un courant d'intensité $i(t)$, il crée dans tout l'espace son propre champ magnétique $\\vec{B}_p(t)$, proportionnel à $i$.
+Le flux de ce champ propre à travers le circuit lui-même est appelé le **flux propre** $\\Phi_p$.
+
+Ce flux propre est rigoureusement proportionnel à l'intensité $i$ :
+$$\\mathbf{\\Phi_p = L \\cdot i}$$
+- $L$ : **inductance propre** (ou coefficient d'auto-induction) du circuit.
+- Unité légale : le **Henry ($\\text{H}$)**, en hommage à Joseph Henry.
+- $1\\text{ H} = 1\\text{ Wb}\\cdot\\text{A}^{-1} = 1\\text{ V}\\cdot\\text{s}\\cdot\\text{A}^{-1} = 1\\;\\Omega\\cdot\\text{s}$.
+
+---
+
+### B. Inductance d'un Solénoïde Idéal
+Pour un solénoïde de longueur $l$, comportant $N$ spires de section $S$, avec $n = N/l$ spires par unité de longueur :
+- Champ magnétique propre intérieur : $B_p = \\mu_0 \\cdot \\frac{N}{l} \\cdot i = \\mu_0 \\cdot n \\cdot i$
+- Flux propre à travers les $N$ spires :
+  $$\\Phi_p = N \\cdot B_p \\cdot S = N \\cdot \\left(\\mu_0 \\frac{N}{l} i\\right) S = \\left(\\mu_0 \\frac{N^2 S}{l}\\right) i$$
+- Par identification avec $\\Phi_p = L \\cdot i$ :
+  $$\\mathbf{L = \\mu_0 \\frac{N^2 S}{l} = \\mu_0 n^2 S l = \\mu_0 n^2 V}$$
+  où $V = S \\cdot l$ est le volume intérieur du solénoïde et $\\mu_0 = 4\\pi \\cdot 10^{-7}\\text{ H}\\cdot\\text{m}^{-1}$ la perméabilité magnétique du vide.
+
+---
+
+### C. Force Électromotrice d'Auto-Induction et Tension aux Bornes de la Bobine
+Si le courant $i(t)$ varie, le flux propre varie : $\\frac{d\\Phi_p}{dt} = L\\,\\frac{di}{dt}$.
+D'après la loi de Faraday, il apparaît dans le circuit une f.é.m. d'auto-induction :
+$$\\mathbf{e = -L\\,\\frac{di}{dt}}$$
+
+En convention récepteur, la **tension aux bornes d'une bobine réelle** de résistance interne $r$ et d'inductance $L$ s'écrit :
+$$\\mathbf{u_B(t) = r\\,i(t) - e(t) = r\\,i(t) + L\\,\\frac{di}{dt}}$$
+
+**Comportements limites essentiels :**
+- **En régime continu permanent ($i = \\text{cste} \\implies di/dt = 0$) :**
+  $$u_B = r\\,I_0$$
+  La bobine se comporte comme un **simple conducteur ohmique** de résistance $r$. Si la bobine est idéale ($r = 0$), la tension est nulle : elle équivaut à un **fil conducteur parfait**.
+- **Lors d'une variation brutale ($di/dt$ très grand) :**
+  Le terme $L\\,\\frac{di}{dt}$ devient prépondérant et s'oppose immédiatement à la variation du courant.
+
+---
+
+## 4. Réponse d'un Dipôle RL à un Échelon de Tension
+
+### A. Établissement du Courant (Fermeture du Circuit)
+Un circuit série comprend un générateur idéal de tension continue $E$, un interrupteur $K$, un résistor $R$ et une bobine $(L, r)$.
+Résistance totale du circuit : $R_T = R + r$.
+
+1. **Loi des mailles (loi d'additivité des tensions) :**
+   $$u_R(t) + u_B(t) = E \\iff R\\,i(t) + \\left(r\\,i(t) + L\\,\\frac{di}{dt}\\right) = E$$
+   $$(R + r)i + L\\,\\frac{di}{dt} = E$$
+
+2. **Équation différentielle canonique :**
+   $$\\mathbf{\\frac{di}{dt} + \\frac{R_T}{L}\\,i = \\frac{E}{L}} \\iff \\mathbf{\\frac{di}{dt} + \\frac{1}{\\tau}\\,i = \\frac{I_0}{\\tau}}$$
+   - Constante de temps : $\\mathbf{\\tau = \\frac{L}{R_T} = \\frac{L}{R + r}} \\quad (\\text{en secondes s})$
+   - Intensité maximale en régime permanent : $\\mathbf{I_0 = \\frac{E}{R_T} = \\frac{E}{R + r}} \\quad (\\text{en Ampères A})$
+
+3. **Solution générale avec condition initiale $i(0) = 0$ :**
+   $$\\mathbf{i(t) = I_0\\left(1 - e^{-t/\\tau}\\right)}$$
+
+4. **Tension aux bornes du résistor $u_R(t)$ :**
+   $$u_R(t) = R\\,i(t) = R\\,I_0\\left(1 - e^{-t/\\tau}\\right)$$
+   Sur un oscilloscope, la tension $u_R(t)$ visualisée sur la voie $Y_A$ est l'**image directe fidèle de l'intensité $i(t)$**.
+
+5. **Tension aux bornes de la bobine $u_B(t)$ :**
+   $$u_B(t) = E - u_R(t) = r\\,I_0 + (E - r I_0)e^{-t/\\tau}$$
+   À $t = 0^+$ : $u_B(0^+) = E$ (la bobine bloque le courant).
+   À $t \\to +\\infty$ : $u_B(\\infty) = r\\,I_0$.
+
+---
+
+### B. Détermination Expérimentale de la Constante de Temps $\\tau$
+
+Sur la courbe expérimentale de $u_R(t)$ ou $i(t)$ :
+1. **Méthode de la tangente à l'origine :**
+   L'équation de la tangente à la courbe en $t = 0$ est :
+   $$y(t) = \\left(\\frac{di}{dt}\\right)_{t=0} \\cdot t = \\frac{I_0}{\\tau}\\,t$$
+   Cette tangente coupe l'asymptote horizontale $y = I_0$ à la date :
+   $$\\frac{I_0}{\\tau}\\,t = I_0 \\implies \\mathbf{t = \\tau}$$
+   L'abscisse de ce point d'intersection donne directement $\\tau$.
+2. **Méthode des $63\\%$ :**
+   À $t = \\tau$ :
+   $$i(\\tau) = I_0(1 - e^{-1}) = I_0(1 - 0{,}368) = \\mathbf{0{,}632\\,I_0 \\approx 63\\% \\text{ de } I_0}$$
+3. **Fin du régime transitoire :**
+   À $t = 5\\tau$ : $i(5\\tau) = I_0(1 - e^{-5}) = 0{,}993\\,I_0 \\approx 99{,}3\\%$.
+   On considère conventionnellement que le **régime permanent est atteint au bout de $5\\tau$**.
+
+---
+
+### C. Rupture du Courant et Phénomène de Surtension
+À la date $t = 0$, on ouvre l'interrupteur $K$ (ou on bascule vers une dérivation sans générateur).
+1. **Équation différentielle :**
+   $$(R + r)i + L\\,\\frac{di}{dt} = 0 \\iff \\frac{di}{dt} + \\frac{1}{\\tau}\\,i = 0$$
+2. **Loi de décroissance :**
+   $$\\mathbf{i(t) = I_0\\,e^{-t/\\tau}}$$
+   À $t = \\tau$, l'intensité a diminué de $63\\%$, il ne reste plus que $37\\%$ de sa valeur initiale.
+
+> **Surtension d'ouverture & Diode de roue libre :**
+> Si l'on ouvre un circuit inductif sans voie de dérivation, l'air entre les lames de l'interrupteur offre une résistance gigatesque ($R_{\\text{air}} \\to \\infty$). Le courant chute de $I_0$ à $0$ en une durée infinitésimale $dt \\to 0$.
+> La f.é.m. induite $e = -L\\frac{di}{dt}$ atteint des **milliers de volts** : cette surtension ionise l'air et produit un arc électrique (**étincelle de rupture**) destructeur pour les composants.
+> **Solution technique :** On branche en parallèle sur la bobine une **diode de roue libre** (bloquée en régime normal, passante lors de l'ouverture pour assurer la continuité du courant).
+
+---
+
+## 5. Énergie Magnétique d'une Bobine
+
+La puissance électrique instantanée reçue par l'inductance est :
+$$p_L(t) = L\\,\\frac{di}{dt} \\cdot i$$
+L'énergie emmagasinée dans le champ magnétique s'obtient par intégration :
+$$E_m = \\int_0^I L\\,i\\,di = \\mathbf{\\frac{1}{2}L\\,i^2} \\quad (\\text{en Joules J})$$
+
+**Théorème de Continuité du Courant :**
+L'énergie magnétique $E_m = \\frac{1}{2}L i^2$ ne peut pas varier de façon discontinue (ce qui exigerait une puissance infinie $P = dE_m/dt = \\infty$).
+Par conséquent, **l'intensité du courant $i(t)$ traversant une bobine est obligatoirement une fonction continue du temps** :
+$$i(0^+) = i(0^-)$$
+
+---
+
+## 6. Synthèse des Formules Réflexes pour l'Épreuve du Bac S2
+
+| Grandeur ou Relation | Formule Mathématique | Unité SI | Rôle Pédagogique au Bac |
+| :--- | :--- | :--- | :--- |
+| **Flux magnétique** | $\\Phi = N B S \\cos\\alpha$ | $\\text{Wb}$ (Weber) | $\\alpha = (\\vec{n}, \\vec{B})$ à calculer avec attention |
+| **Loi de Faraday** | $e = -\\frac{d\\Phi}{dt}$ | $\\text{V}$ (Volt) | f.é.m. induite par variation de flux |
+| **Rails de Laplace** | $|e| = B l v \\quad ; \\quad F_L = \\frac{B^2 l^2 v}{R}$ | $\\text{V}$ et $\\text{N}$ | Force de freinage électromagnétique |
+| **Inductance solénoïde** | $L = \\mu_0 \\frac{N^2 S}{l} = \\mu_0 n^2 V$ | $\\text{H}$ (Henry) | Caractéristique géométrique propre |
+| **Tension bobine** | $u_B = r\\,i + L\\,\\frac{di}{dt}$ | $\\text{V}$ (Volt) | $u_B = r I_0$ en régime permanent |
+| **Constante de temps RL** | $\\tau = \\frac{L}{R + r}$ | $\\text{s}$ (seconde) | Durée pour atteindre $63\\%$ de $I_0$ |
+| **Énergie magnétique** | $E_m = \\frac{1}{2}L i^2$ | $\\text{J}$ (Joule) | Implique la continuité stricte de $i(t)$ |
+`,
+  p7_rlc_libres: `# P7 : Oscillations Électriques Libres — Circuit LC Idéal, Circuit RLC Série et Analogie Mécanique (Terminale S2)
+
+Bienvenue dans le grand chapitre de **Physique** consacré aux **Oscillations Électriques Libres** pour la classe de **Terminale S2**, rigoureusement aligné sur les exigences de l'Office du Baccalauréat sénégalais.
+
+Ce cours structure l'ensemble des concepts fondamentaux : établissement de l'équation différentielle, détermination rigoureuse de la pulsation propre $\\omega_0$ et de la période propre $T_0$, bilan énergétique et échange conservatif d'énergie, étude de l'amortissement en circuit RLC série (les 3 régimes et le décrément logarithmique $\\delta$), l'analogie mécanique-électrique et enfin l'entretien des oscillations par résistance négative.
+
+---
+
+## 1. Circuit LC Idéal : Oscillations Libres Non Amorties
+
+### A. Description et Schéma Électrique
+Un condensateur de capacité $C$, préalablement chargé sous une tension continue $U_0$ (charge initiale $q(0) = Q_m = C U_0$), est connecté à $t = 0$ aux bornes d'une bobine purement inductive d'inductance $L$ et de résistance interne nulle ($r = 0$).
+
+### B. Établissement de l'Équation Différentielle
+Orientons le circuit en choisissant un sens positif pour le courant $i(t)$. En convention récepteur :
+- Tension aux bornes du condensateur : $u_C(t) = \\frac{q(t)}{C}$
+- Tension aux bornes de la bobine idéale : $u_L(t) = L \\frac{di}{dt}$
+- Relation fondamentale entre courant et charge : $i(t) = \\frac{dq}{dt}$
+
+Par application de la loi des mailles (loi d'additivité des tensions) :
+$$u_L(t) + u_C(t) = 0 \\implies L \\frac{di}{dt} + \\frac{q(t)}{C} = 0$$
+
+Comme $\\frac{di}{dt} = \\frac{d^2q}{dt^2}$, on obtient l'équation différentielle canonique :
+$$\\frac{d^2q}{dt^2} + \\frac{1}{LC} q(t) = 0 \\iff \\ddot{q}(t) + \\omega_0^2 q(t) = 0$$
+
+avec :
+$$\\omega_0 = \\frac{1}{\\sqrt{LC}} \\quad (\\text{rad/s}) \\qquad \\text{et} \\qquad T_0 = \\frac{2\\pi}{\\omega_0} = 2\\pi\\sqrt{LC} \\quad (\\text{s})$$
+
+### C. Solution Générale et Conditions Initiales
+La solution générale est sinusoïdale de la forme :
+$$q(t) = Q_m \\cos(\\omega_0 t + \\varphi)$$
+où $Q_m$ est l'amplitude maximale de la charge ($Q_m > 0$) et $\\varphi$ est la phase à l'origine ($t = 0$).
+
+L'intensité du courant s'obtient par dérivation :
+$$i(t) = \\frac{dq}{dt} = -Q_m \\omega_0 \\sin(\\omega_0 t + \\varphi) = I_m \\cos\\left(\\omega_0 t + \\varphi + \\frac{\\pi}{2}\\right)$$
+avec $I_m = Q_m \\omega_0 = Q_m / \\sqrt{LC}$.
+
+> [!CONSEIL_BAC] **Détermination de $Q_m$ et $\\varphi$ au Bac :**
+> À $t = 0$, le condensateur porte la charge initiale $q(0) = C U_0$ et le courant est nul $i(0) = 0$ (continuité du courant dans la bobine $i(0^+) = i(0^-) = 0$) :
+> 1. $q(0) = Q_m \\cos(\\varphi) = C U_0 > 0 \\implies \\cos(\\varphi) > 0$
+> 2. $i(0) = -Q_m \\omega_0 \\sin(\\varphi) = 0 \\implies \\sin(\\varphi) = 0$
+> Des deux relations ci-dessus, on déduit immédiatement : $\\varphi = 0$ rad et $Q_m = C U_0$.
+> L'équation horaire s'écrit donc :
+> $$q(t) = C U_0 \\cos(\\omega_0 t)$$
+> $$i(t) = -C U_0 \\omega_0 \\sin(\\omega_0 t) = -I_m \\sin(\\omega_0 t)$$
+> $$u_C(t) = \\frac{q(t)}{C} = U_0 \\cos(\\omega_0 t)$$
+
+---
+
+## 2. Bilan Énergétique des Oscillations Libres Idéales
+
+### A. Énergie Totale du Circuit LC
+L'énergie électromagnétique totale emmagasinée dans le circuit à chaque instant $t$ est la somme de l'énergie électrique du condensateur $E_e(t)$ et de l'énergie magnétique de la bobine $E_m(t)$ :
+$$E_T(t) = E_e(t) + E_m(t) = \\frac{1}{2} \\frac{q^2(t)}{C} + \\frac{1}{2} L i^2(t)$$
+
+En substituant les expressions temporelles de $q(t)$ et $i(t)$ :
+$$E_e(t) = \\frac{Q_m^2}{2C} \\cos^2(\\omega_0 t + \\varphi)$$
+$$E_m(t) = \\frac{1}{2} L (Q_m \\omega_0)^2 \\sin^2(\\omega_0 t + \\varphi) = \\frac{Q_m^2}{2C} \\sin^2(\\omega_0 t + \\varphi)$$
+
+En effectuant la somme :
+$$E_T(t) = \\frac{Q_m^2}{2C} [\\cos^2(\\omega_0 t + \\varphi) + \\sin^2(\\omega_0 t + \\varphi)] = \\frac{Q_m^2}{2C} = \\frac{1}{2} C U_0^2 = \\frac{1}{2} L I_m^2 = \\text{Constante}$$
+
+### B. Propriétés Clés de l'Échange Énergétique
+1. **Conservation stricte de l'énergie :** En l'absence de toute résistance, l'énergie totale se conserve parfaitement : $\\frac{dE_T}{dt} = 0$.
+2. **Période des énergies $T_E$ :** Les énergies $E_e$ et $E_m$ oscillent à la période :
+   $$T_E = \\frac{T_0}{2} = \\pi\\sqrt{LC}$$
+3. **Échange mutuel :** Lorsque la charge est maximale ($|q| = Q_m$), le courant est nul : toute l'énergie est électrique ($E_e = E_T$). Inversement, quand le condensateur est déchargé ($q = 0$), le courant est maximal ($|i| = I_m$) : toute l'énergie est magnétique ($E_m = E_T$).
+
+---
+
+## 3. Circuit RLC Série : Oscillations Libres Amorties
+
+### A. Équation Différentielle avec Résistance Totale $R_t$
+Dans un circuit réel, la résistance totale du circuit est $R_t = R + r$.
+
+La loi des mailles s'écrit :
+$$u_L(t) + u_R(t) + u_C(t) = 0 \\implies L \\frac{di}{dt} + R_t i + \\frac{q}{C} = 0$$
+
+Comme $i = \\frac{dq}{dt}$ et $\\frac{di}{dt} = \\frac{d^2q}{dt^2}$, on obtient :
+$$L \\frac{d^2q}{dt^2} + R_t \\frac{dq}{dt} + \\frac{q}{C} = 0 \\iff \\frac{d^2q}{dt^2} + \\frac{R_t}{L} \\frac{dq}{dt} + \\frac{1}{LC} q = 0$$
+
+### B. Dérivation de l'Énergie et Dissipation Joule
+$$\\frac{dE_T}{dt} = -R_t i^2 \\le 0$$
+Cette relation traduit rigoureusement la **dissipation irréversible d'énergie par effet Joule** dans la résistance. L'énergie totale décroît au cours du temps.
+
+### C. Les Trois Régimes d'Oscillation et Résistance Critique $R_c$
+La **résistance critique** $R_c$ est donnée par :
+$$R_c = 2\\sqrt{\\frac{L}{C}}$$
+
+Trois régimes physiques fondamentaux :
+1. **Régime Pseudo-périodique ($R_t < R_c$) :** Oscillations amorties de pseudo-période $T \\approx T_0 = 2\\pi\\sqrt{LC}$ (pour $R_t \\ll R_c$).
+2. **Régime Critique ($R_t = R_c = 2\\sqrt{L/C}$) :** Retour à l'état d'équilibre sans oscillation dans le temps le plus court possible.
+3. **Régime Apériodique ($R_t > R_c$) :** Amortissement très fort, décharge lente sans oscillation.
+
+---
+
+## 4. Décrément Logarithmique $\\delta$
+
+En régime pseudo-périodique, l'amplitude des maxima successifs $U_0, U_1, U_2, \\dots, U_n$ décroît géométriquement.
+Le **décrément logarithmique** $\\delta$ est défini par :
+$$\\delta = \\ln\\left(\\frac{U_k}{U_{k+1}}\\right) = \\frac{R_t \\cdot T}{2L}$$
+
+Pour $n$ pseudo-périodes consécutives :
+$$\\delta = \\frac{1}{n} \\ln\\left(\\frac{U_0}{U_n}\\right)$$
+
+---
+
+## 5. Analogie Formelle Mécanique — Électrique
+
+| Grandeur Électrique | Grandeur Mécanique Correspondante | Justification Physique |
+| :--- | :--- | :--- |
+| **Charge $q(t)$ (C)** | **Élongation $x(t)$ (m)** | Grandeur d'état décrivant la position / quantité |
+| **Courant $i = \\dot{q}$ (A)** | **Vitesse $v = \\dot{x}$ (m/s)** | Dérivée première temporelle du déplacement |
+| **Inductance $L$ (H)** | **Masse $m$ (kg)** | Facteur d'inertie (s'oppose aux variations d'état) |
+| **Inverse de capacité $1/C$ ($\\text{F}^{-1}$)** | **Raideur du ressort $k$ (N/m)** | Facteur de rappel élastique / électrostatique |
+| **Résistance totale $R_t$ ($\\Omega$)** | **Coefficient de frottement $h$ (N·s/m)** | Facteur dissipatif d'énergie |
+| **Tension $u_C = q/C$ (V)** | **Force de rappel $F = -kx$ (N)** | Action de rappel vers l'état neutre |
+| **Énergie magnétique $E_m = \\frac{1}{2}Li^2$** | **Énergie cinétique $E_c = \\frac{1}{2}mv^2$** | Énergie liée au mouvement / flux |
+| **Énergie électrique $E_e = \\frac{q^2}{2C}$** | **Énergie potentielle $E_{pe} = \\frac{1}{2}kx^2$** | Énergie emmagasinée |
+| **Pulsation $\\omega_0 = \\frac{1}{\\sqrt{LC}}$** | **Pulsation $\\omega_0 = \\sqrt{\\frac{k}{m}}$** | Pulsation propre non amortie |
+
+---
+
+## 6. Entretien des Oscillations par Résistance Négative
+
+Pour entretenir des oscillations sinusoïdales d'amplitude constante dans un circuit RLC amorti, on insère un dispositif à résistance négative délivrant $u_{\\text{entretien}} = -R_0 \\cdot i$.
+L'équation devient :
+$$L \\frac{d^2q}{dt^2} + (R_t - R_0) \\frac{dq}{dt} + \\frac{q}{C} = 0$$
+- **Condition d'entretien :** $R_0 = R_t$.
+- Le terme d'amortissement s'annule : le circuit oscille indéfiniment à $T_0 = 2\\pi\\sqrt{LC}$.
+
+---
+
+## 7. Synthèse des Formules d'Or pour le Baccalauréat Sénégalais
+
+| Grandeur ou Loi | Formule Officielle | Unité SI | Règle d'Or d'Évaluation |
+| :--- | :--- | :--- | :--- |
+| **Période propre LC** | $T_0 = 2\\pi\\sqrt{LC}$ | $\\text{s}$ (seconde) | Homogénéité par analyse dimensionnelle |
+| **Pulsation propre LC** | $\\omega_0 = \\frac{1}{\\sqrt{LC}}$ | $\\text{rad/s}$ | $\\omega_0 = 2\\pi f_0$ |
+| **Énergie totale LC** | $E_T = \\frac{1}{2}\\frac{Q_m^2}{C} = \\frac{1}{2} C U_0^2 = \\frac{1}{2} L I_m^2$ | $\\text{J}$ (Joule) | Constante stricte au cours du temps |
+| **Période des énergies** | $T_E = \\frac{T_0}{2} = \\pi\\sqrt{LC}$ | $\\text{s}$ (seconde) | L'énergie oscille 2 fois plus vite que la charge |
+| **Résistance critique** | $R_c = 2\\sqrt{\\frac{L}{C}}$ | $\\Omega$ (Ohm) | Frontière entre pseudo-périodique et apériodique |
+| **Décrément $\\delta$** | $\\delta = \\frac{1}{n}\\ln\\left(\\frac{U_0}{U_n}\\right) = \\frac{R_t T}{2L}$ | Sans dimension | Permet de déterminer expérimentalement $R_t$ |
+| **Condition d'entretien** | $R_0 = R_t$ | $\\Omega$ (Ohm) | Compensation exacte des pertes Joule |
+`,
+
+  p8_rlc_forcees: `# P8 : Les Oscillations Électriques Forcées en Courant Alternatif Sinusoïdal — Circuit RLC Série (Terminale S2)
+
+Bienvenue dans le huitième chapitre fondamental de **Physique** de **Terminale S2**, rigoureusement aligné sur le programme officiel sénégalais (MEN / IGEF / Office du Baccalauréat).
+
+L'étude des **oscillations forcées en régime sinusoïdal** constitue avec la mécanique le sujet le plus fréquemment posé et le mieux valorisé au Baccalauréat S2 (noté de 4 à 6 points). Ce chapitre fait le lien direct entre les lois de l'électromagnétisme, l'électronique de transmission (radiocommunication, filtres passe-bande) et l'analyse vectorielle différentielle.
+
+---
+
+## 1. Mise en Situation Expérimentale & Équation Différentielle
+
+### 1.1 Principe du Régime Forcé
+Lorsqu'un dipôle $RLC$ série est relié à un **générateur basse fréquence (GBF)**, celui-ci impose au circuit une tension alternative sinusoïdale d'amplitude $U_m$ et de fréquence $N$ réglable :
+$$u(t) = U_m \\cos(\\omega t) \\quad \\text{avec} \\quad \\omega = 2\\pi N$$
+
+Après un bref régime transitoire (qui s'amortit rapidement sous l'effet des pertes Joule dans la résistance $R_t = R + r$), le circuit s'établit dans un **régime permanent forcé sinusoïdal** :
+- Le courant circulant dans tous les dipôles oscille **à la pulsation imposée $\\omega$ du GBF** (et non à sa pulsation propre $\\omega_0$).
+- L'intensité instantanée s'écrit sous la forme générale :
+  $$i(t) = I_m \\cos(\\omega t - \\varphi)$$
+  où $I_m$ est l'amplitude maximale du courant et $\\varphi = \\varphi_u - \\varphi_i$ est le **déphasage de la tension $u(t)$ par rapport à l'intensité $i(t)$**.
+
+### 1.2 Établissement de l'Équation Différentielle Canonique
+Considérons la maille fermée formée du GBF, d'un conducteur ohmique de résistance $R$, d'une bobine réelle $(L, r)$ et d'un condensateur de capacité $C$.
+
+En convention récepteur pour tous les dipôles passifs :
+- Tension aux bornes du résistor : $u_R(t) = R \\cdot i(t)$
+- Tension aux bornes de la bobine : $u_B(t) = r \\cdot i(t) + L \\frac{di}{dt}$
+- Tension aux bornes du condensateur : $u_C(t) = \\frac{q(t)}{C}$ avec $i(t) = \\frac{dq}{dt} \\iff q(t) = \\int i(t)\\,dt$
+
+D'après la loi des mailles (loi d'additivité des tensions instantanées) :
+$$u_R(t) + u_B(t) + u_C(t) = u(t)$$
+$$(R + r) i(t) + L \\frac{di}{dt} + \\frac{q(t)}{C} = U_m \\cos(\\omega t)$$
+
+En notant $R_t = R + r$ la résistance totale du circuit :
+$$L \\frac{di}{dt} + R_t i(t) + \\frac{1}{C} \\int i(t)\\,dt = U_m \\cos(\\omega t)$$
+
+Ou encore en fonction de la charge instantanée $q(t)$ :
+$$L \\frac{d^2q}{dt^2} + R_t \\frac{dq}{dt} + \\frac{q}{C} = U_m \\cos(\\omega t)$$
+
+> [!IMPORTANT]
+> **Différence capitale avec les oscillations libres (P7) :**
+> Dans les oscillations libres ($u(t) = 0$), l'équation différentielle est homogène et le système oscille à sa pulsation propre $\\omega_0$ (ou pseudo-pulsation $\\omega_a$).
+> Dans les oscillations forcées, le second membre sinusoïdal impose sa propre pulsation $\\omega$ à la solution particulière permanente.
+
+---
+
+## 2. Résolution par la Méthode Vectorielle de Fresnel
+
+La résolution directe de cette équation différentielle avec second membre s'effectue avec élégance grâce à la représentation vectorielle de Fresnel.
+
+### 2.1 Principe de Fresnel
+À toute fonction temporelle sinusoïdale de la forme $a(t) = A_m \\cos(\\omega t + \\theta)$, on associe un vecteur tournant $\\vec{A}$ de norme $\\|\\vec{A}\\| = A_m$ faisant un angle $\\theta$ avec l'axe horizontal de référence à $t = 0$.
+
+Pour simplifier la construction, **on choisit l'intensité du courant $i(t) = I_m \\cos(\\omega t)$ comme origine des phases ($\\varphi_i = 0$)**.
+La tension d'alimentation s'écrit alors :
+$$u(t) = U_m \\cos(\\omega t + \\varphi)$$
+
+### 2.2 Vecteurs Élémentaires associés aux Tensions Partielles
+
+1. **Conducteur ohmique $(R_t)$ :**
+   $$u_{R_t}(t) = R_t \\cdot I_m \\cos(\\omega t) \\implies \\vec{U}_{R_t} \\quad \\text{horizontal de norme } R_t I_m \\text{ (phase } 0\\text{)}$$
+
+2. **Inductance pure $(L)$ :**
+   $$u_L(t) = L \\frac{di}{dt} = -L\\omega I_m \\sin(\\omega t) = L\\omega I_m \\cos\\left(\\omega t + \\frac{\\pi}{2}\\right) \\implies \\vec{U}_L \\quad \\text{vertical vers le haut de norme } L\\omega I_m \\text{ (phase } +\\frac{\\pi}{2}\\text{)}$$
+
+3. **Condensateur parfait $(C)$ :**
+   $$u_C(t) = \\frac{1}{C} \\int i(t)\\,dt = \\frac{I_m}{C\\omega} \\sin(\\omega t) = \\frac{I_m}{C\\omega} \\cos\\left(\\omega t - \\frac{\\pi}{2}\\right) \\implies \\vec{U}_C \\quad \\text{vertical vers le bas de norme } \\frac{I_m}{C\\omega} \\text{ (phase } -\\frac{\\pi}{2}\\text{)}$$
+
+4. **Somme vectorielle :**
+   $$\\vec{U} = \\vec{U}_{R_t} + \\vec{U}_L + \\vec{U}_C$$
+
+### 2.3 Calcul de l'Impédance Totale $Z$
+Dans le repère orthonormé d'origine $(O, \\vec{u}_x, \\vec{u}_y)$ :
+- Composante horizontale : $X = R_t I_m$
+- Composante verticale : $Y = \\left(L\\omega - \\frac{1}{C\\omega}\\right) I_m$
+
+D'après le théorème de Pythagore dans le triangle de Fresnel :
+$$U_m^2 = X^2 + Y^2 = \\left(R_t I_m\\right)^2 + \\left[\\left(L\\omega - \\frac{1}{C\\omega}\\right) I_m\\right]^2$$
+$$U_m^2 = I_m^2 \\left[ R_t^2 + \\left(L\\omega - \\frac{1}{C\\omega}\\right)^2 \\right]$$
+
+En posant l'**impédance totale $Z$** :
+$$Z = \\sqrt{R_t^2 + \\left(L\\omega - \\frac{1}{C\\omega}\\right)^2} \\quad (\\Omega)$$
+On obtient la **loi d'Ohm en courant alternatif** :
+$$U_m = Z \\cdot I_m \\iff U = Z \\cdot I$$
+où $U = \\frac{U_m}{\\sqrt{2}}$ et $I = \\frac{I_m}{\\sqrt{2}}$ sont les **valeurs efficaces**.
+
+---
+
+## 3. Déphasage $\\varphi$ & Comportement du Circuit RLC Série
+
+Le déphasage de la tension par rapport à l'intensité est donné par les composantes du triangle rectangle de Fresnel :
+$$\\tan\\varphi = \\frac{Y}{X} = \\frac{L\\omega - \\frac{1}{C\\omega}}{R_t}$$
+$$\\cos\\varphi = \\frac{X}{U_m} = \\frac{R_t I_m}{Z I_m} = \\frac{R_t}{Z} > 0 \\quad (-\\frac{\\pi}{2} < \\varphi < +\\frac{\\pi}{2})$$
+
+Trois régimes physiques majeurs se distinguent selon la valeur de la pulsation $\\omega$ :
+
+| Condition | Réactance $L\\omega - \\frac{1}{C\\omega}$ | Déphasage $\\varphi$ | Comportement Physique | Relation Temporelle |
+| :--- | :--- | :--- | :--- | :--- |
+| **$\\omega > \\omega_0$** | $L\\omega > \\frac{1}{C\\omega} > 0$ | $\\varphi > 0$ | **Circuit à prédominance INDUCTIVE** | $u(t)$ est **en avance** de phase sur $i(t)$ |
+| **$\\omega < \\omega_0$** | $L\\omega < \\frac{1}{C\\omega}$ | $\\varphi < 0$ | **Circuit à prédominance CAPACITIVE** | $u(t)$ est **en retard** de phase sur $i(t)$ |
+| **$\\omega = \\omega_0$** | $L\\omega = \\frac{1}{C\\omega}$ | $\\varphi = 0$ | **RÉSONANCE D'INTENSITÉ (Résistif pur)** | $u(t)$ et $i(t)$ sont rigoureusement **en phase** |
+
+---
+
+## 4. Étude Approfondie de la Résonance d'Intensité
+
+### 4.1 Condition Fondamentale
+Pour une tension excitatrice efficace $U$ maintenue constante par le GBF, l'intensité efficace $I = \\frac{U}{Z}$ dépend de la pulsation $\\omega$.
+L'intensité passe par son maximum absolu lorsque l'impédance $Z$ est minimale :
+$$\\frac{dZ}{d\\omega} = 0 \\iff L\\omega - \\frac{1}{C\\omega} = 0 \\iff \\omega = \\omega_0 = \\frac{1}{\\sqrt{LC}}$$
+
+- **Pulsation de résonance :** $\\omega_0 = \\frac{1}{\\sqrt{LC}}$ (rad/s)
+- **Fréquence de résonance :** $N_0 = \\frac{\\omega_0}{2\\pi} = \\frac{1}{2\\pi\\sqrt{LC}}$ (Hz)
+- **Période de résonance :** $T_0 = 2\\pi\\sqrt{LC}$ (s)
+
+### 4.2 Caractéristiques du Circuit à la Résonance
+
+1. **Impédance minimale :**
+   $$Z_{\\min} = R_t = R + r$$
+2. **Courant efficace maximal :**
+   $$I_0 = \\frac{U}{R_t}$$
+   > [!CONSEIL_BAC] **Piège classique Bac S2 :** À la résonance, la valeur de $I_0$ dépend **exclusivement de $U$ et de $R_t$** ! Changer $L$ ou $C$ décale le pic de résonance sur l'axe des fréquences mais ne modifie absolument pas la hauteur du pic $I_0$.
+3. **Facteur de puissance maximal :**
+   $$\\cos\\varphi = 1 \\iff \\varphi = 0$$
+   La tension du GBF et l'intensité sont en phase.
+4. **Puissance active maximale transmise :**
+   $$P_{\\max} = U \\cdot I_0 = R_t \\cdot I_0^2 = \\frac{U^2}{R_t}$$
+
+---
+
+## 5. Acuité de Résonance, Bande Passante & Facteur de Qualité
+
+### 5.1 Définition de la Bande Passante à $-3\\text{ dB}$
+On appelle **bande passante à $-3\\text{ dB}$** (ou bande passante à $1/\\sqrt{2}$) l'intervalle de pulsations $[\\omega_1, \\omega_2]$ (ou de fréquences $[N_1, N_2]$) pour lequel l'intensité efficace est supérieure ou égale à la valeur maximale divisée par $\\sqrt{2}$ :
+$$I(\\omega) \\ge \\frac{I_0}{\\sqrt{2}}$$
+
+Or :
+$$I = \\frac{U}{Z} \\ge \\frac{U}{R_t \\sqrt{2}} \\iff Z \\le R_t \\sqrt{2}$$
+$$R_t^2 + \\left(L\\omega - \\frac{1}{C\\omega}\\right)^2 \\le 2 R_t^2 \\iff \\left|L\\omega - \\frac{1}{C\\omega}\\right| \\le R_t$$
+
+En résolvant, on trouve les deux pulsations de coupure $\\omega_1$ et $\\omega_2$ :
+$$\\omega_2 - \\omega_1 = \\Delta\\omega = \\frac{R_t}{L}$$
+$$\\Delta N = N_2 - N_1 = \\frac{R_t}{2\\pi L}$$
+
+### 5.2 Facteur de Qualité $Q$ (ou Coefficient de Surchargement)
+Le facteur de qualité mesure l'**acuité de la résonance** (la finesse du pic) :
+$$Q = \\frac{\\omega_0}{\\Delta\\omega} = \\frac{N_0}{\\Delta N} = \\frac{L\\omega_0}{R_t} = \\frac{1}{R_t C \\omega_0} = \\frac{1}{R_t} \\sqrt{\\frac{L}{C}}$$
+
+- **Si $R_t$ est faible :** $Q \\gg 1$, la bande passante $\\Delta N$ est très étroite : le pic est pointu et le circuit est **hautement sélectif** (indispensable pour les récepteurs radio afin d'isoler une fréquence porteuse précise sans capter les stations voisines).
+- **Si $R_t$ est forte :** $Q$ est faible, la bande passante est large : la résonance est floue et peu sélective.
+
+### 5.3 Phénomène de Surtension à la Résonance
+À la résonance, calculons la tension efficace aux bornes du condensateur :
+$$U_{C0} = \\frac{I_0}{C\\omega_0} = \\frac{U / R_t}{C\\omega_0} = \\left(\\frac{1}{R_t C \\omega_0}\\right) \\cdot U$$
+$$\\mathbf{U_{C0} = Q \\cdot U}$$
+
+De même pour la tension aux bornes de l'inductance pure :
+$$U_{L0} = L\\omega_0 I_0 = \\left(\\frac{L\\omega_0}{R_t}\\right) \\cdot U = \\mathbf{Q \\cdot U}$$
+
+> [!DANGER_BAC] **Phénomène de Surtension :**
+> Dès que le facteur de qualité $Q > 1$, la tension efficace aux bornes du condensateur **dépasse la tension délivrée par le GBF** !
+> Si $U = 10\\text{ V}$ et $Q = 20$, on a $U_{C0} = 200\\text{ V}$ : cette surtension peut perforer le diélectrique et détruire définitivement le condensateur si sa tension de claquage est dépassée.
+
+---
+
+## 6. Puissance en Courant Alternatif Sinusoïdal
+
+### 6.1 Puissance Instantanée
+Soient $u(t) = U_m \\cos(\\omega t)$ et $i(t) = I_m \\cos(\\omega t - \\varphi)$.
+La puissance instantanée consommée par le dipôle est :
+$$p(t) = u(t) \\cdot i(t) = U_m I_m \\cos(\\omega t) \\cos(\\omega t - \\varphi)$$
+
+En utilisant l'identité trigonométrique $\\cos a \\cos b = \\frac{1}{2}[\\cos(a - b) + \\cos(a + b)]$ :
+$$p(t) = \\frac{1}{2} U_m I_m \\cos\\varphi + \\frac{1}{2} U_m I_m \\cos(2\\omega t - \\varphi)$$
+$$p(t) = U I \\cos\\varphi + U I \\cos(2\\omega t - \\varphi)$$
+
+### 6.2 Puissance Active Moyenne (Puissance Réelle Consommée)
+La puissance moyenne sur une période $T$ s'obtient en intégrant $p(t)$. Le terme sinusoïdal oscillant à la pulsation double $2\\omega$ a une moyenne rigoureusement nulle :
+$$\\mathbf{\\mathcal{P} = \\langle p(t) \\rangle = U \\cdot I \\cdot \\cos\\varphi} \\quad (\\text{W, Watt})$$
+
+Puisque $\\cos\\varphi = \\frac{R_t}{Z}$ et $U = Z I$ :
+$$\\mathcal{P} = (Z I) \\cdot I \\cdot \\frac{R_t}{Z} = \\mathbf{R_t \\cdot I^2}$$
+
+### 6.3 Bilan de Puissance des Dipôles Individuels
+- **Résistor $R$ :** $\\mathcal{P}_R = R \\cdot I^2$ (dissipation intégrale sous forme de chaleur par effet Joule).
+- **Bobine idéale $L$ :** $\\varphi_L = +\\frac{\\pi}{2} \\implies \\cos\\varphi_L = 0 \\implies \\mathcal{P}_L = 0\\text{ W}$.
+- **Condensateur $C$ :** $\\varphi_C = -\\frac{\\pi}{2} \\implies \\cos\\varphi_C = 0 \\implies \\mathcal{P}_C = 0\\text{ W}$.
+
+> [!REMARQUE]
+> La bobine et le condensateur ne dissipent **aucune puissance active** sur une période. Ils emmagasinent temporairement de l'énergie (respectivement sous forme magnétique $\\frac{1}{2} L i^2$ et électrostatique $\\frac{1}{2} C u_C^2$) et la restituent intégralement au reste du circuit : ils consomment uniquement de la **puissance réactive** ($Q_{\\text{réact}}$ en VAR).
+
+---
+
+## 7. Fiche Réflexes Bac S2 : Formules Incontournables
+
+| Grandeur Physique | Symbole | Formule Officielle | Unité SI | Règle d'Évaluation Bac S2 |
+| :--- | :--- | :--- | :--- | :--- |
+| **Impédance totale RLC** | $Z$ | $Z = \\sqrt{R_t^2 + \\left(L\\omega - \\frac{1}{C\\omega}\\right)^2}$ | $\\Omega$ (Ohm) | $R_t = R + r$ (ne pas oublier $r$ !) |
+| **Loi d'Ohm en alternatif** | $U$ | $U = Z \\cdot I \\iff U_m = Z \\cdot I_m$ | $\\text{V}$ (Volt) | $U = U_m / \\sqrt{2}$, $I = I_m / \\sqrt{2}$ |
+| **Déphasage tension/courant** | $\\tan\\varphi$ | $\\tan\\varphi = \\frac{L\\omega - \\frac{1}{C\\omega}}{R_t}$ | Sans dimension | Signe de $\\varphi$ : $\\varphi > 0$ si inductif, $\\varphi < 0$ si capacitif |
+| **Facteur de puissance** | $\\cos\\varphi$ | $\\cos\\varphi = \\frac{R_t}{Z}$ | Sans dimension | Strictement compris entre $0$ et $1$ |
+| **Fréquence de résonance** | $N_0$ | $N_0 = \\frac{1}{2\\pi\\sqrt{LC}}$ | $\\text{Hz}$ (Hertz) | Indépendante de la résistance $R_t$ |
+| **Intensité à la résonance** | $I_0$ | $I_0 = \\frac{U}{R_t}$ | $\\text{A}$ (Ampère) | Pic d'intensité maximal du circuit |
+| **Bande passante à $-3\\text{ dB}$** | $\\Delta N$ | $\\Delta N = \\frac{R_t}{2\\pi L} = \\frac{N_0}{Q}$ | $\\text{Hz}$ (Hertz) | Proportionnelle à la résistance $R_t$ |
+| **Facteur de qualité** | $Q$ | $Q = \\frac{L\\omega_0}{R_t} = \\frac{1}{R_t C \\omega_0}$ | Sans dimension | Détermine la surtension $U_C = Q \\cdot U$ |
+| **Puissance moyenne** | $\\mathcal{P}$ | $\\mathcal{P} = U I \\cos\\varphi = R_t I^2$ | $\\text{W}$ (Watt) | Seule la résistance consomme de la puissance active |
+`,
+  p9_lumiere_quanta: `# P9 : Le Modèle Ondulatoire et Corpusculaire de la Lumière (Terminale S2)
+
+Bienvenue dans le neuvième grand chapitre de **Physique** pour la classe de **Terminale S2**, rigoureusement aligné sur les exigences officielles du **Baccalauréat Sénégalais** (MEN / IGEF / Office du Baccalauréat).
+
+Ce chapitre scelle le triomphe de la physique moderne du XXᵉ siècle. Il démontre la **dualité onde-corpuscule** de la lumière : continue et ondulatoire lors de sa propagation (interférences de Thomas Young), discontinue et quantifiée sous forme de photons d'Albert Einstein lors de ses interactions avec la matière (effet photoélectrique et spectroscopie atomique de Niels Bohr).
+
+---
+
+## 1. Introduction Historique & La Crise des Modèles Classiques
+
+La nature de la lumière a divisé les plus grands esprits de la science pendant plus de trois siècles :
+
+- **Isaac Newton (1672) — Modèle corpusculaire :** la lumière est un flux de petits corpuscules matériels se propageant en ligne droite. Ce modèle expliquait simplement la réflexion et la réfraction élémentaire.
+- **Christian Huygens & Thomas Young (1801) — Modèle ondulatoire :** la lumière est une onde. L'expérience historique des trous d'Young prouve de manière éclatante le caractère ondulatoire grâce au phénomène d'**interférences** : l'addition de deux faisceaux lumineux peut produire de l'obscurité !
+- **James Clerk Maxwell (1865) :** unifie l'électricité, le magnétisme et l'optique : la lumière est une **onde électromagnétique** transversale se propageant dans le vide à la célérité $c \\approx 3{,}00 \\times 10^8\\text{ m}\\cdot\\text{s}^{-1}$.
+- **La crise de 1900 & Albert Einstein (1905) :** l'effet photoélectrique et le rayonnement du corps noir résistent obstinément à la théorie de Maxwell. Einstein reprend l'hypothèse des quanta de Max Planck : la lumière est formée de « grains d'énergie » indivisibles appelés **photons**.
+- **Louis de Broglie (1924) :** réconcilie les deux théories en postulant la **dualité onde-corpuscule** universelle : à toute onde lumineuse est associé un photon de quantité de mouvement $p = \\frac{h}{\\lambda}$, et à toute particule matérielle en mouvement est associée une onde de matière de longueur d'onde $\\lambda = \\frac{h}{mv}$.
+
+> [!WOLOF] **Xam-xam ci Wolof — Dualité onde-corpuscule :**
+> - « Leer dafa yor ñaari melokaan : buñ koy bàyyi mu di daw (propagation), day mel ni onde ci ndox (interférences ak diffraction) ; waaye bumu dëggee ak métale wala atom, dafay mel ni bal yu ndaw (photons) yu yor énergie bien précis $E = h\\nu$. »
+> - « Thomas Young mo wone côté onde bi (franges d'interférence). Einstein mo wone côté photon bi ci effet photoélectrique ba am ci Prix Nobel ci atum 1921 ! »
+
+---
+
+## 2. Le Modèle Ondulatoire : Interférences Lumineuses & Fentes d'Young
+
+### 2.1 Description du Dispositif Expérimental d'Young
+Une source lumineuse monochromatique ponctuelle $S$ de longueur d'onde $\\lambda$ éclaire deux fentes fines parallèles très rapprochées $F_1$ et $F_2$, percées dans un plan opaque à une distance $a$ l'une de l'autre.
+Un écran d'observation plan $E$ est placé parallèlement au plan des fentes, à une distance $D$ très grande devant $a$ ($D \\gg a$).
+
+- **Conditions d'interférences observables :**
+  1. Les deux sources secondaires $F_1$ et $F_2$ doivent être **synchrones** (même fréquence $\\nu$).
+  2. Les deux sources doivent être **cohérentes** (différence de phase initiale constante au cours du temps). Ces conditions sont automatiquement satisfaites car $F_1$ et $F_2$ sont issues d'une même ondelette primaire émise par $S$.
+
+---
+
+### 2.2 Calcul de la Différence de Marche $\\delta$
+Soit $M$ un point quelconque de l'écran, repéré par son abscisse $x$ sur l'axe orthogonal aux fentes, l'origine $O$ étant le point central d'intersection de la médiatrice du segment $[F_1 F_2]$ avec l'écran.
+
+Les rayons lumineux issus de $F_1$ et $F_2$ parcourent respectivement les distances géométriques $d_1 = F_1 M$ et $d_2 = F_2 M$.
+Dans les triangles rectangles formés avec le plan des fentes :
+$$d_1^2 = D^2 + \\left(x - \\frac{a}{2}\\right)^2$$
+$$d_2^2 = D^2 + \\left(x + \\frac{a}{2}\\right)^2$$
+
+En soustrayant membre à membre :
+$$d_2^2 - d_1^2 = (d_2 - d_1)(d_2 + d_1) = \\left(x + \\frac{a}{2}\\right)^2 - \\left(x - \\frac{a}{2}\\right)^2 = 2ax$$
+
+Dans les conditions usuelles du laboratoire, les dimensions vérifient : $a \\ll D$ (typiquement $a \\sim 0{,}5\\text{ mm}$ et $D \\sim 2\\text{ m}$) et le champ d'observation est petit ($x \\ll D$). Par conséquent :
+$$d_1 \\approx D \\quad \\text{et} \\quad d_2 \\approx D \\implies d_2 + d_1 \\approx 2D$$
+
+On en déduit l'expression fondamentale de la **différence de marche** $\\delta$ :
+$$\\mathbf{\\delta = d_2 - d_1 = \\frac{a \\cdot x}{D}}$$
+
+---
+
+### 2.3 Franges Brillantes & Franges Sombres
+Le déphasage entre les deux vibrations lumineuses arrivant en $M$ vaut :
+$$\\Delta\\varphi = \\varphi_2 - \\varphi_1 = \\frac{2\\pi}{\\lambda}\\,\\delta = \\frac{2\\pi\\,a\\,x}{\\lambda\\,D}$$
+
+1. **Franges Brillantes (Interférences Constructives) :**
+   Les ondes arrivent en phase (crête sur crête) et renforcent mutuellement leur amplitude lumineuse :
+   $$\\delta = k \\cdot \\lambda \\quad (k \\in \\mathbb{Z})$$
+   $$\\mathbf{x_k = k \\frac{\\lambda D}{a}} \\quad (k \\in \\mathbb{Z})$$
+   - L'entier relatif $k$ est appelé **ordre d'interférence**.
+   - $k = 0 \\implies x_0 = 0$ : c'est la **frange centrale brillante**.
+   - $k = \\pm 1$ : 1ʳᵉ frange brillante de part et d'autre du centre.
+
+2. **Franges Sombres (Interférences Destructives) :**
+   Les ondes arrivent en opposition de phase (crête sur creux) et s'annulent mutuellement :
+   $$\\delta = (2k + 1) \\frac{\\lambda}{2} = \\left(k + \\frac{1}{2}\\right)\\lambda \\quad (k \\in \\mathbb{Z})$$
+   $$\\mathbf{x_k' = \\left(k + \\frac{1}{2}\\right) \\frac{\\lambda D}{a}} \\quad (k \\in \\mathbb{Z})$$
+
+---
+
+### 2.4 Notion d'Interfrange $i$ & Méthode de Mesure de Laboratoire
+L'**interfrange $i$** est la distance séparant les centres de deux franges consécutives de même nature (deux brillantes ou deux sombres successives) :
+$$i = x_{k+1} - x_k = (k+1)\\frac{\\lambda D}{a} - k\\frac{\\lambda D}{a}$$
+$$\\mathbf{i = \\frac{\\lambda D}{a}}$$
+
+- **Unités SI :** $\\lambda$ en mètres (m), $D$ en mètres (m), $a$ en mètres (m), $i$ en mètres (m).
+- **Mesure de précision :** Au microscope ou sur l'écran gradué, la mesure d'un seul interfrange $i$ comporte une incertitude relative importante. On mesure donc la distance $L$ séparant le centre de la $1^{\\text{ère}}$ frange brillante du centre de la $(n+1)^{\\text{ème}}$ frange brillante :
+  $$L = n \\cdot i \\implies \\mathbf{i = \\frac{L}{n}}$$
+  > [!CONSEIL_BAC] **Attention au décompte des franges :** $N$ franges consécutives délimitent exactement $(N - 1)$ intervalles interfranges !
+
+---
+
+### 2.5 Déplacement du Système de Franges par une Lame Transparente
+On interpose devant l'une des fentes (par exemple $F_1$) une lame transparente à faces parallèles, d'épaisseur $e$ et d'indice de réfraction $n$.
+
+- Dans l'air d'indice $1$, la lumière parcourt l'épaisseur $e$ en un temps $t_1 = \\frac{e}{c}$ correspondant à un chemin optique $L_{\\text{air}} = e$.
+- Dans la lame d'indice $n$, la vitesse de la lumière est ralentie : $v = \\frac{c}{n}$. Le chemin optique équivalent devient $L_{\\text{verre}} = n \\cdot e$.
+- L'allongement de chemin optique sur le rayon 1 vaut : $\\Delta L = (n - 1)e$.
+
+La nouvelle différence de marche en un point $M(x)$ s'écrit :
+$$\\delta' = d_2 - [d_1 + (n - 1)e] = \\frac{a\\,x}{D} - (n - 1)e$$
+
+La **frange centrale** d'ordre 0 correspond par définition à $\\delta' = 0$ :
+$$\\frac{a\\,x_0}{D} - (n - 1)e = 0 \\implies \\mathbf{x_0 = \\Delta x = \\frac{(n - 1)\\,e\\,D}{a}}$$
+
+- **Sens du déplacement :** le système de franges se déplace en bloc **vers le côté de la fente couverte par la lame**.
+- **Conservation de l'interfrange :** l'interfrange $i = \\frac{\\lambda D}{a}$ reste **rigoureusement inchangé**.
+
+---
+
+## 3. Le Modèle Corpusculaire : Le Photon & L'Effet Photoélectrique
+
+### 3.1 Définition et Évidence Expérimentale
+L'**effet photoélectrique** est l'émission d'électrons par une surface métallique convenablement nettoyée lorsqu'elle est éclairée par un rayonnement électromagnétique de fréquence suffisante.
+
+#### Insuffisances Radicales de la Théorie Ondulatoire de Maxwell :
+1. **L'existence d'une fréquence seuil $\\nu_0$ :** Pour un métal donné, si la fréquence de la lumière incidente $\\nu < \\nu_0$, aucun électron n'est émis, même si l'intensité du faisceau est gigantesque. Selon Maxwell, une onde intense transporte une grande densité d'énergie électrique et devrait toujours réussir à arracher des électrons.
+2. **L'instantanéité de l'émission :** Dès que $\\nu \\ge \\nu_0$, les premiers électrons jaillissent en moins d'une nanoseconde ($< 10^{-9}\\text{ s}$), même avec un éclairage ultra-faible. La théorie ondulatoire prévoyait une lente accumulation d'énergie diffuse sur plusieurs minutes.
+3. **L'indépendance de l'énergie cinétique vis-à-vis de l'intensité :** Augmenter l'intensité lumineuse augmente uniquement le nombre d'électrons émis par seconde (le photocourant de saturation), mais ne change absolument pas leur vitesse d'éjection.
+
+---
+
+### 3.2 La Théorie des Quanta d'Einstein (1905)
+Albert Einstein résout l'énigme en avançant une hypothèse révolutionnaire :
+- La lumière n'est pas distribuée de manière continue dans l'espace, mais concentrée en paquets d'énergie discrets et indivisibles appelés **photons**.
+- Chaque photon individuel transporte un quantum d'énergie proportionnel à sa fréquence $\\nu$ :
+  $$\\mathbf{E = h \\cdot \\nu = \\frac{h \\cdot c}{\\lambda}}$$
+  avec $h \\approx 6{,}626 \\times 10^{-34}\\text{ J}\\cdot\\text{s}$ (constante de Planck) et $c \\approx 3{,}00 \\times 10^8\\text{ m/s}$.
+- **Interaction 1 à 1 :** L'extraction résulte d'un choc inélastique direct entre **un unique photon incident** et **un unique électron** du réseau métallique.
+
+---
+
+### 3.3 Conditions de Seuil & Travail d'Extraction $W_0$
+Pour extraire un électron des forces de liaison du cristal métallique, il faut lui fournir une énergie minimale caractéristique du matériau, appelée **travail d'extraction** $W_0$ (souvent exprimé en $\\text{eV}$) :
+
+$$\\mathbf{h\\nu \\ge W_0} \\iff \\mathbf{\\nu \\ge \\nu_0 = \\frac{W_0}{h}} \\iff \\mathbf{\\lambda \\le \\lambda_0 = \\frac{h\\,c}{W_0}}$$
+
+- $\\nu_0$ : **fréquence seuil** (Hz).
+- $\\lambda_0$ : **longueur d'onde seuil** (m).
+
+| Métal | Travail d'extraction $W_0$ (eV) | Longueur d'onde seuil $\\lambda_0$ (nm) | Domaine spectral seuil |
+| :--- | :--- | :--- | :--- |
+| **Césium (Cs)** | $1{,}90\\text{ eV}$ | $653\\text{ nm}$ | Visible (Rouge) |
+| **Potassium (K)** | $2{,}30\\text{ eV}$ | $539\\text{ nm}$ | Visible (Vert) |
+| **Sodium (Na)** | $2{,}40\\text{ eV}$ | $517\\text{ nm}$ | Visible (Vert) |
+| **Zinc (Zn)** | $4{,}30\\text{ eV}$ | $288\\text{ nm}$ | Ultraviolet (UV) |
+| **Platine (Pt)** | $5{,}65\\text{ eV}$ | $219\\text{ nm}$ | Ultraviolet profond (UV) |
+
+---
+
+### 3.4 Bilan Énergétique d'Einstein
+En vertu du principe de conservation de l'énergie lors du choc élémentaire photon-électron :
+$$E_{\\text{photon}} = W_{\\text{extraction}} + E_{c}^{\\max}$$
+$$\\mathbf{h\\nu = W_0 + \\frac{1}{2}m_e v_{\\max}^2} \\iff \\mathbf{E_{c}^{\\max} = h\\nu - W_0 = hc\\left(\\frac{1}{\\lambda} - \\frac{1}{\\lambda_0}\\right)}$$
+
+- $E_c^{\\max} = \\frac{1}{2}m_e v_{\\max}^2$ : énergie cinétique maximale des électrons les plus rapides à la sortie du métal (J).
+- $m_e \\approx 9{,}109 \\times 10^{-31}\\text{ kg}$ : masse au repos de l'électron.
+- $v_{\\max} = \\sqrt{\\frac{2(h\\nu - W_0)}{m_e}}$ : vitesse maximale d'éjection (m/s).
+
+---
+
+### 3.5 Potentiel d'Arrêt $U_0$ & Méthode de Millikan
+Dans une cellule photoélectrique soumise à une tension anodique $U_{AK} = V_A - V_K$, on applique une tension retardatrice négative ($U_{AK} < 0$) pour freiner les électrons.
+
+Le photocourant $I$ s'annule rigoureusement lorsque même les électrons les plus rapides ne parviennent plus à atteindre l'anode. D'après le théorème de l'énergie cinétique :
+$$\\Delta E_c = W(\\vec{F}_e) \\implies 0 - E_c^{\\max} = q \\cdot U_{AK} = (-e) \\cdot U_{AK} = -e |U_0|$$
+$$\\mathbf{e \\cdot |U_0| = E_c^{\\max} = h\\nu - W_0}$$
+$$\\mathbf{|U_0| = \\frac{h}{e}\\,\\nu - \\frac{W_0}{e}}$$
+
+- **Caractéristique $|U_0| = f(\\nu)$ :**
+  C'est une droite affine de pente universelle $a = \\frac{h}{e}$ (identique pour tous les métaux du monde !) et d'abscisse à l'origine égale à la fréquence seuil $\\nu_0 = \\frac{W_0}{h}$.
+  Cette expérience historique menée par Robert Millikan en 1916 a fourni la première mesure de grande précision de la constante de Planck $h$.
+
+---
+
+## 4. Spectres Atomiques & Le Modèle de Bohr (1913)
+
+### 4.1 Insuffisances du Modèle Planétaire de Rutherford
+Selon la physique classique de Maxwell, toute charge électrique accélérée rayonne en permanence de l'énergie électromagnétique. Un électron gravitant autour du noyau devrait perdre continuellement son énergie, spiraler vers le noyau en une fraction de nanoseconde et s'y écraser : la matière classique est instable ! De plus, le spectre émis devrait être continu, or l'observation révèle des **spectres de raies discrets**.
+
+---
+
+### 4.2 Les Deux Postulats de Niels Bohr
+1. **Postulat des États Stationnaires :**
+   L'électron ne peut circuler que sur certaines orbites privilégiées stables appelées orbites stationnaires, sans émettre le moindre rayonnement électromagnétique. À chaque orbite correspond un niveau d'énergie bien déterminé $E_n$.
+2. **Postulat des Transitions Quantiques (Règle de Fréquence) :**
+   L'atome n'absorbe ou n'émet de la lumière que lors du passage discontinu d'un état d'énergie $E_p$ à un autre état d'énergie $E_n$. Le photon émis ou absorbé a une énergie égale à l'écart entre les deux niveaux :
+   $$\\mathbf{\\Delta E = |E_p - E_n| = h\\,\\nu = \\frac{h\\,c}{\\lambda}}$$
+   - **Émission spontanée ($p > n$) :** transition d'un niveau supérieur excité vers un niveau inférieur avec **émission d'un photon**.
+   - **Absorption ($n < p$) :** un photon incident de fréquence rigoureusement accordée est absorbé et fait monter l'électron vers un niveau excité.
+
+---
+
+### 4.3 Formule des Niveaux d'Énergie de l'Hydrogène
+Pour l'atome d'hydrogène (un proton, un électron), le modèle quantique de Bohr aboutit à la formule quantifiée :
+$$\\mathbf{E_n = -\\frac{E_0}{n^2} = -\\frac{13{,}6}{n^2} \\quad (\\text{eV})} \\quad (n \\in \\mathbb{N}^*)$$
+
+- $n = 1$ : **Niveau Fondamental** ($E_1 = -13{,}6\\text{ eV}$), l'état le plus stable et le plus fortement lié.
+- $n = 2, 3, 4, \\dots$ : **Niveaux Excités** ($E_2 = -3{,}40\\text{ eV}$, $E_3 = -1{,}51\\text{ eV}$, $E_4 = -0{,}85\\text{ eV}$).
+- $n \\to \\infty$ : **État Ionisé** ($E_\\infty = 0\\text{ eV}$), l'électron est complètement arraché à l'attraction nucléaire.
+- **Énergie d'ionisation depuis l'état fondamental :**
+  $$E_{\\text{ion}} = E_\\infty - E_1 = 0 - (-13{,}6\\text{ eV}) = \\mathbf{+13{,}6\\text{ eV} = 2{,}18 \\times 10^{-18}\\text{ J}}$$
+
+---
+
+### 4.4 Séries Spectrales de l'Hydrogène & Formule de Rydberg
+Lors d'une désexcitation du niveau $p$ vers un niveau inférieur $n$ ($p > n$) :
+$$\\frac{hc}{\\lambda} = E_p - E_n = -\\frac{E_0}{p^2} - \\left(-\\frac{E_0}{n^2}\\right) = E_0 \\left(\\frac{1}{n^2} - \\frac{1}{p^2}\\right)$$
+$$\\mathbf{\\frac{1}{\\lambda} = R_H \\left(\\frac{1}{n^2} - \\frac{1}{p^2}\\right)} \\quad \\text{avec } R_H = \\frac{E_0}{hc} \\approx 1{,}097 \\times 10^7\\text{ m}^{-1}$$
+
+$R_H$ est la **constante de Rydberg pour l'hydrogène**.
+
+Les transitions se regroupent en séries selon le niveau d'arrivée $n$ :
+
+1. **Série de Lyman ($n = 1$, $p \\ge 2$) :**
+   - Retours vers le niveau fondamental.
+   - Énergies élevées $\\implies$ **Domaine Ultraviolet (UV)**.
+   - Raie Lyman-$\\alpha$ ($p = 2 \\to 1$) : $\\lambda \\approx 121{,}6\\text{ nm}$.
+2. **Série de Balmer ($n = 2$, $p \\ge 3$) :**
+   - Retours vers le premier état excité.
+   - Énergies modérées $\\implies$ **Domaine du Visible et proche UV**.
+   - Raie $H_\\alpha$ ($p = 3 \\to 2$) : $\\lambda = 656{,}3\\text{ nm}$ (**Rouge**).
+   - Raie $H_\\beta$ ($p = 4 \\to 2$) : $\\lambda = 486{,}1\\text{ nm}$ (**Bleu-Cyan**).
+   - Raie $H_\\gamma$ ($p = 5 \\to 2$) : $\\lambda = 434{,}0\\text{ nm}$ (**Bleu-Violet**).
+   - Raie $H_\\delta$ ($p = 6 \\to 2$) : $\\lambda = 410{,}2\\text{ nm}$ (**Violet profond**).
+   - Limite de série ($p \\to \\infty$) : $\\lambda_{\\lim} = \\frac{4}{R_H} \\approx 364{,}6\\text{ nm}$ (UV proche).
+3. **Série de Paschen ($n = 3$, $p \\ge 4$) :**
+   - Retours vers le niveau $n = 3$.
+   - Faibles énergies $\\implies$ **Domaine Infrarouge (IR)**.
+
+---
+
+## 5. Fiche Réflexes Bac S2 : Formules & Pièges Incontournables
+
+| Phénomène Physique | Formule Clé | Unités SI | Piège Classique à Éviter |
+| :--- | :--- | :--- | :--- |
+| **Interfrange d'Young** | $i = \\frac{\\lambda D}{a}$ | $\\lambda, D, a, i$ en mètres (m) | Ne pas mélanger millimètres ($a$) et mètres ($D$) ! |
+| **Différence de marche** | $\\delta = \\frac{a x}{D}$ | $\\delta, a, x, D$ en mètres (m) | Brillante si $\\delta = k\\lambda$, sombre si $\\delta = (k+1/2)\\lambda$ |
+| **Déplacement par lame** | $\\Delta x = \\frac{(n-1)eD}{a}$ | $e, D, a, \\Delta x$ en mètres | Le déplacement se fait VERS la fente couverte |
+| **Énergie du photon** | $E = h\\nu = \\frac{hc}{\\lambda}$ | $h$ en J·s, $E$ en Joules | Convertir en eV en divisant par $1{,}6 \\times 10^{-19}$ |
+| **Seuil photoélectrique** | $\\lambda \\le \\lambda_0 = \\frac{hc}{W_0}$ | $\\lambda_0$ en m, $W_0$ en Joules | $\\nu \\ge \\nu_0$ (fréquence plus grande), mais $\\lambda \\le \\lambda_0$ (longueur d'onde plus petite) |
+| **Bilan d'Einstein** | $E_c^{\\max} = h\\nu - W_0 = \\frac{1}{2}m v_{\\max}^2$ | Joules (J) | Ne jamais calculer une vitesse en utilisant des eV |
+| **Potentiel d'arrêt** | $e|U_0| = E_c^{\\max} \\implies |U_0| = \\frac{h}{e}\\nu - \\frac{W_0}{e}$ | $|U_0|$ en Volts (V) | Tension d'anode négative : $U_{AK} = -|U_0|$ |
+| **Niveaux de Bohr** | $E_n = -\\frac{13{,}6}{n^2}\\text{ (eV)}$ | $n \\in \\mathbb{N}^*$ | Toujours négatifs pour les états liés |
+| **Transition spectrale** | $\\Delta E = |E_p - E_n| = \\frac{hc}{\\lambda}$ | $\\Delta E > 0$ en Joules | Toujours soustraire le niveau inférieur du niveau supérieur |
+| **Formule de Rydberg** | $\\frac{1}{\\lambda} = R_H\\left(\\frac{1}{n^2} - \\frac{1}{p^2}\\right)$ | $R_H \\approx 1{,}097 \\times 10^7\\text{ m}^{-1}$ | $p > n$ ; raie limite obtenue pour $p \\to \\infty$ |
+`,
+
+  p10_physique_nucleaire: `# P10 : Physique Nucléaire — Noyau, Radioactivité, Fission, Fusion & Énergie (Terminale S2)
+
+Bienvenue dans le dixième et ultime chapitre de **Physique** pour la classe de **Terminale S2**, rigoureusement conforme au programme officiel du Ministère de l'Éducation Nationale et de l'Office du Baccalauréat du Sénégal.
+
+Ce chapitre constitue une pièce maîtresse de l'épreuve de Sciences Physiques du Baccalauréat (souvent l'objet de l'Exercice 4 ou 5, noté sur 4 points). Il synthétise l'équivalence masse-énergie d'Albert Einstein, les lois de conservation de Soddy, la cinétique de décroissance radioactive et les formidables applications énergétiques contemporaines.
+
+---
+
+## 1. Structure du Noyau Atomique, Isotopie et Énergie de Liaison
+
+### A. Composition du Noyau
+Un noyau atomique $^{A}_{Z}\\text{X}$ est constitué de deux types de particules appelées **nucléons** :
+- **$Z$ protons** : chacun porteur d'une charge élémentaire positive $+e = +1{,}602 \\times 10^{-19}\\text{ C}$ et d'une masse $m_p \\approx 1{,}00728\\text{ u} \\approx 1{,}6726 \\times 10^{-27}\\text{ kg}$. $Z$ est le **numéro atomique** (ou nombre de charge).
+- **$N = A - Z$ neutrons** : électriquement neutres ($q = 0$), de masse très légèrement supérieure $m_n \\approx 1{,}00866\\text{ u} \\approx 1{,}6749 \\times 10^{-27}\\text{ kg}$.
+- **$A$ nucléons au total** : $A = Z + N$ est le **nombre de masse**.
+
+> [!NOTE] **Isotopes :** Deux nucléides sont dits **isotopes** s'ils possèdent le même nombre de protons $Z$ (donc le même symbole chimique), mais un nombre de neutrons $N$ différent (donc des nombres de masse $A$ différents).
+> *Exemples du Bac :* $^{12}_{6}\\text{C}$ (stable, abondance 98,9 %), $^{13}_{6}\\text{C}$ (stable, 1,1 %) et $^{14}_{6}\\text{C}$ (radioactif instable, traces).
+
+---
+
+### B. Unité de Masse Atomique (u) et Équivalence Masse-Énergie d'Einstein
+À l'échelle nucléaire, le kilogramme est une unité incommode. Les physiciens utilisent l'**unité de masse atomique** (notée $\\text{u}$), définie comme le douzième ($1/12$) de la masse d'un atome de carbone 12 ($^{12}_{6}\\text{C}$) au repos :
+$$1\\text{ u} = \\frac{10^{-3}\\text{ kg/mol}}{12 \\times N_A} = \\frac{10^{-3}}{12 \\times 6{,}02214 \\times 10^{23}} \\approx \\mathbf{1{,}66054 \\times 10^{-27}\\text{ kg}}$$
+
+D'après la théorie de la Relativité Restreinte d'Albert Einstein (1905), toute particule de masse $m$ au repos possède une **énergie de masse** équivalente :
+$$E_0 = m \\cdot c^2$$
+
+L'équivalent énergétique de $1\\text{ u}$ au repos vaut :
+$$1\\text{ u} \\times c^2 = 1{,}66054 \\times 10^{-27} \\times (2{,}99792 \\times 10^8)^2 \\approx 1{,}4924 \\times 10^{-10}\\text{ J} = \\frac{1{,}4924 \\times 10^{-10}}{1{,}60218 \\times 10^{-13}}\\text{ MeV} \\approx \\mathbf{931{,}5\\text{ MeV}}$$
+
+> [!CONSEIL_BAC] **Réflexe Bac S2 :** Retenez par cœur cette équivalence fondamentale :
+> $$1\\text{ u} = 931{,}5\\text{ MeV}/c^2 \\iff 1\\text{ u} \\cdot c^2 = 931{,}5\\text{ MeV}$$
+> Lorsque les masses sont données en unités $\\text{u}$, ne convertissez jamais en kilogrammes sauf si l'énoncé exige explicitement un résultat en Joules ! Multipliez directement votre variation de masse $\\Delta m$ (en $\\text{u}$) par $931{,}5$ pour obtenir l'énergie en $\\text{MeV}$.
+
+---
+
+### C. Défaut de Masse $\\Delta m$ et Énergie de Liaison $E_\\ell$
+Les mesures de spectroscopie de masse révèlent un résultat capital : **la masse d'un noyau lié au repos est TOUJOURS strictement inférieure à la somme des masses de ses nucléons constitutifs pris isolément et au repos**.
+
+On appelle **défaut de masse** $\\Delta m$ la différence positive :
+$$\\Delta m = [Z m_p + (A - Z) m_n] - m_{\\text{noyau}} > 0$$
+
+L'**énergie de liaison** $E_\\ell$ d'un noyau est l'énergie qu'il faut fournir au noyau au repos pour le dissocier en ses nucléons isolés et immobiles :
+$$E_\\ell = \\Delta m \\cdot c^2 = [Z m_p + (A - Z) m_n - m_{\\text{noyau}}] \\cdot c^2 > 0$$
+
+> [!WOLOF] **Xam-xam ci Wolof — Doole jépp gi lakk ci biir noyau :**
+> - « Pàcc yu sew-sew yi (protons ak neutrons) su ñu tëjoo ci biir ndawu noyau bi, dañuy ñàkk tuuti ci seen diisaay (masse) ! Masse boobu reer dafay soppiku doole ju tar (énergie) juy tëye noyau bi ba mu dëgër te tasul. »
+> - « Boo bëggee tàqale nucléons yi ba ñu nekk ay cér yu taxaw ci suuf, faaw nga jox leen énergie bi ñu ñàkkoon : loolu mooy tudd *énergie de liaison* $E_\\ell = \\Delta m \\cdot c^2$. »
+
+---
+
+## 2. Stabilité des Noyaux et Courbe d'Aston
+
+### A. Énergie de Liaison par Nucléon $E_\\ell / A$
+Pour comparer la stabilité de deux noyaux ayant des nombres de nucléons très différents, l'énergie de liaison totale $E_\\ell$ ne convient pas. Le véritable critère de stabilité nucléaire est l'**énergie de liaison moyenne par nucléon** :
+$$\\frac{E_\\ell}{A} = \\frac{\\Delta m \\cdot c^2}{A} \\quad (\\text{exprimée en MeV/nucléon})$$
+
+> [!IMPORTANT] **Théorème de Stabilité du Bac S2 :**
+> Un noyau est d'autant **plus stable** que son énergie de liaison par nucléon $\\frac{E_\\ell}{A}$ est **plus grande**.
+
+---
+
+### B. Analyse de la Courbe d'Aston
+Francis Aston a tracé la courbe $-\\frac{E_\\ell}{A} = f(A)$ (ou en valeur positive $\\frac{E_\\ell}{A} = f(A)$). Cette courbe présente trois domaines fondamentaux :
+
+1. **Les noyaux légers ($A < 20$) :**
+   - L'énergie par nucléon est faible (ex : $^{2}_{1}\\text{H} \\approx 1{,}1\\text{ MeV/nucl.}$, $^{3}_{1}\\text{H} \\approx 2{,}8\\text{ MeV/nucl.}$).
+   - Exception remarquable : l'Hélium 4 ($^{4}_{2}\\text{He}$, particule $\\alpha$) possède une stabilité exceptionnelle ($E_\\ell/A \\approx 7{,}07\\text{ MeV/nucl.}$), formant un pic aigu.
+   - Ces noyaux légers peuvent gagner en stabilité en fusionnant pour former un noyau plus lourd : c'est le domaine de la **FUSION thermonucléaire**.
+2. **Le plateau des noyaux moyens très stables ($40 < A < 100$) :**
+   - L'énergie de liaison par nucléon est maximale, oscillant entre $8{,}5$ et $8{,}8\\text{ MeV/nucléon}$.
+   - Le sommet absolu de la courbe est occupé par le **Fer 56** ($^{56}_{26}\\text{Fe}$ avec $8{,}79\\text{ MeV/nucl.}$) et le **Nickel 62** ($^{62}_{28}\\text{Ni}$ avec $8{,}795\\text{ MeV/nucl.}$).
+   - Ce sont les noyaux les plus stables de l'Univers.
+3. **Les noyaux lourds ($A > 100$, en particulier $A > 200$) :**
+   - L'énergie par nucléon redescend progressivement vers $7{,}5\\text{ MeV/nucléon}$ (ex : $^{235}_{92}\\text{U} \\approx 7{,}59\\text{ MeV/nucl.}$, $^{238}_{92}\\text{U} \\approx 7{,}57\\text{ MeV/nucl.}$).
+   - La répulsion électrostatique entre les très nombreux protons l'emporte sur l'attraction nucléaire forte.
+   - Ces noyaux lourds gagnent en stabilité en se cassant en deux fragments moyens : c'est le domaine de la **FISSION nucléaire** induite.
+
+---
+
+## 3. Radioactivité Spontanée et Lois de Conservation de Soddy
+
+### A. Les Lois de Conservation de Soddy
+Dans toute transformation nucléaire (spontanée ou provoquée), il y a conservation rigoureuse :
+1. **Du nombre total de nucléons $A$ (nombre de masse)** : $\\sum A_{\\text{réactifs}} = \\sum A_{\\text{produits}}$.
+2. **De la charge électrique totale $Z$ (numéro atomique)** : $\\sum Z_{\\text{réactifs}} = \\sum Z_{\\text{produits}}$.
+3. De la quantité de mouvement totale et de l'énergie totale (masse + énergie cinétique + rayonnement).
+
+---
+
+### B. Les Quatre Types de Rayonnements Radioactifs
+
+#### 1. Radioactivité Alpha ($\\alpha$)
+Émission spontanée d'un noyau d'hélium 4 ($^{4}_{2}\\text{He}$, appelé particule $\\alpha$) par un noyau lourd instable ($A > 200$) :
+$$^{A}_{Z}\\text{X} \\longrightarrow ^{A-4}_{Z-2}\\text{Y} + ^{4}_{2}\\text{He}$$
+*Exemple canonique du Bac :*
+$$^{226}_{88}\\text{Ra} \\longrightarrow ^{222}_{86}\\text{Rn} + ^{4}_{2}\\text{He}$$
+- Pouvoir de pénétration : Très faible (arrêté par une simple feuille de papier ou quelques centimètres d'air), mais pouvoir ionisant extrême.
+
+#### 2. Radioactivité Bêta Moins ($\\beta^-$)
+Émission spontanée d'un électron rapide ($^{0}_{-1}\\text{e}$ ou $^{0}_{-1}\\beta$) et d'un antineutrino électronique ($\\bar{\\nu}_e$). Elle affecte les noyaux possédant un **excès de neutrons**.
+Au sein du noyau, un neutron se transforme spontanément en proton :
+$$^{1}_{0}\\text{n} \\longrightarrow ^{1}_{1}\\text{p} + ^{0}_{-1}\\text{e} + \\bar{\\nu}_e$$
+Équation globale :
+$$^{A}_{Z}\\text{X} \\longrightarrow ^{A}_{Z+1}\\text{Y} + ^{0}_{-1}\\text{e} + \\bar{\\nu}_e$$
+*Exemple canonique :*
+$$^{14}_{6}\\text{C} \\longrightarrow ^{14}_{7}\\text{N} + ^{0}_{-1}\\text{e} + \\bar{\\nu}_e$$
+- Pouvoir de pénétration : Moyen (arrêté par une feuille d'aluminium de quelques millimètres).
+
+#### 3. Radioactivité Bêta Plus ($\\beta^+$)
+Émission d'un positon (antiparticule de l'électron, $^{0}_{+1}\\text{e}$) et d'un neutrino électronique ($\\nu_e$). Elle affecte les noyaux artificiels présentant un **excès de protons**.
+Au sein du noyau, un proton se transmute en neutron :
+$$^{1}_{1}\\text{p} \\longrightarrow ^{1}_{0}\\text{n} + ^{0}_{+1}\\text{e} + \\nu_e$$
+Équation globale :
+$$^{A}_{Z}\\text{X} \\longrightarrow ^{A}_{Z-1}\\text{Y} + ^{0}_{+1}\\text{e} + \\nu_e$$
+*Exemple canonique :*
+$$^{30}_{15}\\text{P} \\longrightarrow ^{30}_{14}\\text{Si} + ^{0}_{+1}\\text{e} + \\nu_e$$
+
+#### 4. Rayonnement Gamma ($\\gamma$)
+Désexcitation électromagnétique d'un noyau fils formé dans un état excité (noté $^{A}_{Z}\\text{Y}^*$) lors d'une désintégration $\\alpha$ ou $\\beta$ :
+$$^{A}_{Z}\\text{Y}^* \\longrightarrow ^{A}_{Z}\\text{Y} + \\gamma$$
+- Ne modifie ni $A$ ni $Z$.
+- Pouvoir de pénétration : Extrêmement élevé (nécessite d'épaisses couches de plomb ou des mètres de béton pour être atténué).
+
+---
+
+## 4. Cinétique de Décroissance Radioactive, Période & Datation
+
+### A. La Loi Fondamentale de Décroissance
+La désintégration radioactive est un phénomène aléatoire, spontané et inéluctable. La probabilité qu'un noyau se désintègre par unité de temps est une constante caractéristique appelée **constante radioactive $\\lambda$** (en $\\text{s}^{-1}$).
+
+Pour une population de $N(t)$ noyaux radioactifs à l'instant $t$ :
+$$\\mathrm{d}N(t) = -\\lambda N(t)\\,\\mathrm{d}t \\implies \\frac{\\mathrm{d}N(t)}{N(t)} = -\\lambda\\,\\mathrm{d}t$$
+Par intégration entre $t = 0$ ($N(0) = N_0$) et $t$ :
+$$\\mathbf{N(t) = N_0 \\, e^{-\\lambda t}}$$
+
+---
+
+### B. Période Radioactive $T$ (ou Demi-Vie $t_{1/2}$)
+La **période radioactive $T$** est la durée au bout de laquelle la moitié des noyaux radioactifs initialement présents s'est désintégrée :
+$$N(T) = \\frac{N_0}{2} = N_0 e^{-\\lambda T} \\implies e^{\\lambda T} = 2 \\implies \\mathbf{T = \\frac{\\ln 2}{\\lambda} \\approx \\frac{0{,}693}{\\lambda}}$$
+
+Propriété remarquable des puissances de 2 :
+$$N(n \\cdot T) = \\frac{N_0}{2^n}$$
+- À $t = 1\\,T$ : il reste $50\\%$ de $N_0$.
+- À $t = 2\\,T$ : il reste $25\\%$ de $N_0$.
+- À $t = 3\\,T$ : il reste $12{,}5\\%$ de $N_0$.
+- À $t = 10\\,T$ : il reste $\\frac{N_0}{1024} < 0{,}1\\%$ de $N_0$ (l'échantillon est considéré comme quasi-éteint).
+
+---
+
+### C. Activité d'une Source et Datation au Carbone 14
+L'**activité** $A(t)$ est le nombre de désintégrations par unité de temps :
+$$A(t) = -\\frac{\\mathrm{d}N}{\\mathrm{d}t} = \\lambda N(t) = \\lambda N_0 e^{-\\lambda t} = A_0 e^{-\\lambda t}$$
+- **Unité légale SI :** Le **Becquerel ($\\text{Bq}$)** : $1\\text{ Bq} = 1\\text{ désintégration / seconde}$.
+- Ancienne unité : Le Curie ($\\text{Ci}$) : $1\\text{ Ci} = 3{,}7 \\times 10^{10}\\text{ Bq}$.
+
+#### Datation Archéologique au Carbone 14 ($T = 5\\,730\\text{ ans}$) :
+Tant qu'un organisme végétal ou animal est vivant, il échange du dioxyde de carbone avec l'atmosphère par respiration et photosynthèse : le rapport $^{14}\\text{C} / ^{12}\\text{C}$ reste constant, et l'activité massique vaut $A_0 \\approx 0{,}25\\text{ Bq par gramme de carbone}$.
+À sa mort, les échanges cessent, et le $^{14}\\text{C}$ piégé décroît avec sa demi-vie $T = 5\\,730\\text{ ans}$.
+En mesurant l'activité résiduelle $A(t)$ d'un échantillon fossile, son âge $t$ s'obtient directement par :
+$$\\mathbf{t = \\frac{1}{\\lambda} \\ln\\left(\\frac{A_0}{A(t)}\\right) = \\frac{T}{\\ln 2} \\ln\\left(\\frac{A_0}{A(t)}\\right)}$$
+
+---
+
+## 5. Réactions Nucléaires Provoquées : Fission, Fusion & Bilan d'Énergie
+
+### A. Fission Nucléaire Induite
+Sous l'impact d'un neutron thermique (lent, d'énergie cinétique $\\approx 0{,}025\\text{ eV}$), un noyau lourd fissile (comme $^{235}_{92}\\text{U}$ ou $^{239}_{94}\\text{Pu}$) absorbe le neutron, devient hautement instable et se scinde en deux noyaux de taille moyenne avec émission de 2 à 3 neutrons rapides :
+$$^{1}_{0}\\text{n} + ^{235}_{92}\\text{U} \\longrightarrow ^{94}_{38}\\text{Sr} + ^{140}_{54}\\text{Xe} + 2\\,^{1}_{0}\\text{n}$$
+Ces neutrons émis peuvent à leur tour induire de nouvelles fissions : c'est la **réaction en chaîne**, contrôlée par des barres de bore ou cadmium dans les réacteurs nucléaires.
+
+---
+
+### B. Fusion Thermonucléaire
+Deux noyaux très légers s'unissent à très haute température ($> 10^8\\text{ K}$) pour surmonter leur répulsion coulombienne et former un noyau plus lourd :
+$$^{2}_{1}\\text{H} + ^{3}_{1}\\text{H} \\longrightarrow ^{4}_{2}\\text{He} + ^{1}_{0}\\text{n}$$
+- C'est la source d'énergie inépuisable des étoiles (dont notre Soleil) et le principe du projet international ITER.
+- À masse égale de combustible, la fusion dégage environ 4 fois plus d'énergie que la fission et ne génère aucun déchet radioactif de longue durée de vie.
+
+---
+
+### C. Bilan Énergétique d'Einstein pour une Réaction Nucléaire
+Pour toute réaction nucléaire :
+$$\\Delta m = \\sum m_{\\text{produits}} - \\sum m_{\\text{réactifs}}$$
+
+1. **Énergie échangée par le système :**
+   $$\\Delta E = \\Delta m \\cdot c^2$$
+   Si $\\Delta m < 0$, alors $\\Delta E < 0$ : le système cède de l'énergie au milieu extérieur.
+2. **Énergie libérée (fournie au milieu extérieur) :**
+   $$E_{\\text{libérée}} = |\\Delta E| = |\\Delta m| \\cdot c^2 > 0$$
+
+#### Calcul de la puissance d'une centrale nucléaire :
+Pour un réacteur de puissance électrique $P_{\\text{élec}}$ et de rendement $r = \\frac{P_{\\text{élec}}}{P_{\\text{thermique}}}$ :
+$$P_{\\text{thermique}} = \\frac{P_{\\text{élec}}}{r} = \\frac{N_f \\cdot E_1}{\\Delta t}$$
+où $N_f$ est le nombre de fissions pendant la durée $\\Delta t$ et $E_1$ est l'énergie libérée par une seule fission.
+
+---
+
+## 6. Fiche Réflexes Bac S2 : Formules & Pièges Incontournables
+
+| Grandeur Nucléaire | Formule Clé | Unité SI | Piège Classique du Bac S2 |
+| :--- | :--- | :--- | :--- |
+| **Défaut de masse** | $\\Delta m = (Z m_p + N m_n) - m_{\\text{noyau}}$ | $\\text{u}$ ou $\\text{kg}$ | Ne pas utiliser la masse atomique avec les électrons si l'énoncé distingue atome et noyau ! |
+| **Énergie de liaison** | $E_\\ell = \\Delta m \\cdot c^2$ | $\\text{MeV}$ ou $\\text{J}$ | Multiplier $\\Delta m(\\text{u})$ par $931{,}5$ pour avoir des $\\text{MeV}$ directs. |
+| **Stabilité** | $\\frac{E_\\ell}{A}$ maximale | $\\text{MeV/nucléon}$ | Le Fer 56 est plus stable que l'Uranium 238 malgré un $E_\\ell$ total plus faible. |
+| **Lois de Soddy** | $\\sum A = \\text{cte} \\quad ; \\quad \\sum Z = \\text{cte}$ | Entiers | N'oubliez pas les neutrons incidents à gauche de la réaction ! |
+| **Période radioactive** | $T = \\frac{\\ln 2}{\\lambda} \\approx \\frac{0{,}693}{\\lambda}$ | $\\text{s}$ ou unités de temps | $\\lambda = \\frac{\\ln 2}{T}$ ; ne pas confondre avec $\\tau = \\frac{1}{\\lambda} = \\frac{T}{\\ln 2}$. |
+| **Activité radioactive** | $A(t) = \\lambda N(t)$ | $\\text{Becquerel (Bq)}$ | $\\lambda$ DOIT impérativement être convertie en $\\text{s}^{-1}$ pour obtenir des Bq ! |
+| **Datation C-14** | $t = \\frac{T}{\\ln 2}\\ln\\left(\\frac{A_0}{A}\\right)$ | Années (ans) | Si $A/A_0 = 1/2^n$, alors $t = n \\cdot T$. |
+| **Énergie libérée** | $E_{\\text{lib}} = |\\Delta m| \\cdot c^2$ | $\\text{Joules (J)}$ | Convertir en Joules : $1\\text{ eV} = 1{,}602 \\times 10^{-19}\\text{ J}$. |
+| **Puissance réacteur** | $P_{\\text{th}} = \\frac{P_{\\text{élec}}}{r} = N_f \\cdot E_1 / \\Delta t$ | $\\text{Watts (W)}$ | Ne pas oublier le rendement $r < 1$ pour trouver la puissance thermique totale. |
+`,
+};
+
+export function getEnhancedLessonContent(
+  lessonTitle: string,
+  chapterTitle: string,
+  rawContent: string | null,
+  lessonId?: string,
+  chapterId?: string
+): string {
+  // ── 0. CONTRÔLE STRICT PAR IDENTIFIANT UNIQUE (GUIDELINES_COURS_S2) ─────────
+  // Physique P3 : Mouvement d'un projectile dans un champ de pesanteur uniforme
+  if (
+    chapterId === '50000000-0000-0002-0001-000000000003' ||
+    lessonId === '60000000-0000-0002-0001-000000000007' ||
+    lessonId === '60000000-0000-0002-0001-000000000008' ||
+    lessonId === '60000000-0000-0002-0001-000000000009'
+  ) {
+    return RICH_LESSONS_MAP.projectile_champ_pesanteur;
+  }
+
+  // Physique P5 : Les oscillations mécaniques (pendule élastique)
+  if (
+    chapterId === '50000000-0000-0002-0001-000000000005' ||
+    lessonId === '60000000-0000-0002-0001-000000000013' ||
+    lessonId === '60000000-0000-0002-0001-000000000014' ||
+    lessonId === '60000000-0000-0002-0001-000000000015'
+  ) {
+    return RICH_LESSONS_MAP.p5_oscillations_mecaniques;
+  }
+
+  // Physique P6 : Phénomène d'induction électromagnétique et auto-induction
+  if (
+    chapterId === '50000000-0000-0002-0001-000000000006' ||
+    lessonId === '60000000-0000-0002-0001-000000000016' ||
+    lessonId === '60000000-0000-0002-0001-000000000017' ||
+    lessonId === '60000000-0000-0002-0001-000000000018'
+  ) {
+    return RICH_LESSONS_MAP.p6_induction_electromagnetique;
+  }
+
+  // Physique P7 : Oscillations électriques libres (Circuit LC et RLC)
+  if (
+    chapterId === '50000000-0000-0002-0001-000000000007' ||
+    lessonId === '60000000-0000-0002-0001-000000000019' ||
+    lessonId === '60000000-0000-0002-0001-000000000020' ||
+    lessonId === '60000000-0000-0002-0001-000000000021'
+  ) {
+    return RICH_LESSONS_MAP.p7_rlc_libres;
+  }
+
   const titleLower = `${lessonTitle} ${chapterTitle}`.toLowerCase();
+
+  // Routage Physique P10 : Physique nucléaire (radioactivité, réactions et énergie de liaison)
+  if (
+    titleLower.includes('nucléaire') ||
+    titleLower.includes('nucleaire') ||
+    titleLower.includes('radioactivité') ||
+    titleLower.includes('radioactivite') ||
+    titleLower.includes('défaut de masse') ||
+    titleLower.includes('defaut de masse') ||
+    titleLower.includes('énergie de liaison') ||
+    titleLower.includes('energie de liaison') ||
+    titleLower.includes('courbe d’aston') ||
+    titleLower.includes("courbe d'aston") ||
+    titleLower.includes('aston') ||
+    titleLower.includes('soddy') ||
+    titleLower.includes('fission') ||
+    titleLower.includes('fusion') ||
+    titleLower.includes('décroissance') ||
+    titleLower.includes('decroissance') ||
+    titleLower.includes('demi-vie') ||
+    titleLower.includes('becquerel') ||
+    titleLower.includes('carbone 14') ||
+    titleLower.includes('datation') ||
+    titleLower.includes('p10') ||
+    titleLower.includes('60000000-0000-0002-0001-000000000028') ||
+    titleLower.includes('60000000-0000-0002-0001-000000000029') ||
+    titleLower.includes('60000000-0000-0002-0001-000000000030')
+  ) {
+    return RICH_LESSONS_MAP.p10_physique_nucleaire;
+  }
+
+  // Routage Physique P9 : Le modèle ondulatoire et corpusculaire de la lumière
+  if (
+    titleLower.includes('interférence') ||
+    titleLower.includes('interference') ||
+    titleLower.includes('interférences') ||
+    titleLower.includes('interferences') ||
+    titleLower.includes('fentes d’young') ||
+    titleLower.includes("fentes d'young") ||
+    titleLower.includes('interfrange') ||
+    titleLower.includes('effet photoélectrique') ||
+    titleLower.includes('effet photoelectrique') ||
+    titleLower.includes('photoélectrique') ||
+    titleLower.includes('photoelectrique') ||
+    titleLower.includes('travail d’extraction') ||
+    titleLower.includes("travail d'extraction") ||
+    titleLower.includes('photon') ||
+    titleLower.includes('planck') ||
+    titleLower.includes('postulats de bohr') ||
+    titleLower.includes('modèle de bohr') ||
+    titleLower.includes('modele de bohr') ||
+    titleLower.includes('niveaux d’énergie') ||
+    titleLower.includes("niveaux d'énergie") ||
+    titleLower.includes('spectres de raies') ||
+    titleLower.includes('spectre de raies') ||
+    titleLower.includes('rydberg') ||
+    titleLower.includes('balmer') ||
+    titleLower.includes('lyman') ||
+    titleLower.includes('paschen') ||
+    titleLower.includes('p9') ||
+    titleLower.includes('60000000-0000-0002-0001-000000000025') ||
+    titleLower.includes('60000000-0000-0002-0001-000000000026') ||
+    titleLower.includes('60000000-0000-0002-0001-000000000027')
+  ) {
+    return RICH_LESSONS_MAP.p9_lumiere_quanta;
+  }
+
+  // Routage Physique P8 : Oscillations électriques forcées (RLC série, Fresnel, Résonance d'intensité)
+  if (
+    titleLower.includes('oscillations forcées') ||
+    titleLower.includes('oscillations forcees') ||
+    titleLower.includes('courant alternatif') ||
+    titleLower.includes('fresnel') ||
+    titleLower.includes('impédance') ||
+    titleLower.includes('impedance') ||
+    titleLower.includes('résonance') ||
+    titleLower.includes('resonance') ||
+    titleLower.includes('acuité') ||
+    titleLower.includes('acuite') ||
+    titleLower.includes('bande passante') ||
+    titleLower.includes('facteur de qualité') ||
+    titleLower.includes('facteur de qualite') ||
+    titleLower.includes('surtension') ||
+    titleLower.includes('p8') ||
+    titleLower.includes('50000000-0000-0002-0001-000000000008') ||
+    titleLower.includes('60000000-0000-0002-0001-000000000022') ||
+    titleLower.includes('60000000-0000-0002-0001-000000000023') ||
+    titleLower.includes('60000000-0000-0002-0001-000000000024')
+  ) {
+    return RICH_LESSONS_MAP.p8_rlc_forcees;
+  }
+
+  // Routage Physique P7 : Oscillations électriques libres (Circuit LC et RLC)
+  if (
+    titleLower.includes('circuit lc') ||
+    titleLower.includes('circuit rlc') ||
+    titleLower.includes('oscillations libres') ||
+    titleLower.includes('oscillations électriques') ||
+    titleLower.includes('oscillations electriques') ||
+    titleLower.includes('décrément') ||
+    titleLower.includes('decrement') ||
+    titleLower.includes('pseudopériodique') ||
+    titleLower.includes('pseudoperiodique') ||
+    titleLower.includes('apériodique') ||
+    titleLower.includes('aperiodique') ||
+    titleLower.includes('p7') ||
+    titleLower.includes('60000000-0000-0002-0001-000000000019') ||
+    titleLower.includes('60000000-0000-0002-0001-000000000020') ||
+    titleLower.includes('60000000-0000-0002-0001-000000000021')
+  ) {
+    return RICH_LESSONS_MAP.p7_rlc_libres;
+  }
+
+  // Routage Physique P6 : Phénomène d'induction électromagnétique et auto-induction
+  if (
+    titleLower.includes('auto-induction') ||
+    titleLower.includes('auto_induction') ||
+    titleLower.includes('autoinduction') ||
+    titleLower.includes('induction électromagnétique') ||
+    titleLower.includes('induction electromagnetique') ||
+    titleLower.includes('loi de lenz') ||
+    titleLower.includes('loi de faraday') ||
+    titleLower.includes('solénoïde') ||
+    titleLower.includes('solenoide') ||
+    titleLower.includes('bobine') ||
+    titleLower.includes('dipôle rl') ||
+    titleLower.includes('dipole rl') ||
+    titleLower.includes('rails de laplace') ||
+    titleLower.includes('p6') ||
+    titleLower.includes('60000000-0000-0002-0001-000000000016') ||
+    titleLower.includes('60000000-0000-0002-0001-000000000017') ||
+    titleLower.includes('60000000-0000-0002-0001-000000000018')
+  ) {
+    return RICH_LESSONS_MAP.p6_induction_electromagnetique;
+  }
+
+  // Routage Physique P5 : Oscillations mécaniques (Pendule élastique)
+  if (
+    titleLower.includes('pendule élastique') ||
+    titleLower.includes('pendule elastique') ||
+    titleLower.includes('oscillations mécaniques') ||
+    titleLower.includes('oscillations mecaniques') ||
+    titleLower.includes('ressort') ||
+    titleLower.includes('allongement statique') ||
+    titleLower.includes('énergie potentielle élastique') ||
+    titleLower.includes('energie potentielle elastique') ||
+    titleLower.includes('p5') ||
+    titleLower.includes('60000000-0000-0002-0001-000000000013') ||
+    titleLower.includes('60000000-0000-0002-0001-000000000014') ||
+    titleLower.includes('60000000-0000-0002-0001-000000000015')
+  ) {
+    return RICH_LESSONS_MAP.p5_oscillations_mecaniques;
+  }
+
+  // Routage SVT B5 Leçon 3 : Génie génétique & Biotechnologies
+  if (
+    titleLower.includes('génie génétique') ||
+    titleLower.includes('genie genetique') ||
+    titleLower.includes('biotechnologie') ||
+    titleLower.includes('ogm') ||
+    titleLower.includes('pcr') ||
+    titleLower.includes('clonage') ||
+    titleLower.includes('transgénèse') ||
+    titleLower.includes('transgenese') ||
+    titleLower.includes('enzyme de restriction') ||
+    titleLower.includes('plasmide') ||
+    titleLower.includes('insuline recombinante') ||
+    titleLower.includes('thérapie génique') ||
+    titleLower.includes('therapie genique') ||
+    titleLower.includes('60000000-0000-0003-0005-000000000003')
+  ) {
+    return RICH_LESSONS_MAP.b5_genie_genetique;
+  }
+
+  // Routage SVT B5 Leçon 2 : Acides nucléiques & expression de l'information génétique
+  if (
+    titleLower.includes('acide nucléique') ||
+    titleLower.includes('acides nucléiques') ||
+    titleLower.includes('acide nucleique') ||
+    titleLower.includes('acides nucleiques') ||
+    titleLower.includes('expression de l’information génétique') ||
+    titleLower.includes('expression de l\'information genetique') ||
+    titleLower.includes('expression génique') ||
+    titleLower.includes('expression genique') ||
+    titleLower.includes('transcription') ||
+    titleLower.includes('traduction') ||
+    titleLower.includes('code génétique') ||
+    titleLower.includes('code genetique') ||
+    titleLower.includes('meselson') ||
+    titleLower.includes('chargaff') ||
+    titleLower.includes('arnm') ||
+    titleLower.includes('polymérase') ||
+    titleLower.includes('60000000-0000-0003-0005-000000000002')
+  ) {
+    return RICH_LESSONS_MAP.b5_expression_genetique;
+  }
+
+  // Routage SVT B5 Leçon 1 : Hérédité humaine et analyse rigoureuse des arbres généalogiques
+  if (
+    titleLower.includes('arbre généalogique') ||
+    titleLower.includes('arbres généalogiques') ||
+    titleLower.includes('arbre genealogique') ||
+    titleLower.includes('arbres genealogiques') ||
+    titleLower.includes('hérédité humaine') ||
+    titleLower.includes('heredite humaine') ||
+    titleLower.includes('pedigree') ||
+    titleLower.includes('pedigrees') ||
+    titleLower.includes('maladie génétique') ||
+    titleLower.includes('maladies génétiques') ||
+    titleLower.includes('maladie genetique') ||
+    titleLower.includes('maladies genetiques') ||
+    titleLower.includes('trisomie') ||
+    titleLower.includes('down') ||
+    titleLower.includes('60000000-0000-0003-0005-000000000001')
+  ) {
+    return RICH_LESSONS_MAP.b5_genetique_arbres;
+  }
 
   // Routage SVT B4 Leçon 1 : Gamétogenèse comparée — Spermatogenèse, Ovogenèse et Méiose
   if (
@@ -7879,8 +9865,10 @@ export function getEnhancedLessonContent(lessonTitle: string, chapterTitle: stri
     titleLower.includes('maitrise de la reproduction') ||
     titleLower.includes('contraception') ||
     titleLower.includes('contragestion') ||
-    titleLower.includes('amp') ||
-    titleLower.includes('pma') ||
+    /\bamp\b/.test(titleLower) ||
+    /\bpma\b/.test(titleLower) ||
+    titleLower.includes('procréation') ||
+    titleLower.includes('procreation') ||
     titleLower.includes('fivete') ||
     titleLower.includes('icsi') ||
     titleLower.includes('ru 486') ||

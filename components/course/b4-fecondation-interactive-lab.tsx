@@ -304,6 +304,142 @@ export default function B4FecondationInteractiveLab() {
           ))}
         </div>
 
+        {/* Diagramme SVG Illustratif par étape */}
+        <div className="mt-4 rounded-2xl border border-navy/10 bg-white p-4 shadow-xs">
+          <div className="text-[10px] font-bold uppercase tracking-wider text-text/50 mb-3 flex items-center gap-1.5">
+            <FlaskConical className="w-3.5 h-3.5 text-turquoise" />
+            <span>Schéma anatomique &amp; cellulaire — {stage.title.split('. ')[1]}</span>
+          </div>
+          {activeStage === 'fecondation' && (
+            <svg viewBox="0 0 400 180" className="w-full max-w-md mx-auto" aria-label="Schéma fécondation">
+              {/* Ovocyte II */}
+              <ellipse cx="200" cy="90" rx="60" ry="60" fill="#f0fdfb" stroke="#00c4b4" strokeWidth="2"/>
+              <ellipse cx="200" cy="90" rx="40" ry="40" fill="#e0f9f7" stroke="#00c4b4" strokeWidth="1" strokeDasharray="4 2"/>
+              <circle cx="200" cy="90" r="18" fill="#ccf3ef" stroke="#0a1628" strokeWidth="1.5"/>
+              <text x="200" y="94" textAnchor="middle" fontSize="8" fill="#0a1628" fontWeight="bold">Ovocyte II</text>
+              <text x="200" y="140" textAnchor="middle" fontSize="7" fill="#6b7280">Zone pellucide</text>
+              <text x="200" y="152" textAnchor="middle" fontSize="7" fill="#6b7280">Corona radiata</text>
+              {/* Spermatozoïdes */}
+              {[0,1,2].map(i => (
+                <g key={i} transform={`translate(${80 + i*10}, ${70 + i*15})`}>
+                  <ellipse cx="0" cy="0" rx="8" ry="5" fill="#0a1628" opacity="0.7"/>
+                  <line x1="8" y1="0" x2="30" y2={i%2===0 ? -3 : 3} stroke="#0a1628" strokeWidth="1.5" opacity="0.6"/>
+                </g>
+              ))}
+              <text x="55" y="68" textAnchor="middle" fontSize="7" fill="#0a1628" fontWeight="600">Spz</text>
+              {/* Réaction acrosomique */}
+              <text x="130" y="48" textAnchor="middle" fontSize="6.5" fill="#b45309">Réaction acrosomique</text>
+              <line x1="130" y1="52" x2="148" y2="62" stroke="#b45309" strokeWidth="1"/>
+              {/* Résultat */}
+              <text x="200" y="172" textAnchor="middle" fontSize="7.5" fill="#059669" fontWeight="700">→ Zygote 2n=46 (Amphimixie)</text>
+            </svg>
+          )}
+          {activeStage === 'segmentation' && (
+            <svg viewBox="0 0 420 160" className="w-full max-w-md mx-auto" aria-label="Schéma segmentation">
+              {/* Zygote */}
+              <circle cx="35" cy="80" r="22" fill="#f0fdfb" stroke="#00c4b4" strokeWidth="2"/>
+              <circle cx="35" cy="80" r="10" fill="#e0f9f7" stroke="#0a1628" strokeWidth="1"/>
+              <text x="35" y="115" textAnchor="middle" fontSize="7" fill="#0a1628" fontWeight="600">Zygote J0</text>
+              {/* Flèche */}
+              <line x1="62" y1="80" x2="88" y2="80" stroke="#0a1628" strokeWidth="1.5"/>
+              <polygon points="88,77 96,80 88,83" fill="#0a1628"/>
+              <text x="75" y="73" fontSize="6" fill="#6b7280" textAnchor="middle">J1</text>
+              {/* 2 cellules */}
+              <ellipse cx="120" cy="80" rx="22" ry="20" fill="#f0fdfb" stroke="#00c4b4" strokeWidth="2"/>
+              <line x1="120" y1="60" x2="120" y2="100" stroke="#0a1628" strokeWidth="1" strokeDasharray="2 2"/>
+              <text x="120" y="115" textAnchor="middle" fontSize="7" fill="#0a1628" fontWeight="600">2 cellules</text>
+              {/* Flèche */}
+              <line x1="147" y1="80" x2="173" y2="80" stroke="#0a1628" strokeWidth="1.5"/>
+              <polygon points="173,77 181,80 173,83" fill="#0a1628"/>
+              <text x="160" y="73" fontSize="6" fill="#6b7280" textAnchor="middle">J2-3</text>
+              {/* Morula */}
+              <ellipse cx="205" cy="80" rx="22" ry="20" fill="#f0fdfb" stroke="#00c4b4" strokeWidth="2"/>
+              <line x1="205" y1="60" x2="205" y2="100" stroke="#0a1628" strokeWidth="1" strokeDasharray="2 2"/>
+              <line x1="183" y1="80" x2="227" y2="80" stroke="#0a1628" strokeWidth="1" strokeDasharray="2 2"/>
+              <text x="205" y="115" textAnchor="middle" fontSize="7" fill="#0a1628" fontWeight="600">Morula J4</text>
+              {/* Flèche */}
+              <line x1="232" y1="80" x2="258" y2="80" stroke="#0a1628" strokeWidth="1.5"/>
+              <polygon points="258,77 266,80 258,83" fill="#0a1628"/>
+              <text x="245" y="73" fontSize="6" fill="#6b7280" textAnchor="middle">J5-6</text>
+              {/* Blastocyste */}
+              <ellipse cx="295" cy="80" rx="28" ry="26" fill="#f0fdfb" stroke="#00c4b4" strokeWidth="2"/>
+              <circle cx="285" cy="78" r="8" fill="#ccf3ef" stroke="#0a1628" strokeWidth="1"/>
+              <text x="285" y="81" textAnchor="middle" fontSize="5.5" fill="#0a1628">Bouton</text>
+              <text x="295" y="120" textAnchor="middle" fontSize="7" fill="#0a1628" fontWeight="600">Blastocyste</text>
+              {/* Note volume constant */}
+              <rect x="335" y="60" width="80" height="38" rx="6" fill="#fef3c7" stroke="#b45309" strokeWidth="1"/>
+              <text x="375" y="75" textAnchor="middle" fontSize="6.5" fill="#b45309" fontWeight="700">Volume total</text>
+              <text x="375" y="87" textAnchor="middle" fontSize="6.5" fill="#b45309" fontWeight="700">= constant</text>
+            </svg>
+          )}
+          {activeStage === 'nidation' && (
+            <svg viewBox="0 0 400 170" className="w-full max-w-md mx-auto" aria-label="Schéma nidation">
+              <path d="M60,30 Q200,10 340,30 L330,150 Q200,170 70,150 Z" fill="#fff0f5" stroke="#be185d" strokeWidth="1.5" opacity="0.6"/>
+              <text x="200" y="24" textAnchor="middle" fontSize="8" fill="#be185d" fontWeight="600">Cavité utérine</text>
+              <path d="M70,150 Q200,170 330,150 L330,130 Q200,150 70,130 Z" fill="#fce7f3" stroke="#be185d" strokeWidth="1" opacity="0.8"/>
+              <text x="340" y="142" textAnchor="start" fontSize="6.5" fill="#be185d">Dentelle utérine</text>
+              <ellipse cx="200" cy="125" rx="28" ry="22" fill="#e0f9f7" stroke="#00c4b4" strokeWidth="2"/>
+              <circle cx="192" cy="120" r="9" fill="#ccf3ef" stroke="#0a1628" strokeWidth="1.5"/>
+              <text x="190" y="123" textAnchor="middle" fontSize="6" fill="#0a1628" fontWeight="700">Embryon</text>
+              <text x="200" y="158" textAnchor="middle" fontSize="6.5" fill="#059669" fontWeight="700">Implantation J6-J7</text>
+              <text x="260" y="115" fontSize="7" fill="#7c3aed" fontWeight="700">→ Sécrétion HCG</text>
+              <text x="260" y="126" fontSize="6.5" fill="#7c3aed">Maintien Corps Jaune</text>
+            </svg>
+          )}
+          {activeStage === 'placenta' && (
+            <svg viewBox="0 0 400 170" className="w-full max-w-md mx-auto" aria-label="Schéma placenta">
+              <ellipse cx="200" cy="75" rx="140" ry="50" fill="#fef3c7" stroke="#b45309" strokeWidth="2"/>
+              <text x="200" y="42" textAnchor="middle" fontSize="9" fill="#b45309" fontWeight="bold">PLACENTA (Échanges fœto-maternels)</text>
+              {[140,160,180,200,220,240,260].map((x,i) => (
+                <g key={i}>
+                  <line x1={x} y1="90" x2={x + (i%2===0?-4:4)} y2="115" stroke="#b45309" strokeWidth="2.5"/>
+                  <ellipse cx={x + (i%2===0?-4:4)} cy="120" rx="9" ry="5" fill="#fde68a" stroke="#b45309" strokeWidth="1"/>
+                </g>
+              ))}
+              <text x="200" y="138" textAnchor="middle" fontSize="6.5" fill="#b45309">Villosités choriales sans mélange direct de sang</text>
+              <text x="60" y="70" textAnchor="middle" fontSize="7.5" fill="#be185d" fontWeight="700">Côté maternel</text>
+              <text x="60" y="82" textAnchor="middle" fontSize="6.5" fill="#be185d">O₂, nutriments, anticorps</text>
+              <text x="340" y="70" textAnchor="middle" fontSize="7.5" fill="#0a1628" fontWeight="700">Côté fœtal</text>
+              <text x="340" y="82" textAnchor="middle" fontSize="6.5" fill="#0a1628">CO₂, déchets, urée</text>
+              <text x="200" y="82" textAnchor="middle" fontSize="7" fill="#7c3aed" fontWeight="700">Relais Progestérone + Œstrogènes dès M3</text>
+            </svg>
+          )}
+          {activeStage === 'accouchement' && (
+            <svg viewBox="0 0 400 170" className="w-full max-w-md mx-auto" aria-label="Schéma accouchement">
+              <rect x="140" y="10" width="120" height="26" rx="8" fill="#f0fdfb" stroke="#00c4b4" strokeWidth="1.5"/>
+              <text x="200" y="27" textAnchor="middle" fontSize="8" fill="#0a1628" fontWeight="700">Hypothalamus</text>
+              <line x1="200" y1="36" x2="200" y2="54" stroke="#0a1628" strokeWidth="1.5"/>
+              <polygon points="196,54 204,54 200,62" fill="#0a1628"/>
+              <rect x="140" y="62" width="120" height="26" rx="8" fill="#f0fdfb" stroke="#00c4b4" strokeWidth="1.5"/>
+              <text x="200" y="79" textAnchor="middle" fontSize="8" fill="#0a1628" fontWeight="700">Post-hypophyse → Ocytocine</text>
+              <line x1="200" y1="88" x2="200" y2="108" stroke="#0a1628" strokeWidth="1.5"/>
+              <polygon points="196,108 204,108 200,116" fill="#0a1628"/>
+              <rect x="125" y="116" width="150" height="30" rx="8" fill="#fce7f3" stroke="#be185d" strokeWidth="1.5"/>
+              <text x="200" y="132" textAnchor="middle" fontSize="8" fill="#be185d" fontWeight="700">Myomètre utérin</text>
+              <text x="200" y="142" textAnchor="middle" fontSize="6.5" fill="#be185d">Contractions rythmiques puissantes</text>
+              <path d="M275,130 Q350,130 350,23 Q350,10 265,23" fill="none" stroke="#059669" strokeWidth="1.5" strokeDasharray="3 2"/>
+              <polygon points="265,19 265,27 273,23" fill="#059669"/>
+              <text x="355" y="75" fontSize="6.5" fill="#059669" fontWeight="600">Boucle Rétrocontrôle Positif (Ferguson)</text>
+            </svg>
+          )}
+          {activeStage === 'lactation' && (
+            <svg viewBox="0 0 400 170" className="w-full max-w-md mx-auto" aria-label="Schéma lactation">
+              <ellipse cx="140" cy="90" rx="75" ry="60" fill="#f0fdfb" stroke="#00c4b4" strokeWidth="1.5"/>
+              <text x="140" y="70" textAnchor="middle" fontSize="8" fill="#0a1628" fontWeight="700">Glande mammaire</text>
+              {[0,1,2,3].map(i => (
+                <circle key={i} cx={110 + i*20} cy={95} r={8} fill="#e0f9f7" stroke="#00c4b4" strokeWidth="1"/>
+              ))}
+              <text x="140" y="120" textAnchor="middle" fontSize="6.5" fill="#0a1628">Alvéoles (sécrétion de lait)</text>
+              <line x1="140" y1="130" x2="140" y2="155" stroke="#be185d" strokeWidth="2.5"/>
+              <text x="140" y="165" textAnchor="middle" fontSize="6.5" fill="#be185d" fontWeight="600">Canaux galactophores</text>
+              <rect x="240" y="35" width="145" height="55" rx="8" fill="#fff7ed" stroke="#b45309" strokeWidth="1.5"/>
+              <text x="312" y="52" textAnchor="middle" fontSize="7.5" fill="#b45309" fontWeight="700">Dualité Hormonale</text>
+              <text x="312" y="65" textAnchor="middle" fontSize="6.5" fill="#0a1628">Prolactine (antéhypophyse) = Production</text>
+              <text x="312" y="77" textAnchor="middle" fontSize="6.5" fill="#0a1628">Ocytocine (posthypophyse) = Éjection</text>
+            </svg>
+          )}
+        </div>
+
         {/* Alerte Bac S2 */}
         <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50/80 p-3 flex items-start gap-2.5">
           <AlertCircle className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />

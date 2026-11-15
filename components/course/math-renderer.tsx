@@ -4,7 +4,8 @@ import React, { useMemo } from 'react';
 import katex from 'katex';
 
 interface MathRendererProps {
-  content: string;
+  content?: string;
+  formula?: string;
   className?: string;
 }
 
@@ -456,8 +457,9 @@ function renderMarkdownWithKatex(raw: string): string {
   return finalHtml;
 }
 
-export default function MathRenderer({ content, className = '' }: MathRendererProps) {
-  const html = useMemo(() => renderMarkdownWithKatex(content), [content]);
+export default function MathRenderer({ content = '', formula, className = '' }: MathRendererProps) {
+  const textToRender = formula ? `$$${formula}$$` : content;
+  const html = useMemo(() => renderMarkdownWithKatex(textToRender), [textToRender]);
 
   return (
     <div

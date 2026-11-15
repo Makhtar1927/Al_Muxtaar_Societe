@@ -317,6 +317,55 @@ export default function B4ReproductionMaitriseInteractiveLab() {
             </div>
           </div>
 
+          {/* Schéma anatomique des 3 sites d'action */}
+          <div className="mt-5 rounded-2xl border border-navy/10 bg-white p-4">
+            <div className="text-[10px] font-bold uppercase tracking-wider text-text/50 mb-3 flex items-center gap-1.5">
+              <Layers className="w-3.5 h-3.5 text-turquoise" />
+              <span>Schéma fonctionnel — Les 3 Verrous Physiologiques Cibles</span>
+            </div>
+            <svg viewBox="0 0 420 220" className="w-full max-w-md mx-auto" aria-label="Sites d'action contraceptifs">
+              {/* Hypothalamus */}
+              <rect x="155" y="8" width="110" height="26" rx="8" fill="#f0fdfb" stroke="#00c4b4" strokeWidth="1.5"/>
+              <text x="210" y="25" textAnchor="middle" fontSize="8" fill="#0a1628" fontWeight="700">Hypothalamus</text>
+              {/* Connexion Hypophyse */}
+              <line x1="210" y1="34" x2="210" y2="52" stroke="#0a1628" strokeWidth="1.5"/>
+              <polygon points="206,52 214,52 210,60" fill="#0a1628"/>
+              {/* Hypophyse */}
+              <rect x="155" y="60" width="110" height="26" rx="8" fill="#f0fdfb" stroke="#00c4b4" strokeWidth="1.5"/>
+              <text x="210" y="77" textAnchor="middle" fontSize="8" fill="#0a1628" fontWeight="700">Hypophyse (FSH/LH)</text>
+              {/* Connexion Ovaire */}
+              <line x1="210" y1="86" x2="210" y2="104" stroke="#0a1628" strokeWidth="1.5"/>
+              <polygon points="206,104 214,104 210,112" fill="#0a1628"/>
+              {/* Ovaire */}
+              <ellipse cx="210" cy="124" rx="32" ry="22" fill="#fef3c7" stroke="#b45309" strokeWidth="1.5"/>
+              <text x="210" y="128" textAnchor="middle" fontSize="8" fill="#b45309" fontWeight="700">Ovaire</text>
+              <text x="210" y="138" textAnchor="middle" fontSize="6.5" fill="#b45309">Maturation &amp; Ovulation</text>
+              {/* Annotation Axe HH */}
+              <rect x="10" y="30" width="120" height="38" rx="6" fill="#fff1f2" stroke="#be185d" strokeWidth="1"/>
+              <text x="70" y="45" textAnchor="middle" fontSize="7" fill="#be185d" fontWeight="700">① Axe HH</text>
+              <text x="70" y="56" textAnchor="middle" fontSize="6.5" fill="#374151">Blocage pic LH / Ovulation</text>
+              <line x1="130" y1="49" x2="155" y2="60" stroke="#be185d" strokeWidth="1" strokeDasharray="3 2"/>
+              {/* Utérus corps */}
+              <path d="M170,155 Q210,145 250,155 L245,195 Q210,205 175,195 Z" fill="#fce7f3" stroke="#be185d" strokeWidth="1.5"/>
+              <text x="210" y="178" textAnchor="middle" fontSize="7.5" fill="#be185d" fontWeight="700">Endomètre</text>
+              <text x="210" y="190" textAnchor="middle" fontSize="6.5" fill="#be185d">Nidation embryonnaire</text>
+              <line x1="210" y1="146" x2="210" y2="155" stroke="#0a1628" strokeWidth="1.5"/>
+              {/* Col utérin */}
+              <rect x="195" y="195" width="30" height="18" rx="4" fill="#fce7f3" stroke="#be185d" strokeWidth="1"/>
+              <text x="210" y="207" textAnchor="middle" fontSize="6.5" fill="#be185d">Col utérin</text>
+              {/* Annotation Glaire */}
+              <rect x="280" y="188" width="125" height="28" rx="6" fill="#eff6ff" stroke="#2563eb" strokeWidth="1"/>
+              <text x="342" y="202" textAnchor="middle" fontSize="7" fill="#2563eb" fontWeight="700">② Glaire cervicale</text>
+              <text x="342" y="212" textAnchor="middle" fontSize="6.5" fill="#374151">Imperméable aux spermatozoïdes</text>
+              <line x1="280" y1="202" x2="225" y2="202" stroke="#2563eb" strokeWidth="1" strokeDasharray="3 2"/>
+              {/* Annotation Endomètre */}
+              <rect x="10" y="160" width="125" height="28" rx="6" fill="#fdf4ff" stroke="#7c3aed" strokeWidth="1"/>
+              <text x="72" y="174" textAnchor="middle" fontSize="7" fill="#7c3aed" fontWeight="700">③ Endomètre</text>
+              <text x="72" y="184" textAnchor="middle" fontSize="6.5" fill="#374151">Atrophique ou décollé (RU-486)</text>
+              <line x1="135" y1="174" x2="170" y2="174" stroke="#7c3aed" strokeWidth="1" strokeDasharray="3 2"/>
+            </svg>
+          </div>
+
           {/* Règle de rédaction Bac */}
           <div className="mt-4 rounded-xl border border-blue-200 bg-blue-50/70 p-3 flex items-start gap-2.5">
             <CheckCircle2 className="w-4 h-4 text-blue-700 shrink-0 mt-0.5" />
@@ -398,6 +447,35 @@ export default function B4ReproductionMaitriseInteractiveLab() {
               <p className="text-xs font-black text-emerald-950 mb-1.5">{clinicalCase.solutionAMP}</p>
               <p className="text-[11px] text-emerald-950/80 leading-relaxed">{clinicalCase.justificationBac}</p>
             </div>
+          </div>
+
+          {/* Schéma de synthèse — Étapes clés de la FIVETE */}
+          <div className="mt-4 rounded-xl border border-navy/10 bg-white p-4">
+            <div className="text-[10px] font-bold uppercase tracking-wider text-text/50 mb-3 flex items-center gap-1.5">
+              <FlaskConical className="w-3.5 h-3.5 text-turquoise" />
+              <span>Protocole FIVETE de référence — Du traitement hormonal au transfert</span>
+            </div>
+            <svg viewBox="0 0 460 90" className="w-full max-w-lg mx-auto" aria-label="Protocole FIVETE">
+              {[
+                { x: 10, label: '1. Stimulation', sub: 'FSH / HCG' },
+                { x: 102, label: '2. Ponction', sub: 'Follicules mûrs' },
+                { x: 194, label: '3. Fécondation', sub: 'FIV ou ICSI' },
+                { x: 286, label: '4. Culture', sub: 'J2 ou J5' },
+                { x: 378, label: '5. Transfert', sub: 'In utero' },
+              ].map((step, i) => (
+                <g key={i}>
+                  <rect x={step.x} y="15" width="72" height="48" rx="8" fill="#f0fdfb" stroke="#00c4b4" strokeWidth="1.5"/>
+                  <text x={step.x + 36} y="35" textAnchor="middle" fontSize="7" fill="#0a1628" fontWeight="700">{step.label}</text>
+                  <text x={step.x + 36} y="48" textAnchor="middle" fontSize="6" fill="#6b7280">{step.sub}</text>
+                  {i < 4 && (
+                    <polygon points={`${step.x + 76},39 ${step.x + 94},39 ${step.x + 94},40 ${step.x + 76},40`} fill="#0a1628" opacity="0.4"/>
+                  )}
+                  {i < 4 && (
+                    <polygon points={`${step.x + 92},36 ${step.x + 99},39.5 ${step.x + 92},43`} fill="#0a1628"/>
+                  )}
+                </g>
+              ))}
+            </svg>
           </div>
         </div>
       </div>

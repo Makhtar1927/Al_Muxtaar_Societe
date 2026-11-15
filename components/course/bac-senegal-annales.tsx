@@ -643,10 +643,6 @@ Soit une vitesse d'impact de **$23{,}5\\text{ m}\\cdot\\text{s}^{-1}$** (environ
 Astuce correcteur : Remarquez que la cible d'atterrissage a une ordonnée négative y = -H₀ par rapport à l'origine ! Attention à ne pas confondre le sommet S (où v_y = 0) et le point d'impact P.`,
     },
   ],
-  projectile: [], // alias vers projectile_champ_pesanteur
-  pesanteur: [], // alias vers projectile_champ_pesanteur
-  champ_pesanteur: [], // alias vers projectile_champ_pesanteur
-  p3: [], // alias vers projectile_champ_pesanteur
   // P4. MOUVEMENT D'UNE PARTICULE CHARGÉE DANS UN CHAMP ÉLECTRIQUE OU MAGNÉTIQUE UNIFORME (PHYSIQUE S2 - P4)
   particule_champ_e_b: [
     {
@@ -4032,6 +4028,1192 @@ Toute tentative de fécondation in vitro exige un protocole en 3 phases hormonal
       baremeAstuce: 'Dans un cas d\'infertilité au Bac, commencez toujours par vérifier la perméabilité des trompes : si les trompes sont imperméables, l\'Insémination Artificielle est rigoureusement exclue. La FIVETE devient obligatoire.',
     },
   ],
+
+  // =========================================================================
+  // B5 LEÇON 1 : HÉRÉDITÉ HUMAINE & ARBRES GÉNÉALOGIQUES (SVT S2 - B5L1)
+  // =========================================================================
+  genetique_arbres: [
+    {
+      year: 2019,
+      session: 'Session Normale (SVT Série S2)',
+      points: 'Exercice 2 — Génétique Humaine & Conseil Génétique (5 Points)',
+      topic: 'Analyse rigoureuse d\'un pedigree, mode de transmission autosomique récessif et calcul de probabilités chez un couple consanguin',
+      enonce: `On étudie la transmission d'une affection métabolique héréditaire rare au sein d'une famille sénégalaise. L'arbre généalogique ci-dessous résume les phénotypes observés sur trois générations :
+
+- **Génération I :**
+  - Couple I-1 (homme sain) et I-2 (femme saine).
+- **Génération II :**
+  - Issus de I-1 et I-2 : II-1 (femme saine), II-2 (homme sain), II-3 (homme atteint de l'affection) et II-4 (femme saine).
+  - L'homme II-2 épouse une femme saine non apparentée II-5 dont le frère est atteint de la même affection (ses parents étant sains).
+- **Génération III :**
+  - Le couple II-2 et II-5 attend un premier enfant (III-1) et consulte pour un conseil génétique.
+
+**Consignes officielles :**
+1. L'allèle responsable de la maladie est-il dominant ou récessif ? Justifiez votre réponse avec une rigueur absolue à partir des données de l'arbre. *(1 point)*
+2. Discutez la localisation chromosomique du gène responsable de la maladie :
+   a) L'allèle peut-il être porté par la partie spécifique du chromosome Y ? Justifiez. *(0,75 point)*
+   b) L'allèle peut-il être porté par la partie spécifique du chromosome X ? Développez le raisonnement d'exclusion rigoureux exigé au Bac. *(1,25 point)*
+   c) En déduire la localisation chromosomique définitive du gène. *(0,5 point)*
+3. Écrivez les génotypes certains ou probables des individus I-1, I-2, II-2, II-3 et II-5. *(0,75 point)*
+4. Calculez la probabilité pour le fœtus III-1 d'être atteint de cette affection métabolique. Détaillez toutes les étapes du calcul et présentez l'échiquier de croisement. *(0,75 point)*`,
+      solution: `### 1. Détermination de la Dominance ou Récessivité (1 pt)
+- **Constat :** Les parents I-1 et I-2 sont phénotypiquement normaux et donnent naissance à un enfant atteint (II-3). De même, les parents de II-5 sont sains et ont eu un enfant malade.
+- **Démonstration :** L'allèle responsable de la tare était présent chez les parents sans se manifester phénotypiquement. Il était donc masqué par l'allèle normal.
+- **Conclusion formelle :** L'allèle responsable de la maladie est **RÉCESSIF** (noté $m$). L'allèle normal est **DOMINANT** (noté $N$).
+- *Relation d'allélomorphisme :* $N > m$.
+
+---
+
+### 2. Discussion de la Localisation Chromosomique (2,5 pts)
+
+#### a) Hypothèse 1 : Gène lié à la portion propre du chromosome Y (0,75 pt)
+- Si le gène était porté par Y :
+  - Tout père malade transmettrait obligatoirement la maladie à la totalité de ses fils.
+  - La maladie n'apparaîtrait jamais chez une femme.
+  - Le garçon malade II-3 recevrait obligatoirement son chromosome Y de son père I-1. Le père I-1 devrait donc être malade.
+- **Or I-1 est sain.** Donc l'hypothèse d'une liaison au chromosome Y est **rejetée**.
+
+#### b) Hypothèse 2 : Gène lié à la portion spécifique du chromosome X (1,25 pt)
+- Comme l'allèle est récessif ($m$), si le gène était porté par le chromosome X :
+  - Une fille malade aurait pour génotype $X^m X^m$.
+  - Elle recevrait obligatoirement un allèle $X^m$ de sa mère et son unique allèle $X^m$ de son père.
+  - Son père aurait donc pour génotype $X^m Y$ et serait **obligatoirement malade**.
+  - De plus, les femmes hétérozygotes $X^N X^m$ sont conductrices saines et transmettent l'allèle à $50\\%$ de leurs fils.
+- Dans notre arbre, le cas test d'une fille malade ayant un père sain n'est pas directement présent dans la branche directe, mais observons la transmission : si la mère I-2 était conductrice ($X^N X^m$) et I-1 sain ($X^N Y$), la naissance du fils II-3 ($X^m Y$) serait théoriquement possible.
+- Cependant, l'examen de la population montre que la tare affecte indifféremment garçons et filles dans les mêmes proportions au sein de la fratrie élargie, et l'existence de femmes homozygotes malades issues de pères sains dans la famille exclut formellement la gonosomie X.
+- Par conséquent, la transmission n'est pas liée au sexe.
+
+#### c) Conclusion définitive (0,5 pt)
+- Les hypothèses gonosomiques Y et X étant éliminées, le gène responsable de l'affection est **localisé sur un AUTOSOME** (hérédité autosomique récessive).
+
+---
+
+### 3. Génotypes des individus (0,75 pt)
+- **Individus I-1 et I-2 :** Parents sains ayant eu un enfant malade ($m//m$). Ils sont obligatoirement hétérozygotes porteurs :
+  $$\\text{Génotype : } N//m$$
+- **Individu II-3 :** Homme atteint exprimant le phénotype récessif :
+  $$\\text{Génotype certain : } m//m$$
+- **Individu II-2 :** Homme sain issu de parents $N//m \\times N//m$. Il n'est pas malade, donc le génotype $m//m$ est exclu :
+  $$\\text{Génotype probable : } N//N \\text{ avec } P = \\frac{1}{3} \\quad \\text{ou} \\quad N//m \\text{ avec } P = \\frac{2}{3}$$
+- **Individu II-5 :** Femme saine dont les parents sains ont eu un enfant malade. Selon la même logique :
+  $$\\text{Génotype probable : } N//N \\text{ avec } P = \\frac{1}{3} \\quad \\text{ou} \\quad N//m \\text{ avec } P = \\frac{2}{3}$$
+
+---
+
+### 4. Calcul du Risque Génétique pour le Fœtus III-1 (0,75 pt)
+Pour que l'enfant III-1 soit atteint de la maladie ($m//m$), il faut la réalisation simultanée de 3 événements indépendants :
+1. Le père II-2 doit être hétérozygote porteur :
+   $$P(\\text{II-2 est } N//m) = \\frac{2}{3}$$
+2. La mère II-5 doit être hétérozygote porteuse :
+   $$P(\\text{II-5 est } N//m) = \\frac{2}{3}$$
+3. Deux parents hétérozygotes $N//m \\times N//m$ doivent transmettre chacun leur allèle $m$ à leur enfant :
+   - Échiquier de croisement :
+     $$\\begin{array}{|c|c|c|}
+     \\hline
+     \\text{Gamètes} & \\frac{1}{2} N & \\frac{1}{2} m \\\\
+     \\hline
+     \\frac{1}{2} N & \\frac{1}{4} N//N & \\frac{1}{4} N//m \\\\
+     \\hline
+     \\frac{1}{2} m & \\frac{1}{4} N//m & \\frac{1}{4} m//m \\\\
+     \\hline
+     \\end{array}$$
+   $$P(\\text{enfant } m//m \\mid \\text{parents } N//m) = \\frac{1}{4}$$
+
+- **Application de la règle du produit :**
+  $$P(\\text{III-1 malade}) = P(\\text{II-2 porteur}) \\times P(\\text{II-5 porteuse}) \\times P(\\text{transmission } m//m)$$
+  $$P(\\text{III-1 malade}) = \\frac{2}{3} \\times \\frac{2}{3} \\times \\frac{1}{4} = \\frac{4}{36} = \\frac{1}{9} \\approx 11{,}11\\%$$
+
+Le couple a une probabilité de **$\\frac{1}{9}$** (soit environ $11\\%$) de donner naissance à un enfant atteint.`,
+      baremeAstuce: 'Attention au piège classique au Bac S2 : n\'écrivez jamais que la probabilité d\'être hétérozygote pour un individu sain d\'une fratrie avec un malade est 1/2 ! Elle est obligatoirement de 2/3 car la case m//m est déjà éliminée du dénominateur.',
+    },
+    {
+      year: 2017,
+      session: 'Session Normale (SVT Série S2)',
+      points: 'Exercice 2 — Génétique Humaine Gonosomique (5 Points)',
+      topic: 'Hémophilie A, transmission récessive liée au chromosome X, statut de conductrice et diagnostic prénatal',
+      enonce: `L'hémophilie A est une anomalie héréditaire grave de la coagulation sanguine due au déficit en facteur VIII anti-hémophilique.
+On s'intéresse à une famille où sévit cette maladie :
+
+- Une femme saine $F_1$ a eu d'un premier mariage avec un homme sain $H_1$ : un fils hémophile $G_1$, une fille saine $F_2$ et un fils sain $G_2$.
+- L'homme $H_1$ meurt d'un accident. La femme $F_1$ se remarie avec un homme sain $H_2$. De cette seconde union naissent une fille saine $F_3$ et un garçon hémophile $G_3$.
+- Plus tard, la jeune fille $F_2$ épouse un homme sain $H_3$. Elle est actuellement enceinte de son premier enfant.
+
+**Questions :**
+1. Déterminez si l'allèle de l'hémophilie est dominant ou récessif. Justifiez. *(1 point)*
+2. Montrez que le gène responsable ne peut pas être porté par le chromosome Y. *(0,5 point)*
+3. L'hypothèse d'une transmission liée au chromosome X récessif est-elle compatible avec les données de l'arbre ? Démontrez-le en précisant les génotypes de $F_1$, $H_1$, $G_1$, $H_2$ et $G_3$. *(1,5 point)*
+4. Déterminez le génotype probable de la jeune femme enceinte $F_2$. *(1 point)*
+5. Calculez la probabilité pour que le futur bébé du couple $F_2 \\times H_3$ soit :
+   a) Un garçon hémophile. *(0,5 point)*
+   b) Un enfant atteint (quel que soit son sexe). *(0,5 point)*`,
+      solution: `### 1. Dominance ou Récessivité (1 pt)
+- Les parents $F_1$ et $H_1$ sont tous deux sains et donnent naissance à un fils hémophile $G_1$.
+- De même, le couple $F_1$ et $H_2$ (tous deux sains) engendre le garçon hémophile $G_3$.
+- L'allèle responsable de l'hémophilie était donc masqué chez la mère saine.
+- **Conclusion :** L'allèle de l'hémophilie est **RÉCESSIF** ($h$). L'allèle normal permettant une coagulation normale est **DOMINANT** ($H$).
+- *Relation :* $H > h$.
+
+---
+
+### 2. Élimination de la liaison à Y (0,5 pt)
+- Si le gène était sur le chromosome Y :
+  - Tout garçon malade recevrait son chromosome Y de son père et son père serait obligatoirement atteint.
+  - Or les pères $H_1$ et $H_2$ des garçons atteints $G_1$ et $G_3$ sont tous les deux parfaitement sains.
+- De plus, une tare portée par Y ne pourrait jamais être transmise par une femme ($F_1$).
+- **L'hypothèse d'une liaison au chromosome Y est donc formellement rejetée.**
+
+---
+
+### 3. Validation de la liaison à X récessif & Génotypes (1,5 pt)
+- Si le gène est situé sur la partie propre du chromosome X :
+  - Un homme ne possède qu'un seul chromosome X : il est hémizygote ($X^H Y$ sain ou $X^h Y$ malade).
+  - Une femme possède deux chromosomes X : elle peut être homozygote saine ($X^H X^H$), hétérozygote conductrice ($X^H X^h$) ou malade ($X^h X^h$).
+- **Vérification dans la famille :**
+  - Le fils $G_1$ est malade $\\implies$ son génotype est $X^h Y$. Son chromosome Y vient du père $H_1$ ; son chromosome $X^h$ provient obligatoirement de sa mère $F_1$.
+  - La mère $F_1$ étant phénotypiquement saine, elle possède aussi l'allèle dominant $X^H$. Son génotype est donc obligatoirement hétérozygote conducteur :
+    $$\\mathbf{F_1 : X^H X^h}$$
+  - Le père $H_1$ est sain : $\\mathbf{H_1 : X^H Y}$.
+  - Le second père $H_2$ est sain : $\\mathbf{H_2 : X^H Y}$.
+  - Le fils $G_3$ est malade : $\\mathbf{G_3 : X^h Y}$ (il a reçu $X^h$ de sa mère $F_1$ et $Y$ de $H_2$).
+- L'hypothèse de la liaison à X récessif explique parfaitement l'ensemble des données généalogiques (en particulier le fait que la même mère saine $F_1$, mariée à deux hommes sains différents, donne à chaque fois un garçon hémophile).
+
+---
+
+### 4. Génotype de la jeune fille $F_2$ (1 pt)
+- $F_2$ est issue du croisement entre $F_1 (X^H X^h)$ et $H_1 (X^H Y)$.
+- Échiquier pour les filles de ce couple :
+  - Gamète paternel obligatoirement reçu par les filles : $X^H$ (probabilité $1$).
+  - Gamètes maternels possibles : $\\frac{1}{2} X^H$ ou $\\frac{1}{2} X^h$.
+  - Filles attendues : $\\frac{1}{2} X^H X^H$ (saine non conductrice) et $\\frac{1}{2} X^H X^h$ (saine conductrice).
+- $F_2$ étant une fille phénotypiquement saine, son génotype est :
+  $$\\mathbf{F_2 : X^H X^H \\text{ avec } P = \\frac{1}{2} \\quad \\text{ou} \\quad X^H X^h \\text{ avec } P = \\frac{1}{2}}$$
+
+---
+
+### 5. Calcul des Risques Génétiques (1 pt)
+Le conjoint $H_3$ est sain : génotype certain $X^H Y$. Il apporte toujours son chromosome $X^H$ à ses filles et son chromosome $Y$ à ses fils.
+
+#### a) Probabilité d'avoir un garçon hémophile ($X^h Y$) (0,5 pt)
+Pour qu'un garçon soit hémophile :
+1. La mère $F_2$ doit être conductrice : $P(F_2 \\text{ conductrice}) = \\frac{1}{2}$.
+2. L'enfant doit être un garçon : $P(\\text{garçon}) = \\frac{1}{2}$.
+3. La mère conductrice doit transmettre son chromosome $X^h$ au garçon : $P(\\text{transmission } X^h) = \\frac{1}{2}$.
+$$P(\\text{garçon hémophile}) = \\frac{1}{2} \\times \\frac{1}{2} \\times \\frac{1}{2} = \\mathbf{\\frac{1}{8} \\text{ (soit } 12{,}5\\%\\text{)}}$$
+
+#### b) Probabilité d'avoir un enfant atteint (0,5 pt)
+- Comme le père $H_3$ transmet toujours son chromosome normal $X^H$ à toutes ses filles, aucune fille ne pourra être malade (elles seront au pire conductrices).
+- Seuls les garçons peuvent être atteints.
+- Donc la probabilité d'avoir un enfant atteint (tous sexes confondus) est égale à la probabilité d'avoir un garçon atteint :
+$$P(\\text{enfant atteint}) = \\mathbf{\\frac{1}{8} \\text{ (soit } 12{,}5\\%\\text{)}}$$`,
+      baremeAstuce: 'Formule clé du Bac S2 : Pour une maladie liée à X récessif, le père transmet toujours son allèle sain XH à ses filles. Une fille ne peut donc JAMAIS être malade si son père est sain !',
+    },
+    {
+      year: 2015,
+      session: 'Session Normale (SVT Série S2)',
+      points: 'Exercice 2 — Cytogénétique & Biologie Moléculaire (5 Points)',
+      topic: 'Trisomie 21, diagnostic moléculaire par Southern Blot et identification de l\'accident méiotique maternel vs paternel',
+      enonce: `Un couple a donné naissance à un enfant atteint de trisomie 21 (syndrome de Down). Les parents s'interrogent sur l'origine chromosomique de cette anomalie et consultent un service de cytogénétique et de génétique moléculaire.
+
+**Document 1 : Analyse des Caryotypes**
+- Le caryotype de l'enfant révèle 47 chromosomes avec 3 chromosomes 21 libres et indépendants ($47, XY, +21$).
+- Les caryotypes du père et de la mère sont rigoureusement normaux avec 46 chromosomes ($46, XY$ et $46, XX$).
+
+**Document 2 : Analyse Moléculaire par Électrophorèse de fragments d'ADN**
+On analyse un locus microsatellite hautement polymorphe situé sur le chromosome 21 à l'aide d'une sonde radioactive spécifique après digestion enzymatique :
+- **Chez le père :** Présence de deux bandes électrophorétiques distinctes notées **A1 ($3{,}0\\text{ kb}$)** et **A2 ($2{,}4\\text{ kb}$)** avec des intensités équivalentes.
+- **Chez la mère :** Présence de deux bandes distinctes notées **A3 ($2{,}0\\text{ kb}$)** et **A4 ($1{,}6\\text{ kb}$)** avec des intensités équivalentes.
+- **Chez l'enfant trisomique :** Présence de trois bandes bien nettes :
+  - Une bande **A1 ($3{,}0\\text{ kb}$)** d'intensité normale ($1\\times$).
+  - Une bande **A3 ($2{,}0\\text{ kb}$)** d'intensité normale ($1\\times$).
+  - Une bande **A4 ($1{,}6\\text{ kb}$)** d'intensité normale ($1\\times$).
+
+**Consignes :**
+1. Interprétez les profils électrophorétiques du père et de la mère. Précisez leurs génotypes respectifs pour ce marqueur moléculaire. *(1 point)*
+2. Analysez le profil électrophorétique de l'enfant trisomique. Déterminez avec certitude quel parent a produit le gamète anormal à l'origine de la trisomie. Justifiez précisément. *(1,5 point)*
+3. À quelle division méiotique (anaphase I ou anaphase II) s'est produite la non-disjonction chromosomique ? Justifiez votre démonstration par un schéma annoté clair de la méiose anormale chez le parent fautif. *(2 points)*
+4. Pourquoi le risque de récidive d'une trisomie 21 libre est-il considéré comme très faible pour une grossesse ultérieure chez ce couple ? *(0,5 point)*`,
+      solution: `### 1. Interprétation des profils parentaux (1 pt)
+- **Chez le père :** Deux bandes distinctes A1 et A2 de même intensité révèlent qu'il possède deux allèles différents sur ses deux chromosomes 21 homologues. Il est **hétérozygote** pour ce marqueur :
+  $$\\text{Génotype père : } A_1 / A_2$$
+- **Chez la mère :** Deux bandes distinctes A3 et A4 de même intensité révèlent qu'elle possède également deux allèles différents sur ses deux chromosomes 21 homologues. Elle est **hétérozygote** :
+  $$\\text{Génotype mère : } A_3 / A_4$$
+
+---
+
+### 2. Origine parentale du gamète anormal (1,5 pt)
+- L'enfant trisomique possède trois allèles : **A1, A3 et A4**.
+- L'allèle A1 ne peut provenir que du père (qui est $A_1 / A_2$). Le père a donc fourni un spermatozoïde normal porteur d'un seul chromosome 21 ($n = 23$) portant l'allèle A1.
+- Les allèles A3 et A4 proviennent tous les deux de la mère (qui est $A_3 / A_4$).
+- L'enfant a donc reçu **simultanément deux chromosomes 21 maternels** différents ($A_3$ et $A_4$) par l'ovocyte.
+- **Conclusion irréfutable :** C'est la **MÈRE** qui a produit un ovocyte anormal disomique ($n+1 = 24$ chromosomes) contenant deux chromosomes 21.
+
+---
+
+### 3. Détermination de la division méiotique anormale (2 pts)
+- La mère possède les allèles $A_3$ et $A_4$ situés sur deux chromosomes 21 **homologues distincts**.
+- Si la non-disjonction avait eu lieu en **anaphase II** (défaut de disjonction des chromatides sœurs d'un même chromosome dédoublé), l'ovocyte contiendrait deux fois le même allèle ($A_3 + A_3$ ou $A_4 + A_4$), ce qui donnerait sur le gel une seule bande maternelle mais d'intensité double ($2\\times$).
+- Or, l'ovocyte contient **à la fois l'allèle A3 ET l'allèle A4**, chacun en un exemplaire.
+- Les deux chromosomes homologues maternels ne se sont donc pas séparés lors de la première division réductionnelle.
+- **Démonstration :** La non-disjonction s'est produite lors de l'**ANAPHASE I de l'ovogenèse maternelle**.
+
+#### Déroulement méiotique chez la mère :
+1. *Prophase I :* Appariement des deux chromosomes 21 homologues (l'un portant $A_3$, l'autre portant $A_4$, chacun avec 2 chromatides sœurs dupliquées).
+2. *Anaphase I anormale :* Absence de séparation des homologues ; les deux chromosomes 21 migrent ensemble vers le même pôle cellulaire (vers l'ovocyte II futur).
+3. *Méiose II normale :* Séparation des chromatides sœurs, aboutissant à un ovocyte II mûr contenant un chromosome 21 avec $A_3$ et un chromosome 21 avec $A_4$ ($n+1 = 24$).
+4. *Fécondation :* Ovocyte ($A_3 + A_4$) + Spermatozoïde ($A_1$) $\\implies$ Zygote trisomique 21 ($A_1 / A_3 / A_4$) à $2n+1 = 47$ chromosomes.
+
+---
+
+### 4. Risque de récidive pour les grossesses ultérieures (0,5 pt)
+- Les caryotypes des deux parents sont rigoureusement normaux ($46, XX$ et $46, XY$). Aucun des deux ne porte de translocation robertsonienne équilibrée.
+- La trisomie 21 de l'enfant est une **trisomie libre et homogène**, résultant d'un accident méiotique accidentel et sporadique.
+- Le risque de récidive n'est donc pas augmenté par rapport au risque de base de la population générale (estimé à moins de $1\\%$, dépendant essentiellement de l'âge maternel).`,
+      baremeAstuce: 'Règle d\'or absolue pour les jurys du Bac : Présence de deux bandes parentales distinctes chez l\'enfant = non-disjonction en Anaphase I (homologues non séparés). Présence d\'une seule bande parentale d\'intensité double = non-disjonction en Anaphase II (chromatides sœurs non séparées).',
+    },
+  ],
+
+  // =========================================================================
+  // B5 LEÇON 2 : ACIDES NUCLÉIQUES & EXPRESSION DU GÈNE (SVT S2 - B5L2)
+  // =========================================================================
+  expression_genetique: [
+    {
+      year: 2022,
+      session: 'Session Normale (SVT Série S2)',
+      points: 'Exercice 1 — Maîtrise des Connaissances & Acides Nucléiques (4 Points)',
+      topic: 'Composition en bases azotées, règles de Chargaff et déduction de la structure de l\'ADN',
+      enonce: `On analyse la composition en bases azotées de quatre acides nucléiques extraits de divers échantillons biologiques. Les résultats des dosages sont consignés dans le tableau ci-dessous :
+
+| Échantillon | Adénine (A) % | Thymine (T) % | Guanine (G) % | Cytosine (C) % | Uracile (U) % |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Échantillon 1** | $29{,}8\\%$ | $30{,}2\\%$ | $20{,}1\\%$ | $19{,}9\\%$ | $0\\%$ |
+| **Échantillon 2** | $32{,}0\\%$ | $0\\%$ | $28{,}0\\%$ | $19{,}0\\%$ | $21{,}0\\%$ |
+| **Échantillon 3** | $24{,}5\\%$ | $33{,}5\\%$ | $28{,}0\\%$ | $14{,}0\\%$ | $0\\%$ |
+| **Échantillon 4** | $17{,}4\\%$ | $17{,}6\\%$ | $32{,}5\\%$ | $32{,}5\\%$ | $0\\%$ |
+
+**Questions officielles :**
+1. Précisez la nature biochimique exacte (ADN ou ARN) de chacun des quatre échantillons. Justifiez votre réponse. *(1 point)*
+2. Pour les échantillons d'ADN, déterminez si la molécule est **bicaténaire (double brin)** ou **monocaténaire (simple brin)**. Justifiez rigoureusement par les règles d'équimolarité d'Erwin Chargaff. *(1,5 point)*
+3. Calculez le rapport de spécificité $\\frac{A+T}{C+G}$ pour les échantillons 1 et 4. Interprétez la différence observée et précisez lequel de ces deux ADN présente la température de dénaturation thermique ($T_m$) la plus élevée. Justifiez. *(1,5 point)*`,
+      solution: `### 1. Nature biochimique des échantillons (ADN ou ARN) (1 pt)
+- **Échantillons 1, 3 et 4 :** Présence exclusive de **Thymine (T)** et absence totale d'**Uracile (U = 0%)**. Ce sont des molécules d'**ADN (Acide Désoxyribonucléique)**.
+- **Échantillon 2 :** Présence d'**Uracile (U = 21,0%)** et absence totale de **Thymine (T = 0%)**. C'est une molécule d'**ARN (Acide Ribonucléique)**.
+
+---
+
+### 2. Structure monocaténaire ou bicaténaire des ADN (1,5 pt)
+D'après les règles de complémentarité de Chargaff, dans tout ADN bicaténaire :
+- La complémentarité impose $A = T$ et $C = G$, donc $\\frac{A}{T} = 1$ et $\\frac{C}{G} = 1$.
+- Le rapport $\\frac{A+G}{T+C} = 1$ (équimolarité entre bases puriques et pyrimidiques).
+
+- **Échantillon 1 :**
+  - $A = 29{,}8\\% \\approx T = 30{,}2\\% \\implies \\frac{A}{T} \\approx 1$.
+  - $C = 19{,}9\\% \\approx G = 20{,}1\\% \\implies \\frac{C}{G} \\approx 1$.
+  - Les bases s'apparient deux à deux de manière équimolaire : l'échantillon 1 est un **ADN BICATÉNAIRE (double brin)**.
+
+- **Échantillon 3 :**
+  - $A = 24{,}5\\% \\ne T = 33{,}5\\%$ et $C = 14{,}0\\% \\ne G = 28{,}0\\%$.
+  - Il n'y a pas d'égalité entre bases complémentaires. L'échantillon 3 est un **ADN MONOCATÉNAIRE (simple brin)** (ex: génome de certains bactériophages ou virus).
+
+- **Échantillon 4 :**
+  - $A = 17{,}4\\% \\approx T = 17{,}6\\%$ et $C = 32{,}5\\% = G = 32{,}5\\%$.
+  - Les règles de Chargaff sont rigoureusement vérifiées : l'échantillon 4 est un **ADN BICATÉNAIRE (double brin)**.
+
+---
+
+### 3. Calcul du rapport de spécificité et stabilité thermique (1,5 pt)
+- **Pour l'Échantillon 1 :**
+  $$\\frac{A+T}{C+G} = \\frac{29{,}8 + 30{,}2}{20{,}1 + 19{,}9} = \\frac{60{,}0}{40{,}0} = \\mathbf{1{,}50}$$
+  Cet ADN est riche en paires $A=T$.
+
+- **Pour l'Échantillon 4 :**
+  $$\\frac{A+T}{C+G} = \\frac{17{,}4 + 17{,}6}{32{,}5 + 32{,}5} = \\frac{35{,}0}{65{,}0} = \\mathbf{0{,}54}$$
+  Cet ADN est très riche en paires $C \\equiv G$.
+
+- **Interprétation de la différence :**
+  Le rapport $\\frac{A+T}{C+G}$ est une caractéristique constante propre à chaque espèce vivante mais variable d'une espèce à l'autre. L'échantillon 1 et l'échantillon 4 proviennent de deux espèces biologiques distinctes.
+
+- **Température de fusion / dénaturation ($T_m$) la plus élevée :**
+  - Les paires $A=T$ ne sont unies que par **2 liaisons hydrogène**.
+  - Les paires $C \\equiv G$ sont unies par **3 liaisons hydrogène**, nécessitant une énergie thermique bien supérieure pour être rompues.
+  - L'échantillon 4 possède un taux de paires $C \\equiv G$ beaucoup plus élevé ($65\\%$ contre $40\\%$ pour l'échantillon 1).
+  - Par conséquent, c'est l'**Échantillon 4** qui possède la température de fusion $T_m$ la plus élevée.`,
+      baremeAstuce: 'Au Bac S2, retenez toujours la relation directe : plus un ADN est riche en paires C-G (3 liaisons H), plus sa température de dénaturation Tm est élevée et sa structure stable.',
+    },
+    {
+      year: 2018,
+      session: 'Session Normale (SVT Série S2)',
+      points: 'Exercice 2 — Du Gène à la Protéine & Mutation Génétique (5 Points)',
+      topic: 'Transcription, code génétique, traduction et identification de mutations ponctuelles',
+      enonce: `On étudie la synthèse d'un oligopeptide chez une bactérie. Le document 1 présente la séquence nucléotidique d'un fragment d'ADN génomique (les deux brins sont représentés) :
+
+\`\`\`
+Brin 1 : 5' - A T G  G T C  C A C  T T C  C T C  A C C  T A A - 3'
+Brin 2 : 3' - T A C  C A G  G T G  A A G  G A G  T G G  A T T - 5'
+\`\`\`
+
+**Document 2 : Extrait du Code Génétique**
+- $\\text{AUG}$ : Méthionine (Met) / Initiateur
+- $\\text{GUC}$ : Valine (Val)
+- $\\text{CAC}$ : Histidine (His)
+- $\\text{UUC}$ : Phénylalanine (Phe)
+- $\\text{CUC}$ : Leucine (Leu)
+- $\\text{ACC}$ : Thréonine (Thr)
+- $\\text{UAA}$, $\\text{UAG}$, $\\text{UGA}$ : Codons STOP (non-sens)
+- $\\text{CUA}$, $\\text{CUG}$, $\\text{CUU}$ : Leucine (Leu)
+- $\\text{GAC}$, $\\text{GAU}$ : Acide aspartique (Asp)
+
+**Questions :**
+1. Identifiez le **brin transcrit (matrice)** parmi les deux brins d'ADN du document 1. Justifiez précisément votre choix en vous référant au codon d'initiation. *(1 point)*
+2. Écrivez la séquence de l'ARNm issu de la transcription de ce fragment d'ADN en indiquant ses polarités 5' et 3'. *(1 point)*
+3. Donnez la séquence en acides aminés de l'oligopeptide synthétisé lors de la traduction. *(1 point)*
+4. Une mutation ponctuelle modifie le 5e triplet du brin 2, qui devient $3'\\text{-GAT-}5'$.
+   a) Déterminez la nouvelle séquence de l'ARNm au niveau de ce codon. *(0,5 point)*
+   b) Déduisez-en la nouvelle séquence peptidique. Nommez ce type de mutation et précisez son impact phénotype prévisible. *(0,75 point)*
+5. Une autre mutation remplace la 10e base du brin 2 (adénine) par une thymine ($A \\to T$). Quelle en est la conséquence sur la protéine synthétisée ? Nommez ce type de mutation. *(0,75 point)*`,
+      solution: `### 1. Identification du brin transcrit (matrice) (1 pt)
+- Le codon d'initiation de la traduction est toujours le codon **$5'\\text{-AUG-}3'$** sur l'ARNm, codant pour la Méthionine.
+- Par complémentarité des bases, le codon $5'\\text{-AUG-}3'$ correspond sur le brin transcrit à la séquence antiparallèle **$3'\\text{-TAC-}5'$**.
+- Or, c'est le **Brin 2** qui débute par la séquence $3'\\text{-TAC-}5'$ à son extrémité 3'.
+- **Conclusion :** Le **Brin 2 est le brin transcrit (brin matrice)**. Le Brin 1 est le brin non transcrit (brin codant).
+
+---
+
+### 2. Séquence de l'ARNm (1 pt)
+En appliquant la complémentarité antiparallèle de $3' \\to 5'$ sur le Brin 2 :
+- $3'\\text{-TAC-}5' \\implies 5'\\text{-AUG-}3'$
+- $3'\\text{-CAG-}5' \\implies 5'\\text{-GUC-}3'$
+- $3'\\text{-GTG-}5' \\implies 5'\\text{-CAC-}3'$
+- $3'\\text{-AAG-}5' \\implies 5'\\text{-UUC-}3'$
+- $3'\\text{-GAG-}5' \\implies 5'\\text{-CUC-}3'$
+- $3'\\text{-TGG-}5' \\implies 5'\\text{-ACC-}3'$
+- $3'\\text{-ATT-}5' \\implies 5'\\text{-UAA-}3'$
+
+$$\\mathbf{5\' \\text{ - AUG - GUC - CAC - UUC - CUC - ACC - UAA - } 3\'}$$
+
+---
+
+### 3. Séquence en acides aminés (1 pt)
+À l'aide de l'extrait du code génétique :
+- $\\text{AUG} \\implies \\text{Met}$ (Méthionine, initiateur)
+- $\\text{GUC} \\implies \\text{Val}$ (Valine)
+- $\\text{CAC} \\implies \\text{His}$ (Histidine)
+- $\\text{UUC} \\implies \\text{Phe}$ (Phénylalanine)
+- $\\text{CUC} \\implies \\text{Leu}$ (Leucine)
+- $\\text{ACC} \\implies \\text{Thr}$ (Thréonine)
+- $\\text{UAA} \\implies \\text{STOP}$ (Arrêt de la traduction, pas d'acide aminé)
+
+Oligopeptide mature (après élimination éventuelle de la Met initiale) :
+$$\\mathbf{\\text{Met - Val - His - Phe - Leu - Thr}}$$
+La chaîne comporte **6 acides aminés**.
+
+---
+
+### 4. Analyse de la première mutation (1,25 pt)
+- **a) Nouveau codon de l'ARNm :**
+  - Triplet muté sur le brin transcrit : $3'\\text{-GAT-}5'$.
+  - Codon correspondant sur l'ARNm : **$5'\\text{-CUA-}3'$**.
+- **b) Séquence peptidique et conséquence :**
+  - D'après le code génétique, le codon $5'\\text{-CUA-}3'$ code pour la **Leucine (Leu)**.
+  - La séquence peptidique reste : $\\text{Met - Val - His - Phe - }\\mathbf{Leu}\\text{ - Thr}$.
+  - Elle est rigoureusement identique à la protéine normale !
+  - **Type de mutation :** **Mutation ponctuelle silencieuse (ou synonyme)**.
+  - **Explication :** Cela s'explique par la **dégénérescence (redondance) du code génétique** : deux codons distincts (CUC et CUA) codent pour le même acide aminé. Le phénotype cellulaire est strictement inchangé.
+
+---
+
+### 5. Analyse de la seconde mutation (0,75 pt)
+- Le 10e nucléotide du brin 2 est le premier nucléotide du 4e triplet ($3'\\text{-AAG-}5'$).
+- Si $A \\to T$, le triplet devient **$3'\\text{-TAG-}5'$**.
+- Le 4e codon de l'ARNm devient **$5'\\text{-AUC-}3'$** (ou si $3'\\text{-ATT-}5' \\implies 5'\\text{-UAA-}3'$ STOP).
+- Dans le cas où un codon STOP prématuré apparaît (mutation non-sens) : la synthèse protéique est stoppée nette au 3e acide aminé, produisant un tripeptide non fonctionnel.
+- **Type de mutation :** **Mutation non-sens** (création d'un codon STOP prématuré) ou **faux-sens** selon le cadre, entraînant la perte d'activité biologique de la protéine.`,
+      baremeAstuce: 'Dans un exercice de transcription/traduction au Bac : écrivez toujours les polarités 5\' et 3\' de l\'ARNm. L\'absence des polarités fait systématiquement perdre la moitié des points !',
+    },
+    {
+      year: 2014,
+      session: 'Session Normale (SVT Série S2)',
+      points: 'Exercice 2 — Réplication Semi-Conservative de l\'ADN (5 Points)',
+      topic: 'Expérience historique de Meselson & Stahl, calculs sur n générations et validation expérimentale',
+      enonce: `Pour comprendre le mode de duplication du matériel génétique, Matthew Meselson et Franklin Stahl ont cultivé la bactérie *Escherichia coli* pendant plusieurs générations sur un milieu contenant du chlorure d'ammonium marqué à l'azote lourd $^{15}\\text{N}$. Tout l'ADN des bactéries devient ainsi lourd.
+
+À $t = 0$, ces bactéries sont transférées sur un milieu contenant exclusivement de l'azote léger $^{14}\\text{N}$. À chaque temps de génération ($20\\text{ minutes}$ à $37\\,^\\circ\\text{C}$), des prélèvements sont effectués, l'ADN est extrait et analysé par ultracentrifugation sur gradient de densité de chlorure de césium (CsCl).
+
+Trois hypothèses théoriques s'affrontaient à l'époque :
+- **Hypothèse 1 (Modèle Conservatif) :** La molécule parentale reste intacte, et une molécule entièrement neuve est synthétisée.
+- **Hypothèse 2 (Modèle Semi-Conservatif) :** Chaque molécule fille conserve un brin parental ancien et synthétise un brin néoformé.
+- **Hypothèse 3 (Modèle Dispersif) :** Les deux brins des molécules filles sont un assemblage mosaïque de fragments anciens et récents.
+
+**Questions :**
+1. Représentez schématiquement l'aspect attendu des tubes de centrifugation à la génération 1 ($G_1$, 1er cycle de réplication) et à la génération 2 ($G_2$, 2e cycle) selon chacune des trois hypothèses. *(2 points)*
+2. Les résultats expérimentaux réels révèlent :
+   - En $G_1$ : Une bande unique de densité intermédiaire.
+   - En $G_2$ : Deux bandes d'égale intensité : une bande de densité intermédiaire et une bande de densité légère.
+   Analysez ces résultats pour valider l'hypothèse exacte et rejeter formellement les deux autres. *(1,5 point)*
+3. Soit une culture débutant avec une seule molécule d'ADN lourd ($^{15}\\text{N}-^{15}\\text{N}$) effectuant $n$ cycles de réplication en milieu léger $^{14}\\text{N}$ :
+   a) Donnez l'expression du nombre total de molécules d'ADN obtenues à la génération $G_n$. *(0,5 point)*
+   b) Précisez le nombre de molécules d'ADN hybrides et d'ADN légers à $G_n$. *(0,5 point)*
+   c) Calculez le pourcentage de molécules hybrides et légères à la génération $G_4$ ($n = 4$). *(0,5 point)*`,
+      solution: `### 1. Prévisions théoriques des 3 modèles (2 pts)
+
+#### a) Modèle Conservatif :
+- À $G_1$ : Deux bandes distinctes : $50\\%$ d'ADN lourd ($^{15}\\text{N}-^{15}\\text{N}$) et $50\\%$ d'ADN léger ($^{14}\\text{N}-^{14}\\text{N}$).
+- À $G_2$ : Deux bandes : $25\\%$ d'ADN lourd et $75\\%$ d'ADN léger.
+
+#### b) Modèle Semi-Conservatif :
+- À $G_1$ : Une seule bande d'ADN hybride intermédiaire ($100\\%$ $^{15}\\text{N}-^{14}\\text{N}$).
+- À $G_2$ : Deux bandes d'égale intensité : $50\\%$ d'ADN hybride et $50\\%$ d'ADN léger ($^{14}\\text{N}-^{14}\\text{N}$).
+
+#### c) Modèle Dispersif :
+- À $G_1$ : Une seule bande intermédiaire ($100\\%$ hybride).
+- À $G_2$ : Une seule bande dont la densité migre progressivement vers la position légère.
+
+---
+
+### 2. Confrontation avec les résultats réels & Validation (1,5 pt)
+- **Élimination du modèle conservatif :**
+  L'observation en $G_1$ d'une **bande unique de densité intermédiaire** élimine immédiatement le modèle conservatif, qui prédisait l'existence de deux bandes distinctes (une lourde et une légère).
+- **Élimination du modèle dispersif :**
+  L'observation en $G_2$ de **deux bandes séparées** (l'une hybride et l'autre légère) élimine le modèle dispersif, qui prédisait une bande unique se déplaçant en bloc vers le haut du tube.
+- **Validation formelle :**
+  Les résultats réels concordent en tous points avec les prévisions du **MODÈLE SEMI-CONSERVATIF**. Lors de la réplication, la double hélice s'ouvre et chacun des brins anciens sert de matrice pour l'incorporation de désoxyribonucléotides néoformés par l'ADN polymérase.
+
+---
+
+### 3. Généralisation mathématique à la génération $G_n$ (1,5 pt)
+
+#### a) Nombre total de molécules d'ADN à $G_n$ (0,5 pt)
+À chaque cycle, le nombre de molécules double (progression géométrique de raison 2) :
+$$\\mathbf{N_{\\text{total}} = 2^n}$$
+
+#### b) Répartition des molécules hybrides et légères (0,5 pt)
+- Les 2 brins lourds $^{15}\\text{N}$ initiaux sont indestructibles et se conservent indéfiniment à travers les générations. Chacun d'eux forme une molécule hybride avec un brin néoformé $^{14}\\text{N}$.
+- Par conséquent, quel que soit le nombre de cycles $n \\ge 1$ :
+  $$\\mathbf{N_{\\text{hybrides}} = 2}$$
+- Le reste des molécules est exclusivement constitué d'ADN léger :
+  $$\\mathbf{N_{\\text{légères}} = 2^n - 2}$$
+
+#### c) Application numérique à la génération $G_4$ ($n = 4$) (0,5 pt)
+- Nombre total de molécules : $2^4 = 16$ molécules.
+- Nombre de molécules hybrides : $2$.
+  $$\\% \\text{ Hybrides} = \\frac{2}{16} \\times 100 = \\mathbf{12{,}5\\%}$$
+- Nombre de molécules légères : $16 - 2 = 14$.
+  $$\\% \\text{ Légères} = \\frac{14}{16} \\times 100 = \\mathbf{87{,}5\\%}$$`,
+      baremeAstuce: 'Formule d\'or du Bac : Quel que soit le nombre de générations n ≥ 1, il y aura TOUJOURS exactement 2 molécules hybrides (car issues des 2 brins lourds initiaux). Seules les molécules légères augmentent exponentiellement : (2^n - 2).',
+    },
+  ],
+
+  // ─── B5 LEÇON 3 — GÉNIE GÉNÉTIQUE & BIOTECHNOLOGIES ─────────────────────────
+  genie_genetique: [
+    {
+      year: 2021,
+      session: 'Session Normale (SVT Série S2)',
+      points: 'Exercice 2 — Génie Génétique (6 Points)',
+      topic: 'Clonage moléculaire : enzymes de restriction EcoRI, plasmide recombinant, sélection sur ampicilline',
+      enonce: `Des chercheurs souhaitent cloner un gène d'intérêt (gène $G$) dans le plasmide vecteur pBR322. Ce plasmide possède un gène de résistance à l'ampicilline ($\\text{Amp}^R$), un gène de résistance à la tétracycline ($\\text{Tet}^R$) et un site unique de coupure par l'enzyme EcoRI localisé à l'intérieur du gène $\\text{Tet}^R$.
+
+L'enzyme EcoRI reconnaît la séquence palindromique : $5'\\text{-GAATTC-}3'$ et la coupe entre G et A sur chacun des deux brins.
+
+**Questions :**
+
+1. a) Rappeler ce qu'est un site palindromique et écrire le brin complémentaire de la séquence 5'-GAATTC-3' en indiquant les polarités. *(0,75 pt)*
+   b) Représenter schématiquement les extrémités générées lors de la coupure par EcoRI des deux molécules d'ADN (plasmide et gène $G$), en précisant la nature des bouts obtenus. *(1 pt)*
+
+2. Les fragments d'ADN obtenus sont mélangés en présence d'ADN ligase.
+   a) Quel est le rôle de l'ADN ligase dans la construction du plasmide recombinant ? *(0,5 pt)*
+   b) Schématiser le plasmide recombinant pBR322 :: $G$ obtenu. *(0,75 pt)*
+
+3. Des bactéries *E. coli* sont transformées par ce plasmide recombinant puis cultivées sur milieu contenant de l'ampicilline.
+   a) Expliquer pourquoi seules certaines bactéries survivent sur ce milieu sélectif. *(0,75 pt)*
+   b) Parmi les survivantes, comment distinguer les bactéries porteuses du plasmide recombinant de celles porteuses du plasmide non recombinant (inséré sans le gène $G$) ? Proposer et justifier un protocole de sélection. *(1,25 pt)*
+
+4. Pourquoi a-t-on utilisé une ADNc (ADN complémentaire) du gène $G$ plutôt que le gène génomique entier pour faire exprimer la protéine de $G$ dans *E. coli* ? *(1 pt)*`,
+      solution: `### 1. a) Site palindromique et brin complémentaire (0,75 pt)
+
+Un **site palindromique** est une séquence d'ADN bicaténaire dont la séquence lue de 5' en 3' est identique sur les deux brins antiparallèles (autrement dit, la séquence est son propre complément inverse).
+
+Brin complémentaire de $5'\\text{-GAATTC-}3'$ :
+$$5'\\text{-GAATTC-}3' \\quad \\text{(brin 1)}$$
+$$3'\\text{-CTTAAG-}5' \\quad \\text{(brin 2 complémentaire antiparallèle)}$$
+
+On constate bien que lu de $5'\\to3'$ sur le brin 2, on lit GAATTC : **séquence palindromique confirmée**.
+
+---
+
+### 1. b) Représentation des extrémités générées par EcoRI (1 pt)
+
+EcoRI coupe entre G et A sur chaque brin :
+
+$$5'\\text{---G} \\quad \\mathbf{AATTC\\text{---}}3'$$
+$$3'\\text{---CTTAA} \\quad \\mathbf{G\\text{---}}5'$$
+
+Les extrémités produites sont des **extrémités cohésives (bouts collants) monocaténaires en 5' sortant** de séquence $5'\\text{-AATT-}3'$.
+
+Ces bouts collants sont complémentaires et peuvent s'hybrider spontanément avec tout autre fragment coupé par la même enzyme EcoRI.
+
+---
+
+### 2. a) Rôle de l'ADN ligase (0,5 pt)
+
+Après hybridation des bouts cohésives complémentaires par des liaisons hydrogène, l'**ADN ligase** catalyse la formation de **liaisons phosphodiester covalentes** entre le groupement $3'$-OH et le groupement $5'$-phosphate aux jonctions des deux fragments d'ADN, en consommant de l'ATP. Elle reconstruit ainsi le squelette sucre-phosphate de façon définitive.
+
+---
+
+### 2. b) Schéma du plasmide recombinant (0,75 pt)
+
+Le plasmide circulaire recombinant pBR322 :: $G$ comprend :
+- Le gène $\\text{Amp}^R$ intact (non perturbé par l'insertion)
+- Le gène $\\text{Tet}^R$ **interrompu** (inactivé) par l'insertion du gène $G$ au site EcoRI
+- L'origine de réplication (oriC) du plasmide
+
+---
+
+### 3. a) Survie sur milieu ampicilline (0,75 pt)
+
+Seules les bactéries ayant **incorporé le plasmide** (recombinant ou non) survivent sur le milieu ampicilline, car seul le plasmide porte le gène $\\text{Amp}^R$ qui confère la résistance. Les bactéries non transformées (sans plasmide) sont sensibles et lysées par l'ampicilline.
+
+---
+
+### 3. b) Protocole de sélection des bactéries recombinantes (1,25 pt)
+
+**Principe : Réplique sur velours (inactivation insertionnelle)**
+
+1. Prendre les colonies Amp$^R$ survivantes et les répliquer sur milieu contenant de la **tétracycline**.
+2. Les bactéries porteuses du **plasmide non recombinant** (gène $G$ absent, $\\text{Tet}^R$ intact) : **survivent** sur tétracycline $\\implies$ phénotype $[\\text{Amp}^R, \\text{Tet}^R]$.
+3. Les bactéries porteuses du **plasmide recombinant** (gène $G$ inséré dans $\\text{Tet}^R$, donc $\\text{Tet}^R$ inactivé) : **meurent** sur tétracycline $\\implies$ phénotype $[\\text{Amp}^R, \\text{Tet}^S]$.
+
+**Conclusion :** Les colonies absentes sur le velours tétracycline mais présentes sur le velours ampicilline sont les **bactéries recombinantes** porteuses du plasmide pBR322 :: $G$.
+
+---
+
+### 4. Utilisation de l'ADNc plutôt que du gène génomique (1 pt)
+
+Les gènes eucaryotes sont morcelés en **exons** (séquences codantes) et **introns** (séquences non codantes). Les bactéries *E. coli* (procaryotes) sont **dépourvues de spliceosome** et ne peuvent pas réaliser l'épissage de l'ARN pré-messager. Si on insère le gène génomique entier, l'ARNm traduit contiendrait les introns, entraînant la production d'une protéine anormale et non fonctionnelle.
+
+L'**ADNc** est synthétisé à partir de l'ARNm **mature et épissé** grâce à la transcriptase inverse : il ne contient que les exons et peut donc être directement transcrit et traduit correctement par la machinerie bactérienne.`,
+      baremeAstuce: `Barème Office du Bac S2 Sénégal :
+- Q1a (palindrome + brin complémentaire) : 0,75 pt
+- Q1b (représentation des bouts collants) : 1 pt
+- Q2a (rôle ADN ligase) : 0,5 pt
+- Q2b (schéma plasmide recombinant) : 0,75 pt
+- Q3a (survie Amp R) : 0,75 pt
+- Q3b (protocole réplique velours) : 1,25 pt
+- Q4 (ADNc vs gène génomique) : 1 pt.
+Astuce : Toujours indiquer les polarités 5' et 3' sur vos représentations d'ADN — les correcteurs retirent systématiquement 0,25 pt si elles sont absentes !`,
+    },
+    {
+      year: 2016,
+      session: 'Session Normale (SVT Série S2)',
+      points: 'Exercice 2 — Biotechnologies Médicales (5,5 Points)',
+      topic: 'Production de l\'hormone de croissance humaine recombinante (hGH) et thérapie génique somatique',
+      enonce: `L'hormone de croissance humaine (hGH ou somatotropine) est une protéine de 191 acides aminés produite par l'hypophyse. Des enfants présentant un nanisme hypophysaire (déficit en hGH) peuvent être traités par injection d'hGH recombinante produite par des bactéries génétiquement modifiées.
+
+**Partie A — Production de hGH recombinante**
+
+1. L'ADNc du gène de la hGH a été synthétisé à partir de l'ARNm de cellules hypophysaires.
+   a) Nommer l'enzyme utilisée pour synthétiser cet ADNc et écrire la réaction catalysée. *(0,75 pt)*
+   b) Expliquer pourquoi on utilise un ADNc et non le gène génomique complet de la hGH pour le clonage dans une bactérie. *(0,75 pt)*
+
+2. Cet ADNc est inséré dans un plasmide vecteur d'expression comportant un promoteur fort actif chez *E. coli*.
+   a) Définir le terme « vecteur d'expression ». *(0,5 pt)*
+   b) Décrire les 3 grandes étapes successives du clonage permettant d'obtenir le plasmide recombinant. *(1 pt)*
+
+3. Les bactéries recombinantes sont cultivées en fermenteur industriel.
+   a) Calculer le nombre de bactéries après 10 générations à partir d'une seule bactérie. *(0,5 pt)*
+   b) La hGH produite par *E. coli* nécessite des étapes de purification et de renaturation avant utilisation clinique. Proposer deux raisons biologiques expliquant cette nécessité. *(1 pt)*
+
+**Partie B — Thérapie génique**
+
+4. Une thérapie génique somatique par vecteur viral (vecteur AAV) est en cours d'évaluation pour traiter le nanisme hypophysaire.
+   a) Distinguer la thérapie génique somatique de la thérapie génique germinale en termes de cellules cibles et de transmission héréditaire. *(0,75 pt)*
+   b) Expliquer pourquoi la thérapie germinale est actuellement soumise à un moratoire international. *(0,5 pt)*`,
+      solution: `### Partie A — Production de hGH recombinante
+
+#### 1. a) Enzyme et réaction (0,75 pt)
+
+L'enzyme est la **transcriptase inverse** (reverse transcriptase, RT), une ARN-dépendante ADN polymérase.
+
+Réaction catalysée :
+$$\\text{ARNm (matrice)} \\xrightarrow{\\text{RT + dNTP}} \\text{ADNc simple brin} \\xrightarrow{\\text{ADN polymérase}} \\text{ADNc double brin}$$
+
+---
+
+#### 1. b) ADNc vs gène génomique (0,75 pt)
+
+Le gène génomique humain de la hGH est **interrompu par des introns** (séquences non codantes). Les bactéries *E. coli* étant des **procaryotes dépourvues de spliceosome**, elles sont incapables d'exciser les introns du pré-ARNm. L'utilisation du gène génomique donnerait une protéine incorrecte comportant des séquences d'introns.
+
+L'**ADNc**, obtenu par rétrotranscription de l'ARNm mature (déjà épissé), ne contient que les **exons** et peut être correctement transcrit et traduit par *E. coli*.
+
+---
+
+#### 2. a) Vecteur d'expression (0,5 pt)
+
+Un **vecteur d'expression** est un vecteur de clonage (plasmide ou viral) spécialement conçu pour permettre non seulement le transfert et la réplication du gène d'intérêt dans la cellule hôte, mais aussi son **expression** (transcription et traduction) grâce à la présence de séquences régulatrices fonctionnelles dans la cellule hôte : promoteur fort, terminateur de transcription, séquence de Shine-Dalgarno (chez les procaryotes).
+
+---
+
+#### 2. b) 3 étapes du clonage (1 pt)
+
+**Étape 1 — Coupure :** L'ADNc de la hGH et le plasmide vecteur sont tous deux digérés par la **même enzyme de restriction** (ex. EcoRI) générant des extrémités cohésives complémentaires.
+
+**Étape 2 — Hybridation et ligature :** Les fragments sont mélangés et l'**ADN ligase** (en présence d'ATP) catalyse la formation de liaisons phosphodiester covalentes, produisant le **plasmide recombinant circulaire**.
+
+**Étape 3 — Transformation bactérienne :** Le plasmide recombinant est introduit dans les bactéries *E. coli* par **transformation** (choc thermique + CaCl₂ ou électroporation). Les bactéries recombinantes sont sélectionnées sur milieu antibiotique.
+
+---
+
+#### 3. a) Calcul du nombre de bactéries (0,5 pt)
+
+Après $n = 10$ générations de doublement à partir d'une bactérie :
+$$N = 2^{10} = \\mathbf{1024 \\text{ bactéries}}$$
+
+---
+
+#### 3. b) Raisons de purification et renaturation (1 pt)
+
+**Raison 1 — Repliement non natif (absence de modifications post-traductionnelles) :** Les bactéries ne réalisent pas les modifications post-traductionnelles eucaryotes (glycosylation, formation de ponts disulfures en environnement oxydant). La protéine produite peut être mal repliée (corps d'inclusion insolubles) et biologiquement inactive.
+
+**Raison 2 — Contaminants bactériens (endotoxines LPS) :** La lyse bactérienne libère des lipopolysaccharides (LPS) du lipopolysaccharide de la paroi bactérienne, pyrogènes dangereux pour l'homme. Des étapes de chromatographie sont indispensables pour les éliminer.
+
+---
+
+### Partie B — Thérapie génique
+
+#### 4. a) Distinction somatique vs germinale (0,75 pt)
+
+| Critère | Thérapie somatique | Thérapie germinale |
+|---|---|---|
+| **Cellules cibles** | Cellules somatiques (non reproductives) : lymphocytes, cellules souches hématopoïétiques, pneumocytes… | Cellules germinales : ovocytes, spermatozoïdes, zygote ou embryon |
+| **Transmission** | Non héréditaire : modifications limitées à l'individu traité, s'éteignent avec lui | Héréditaire : toute la descendance portera la modification génétique |
+
+---
+
+#### 4. b) Moratoire sur la thérapie germinale (0,5 pt)
+
+La thérapie germinale modifie le **génome transmissible à l'ensemble des générations futures**, ce qui pose des problèmes éthiques fondamentaux :
+- Risque de modification irréversible du patrimoine génétique de l'espèce humaine
+- Impossibilité pour les générations futures (non consentantes) de revenir sur ces modifications
+- Risque de dérive eugéniste (manipulation intentionnelle des caractères humains)
+
+Ces raisons ont conduit la communauté scientifique internationale à imposer un **moratoire (suspension provisoire)** sur toute expérimentation de thérapie germinale chez l'homme.`,
+      baremeAstuce: `Barème Office du Bac S2 Sénégal :
+- Q1a (transcriptase inverse + réaction) : 0,75 pt
+- Q1b (ADNc vs génomique / introns) : 0,75 pt
+- Q2a (définition vecteur d'expression) : 0,5 pt
+- Q2b (3 étapes clonage) : 1 pt
+- Q3a (calcul 2^10 = 1024) : 0,5 pt
+- Q3b (2 raisons purification) : 1 pt
+- Q4a (distinction somatique/germinale) : 0,75 pt
+- Q4b (moratoire et arguments éthiques) : 0,5 pt.
+Astuce d'or : Pour la Q3a, le jury accorde systématiquement le point à condition de bien écrire la formule 2^n avant le résultat numérique. Ne donnez jamais seulement le résultat !`,
+    },
+    {
+      year: 2012,
+      session: 'Session Normale (SVT Série S2)',
+      points: 'Exercice 2 — PCR & Empreintes Génétiques (5 Points)',
+      topic: 'PCR : amplification d\'un marqueur STR, analyse des produits par électrophorèse et expertise génétique',
+      enonce: `Dans le cadre d'une enquête criminelle, un biologiste forensique analyse des prélèvements biologiques par la technique de la PCR (Polymerase Chain Reaction) et par l'électrophorèse sur gel d'agarose.
+
+**Document 1 :** Un extrait d'ADN contient la région d'intérêt délimitée par deux amorces oligonucléotidiques. La séquence de la région à amplifier est la suivante (brin + sens 5'→3') :
+
+$$5'\\text{-GCTATGATCATGGTCA}\\ \\underbrace{\\text{(STR : 5 répétitions de ACGT)}}_{\\text{20 pb}} \\text{GTACCATGATCATAGC-}3'$$
+
+**Questions :**
+
+1. a) Rappeler les 3 paramètres de température d'un cycle PCR, leur durée approximative et leur rôle biologique précis. *(1,5 pt)*
+   b) Calculer le nombre de copies de la région d'intérêt obtenues après 30 cycles PCR à partir d'une seule molécule d'ADN double brin. Écrire le résultat sous forme de puissance de 2 puis convertir en valeur approchée. *(0,75 pt)*
+
+2. Les produits PCR sont analysés par électrophorèse sur gel d'agarose (tampon TBE, 90 V, 45 min). Un marqueur de taille moléculaire (ladder) est déposé dans le premier puits.
+   a) Rappeler le principe de la migration électrophorétique des fragments d'ADN. *(0,75 pt)*
+   b) La taille du fragment amplifié dans la région STR est 52 pb (y compris les séquences flanquantes de 16 pb de chaque côté). En supposant que la relation migration/log(taille) est linéaire, expliquer comment positionner ce fragment par rapport au marqueur. *(0,5 pt)*
+
+3. Quatre profils électrophorétiques sont obtenus pour : la victime (V), le suspect (S), un témoin neutre (T) et la trace relevée sur la scène de crime (C). Les 4 profils STR sont :
+   - Victime V : bande unique à 52 pb (homozygote)
+   - Suspect S : deux bandes à 44 pb et 52 pb (hétérozygote)
+   - Témoin T : deux bandes à 36 pb et 60 pb (hétérozygote)
+   - Trace C : deux bandes à 44 pb et 52 pb (hétérozygote)
+
+   a) Analyser les profils et conclure sur la correspondance de la trace criminelle. *(0,75 pt)*
+   b) La probabilité que le profil STR soit partagé par un individu pris au hasard dans la population est de $1/10^6$. Interpréter cette donnée pour le jury. *(0,75 pt)*`,
+      solution: `### 1. a) Les 3 étapes d'un cycle PCR (1,5 pt)
+
+| Étape | Température | Durée | Rôle biologique |
+|---|---|---|---|
+| **Dénaturation** | 94–95 °C | 30 s à 1 min | Rupture des liaisons hydrogène entre les bases azotées → séparation des 2 brins d'ADN en simples brins (matrices) |
+| **Hybridation (Annealing)** | 50–65 °C (selon la Tm des amorces) | 30 s à 1 min | Hybridation des amorces oligonucléotidiques sur leurs séquences complémentaires de part et d'autre de la région cible |
+| **Élongation (Extension)** | 72 °C | 1 min / kb d'ADN | Synthèse des nouveaux brins par la **Taq ADN polymérase** (thermorésistante, $T_{opt}$ = 72 °C), en incorporant les dNTP libres dans le sens 5'→3' à partir de l'extrémité 3'-OH des amorces |
+
+---
+
+### 1. b) Nombre de copies après 30 cycles (0,75 pt)
+
+La réaction PCR suit une amplification exponentielle de raison 2 :
+$$N = 2^n = 2^{30}$$
+
+Calcul numérique approximatif :
+$$2^{10} = 1024 \\approx 10^3 \\implies 2^{30} = (2^{10})^3 \\approx (10^3)^3 = \\mathbf{10^9}$$
+
+Après 30 cycles PCR, on obtient théoriquement $2^{30} \\approx 10^9$ **copies** (environ 1 milliard de copies) du fragment cible à partir d'une seule molécule matrice.
+
+---
+
+### 2. a) Principe de la migration électrophorétique (0,75 pt)
+
+Sous l'action d'un **champ électrique** (90 V), les molécules d'ADN chargées **négativement** (groupements phosphate du squelette) migrent vers le pôle **positif** (anode) à travers le gel d'agarose (tamis moléculaire).
+
+La migration est **inversement proportionnelle au logarithme de la taille** des fragments (en paires de bases) :
+$$\\text{Distance migrée} \\propto \\frac{1}{\\log(\\text{taille en pb})}$$
+
+Les petits fragments migrent plus vite (plus loin) que les grands fragments.
+
+---
+
+### 2. b) Positionnement du fragment de 52 pb (0,5 pt)
+
+Sur le gel, ce fragment de **52 pb** sera repéré en comparant sa position avec les bandes du marqueur de taille moléculaire. On trace la droite de calibration (distance de migration = f(log taille)) à partir des bandes du ladder, puis on lit la valeur de taille correspondant à la position du fragment amplifié. Le fragment de 52 pb migrera entre les bandes marqueurs de 50 pb et 100 pb, plus près de la bande 50 pb.
+
+---
+
+### 3. a) Analyse des profils et conclusion (0,75 pt)
+
+Comparaison des profils STR :
+
+- **Suspect S** [44 pb + 52 pb] = **Trace C** [44 pb + 52 pb] $\\checkmark$
+
+Les profils STR du suspect S et de la trace relevée sur la scène de crime C sont **strictement identiques** (mêmes allèles : 44 pb et 52 pb). La trace biologique de la scène correspond au profil génétique du suspect.
+
+Les profils de la victime V [52 pb seulement] et du témoin T [36 + 60 pb] sont différents de la trace C.
+
+**Conclusion : la trace criminelle est compatible avec l'ADN du suspect S et non avec celui de la victime V ni du témoin T.**
+
+---
+
+### 3. b) Interprétation statistique pour le jury (0,75 pt)
+
+La probabilité que ce profil STR précis soit partagé par hasard avec un individu non apparenté pris au hasard dans la population est de $1/10^6$, soit **1 chance sur 1 000 000**.
+
+Interprétation forensique : il est **extrêmement peu probable** (probabilité de 0,0001 %) que quelqu'un d'autre que le suspect présente ce profil. Cependant, l'expertise génétique constitue un **faisceau de preuves** parmi d'autres (témoignages, alibis, preuves matérielles) et ne peut à elle seule constituer une preuve absolue de culpabilité selon les principes de la présomption d'innocence.`,
+      baremeAstuce: `Barème Office du Bac S2 Sénégal :
+- Q1a (3 étapes PCR : températures, durées, rôles) : 1,5 pt
+- Q1b (formule 2^30 et calcul approché ~10^9) : 0,75 pt
+- Q2a (principe électrophorèse, charge négative, migration vers anode) : 0,75 pt
+- Q2b (positionnement entre bandes ladder) : 0,5 pt
+- Q3a (analyse profils et concordance S=C) : 0,75 pt
+- Q3b (interprétation 1/10^6 et nuance présomption innocence) : 0,75 pt.
+Astuce du correcteur : Pour Q1b, n'oubliez JAMAIS d'écrire d'abord 2^n = 2^30 avant la valeur numérique approchée. Et mentionnez que 2^10 ≈ 10^3 comme raisonnement intermédiaire — le jury octroie les points sur la démarche, pas seulement le résultat final !`,
+    },
+  ],
+
+  // ─── P5 : LES OSCILLATIONS MÉCANIQUES (PENDULE ÉLASTIQUE) ───────────────────
+  oscillations_mecaniques: [
+    {
+      year: 2020,
+      session: 'Session Normale (Physique Série S2)',
+      points: 'Exercice 3 — Mécanique (4 Points)',
+      topic: 'Pendule élastique horizontal : équation différentielle, conditions initiales, phase et énergie mécanique',
+      enonce: `Un solide $(S)$ de masse $m = 200\\text{ g}$ repose sur un banc à coussin d'air horizontal. Il est attaché à l'une des extrémités d'un ressort à spires non jointives, de masse négligeable et de raideur $k = 20\\text{ N}\\cdot\\text{m}^{-1}$. L'autre extrémité du ressort est fixée à un point fixe $A$.
+Les frottements sont rigoureusement négligeables. La position du centre d'inertie $G$ du solide est repérée par son abscisse $x$ sur un axe $(O, \\vec{i})$ horizontal, l'origine $O$ coïncidant avec la position d'équilibre de $G$.
+
+1. Faire l'inventaire des forces appliquées au solide $(S)$ et les représenter sur un schéma clair. *(0,5 pt)*
+2. En appliquant le théorème du centre d'inertie (deuxième loi de Newton), établir l'équation différentielle du mouvement de $(S)$. *(0,75 pt)*
+3. La solution générale de cette équation différentielle est de la forme :
+$$x(t) = X_m\\cos(\\omega_0 t + \\varphi)$$
+   a) Exprimer la pulsation propre $\\omega_0$ et calculer sa valeur numérique. *(0,5 pt)*
+   b) En déduire la valeur de la période propre $T_0$ des oscillations. *(0,25 pt)*
+4. À l'instant initial $t = 0$, on écarte le solide de sa position d'équilibre vers les abscisses positives d'une distance $x_0 = 4{,}0\\text{ cm}$ et on le lance avec une vitesse initiale $v_0 = -0{,}40\\text{ m}\\cdot\\text{s}^{-1}$.
+   a) Déterminer la valeur de l'amplitude $X_m$ et de la phase initiale $\\varphi$. *(1 pt)*
+   b) Écrire la loi horaire numérique complète du mouvement. *(0,25 pt)*
+5. Calculer l'énergie mécanique $E_m$ du système oscillant et préciser la valeur de la vitesse maximale $V_m$ atteinte par le solide. *(0,75 pt)*`,
+      solution: `### 1. Bilan des forces et schéma (0,5 pt)
+Le système étudié est le solide $(S)$ de masse $m = 0{,}200\\text{ kg}$ dans le référentiel terrestre supposé galiléen.
+Forces appliquées :
+- Le poids $\\vec{P} = m\\vec{g}$ (vertical, vers le bas)
+- La réaction normale du support $\\vec{R}_N$ (verticale, vers le haut, car sans frottement)
+- La force de rappel élastique du ressort : $\\vec{T} = -k\\,x\\,\\vec{i}$ (horizontale, constamment dirigée vers la position d'équilibre $O$).
+
+---
+
+### 2. Équation différentielle du mouvement (0,75 pt)
+D'après la deuxième loi de Newton :
+$$\\sum \\vec{F}_{\\text{ext}} = m\\,\\vec{a} \\iff \\vec{P} + \\vec{R}_N + \\vec{T} = m\\,\\vec{a}$$
+Projection sur l'axe $(O, \\vec{i})$ horizontal :
+$$P_x + R_{Nx} + T_x = m\\,a_x$$
+Comme $\\vec{P} \\perp \\vec{i}$ et $\\vec{R}_N \\perp \\vec{i}$, on a $P_x = 0$ et $R_{Nx} = 0$.
+$$0 + 0 - k\\,x = m\\,\\ddot{x} \\iff m\\,\\ddot{x} + k\\,x = 0$$
+En divisant par $m$ :
+$$\\mathbf{\\ddot{x} + \\frac{k}{m}\\,x = 0}$$
+Il s'agit de l'équation différentielle caractéristique d'un oscillateur harmonique linéaire sans amortissement.
+
+---
+
+### 3. Pulsation propre $\\omega_0$ et période propre $T_0$ (0,75 pt)
+a) Par identification avec la forme canonique $\\ddot{x} + \\omega_0^2\\,x = 0$ :
+$$\\omega_0 = \\sqrt{\\frac{k}{m}} = \\sqrt{\\frac{20}{0{,}200}} = \\sqrt{100} = \\mathbf{10\\text{ rad}\\cdot\\text{s}^{-1}}$$
+b) Période propre :
+$$T_0 = \\frac{2\\pi}{\\omega_0} = \\frac{2\\pi}{10} = \\mathbf{\\frac{\\pi}{5}\\text{ s} \\approx 0{,}628\\text{ s}}$$
+
+---
+
+### 4. Détermination de l'amplitude $X_m$ et de la phase initiale $\\varphi$ (1,25 pt)
+La loi horaire et sa dérivée s'écrivent :
+$$\\begin{cases} x(t) = X_m\\cos(\\omega_0 t + \\varphi) \\\\ v(t) = \\dot{x}(t) = -X_m\\omega_0\\sin(\\omega_0 t + \\varphi) \\end{cases}$$
+À la date $t = 0$ :
+$$\\begin{cases} x(0) = X_m\\cos\\varphi = x_0 = 4{,}0\\cdot 10^{-2}\\text{ m} \\\\ v(0) = -X_m\\omega_0\\sin\\varphi = v_0 = -0{,}40\\text{ m}\\cdot\\text{s}^{-1} \\implies X_m\\sin\\varphi = -\\frac{v_0}{\\omega_0} = -\\frac{-0{,}40}{10} = +0{,}040\\text{ m} \\end{cases}$$
+
+- **Calcul de l'amplitude $X_m$ :**
+$$X_m = \\sqrt{(X_m\\cos\\varphi)^2 + (X_m\\sin\\varphi)^2} = \\sqrt{(0{,}040)^2 + (0{,}040)^2} = 0{,}040\\sqrt{2} \\approx \\mathbf{5{,}66\\cdot 10^{-2}\\text{ m} = 5{,}66\\text{ cm}}$$
+
+- **Calcul de la phase $\\varphi$ :**
+$$\\cos\\varphi = \\frac{0{,}040}{0{,}040\\sqrt{2}} = +\\frac{\\sqrt{2}}{2} > 0 \\quad \\text{et} \\quad \\sin\\varphi = \\frac{0{,}040}{0{,}040\\sqrt{2}} = +\\frac{\\sqrt{2}}{2} > 0$$
+Les deux fonctions trigonométriques étant strictement positives, la phase appartient au premier quadrant :
+$$\\mathbf{\\varphi = +\\frac{\\pi}{4}\\text{ rad}}$$
+
+- **Loi horaire complète :**
+$$\\mathbf{x(t) = 5{,}66\\cdot 10^{-2}\\cos\\left(10\\,t + \\frac{\\pi}{4}\\right) \\quad (\\text{en mètres})}$$
+
+---
+
+### 5. Énergie mécanique et vitesse maximale (0,75 pt)
+L'énergie mécanique se conserve à tout instant :
+$$E_m = \\frac{1}{2}k\\,X_m^2 = \\frac{1}{2} \\times 20 \\times (0{,}040\\sqrt{2})^2 = 10 \\times (16\\cdot 10^{-4} \\times 2) = \\mathbf{3{,}2\\cdot 10^{-2}\\text{ J} = 32\\text{ mJ}}$$
+La vitesse maximale est atteinte au passage par la position d'équilibre ($x = 0$) :
+$$E_m = \\frac{1}{2}m\\,V_m^2 \\implies V_m = \\omega_0\\,X_m = 10 \\times 5{,}66\\cdot 10^{-2} = \\mathbf{0{,}566\\text{ m}\\cdot\\text{s}^{-1}}$$`,
+      baremeAstuce: `Barème officiel Office du Bac :
+- Bilan des forces et schéma : 0,5 pt
+- Démonstration TCI et équation différentielle : 0,75 pt
+- Calcul de ω₀ et T₀ : 0,75 pt
+- Conditions initiales, amplitude Xm et phase φ : 1,25 pt
+- Énergie mécanique et vitesse maximale : 0,75 pt.
+Astuce correcteur : N'oubliez jamais de vérifier les deux signes de cos(φ) et sin(φ) pour prouver au correcteur que vous maîtrisez le choix du quadrant !`,
+    },
+    {
+      year: 2018,
+      session: 'Session Normale (Physique Série S2)',
+      points: 'Exercice 2 — Mécanique (4 Points)',
+      topic: 'Pendule élastique vertical : allongement statique, équation différentielle et période',
+      enonce: `Un ressort à spires non jointives, d'axe vertical et de longueur à vide $l_0 = 20\\text{ cm}$, a une raideur $k = 40\\text{ N}\\cdot\\text{m}^{-1}$. Son extrémité supérieure est fixée à une potence. On suspend à son extrémité inférieure un solide ponctuel de masse $m = 100\\text{ g}$.
+On prendra $g = 10\\text{ m}\\cdot\\text{s}^{-2}$.
+
+1. À l'équilibre statique du solide :
+   a) Déterminer l'expression littérale puis numérique de l'allongement statique $\\Delta l_0$ du ressort. *(0,75 pt)*
+   b) En déduire la longueur $l_1$ du ressort à l'équilibre. *(0,25 pt)*
+2. À partir de la position d'équilibre, on tire le solide verticalement vers le bas d'une distance $z_0 = 3{,}0\\text{ cm}$ et on le lâche sans vitesse initiale à $t = 0$. On repère la position du solide par son élongation $z(t)$ sur un axe vertical descendant dont l'origine $O$ coïncide avec la position d'équilibre.
+   a) Établir l'équation différentielle du mouvement en appliquant la deuxième loi de Newton. *(1 pt)*
+   b) Montrer que la période propre des oscillations peut s'écrire sous la forme $T_0 = 2\\pi\\sqrt{\\frac{\\Delta l_0}{g}}$ et calculer sa valeur numérique. *(0,75 pt)*
+3. Exprimer l'énergie potentielle totale du système oscillant en fonction de $z$, $k$ et de la constante de référence. En déduire la valeur de la vitesse maximale $V_m$ atteinte lors du passage par la position d'équilibre. *(1,25 pt)*`,
+      solution: `### 1. Équilibre statique du pendule vertical (1 pt)
+a) À l'équilibre statique, le solide est immobile sous l'action de son poids $\\vec{P}$ et de la tension $\\vec{T}_0$ du ressort :
+$$\\vec{P} + \\vec{T}_0 = \\vec{0} \\implies m\\,g - k\\,\\Delta l_0 = 0$$
+$$\\mathbf{\\Delta l_0 = \\frac{m\\,g}{k} = \\frac{0{,}100 \\times 10}{40} = 2{,}5\\cdot 10^{-2}\\text{ m} = 2{,}5\\text{ cm}}$$
+b) Longueur du ressort à l'équilibre :
+$$l_1 = l_0 + \\Delta l_0 = 20 + 2{,}5 = \\mathbf{22{,}5\\text{ cm}}$$
+
+---
+
+### 2. Équation différentielle et période propre (1,75 pt)
+a) En mouvement, à une date $t$ quelconque où le solide a une élongation $z(t)$ par rapport à l'équilibre :
+L'allongement total du ressort est $\\Delta l(t) = \\Delta l_0 + z(t)$.
+La tension du ressort s'écrit : $\\vec{T} = -k(\\Delta l_0 + z)\\,\\vec{k}$ (orienté vers le haut).
+D'après la 2e loi de Newton projetée sur l'axe vertical descendant $(O, \\vec{k})$ :
+$$P_z + T_z = m\\,a_z \\iff m\\,g - k(\\Delta l_0 + z) = m\\,\\ddot{z}$$
+Or à l'équilibre statique, $m\\,g - k\\,\\Delta l_0 = 0$. Il reste donc :
+$$-k\\,z = m\\,\\ddot{z} \\iff \\mathbf{\\ddot{z} + \\frac{k}{m}\\,z = 0}$$
+L'équation différentielle est rigoureusement identique à celle du pendule horizontal.
+
+b) Pulsation propre : $\\omega_0 = \\sqrt{\\frac{k}{m}}$.
+Comme à l'équilibre $\\frac{k}{m} = \\frac{g}{\\Delta l_0}$, on a :
+$$\\omega_0 = \\sqrt{\\frac{g}{\\Delta l_0}} \\implies \\mathbf{T_0 = \\frac{2\\pi}{\\omega_0} = 2\\pi\\sqrt{\\frac{\\Delta l_0}{g}}}$$
+Application numérique :
+$$T_0 = 2\\pi\\sqrt{\\frac{2{,}5\\cdot 10^{-2}}{10}} = 2\\pi\\sqrt{25\\cdot 10^{-4}} = 2\\pi \\times 5\\cdot 10^{-2} = \\mathbf{0{,}10\\pi\\text{ s} \\approx 0{,}314\\text{ s}}$$
+
+---
+
+### 3. Bilan énergétique et vitesse maximale (1,25 pt)
+En choisissant la position d'équilibre $O$ comme état de référence pour l'énergie potentielle totale ($E_p(0) = 0$), l'énergie mécanique se conserve :
+$$E_m = \\frac{1}{2}m\\,v^2 + \\frac{1}{2}k\\,z^2 = \\text{constante}$$
+Aux extrémités ($z = \\pm z_0 = \\pm 3{,}0\\text{ cm}$, $v = 0$) :
+$$E_m = \\frac{1}{2}k\\,z_0^2 = \\frac{1}{2} \\times 40 \\times (3{,}0\\cdot 10^{-2})^2 = 20 \\times 9{,}0\\cdot 10^{-4} = \\mathbf{1{,}8\\cdot 10^{-2}\\text{ J} = 18\\text{ mJ}}$$
+Au passage par la position d'équilibre ($z = 0$) :
+$$E_m = \\frac{1}{2}m\\,V_m^2 \\implies V_m = \\sqrt{\\frac{2E_m}{m}} = \\sqrt{\\frac{2 \\times 1{,}8\\cdot 10^{-2}}{0{,}100}} = \\sqrt{0{,}36} = \\mathbf{0{,}60\\text{ m}\\cdot\\text{s}^{-1}}$$
+On retrouve bien $V_m = \\omega_0\\,z_0 = 20 \\times 0{,}030 = 0{,}60\\text{ m}\\cdot\\text{s}^{-1}$.`,
+      baremeAstuce: `Barème officiel Office du Bac :
+- Calcul de l'allongement statique Δl₀ et l₁ : 1 pt
+- Établissement de l'équation différentielle en z : 1 pt
+- Formule T₀ = 2π√(Δl₀/g) et calcul : 0,75 pt
+- Énergie mécanique et vitesse maximale : 1,25 pt.
+Astuce : Remarquez que la formule T₀ = 2π√(Δl₀/g) est formellement analogue à celle du pendule simple T₀ = 2π√(L/g) !`,
+    },
+    {
+      year: 2015,
+      session: 'Session Normale (Physique Série S2)',
+      points: 'Exercice 3 — Mécanique (4 Points)',
+      topic: 'Oscillateur mécanique : dérivation de l\'énergie mécanique et analyse de graphes énergétiques',
+      enonce: `Un oscillateur horizontal sans frottement est constitué d'un solide de masse $m = 250\\text{ g}$ fixé à un ressort de raideur $k$.
+Un système d'acquisition informatisé permet d'enregistrer l'évolution de l'énergie cinétique $E_c$ et de l'énergie potentielle élastique $E_{pe}$ en fonction du carré de l'élongation $x^2$.
+On obtient une droite pour $E_{pe} = f(x^2)$ passant par l'origine et atteignant la valeur maximale $E_{\\text{max}} = 50\\text{ mJ}$ pour $x_{\\text{max}}^2 = 25\\text{ cm}^2$.
+
+1. Rappeler les expressions de l'énergie cinétique $E_c(t)$ et de l'énergie potentielle élastique $E_{pe}(t)$ en fonction de $m$, $k$, $x$ et $v = \\dot{x}$. *(0,5 pt)*
+2. Exprimer l'énergie mécanique $E_m$ du système. En déduire que sa dérivation par rapport au temps permet de retrouver l'équation différentielle du mouvement $\\ddot{x} + \\frac{k}{m}x = 0$. *(1 pt)*
+3. À partir des données expérimentales de la courbe $E_{pe} = f(x^2)$ :
+   a) Déterminer la raideur $k$ du ressort. *(0,75 pt)*
+   b) En déduire l'amplitude $X_m$ des oscillations. *(0,5 pt)*
+4. Déterminer la valeur de la vitesse maximale $V_m$ du solide lors de son passage par la position d'équilibre. *(0,75 pt)*
+5. Préciser la période $T_E$ des oscillations énergétiques en fonction de la période propre $T_0$. Calculer la valeur numérique de $T_E$. *(0,5 pt)*`,
+      solution: `### 1. Expressions des énergies (0,5 pt)
+- Énergie cinétique : $E_c = \\frac{1}{2}m\\,v^2 = \\frac{1}{2}m\\,\\dot{x}^2$
+- Énergie potentielle élastique : $E_{pe} = \\frac{1}{2}k\\,x^2$
+
+---
+
+### 2. Énergie mécanique et dérivation temporelle (1 pt)
+L'énergie mécanique totale est :
+$$E_m = E_c + E_{pe} = \\frac{1}{2}m\\,\\dot{x}^2 + \\frac{1}{2}k\\,x^2$$
+En l'absence de frottements (système conservatif), $E_m$ est constante au cours du temps, donc sa dérivée temporelle est nulle :
+$$\\frac{dE_m}{dt} = 0$$
+$$\\frac{d}{dt}\\left(\\frac{1}{2}m\\,\\dot{x}^2 + \\frac{1}{2}k\\,x^2\\right) = \\frac{1}{2}m(2\\dot{x}\\ddot{x}) + \\frac{1}{2}k(2x\\dot{x}) = m\\,\\dot{x}\\ddot{x} + k\\,x\\dot{x} = 0$$
+En factorisant par la vitesse $\\dot{x} = v$ :
+$$\\dot{x}(m\\,\\ddot{x} + k\\,x) = 0$$
+Puisque le solide oscille, sa vitesse $\\dot{x}$ n'est pas identiquement nulle à chaque instant. Par conséquent, le terme entre parenthèses s'annule nécessairement :
+$$m\\,\\ddot{x} + k\\,x = 0 \\iff \\mathbf{\\ddot{x} + \\frac{k}{m}\\,x = 0}$$
+On retrouve rigoureusement l'équation différentielle du pendule élastique.
+
+---
+
+### 3. Exploitation du graphe expérimental (1,25 pt)
+a) Comme $E_{pe} = \\frac{1}{2}k\\,x^2$, la courbe $E_{pe} = f(x^2)$ est une droite linéaire de pente $p = \\frac{1}{2}k$.
+Pente expérimentale :
+$$p = \\frac{E_{\\text{max}}}{x_{\\text{max}}^2} = \\frac{50\\cdot 10^{-3}\\text{ J}}{25\\cdot 10^{-4}\\text{ m}^2} = 20\\text{ J}\\cdot\\text{m}^{-2}$$
+D'où la raideur $k$ :
+$$\\frac{1}{2}k = 20 \\implies \\mathbf{k = 40\\text{ N}\\cdot\\text{m}^{-1}}$$
+
+b) L'amplitude $X_m$ correspond à la valeur maximale de $|x|$ :
+$$X_m = \\sqrt{x_{\\text{max}}^2} = \\sqrt{25\\text{ cm}^2} = \\mathbf{5{,}0\\text{ cm} = 0{,}050\\text{ m}}$$
+
+---
+
+### 4. Vitesse maximale du solide (0,75 pt)
+Au passage par l'équilibre ($x = 0$), toute l'énergie mécanique est sous forme cinétique :
+$$E_m = E_{c,\\text{max}} = \\frac{1}{2}m\\,V_m^2 = 50\\cdot 10^{-3}\\text{ J}$$
+$$V_m = \\sqrt{\\frac{2E_m}{m}} = \\sqrt{\\frac{2 \\times 50\\cdot 10^{-3}}{0{,}250}} = \\sqrt{0{,}40} \\approx \\mathbf{0{,}632\\text{ m}\\cdot\\text{s}^{-1}}$$
+
+---
+
+### 5. Période des oscillations énergétiques (0,5 pt)
+Pulsation propre du mouvement : $\\omega_0 = \\sqrt{\\frac{k}{m}} = \\sqrt{\\frac{40}{0{,}250}} = \\sqrt{160} \\approx 12{,}65\\text{ rad}\\cdot\\text{s}^{-1}$.
+Période propre mécanique : $T_0 = \\frac{2\\pi}{\\omega_0} \\approx 0{,}497\\text{ s}$.
+L'énergie cinétique et l'énergie potentielle oscillent à la pulsation $2\\omega_0$, donc leur période $T_E$ est la moitié de la période propre :
+$$\\mathbf{T_E = \\frac{T_0}{2}} = \\frac{0{,}497}{2} \\approx \\mathbf{0{,}248\\text{ s}}$$`,
+      baremeAstuce: `Barème officiel Office du Bac :
+- Expressions des énergies : 0,5 pt
+- Démonstration par dérivation de Em : 1 pt
+- Pente et calcul de la raideur k : 0,75 pt
+- Amplitude Xm : 0,5 pt
+- Vitesse maximale Vm : 0,75 pt
+- Période énergétique TE = T₀/2 et calcul : 0,5 pt.
+Astuce correcteur : N'oubliez pas d'indiquer que la vitesse v(t) n'est pas identiquement nulle pour justifier la simplification finale de m ẍ + k x = 0 !`,
+    },
+  ],
+
+  // ─── P6 : PHÉNOMÈNE D'INDUCTION ÉLECTROMAGNÉTIQUE & AUTO-INDUCTION ─────────
+  induction_electromagnetique: [
+    {
+      year: 2021,
+      session: 'Session Normale (Physique Série S2)',
+      points: 'Exercice 4 — Électromagnétisme (4 Points)',
+      topic: 'Rails de Laplace, tige mobile, f.é.m. induite e = -Blv, force de freinage et équation différentielle',
+      enonce: `Deux rails rectilignes, parallèles et horizontaux, de résistance électrique négligeable, sont distants d'une largeur $l = 10\\text{ cm}$. Les deux rails sont reliés à l'une de leurs extrémités par un conducteur ohmique de résistance $R = 2{,}0\\;\\Omega$.
+L'ensemble est placé dans un champ magnétique uniforme $\\vec{B}$ vertical, orienté vers le haut, d'intensité $B = 0{,}50\\text{ T}$.
+Une tige métallique $MN$, de masse $m = 20\\text{ g}$ et de résistance négligeable, est posée perpendiculairement aux deux rails. À l'instant $t = 0$, on communique à la tige une vitesse initiale $\\vec{v}_0$ parallèle aux rails de valeur $v_0 = 4{,}0\\text{ m}\\cdot\\text{s}^{-1}$. Les frottements mécaniques sont considérés comme nuls.
+
+1. Expliquer pourquoi la tige mobile $MN$ est le siège d'un courant induit. *(0,5 pt)*
+2. Préciser le sens du courant induit dans le circuit en appliquant la loi de Lenz. Faire un schéma clair. *(0,75 pt)*
+3. Exprimer la force électromotrice induite $e(t)$ en fonction de $B$, $l$ et de la vitesse instantanée $v(t)$. En déduire l'intensité $i(t)$ du courant induit. *(0,75 pt)*
+4. Déterminer l'expression de la force de Laplace $\\vec{F}_L$ exercée sur la tige en fonction de $B$, $l$, $R$ et $v$. Quel est son rôle physique ? *(0,75 pt)*
+5. En appliquant la deuxième loi de Newton à la tige, établir l'équation différentielle régissant la vitesse $v(t)$. Donner la solution $v(t)$ et calculer la distance totale parcourue par la tige jusqu'à son arrêt complet. *(1,25 pt)*`,
+      solution: `### 1. Origine du courant induit (0,5 pt)
+Lorsque la tige $MN$ se déplace sur les rails, la surface $S(t) = l \\cdot x(t)$ délimitée par le circuit fermé augmente au cours du temps.
+Le flux magnétique $\\Phi(t) = \\vec{B} \\cdot \\vec{S} = B \\cdot l \\cdot x(t)$ traverse donc le circuit et varie au cours du temps :
+$$\\frac{d\\Phi}{dt} = B\\,l\\,\\frac{dx}{dt} = B\\,l\\,v(t) \\neq 0$$
+D'après la loi de Faraday, cette variation temporelle de flux engendre l'apparition d'une force électromotrice induite $e = -\\frac{d\\Phi}{dt}$ et donc la circulation d'un **courant induit**.
+
+---
+
+### 2. Sens du courant induit selon la loi de Lenz (0,75 pt)
+- Cause de l'induction : Augmentation du flux magnétique sortant (vers le haut) à travers le circuit, car la surface $S(t)$ augmente.
+- Effet d'après Lenz : Le courant induit crée un champ magnétique propre $\\vec{B}_{\\text{induit}}$ orienté en sens inverse du champ inducteur, donc **vers le bas**, pour s'opposer à cette augmentation de flux.
+- Règle de la main droite : Pour produire un champ $\\vec{B}_{\\text{induit}}$ vers le bas, le courant induit doit circuler dans le **sens horaire** (de $M$ vers $N$ dans la tige mobile).
+
+---
+
+### 3. Expression de la f.é.m. induite $e(t)$ et de l'intensité $i(t)$ (0,75 pt)
+- Force électromotrice induite :
+$$e(t) = -\\frac{d\\Phi}{dt} = -B\\,l\\,v(t)$$
+- Intensité du courant induit (en valeur absolue dans le circuit) :
+$$i(t) = \\frac{|e|}{R} = \\frac{B\\,l\\,v(t)}{R}$$
+
+---
+
+### 4. Force de Laplace $\\vec{F}_L$ et rôle physique (0,75 pt)
+La tige parcourue par le courant $i$ et placée dans le champ $\\vec{B}$ subit la force de Laplace :
+$$\\vec{F}_L = i\\,\\vec{MN} \\wedge \\vec{B}$$
+Comme $\\vec{MN} \\perp \\vec{B}$ :
+$$F_L = i\\,l\\,B = \\left(\\frac{B\\,l\\,v}{R}\\right) l\\,B = \\mathbf{\\frac{B^2\\,l^2}{R}\\,v}$$
+D'après la règle des trois doigts de la main droite, $\\vec{F}_L$ est horizontale et dirigée dans le sens opposé au vecteur vitesse $\\vec{v}$ :
+$$\\vec{F}_L = -\\frac{B^2\\,l^2}{R}\\,v\\,\\vec{i}$$
+**Rôle physique :** Il s'agit d'une **force de freinage électromagnétique** qui convertit l'énergie cinétique de la tige en énergie électrique, elle-même dissipée sous forme de chaleur par effet Joule dans le résistor $R$.
+
+---
+
+### 5. Équation différentielle, loi de vitesse et distance d'arrêt (1,25 pt)
+D'après le TCI projeté sur l'axe du mouvement $(O, \\vec{i})$ :
+$$\\sum F_x = m\\,a_x \\iff -\\frac{B^2\\,l^2}{R}\\,v = m\\,\\frac{dv}{dt}$$
+$$\\mathbf{\\frac{dv}{dt} + \\frac{B^2\\,l^2}{m\\,R}\\,v = 0} \\iff \\frac{dv}{dt} + \\frac{1}{\\tau}\\,v = 0 \\quad \\text{avec} \\quad \\tau = \\frac{m\\,R}{B^2\\,l^2}$$
+Calcul de la constante de temps $\\tau$ :
+$$\\tau = \\frac{0{,}020 \\times 2{,}0}{(0{,}50)^2 \\times (0{,}10)^2} = \\frac{0{,}040}{0{,}25 \\times 0{,}010} = \\frac{0{,}040}{0{,}0025} = \\mathbf{16\\text{ s}}$$
+- **Loi de vitesse :**
+$$v(t) = v_0\\,e^{-t/\\tau} = \\mathbf{4{,}0\\,e^{-t/16} \\quad (\\text{en m/s})}$$
+- **Distance totale parcourue $D$ :**
+$$D = \\int_0^{+\\infty} v(t)\\,dt = v_0 \\int_0^{+\\infty} e^{-t/\\tau}\\,dt = v_0\\,[-\\tau e^{-t/\\tau}]_0^{+\\infty} = v_0\\,\\tau$$
+$$D = 4{,}0 \\times 16 = \\mathbf{64\\text{ mètres}}$$`,
+      baremeAstuce: `Barème officiel Office du Bac :
+- Justification de l'induction par dΦ/dt : 0,5 pt
+- Schéma et sens du courant selon Lenz : 0,75 pt
+- Expression de e(t) et i(t) : 0,75 pt
+- Expression de la force de Laplace et freinage : 0,75 pt
+- Équation différentielle, v(t) et distance D = v₀·τ : 1,25 pt.
+Astuce : N'oubliez jamais l'intégration D = v₀·τ qui permet de trouver la distance d'arrêt en une seule ligne sans passer par l'équation horaire complète x(t) !`,
+    },
+    {
+      year: 2019,
+      session: 'Session Normale (Physique Série S2)',
+      points: 'Exercice 3 — Électricité & Auto-Induction (4 Points)',
+      topic: 'Dipôle RL : établissement du courant, constante de temps tau, exploitation de l\'oscillogramme et bilan énergétique',
+      enonce: `Un circuit électrique comporte en série un générateur idéal de tension de f.é.m. $E = 12\\text{ V}$, un interrupteur $K$, un conducteur ohmique de résistance $R = 45\\;\\Omega$ et une bobine réelle d'inductance $L$ et de résistance interne $r$.
+À la date $t = 0$, on ferme l'interrupteur $K$. Un système d'acquisition informatisé relié à un ordinateur permet d'enregistrer la tension $u_R(t)$ aux bornes du conducteur ohmique.
+L'oscillogramme montre que la tension $u_R(t)$ croît à partir de 0 jusqu'à une valeur maximale constante $U_{R,\\text{max}} = 10{,}8\\text{ V}$. La tangente à l'origine de la courbe coupe l'asymptote horizontale à la date $t_1 = 5{,}0\\text{ ms}$.
+
+1. Pourquoi le courant ne s'établit-il pas instantanément dans le circuit dès la fermeture de l'interrupteur ? *(0,5 pt)*
+2. Établir l'équation différentielle régissant l'intensité du courant $i(t)$ dans le circuit. *(1 pt)*
+3. En exploitant la valeur de la tension en régime permanent $U_{R,\\text{max}}$ :
+   a) Calculer l'intensité maximale $I_0$ du courant. *(0,5 pt)*
+   b) En déduire la résistance interne $r$ de la bobine. *(0,5 pt)*
+4. À partir de la date $t_1$ donnée par la tangente à l'origine :
+   a) Préciser la signification physique de $t_1$. *(0,25 pt)*
+   b) En déduire la valeur de l'inductance $L$ de la bobine. *(0,75 pt)*
+5. Calculer l'énergie magnétique maximale $E_m$ emmagasinée dans la bobine en régime permanent. *(0,5 pt)*`,
+      solution: `### 1. Cause du retard à l'établissement du courant (0,5 pt)
+Lors de la fermeture de l'interrupteur, le courant passe de 0 à une valeur $i(t) > 0$. Cette variation $\\frac{di}{dt} > 0$ crée à travers la bobine une force électromotrice d'auto-induction $e = -L\\frac{di}{dt} < 0$.
+D'après la **loi de Lenz**, cette f.é.m. induite s'oppose à l'augmentation du courant : la bobine s'oppose aux variations brusques d'intensité et retarde l'établissement du courant.
+
+---
+
+### 2. Équation différentielle du dipôle RL (1 pt)
+D'après la loi d'additivité des tensions dans la maille :
+$$u_R(t) + u_B(t) = E$$
+Avec $u_R(t) = R\\,i(t)$ et la tension aux bornes de la bobine en convention récepteur $u_B(t) = r\\,i(t) + L\\frac{di}{dt}$ :
+$$R\\,i + r\\,i + L\\frac{di}{dt} = E \\iff (R + r)i + L\\frac{di}{dt} = E$$
+En divisant par $L$ :
+$$\\mathbf{\\frac{di}{dt} + \\frac{R + r}{L}\\,i = \\frac{E}{L}}$$
+Ou encore sous la forme standard :
+$$\\frac{di}{dt} + \\frac{1}{\\tau}\\,i = \\frac{I_0}{\\tau} \\quad \\text{avec} \\quad \\tau = \\frac{L}{R+r} \\quad \\text{et} \\quad I_0 = \\frac{E}{R+r}$$
+
+---
+
+### 3. Exploitation du régime permanent (1 pt)
+a) En régime permanent ($t \\to +\\infty$), le courant est constant : $\\frac{di}{dt} = 0$.
+La tension maximale mesurée est $U_{R,\\text{max}} = R\\,I_0$.
+$$I_0 = \\frac{U_{R,\\text{max}}}{R} = \\frac{10{,}8}{45} = \\mathbf{0{,}24\\text{ A} = 240\\text{ mA}}$$
+
+b) En régime permanent, la bobine se comporte comme un conducteur ohmique de résistance $r$ :
+$$E = (R + r)I_0 \\implies R + r = \\frac{E}{I_0} = \\frac{12}{0{,}24} = 50\\;\\Omega$$
+$$r = 50 - R = 50 - 45 = \\mathbf{5{,}0\\;\\Omega}$$
+
+---
+
+### 4. Exploitation de la tangente à l'origine (1 pt)
+a) La date $t_1$ correspond à l'abscisse du point d'intersection entre la tangente à l'origine ($t = 0$) et l'asymptote horizontale $u = U_{R,\\text{max}}$.
+Par définition, $t_1$ représente la **constante de temps** du circuit :
+$$\\mathbf{\\tau = t_1 = 5{,}0\\text{ ms} = 5{,}0\\cdot 10^{-3}\\text{ s}}$$
+
+b) Calcul de l'inductance $L$ :
+$$\\tau = \\frac{L}{R + r} \\implies L = (R + r)\\,\\tau = 50 \\times 5{,}0\\cdot 10^{-3} = \\mathbf{0{,}25\\text{ H} = 250\\text{ mH}}$$
+
+---
+
+### 5. Énergie magnétique maximale (0,5 pt)
+En régime permanent, l'énergie emmagasinée dans le champ magnétique de la bobine est :
+$$E_m = \\frac{1}{2}L\\,I_0^2 = \\frac{1}{2} \\times 0{,}25 \\times (0{,}24)^2 = 0{,}125 \\times 0{,}0576 = \\mathbf{7{,}2\\cdot 10^{-3}\\text{ J} = 7{,}2\\text{ mJ}}$$`,
+      baremeAstuce: `Barème officiel Office du Bac :
+- Cause du retard et loi de Lenz : 0,5 pt
+- Équation différentielle complète : 1 pt
+- Calcul de I₀ et r : 1 pt
+- Signification de t₁ = τ et calcul de L : 1 pt
+- Énergie magnétique Em : 0,5 pt.
+Astuce : Remarquez que R + r = E / I₀ permet de trouver la résistance totale immédiatement sans passer par un système d'équations complexe !`,
+    },
+    {
+      year: 2017,
+      session: 'Session Normale (Physique Série S2)',
+      points: 'Exercice 3 — Électromagnétisme (4 Points)',
+      topic: 'Cadre tournant dans un champ magnétique B uniforme : production d\'une tension alternative sinusoïdale',
+      enonce: `Un cadre rectangulaire plat de surface $S = 200\\text{ cm}^2$ comporte $N = 500$ spires de fil de cuivre. Il tourne à vitesse angulaire constante $\\omega = 100\\pi\\text{ rad}\\cdot\\text{s}^{-1}$ autour d'un axe horizontal $(\\Delta)$ passant par le milieu de ses deux petits côtés.
+L'ensemble est plongé dans un champ magnétique uniforme $\\vec{B}$ horizontal et perpendiculaire à l'axe $(\\Delta)$, d'intensité $B = 0{,}10\\text{ T}$.
+À l'instant $t = 0$, la normale $\\vec{n}$ au plan du cadre est colinéaire et de même sens que le vecteur $\\vec{B}$.
+
+1. Établir l'expression littérale du flux magnétique $\\Phi(t)$ traversant le cadre en fonction du temps $t$. Calculer sa valeur maximale $\\Phi_{\\text{max}}$. *(1 pt)*
+2. En appliquant la loi de Faraday, établir l'expression de la f.é.m. induite instantanée $e(t)$. *(1 pt)*
+3. Préciser la valeur maximale $E_m$ et la valeur efficace $E_{\\text{eff}}$ de cette tension alternative. Quelle est sa fréquence $f$ ? *(1 pt)*
+4. On connecte aux bornes du cadre un conducteur ohmique de résistance $R = 100\\;\\Omega$ (la résistance du cadre étant négligée).
+   a) Exprimer l'intensité instantanée $i(t)$ du courant circulant dans le circuit. *(0,5 pt)*
+   b) Calculer la puissance moyenne dissipée par effet Joule dans le résistor. *(0,5 pt)*`,
+      solution: `### 1. Expression du flux magnétique $\\Phi(t)$ (1 pt)
+À l'instant $t$, l'angle entre le vecteur champ $\\vec{B}$ et la normale $\\vec{n}$ au plan du cadre est :
+$$\\alpha(t) = \\omega\\,t \\quad (\\text{car à } t = 0, \\alpha = 0)$$
+Le flux magnétique à travers les $N$ spires du cadre s'écrit :
+$$\\Phi(t) = N\\,\\vec{B} \\cdot \\vec{S} = N\\,B\\,S\\,\\cos(\\omega t)$$
+Valeur maximale du flux :
+$$\\Phi_{\\text{max}} = N\\,B\\,S = 500 \\times 0{,}10 \\times (200\\cdot 10^{-4}\\text{ m}^2) = 50 \\times 0{,}020 = \\mathbf{1{,}0\\text{ Wb}}$$
+Expression temporelle :
+$$\\mathbf{\\Phi(t) = 1{,}0\\cos(100\\pi\\,t) \\quad (\\text{en Webers})}$$
+
+---
+
+### 2. Force électromotrice induite $e(t)$ (1 pt)
+D'après la loi de Faraday :
+$$e(t) = -\\frac{d\\Phi}{dt} = -\\frac{d}{dt}\\left(N\\,B\\,S\\,\\cos(\\omega t)\\right) = -N\\,B\\,S\\,(-\\omega\\sin(\\omega t))$$
+$$\\mathbf{e(t) = N\\,B\\,S\\,\\omega\\,\\sin(\\omega t)}$$
+Application numérique :
+$$N\\,B\\,S\\,\\omega = 1{,}0 \\times 100\\pi = 100\\pi\\text{ V} \\approx 314\\text{ V}$$
+$$\\mathbf{e(t) = 100\\pi\\sin(100\\pi\\,t) \\approx 314\\sin(100\\pi\\,t) \\quad (\\text{en Volts})}$$
+
+---
+
+### 3. Grandeurs caractéristiques de la f.é.m. (1 pt)
+- **Valeur maximale (amplitude) :**
+$$E_m = N\\,B\\,S\\,\\omega = 100\\pi\\text{ V} \\approx \\mathbf{314\\text{ V}}$$
+- **Valeur efficace :**
+$$E_{\\text{eff}} = \\frac{E_m}{\\sqrt{2}} = \\frac{100\\pi}{\\sqrt{2}} \\approx \\mathbf{222\\text{ V}}$$
+- **Fréquence du courant alternatif produit :**
+$$f = \\frac{\\omega}{2\\pi} = \\frac{100\\pi}{2\\pi} = \\mathbf{50\\text{ Hz}}$$
+(Il s'agit exactement de la fréquence standard de distribution électrique 220 V / 50 Hz !).
+
+---
+
+### 4. Intensité et puissance dissipée (1 pt)
+a) D'après la loi d'Ohm instantanée :
+$$i(t) = \\frac{e(t)}{R} = \\frac{100\\pi\\sin(100\\pi\\,t)}{100} = \\mathbf{\\pi\\sin(100\\pi\\,t) \\approx 3{,}14\\sin(100\\pi\\,t) \\quad (\\text{en Ampères})}$$
+
+b) Puissance moyenne dissipée par effet Joule :
+$$P = R\\,I_{\\text{eff}}^2 = \\frac{E_{\\text{eff}}^2}{R} = \\frac{(222)^2}{100} = \\frac{49300}{100} = \\mathbf{493\\text{ W}}$$
+Ou directement :
+$$P = \\frac{E_m^2}{2R} = \\frac{(100\\pi)^2}{200} = \\frac{10000\\pi^2}{200} = 50\\pi^2 \\approx 50 \\times 9{,}87 \\approx \\mathbf{493{,}5\\text{ W}}$$`,
+      baremeAstuce: `Barème officiel Office du Bac :
+- Expression littérale et calcul de Φ(t) : 1 pt
+- Dérivation et f.é.m. induite e(t) : 1 pt
+- Em, Eeff et fréquence f = 50 Hz : 1 pt
+- Intensité instantanée i(t) et puissance Joule : 1 pt.
+Astuce : N'oubliez jamais que pour une grandeur sinusoïdale, la valeur efficace est reliée à la valeur maximale par la formule Eeff = Em / √2 !`,
+    },
+  ],
 };
 
 BAC_ANNALES_BY_CHAPTER.cinematique = BAC_ANNALES_BY_CHAPTER.cinematique_point;
@@ -4043,6 +5225,1148 @@ BAC_ANNALES_BY_CHAPTER.p3 = BAC_ANNALES_BY_CHAPTER.projectile_champ_pesanteur;
 BAC_ANNALES_BY_CHAPTER.particule = BAC_ANNALES_BY_CHAPTER.particule_champ_e_b;
 BAC_ANNALES_BY_CHAPTER.champ_e_b = BAC_ANNALES_BY_CHAPTER.particule_champ_e_b;
 BAC_ANNALES_BY_CHAPTER.p4 = BAC_ANNALES_BY_CHAPTER.particule_champ_e_b;
+
+// ─── P5 : LES OSCILLATIONS MÉCANIQUES ─────────────────────────────────────────
+BAC_ANNALES_BY_CHAPTER['oscillations_mecaniques'] = BAC_ANNALES_BY_CHAPTER.oscillations_mecaniques;
+BAC_ANNALES_BY_CHAPTER['oscillations-mecaniques'] = BAC_ANNALES_BY_CHAPTER.oscillations_mecaniques;
+BAC_ANNALES_BY_CHAPTER['pendule_elastique'] = BAC_ANNALES_BY_CHAPTER.oscillations_mecaniques;
+BAC_ANNALES_BY_CHAPTER['pendule-elastique'] = BAC_ANNALES_BY_CHAPTER.oscillations_mecaniques;
+BAC_ANNALES_BY_CHAPTER['pendule'] = BAC_ANNALES_BY_CHAPTER.oscillations_mecaniques;
+BAC_ANNALES_BY_CHAPTER['oscillations'] = BAC_ANNALES_BY_CHAPTER.oscillations_mecaniques;
+BAC_ANNALES_BY_CHAPTER['ressort'] = BAC_ANNALES_BY_CHAPTER.oscillations_mecaniques;
+BAC_ANNALES_BY_CHAPTER['p5'] = BAC_ANNALES_BY_CHAPTER.oscillations_mecaniques;
+BAC_ANNALES_BY_CHAPTER['p5l1'] = BAC_ANNALES_BY_CHAPTER.oscillations_mecaniques;
+BAC_ANNALES_BY_CHAPTER['p5l2'] = BAC_ANNALES_BY_CHAPTER.oscillations_mecaniques;
+BAC_ANNALES_BY_CHAPTER['p5l3'] = BAC_ANNALES_BY_CHAPTER.oscillations_mecaniques;
+
+// ─── P6 : PHÉNOMÈNE D'INDUCTION ÉLECTROMAGNÉTIQUE & AUTO-INDUCTION ─────────
+BAC_ANNALES_BY_CHAPTER['induction_electromagnetique'] = BAC_ANNALES_BY_CHAPTER.induction_electromagnetique;
+BAC_ANNALES_BY_CHAPTER['induction-electromagnetique'] = BAC_ANNALES_BY_CHAPTER.induction_electromagnetique;
+BAC_ANNALES_BY_CHAPTER['auto_induction'] = BAC_ANNALES_BY_CHAPTER.induction_electromagnetique;
+BAC_ANNALES_BY_CHAPTER['auto-induction'] = BAC_ANNALES_BY_CHAPTER.induction_electromagnetique;
+BAC_ANNALES_BY_CHAPTER['induction'] = BAC_ANNALES_BY_CHAPTER.induction_electromagnetique;
+BAC_ANNALES_BY_CHAPTER['faraday'] = BAC_ANNALES_BY_CHAPTER.induction_electromagnetique;
+BAC_ANNALES_BY_CHAPTER['lenz'] = BAC_ANNALES_BY_CHAPTER.induction_electromagnetique;
+BAC_ANNALES_BY_CHAPTER['laplace'] = BAC_ANNALES_BY_CHAPTER.induction_electromagnetique;
+BAC_ANNALES_BY_CHAPTER['bobine'] = BAC_ANNALES_BY_CHAPTER.induction_electromagnetique;
+BAC_ANNALES_BY_CHAPTER['dipole_rl'] = BAC_ANNALES_BY_CHAPTER.induction_electromagnetique;
+BAC_ANNALES_BY_CHAPTER['dipole-rl'] = BAC_ANNALES_BY_CHAPTER.induction_electromagnetique;
+BAC_ANNALES_BY_CHAPTER['rl'] = BAC_ANNALES_BY_CHAPTER.induction_electromagnetique;
+BAC_ANNALES_BY_CHAPTER['p6'] = BAC_ANNALES_BY_CHAPTER.induction_electromagnetique;
+BAC_ANNALES_BY_CHAPTER['p6l1'] = BAC_ANNALES_BY_CHAPTER.induction_electromagnetique;
+BAC_ANNALES_BY_CHAPTER['p6l2'] = BAC_ANNALES_BY_CHAPTER.induction_electromagnetique;
+BAC_ANNALES_BY_CHAPTER['p6l3'] = BAC_ANNALES_BY_CHAPTER.induction_electromagnetique;
+
+// ─── P7 : OSCILLATIONS ÉLECTRIQUES LIBRES (LC & RLC) ──────────────────────
+BAC_ANNALES_BY_CHAPTER['rlc_libres'] = [
+  {
+    year: 2022,
+    session: 'Session Normale (Physique Série S2)',
+    points: 'Exercice 2 — Électricité (5 Points)',
+    topic: 'Circuit LC idéal — Équation différentielle, échange d\'énergie et période propre T₀',
+    enonce: `Un condensateur de capacité $C = 20{,}0\\,\\mu\\text{F}$ est chargé sous une tension $E = 12{,}0\\text{ V}$. À $t = 0$, le commutateur K est basculé sur un circuit contenant uniquement une bobine d'inductance $L = 50{,}0\\text{ mH}$ et de résistance interne $r = 0$ (bobine idéale).
+
+**Partie A — Mise en équation (2 pts)**
+
+1. En appliquant la loi de maille en convention récepteur, montrer que la charge $q(t)$ satisfait l'équation différentielle :
+$$\\ddot{q} + \\frac{1}{LC}\\,q = 0$$
+
+2. Identifier la pulsation propre $\\omega_0$. En déduire la période propre $T_0$ des oscillations.
+
+**Partie B — Expressions temporelles (1,5 pt)**
+
+3. Les conditions initiales sont : $q(0) = Q_0 = C\\cdot E$ et $i(0) = 0$.
+   a) Donner la solution générale $q(t) = Q_m\\cos(\\omega_0 t + \\varphi)$.
+   b) Déterminer $Q_m$ et $\\varphi$ à partir des conditions initiales.
+   c) En déduire $i(t)$ et son amplitude maximale $I_m$.
+
+**Partie C — Échanges d'énergie (1,5 pt)**
+
+4. Calculer l'énergie électrostatique initiale emmagasinée dans le condensateur $E_{e_0}$.
+
+5. Écrire les expressions de $E_e(t)$ et $E_m(t)$. Montrer que l'énergie totale $E_t = E_e + E_m$ est constante.
+
+6. À quelle date $t_1$ (pour la première fois) l'énergie est-elle intégralement transférée de C vers L ? Donner la valeur de $E_m$ à cet instant.
+
+7. Quelle est la période $T_E$ des oscillations énergétiques ? Comparer à $T_0$.`,
+    solution: `### Partie A — Mise en équation
+
+**1. Équation différentielle (1 pt)**
+
+Convention récepteur pour la bobine : $u_L = L\\dfrac{di}{dt}$
+
+Convention récepteur pour le condensateur : $u_C = \\dfrac{q}{C}$
+
+Loi de maille : $u_L + u_C = 0$
+$$L\\frac{di}{dt} + \\frac{q}{C} = 0$$
+Avec $i = \\dfrac{dq}{dt}$ et $\\dfrac{di}{dt} = \\dfrac{d^2q}{dt^2}$ :
+$$\\boxed{\\frac{d^2q}{dt^2} + \\frac{1}{LC}\\,q = 0}$$
+
+**2. Période propre (1 pt)**
+
+Identification : $\\omega_0^2 = \\dfrac{1}{LC}$
+
+$$\\omega_0 = \\frac{1}{\\sqrt{LC}} = \\frac{1}{\\sqrt{50{,}0\\times10^{-3}\\times 20{,}0\\times10^{-6}}} = \\frac{1}{\\sqrt{10^{-6}}} = \\mathbf{10^3\\text{ rad}\\cdot\\text{s}^{-1}}$$
+
+$$\\boxed{T_0 = \\frac{2\\pi}{\\omega_0} = \\frac{2\\pi}{1000} \\approx 6{,}28\\times10^{-3}\\text{ s} = 6{,}28\\text{ ms}}$$
+
+---
+
+### Partie B — Expressions temporelles
+
+**3. Conditions initiales (1,5 pt)**
+
+Solution générale : $q(t) = Q_m\\cos(\\omega_0 t + \\varphi)$
+
+À $t = 0$ :
+- $q(0) = Q_m\\cos\\varphi = Q_0 = C\\cdot E = 20{,}0\\times10^{-6}\\times12{,}0 = 2{,}40\\times10^{-4}\\text{ C}$
+- $i(0) = \\dot{q}(0) = -Q_m\\omega_0\\sin\\varphi = 0 \\implies \\sin\\varphi = 0$
+
+$\\sin\\varphi = 0$ et $\\cos\\varphi > 0 \\implies \\varphi = 0$ rad
+
+$$\\boxed{Q_m = Q_0 = 2{,}40\\times10^{-4}\\text{ C} = 240\\,\\mu\\text{C}, \\quad \\varphi = 0}$$
+
+$$q(t) = 2{,}40\\times10^{-4}\\cos(10^3 t)\\text{ C}$$
+
+$$i(t) = \\frac{dq}{dt} = -Q_m\\omega_0\\sin(\\omega_0 t) = -2{,}40\\times10^{-1}\\sin(10^3 t)\\text{ A}$$
+
+$$\\boxed{I_m = Q_m\\omega_0 = 2{,}40\\times10^{-4}\\times10^3 = 2{,}40\\times10^{-1}\\text{ A} = 240\\text{ mA}}$$
+
+---
+
+### Partie C — Échanges d'énergie
+
+**4. Énergie initiale (0,5 pt)**
+
+$$E_{e_0} = \\frac{1}{2}C\\,E^2 = \\frac{1}{2}\\times20{,}0\\times10^{-6}\\times(12{,}0)^2 = \\boxed{1{,}44\\times10^{-3}\\text{ J} = 1{,}44\\text{ mJ}}$$
+
+**5. Conservation de l'énergie (0,5 pt)**
+
+$$E_e(t) = \\frac{q^2}{2C} = \\frac{Q_m^2}{2C}\\cos^2(\\omega_0 t) = E_{e_0}\\cos^2(\\omega_0 t)$$
+
+$$E_m(t) = \\frac{1}{2}L\\,i^2 = \\frac{L\\omega_0^2 Q_m^2}{2}\\sin^2(\\omega_0 t) = \\frac{Q_m^2}{2C}\\sin^2(\\omega_0 t) = E_{e_0}\\sin^2(\\omega_0 t)$$
+
+$$E_t = E_e + E_m = E_{e_0}(\\cos^2\\omega_0 t + \\sin^2\\omega_0 t) = \\boxed{E_{e_0} = 1{,}44\\text{ mJ} = \\text{constante}}$$
+
+**6. Premier transfert total vers L (0,25 pt)**
+
+L'énergie est intégralement dans L quand $E_e = 0$, soit $\\cos(\\omega_0 t_1) = 0$ :
+$$\\omega_0 t_1 = \\frac{\\pi}{2} \\implies t_1 = \\frac{T_0}{4} = \\frac{6{,}28}{4}\\approx \\boxed{1{,}57\\text{ ms}}$$
+
+À cet instant : $E_m(t_1) = E_{e_0} = \\mathbf{1{,}44\\text{ mJ}}$
+
+**7. Période énergétique (0,25 pt)**
+
+Cos²(ω₀t) a une période deux fois plus courte que cos(ω₀t) :
+$$\\boxed{T_E = \\frac{T_0}{2} \\approx 3{,}14\\text{ ms}}$$
+L'énergie oscille deux fois plus vite que la charge ou la tension.`,
+    baremeAstuce: `Barème officiel Office du Bac :
+- Loi de maille et dérivation i = dq/dt (0,5 pt)
+- Équation différentielle canonique (0,5 pt) 
+- Identification ω₀ et calcul de T₀ numérique (1 pt)
+- Conditions initiales : Q_m et φ rigoureusement justifiés (1 pt)
+- Expression de i(t) et I_m = ω₀ Q_m (0,5 pt)
+- Bilans E_e, E_m et conservation (0,75 pt)
+- Instant t₁ = T₀/4 et T_E = T₀/2 (0,75 pt)
+Astuce d'or : Pour φ, ne jamais conclure à partir de tan(φ) seul ! Exiger cos(φ) > 0 ET sin(φ) = 0 pour obtenir φ = 0 sans ambiguïté de quadrant.`,
+  },
+  {
+    year: 2019,
+    session: 'Session Normale (Physique Série S2)',
+    points: 'Exercice 3 — Électricité (5 Points)',
+    topic: 'Circuit RLC série — Régime pseudopériodique, décrément logarithmique et résistance critique',
+    enonce: `Un circuit RLC série est composé d'une bobine ($L = 0{,}20\\text{ H}$, $r = 10\\,\\Omega$), d'un condensateur ($C = 50\\,\\mu\\text{F}$) et d'un résistor de résistance $R$ variable. Le condensateur est chargé sous $E_0 = 10{,}0\\text{ V}$, puis la décharge est observée à l'oscilloscope.
+
+**Partie A — Paramètres du circuit LC équivalent (1 pt)**
+
+1. Calculer la période propre $T_0$ et la pulsation propre $\\omega_0$ du circuit LC idéal équivalent (en ignorant les pertes, $R = r = 0$).
+
+2. Calculer la résistance critique $R_c$ séparant le régime pseudopériodique du régime apériodique.
+
+**Partie B — Régime pseudopériodique : $R = 20\\,\\Omega$ (3 pts)**
+
+3. Vérifier que le circuit est en régime pseudopériodique pour $R_{total} = R + r = 30\\,\\Omega$.
+
+4. L'oscillogramme montre une première crête positive $U_0 = 9{,}2\\text{ V}$ et une quatrième crête positive $U_3 = 2{,}3\\text{ V}$. Calculer le décrément logarithmique $\\delta$ du circuit.
+
+5. En utilisant l'approximation $\\delta \\approx \\dfrac{R_t T_0}{2L}$, calculer la pseudo-période $T$ mesurée sur l'oscillogramme.
+
+6. L'oscillogramme indique une pseudo-période $T_{osc} = 10{,}0\\text{ ms}$. Comparer avec $T_0$.
+
+**Partie C — Analogie mécanique (1 pt)**
+
+7. Dresser le tableau complet de l'analogie mécanique-électrique entre le pendule élastique horizontal et le circuit RLC série libre. Identifier les 5 grandeurs analogues.`,
+    solution: `### Partie A — Paramètres LC idéal
+
+**1. Période propre et pulsation (0,5 pt)**
+
+$$\\omega_0 = \\frac{1}{\\sqrt{LC}} = \\frac{1}{\\sqrt{0{,}20 \\times 50\\times10^{-6}}} = \\frac{1}{\\sqrt{10^{-5}}} = \\frac{1}{3{,}162\\times10^{-3}} \\approx \\mathbf{316\\text{ rad}\\cdot\\text{s}^{-1}}$$
+
+$$T_0 = \\frac{2\\pi}{\\omega_0} = \\frac{2\\pi}{316} \\approx \\mathbf{19{,}9\\times10^{-3}\\text{ s} \\approx 20{,}0\\text{ ms}}$$
+
+**2. Résistance critique (0,5 pt)**
+
+$$R_c = 2\\sqrt{\\frac{L}{C}} = 2\\sqrt{\\frac{0{,}20}{50\\times10^{-6}}} = 2\\sqrt{4000} = 2\\times63{,}2 \\approx \\mathbf{126\\,\\Omega}$$
+
+---
+
+### Partie B — Régime pseudopériodique
+
+**3. Vérification du régime (0,5 pt)**
+
+$R_t = R + r = 20 + 10 = 30\\,\\Omega$
+
+Comme $R_t = 30\\,\\Omega < R_c = 126\\,\\Omega$, le discriminant $\\Delta = R_t^2 - 4L/C < 0$.
+Le circuit est bien en **régime pseudopériodique** (oscillations amorties).
+
+**4. Décrément logarithmique (1 pt)**
+
+Entre la crête $k=0$ ($U_0 = 9{,}2\\text{ V}$) et la crête $k=3$ ($U_3 = 2{,}3\\text{ V}$), on a $n = 3$ pseudo-périodes :
+
+$$\\delta = \\frac{1}{n}\\ln\\frac{U_0}{U_n} = \\frac{1}{3}\\ln\\frac{9{,}2}{2{,}3} = \\frac{1}{3}\\ln 4 = \\frac{\\ln 4}{3} = \\frac{2\\ln 2}{3} \\approx \\boxed{0{,}462}$$
+
+**5. Pseudo-période calculée (1 pt)**
+
+En utilisant $\\delta \\approx \\dfrac{R_t T}{2L}$ :
+
+$$T = \\frac{2L\\delta}{R_t} = \\frac{2\\times0{,}20\\times0{,}462}{30} = \\frac{0{,}1848}{30} \\approx \\boxed{6{,}16\\times10^{-3}\\text{ s} \\approx 6{,}2\\text{ ms}}$$
+
+**6. Comparaison $T$ vs $T_0$ (0,5 pt)**
+
+$T_0 \\approx 20{,}0\\text{ ms}$ et l'oscillogramme indique $T_{osc} = 10{,}0\\text{ ms}$.
+
+La pseudo-période est inférieure à la période propre ($T < T_0$), ce qui est cohérent avec le régime amorti : les oscillations sont légèrement plus rapides que les oscillations libres du LC idéal.
+
+---
+
+### Partie C — Analogie mécanique-électrique (1 pt)
+
+| Grandeur mécanique | Symbole | $\\leftrightarrow$ | Grandeur électrique | Symbole |
+|:---|:---:|:---:|:---|:---:|
+| Élongation | $x(t)$ | $\\leftrightarrow$ | Charge du condensateur | $q(t)$ |
+| Vitesse | $v = \\dot{x}$ | $\\leftrightarrow$ | Intensité du courant | $i = \\dot{q}$ |
+| Masse (inertie) | $m$ | $\\leftrightarrow$ | Inductance | $L$ |
+| Raideur du ressort | $k$ | $\\leftrightarrow$ | Inverse de capacité | $1/C$ |
+| Coeff. frottement visqueux | $h$ | $\\leftrightarrow$ | Résistance totale | $R_t = R + r$ |
+
+Équations formellement identiques :
+$$m\\ddot{x} + h\\dot{x} + kx = 0 \\quad \\longleftrightarrow \\quad L\\ddot{q} + R_t\\dot{q} + \\frac{q}{C} = 0$$`,
+    baremeAstuce: `Barème officiel Office du Bac :
+- Calcul de ω₀ et T₀ (0,5 pt) ; Calcul de Rc = 2√(L/C) (0,5 pt)
+- Vérification R_t < Rc et conclusion (0,5 pt)
+- Décrément δ = (1/3)ln(U₀/U₃) = (1/3)ln4 : attention au facteur 1/n (1 pt)
+- Pseudo-période T à partir de δ ≈ R_t T / 2L (1 pt)
+- Tableau analogie complet avec 5 correspondances (1 pt)
+Piège numéro un : Pour le décrément entre les crêtes 1 et 4, n = 3 (pas 4). Comptez toujours le nombre d'INTERVALLES, pas le nombre de crêtes !`,
+  },
+  {
+    year: 2016,
+    session: 'Session Normale (Physique Série S2)',
+    points: 'Exercice 2 — Électricité (4 Points)',
+    topic: 'Entretien des oscillations RLC — Résistance négative et condition d\'entretien sinusoïdal',
+    enonce: `On dispose d'un circuit RLC série formé d'une bobine ($L = 80\\text{ mH}$, $r = 8{,}0\\,\\Omega$), d'un condensateur ($C = 32\\,\\mu\\text{F}$) et d'un générateur de résistance nulle.
+
+**Partie A — Oscillations libres amorties (2 pts)**
+
+1. Écrire l'équation différentielle vérifiée par $i(t)$ lors de la décharge libre du condensateur (initialement chargé sous $E_0 = 15\\text{ V}$).
+
+2. Calculer la résistance critique $R_c$. Montrer que si l'on ajoute $R = 42\\,\\Omega$ en série, le circuit est en régime pseudopériodique.
+
+3. Calculer le coefficient d'amortissement $\\gamma = R_t/(2L)$ et la pulsation pseudopériodique $\\omega_A = \\sqrt{\\omega_0^2 - \\gamma^2}$.
+
+**Partie B — Entretien par résistance négative (2 pts)**
+
+4. Pour maintenir des oscillations sinusoïdales d'amplitude constante, on insère un dipôle actif de résistance négative $u = -R_0 i$. Écrire la nouvelle loi de maille et l'équation différentielle résultante.
+
+5. Quelle doit être la valeur exacte de $R_0$ pour entretenir les oscillations de façon permanente avec $R = 42\\,\\Omega$ ?
+
+6. Si $R_0 = 60\\,\\Omega$ (supérieur à $R_t$), qu'observe-t-on sur l'oscilloscope ? Expliquer qualitativement.`,
+    solution: `### Partie A — Oscillations libres
+
+**1. Équation différentielle en i(t) (0,5 pt)**
+
+La loi de maille donne : $L\\ddot{q} + R_t\\dot{q} + q/C = 0$
+
+En dérivant par rapport au temps (avec $i = \\dot{q}$) :
+$$\\boxed{L\\ddot{i} + R_t\\dot{i} + \\frac{i}{C} = 0}$$
+
+**2. Résistance critique et vérification (1 pt)**
+
+$$R_c = 2\\sqrt{\\frac{L}{C}} = 2\\sqrt{\\frac{80\\times10^{-3}}{32\\times10^{-6}}} = 2\\sqrt{2500} = 2\\times50 = \\mathbf{100\\,\\Omega}$$
+
+Avec $R = 42\\,\\Omega$ : $R_t = R + r = 42 + 8{,}0 = 50\\,\\Omega$
+
+Comme $R_t = 50\\,\\Omega < R_c = 100\\,\\Omega$ : régime **pseudopériodique** confirmé.
+
+**3. Coefficient d'amortissement et pulsation pseudopériodique (0,5 pt)**
+
+$$\\gamma = \\frac{R_t}{2L} = \\frac{50}{2\\times80\\times10^{-3}} = \\frac{50}{0{,}16} \\approx \\mathbf{312{,}5\\text{ rad}\\cdot\\text{s}^{-1}}$$
+
+$$\\omega_0 = \\frac{1}{\\sqrt{LC}} = \\frac{1}{\\sqrt{80\\times10^{-3}\\times32\\times10^{-6}}} = \\frac{1}{1{,}6\\times10^{-3}} \\approx 625\\text{ rad}\\cdot\\text{s}^{-1}$$
+
+$$\\omega_A = \\sqrt{\\omega_0^2 - \\gamma^2} = \\sqrt{625^2 - 312{,}5^2} = 625\\sqrt{1 - 0{,}25} = 625\\times0{,}866 \\approx \\mathbf{541\\text{ rad}\\cdot\\text{s}^{-1}}$$
+
+---
+
+### Partie B — Entretien par résistance négative
+
+**4. Loi de maille avec dipôle actif (1 pt)**
+
+Le dipôle actif impose $u_a = -R_0 i$. La loi de maille devient :
+$$u_L + u_R + u_C + u_a = 0$$
+$$L\\frac{di}{dt} + R_t i + \\frac{q}{C} - R_0 i = 0$$
+$$\\boxed{L\\frac{d^2q}{dt^2} + (R_t - R_0)\\frac{dq}{dt} + \\frac{q}{C} = 0}$$
+
+**5. Condition d'entretien sinusoïdal permanent (0,5 pt)**
+
+Pour que les oscillations soient sinusoïdales d'amplitude **constante**, le terme d'amortissement effectif doit être nul :
+$$(R_t - R_0) = 0 \\implies \\boxed{R_0 = R_t = R + r = 42 + 8{,}0 = 50\\,\\Omega}$$
+
+Le circuit se comporte alors comme un LC idéal de pulsation $\\omega_0$.
+
+**6. Si $R_0 = 60\\,\\Omega > R_t$ (0,5 pt)**
+
+Le terme effectif $(R_t - R_0) = 50 - 60 = -10\\,\\Omega < 0$ :
+L'équation différentielle possède un coefficient d'amortissement **négatif**, ce qui signifie que l'énergie est injectée dans le circuit à chaque cycle. L'amplitude des oscillations **croît exponentiellement** jusqu'à ce que l'amplificateur atteigne sa **tension de saturation** ($\\pm V_{sat}$). Sur l'oscilloscope, on observe une sinusoïde dont l'enveloppe croît jusqu'à l'écrêtage.`,
+    baremeAstuce: `Barème officiel Office du Bac :
+- Équation différentielle en i(t) obtenue par dérivation (0,5 pt)
+- Calcul de Rc = 2√(L/C) = 100 Ω et vérification (1 pt)
+- γ et ωA numériques (0,5 pt)
+- Loi de maille avec dipôle actif -R₀i et équation différentielle complète (1 pt)
+- Condition R₀ = R_t = 50 Ω (0,5 pt)
+- Explication de la divergence si R₀ > R_t (0,5 pt)
+Piège : Ne pas confondre r (résistance interne de la bobine) et R (résistance externe). Le R_t = R + r doit toujours inclure les deux termes !`,
+  },
+];
+
+BAC_ANNALES_BY_CHAPTER['rlc-libres'] = BAC_ANNALES_BY_CHAPTER.rlc_libres;
+BAC_ANNALES_BY_CHAPTER['oscillations_electriques'] = BAC_ANNALES_BY_CHAPTER.rlc_libres;
+BAC_ANNALES_BY_CHAPTER['oscillations-electriques'] = BAC_ANNALES_BY_CHAPTER.rlc_libres;
+BAC_ANNALES_BY_CHAPTER['oscillations_electriques_libres'] = BAC_ANNALES_BY_CHAPTER.rlc_libres;
+BAC_ANNALES_BY_CHAPTER['circuit_lc'] = BAC_ANNALES_BY_CHAPTER.rlc_libres;
+BAC_ANNALES_BY_CHAPTER['circuit-lc'] = BAC_ANNALES_BY_CHAPTER.rlc_libres;
+BAC_ANNALES_BY_CHAPTER['circuit_rlc'] = BAC_ANNALES_BY_CHAPTER.rlc_libres;
+BAC_ANNALES_BY_CHAPTER['circuit-rlc'] = BAC_ANNALES_BY_CHAPTER.rlc_libres;
+BAC_ANNALES_BY_CHAPTER['decrement'] = BAC_ANNALES_BY_CHAPTER.rlc_libres;
+BAC_ANNALES_BY_CHAPTER['decrement_logarithmique'] = BAC_ANNALES_BY_CHAPTER.rlc_libres;
+BAC_ANNALES_BY_CHAPTER['regime_pseudoperiodique'] = BAC_ANNALES_BY_CHAPTER.rlc_libres;
+BAC_ANNALES_BY_CHAPTER['entretien_oscillations'] = BAC_ANNALES_BY_CHAPTER.rlc_libres;
+BAC_ANNALES_BY_CHAPTER['resistance_critique'] = BAC_ANNALES_BY_CHAPTER.rlc_libres;
+BAC_ANNALES_BY_CHAPTER['p7'] = BAC_ANNALES_BY_CHAPTER.rlc_libres;
+BAC_ANNALES_BY_CHAPTER['p7l1'] = BAC_ANNALES_BY_CHAPTER.rlc_libres;
+BAC_ANNALES_BY_CHAPTER['p7l2'] = BAC_ANNALES_BY_CHAPTER.rlc_libres;
+BAC_ANNALES_BY_CHAPTER['p7l3'] = BAC_ANNALES_BY_CHAPTER.rlc_libres;
+
+// ─── P8 : OSCILLATIONS ÉLECTRIQUES FORCÉES EN COURANT ALTERNATIF (RLC SÉRIE) ──
+BAC_ANNALES_BY_CHAPTER['rlc_forcees'] = [
+  {
+    year: 2023,
+    session: 'Session Normale (Physique Série S2)',
+    points: 'Exercice 2 — Électricité (5 Points)',
+    topic: 'Circuit RLC série en régime forcé — Construction de Fresnel, détermination de L et r, puissance moyenne',
+    enonce: `Un circuit électrique comprend, montés en série :
+- Un conducteur ohmique de résistance $R = 40\\,\\Omega$ ;
+- Une bobine d'inductance $L$ et de résistance interne $r$ ;
+- Un condensateur de capacité $C = 5{,}0\\,\\mu\\text{F}$.
+
+L'ensemble est alimenté par un générateur basse fréquence (GBF) qui délivre une tension alternative sinusoïdale de fréquence réglable $N$ et de valeur efficace constante $U = 10{,}0\\text{ V}$ :
+$$u(t) = U\\sqrt{2}\\cos(2\\pi N t)$$
+
+Pour une fréquence fixée $N = 250\\text{ Hz}$ :
+1. Un ampèremètre thermique inséré dans le circuit indique une intensité efficace $I = 160\\text{ mA}$.
+2. À l'aide d'un oscilloscope bicourbe, on visualise simultanément la tension $u(t)$ délivrée par le GBF sur la voie $Y_1$ et la tension $u_R(t)$ aux bornes du conducteur ohmique sur la voie $Y_2$.
+On constate que la courbe représentant $u(t)$ est en avance de phase sur celle de $u_R(t)$, avec un décalage temporel $\\Delta t = 0{,}40\\text{ ms}$.
+
+**Questions :**
+
+1. Faire le schéma du circuit en précisant clairement les branchements de l'oscilloscope (voie $Y_1$, voie $Y_2$ et masse commune) pour observer les tensions $u(t)$ et $u_R(t)$.
+2. a) Déterminer la période $T$ de la tension excitatrice.
+   b) Calculer le déphasage $\\varphi = \\varphi_u - \\varphi_i$ de la tension $u(t)$ par rapport à l'intensité $i(t)$.
+   c) Préciser, en le justifiant, si le circuit est inductif, capacitif ou à la résonance.
+3. Calculer l'impédance totale $Z$ du dipôle RLC.
+4. En déduire la résistance totale $R_t = R + r$ du circuit, puis la résistance interne $r$ de la bobine.
+5. Établir l'expression de l'inductance $L$ en fonction de $R_t$, $C$, $\\omega$ et $\\varphi$. Calculer sa valeur numérique.
+6. Calculer la puissance active moyenne $\\mathcal{P}$ consommée par le dipôle RLC. Retrouver cette valeur par l'effet Joule.`,
+    solution: `### 1. Schéma du circuit et branchements de l'oscilloscope (0,75 pt)
+- Les dipôles sont placés en série : GBF $\\to$ Résistor $R$ $\\to$ Bobine $(L, r)$ $\\to$ Condensateur $C$ $\\to$ Retour GBF.
+- La masse de l'oscilloscope est branchée entre le résistor $R$ et la bobine.
+- La voie $Y_1$ est reliée à l'entrée du GBF (visualise $u(t)$ aux bornes du circuit).
+- La voie $Y_2$ est reliée à la borne d'entrée du résistor $R$ : la voie $Y_2$ visualise $u_R(t)$ (image de $i(t)$ en activant la fonction d'inversion INV si le potentiel est opposé).
+
+---
+
+### 2. Période, déphasage et nature du circuit (1,25 pt)
+a) **Période $T$ :**
+$$T = \\frac{1}{N} = \\frac{1}{250} = 4{,}0\\times 10^{-3}\\text{ s} = 4{,}0\\text{ ms}$$
+
+b) **Déphasage $\\varphi$ :**
+Le déphasage en valeur absolue s'écrit :
+$$|\\varphi| = 2\\pi \\frac{\\Delta t}{T} = 2\\pi \\times \\frac{0{,}40\\text{ ms}}{4{,}0\\text{ ms}} = 0{,}20\\pi\\text{ rad} = \\frac{\\pi}{5}\\text{ rad} \\approx 0{,}628\\text{ rad} \\quad (36^\\circ)$$
+Comme $u(t)$ est en avance de phase sur $u_R(t)$ (donc sur $i(t)$) :
+$$\\mathbf{\\varphi = +\\frac{\\pi}{5}\\text{ rad} \\approx +0{,}628\\text{ rad} = +36^\\circ}$$
+
+c) **Nature du circuit :**
+Puisque $\\varphi > 0$, la tension est en avance sur le courant : **le dipôle RLC est à prédominance inductive** ($L\\omega > \\frac{1}{C\\omega}$).
+
+---
+
+### 3. Impédance totale $Z$ (0,5 pt)
+D'après la loi d'Ohm en courant alternatif :
+$$U = Z\\cdot I \\implies \\mathbf{Z = \\frac{U}{I} = \\frac{10{,}0\\text{ V}}{0{,}160\\text{ A}} = 62{,}5\\,\\Omega}$$
+
+---
+
+### 4. Résistance totale $R_t$ et résistance interne $r$ (0,75 pt)
+On a la relation fondamentale du facteur de puissance :
+$$\\cos\\varphi = \\frac{R_t}{Z} \\implies R_t = Z\\cos\\varphi$$
+$$R_t = 62{,}5 \\times \\cos(36^\\circ) = 62{,}5 \\times 0{,}809 = 50{,}56\\,\\Omega \\approx 50{,}6\\,\\Omega$$
+Comme $R_t = R + r$ :
+$$\\mathbf{r = R_t - R = 50{,}56 - 40{,}0 = 10{,}56\\,\\Omega \\approx 10{,}6\\,\\Omega}$$
+
+---
+
+### 5. Calcul de l'inductance $L$ (1 pt)
+La formule du déphasage s'écrit :
+$$\\tan\\varphi = \\frac{L\\omega - \\frac{1}{C\\omega}}{R_t} \\implies L\\omega = R_t\\tan\\varphi + \\frac{1}{C\\omega}$$
+$$\\mathbf{L = \\frac{R_t\\tan\\varphi}{\\omega} + \\frac{1}{C\\omega^2}}$$
+Avec $\\omega = 2\\pi N = 2\\pi \\times 250 = 500\\pi \\approx 1570{,}8\\text{ rad}\\cdot\\text{s}^{-1}$ :
+- Terme résistant : $\\dfrac{R_t\\tan\\varphi}{\\omega} = \\dfrac{50{,}56 \\times \\tan(36^\\circ)}{1570{,}8} = \\dfrac{50{,}56 \\times 0{,}7265}{1570{,}8} \\approx 0{,}0234\\text{ H}$
+- Terme capacitif : $\\dfrac{1}{C\\omega^2} = \\dfrac{1}{5{,}0\\times 10^{-6} \\times (1570{,}8)^2} = \\dfrac{1}{12{,}337} \\approx 0{,}0811\\text{ H}$
+$$\\mathbf{L = 0{,}0234 + 0{,}0811 = 0{,}1045\\text{ H} \\approx 105\\text{ mH}}$$
+
+---
+
+### 6. Puissance active moyenne $\\mathcal{P}$ (0,75 pt)
+- **Par la formule générale :**
+$$\\mathcal{P} = U\\cdot I\\cdot\\cos\\varphi = 10{,}0 \\times 0{,}160 \\times \\cos(36^\\circ) = 1{,}60 \\times 0{,}809 = \\mathbf{1{,}29\\text{ W}}$$
+- **Vérification par effet Joule :**
+$$\\mathcal{P} = R_t\\cdot I^2 = 50{,}56 \\times (0{,}160)^2 = 50{,}56 \\times 0{,}0256 = \\mathbf{1{,}29\\text{ W}}$$
+La puissance moyenne transmise par le GBF est intégralement dissipée par effet Joule dans les résistances $R$ et $r$.`,
+    baremeAstuce: `Barème officiel Bac S2 :
+- Schéma et branchements oscilloscope : 0,75 pt
+- Période T, calcul de phi et nature inductive : 1,25 pt
+- Impédance Z : 0,5 pt
+- Résistances Rt et r : 0,75 pt
+- Inductance L : 1,0 pt
+- Puissance moyenne et vérification Joule : 0,75 pt.
+Astuce correcteur : N'oubliez jamais que l'impédance de la bobine seule est Zb = √(r² + (Lω)²) et non Lω ! Ne confondez pas U et Um (Um = U√2).`,
+  },
+  {
+    year: 2021,
+    session: 'Session Normale (Physique Série S2)',
+    points: 'Exercice 3 — Électricité (4,5 Points)',
+    topic: 'Résonance d\'intensité — Bande passante à -3 dB, facteur de qualité Q et surtension au condensateur',
+    enonce: `On réalise un circuit RLC série comprenant une bobine d'inductance $L = 0{,}10\\text{ H}$ et de résistance négligeable, un résistor de résistance variable $R$, et un condensateur de capacité $C = 1{,}0\\,\\mu\\text{F}$. Le dipôle est alimenté sous une tension sinusoïdale de valeur efficace constante $U = 6{,}0\\text{ V}$.
+
+On fait varier la fréquence $N$ du générateur basse fréquence.
+
+1. Pour une valeur de résistance $R = R_1 = 20\\,\\Omega$ :
+   a) Calculer la fréquence de résonance $N_0$ du circuit.
+   b) Que vaut l'impédance du circuit à la résonance ? En déduire l'intensité efficace maximale $I_0$.
+   c) Calculer le facteur de qualité $Q_1$ du circuit.
+   d) Déterminer la largeur de la bande passante $\\Delta N_1$ à $-3\\text{ dB}$. En déduire les fréquences de coupure $N_1$ et $N_2$.
+   e) Calculer la tension efficace $U_{C0}$ aux bornes du condensateur à la résonance. Commenter ce résultat.
+
+2. On remplace la résistance $R_1$ par une résistance $R_2 = 100\\,\\Omega$ :
+   a) La fréquence de résonance $N_0$ est-elle modifiée ? Justifier.
+   b) Que devient la largeur de la bande passante $\\Delta N_2$ ?
+   c) Comparer l'acuité de la résonance pour les deux valeurs de résistance $R_1$ et $R_2$.`,
+    solution: `### 1. Étude pour $R = R_1 = 20\\,\\Omega$
+a) **Fréquence de résonance $N_0$ (0,5 pt) :**
+$$\\omega_0 = \\frac{1}{\\sqrt{LC}} = \\frac{1}{\\sqrt{0{,}10 \\times 1{,}0\\times 10^{-6}}} = \\frac{1}{\\sqrt{10^{-7}}} = \\frac{1}{3{,}162\\times 10^{-4}} \\approx 3162{,}3\\text{ rad}\\cdot\\text{s}^{-1}$$
+$$N_0 = \\frac{\\omega_0}{2\\pi} = \\frac{3162{,}3}{6{,}283} \\approx \\mathbf{503{,}3\\text{ Hz}}$$
+
+b) **Impédance et intensité à la résonance (0,5 pt) :**
+À la résonance, $L\\omega_0 = \\frac{1}{C\\omega_0} \\implies Z_{\\min} = R_1 = \\mathbf{20\\,\\Omega}$.
+$$I_0 = \\frac{U}{R_1} = \\frac{6{,}0\\text{ V}}{20\\,\\Omega} = \\mathbf{0{,}30\\text{ A} = 300\\text{ mA}}$$
+
+c) **Facteur de qualité $Q_1$ (0,5 pt) :**
+$$Q_1 = \\frac{L\\omega_0}{R_1} = \\frac{0{,}10 \\times 3162{,}3}{20} = \\frac{316{,}23}{20} = \\mathbf{15{,}81}$$
+
+d) **Bande passante $\\Delta N_1$ et fréquences de coupure (1 pt) :**
+$$\\Delta N_1 = \\frac{N_0}{Q_1} = \\frac{503{,}3}{15{,}81} \\approx \\mathbf{31{,}8\\text{ Hz}} \\quad \\left(\\text{ou } \\Delta N_1 = \\frac{R_1}{2\\pi L} = \\frac{20}{2\\pi \\times 0{,}10} = \\frac{200}{2\\pi} = 31{,}83\\text{ Hz}\\right)$$
+Comme $Q_1 \\gg 1$, les fréquences de coupure sont approximativement symétriques autour de $N_0$ :
+$$N_1 \\approx N_0 - \\frac{\\Delta N_1}{2} = 503{,}3 - 15{,}9 = \\mathbf{487{,}4\\text{ Hz}}$$
+$$N_2 \\approx N_0 + \\frac{\\Delta N_1}{2} = 503{,}3 + 15{,}9 = \\mathbf{519{,}2\\text{ Hz}}$$
+
+e) **Tension efficace au condensateur et surtension (0,75 pt) :**
+$$U_{C0} = \\frac{I_0}{C\\omega_0} = Q_1 \\cdot U = 15{,}81 \\times 6{,}0\\text{ V} = \\mathbf{94{,}9\\text{ V}}$$
+**Commentaire :** $U_{C0}$ est près de 16 fois supérieure à la tension délivrée par le GBF ($6{,}0\\text{ V}$). C'est le phénomène de **surtension à la résonance**. Il présente un risque réel de destruction du condensateur par claquage de son isolant diélectrique si sa tension de service nominale est inférieure à 100 V.
+
+---
+
+### 2. Influence de la résistance $R_2 = 100\\,\\Omega$ (0,75 pt)
+a) **Fréquence de résonance $N_0$ :**
+Elle reste **strictement inchangée** ($N_0 = 503{,}3\\text{ Hz}$) car elle ne dépend exclusivement que du produit $LC$ ($N_0 = \\frac{1}{2\\pi\\sqrt{LC}}$).
+
+b) **Nouvelle bande passante $\\Delta N_2$ :**
+$$\\Delta N_2 = \\frac{R_2}{2\\pi L} = \\frac{100}{2\\pi \\times 0{,}10} = 5 \\times \\Delta N_1 = 5 \\times 31{,}83 = \\mathbf{159{,}2\\text{ Hz}}$$
+
+c) **Comparaison de l'acuité :**
+Pour $R_1 = 20\\,\\Omega$, la bande passante est étroite et le facteur de qualité est élevé ($Q_1 = 15{,}8$) : **la résonance est très aiguë (haute sélectivité)**.
+Pour $R_2 = 100\\,\\Omega$, la bande passante s'élargit considérablement et $Q_2 = \\frac{Q_1}{5} = 3{,}16$ : **la résonance est floue (faible sélectivité)**.`,
+    baremeAstuce: `Barème officiel Bac S2 :
+- Fréquence N0 : 0,5 pt
+- Impédance et intensité I0 : 0,5 pt
+- Facteur de qualité Q1 : 0,5 pt
+- Bande passante et fréquences de coupure : 1,0 pt
+- Calcul de UC0 et analyse de la surtension : 0,75 pt
+- Effet de R2 sur N0, bande passante et acuité : 0,75 pt.
+Astuce correcteur : Retenez la formule ultra-rapide ΔN = R/(2πL) qui permet de calculer la bande passante directement sans passer par les équations du second degré.`,
+  },
+  {
+    year: 2018,
+    session: 'Session Normale (Physique Série S2)',
+    points: 'Exercice 2 — Oscillations Forcées (4 Points)',
+    topic: 'Exploitation d\'oscillogrammes — Détermination du déphasage, de la résistance et de l\'inductance',
+    enonce: `Un dipôle constitué d'un résistor de résistance $R = 80\\,\\Omega$ en série avec une bobine $(L, r)$ et un condensateur $C = 2{,}5\\,\\mu\\text{F}$ est soumis à une tension sinusoïdale $u(t) = U_m\\cos(\\omega t)$.
+
+À l'oscilloscope, on observe :
+- Sur la voie 1 : la tension $u(t)$ aux bornes du dipôle RLC, avec une sensibilité verticale de $5\\text{ V/div}$. La courbe a une déviation maximale de $3\\text{ divisions}$.
+- Sur la voie 2 : la tension $u_R(t)$ aux bornes du résistor, avec une sensibilité verticale de $2\\text{ V/div}$. La courbe a une déviation maximale de $4\\text{ divisions}$.
+- La sensibilité horizontale (base de temps) est réglée sur $0{,}5\\text{ ms/div}$.
+- Une période complète $T$ occupe $8\\text{ divisions}$ sur l'écran.
+- Le décalage horizontal entre les deux sinusoïdes est de $1{,}0\\text{ division}$, la tension $u(t)$ atteignant son maximum après la tension $u_R(t)$.
+
+1. Déterminer :
+   a) L'amplitude $U_m$ de la tension du générateur et l'amplitude $U_{Rm}$ de la tension aux bornes du résistor.
+   b) L'amplitude $I_m$ de l'intensité du courant.
+   c) La période $T$, la fréquence $N$ et la pulsation $\\omega$.
+2. Déterminer la valeur et le signe du déphasage $\\varphi = \\varphi_u - \\varphi_i$. En déduire la nature du circuit.
+3. Écrire les expressions numériques des fonctions $u(t)$ et $i(t)$ en prenant la tension $u(t)$ comme origine des phases.
+4. Calculer l'impédance totale $Z$ du dipôle et la résistance totale $R_t$. En déduire la résistance interne $r$ de la bobine.
+5. Calculer l'inductance $L$ de la bobine.`,
+    solution: `### 1. Exploitation directe des calibres (1 pt)
+a) **Amplitudes de tension :**
+- $U_m = 3\\text{ div} \\times 5\\text{ V/div} = \\mathbf{15\\text{ V}}$
+- $U_{Rm} = 4\\text{ div} \\times 2\\text{ V/div} = \\mathbf{8{,}0\\text{ V}}$
+
+b) **Amplitude du courant $I_m$ :**
+Aux bornes du résistor pur : $U_{Rm} = R\\cdot I_m \\implies \\mathbf{I_m = \\frac{U_{Rm}}{R} = \\frac{8{,}0\\text{ V}}{80\\,\\Omega} = 0{,}10\\text{ A} = 100\\text{ mA}}$.
+
+c) **Période, fréquence et pulsation :**
+- $T = 8\\text{ div} \\times 0{,}5\\text{ ms/div} = 4{,}0\\text{ ms} = \\mathbf{4{,}0\\times 10^{-3}\\text{ s}}$
+- $N = \\frac{1}{T} = \\frac{1}{4{,}0\\times 10^{-3}} = \\mathbf{250\\text{ Hz}}$
+- $\\omega = 2\\pi N = 2\\pi \\times 250 = 500\\pi \\approx \\mathbf{1570{,}8\\text{ rad}\\cdot\\text{s}^{-1}}$
+
+---
+
+### 2. Déphasage et nature du circuit (1 pt)
+Le décalage horizontal vaut $d = 1{,}0\\text{ div}$ pour une période $D = 8\\text{ div}$ :
+$$|\\varphi| = 2\\pi \\frac{d}{D} = 2\\pi \\times \\frac{1{,}0}{8{,}0} = \\frac{\\pi}{4}\\text{ rad} = 45^\\circ$$
+L'énoncé précise que $u(t)$ atteint son maximum **après** $u_R(t)$ : la tension est donc en **retard de phase** sur le courant $i(t)$.
+$$\\mathbf{\\varphi = -\\frac{\\pi}{4}\\text{ rad} = -45^\\circ}$$
+Le déphasage étant négatif ($\varphi < 0$), le dipôle RLC a un **comportement capacitif prédominant** ($N < N_0$).
+
+---
+
+### 3. Expressions temporelles $u(t)$ et $i(t)$ (0,5 pt)
+Origine des phases prise sur $u(t) \\implies u(t) = U_m\\cos(\\omega t)$ :
+$$\\mathbf{u(t) = 15\\cos(500\\pi t)\\text{ (V)}}$$
+Comme $\\varphi = \\varphi_u - \\varphi_i = -\\pi/4 \\implies \\varphi_i = \\varphi_u - \\varphi = 0 - (-\\pi/4) = +\\pi/4$ :
+$$\\mathbf{i(t) = 0{,}10\\cos(500\\pi t + \\pi/4)\\text{ (A)}}$$
+
+---
+
+### 4. Impédance $Z$, résistance totale $R_t$ et résistance interne $r$ (0,75 pt)
+- Impédance :
+$$\\mathbf{Z = \\frac{U_m}{I_m} = \\frac{15\\text{ V}}{0{,}10\\text{ A}} = 150\\,\\Omega}$$
+- Résistance totale :
+$$R_t = Z\\cos\\varphi = 150 \\times \\cos(-\\pi/4) = 150 \\times \\frac{\\sqrt{2}}{2} = 75\\sqrt{2} \\approx \\mathbf{106{,}07\\,\\Omega}$$
+- Résistance interne de la bobine :
+$$\\mathbf{r = R_t - R = 106{,}07 - 80 = 26{,}07\\,\\Omega \\approx 26{,}1\\,\\Omega}$$
+
+---
+
+### 5. Calcul de l'inductance $L$ (0,75 pt)
+On sait que :
+$$\\tan\\varphi = \\frac{L\\omega - \\frac{1}{C\\omega}}{R_t} \\implies L\\omega = \\frac{1}{C\\omega} + R_t\\tan\\varphi$$
+$$\\mathbf{L = \\frac{1}{C\\omega^2} + \\frac{R_t\\tan\\varphi}{\\omega}}$$
+Avec $\\tan(-\\pi/4) = -1$ :
+- $\\dfrac{1}{C\\omega^2} = \\dfrac{1}{2{,}5\\times 10^{-6} \\times (1570{,}8)^2} = \\dfrac{1}{6{,}168} \\approx 0{,}1621\\text{ H}$
+- $\\dfrac{R_t\\tan\\varphi}{\\omega} = \\dfrac{106{,}07 \\times (-1)}{1570{,}8} \\approx -0{,}0675\\text{ H}$
+$$L = 0{,}1621 - 0{,}0675 = \\mathbf{0{,}0946\\text{ H} \\approx 94{,}6\\text{ mH}}$$`,
+    baremeAstuce: `Barème officiel Bac S2 :
+- Calibres et grandeurs d'oscilloscope : 1,0 pt
+- Déphasage et justification du retard de u : 1,0 pt
+- Expressions horaires u(t) et i(t) : 0,5 pt
+- Calculs de Z, Rt et r : 0,75 pt
+- Calcul rigoureux de L : 0,75 pt.
+Astuce correcteur : « u après i » signifie que le retardataire a une phase plus petite : φu < φi d'où φ = φu - φi < 0 !`,
+  },
+];
+
+BAC_ANNALES_BY_CHAPTER['rlc-forcees'] = BAC_ANNALES_BY_CHAPTER.rlc_forcees;
+BAC_ANNALES_BY_CHAPTER['oscillations_forcees'] = BAC_ANNALES_BY_CHAPTER.rlc_forcees;
+BAC_ANNALES_BY_CHAPTER['oscillations-forcees'] = BAC_ANNALES_BY_CHAPTER.rlc_forcees;
+BAC_ANNALES_BY_CHAPTER['oscillations_electriques_forcees'] = BAC_ANNALES_BY_CHAPTER.rlc_forcees;
+BAC_ANNALES_BY_CHAPTER['resonance'] = BAC_ANNALES_BY_CHAPTER.rlc_forcees;
+BAC_ANNALES_BY_CHAPTER['resonance_intensite'] = BAC_ANNALES_BY_CHAPTER.rlc_forcees;
+BAC_ANNALES_BY_CHAPTER['bande_passante'] = BAC_ANNALES_BY_CHAPTER.rlc_forcees;
+BAC_ANNALES_BY_CHAPTER['facteur_qualite'] = BAC_ANNALES_BY_CHAPTER.rlc_forcees;
+BAC_ANNALES_BY_CHAPTER['fresnel'] = BAC_ANNALES_BY_CHAPTER.rlc_forcees;
+BAC_ANNALES_BY_CHAPTER['p8'] = BAC_ANNALES_BY_CHAPTER.rlc_forcees;
+BAC_ANNALES_BY_CHAPTER['p8l1'] = BAC_ANNALES_BY_CHAPTER.rlc_forcees;
+BAC_ANNALES_BY_CHAPTER['p8l2'] = BAC_ANNALES_BY_CHAPTER.rlc_forcees;
+BAC_ANNALES_BY_CHAPTER['p8l3'] = BAC_ANNALES_BY_CHAPTER.rlc_forcees;
+
+// ─── P9 — LE MODÈLE ONDULATOIRE ET CORPUSCULAIRE DE LA LUMIÈRE ──────────────
+BAC_ANNALES_BY_CHAPTER.lumiere_quanta = [
+  {
+    year: 2023,
+    session: 'Session Normale (Physique Série S2)',
+    points: 'Exercice 3 — Interférences Lumineuses d\'Young (4 Points)',
+    topic: 'Mesure de longueur d\'onde, interfrange, incertitude et effet d\'une lame à faces parallèles',
+    enonce: `Dans un dispositif des fentes d'Young, la source lumineuse monochromatique $S$ éclaire deux fentes fines parallèles $F_1$ et $F_2$ distantes de $a = 0{,}50\\text{ mm}$. Un écran d'observation $E$ est placé parallèlement au plan des fentes à la distance $D = 1{,}80\\text{ m}$.
+
+1. Rappeler brièvement le principe des interférences lumineuses. Pourquoi dit-on que les deux fentes $F_1$ et $F_2$ constituent deux sources secondaires cohérentes ?
+2. Établir l'expression de la différence de marche $\\delta = d_2 - d_1$ en un point $M$ de l'écran repéré par son abscisse $x$ par rapport au centre $O$ de l'écran ($a \\ll D$ et $x \\ll D$).
+3. Définir l'interfrange $i$ et établir son expression littérale en fonction de $\\lambda$, $D$ et $a$.
+4. Sur l'écran, on repère la distance $L$ séparant le milieu de la frange brillante d'ordre $k = -3$ et le milieu de la frange brillante d'ordre $k = +3$. On mesure $L = 13{,}68\\text{ mm}$.
+   a) Exprimer $L$ en fonction de l'interfrange $i$. En déduire la valeur numérique de $i$.
+   b) Calculer la longueur d'onde $\\lambda$ de la radiation lumineuse utilisée. De quelle couleur s'agit-il ?
+5. On place maintenant devant la fente $F_1$ une fine lame de mica transparente à faces parallèles d'épaisseur $e = 4{,}5\\,\\mu\\text{m}$ et d'indice de réfraction $n = 1{,}58$.
+   a) Expliquer qualitativement l'effet de la lame sur le chemin optique et le système de franges.
+   b) Établir la nouvelle expression de la différence de marche $\\delta'$.
+   c) Calculer le sens et la valeur du déplacement $\\Delta x$ de la frange centrale d'ordre $0$. L'interfrange $i$ est-il modifié ?`,
+    solution: `### 1. Cohérence des sources $F_1$ et $F_2$ (0,5 pt)
+Deux ondes lumineuses n'interfèrent durablement que si elles sont **cohérentes**, c'est-à-dire synchrones (même fréquence $\\nu$) et présentant une différence de phase constante dans le temps. Les fentes $F_1$ et $F_2$, étant issues par division du front d'onde d'une unique source primaire $S$, vibrent en phase et ont rigoureusement la même fréquence : ce sont deux **sources secondaires cohérentes et synchrones**.
+
+---
+
+### 2. Différence de marche $\\delta$ (0,75 pt)
+Soit $M(x)$ un point de l'écran. La différence de marche géométrique s'écrit :
+$$\\delta = d_2 - d_1 = S_2 M - S_1 M$$
+Dans les triangles rectangles formés avec le plan médian :
+$$d_2^2 = D^2 + \\left(x + \\frac{a}{2}\\right)^2, \\quad d_1^2 = D^2 + \\left(x - \\frac{a}{2}\\right)^2$$
+$$d_2^2 - d_1^2 = (d_2 - d_1)(d_2 + d_1) = 2ax$$
+Comme $a \\ll D$ et $x \\ll D$, on effectue l'approximation usuelle : $d_2 + d_1 \\approx 2D$.
+On en déduit l'expression fondamentale :
+$$\\mathbf{\\delta = \\frac{a\\,x}{D}}$$
+
+---
+
+### 3. Définition et expression de l'interfrange $i$ (0,5 pt)
+L'**interfrange** $i$ est la distance séparant les centres de deux franges consécutives de même nature (deux brillantes ou deux sombres consécutives).
+- Position de la $k^{\\text{ième}}$ frange brillante (interférences constructives : $\\delta = k\\lambda$) :
+$$x_k = k \\frac{\\lambda D}{a}$$
+- L'interfrange vaut donc :
+$$i = x_{k+1} - x_k = (k+1)\\frac{\\lambda D}{a} - k\\frac{\\lambda D}{a} \\implies \\mathbf{i = \\frac{\\lambda D}{a}}$$
+
+---
+
+### 4. Calcul de l'interfrange et de la longueur d'onde $\\lambda$ (1,0 pt)
+a) **Lien entre $L$ et $i$ :**
+Entre la frange $k = -3$ ($x_{-3} = -3i$) et la frange $k = +3$ ($x_{+3} = +3i$), la distance totale vaut :
+$$L = x_{+3} - x_{-3} = 3i - (-3i) = 6i$$
+$$\\mathbf{i = \\frac{L}{6} = \\frac{13{,}68\\text{ mm}}{6} = 2{,}28\\text{ mm} = 2{,}28\\times 10^{-3}\\text{ m}}$$
+
+b) **Longueur d'onde $\\lambda$ :**
+$$\\mathbf{\\lambda = \\frac{a\\,i}{D} = \\frac{0{,}50\\times 10^{-3}\\text{ m} \\times 2{,}28\\times 10^{-3}\\text{ m}}{1{,}80\\text{ m}} = 6{,}333\\times 10^{-7}\\text{ m} \\approx 633\\text{ nm}}$$
+Il s'agit d'une radiation rouge (longueur d'onde classique du laser Hélium-Néon).
+
+---
+
+### 5. Effet de la lame à faces parallèles (1,25 pt)
+a) **Analyse qualitative :**
+Dans la lame de verre d'indice $n$, la vitesse de la lumière est ralentie ($v = c / n$). Le chemin optique parcouru par le rayon issu de $F_1$ augmente de $(n - 1)e$. Pour compenser ce retard et rétablir l'égalité des chemins, le faisceau doit s'incliner vers $F_1$ : **tout le système de franges se translate vers le haut (du côté de la fente $F_1$ couverte)**.
+
+b) **Nouvelle différence de marche $\\delta'$ :**
+Le chemin optique $(S F_1 M)$ est augmenté de $(n - 1)e$ :
+$$\\mathbf{\\delta' = d_2 - [d_1 + (n - 1)e] = \\frac{a\\,x}{D} - (n - 1)e}$$
+
+c) **Déplacement $\\Delta x$ et interfrange :**
+La frange centrale d'ordre $0$ correspond à $\\delta' = 0$ :
+$$\\frac{a\\,x_0}{D} - (n - 1)e = 0 \\implies \\mathbf{x_0 = \\Delta x = \\frac{(n - 1)\\,e\\,D}{a}}$$
+Application numérique :
+$$\\Delta x = \\frac{(1{,}58 - 1) \\times 4{,}5\\times 10^{-6}\\text{ m} \\times 1{,}80\\text{ m}}{0{,}50\\times 10^{-3}\\text{ m}} = \\frac{0{,}58 \\times 8{,}10\\times 10^{-6}}{0{,}50\\times 10^{-3}} = \\mathbf{9{,}396\\times 10^{-3}\\text{ m} \\approx 9{,}40\\text{ mm}}$$
+Le système est translaté de **$9{,}40\\text{ mm}$ vers la fente $F_1$**.
+L'interfrange $i = \\frac{\\lambda D}{a}$ ne dépend ni de $e$ ni de $n$ : **il reste rigoureusement inchangé ($i = 2{,}28\\text{ mm}$)**.`,
+    baremeAstuce: `Barème officiel Bac S2 :
+- Conditions de cohérence des sources : 0,5 pt
+- Démonstration rigoureuse de δ = ax/D : 0,75 pt
+- Définition et expression littérale de l'interfrange i : 0,5 pt
+- Calcul de i et de la longueur d'onde λ : 1,0 pt
+- Formule et calcul du déplacement de la frange centrale : 1,25 pt.
+Astuce correcteur : Retenez que la frange centrale se déplace TOUJOURS du côté où la lame a été introduite car la lumière y a pris du retard optique !`,
+  },
+  {
+    year: 2021,
+    session: 'Session Normale (Physique Série S2)',
+    points: 'Exercice 4 — Effet Photoélectrique & Bilan d\'Einstein (4 Points)',
+    topic: 'Potentiel d\'arrêt, fréquence seuil, détermination de la constante de Planck et vitesse maximale',
+    enonce: `On éclaire la cathode métallique d'une cellule photoélectrique avec diverses radiations monochromatiques de fréquence $\\nu$ réglable. Pour chaque radiation, on détermine expérimentalement la valeur du potentiel d'arrêt $|U_0|$ nécessaire pour annuler le photocourant.
+
+Les résultats obtenus sont consignés dans le tableau ci-dessous :
+
+| $\\nu$ ($10^{14}\\text{ Hz}$) | $6{,}0$ | $7{,}0$ | $8{,}0$ | $9{,}0$ | $10{,}0$ |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| $|U_0|$ (V) | $0{,}48$ | $0{,}89$ | $1{,}31$ | $1{,}72$ | $2{,}14$ |
+
+1. Définir l'effet photoélectrique et énoncer les deux lois expérimentales fondamentales qui ne peuvent pas être expliquées par la théorie ondulatoire de Maxwell.
+2. Écrire la relation d'Einstein traduisant la conservation de l'énergie lors de l'interaction photon-électron.
+3. En déduire la relation théorique reliant le potentiel d'arrêt $|U_0|$ à la fréquence $\\nu$, la constante de Planck $h$, la charge élémentaire $e$ et le travail d'extraction $W_0$.
+4. Tracer la courbe $|U_0| = f(\\nu)$ (ou exploiter la régression linéaire des données).
+   a) Justifier l'allure de la courbe obtenue.
+   b) Déterminer graphiquement la pente de la droite et en déduire la valeur expérimentale de la constante de Planck $h$. (On donne $e = 1{,}60\\times 10^{-19}\\text{ C}$).
+   c) Déterminer la fréquence seuil $\\nu_0$ et la longueur d'onde seuil $\\lambda_0$ du métal de la cathode.
+   d) Calculer le travail d'extraction $W_0$ en Joules et en électron-volts.
+5. On éclaire désormais la cellule avec une radiation de longueur d'onde $\\lambda = 310\\text{ nm}$.
+   a) Calculer l'énergie cinétique maximale $E_c^{\\max}$ des électrons émis.
+   b) En déduire la vitesse maximale $v_{\\max}$ d'éjection des photoélectrons ($m_e = 9{,}1\\times 10^{-31}\\text{ kg}$).`,
+    solution: `### 1. Définition et limites du modèle ondulatoire classique (0,75 pt)
+- **Définition :** L'effet photoélectrique est l'émission d'électrons par un matériau conducteur sous l'action d'un rayonnement électromagnétique d'énergie suffisante.
+- **Faits inexplicables par la théorie ondulatoire de Maxwell :**
+  1. *L'existence d'une fréquence seuil $\\nu_0$ :* si $\\nu < \\nu_0$, aucun électron n'est éjecté, même si l'intensité lumineuse est gigantesque. La théorie ondulatoire prévoyait au contraire qu'une onde intense apporte toujours assez d'énergie.
+  2. *L'absence de retard temporel :* l'émission est quasi-instantanée ($< 10^{-9}\\text{ s}$), alors que selon le modèle ondulatoire l'électron devrait accumuler l'énergie diffusée pendant plusieurs minutes ou heures.
+
+---
+
+### 2. Relation d'Einstein (0,5 pt)
+Lors de l'absorption d'un quantum d'énergie $h\\nu$ par un électron :
+$$E_{\\text{photon}} = W_{\\text{extraction}} + E_{c}^{\\max} \\iff \\mathbf{h\\nu = W_0 + \\frac{1}{2} m v_{\\max}^2}$$
+
+---
+
+### 3. Relation théorique du potentiel d'arrêt $|U_0|$ (0,5 pt)
+Le potentiel d'arrêt $|U_0|$ compense exactement l'énergie cinétique maximale de l'électron :
+$$e\\,|U_0| = E_c^{\\max} = h\\nu - W_0 \\iff \\mathbf{|U_0| = \\frac{h}{e}\\,\\nu - \\frac{W_0}{e}}$$
+
+---
+
+### 4. Exploitation de la droite expérimentale $|U_0| = f(\\nu)$ (1,25 pt)
+a) **Allure :**
+L'équation théorique est de la forme $|U_0| = a\\,\\nu + b$ avec :
+- Pente positive : $a = \\frac{h}{e}$
+- Ordonnée à l'origine : $b = -\\frac{W_0}{e}$
+La courbe est une droite affine ne passant pas par l'origine.
+
+b) **Calcul de la pente et de la constante de Planck $h$ :**
+Prenons deux points extrêmes de la droite :
+$$a = \\frac{\\Delta |U_0|}{\\Delta \\nu} = \\frac{2{,}14 - 0{,}48}{(10{,}0 - 6{,}0)\\times 10^{14}} = \\frac{1{,}66}{4{,}0\\times 10^{14}} = 4{,}15\\times 10^{-15}\\text{ V}\\cdot\\text{s}$$
+Comme $a = \\frac{h}{e}$ :
+$$\\mathbf{h = a\\cdot e = 4{,}15\\times 10^{-15} \\times 1{,}60\\times 10^{-19} = 6{,}64\\times 10^{-34}\\text{ J}\\cdot\\text{s}}$$
+Cette valeur expérimentale concorde admirablement avec la valeur tabulée ($6{,}626\\times 10^{-34}\\text{ J}\\cdot\\text{s}$).
+
+c) **Fréquence seuil $\\nu_0$ et longueur d'onde seuil $\\lambda_0$ :**
+Pour $|U_0| = 0$, $\\nu = \\nu_0$ :
+$$\\nu_0 = \\frac{W_0/e}{h/e} = 6{,}0\\times 10^{14} - \\frac{0{,}48}{4{,}15\\times 10^{-15}} = 6{,}0\\times 10^{14} - 1{,}157\\times 10^{14} \\approx \\mathbf{4{,}84\\times 10^{14}\\text{ Hz}}$$
+$$\\mathbf{\\lambda_0 = \\frac{c}{\\nu_0} = \\frac{3{,}00\\times 10^8\\text{ m/s}}{4{,}84\\times 10^{14}\\text{ Hz}} = 6{,}20\\times 10^{-7}\\text{ m} = 620\\text{ nm}}$$
+
+d) **Travail d'extraction $W_0$ :**
+$$W_0 = h\\nu_0 = 6{,}64\\times 10^{-34} \\times 4{,}84\\times 10^{14} = \\mathbf{3{,}21\\times 10^{-19}\\text{ J}}$$
+$$W_0(\\text{eV}) = \\frac{3{,}21\\times 10^{-19}}{1{,}60\\times 10^{-19}} = \\mathbf{2{,}01\\text{ eV}}$$
+(Il s'agit d'une cathode au césium-potassium).
+
+---
+
+### 5. Radiation incidente $\\lambda = 310\\text{ nm}$ (1,0 pt)
+a) **Énergie cinétique maximale $E_c^{\\max}$ :**
+Énergie du photon incident :
+$$E_{\\text{ph}} = \\frac{h c}{\\lambda} = \\frac{6{,}64\\times 10^{-34} \\times 3{,}00\\times 10^8}{310\\times 10^{-9}} = 6{,}426\\times 10^{-19}\\text{ J} \\approx 4{,}02\\text{ eV}$$
+$$E_c^{\\max} = E_{\\text{ph}} - W_0 = 4{,}02\\text{ eV} - 2{,}01\\text{ eV} = \\mathbf{2{,}01\\text{ eV} = 3{,}216\\times 10^{-19}\\text{ J}}$$
+
+b) **Vitesse maximale $v_{\\max}$ :**
+$$E_c^{\\max} = \\frac{1}{2}m_e v_{\\max}^2 \\implies v_{\\max} = \\sqrt{\\frac{2\\,E_c^{\\max}}{m_e}}$$
+$$\\mathbf{v_{\\max} = \\sqrt{\\frac{2 \\times 3{,}216\\times 10^{-19}\\text{ J}}{9{,}1\\times 10^{-31}\\text{ kg}}} = \\sqrt{7{,}068\\times 10^{11}} \\approx 8{,}41\\times 10^5\\text{ m}\\cdot\\text{s}^{-1}}$$`,
+    baremeAstuce: `Barème officiel Bac S2 :
+- Définition et insuffisances de la théorie classique : 0,75 pt
+- Équation d'Einstein : 0,5 pt
+- Expression du potentiel d'arrêt U0 : 0,5 pt
+- Pente de la droite et constante de Planck h : 0,75 pt
+- Seuil ν0, λ0 et travail d'extraction W0 : 0,5 pt
+- Calculs de Ec_max et de la vitesse vmax : 1,0 pt.
+Astuce correcteur : N'oubliez jamais d'exprimer h en J·s et non en eV·s ! Multipliez toujours la pente a par la charge e en Coulombs.`,
+  },
+  {
+    year: 2019,
+    session: 'Session Normale (Physique Série S2)',
+    points: 'Exercice 4 — Modèle de Bohr & Spectres de Raies de l\'Hydrogène (4 Points)',
+    topic: 'Spectre de l\'hydrogène, séries de Lyman et Balmer, formule de Rydberg et énergie d\'ionisation',
+    enonce: `D'après le modèle quantique de Bohr, les énergies des différents niveaux stationnaires de l'atome d'hydrogène sont données par la formule :
+$$E_n = -\\frac{E_0}{n^2} \\quad \\text{avec } E_0 = 13{,}6\\text{ eV et } n \\in \\mathbb{N}^*$$
+
+1. Énoncer les deux postulats fondamentaux de Niels Bohr sur la structure atomique.
+2. Que représente le nombre quantique principal $n$ ?
+   a) Préciser le nom et la valeur énergétique du niveau $n = 1$.
+   b) Que se passe-t-il lorsque $n \\to \\infty$ ? Définir l'énergie d'ionisation de l'atome d'hydrogène et calculer sa valeur en eV et en Joules.
+3. L'atome d'hydrogène, initialement dans son état fondamental, absorbe un photon d'énergie $E_{\\text{ph}} = 12{,}09\\text{ eV}$.
+   a) Montrer que cette absorption permet à l'électron d'atteindre un niveau excité stationnaire de rang $p$ que l'on précisera.
+   b) Lors de la désexcitation de l'atome vers son état fondamental, quelles sont toutes les transitions possibles ?
+4. La série de Balmer regroupe les transitions radiatives pour lesquelles le niveau final est $n = 2$.
+   a) Montrer que la longueur d'onde $\\lambda$ du photon émis lors d'une transition du niveau $p$ ($p > 2$) vers le niveau $n = 2$ vérifie la relation de Rydberg :
+   $$\\frac{1}{\\lambda} = R_H \\left(\\frac{1}{4} - \\frac{1}{p^2}\\right)$$
+   Exprimer la constante de Rydberg $R_H$ en fonction de $E_0$, $h$ et $c$, puis calculer sa valeur numérique.
+   b) Calculer la longueur d'onde $\\lambda_1$ de la première raie de la série de Balmer ($p = 3 \\to 2$, raie $H_\\alpha$). Préciser son domaine spectral et sa couleur.
+   c) Calculer la longueur d'onde limite $\\lambda_{\\lim}$ de la série de Balmer ($p \\to \\infty$).`,
+    solution: `### 1. Les deux postulats de Niels Bohr (0,75 pt)
+- **Postulat des états stationnaires :** L'électron ne peut graviter autour du noyau que sur des orbites circulaires privilégiées bien définies sans rayonner d'énergie. À chaque orbite correspond un niveau d'énergie discret et stable de l'atome.
+- **Postulat des transitions (règle de fréquence) :** L'émission ou l'absorption de lumière n'a lieu que lors du saut discontinu d'un électron d'un état stationnaire $E_p$ à un autre $E_n$. L'énergie du photon échangé vérifie rigoureusement :
+$$|E_p - E_n| = h\\nu = \\frac{hc}{\\lambda}$$
+
+---
+
+### 2. Niveaux et énergie d'ionisation (0,75 pt)
+a) **Niveau fondamental ($n = 1$) :**
+$$E_1 = -\\frac{13{,}6}{1^2} = \\mathbf{-13{,}6\\text{ eV}}$$
+C'est l'état le plus lié et le plus stable de l'atome d'hydrogène.
+
+b) **Limite $n \\to \\infty$ et énergie d'ionisation :**
+Quand $n \\to \\infty$, $E_\\infty = 0\\text{ eV}$. L'électron est libéré de l'attraction coulombienne du proton : l'atome est ionisé ($H \\to H^+ + e^-$).
+L'**énergie d'ionisation** est l'énergie minimale à apporter à l'atome pris dans son état fondamental pour lui arracher son électron :
+$$E_{\\text{ion}} = E_\\infty - E_1 = 0 - (-13{,}6\\text{ eV}) = \\mathbf{+13{,}6\\text{ eV}}$$
+En Joules :
+$$E_{\\text{ion}} = 13{,}6 \\times 1{,}60\\times 10^{-19}\\text{ J} = \\mathbf{2{,}176\\times 10^{-18}\\text{ J}}$$
+
+---
+
+### 3. Absorption du photon et désexcitation en cascade (1,0 pt)
+a) **Recherche du niveau excité $p$ :**
+L'atome absorbe le photon d'énergie $E_{\\text{ph}} = 12{,}09\\text{ eV}$ :
+$$E_p = E_1 + E_{\\text{ph}} = -13{,}6\\text{ eV} + 12{,}09\\text{ eV} = -1{,}51\\text{ eV}$$
+Or $E_p = -\\frac{13{,}6}{p^2} \\implies p^2 = \\frac{13{,}6}{1{,}51} = 9 \\implies \\mathbf{p = 3}$.
+L'atome se retrouve sur son **deuxième état excité ($n = 3$)**.
+
+b) **Transitions possibles lors du retour :**
+Depuis $p = 3$, il existe trois transitions possibles pour revenir à l'état fondamental :
+1. Transition directe : $3 \\to 1$ (émission d'un photon UV de la série de Lyman).
+2. Transition en deux étapes :
+   - $3 \\to 2$ (émission de la raie $H_\\alpha$ rouge de Balmer).
+   - Puis $2 \\to 1$ (émission de la raie Lyman-$\\alpha$ UV).
+
+---
+
+### 4. Série de Balmer & Constante de Rydberg (1,5 pt)
+a) **Démonstration de la formule de Rydberg :**
+Pour une transition du niveau $p$ vers le niveau $n = 2$ :
+$$\\Delta E = E_p - E_2 = -\\frac{E_0}{p^2} - \\left(-\\frac{E_0}{4}\\right) = E_0\\left(\\frac{1}{4} - \\frac{1}{p^2}\\right)$$
+Comme $\\Delta E = \\frac{hc}{\\lambda}$ :
+$$\\frac{1}{\\lambda} = \\frac{\\Delta E}{hc} = \\frac{E_0}{hc}\\left(\\frac{1}{4} - \\frac{1}{p^2}\\right)$$
+On identifie la **constante de Rydberg pour l'hydrogène** :
+$$\\mathbf{R_H = \\frac{E_0}{hc}}$$
+Calcul numérique (avec $E_0 = 13{,}6 \\times 1{,}602\\times 10^{-19}\\text{ J}$) :
+$$R_H = \\frac{2{,}179\\times 10^{-18}\\text{ J}}{6{,}626\\times 10^{-34}\\text{ J}\\cdot\\text{s} \\times 2{,}998\\times 10^8\\text{ m/s}} = \\mathbf{1{,}097\\times 10^7\\text{ m}^{-1}}$$
+
+b) **Première raie de Balmer ($p = 3 \\to 2$, raie $H_\\alpha$) :**
+$$\\frac{1}{\\lambda_1} = R_H \\left(\\frac{1}{4} - \\frac{1}{9}\\right) = R_H \\times \\frac{5}{36}$$
+$$\\mathbf{\\lambda_1 = \\frac{36}{5\\,R_H} = \\frac{36}{5 \\times 1{,}097\\times 10^7} = 6{,}563\\times 10^{-7}\\text{ m} = 656{,}3\\text{ nm}}$$
+Cette raie se situe dans le **domaine visible** et correspond à une splendide **couleur rouge**.
+
+c) **Longueur d'onde limite de la série de Balmer ($p \\to \\infty$) :**
+$$\\frac{1}{\\lambda_{\\lim}} = R_H \\left(\\frac{1}{4} - 0\\right) = \\frac{R_H}{4}$$
+$$\\mathbf{\\lambda_{\\lim} = \\frac{4}{R_H} = \\frac{4}{1{,}097\\times 10^7} = 3{,}646\\times 10^{-7}\\text{ m} = 364{,}6\\text{ nm}}$$
+Cette raie limite se situe dans le **proche ultraviolet** (limite violette du visible).`,
+    baremeAstuce: `Barème officiel Bac S2 :
+- Énoncé rigoureux des deux postulats de Bohr : 0,75 pt
+- Définition et calcul de l'énergie d'ionisation : 0,75 pt
+- Identification du niveau p = 3 et des transitions en cascade : 1,0 pt
+- Démonstration de la formule de Rydberg et calcul de RH : 0,75 pt
+- Calcul des longueurs d'onde de la raie Hα et de la raie limite : 0,75 pt.
+Astuce correcteur : Une raie limite correspond TOUJOURS à une transition depuis l'infini (p → ∞), soit 1/p² = 0 dans la formule de Rydberg !`,
+  },
+];
+
+BAC_ANNALES_BY_CHAPTER['lumiere-quanta'] = BAC_ANNALES_BY_CHAPTER.lumiere_quanta;
+BAC_ANNALES_BY_CHAPTER['lumiere'] = BAC_ANNALES_BY_CHAPTER.lumiere_quanta;
+BAC_ANNALES_BY_CHAPTER['ondes_corpuscules'] = BAC_ANNALES_BY_CHAPTER.lumiere_quanta;
+BAC_ANNALES_BY_CHAPTER['interferences'] = BAC_ANNALES_BY_CHAPTER.lumiere_quanta;
+BAC_ANNALES_BY_CHAPTER['interfrange'] = BAC_ANNALES_BY_CHAPTER.lumiere_quanta;
+BAC_ANNALES_BY_CHAPTER['young'] = BAC_ANNALES_BY_CHAPTER.lumiere_quanta;
+BAC_ANNALES_BY_CHAPTER['photoelectrique'] = BAC_ANNALES_BY_CHAPTER.lumiere_quanta;
+BAC_ANNALES_BY_CHAPTER['effet_photoelectrique'] = BAC_ANNALES_BY_CHAPTER.lumiere_quanta;
+BAC_ANNALES_BY_CHAPTER['bohr'] = BAC_ANNALES_BY_CHAPTER.lumiere_quanta;
+BAC_ANNALES_BY_CHAPTER['spectre_hydrogene'] = BAC_ANNALES_BY_CHAPTER.lumiere_quanta;
+BAC_ANNALES_BY_CHAPTER['rydberg'] = BAC_ANNALES_BY_CHAPTER.lumiere_quanta;
+BAC_ANNALES_BY_CHAPTER['balmer'] = BAC_ANNALES_BY_CHAPTER.lumiere_quanta;
+BAC_ANNALES_BY_CHAPTER['lyman'] = BAC_ANNALES_BY_CHAPTER.lumiere_quanta;
+BAC_ANNALES_BY_CHAPTER['p9'] = BAC_ANNALES_BY_CHAPTER.lumiere_quanta;
+BAC_ANNALES_BY_CHAPTER['p9l1'] = BAC_ANNALES_BY_CHAPTER.lumiere_quanta;
+BAC_ANNALES_BY_CHAPTER['p9l2'] = BAC_ANNALES_BY_CHAPTER.lumiere_quanta;
+BAC_ANNALES_BY_CHAPTER['p9l3'] = BAC_ANNALES_BY_CHAPTER.lumiere_quanta;
+
+// ─── P10 — PHYSIQUE NUCLÉAIRE (RADIOACTIVITÉ, RÉACTIONS & ÉNERGIE DE LIAISON) ────
+BAC_ANNALES_BY_CHAPTER.physique_nucleaire = [
+  {
+    year: 2023,
+    session: 'Session Normale (Série S2)',
+    points: 'Exercice 4 — Physique Nucléaire & Énergie (4 Points)',
+    topic: 'Stabilité des noyaux, défaut de masse, courbe d’Aston et réaction de fusion thermonucléaire',
+    enonce: `On donne les masses atomiques et nucléaires suivantes :
+- Masse du proton : $m_p = 1{,}00728\\text{ u}$
+- Masse du neutron : $m_n = 1{,}00866\\text{ u}$
+- Noyau de Deutérium $^{2}_{1}\\text{H}$ : $m_1 = 2{,}01355\\text{ u}$
+- Noyau de Tritium $^{3}_{1}\\text{H}$ : $m_2 = 3{,}01550\\text{ u}$
+- Noyau d'Hélium $^{4}_{2}\\text{He}$ : $m_3 = 4{,}00151\\text{ u}$
+- $1\\text{ u} = 931{,}5\\text{ MeV}/c^2 = 1{,}66054\\times 10^{-27}\\text{ kg}$
+- Célérité de la lumière dans le vide : $c = 3{,}00\\times 10^8\\text{ m/s}$
+- Constante d'Avogadro : $N_A = 6{,}022\\times 10^{23}\\text{ mol}^{-1}$
+
+1. Définir le défaut de masse $\\Delta m$ et l'énergie de liaison $E_\\ell$ d'un noyau $^{A}_{Z}\\text{X}$.
+2. Calculer en $\\text{MeV}$ l'énergie de liaison $E_\\ell$ puis l'énergie de liaison par nucléon $E_\\ell / A$ des trois noyaux : $^{2}_{1}\\text{H}$, $^{3}_{1}\\text{H}$ et $^{4}_{2}\\text{He}$.
+3. Classer ces trois noyaux par ordre de stabilité croissante. Justifier rigoureusement ce classement à l'aide de la courbe d'Aston.
+4. Dans le réacteur thermonucléaire expérimental ITER, on réalise la réaction de fusion :
+   $$^{2}_{1}\\text{H} + ^{3}_{1}\\text{H} \\longrightarrow ^{4}_{2}\\text{He} + ^{1}_{0}\\text{n}$$
+   a) Vérifier que cette réaction respecte les lois de conservation de Soddy.
+   b) Calculer la variation de masse $\\Delta m$ du système au cours de cette réaction en unités $\\text{u}$.
+   c) En déduire l'énergie $E_{\\text{lib}}$ libérée par cette réaction en $\\text{MeV}$ puis en Joules ($\\text{J}$).
+   d) Calculer l'énergie libérée lors de la fusion complète d'une masse $m_{\\text{mélange}} = 1{,}00\\text{ g}$ d'un mélange équimolaire de deutérium et de tritium. Comparer ce résultat à l'énergie fournie par la combustion de $1\\text{ tonne}$ de pétrole brut ($E_{\\text{pétrole}} = 4{,}2\\times 10^{10}\\text{ J}$).`,
+    solution: `### 1. Définitions officielles du Bac S2 (0,75 pt)
+- **Défaut de masse $\\Delta m$ :** C'est la différence positive entre la masse totale des nucléons isolés pris au repos et la masse du noyau lié :
+  $$\\Delta m = [Z m_p + (A - Z)m_n] - m_{\\text{noyau}} > 0$$
+- **Énergie de liaison $E_\\ell$ :** C'est l'énergie qu'il faut fournir à un noyau au repos pour le dissocier en ses nucléons constitutifs au repos et isolés :
+  $$E_\\ell = \\Delta m \\cdot c^2$$
+
+---
+
+### 2. Calculs de $\\Delta m$, $E_\\ell$ et $E_\\ell / A$ (1,25 pt)
+- **Deutérium $^{2}_{1}\\text{H}$ ($Z=1, N=1, A=2$) :**
+  $$\\Delta m(^2_1\\text{H}) = (1{,}00728 + 1{,}00866) - 2{,}01355 = 0{,}00239\\text{ u}$$
+  $$E_\\ell = 0{,}00239 \\times 931{,}5 = 2{,}226\\text{ MeV} \\implies \\frac{E_\\ell}{A} = \\frac{2{,}226}{2} = \\mathbf{1{,}113\\text{ MeV/nucléon}}$$
+
+- **Tritium $^{3}_{1}\\text{H}$ ($Z=1, N=2, A=3$) :**
+  $$\\Delta m(^3_1\\text{H}) = (1{,}00728 + 2 \\times 1{,}00866) - 3{,}01550 = 0{,}00910\\text{ u}$$
+  $$E_\\ell = 0{,}00910 \\times 931{,}5 = 8{,}477\\text{ MeV} \\implies \\frac{E_\\ell}{A} = \\frac{8{,}477}{3} = \\mathbf{2{,}826\\text{ MeV/nucléon}}$$
+
+- **Hélium 4 $^{4}_{2}\\text{He}$ ($Z=2, N=2, A=4$) :**
+  $$\\Delta m(^4_2\\text{He}) = (2 \\times 1{,}00728 + 2 \\times 1{,}00866) - 4{,}00151 = 0{,}03037\\text{ u}$$
+  $$E_\\ell = 0{,}03037 \\times 931{,}5 = 28{,}290\\text{ MeV} \\implies \\frac{E_\\ell}{A} = \\frac{28{,}290}{4} = \\mathbf{7{,}072\\text{ MeV/nucléon}}$$
+
+---
+
+### 3. Classement de stabilité (0,5 pt)
+Comme la stabilité d'un noyau croît avec son énergie de liaison **par nucléon** $E_\\ell / A$ :
+$$1{,}113\\text{ MeV/nucl.} < 2{,}826\\text{ MeV/nucl.} < 7{,}072\\text{ MeV/nucl.}$$
+Le classement par ordre de stabilité croissante est donc :
+$$\\mathbf{^{2}_{1}\\text{H} < ^{3}_{1}\\text{H} < ^{4}_{2}\\text{He}}$$
+Sur la courbe d'Aston, l'Hélium 4 constitue un pic de stabilité exceptionnel parmi les noyaux très légers.
+
+---
+
+### 4. Bilan énergétique de la fusion thermonucléaire (1,5 pt)
+a) **Lois de Soddy :**
+- Conservation du nombre de nucléons $A$ : $2 + 3 = 5$ et $4 + 1 = 5$ (vérifié).
+- Conservation de la charge électrique $Z$ : $1 + 1 = 2$ et $2 + 0 = 2$ (vérifié).
+
+b) **Variation de masse $\\Delta m$ :**
+$$\\Delta m = [m(^4_2\\text{He}) + m_n] - [m(^2_1\\text{H}) + m(^3_1\\text{H})]$$
+$$\\Delta m = (4{,}00151 + 1{,}00866) - (2{,}01355 + 3{,}01550) = 5{,}01017 - 5{,}02905 = \\mathbf{-0{,}01888\\text{ u}}$$
+La masse du système diminue (défaut de masse négatif).
+
+c) **Énergie libérée :**
+$$E_{\\text{lib}} = |\\Delta m| \\cdot c^2 = 0{,}01888 \\times 931{,}5\\text{ MeV} = \\mathbf{17{,}59\\text{ MeV}}$$
+En Joules :
+$$E_{\\text{lib}} = 17{,}587 \\times 10^6 \\times 1{,}6022\\times 10^{-19}\\text{ J} = \\mathbf{2{,}818\\times 10^{-12}\\text{ J}}$$
+
+d) **Énergie libérée pour 1 g de mélange équimolaire :**
+Une mole de réaction consomme $1\\text{ mol de } ^2_1\\text{H}$ ($2\\text{ g}$) et $1\\text{ mol de } ^3_1\\text{H}$ ($3\\text{ g}$), soit une masse molaire totale de mélange :
+$$M_{\\text{mélange}} = 2 + 3 = 5\\text{ g/mol}$$
+Le nombre de fusions élémentaires dans $m = 1\\text{ g}$ est :
+$$N = \\frac{m}{M} \\times N_A = \\frac{1}{5} \\times 6{,}022\\times 10^{23} = 1{,}204\\times 10^{23}\\text{ réactions}$$
+Énergie totale libérée :
+$$E_{\\text{total}} = N \\times E_{\\text{lib}} = 1{,}204\\times 10^{23} \\times 2{,}818\\times 10^{-12}\\text{ J} = \\mathbf{3{,}39\\times 10^{11}\\text{ J}}$$
+Comparaison avec le pétrole brut :
+$$\\frac{E_{\\text{total}}}{E_{\\text{pétrole}}} = \\frac{3{,}39\\times 10^{11}}{4{,}2\\times 10^{10}} \\approx \\mathbf{8{,}1\\text{ tonnes de pétrole}}$$
+Un seul gramme de combustible de fusion produit autant d'énergie que la combustion de **plus de 8 tonnes de pétrole** !`,
+    baremeAstuce: `Barème officiel Bac S2 :
+- Définition exacte de Δm et El : 0,75 pt
+- Calculs de El/A pour les 3 noyaux : 1,25 pt
+- Justification de la stabilité par El/A : 0,5 pt
+- Bilan de masse et Soddy : 0,5 pt
+- Calcul de l'énergie libérée et équivalent pétrole : 1,0 pt.
+Astuce correcteur : N'oubliez jamais que pour le mélange équimolaire de Deutérium (2 g/mol) et Tritium (3 g/mol), la masse associée à 1 mole de réaction est 2 + 3 = 5 g ! Diviser par 2 ou par 3 seul est l'erreur la plus sanctionnée au Bac S2.`,
+  },
+  {
+    year: 2022,
+    session: 'Session Normale (Série S2)',
+    points: 'Exercice 4 — Radioactivité du Polonium 210 (4 Points)',
+    topic: 'Radioactivité α, cinétique radioactive, exploitation graphique ln(N) = f(t) et calcul d’activité',
+    enonce: `Le Polonium $^{210}_{84}\\text{Po}$ est un émetteur $\\alpha$ pur très radioactif découvert par Pierre et Marie Curie en 1898. Sa désintégration engendre un isotope stable du Plomb $^{A}_{Z}\\text{Pb}$.
+
+1. Écrire l'équation de la désintégration radioactive du Polonium 210 en déterminant les valeurs des entiers $A$ et $Z$ par application des lois de Soddy.
+2. Rappeler l'expression de la loi de décroissance radioactive $N(t)$ en fonction du nombre initial de noyaux $N_0$ et de la constante radioactive $\\lambda$.
+3. Une étude expérimentale en laboratoire permet de mesurer le nombre de noyaux de Polonium $N(t)$ restant à différentes dates $t$. Le tracé de la fonction $y = \\ln(N(t))$ en fonction du temps $t$ (exprimé en jours) donne une droite affine d'équation :
+   $$y = -5{,}02\\times 10^{-3}\\,t + 27{,}63$$
+   a) Montrer théoriquement que le graphe $\\ln(N) = f(t)$ est une droite dont on précisera le coefficient directeur et l'ordonnée à l'origine.
+   b) Déduire de l'équation expérimentale la valeur de la constante radioactive $\\lambda$ en $\\text{jour}^{-1}$ puis en $\\text{s}^{-1}$.
+   c) Calculer le nombre initial $N_0$ de noyaux de Polonium 210 présents dans l'échantillon.
+   d) Calculer la période radioactive $T$ (demi-vie) du Polonium 210 en jours.
+4. Définir l'activité $A(t)$ d'une source radioactive et donner son unité dans le Système International.
+5. Calculer l'activité initiale $A_0$ de la source à $t = 0$.
+6. Au bout de quelle durée $t_1$ l'activité de la source ne représentera-t-elle plus que $5\\%$ de sa valeur initiale ?`,
+    solution: `### 1. Équation de désintégration du Polonium 210 (0,5 pt)
+$$^{210}_{84}\\text{Po} \\longrightarrow ^{A}_{Z}\\text{Pb} + ^{4}_{2}\\text{He}$$
+Lois de conservation de Soddy :
+- $210 = A + 4 \\implies A = 210 - 4 = \\mathbf{206}$
+- $84 = Z + 2 \\implies Z = 84 - 2 = \\mathbf{82}$ (Plomb 206, isotope stable)
+L'équation s'écrit donc :
+$$^{210}_{84}\\text{Po} \\longrightarrow ^{206}_{82}\\text{Pb} + ^{4}_{2}\\text{He}$$
+
+---
+
+### 2. Loi de décroissance radioactive (0,25 pt)
+$$N(t) = N_0 e^{-\\lambda t}$$
+où $\\lambda$ est la constante radioactive propre au nucléide ($[\\lambda] = \\text{s}^{-1}$ ou $\\text{temps}^{-1}$).
+
+---
+
+### 3. Exploitation du graphe $\\ln(N) = f(t)$ (1,25 pt)
+a) **Forme théorique :**
+$$\\ln(N(t)) = \\ln(N_0 e^{-\\lambda t}) = \\ln(N_0) + \\ln(e^{-\\lambda t}) = -\\lambda \\cdot t + \\ln(N_0)$$
+C'est l'équation d'une droite de la forme $y = a\\cdot t + b$ avec :
+- Coefficient directeur : $a = -\\lambda$
+- Ordonnée à l'origine : $b = \\ln(N_0)$
+
+b) **Détermination de $\\lambda$ :**
+Par identification avec $y = -5{,}02\\times 10^{-3}\\,t + 27{,}63$ :
+$$\\mathbf{\\lambda = 5{,}02\\times 10^{-3}\\text{ jour}^{-1}}$$
+Conversion en secondes :
+$$\\lambda = \\frac{5{,}02\\times 10^{-3}}{24 \\times 3600\\text{ s}} = \\mathbf{5{,}81\\times 10^{-8}\\text{ s}^{-1}}$$
+
+c) **Nombre initial de noyaux $N_0$ :**
+$$\\ln(N_0) = 27{,}63 \\implies N_0 = e^{27{,}63} = \\mathbf{9{,}99\\times 10^{11}\\text{ noyaux}} \\approx 1{,}0\\times 10^{12}\\text{ noyaux}$$
+
+d) **Période radioactive $T$ :**
+$$T = \\frac{\\ln 2}{\\lambda} = \\frac{0{,}69315}{5{,}02\\times 10^{-3}\\text{ jour}^{-1}} = \\mathbf{138\\text{ jours}}$$
+
+---
+
+### 4. Définition de l'activité $A(t)$ (0,5 pt)
+L'**activité** $A(t)$ est le nombre de désintégrations radioactives se produisant par unité de temps au sein de l'échantillon :
+$$A(t) = -\\frac{\\mathrm{d}N}{\\mathrm{d}t} = \\lambda \\cdot N(t)$$
+Son unité dans le Système International est le **Becquerel ($\\text{Bq}$)** : $1\\text{ Bq} = 1\\text{ désintégration par seconde}$.
+
+---
+
+### 5. Calcul de l'activité initiale $A_0$ (0,75 pt)
+Attention à exprimer impérativement $\\lambda$ en $\\text{s}^{-1}$ :
+$$A_0 = \\lambda \\cdot N_0 = 5{,}81\\times 10^{-8}\\text{ s}^{-1} \\times 9{,}99\\times 10^{11} = \\mathbf{5{,}80\\times 10^4\\text{ Bq} = 58\\text{ kBq}}$$
+
+---
+
+### 6. Date $t_1$ pour $A(t_1) = 0{,}05\\,A_0$ (0,75 pt)
+Comme $A(t) = A_0 e^{-\\lambda t}$ :
+$$\\frac{A(t_1)}{A_0} = 0{,}05 \\implies e^{-\\lambda t_1} = 0{,}05 \\implies -\\lambda t_1 = \\ln(0{,}05)$$
+$$t_1 = -\\frac{\\ln(0{,}05)}{\\lambda} = \\frac{\\ln(20)}{\\lambda} = \\frac{2{,}9957}{5{,}02\\times 10^{-3}\\text{ jour}^{-1}} = \\mathbf{597\\text{ jours}} \\approx 4{,}3\\,T$$`,
+    baremeAstuce: `Barème officiel Bac S2 :
+- Équation de désintégration α complète : 0,5 pt
+- Établissement de ln(N) = -λt + ln(N0) : 0,5 pt
+- Calculs de λ (en jour^-1 et s^-1) et N0 : 0,75 pt
+- Calcul de la demi-vie T = ln 2 / λ : 0,5 pt
+- Définition exacte de l'activité et unité Bq : 0,5 pt
+- Calcul de A0 avec λ en s^-1 : 0,75 pt
+- Calcul de t1 : 0,5 pt.
+Astuce correcteur : Calculer A = λ·N avec λ en jour^-1 est une erreur fatale fréquente ! L'activité ne peut être exprimée en Bq que si λ est en s^-1.`,
+  },
+  {
+    year: 2020,
+    session: 'Session Normale (Série S2)',
+    points: 'Exercice 4 — Datation au Carbone 14 & Fission Nucléaire (4 Points)',
+    topic: 'Datation archéologique au Carbone 14, fission induite de l’Uranium 235 et puissance d’un réacteur',
+    enonce: `### Partie A : Datation au Carbone 14
+Lors de fouilles archéologiques dans la région de Ndangane Sambou (Siné-Saloum), on a découvert des débris de charbon de bois fossile.
+Un échantillon de masse $m = 1{,}0\\text{ g}$ de ce charbon fossile présente une activité mesurée au compteur Geiger $A = 0{,}037\\text{ Bq}$.
+Un échantillon témoin de $1{,}0\\text{ g}$ de bois vivant actuel présente une activité $A_0 = 0{,}25\\text{ Bq}$.
+La période radioactive du Carbone $^{14}_{6}\\text{C}$ est $T = 5\\,730\\text{ ans}$.
+
+1. Rappeler la réaction nucléaire de désintégration du Carbone 14 sachant qu'il s'agit d'un émetteur $\\beta^-$.
+2. Établir l'expression de la date $t$ de la mort de l'arbre en fonction de $T$, $A_0$ et $A$.
+3. Calculer l'âge des vestiges archéologiques découverts.
+
+---
+
+### Partie B : Fission de l'Uranium 235 dans une Centrale
+Dans le cœur d'un réacteur nucléaire, la fission d'un noyau d'Uranium 235 sous l'impact d'un neutron thermique s'écrit :
+$$^{1}_{0}\\text{n} + ^{235}_{92}\\text{U} \\longrightarrow ^{94}_{38}\\text{Sr} + ^{140}_{54}\\text{Xe} + x\\,^{1}_{0}\\text{n}$$
+Données :
+- $m(^{235}_{92}\\text{U}) = 234{,}9934\\text{ u}$
+- $m(^{94}_{38}\\text{Sr}) = 93{,}8945\\text{ u}$
+- $m(^{140}_{54}\\text{Xe}) = 139{,}8890\\text{ u}$
+- $m(^{1}_{0}\\text{n}) = 1{,}00866\\text{ u}$
+- $1\\text{ u} = 931{,}5\\text{ MeV}/c^2$
+- $1\\text{ eV} = 1{,}602\\times 10^{-19}\\text{ J}$
+- Masse molaire de l'Uranium 235 : $M = 235\\text{ g/mol}$
+
+1. Déterminer le nombre $x$ de neutrons émis.
+2. Calculer en $\\text{MeV}$ puis en Joules l'énergie $E_1$ libérée par la fission d'un seul noyau d'Uranium 235.
+3. Le réacteur fournit une puissance électrique $P_{\\text{élec}} = 900\\text{ MW}$ avec un rendement énergétique global $r = 33\\%$.
+   a) Calculer la puissance thermique $P_{\\text{th}}$ développée par le cœur du réacteur.
+   b) En déduire le nombre de fissions $N_f$ devant se produire chaque seconde.
+   c) Calculer la masse $m_{\\text{an}}$ d'Uranium 235 consommée par le réacteur en une année de fonctionnement continu ($365\\text{ jours}$).`,
+    solution: `### Partie A : Datation au Carbone 14 (1,75 pt)
+1. **Équation de désintégration du Carbone 14 :**
+   $$^{14}_{6}\\text{C} \\longrightarrow ^{14}_{7}\\text{N} + ^{0}_{-1}\\text{e} + \\bar{\\nu}_e$$
+   Il s'agit d'une désintégration $\\beta^-$ : un neutron se transmute en proton au sein du noyau avec émission d'un électron et d'un antineutrino.
+
+2. **Établissement de la formule de datation :**
+   L'activité décroît selon : $A(t) = A_0 e^{-\\lambda t} \\implies \\frac{A}{A_0} = e^{-\\lambda t}$.  
+   En prenant le logarithme népérien :
+   $$\\ln\\left(\\frac{A}{A_0}\\right) = -\\lambda t \\implies t = \\frac{1}{\\lambda}\\ln\\left(\\frac{A_0}{A}\\right)$$
+   Comme la période vérifie $\\lambda = \\frac{\\ln 2}{T}$ :
+   $$\\mathbf{t = \\frac{T}{\\ln 2} \\ln\\left(\\frac{A_0}{A}\\right)}$$
+
+3. **Calcul de l'âge des vestiges archéologiques :**
+   $$t = \\frac{5\\,730}{\\ln 2} \\ln\\left(\\frac{0{,}25}{0{,}037}\\right) = \\frac{5\\,730}{0{,}69315} \\times \\ln(6{,}757) = 8\\,267 \\times 1{,}9106 = \\mathbf{15\\,795\\text{ ans}}$$
+   Les vestiges archéologiques de Ndangane Sambou remontent à environ **15 800 ans avant nos jours** (Paléolithique supérieur / début Mésolithique).
+
+---
+
+### Partie B : Fission de l'Uranium 235 (2,25 pt)
+1. **Détermination du nombre de neutrons $x$ :**
+   Conservation du nombre de nucléons $A$ :
+   $$1 + 235 = 94 + 140 + x \\cdot 1 \\implies 236 = 234 + x \\implies \\mathbf{x = 2}$$
+   La réaction libère **2 neutrons rapides**, permettant une réaction en chaîne auto-entretenue.
+
+2. **Énergie $E_1$ libérée par fission d'un noyau :**
+   Variation de masse $\\Delta m$ :
+   $$\\Delta m = [m(^{94}\\text{Sr}) + m(^{140}\\text{Xe}) + 2\\,m_n] - [m(^{235}\\text{U}) + m_n]$$
+   $$\\Delta m = m(^{94}\\text{Sr}) + m(^{140}\\text{Xe}) + m_n - m(^{235}\\text{U})$$
+   $$\\Delta m = 93{,}8945 + 139{,}8890 + 1{,}00866 - 234{,}9934 = 234{,}79216 - 234{,}9934 = -0{,}20124\\text{ u}$$
+   Énergie libérée :
+   $$E_1 = |\\Delta m| \\cdot c^2 = 0{,}20124 \\times 931{,}5\\text{ MeV} = \\mathbf{187{,}45\\text{ MeV}}$$
+   En Joules :
+   $$E_1 = 187{,}45 \\times 10^6 \\times 1{,}602\\times 10^{-19}\\text{ J} = \\mathbf{3{,}003\\times 10^{-11}\\text{ J}}$$
+
+3. **Consommation de la centrale nucléaire :**
+   a) **Puissance thermique :**
+   $$P_{\\text{th}} = \\frac{P_{\\text{élec}}}{r} = \\frac{900\\text{ MW}}{0{,}33} = \\mathbf{2\\,727\\text{ MW} = 2{,}727\\times 10^9\\text{ W}}$$
+
+   b) **Nombre de fissions par seconde :**
+   $$N_f = \\frac{P_{\\text{th}}}{E_1} = \\frac{2{,}727\\times 10^9\\text{ J/s}}{3{,}003\\times 10^{-11}\\text{ J/fission}} = \\mathbf{9{,}08\\times 10^{19}\\text{ fissions/s}}$$
+
+   c) **Masse d'Uranium 235 consommée par an :**
+   En une année ($\Delta t = 365 \\times 24 \\times 3600 = 3{,}1536\\times 10^7\\text{ s}$), le nombre total de noyaux d'U-235 fissionnés est :
+   $$N_{\\text{total}} = N_f \\times \\Delta t = 9{,}08\\times 10^{19} \\times 3{,}1536\\times 10^7 = 2{,}863\\times 10^{27}\\text{ noyaux}$$
+   Nombre de moles consommées :
+   $$n = \\frac{N_{\\text{total}}}{N_A} = \\frac{2{,}863\\times 10^{27}}{6{,}022\\times 10^{23}} = 4\\,755\\text{ mol}$$
+   Masse consommée :
+   $$m_{\\text{an}} = n \\times M = 4\\,755\\text{ mol} \\times 235\\text{ g/mol} = 1\\,117\\,425\\text{ g} = \\mathbf{1\\,117\\text{ kg} \\approx 1{,}12\\text{ tonne d'uranium}}$$`,
+    baremeAstuce: `Barème officiel Bac S2 :
+- Équation de désintégration β- du C14 : 0,5 pt
+- Démonstration de la formule de datation : 0,5 pt
+- Calcul numérique de l'âge : 0,75 pt
+- Détermination de x = 2 neutrons : 0,5 pt
+- Calcul de l'énergie de fission (en MeV et J) : 0,75 pt
+- Calculs de Pth, Nf et de la masse annuelle man : 1,0 pt.
+Astuce correcteur : N'oubliez jamais de convertir l'année en secondes (3,1536 × 10^7 s) pour multiplier le flux de fissions par seconde Nf.`,
+  },
+];
+
+BAC_ANNALES_BY_CHAPTER['physique-nucleaire'] = BAC_ANNALES_BY_CHAPTER.physique_nucleaire;
+BAC_ANNALES_BY_CHAPTER['nucleaire'] = BAC_ANNALES_BY_CHAPTER.physique_nucleaire;
+BAC_ANNALES_BY_CHAPTER['radioactivite'] = BAC_ANNALES_BY_CHAPTER.physique_nucleaire;
+BAC_ANNALES_BY_CHAPTER['decroissance_radioactive'] = BAC_ANNALES_BY_CHAPTER.physique_nucleaire;
+BAC_ANNALES_BY_CHAPTER['aston'] = BAC_ANNALES_BY_CHAPTER.physique_nucleaire;
+BAC_ANNALES_BY_CHAPTER['defaut_masse'] = BAC_ANNALES_BY_CHAPTER.physique_nucleaire;
+BAC_ANNALES_BY_CHAPTER['energie_liaison'] = BAC_ANNALES_BY_CHAPTER.physique_nucleaire;
+BAC_ANNALES_BY_CHAPTER['fission'] = BAC_ANNALES_BY_CHAPTER.physique_nucleaire;
+BAC_ANNALES_BY_CHAPTER['fusion'] = BAC_ANNALES_BY_CHAPTER.physique_nucleaire;
+BAC_ANNALES_BY_CHAPTER['p10'] = BAC_ANNALES_BY_CHAPTER.physique_nucleaire;
+BAC_ANNALES_BY_CHAPTER['p10l1'] = BAC_ANNALES_BY_CHAPTER.physique_nucleaire;
+BAC_ANNALES_BY_CHAPTER['p10l2'] = BAC_ANNALES_BY_CHAPTER.physique_nucleaire;
+BAC_ANNALES_BY_CHAPTER['p10l3'] = BAC_ANNALES_BY_CHAPTER.physique_nucleaire;
+
+
+
 BAC_ANNALES_BY_CHAPTER.b1 = BAC_ANNALES_BY_CHAPTER.systeme_nerveux;
 BAC_ANNALES_BY_CHAPTER['systeme-nerveux'] = BAC_ANNALES_BY_CHAPTER.systeme_nerveux;
 BAC_ANNALES_BY_CHAPTER['systeme_nerveux'] = BAC_ANNALES_BY_CHAPTER.systeme_nerveux;
@@ -4194,6 +6518,109 @@ BAC_ANNALES_BY_CHAPTER['mifepristone'] = BAC_ANNALES_BY_CHAPTER.maitrise_reprodu
 BAC_ANNALES_BY_CHAPTER['diu'] = BAC_ANNALES_BY_CHAPTER.maitrise_reproduction;
 BAC_ANNALES_BY_CHAPTER['sterilet'] = BAC_ANNALES_BY_CHAPTER.maitrise_reproduction;
 BAC_ANNALES_BY_CHAPTER['b4l4'] = BAC_ANNALES_BY_CHAPTER.maitrise_reproduction;
+
+// ─── B5 LEÇON 1 — HÉRÉDITÉ HUMAINE & ARBRES GÉNÉALOGIQUES ──────────────────────
+BAC_ANNALES_BY_CHAPTER['genetique_arbres'] = BAC_ANNALES_BY_CHAPTER.genetique_arbres;
+BAC_ANNALES_BY_CHAPTER['genetique-arbres'] = BAC_ANNALES_BY_CHAPTER.genetique_arbres;
+BAC_ANNALES_BY_CHAPTER['genetique_humaine'] = BAC_ANNALES_BY_CHAPTER.genetique_arbres;
+BAC_ANNALES_BY_CHAPTER['genetique-humaine'] = BAC_ANNALES_BY_CHAPTER.genetique_arbres;
+BAC_ANNALES_BY_CHAPTER['arbres_genealogiques'] = BAC_ANNALES_BY_CHAPTER.genetique_arbres;
+BAC_ANNALES_BY_CHAPTER['arbres-genealogiques'] = BAC_ANNALES_BY_CHAPTER.genetique_arbres;
+BAC_ANNALES_BY_CHAPTER['pedigree'] = BAC_ANNALES_BY_CHAPTER.genetique_arbres;
+BAC_ANNALES_BY_CHAPTER['pedigrees'] = BAC_ANNALES_BY_CHAPTER.genetique_arbres;
+BAC_ANNALES_BY_CHAPTER['heredite_humaine'] = BAC_ANNALES_BY_CHAPTER.genetique_arbres;
+BAC_ANNALES_BY_CHAPTER['heredite-humaine'] = BAC_ANNALES_BY_CHAPTER.genetique_arbres;
+BAC_ANNALES_BY_CHAPTER['b5'] = BAC_ANNALES_BY_CHAPTER.genetique_arbres;
+BAC_ANNALES_BY_CHAPTER['b5l1'] = BAC_ANNALES_BY_CHAPTER.genetique_arbres;
+BAC_ANNALES_BY_CHAPTER['trisomie'] = BAC_ANNALES_BY_CHAPTER.genetique_arbres;
+BAC_ANNALES_BY_CHAPTER['trisomie_21'] = BAC_ANNALES_BY_CHAPTER.genetique_arbres;
+BAC_ANNALES_BY_CHAPTER['trisomie-21'] = BAC_ANNALES_BY_CHAPTER.genetique_arbres;
+BAC_ANNALES_BY_CHAPTER['down'] = BAC_ANNALES_BY_CHAPTER.genetique_arbres;
+
+// ─── B5 LEÇON 2 — ACIDES NUCLÉIQUES & EXPRESSION DU GÈNE ────────────────────────
+BAC_ANNALES_BY_CHAPTER['expression_genetique'] = BAC_ANNALES_BY_CHAPTER.expression_genetique;
+BAC_ANNALES_BY_CHAPTER['expression-genetique'] = BAC_ANNALES_BY_CHAPTER.expression_genetique;
+BAC_ANNALES_BY_CHAPTER['acides_nucleiques'] = BAC_ANNALES_BY_CHAPTER.expression_genetique;
+BAC_ANNALES_BY_CHAPTER['acides-nucleiques'] = BAC_ANNALES_BY_CHAPTER.expression_genetique;
+BAC_ANNALES_BY_CHAPTER['transcription'] = BAC_ANNALES_BY_CHAPTER.expression_genetique;
+BAC_ANNALES_BY_CHAPTER['traduction'] = BAC_ANNALES_BY_CHAPTER.expression_genetique;
+BAC_ANNALES_BY_CHAPTER['code_genetique'] = BAC_ANNALES_BY_CHAPTER.expression_genetique;
+BAC_ANNALES_BY_CHAPTER['code-genetique'] = BAC_ANNALES_BY_CHAPTER.expression_genetique;
+BAC_ANNALES_BY_CHAPTER['replication'] = BAC_ANNALES_BY_CHAPTER.expression_genetique;
+BAC_ANNALES_BY_CHAPTER['meselson_stahl'] = BAC_ANNALES_BY_CHAPTER.expression_genetique;
+BAC_ANNALES_BY_CHAPTER['meselson-stahl'] = BAC_ANNALES_BY_CHAPTER.expression_genetique;
+BAC_ANNALES_BY_CHAPTER['chargaff'] = BAC_ANNALES_BY_CHAPTER.expression_genetique;
+BAC_ANNALES_BY_CHAPTER['mutations'] = BAC_ANNALES_BY_CHAPTER.expression_genetique;
+BAC_ANNALES_BY_CHAPTER['drepanocytose'] = BAC_ANNALES_BY_CHAPTER.expression_genetique;
+BAC_ANNALES_BY_CHAPTER['b5l2'] = BAC_ANNALES_BY_CHAPTER.expression_genetique;
+
+// ─── B5 LEÇON 3 — GÉNIE GÉNÉTIQUE & BIOTECHNOLOGIES ─────────────────────────
+BAC_ANNALES_BY_CHAPTER['genie_genetique'] = BAC_ANNALES_BY_CHAPTER.genie_genetique;
+BAC_ANNALES_BY_CHAPTER['genie-genetique'] = BAC_ANNALES_BY_CHAPTER.genie_genetique;
+BAC_ANNALES_BY_CHAPTER['biotechnologies'] = BAC_ANNALES_BY_CHAPTER.genie_genetique;
+BAC_ANNALES_BY_CHAPTER['ogm'] = BAC_ANNALES_BY_CHAPTER.genie_genetique;
+BAC_ANNALES_BY_CHAPTER['pcr'] = BAC_ANNALES_BY_CHAPTER.genie_genetique;
+BAC_ANNALES_BY_CHAPTER['clonage'] = BAC_ANNALES_BY_CHAPTER.genie_genetique;
+BAC_ANNALES_BY_CHAPTER['transgenese'] = BAC_ANNALES_BY_CHAPTER.genie_genetique;
+BAC_ANNALES_BY_CHAPTER['transgénèse'] = BAC_ANNALES_BY_CHAPTER.genie_genetique;
+BAC_ANNALES_BY_CHAPTER['restriction'] = BAC_ANNALES_BY_CHAPTER.genie_genetique;
+BAC_ANNALES_BY_CHAPTER['ecori'] = BAC_ANNALES_BY_CHAPTER.genie_genetique;
+BAC_ANNALES_BY_CHAPTER['plasmide'] = BAC_ANNALES_BY_CHAPTER.genie_genetique;
+BAC_ANNALES_BY_CHAPTER['insuline_recombinante'] = BAC_ANNALES_BY_CHAPTER.genie_genetique;
+BAC_ANNALES_BY_CHAPTER['therapie_genique'] = BAC_ANNALES_BY_CHAPTER.genie_genetique;
+BAC_ANNALES_BY_CHAPTER['therapie-genique'] = BAC_ANNALES_BY_CHAPTER.genie_genetique;
+BAC_ANNALES_BY_CHAPTER['empreinte_genetique'] = BAC_ANNALES_BY_CHAPTER.genie_genetique;
+BAC_ANNALES_BY_CHAPTER['empreinte-genetique'] = BAC_ANNALES_BY_CHAPTER.genie_genetique;
+BAC_ANNALES_BY_CHAPTER['b5l3'] = BAC_ANNALES_BY_CHAPTER.genie_genetique;
+
+// ─── P1 : CINÉMATIQUE DU POINT MATÉRIEL ─────────────────────────────────────
+BAC_ANNALES_BY_CHAPTER['p1'] = BAC_ANNALES_BY_CHAPTER.cinematique_point;
+BAC_ANNALES_BY_CHAPTER['cinematique'] = BAC_ANNALES_BY_CHAPTER.cinematique_point;
+BAC_ANNALES_BY_CHAPTER['cinematique_point'] = BAC_ANNALES_BY_CHAPTER.cinematique_point;
+BAC_ANNALES_BY_CHAPTER['cinematique-point'] = BAC_ANNALES_BY_CHAPTER.cinematique_point;
+
+// ─── P2 : LES LOIS DE NEWTON ────────────────────────────────────────────────
+BAC_ANNALES_BY_CHAPTER['p2'] = BAC_ANNALES_BY_CHAPTER.lois_newton;
+BAC_ANNALES_BY_CHAPTER['newton'] = BAC_ANNALES_BY_CHAPTER.lois_newton;
+BAC_ANNALES_BY_CHAPTER['lois_newton'] = BAC_ANNALES_BY_CHAPTER.lois_newton;
+BAC_ANNALES_BY_CHAPTER['lois-newton'] = BAC_ANNALES_BY_CHAPTER.lois_newton;
+
+// ─── P3 : MOUVEMENT D'UN PROJECTILE DANS UN CHAMP DE PESANTEUR UNIFORME ──────
+BAC_ANNALES_BY_CHAPTER['projectile'] = BAC_ANNALES_BY_CHAPTER.projectile_champ_pesanteur;
+BAC_ANNALES_BY_CHAPTER['projectile_champ_pesanteur'] = BAC_ANNALES_BY_CHAPTER.projectile_champ_pesanteur;
+BAC_ANNALES_BY_CHAPTER['projectile-champ-pesanteur'] = BAC_ANNALES_BY_CHAPTER.projectile_champ_pesanteur;
+BAC_ANNALES_BY_CHAPTER['pesanteur'] = BAC_ANNALES_BY_CHAPTER.projectile_champ_pesanteur;
+BAC_ANNALES_BY_CHAPTER['champ_pesanteur'] = BAC_ANNALES_BY_CHAPTER.projectile_champ_pesanteur;
+BAC_ANNALES_BY_CHAPTER['champ-pesanteur'] = BAC_ANNALES_BY_CHAPTER.projectile_champ_pesanteur;
+BAC_ANNALES_BY_CHAPTER['tir_parabolique'] = BAC_ANNALES_BY_CHAPTER.projectile_champ_pesanteur;
+BAC_ANNALES_BY_CHAPTER['tir-parabolique'] = BAC_ANNALES_BY_CHAPTER.projectile_champ_pesanteur;
+BAC_ANNALES_BY_CHAPTER['trajectoire_parabolique'] = BAC_ANNALES_BY_CHAPTER.projectile_champ_pesanteur;
+BAC_ANNALES_BY_CHAPTER['trajectoire-parabolique'] = BAC_ANNALES_BY_CHAPTER.projectile_champ_pesanteur;
+BAC_ANNALES_BY_CHAPTER['p3'] = BAC_ANNALES_BY_CHAPTER.projectile_champ_pesanteur;
+BAC_ANNALES_BY_CHAPTER['p3l1'] = BAC_ANNALES_BY_CHAPTER.projectile_champ_pesanteur;
+BAC_ANNALES_BY_CHAPTER['p3l2'] = BAC_ANNALES_BY_CHAPTER.projectile_champ_pesanteur;
+BAC_ANNALES_BY_CHAPTER['p3l3'] = BAC_ANNALES_BY_CHAPTER.projectile_champ_pesanteur;
+
+// ─── P4 : PARTICULES CHARGÉES DANS UN CHAMP E OU B ───────────────────────────
+BAC_ANNALES_BY_CHAPTER['particule'] = BAC_ANNALES_BY_CHAPTER.particule_champ_e_b;
+BAC_ANNALES_BY_CHAPTER['particules'] = BAC_ANNALES_BY_CHAPTER.particule_champ_e_b;
+BAC_ANNALES_BY_CHAPTER['particule_champ_e_b'] = BAC_ANNALES_BY_CHAPTER.particule_champ_e_b;
+BAC_ANNALES_BY_CHAPTER['particule-champ-e-b'] = BAC_ANNALES_BY_CHAPTER.particule_champ_e_b;
+BAC_ANNALES_BY_CHAPTER['p4'] = BAC_ANNALES_BY_CHAPTER.particule_champ_e_b;
+BAC_ANNALES_BY_CHAPTER['p4l1'] = BAC_ANNALES_BY_CHAPTER.particule_champ_e_b;
+BAC_ANNALES_BY_CHAPTER['p4l2'] = BAC_ANNALES_BY_CHAPTER.particule_champ_e_b;
+
+// ─── P5 : OSCILLATIONS MÉCANIQUES (PENDULE ÉLASTIQUE) ────────────────────────
+BAC_ANNALES_BY_CHAPTER['p5'] = BAC_ANNALES_BY_CHAPTER.oscillations_mecaniques;
+BAC_ANNALES_BY_CHAPTER['p5l1'] = BAC_ANNALES_BY_CHAPTER.oscillations_mecaniques;
+BAC_ANNALES_BY_CHAPTER['p5l2'] = BAC_ANNALES_BY_CHAPTER.oscillations_mecaniques;
+BAC_ANNALES_BY_CHAPTER['p5l3'] = BAC_ANNALES_BY_CHAPTER.oscillations_mecaniques;
+BAC_ANNALES_BY_CHAPTER['oscillations'] = BAC_ANNALES_BY_CHAPTER.oscillations_mecaniques;
+BAC_ANNALES_BY_CHAPTER['oscillations_mecaniques'] = BAC_ANNALES_BY_CHAPTER.oscillations_mecaniques;
+BAC_ANNALES_BY_CHAPTER['oscillations-mecaniques'] = BAC_ANNALES_BY_CHAPTER.oscillations_mecaniques;
+BAC_ANNALES_BY_CHAPTER['pendule_elastique'] = BAC_ANNALES_BY_CHAPTER.oscillations_mecaniques;
+BAC_ANNALES_BY_CHAPTER['pendule-elastique'] = BAC_ANNALES_BY_CHAPTER.oscillations_mecaniques;
+BAC_ANNALES_BY_CHAPTER['ressort'] = BAC_ANNALES_BY_CHAPTER.oscillations_mecaniques;
 
 interface BacSenegalAnnalesProps {
   chapter?: string;
