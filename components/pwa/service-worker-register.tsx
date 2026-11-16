@@ -10,6 +10,8 @@ export default function ServiceWorkerRegister() {
           .register('/sw.js')
           .then((registration) => {
             console.log('Al Muxtaar Service Worker enregistré avec succès:', registration.scope);
+            // Vérifier et forcer la mise à jour si un nouveau sw.js existe
+            registration.update().catch(() => {});
           })
           .catch((err) => {
             console.log('Échec enregistrement Service Worker:', err);
