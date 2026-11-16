@@ -21,7 +21,7 @@ export interface PCEpreuveItem {
   id: number;
   title: string;
   source: string;
-  sourceType: 'bac' | 'lycee' | 'ciam' | 'concours';
+  sourceType: 'bac' | 'lycee' | 'tomasino' | 'concours';
   theme: string;
   category: 'mecanique' | 'electricite' | 'optique_nucleaire' | 'chimie_organique' | 'chimie_aqueuse';
   enonce: string;
@@ -240,9 +240,9 @@ $$A_0 = \\lambda N_0 = 2{,}11 \\times 10^{-6} \\times 10^{15} = 2{,}11 \\times 1
   },
   {
     id: 6,
-    title: 'Manuel CIAM (Terminale S) — Estérification Directe & Rendement',
-    source: 'Manuels CIAM',
-    sourceType: 'ciam',
+    title: 'Collection Tomasino (Terminale S2) — Estérification Directe & Rendement',
+    source: 'Collection Tomasino',
+    sourceType: 'tomasino',
     theme: 'Chimie Organique : Estérification, Équilibre Chimique et Déplacement',
     category: 'chimie_organique',
     enonce: `On réalise le mélange équimolaire de $n_0 = 1{,}0\\text{ mol}$ d'acide éthanoïque et $n_0 = 1{,}0\\text{ mol}$ de propan-1-ol en présence de quelques gouttes d'acide sulfurique concentré, maintenu à reflux.
@@ -390,9 +390,9 @@ $$e U_0 = E_{c,\\text{max}} \\implies U_0 = \\frac{E_{c,\\text{max}}}{e} = 0{,}8
   },
   {
     id: 10,
-    title: 'Manuel CIAM (Terminale S) — Oxydation Ménagée des Alcools',
-    source: 'Manuels CIAM',
-    sourceType: 'ciam',
+    title: 'Collection Tomasino (Terminale S2) — Oxydation Ménagée des Alcools',
+    source: 'Collection Tomasino',
+    sourceType: 'tomasino',
     theme: 'Chimie Organique : Classes d\'Alcools, Aldéhydes, Cétones et Tests Caractéristiques',
     category: 'chimie_organique',
     enonce: `On dispose de trois flacons contenant chacun un isomère de formule brute $\\text{C}_4\\text{H}_{10}\\text{O}$, notés $A$, $B$ et $C$.
@@ -625,9 +625,9 @@ Il s'agit d'une radiation lumineuse visible de couleur rouge-orangée.
   },
   {
     id: 18,
-    title: 'Manuel CIAM (Terminale S) — Acides Aminés & Stéréochimie',
-    source: 'Manuels CIAM',
-    sourceType: 'ciam',
+    title: 'Collection Tomasino (Terminale S2) — Acides Aminés & Stéréochimie',
+    source: 'Collection Tomasino',
+    sourceType: 'tomasino',
     theme: 'Chimie Organique : Carbone Asymétrique, Forme Zwitterionique et Dipeptide',
     category: 'chimie_organique',
     enonce: `L'alanine (acide 2-aminopropanoïque) a pour formule $\\text{CH}_3-\\text{CH}(\\text{NH}_2)-\\text{COOH}$.
@@ -793,9 +793,9 @@ La courbe d'Aston représente $-E_l/A$ en fonction de $A$ (ou directement $E_l/A
   },
   {
     id: 25,
-    title: 'Manuel CIAM (Terminale S) — Dosage Acide Fort / Base Forte & Méthode des Tangentes',
-    source: 'Manuels CIAM',
-    sourceType: 'ciam',
+    title: 'Collection Tomasino (Terminale S2) — Dosage Acide Fort / Base Forte & Méthode des Tangentes',
+    source: 'Collection Tomasino',
+    sourceType: 'tomasino',
     theme: 'Chimie Aqueuse : Titrage pH-métrique et Choix d\'un Indicateur Coloré',
     category: 'chimie_aqueuse',
     enonce: `On dose $V_A = 20\\text{ mL}$ d'acide chlorhydrique par de la soude à $0{,}10\\text{ mol/L}$. Le volume équivalent est $V_{BE} = 12{,}5\\text{ mL}$.
@@ -853,9 +853,9 @@ Si $R_t$ augmente, la bande passante $\\Delta N$ s'élargit et le facteur de qua
   },
   {
     id: 28,
-    title: 'Manuel CIAM (Terminale S) — Chlorures d\'Acyle & Anhydrides d\'Acide',
-    source: 'Manuels CIAM',
-    sourceType: 'ciam',
+    title: 'Collection Tomasino (Terminale S2) — Chlorures d\'Acyle & Anhydrides d\'Acide',
+    source: 'Collection Tomasino',
+    sourceType: 'tomasino',
     theme: 'Chimie Organique : Dérivés Réactifs d\'Acide et Synthèse Totale d\'Esters',
     category: 'chimie_organique',
     enonce: `1. Écrire la réaction entre le chlorure d'éthanoyle $\\text{CH}_3\\text{COCl}$ et l'éthanol.
@@ -924,7 +924,7 @@ export default function PCRecueilEpreuves({ isSubscribed = false }: PCRecueilEpr
   const [selectedCategory, setSelectedCategory] = useState<
     'all' | 'mecanique' | 'electricite' | 'optique_nucleaire' | 'chimie_organique' | 'chimie_aqueuse'
   >('all');
-  const [selectedSourceType, setSelectedSourceType] = useState<'all' | 'bac' | 'lycee' | 'ciam' | 'concours'>('all');
+  const [selectedSourceType, setSelectedSourceType] = useState<'all' | 'bac' | 'lycee' | 'tomasino' | 'concours'>('all');
   const [expandedIds, setExpandedIds] = useState<Set<number>>(new Set([1, 2, 3]));
 
   // Calcul dynamique des statistiques de répartition
@@ -946,7 +946,7 @@ export default function PCRecueilEpreuves({ isSubscribed = false }: PCRecueilEpr
   }, []);
 
   const sourceCounts = useMemo(() => {
-    const counts = { all: PC_RECUEIL_30_EPREUVES.length, bac: 0, lycee: 0, ciam: 0, concours: 0 };
+    const counts = { all: PC_RECUEIL_30_EPREUVES.length, bac: 0, lycee: 0, tomasino: 0, concours: 0 };
     for (const ep of PC_RECUEIL_30_EPREUVES) {
       if ((ep.sourceType as any) in counts) {
         counts[ep.sourceType as keyof typeof counts]++;
@@ -1008,7 +1008,7 @@ export default function PCRecueilEpreuves({ isSubscribed = false }: PCRecueilEpr
             <span>Grand Recueil : 30 Épreuves &amp; Corrigés Détaillés (Physique-Chimie)</span>
           </h2>
           <p className="text-xs text-navy/60 mt-1 max-w-2xl leading-relaxed">
-            Sujets complets et corrigés pas à pas issus des <strong>Annales Officielles du Bac S2</strong>, du <strong>Lycée Limamou Laye</strong>, des <strong>Manuels CIAM</strong> et des <strong>Concours EPT / ESP</strong>.
+            Sujets complets et corrigés pas à pas issus des <strong>Annales Officielles du Bac S2</strong>, du <strong>Lycée Limamou Laye &amp; Delafosse</strong>, de la <strong>Collection Tomasino</strong> et des <strong>Concours EPT / ESP</strong>.
           </p>
         </div>
 
@@ -1085,7 +1085,7 @@ export default function PCRecueilEpreuves({ isSubscribed = false }: PCRecueilEpr
             { id: 'all', label: `Toutes les sources (${sourceCounts.all})` },
             { id: 'bac', label: `Office du Bac (${sourceCounts.bac})` },
             { id: 'lycee', label: `Lycée Limamou Laye & Delafosse (${sourceCounts.lycee})` },
-            { id: 'ciam', label: `Manuels CIAM (${sourceCounts.ciam})` },
+            { id: 'tomasino', label: `Collection Tomasino (${sourceCounts.tomasino})` },
             { id: 'concours', label: `Concours EPT / ESP (${sourceCounts.concours})` },
           ].map((src) => (
             <button
@@ -1139,7 +1139,7 @@ export default function PCRecueilEpreuves({ isSubscribed = false }: PCRecueilEpr
                               ? 'bg-emerald-100 text-emerald-800'
                               : ep.sourceType === 'concours'
                               ? 'bg-purple-100 text-purple-800'
-                              : ep.sourceType === 'ciam'
+                              : ep.sourceType === 'tomasino'
                               ? 'bg-amber-100 text-amber-800'
                               : 'bg-sky-100 text-sky-800'
                           }`}
