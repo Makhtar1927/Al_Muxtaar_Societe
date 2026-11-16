@@ -9595,6 +9595,46 @@ export function getEnhancedLessonContent(
     return RICH_LESSONS_MAP.p7_rlc_libres;
   }
 
+  // ── CONTRÔLE STRICT UUID SVT B5 (GUIDELINES_COURS_S2) ───────────────────────
+  // OBLIGATOIRE : Le chapitre B5 "Génétique humaine et biotechnologies" contient
+  // "biotechnologie" dans son titre, ce qui fait matcher toutes ses leçons sur B5L3
+  // si on se base sur le titre concaténé. On doit résoudre via UUID strict EN PREMIER.
+
+  // SVT B5 Leçon 1 : Hérédité humaine et analyse rigoureuse des arbres généalogiques
+  if (
+    chapterId === '50000000-0000-0003-0001-000000000005' &&
+    lessonId === '60000000-0000-0003-0005-000000000001'
+  ) {
+    return RICH_LESSONS_MAP.b5_genetique_arbres;
+  }
+
+  // SVT B5 Leçon 2 : Acides nucléiques et expression de l'information génétique
+  if (
+    chapterId === '50000000-0000-0003-0001-000000000005' &&
+    lessonId === '60000000-0000-0003-0005-000000000002'
+  ) {
+    return RICH_LESSONS_MAP.b5_expression_genetique;
+  }
+
+  // SVT B5 Leçon 3 : Génie génétique et biotechnologies
+  if (
+    chapterId === '50000000-0000-0003-0001-000000000005' &&
+    lessonId === '60000000-0000-0003-0005-000000000003'
+  ) {
+    return RICH_LESSONS_MAP.b5_genie_genetique;
+  }
+
+  // Fallback UUID-only (sans chapterId) pour robustesse
+  if (lessonId === '60000000-0000-0003-0005-000000000001') {
+    return RICH_LESSONS_MAP.b5_genetique_arbres;
+  }
+  if (lessonId === '60000000-0000-0003-0005-000000000002') {
+    return RICH_LESSONS_MAP.b5_expression_genetique;
+  }
+  if (lessonId === '60000000-0000-0003-0005-000000000003') {
+    return RICH_LESSONS_MAP.b5_genie_genetique;
+  }
+
   const titleLower = `${lessonTitle} ${chapterTitle}`.toLowerCase();
 
   // Routage Physique P10 : Physique nucléaire (radioactivité, réactions et énergie de liaison)

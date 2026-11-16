@@ -4530,20 +4530,20 @@ if (lessonMeta && lessonMeta.status !== 'published') {
               </article>
 
               {/* Fiches Réflexes Mobiles & Simulateur Tactile Interactif */}
-              {isGenieGenetiqueB5 ? (
+              {isGenetiqueArbresB5 ? (
                 <>
-                  <B5GenieGenetiqueReflexesCard />
-                  <B5GenieGenetiqueInteractiveLab />
+                  <B5GenetiqueArbresReflexesCard />
+                  <B5GenetiqueArbresInteractiveLab />
                 </>
               ) : isExpressionGenetiqueB5 ? (
                 <>
                   <B5ExpressionGenetiqueReflexesCard />
                   <B5ExpressionGenetiqueInteractiveLab />
                 </>
-              ) : isGenetiqueArbresB5 ? (
+              ) : isGenieGenetiqueB5 ? (
                 <>
-                  <B5GenetiqueArbresReflexesCard />
-                  <B5GenetiqueArbresInteractiveLab />
+                  <B5GenieGenetiqueReflexesCard />
+                  <B5GenieGenetiqueInteractiveLab />
                 </>
               ) : isAlcools ? (
                 <>
