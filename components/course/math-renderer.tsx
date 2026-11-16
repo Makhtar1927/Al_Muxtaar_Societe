@@ -186,9 +186,22 @@ function renderMarkdownWithKatex(raw: string): string {
 
   const cleaned = normalizeMathString(raw);
 
+  // 0. Protect fenced code blocks ```...```
+  const codeBlocks: string[] = [];
+  let text = cleaned.replace(/```(?:[a-zA-Z0-9_-]+)?\n?([\s\S]*?)```/g, (_, code) => {
+    const escaped = code
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+    codeBlocks.push(
+      `<div class="my-4 overflow-x-auto rounded-2xl border border-navy/15 bg-navy/5 p-4 text-xs font-mono text-navy shadow-xs"><pre class="leading-relaxed whitespace-pre font-mono">${escaped.trim()}</pre></div>`
+    );
+    return `___CODE_BLOCK_${codeBlocks.length - 1}___`;
+  });
+
   // 1. Protect block math $$...$$
   const blockMath: string[] = [];
-  let text = cleaned.replace(/\$\$([\s\S]*?)\$\$/g, (_, math) => {
+  text = text.replace(/\$\$([\s\S]*?)\$\$/g, (_, math) => {
     const formula = cleanMathFormula(math);
     try {
       const rendered = katex.renderToString(formula, {
@@ -452,6 +465,11 @@ function renderMarkdownWithKatex(raw: string): string {
   // 6. Restore block math
   finalHtml = finalHtml.replace(/___BLOCK_MATH_(\d+)___/g, (_, idx) => {
     return blockMath[parseInt(idx, 10)] ?? '';
+  });
+
+  // 7. Restore code blocks
+  finalHtml = finalHtml.replace(/___CODE_BLOCK_(\d+)___/g, (_, idx) => {
+    return codeBlocks[parseInt(idx, 10)] ?? '';
   });
 
   return finalHtml;

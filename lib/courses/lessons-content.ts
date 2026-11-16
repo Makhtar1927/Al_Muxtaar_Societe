@@ -7711,25 +7711,21 @@ Insérés dans la cavité utérine par le médecin pour une durée de 5 à 10 an
 
 ## 4. Contraception d'Urgence vs Contragestion : La Distinction Fondamentale au Bac S2
 
-Une confusion majeure sanctionnée au Baccalauréat sénégalais concerne la frontière entre contraception d'urgence et contragestion :
+Une confusion majeure sanctionnée au Baccalauréat sénégalais concerne la frontière chronologique et biologique entre contraception d'urgence et contragestion :
 
-\`\`\`
-Rapport sexuel non protégé
-           │
-           ▼
-[ J0 à J3-J5 ] ──> CONTRACEPTION D'URGENCE (Pilule du lendemain / Lévonorgestrel)
-                   • Agit AVANT la fécondation ou la nidation
-                   • Bloque ou retarde le pic de LH
-                   • STRICTEMENT NON ABORTIVE
-           │
-Fécondation & Nidation (J7)
-           │
-           ▼
-[ Dès la Nidation ] ──> CONTRAGESTION (RU 486 / Mifépristone)
-                        • Agit APRÈS la nidation
-                        • Antagoniste compétitif des récepteurs à la progestérone
-                        • MÉTHODE ABORTIVE (Interruption Volontaire de Grossesse)
-\`\`\`
+> [!IMPORTANT] Chronologie & Frontière Biologique : Contraception d'Urgence vs Contragestion
+> - **1. Rapport sexuel non protégé (J0)** : Risque de fécondation dans le tiers externe de la trompe.
+> - **2. CONTRACEPTION D'URGENCE (J0 à J3-J5) :**
+>   - **Molécules :** Pilule du lendemain (Lévonorgestrel $1{,}5\text{ mg}$ dans les 72h ou Acétate d'ulipristal dans les 120h).
+>   - **Moment d'action :** Intervient **AVANT** l'ovulation et avant la nidation.
+>   - **Mécanisme :** Bloque ou retarde le pic pré-ovulatoire de LH pour empêcher l'ovulation.
+>   - **Statut biologique :** **STRICTEMENT NON ABORTIVE** (si l'œuf est déjà nidé, la grossesse se poursuit normalement).
+> - **3. Fécondation & Nidation embryonnaire (vers J7)** : Implantation du blastocyste dans l'endomètre.
+> - **4. CONTRAGESTION (Après la nidation) :**
+>   - **Molécules :** RU 486 (Mifépristone) associé 48h plus tard à des prostaglandines (Misoprostol).
+>   - **Moment d'action :** Intervient **APRÈS** la nidation de l'embryon.
+>   - **Mécanisme :** Antagoniste compétitif des récepteurs à la progestérone $\implies$ décollement de la muqueuse déciduale.
+>   - **Statut biologique :** **MÉTHODE ABORTIVE** (Interruption Volontaire de Grossesse - IVG médicamenteuse).
 
 ### 4.1 La Contraception d'Urgence (Pilule du Lendemain)
 - **Molécules :** Lévonorgestrel ($1{,}5\\text{ mg}$) à prendre dans les 72 heures, ou Acétate d'Ulipristal (modulateur des récepteurs progestérone) dans les 120 heures (5 jours).
