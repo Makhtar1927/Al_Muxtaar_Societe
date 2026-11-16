@@ -23,6 +23,7 @@ import {
   ensureSvtInDatabase,
 } from '@/lib/curriculum/svt-data';
 import MathsRecueilEpreuves from '@/components/course/maths-recueil-epreuves';
+import PCRecueilEpreuves from '@/components/course/pc-recueil-epreuves';
 
 interface PageProps {
   params: {
@@ -868,6 +869,13 @@ export default async function SubjectChaptersPage({ params }: PageProps) {
         {isMaths && (
           <div className="pt-4">
             <MathsRecueilEpreuves isSubscribed={isSubscribed} />
+          </div>
+        )}
+
+        {/* Grand Recueil de 30 Épreuves et Corrigés — Physique-Chimie S2 */}
+        {isPhysiqueChimie && (
+          <div className="pt-4">
+            <PCRecueilEpreuves isSubscribed={isSubscribed} />
           </div>
         )}
       </div>
