@@ -24,6 +24,7 @@ import {
 } from '@/lib/curriculum/svt-data';
 import MathsRecueilEpreuves from '@/components/course/maths-recueil-epreuves';
 import PCRecueilEpreuves from '@/components/course/pc-recueil-epreuves';
+import SVTRecueilEpreuves from '@/components/course/svt-recueil-epreuves';
 
 interface PageProps {
   params: {
@@ -876,6 +877,13 @@ export default async function SubjectChaptersPage({ params }: PageProps) {
         {isPhysiqueChimie && (
           <div className="pt-4">
             <PCRecueilEpreuves isSubscribed={isSubscribed} />
+          </div>
+        )}
+
+        {/* Grand Recueil de 30 Épreuves et Corrigés — SVT S2 */}
+        {isSvt && (
+          <div className="pt-4">
+            <SVTRecueilEpreuves isSubscribed={isSubscribed} />
           </div>
         )}
       </div>
