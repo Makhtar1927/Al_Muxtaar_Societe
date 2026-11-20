@@ -612,6 +612,7 @@ export async function setStudentPasswordAction(
     password,
     user_metadata: {
       temp_password: password,
+      must_change_password: true,
     },
   });
   if (authError) return { success: false, error: authError.message };

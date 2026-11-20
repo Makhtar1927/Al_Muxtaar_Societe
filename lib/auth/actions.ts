@@ -243,3 +243,89 @@ export async function updateProfileAction(
   return { success: true };
 }
 
+/**
+ * Modification du mot de passe temporaire par l'élève lorsqu'il se connecte.
+ */
+export async function updatePasswordFromPromptAction(
+  newPassword: string,
+  confirmPassword: string
+): Promise<{ success: boolean; error?: string; message?: string }> {
+  const pwd = (newPassword || "").trim();
+  const confirm = (confirmPassword || "").trim();
+
+  if (!pwd || pwd.length < 6) {
+    return {
+      success: false,
+      error: "Le mot de passe doit comporter au moins 6 caractères.",
+    };
+  }
+
+  if (pwd !== confirm) {
+    return {
+      success: false,
+      error: "Les deux mots de passe ne correspondent pas.",
+    };
+  }
+
+  const supabase = createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    return {
+      success: false,
+      error: "Session expirée. Veuillez vous reconnecter.",
+    };
+  }
+
+  // Mettre à jour le mot de passe utilisateur et désactiver l'invite
+  const { error } = await supabase.auth.updateUser({
+    password: pwd,
+    data: {
+      must_change_password: false,
+      temp_password: pwd,
+    },
+  });
+
+  if (error) {
+    return { success: false, error: error.message };
+  }
+
+  // Tenter de synchroniser aussi dans la table profiles si la colonne existe
+  try {
+    const admin = createAdminClient();
+    await admin
+      .from("profiles")
+      .update({ temp_password: pwd })
+      .eq("id", user.id);
+  } catch (_) {}
+
+  revalidatePath("/", "layout");
+  return {
+    success: true,
+    message: "Votre nouveau mot de passe a été enregistré avec succès !",
+  };
+}
+
+/**
+ * L'élève choisit de conserver le mot de passe auto-généré sans le modifier.
+ */
+export async function ignorePasswordPromptAction(): Promise<{ success: boolean }> {
+  const supabase = createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (user) {
+    await supabase.auth.updateUser({
+      data: {
+        must_change_password: false,
+      },
+    });
+  }
+
+  revalidatePath("/", "layout");
+  return { success: true };
+}
+
