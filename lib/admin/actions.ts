@@ -571,15 +571,17 @@ export async function suspendStudentAccessAction(
 
 
 
-// ─── Generate Temp Password ───────────────────────────────────────────────────
+// ─── Generate & Set Student Password ───────────────────────────────────────────
 
 /**
- * Génère un mot de passe temporaire aléatoire pour un élève, le définit dans
- * Supabase Auth et le stocke en clair dans profiles.temp_password pour que
- * l'admin puisse le visualiser et l'envoyer par WhatsApp.
+ * Définit ou génère un mot de passe pour un élève.
+ * Le mot de passe est enregistré directement dans Supabase Auth (et son user_metadata),
+ * ce qui fonctionne immédiatement sans dépendre du cache de schéma d'une table SQL.
+ * Il est également synchronisé dans profiles.temp_password si la colonne existe.
  */
-export async function generateTempPasswordAction(
+export async function setStudentPasswordAction(
   studentId: string,
+  customPassword?: string,
 ): Promise<ActionResult<{ temp_password: string }>> {
   let adminUser: { id: string };
   try {
@@ -589,42 +591,66 @@ export async function generateTempPasswordAction(
     return { success: false, error: (e as Error).message };
   }
 
-  // Génération d'un mot de passe sécurisé 10 chars : lettres + chiffres
-  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789';
-  let password = '';
-  for (let i = 0; i < 10; i++) {
-    password += chars[Math.floor(Math.random() * chars.length)];
+  let password = (customPassword || '').trim();
+  if (password) {
+    if (password.length < 6) {
+      return { success: false, error: 'Le mot de passe doit comporter au moins 6 caractères.' };
+    }
+  } else {
+    // Génération d'un mot de passe sécurisé 10 caractères lisibles
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789';
+    for (let i = 0; i < 10; i++) {
+      password += chars[Math.floor(Math.random() * chars.length)];
+    }
   }
 
   const admin = createAdminClient();
 
-  // 1. Mettre à jour le mot de passe dans Supabase Auth
+  // 1. Mettre à jour le mot de passe ET user_metadata dans Supabase Auth
+  // user_metadata est natif à Auth et ne dépend d'aucune migration BDD
   const { error: authError } = await admin.auth.admin.updateUserById(studentId, {
     password,
+    user_metadata: {
+      temp_password: password,
+    },
   });
   if (authError) return { success: false, error: authError.message };
 
-  // 2. Stocker en clair dans profiles.temp_password
-  const { error: dbError } = await admin
-    .from('profiles')
-    .update({ temp_password: password })
-    .eq('id', studentId);
-  if (dbError) return { success: false, error: dbError.message };
+  // 2. Tenter aussi la mise à jour dans profiles.temp_password (sans bloquer si la colonne n'est pas encore créée)
+  try {
+    const { error: dbError } = await admin
+      .from('profiles')
+      .update({ temp_password: password })
+      .eq('id', studentId);
+    if (dbError) {
+      console.warn('profiles.temp_password non mis à jour (colonne absente ?):', dbError.message);
+    }
+  } catch (err) {
+    console.warn('Erreur ignorée profiles.temp_password:', err);
+  }
 
   // 3. Audit log
-  await admin.from('audit_logs').insert({
-    actor_id: adminUser.id,
-    action: 'profile.temp_password_generated',
-    target_type: 'profile',
-    target_id: studentId,
-    meta: { note: 'Mot de passe temporaire généré par admin' },
-  });
+  try {
+    await admin.from('audit_logs').insert({
+      actor_id: adminUser.id,
+      action: 'profile.password_updated_by_admin',
+      target_type: 'profile',
+      target_id: studentId,
+      meta: { note: 'Mot de passe défini ou réinitialisé par admin' },
+    });
+  } catch (_) {}
 
   revalidatePath('/admin/eleves');
 
   return {
     success: true,
     data: { temp_password: password },
-    message: 'Mot de passe temporaire généré avec succès.',
+    message: 'Mot de passe enregistré et synchronisé avec succès !',
   };
+}
+
+export async function generateTempPasswordAction(
+  studentId: string,
+): Promise<ActionResult<{ temp_password: string }>> {
+  return setStudentPasswordAction(studentId);
 }

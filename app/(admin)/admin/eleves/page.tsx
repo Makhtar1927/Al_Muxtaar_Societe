@@ -69,6 +69,7 @@ export default async function AdminElevesPage() {
   // 3. Récupération de secours de tous les utilisateurs Auth pour garantir zéro omission
   const { data: authData } = await admin.auth.admin.listUsers({ perPage: 1000 });
   const authUsers = authData?.users ?? [];
+  const authUsersById = new Map<string, any>(authUsers.map((u) => [u.id, u]));
 
   const normalised: any[] = [];
   const processedUserIds = new Set<string>();
@@ -76,6 +77,10 @@ export default async function AdminElevesPage() {
   // A. Traitement des profils en BDD
   for (const p of rawProfiles ?? []) {
     processedUserIds.add(p.id);
+    const authUser = authUsersById.get(p.id);
+    const tempPassword =
+      p.temp_password || authUser?.user_metadata?.temp_password || null;
+
     const fullName =
       p.full_name ||
       (p.first_name && p.last_name
@@ -93,7 +98,7 @@ export default async function AdminElevesPage() {
       is_banned: p.is_banned ?? false,
       created_at: p.created_at,
       subscriptions: subsByUserId.get(p.id) ?? [],
-      temp_password: p.temp_password ?? null,
+      temp_password: tempPassword,
     });
   }
 
@@ -119,7 +124,7 @@ export default async function AdminElevesPage() {
         is_banned: false,
         created_at: au.created_at,
         subscriptions: subsByUserId.get(au.id) ?? [],
-        temp_password: null,
+        temp_password: meta.temp_password || null,
       });
     }
   }

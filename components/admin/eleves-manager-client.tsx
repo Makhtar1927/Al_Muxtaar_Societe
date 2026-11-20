@@ -13,6 +13,7 @@ import {
   extendStudentAccessFromElevesAction,
   suspendStudentAccessAction,
   generateTempPasswordAction,
+  setStudentPasswordAction,
 } from '@/lib/admin/actions';
 import {
   Download,
@@ -97,11 +98,13 @@ export default function ElevesManagerClient({ initialProfiles, availablePlans = 
   const [showPassword, setShowPassword] = useState(false);
   const [copiedPassword, setCopiedPassword] = useState(false);
   const [isGeneratingPassword, setIsGeneratingPassword] = useState(false);
+  const [inputPassword, setInputPassword] = useState('');
 
   React.useEffect(() => {
     setShowPassword(false);
     setCopiedPassword(false);
-  }, [selectedUser?.id]);
+    setInputPassword(selectedUser?.temp_password || '');
+  }, [selectedUser?.id, selectedUser?.temp_password]);
 
   // Quick validation modal state
   const [validatingUser, setValidatingUser] = useState<ProfileItem | null>(null);
@@ -323,16 +326,22 @@ export default function ElevesManagerClient({ initialProfiles, availablePlans = 
     });
   }
 
-  // Action: Generate or reset student temp password
-  async function handleGenerateTempPassword(user: ProfileItem) {
+  // Action: Définir ou générer le mot de passe de l'élève
+  async function handleSaveOrUpdatePassword(user: ProfileItem, customPwd?: string) {
+    const pwdToSave = (customPwd !== undefined ? customPwd : inputPassword).trim();
+    if (pwdToSave && pwdToSave.length < 6) {
+      showToast('Le mot de passe doit comporter au moins 6 caractères.', 'error');
+      return null;
+    }
     setIsGeneratingPassword(true);
     try {
-      const res = await generateTempPasswordAction(user.id);
+      const res = await setStudentPasswordAction(user.id, pwdToSave || undefined);
       if (!res.success) {
-        showToast(res.error || 'Erreur lors de la génération du mot de passe', 'error');
-        return;
+        showToast(res.error || 'Erreur lors de la mise à jour du mot de passe', 'error');
+        return null;
       }
       const newPassword = res.data.temp_password;
+      setInputPassword(newPassword);
       setProfiles((prev) =>
         prev.map((item) =>
           item.id === user.id ? { ...item, temp_password: newPassword } : item
@@ -341,13 +350,24 @@ export default function ElevesManagerClient({ initialProfiles, availablePlans = 
       setSelectedUser((prev) =>
         prev && prev.id === user.id ? { ...prev, temp_password: newPassword } : prev
       );
-      setShowPassword(true);
-      showToast(res.message || 'Nouveau mot de passe généré avec succès !', 'success');
+      showToast(res.message || 'Mot de passe enregistré avec succès !', 'success');
+      return newPassword;
     } catch (err: any) {
       showToast(err?.message || 'Erreur inattendue', 'error');
+      return null;
     } finally {
       setIsGeneratingPassword(false);
     }
+  }
+
+  function handleQuickGenerateRandom() {
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789';
+    let rand = '';
+    for (let i = 0; i < 10; i++) {
+      rand += chars[Math.floor(Math.random() * chars.length)];
+    }
+    setInputPassword(rand);
+    setShowPassword(true);
   }
 
   function handleCopyPassword(password: string) {
@@ -361,13 +381,13 @@ export default function ElevesManagerClient({ initialProfiles, availablePlans = 
     }
   }
 
-  function getWhatsAppUrl(user: ProfileItem) {
+  function getWhatsAppUrl(user: ProfileItem, currentPwd?: string) {
     const rawDigits = (user.phone || '').replace(/[^0-9]/g, '');
     const cleanPhone = rawDigits.startsWith('221')
       ? rawDigits
       : `221${rawDigits.replace(/^0+/, '')}`;
     const name = user.full_name || 'Élève';
-    const pwd = user.temp_password || 'Non défini';
+    const pwd = currentPwd || user.temp_password || inputPassword || 'Non défini';
     const siteUrl = typeof window !== 'undefined' ? window.location.origin : 'https://almuxtaar.com';
 
     const text = `Bonjour *${name}* 👋
@@ -383,6 +403,25 @@ _Connectez-vous dès maintenant pour accéder à vos cours, exercices corrigés 
 _Bonne révision et plein succès !_ 📚✨`;
 
     return `https://wa.me/${cleanPhone}?text=${encodeURIComponent(text)}`;
+  }
+
+  async function handleSendWhatsApp(user: ProfileItem) {
+    let finalPwd = user.temp_password;
+
+    // Si un mot de passe a été saisi/modifié par rapport à l'existant
+    if (inputPassword && inputPassword !== user.temp_password) {
+      const saved = await handleSaveOrUpdatePassword(user, inputPassword);
+      if (!saved) return;
+      finalPwd = saved;
+    } else if (!finalPwd) {
+      // Aucun mot de passe encore défini : on en génère et enregistre un
+      const saved = await handleSaveOrUpdatePassword(user);
+      if (!saved) return;
+      finalPwd = saved;
+    }
+
+    const waUrl = getWhatsAppUrl(user, finalPwd);
+    window.open(waUrl, '_blank', 'noopener,noreferrer');
   }
 
   // Export CSV
@@ -1121,7 +1160,7 @@ _Bonne révision et plein succès !_ 📚✨`;
             </div>
 
             {/* MOT DE PASSE & ACCÈS DE CONNEXION (ADMIN) */}
-            <div className="rounded-2xl border border-navy/15 bg-white p-4 space-y-3 shadow-sm">
+            <div className="rounded-2xl border border-navy/15 bg-white p-4 space-y-3.5 shadow-sm">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-navy uppercase tracking-wider flex items-center gap-1.5">
                   <KeyRound className="w-4 h-4 text-turquoise" />
@@ -1129,47 +1168,46 @@ _Bonne révision et plein succès !_ 📚✨`;
                 </span>
                 {selectedUser.temp_password ? (
                   <span className="text-[11px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full border border-emerald-300">
-                    Mot de passe actif
+                    Mot de passe défini
                   </span>
                 ) : (
                   <span className="text-[11px] font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded-full border border-amber-300">
-                    Non généré
+                    Non configuré
                   </span>
                 )}
               </div>
 
-              {/* Champ d'affichage du mot de passe + actions */}
-              <div className="space-y-2">
-                <div className="flex flex-col sm:flex-row sm:items-center gap-2">
-                  <div className="relative flex-1">
+              {/* Champ de saisie / affichage du mot de passe */}
+              <div className="space-y-2.5">
+                <div>
+                  <label className="block text-[11px] font-semibold text-text/70 mb-1">
+                    Saisir ou générer le mot de passe de l&apos;élève :
+                  </label>
+                  <div className="relative">
                     <input
                       type={showPassword ? 'text' : 'password'}
-                      readOnly
-                      value={selectedUser.temp_password || ''}
-                      placeholder={
-                        selectedUser.temp_password
-                          ? ''
-                          : 'Aucun mot de passe temporaire enregistré'
-                      }
-                      className="w-full rounded-xl border border-navy/20 bg-surface/70 px-3.5 py-2.5 pr-20 text-xs font-mono font-bold text-navy focus:outline-none"
+                      value={inputPassword}
+                      onChange={(e) => setInputPassword(e.target.value)}
+                      placeholder="Tapez un mot de passe (min 6 car.) ou cliquez sur Générer"
+                      className="w-full rounded-xl border border-navy/20 bg-white px-3.5 py-2.5 pr-20 text-xs font-mono font-bold text-navy focus:outline-none focus:ring-2 focus:ring-turquoise/40"
                     />
-                    {selectedUser.temp_password && (
-                      <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1">
+                    <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1">
+                      <button
+                        type="button"
+                        onClick={() => setShowPassword(!showPassword)}
+                        className="p-1 rounded text-text/60 hover:text-navy hover:bg-navy/5 transition-colors"
+                        title={showPassword ? 'Masquer' : 'Afficher en clair'}
+                      >
+                        {showPassword ? (
+                          <EyeOff className="w-4 h-4" />
+                        ) : (
+                          <Eye className="w-4 h-4" />
+                        )}
+                      </button>
+                      {inputPassword && (
                         <button
                           type="button"
-                          onClick={() => setShowPassword(!showPassword)}
-                          className="p-1 rounded text-text/60 hover:text-navy hover:bg-navy/5 transition-colors"
-                          title={showPassword ? 'Masquer' : 'Afficher le mot de passe'}
-                        >
-                          {showPassword ? (
-                            <EyeOff className="w-4 h-4" />
-                          ) : (
-                            <Eye className="w-4 h-4" />
-                          )}
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => handleCopyPassword(selectedUser.temp_password!)}
+                          onClick={() => handleCopyPassword(inputPassword)}
                           className="p-1 rounded text-text/60 hover:text-navy hover:bg-navy/5 transition-colors"
                           title="Copier le mot de passe"
                         >
@@ -1179,56 +1217,59 @@ _Bonne révision et plein succès !_ 📚✨`;
                             <Copy className="w-4 h-4" />
                           )}
                         </button>
-                      </div>
-                    )}
+                      )}
+                    </div>
                   </div>
+                </div>
 
+                {/* Boutons d'action : Générer aléatoire & Enregistrer */}
+                <div className="flex flex-wrap items-center gap-2 pt-0.5">
                   <Button
                     size="sm"
                     variant="outline"
-                    className="text-xs font-bold border-navy/20 text-navy hover:border-turquoise hover:text-turquoise flex items-center justify-center gap-1.5 py-2.5 px-3 shrink-0"
-                    disabled={isGeneratingPassword}
-                    onClick={() => handleGenerateTempPassword(selectedUser)}
+                    type="button"
+                    className="text-xs font-semibold border-navy/20 text-navy hover:border-turquoise hover:text-turquoise flex items-center gap-1.5 py-2 px-3"
+                    onClick={handleQuickGenerateRandom}
                   >
-                    <RefreshCw
-                      className={`w-3.5 h-3.5 ${isGeneratingPassword ? 'animate-spin' : ''}`}
-                    />
+                    <RefreshCw className="w-3.5 h-3.5" />
+                    <span>Générer aléatoire</span>
+                  </Button>
+
+                  <Button
+                    size="sm"
+                    type="button"
+                    disabled={isGeneratingPassword || !inputPassword || inputPassword === selectedUser.temp_password}
+                    className="text-xs font-bold bg-navy hover:bg-navy/90 text-white flex items-center gap-1.5 py-2 px-3 rounded-xl disabled:opacity-40 shadow-sm"
+                    onClick={() => handleSaveOrUpdatePassword(selectedUser, inputPassword)}
+                  >
+                    <CheckCircle2 className="w-3.5 h-3.5 text-turquoise" />
                     <span>
-                      {selectedUser.temp_password ? 'Régénérer' : 'Générer mot de passe'}
+                      {isGeneratingPassword ? 'Enregistrement…' : 'Enregistrer le mot de passe'}
                     </span>
                   </Button>
                 </div>
 
                 <p className="text-[11px] text-text/60 leading-relaxed">
-                  Ce mot de passe est synchronisé avec le compte d&apos;authentification de l&apos;élève. Vous pouvez le visualiser, le réinitialiser ou lui envoyer directement par WhatsApp.
+                  Le mot de passe est enregistré directement dans le compte Supabase Auth de l&apos;élève. L&apos;élève peut l&apos;utiliser immédiatement pour se connecter.
                 </p>
               </div>
 
               {/* Bouton direct envoi WhatsApp */}
-              <div className="pt-2 border-t border-navy/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+              <div className="pt-3 border-t border-navy/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
                 <div className="text-[11px] text-text/70">
-                  Transmettre les accès directement sur WhatsApp :
+                  Transmettre instantanément les accès à l&apos;élève :
                 </div>
 
-                <a
-                  href={getWhatsAppUrl(selectedUser)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs shadow-sm transition-all hover:scale-102 shrink-0"
-                  onClick={(e) => {
-                    if (!selectedUser.temp_password) {
-                      e.preventDefault();
-                      handleGenerateTempPassword(selectedUser);
-                      showToast(
-                        'Mot de passe en cours de génération avant envoi WhatsApp...',
-                        'info'
-                      );
-                    }
-                  }}
+                <Button
+                  size="sm"
+                  type="button"
+                  disabled={isGeneratingPassword}
+                  className="bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl shadow-sm transition-all hover:scale-102"
+                  onClick={() => handleSendWhatsApp(selectedUser)}
                 >
                   <WhatsAppLogo size={16} />
                   <span>Envoyer identifiants par WhatsApp</span>
-                </a>
+                </Button>
               </div>
             </div>
 
