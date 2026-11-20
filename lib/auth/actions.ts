@@ -102,6 +102,7 @@ export async function signUpAction(
         avatar,
         role: "student",
         is_banned: false,
+        temp_password: password,
         updated_at: new Date().toISOString(),
       },
       { onConflict: "id" }

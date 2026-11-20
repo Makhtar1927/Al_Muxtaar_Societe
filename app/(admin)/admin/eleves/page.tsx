@@ -93,6 +93,7 @@ export default async function AdminElevesPage() {
       is_banned: p.is_banned ?? false,
       created_at: p.created_at,
       subscriptions: subsByUserId.get(p.id) ?? [],
+      temp_password: p.temp_password ?? null,
     });
   }
 
@@ -118,6 +119,7 @@ export default async function AdminElevesPage() {
         is_banned: false,
         created_at: au.created_at,
         subscriptions: subsByUserId.get(au.id) ?? [],
+        temp_password: null,
       });
     }
   }

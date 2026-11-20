@@ -570,3 +570,61 @@ export async function suspendStudentAccessAction(
 
 
 
+
+// ─── Generate Temp Password ───────────────────────────────────────────────────
+
+/**
+ * Génère un mot de passe temporaire aléatoire pour un élève, le définit dans
+ * Supabase Auth et le stocke en clair dans profiles.temp_password pour que
+ * l'admin puisse le visualiser et l'envoyer par WhatsApp.
+ */
+export async function generateTempPasswordAction(
+  studentId: string,
+): Promise<ActionResult<{ temp_password: string }>> {
+  let adminUser: { id: string };
+  try {
+    const auth = await requireAdmin();
+    adminUser = auth.user;
+  } catch (e) {
+    return { success: false, error: (e as Error).message };
+  }
+
+  // Génération d'un mot de passe sécurisé 10 chars : lettres + chiffres
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789';
+  let password = '';
+  for (let i = 0; i < 10; i++) {
+    password += chars[Math.floor(Math.random() * chars.length)];
+  }
+
+  const admin = createAdminClient();
+
+  // 1. Mettre à jour le mot de passe dans Supabase Auth
+  const { error: authError } = await admin.auth.admin.updateUserById(studentId, {
+    password,
+  });
+  if (authError) return { success: false, error: authError.message };
+
+  // 2. Stocker en clair dans profiles.temp_password
+  const { error: dbError } = await admin
+    .from('profiles')
+    .update({ temp_password: password })
+    .eq('id', studentId);
+  if (dbError) return { success: false, error: dbError.message };
+
+  // 3. Audit log
+  await admin.from('audit_logs').insert({
+    actor_id: adminUser.id,
+    action: 'profile.temp_password_generated',
+    target_type: 'profile',
+    target_id: studentId,
+    meta: { note: 'Mot de passe temporaire généré par admin' },
+  });
+
+  revalidatePath('/admin/eleves');
+
+  return {
+    success: true,
+    data: { temp_password: password },
+    message: 'Mot de passe temporaire généré avec succès.',
+  };
+}
